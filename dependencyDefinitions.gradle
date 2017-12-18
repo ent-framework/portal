@@ -1,0 +1,17 @@
+ext.versions = [
+     spring: '3.2.5.RELEASE',
+     security: '3.1.4.RELEASE',
+     jackson: '1.9.13',
+     logback: '1.0.13',
+     slf4j: '1.7.5',
+     httpclient: '4.3.1',
+ ]
+
+
+ext.libraries = [
+	"servlet-api": "javax.servlet:servlet-api:2.5",
+	"jsp-api": "javax.servlet:jsp-api:2.0",
+	"ebean": "org.avaje.ebeanorm:avaje-ebeanorm:3.2.4",
+	"persistence-api": "javax.persistence:persistence-api:1.0",
+	"aspectjweaver": "org.aspectj:aspectjweaver:1.7.4",
+]

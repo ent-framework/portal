@@ -1,0 +1,10 @@
+/bin/
+/.bnd/
+/dist/
+/.idea/
+/.settings/
+*.scss
+*.class
+/.gradle/
+/build/
+/*/classes/
