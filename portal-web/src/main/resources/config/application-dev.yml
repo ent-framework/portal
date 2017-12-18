@@ -16,7 +16,7 @@
 logging:
     level:
         ROOT: DEBUG
-        com.liferay.web: DEBUG
+        com.acn.portal.web: DEBUG
         io.github.jhipster: DEBUG
 
 eureka:
@@ -61,14 +61,6 @@ spring:
             hibernate.cache.hazelcast.instance_name: portal_web
             hibernate.cache.use_minimal_puts: true
             hibernate.cache.hazelcast.use_lite_member: true
-    data:
-        elasticsearch:
-            cluster-name:
-            cluster-nodes:
-            properties:
-                path:
-                    logs: build/elasticsearch/log
-                    data: build/elasticsearch/data
     mail:
         host: localhost
         port: 25

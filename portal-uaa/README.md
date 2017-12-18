@@ -10,33 +10,22 @@ This application is configured for Service Discovery and Configuration with the 
 
 To start your application in the dev profile, simply run:
 
-    ./gradlew
+    ./mvnw
 
 
 For further instructions on how to develop with JHipster, have a look at [Using JHipster in development][].
 
 
-### Doing API-First development using swagger-codegen
-
-[Swagger-Codegen]() is configured for this application. You can generate API code from the `src/main/resources/swagger/api.yml` definition file by running:
-```bash
-./gradlew swagger
-```
-Then implements the generated interfaces with `@RestController` classes.
-
-To edit the `api.yml` definition file, you can use a tool such as [Swagger-Editor](). Start a local instance of the swagger-editor using docker by running: `docker-compose -f src/main/docker/swagger-editor.yml up -d`. The editor will then be reachable at [http://localhost:7742](http://localhost:7742).
-
-Refer to [Doing API-First development][] for more details.
 
 ## Building for production
 
 To optimize the portal_uaa application for production, run:
 
-    ./gradlew -Pprod clean bootRepackage
+    ./mvnw -Pprod clean package
 
 To ensure everything worked, run:
 
-    java -jar build/libs/*.war
+    java -jar target/*.war
 
 
 Refer to [Using JHipster in production][] for more details.
@@ -45,7 +34,7 @@ Refer to [Using JHipster in production][] for more details.
 
 To launch your application's tests, run:
 
-    ./gradlew test
+    ./mvnw clean test
 
 For more information, refer to the [Running tests page][].
 
@@ -64,7 +53,7 @@ To stop it and remove the container, run:
 You can also fully dockerize your application and all the services that it depends on.
 To achieve this, first build a docker image of your app by running:
 
-    ./gradlew bootRepackage -Pprod buildDocker
+    ./mvnw verify -Pprod dockerfile:build
 
 Then run:
 
@@ -87,6 +76,3 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 [Setting up Continuous Integration]: http://www.jhipster.tech/documentation-archive/v4.13.0/setting-up-ci/
 
 
-[Swagger-Codegen]: https://github.com/swagger-api/swagger-codegen
-[Swagger-Editor]: http://editor.swagger.io
-[Doing API-First development]: http://www.jhipster.tech/documentation-archive/v4.13.0/doing-api-first-development/

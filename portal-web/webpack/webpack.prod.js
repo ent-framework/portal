@@ -24,7 +24,7 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
         main: './src/main/webapp/app/app.main'
     },
     output: {
-        path: utils.root('build/www'),
+        path: utils.root('target/www'),
         filename: 'app/[name].[hash].bundle.js',
         chunkFilename: 'app/[id].[hash].chunk.js'
     },
@@ -101,12 +101,12 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
             debug: false
         }),
         new WorkboxPlugin({
-          // to cache all under build/www
-          globDirectory: utils.root('build/www'),
+          // to cache all under target/www
+          globDirectory: utils.root('target/www'),
           // find these files and cache them
           globPatterns: ['**/*.{html,bundle.js,css,png,svg,jpg,gif,json}'],
-          // create service worker at the build/www
-          swDest: path.resolve(utils.root('build/www'), 'sw.js'),
+          // create service worker at the target/www
+          swDest: path.resolve(utils.root('target/www'), 'sw.js'),
           clientsClaim: true,
           skipWaiting: true,
         })

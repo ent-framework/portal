@@ -13,7 +13,7 @@ const ENV = 'development';
 module.exports = webpackMerge(commonConfig({ env: ENV }), {
     devtool: 'eval-source-map',
     devServer: {
-        contentBase: './build/www',
+        contentBase: './target/www',
         proxy: [{
             context: [
                 '/portal_uaa',
@@ -38,7 +38,7 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
         main: './src/main/webapp/app/app.main'
     },
     output: {
-        path: utils.root('build/www'),
+        path: utils.root('target/www'),
         filename: 'app/[name].bundle.js',
         chunkFilename: 'app/[id].chunk.js'
     },

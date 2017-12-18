@@ -1,13 +1,13 @@
 {
   "generator-jhipster": {
     "promptValues": {
-      "packageName": "com.liferay.uaa",
+      "packageName": "com.acn.portal.uaa",
       "nativeLanguage": "en"
     },
     "jhipsterVersion": "4.13.0",
     "baseName": "portal_uaa",
-    "packageName": "com.liferay.uaa",
-    "packageFolder": "com/liferay/uaa",
+    "packageName": "com.acn.portal.uaa",
+    "packageFolder": "com/acn/portal/uaa",
     "serverPort": "9999",
     "authenticationType": "uaa",
     "hibernateCache": "hazelcast",
@@ -16,21 +16,20 @@
     "databaseType": "sql",
     "devDatabaseType": "mysql",
     "prodDatabaseType": "mysql",
-    "searchEngine": "elasticsearch",
+    "searchEngine": false,
     "messageBroker": false,
     "serviceDiscoveryType": "eureka",
-    "buildTool": "gradle",
+    "buildTool": "maven",
     "enableSocialSignIn": false,
-    "enableSwaggerCodegen": true,
-    "jwtSecretKey": "025bcc0b724d5d88524ada82adab92cb2c1a33e2",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "340273893b7c5767085d3235bb7b42ba2829b336",
     "enableTranslation": true,
     "applicationType": "uaa",
     "testFrameworks": [],
     "jhiPrefix": "jhi",
     "nativeLanguage": "en",
     "languages": [
-      "en",
-      "zh-cn"
+      "en"
     ],
     "clientPackageManager": "yarn",
     "skipClient": true

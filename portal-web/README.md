@@ -25,7 +25,7 @@ We use yarn scripts and [Webpack][] as our build system.
 Run the following commands in two separate terminals to create a blissful development experience where your browser
 auto-refreshes when files change on your hard drive.
 
-    ./gradlew
+    ./mvnw
     yarn start
 
 [Yarn][] is also used to manage CSS and JavaScript dependencies used in this application. You can upgrade dependencies by
@@ -90,28 +90,17 @@ will generate few files:
     create src/main/webapp/app/my-component/my-component.component.ts
     update src/main/webapp/app/app.module.ts
 
-### Doing API-First development using swagger-codegen
-
-[Swagger-Codegen]() is configured for this application. You can generate API code from the `src/main/resources/swagger/api.yml` definition file by running:
-```bash
-./gradlew swagger
-```
-Then implements the generated interfaces with `@RestController` classes.
-
-To edit the `api.yml` definition file, you can use a tool such as [Swagger-Editor](). Start a local instance of the swagger-editor using docker by running: `docker-compose -f src/main/docker/swagger-editor.yml up -d`. The editor will then be reachable at [http://localhost:7742](http://localhost:7742).
-
-Refer to [Doing API-First development][] for more details.
 
 ## Building for production
 
 To optimize the portal_web application for production, run:
 
-    ./gradlew -Pprod clean bootRepackage
+    ./mvnw -Pprod clean package
 
 This will concatenate and minify the client CSS and JavaScript files. It will also modify `index.html` so it references these new files.
 To ensure everything worked, run:
 
-    java -jar build/libs/*.war
+    java -jar target/*.war
 
 Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
 
@@ -121,7 +110,7 @@ Refer to [Using JHipster in production][] for more details.
 
 To launch your application's tests, run:
 
-    ./gradlew test
+    ./mvnw clean test
 
 ### Client tests
 
@@ -148,7 +137,7 @@ To stop it and remove the container, run:
 You can also fully dockerize your application and all the services that it depends on.
 To achieve this, first build a docker image of your app by running:
 
-    ./gradlew bootRepackage -Pprod buildDocker
+    ./mvnw verify -Pprod dockerfile:build
 
 Then run:
 
@@ -181,6 +170,3 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 [Protractor]: https://angular.github.io/protractor/
 [Leaflet]: http://leafletjs.com/
 [DefinitelyTyped]: http://definitelytyped.org/
-[Swagger-Codegen]: https://github.com/swagger-api/swagger-codegen
-[Swagger-Editor]: http://editor.swagger.io
-[Doing API-First development]: http://www.jhipster.tech/documentation-archive/v4.13.0/doing-api-first-development/
