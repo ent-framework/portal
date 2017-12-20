@@ -8,18 +8,17 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.acn.portal.kernel</groupId>
-    <artifactId>portal-kernel</artifactId>
+    <groupId>com.acn.portal.util</groupId>
+    <artifactId>portal-utils</artifactId>
     <packaging>pom</packaging>
     <version>3.0.3</version>
 
     <modules>
-        <module>portal-kernel-api</module>
-        <module>portal-kernel-impl</module>
+        <module>util-java</module>
     </modules>
 
-    <name>Portal Kernel</name>
-    <description>Portal Kernel</description>
+    <name>Portal Utils</name>
+    <description>Portal Utils</description>
 
     <scm>
         <connection>scm:git:git://github.com/craftercms/commons</connection>
@@ -37,7 +36,7 @@
         <javax-mail.version>1.5.6</javax-mail.version>
         <portlet-api.version>2.0</portlet-api.version>
         <spymemcached.version>2.12.3</spymemcached.version>
-        <servlet.api.version>3.1.0</servlet.api.version>
+        <servlet.api.version>3.0.1</servlet.api.version>
         <servlet.jsp.api.version>2.1</servlet.jsp.api.version>
         <servlet.jstl.version>1.2</servlet.jstl.version>
         <spring.version>4.3.13.RELEASE</spring.version>

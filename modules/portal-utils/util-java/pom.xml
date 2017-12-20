@@ -20,17 +20,23 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>com.acn.portal.kernel</groupId>
-        <artifactId>portal-kernel</artifactId>
+        <groupId>com.acn.portal.util</groupId>
+        <artifactId>portal-utils</artifactId>
         <version>3.0.3</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>portal-kernel-api</artifactId>
-    <name>Portal Kernel API</name>
-    <description>Portal Kernel API</description>
+    <artifactId>portal-util-java</artifactId>
+    <name>Portal Util Java</name>
+    <description>Portal Util Java</description>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.acn.portal.kernel</groupId>
+            <artifactId>portal-kernel-api</artifactId>
+            <version>3.0.3</version>
+        </dependency>
 
         <!-- Commons -->
         <dependency>
@@ -38,6 +44,49 @@
             <artifactId>commons-collections</artifactId>
             <version>${commons-collections.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-validator</groupId>
+            <artifactId>commons-validator</artifactId>
+            <version>1.5.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.liferay/com.liferay.ibm.icu.icu4j -->
+        <dependency>
+            <groupId>com.liferay</groupId>
+            <artifactId>com.liferay.ibm.icu.icu4j</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>${commons-fileupload.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
 
         <!-- Spring -->
         <dependency>
@@ -61,6 +110,16 @@
             <version>${spring.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+        </dependency>
+
 
         <dependency>
             <groupId>javax.portlet</groupId>
@@ -74,6 +133,26 @@
             <version>1.50.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>biz.aQute</groupId>
+            <artifactId>annotation</artifactId>
+            <version>1.50.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>biz.aQute.bnd</groupId>
+            <artifactId>bnd</artifactId>
+            <version>2.4.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.mnode.ical4j/ical4j -->
+        <dependency>
+            <groupId>org.mnode.ical4j</groupId>
+            <artifactId>ical4j</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+
 
         <!-- Servlet -->
         <!-- JSP -->
@@ -82,6 +161,13 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>${servlet.api.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/net.sf.jazzy/jazzy -->
+        <dependency>
+            <groupId>net.sf.jazzy</groupId>
+            <artifactId>jazzy</artifactId>
+            <version>0.5.2-rtext-1.4.1-2</version>
         </dependency>
 
         <dependency>
@@ -116,6 +202,66 @@
             <!--<artifactId>quartz</artifactId>-->
             <!--<version>${quartz.version}</version>-->
         <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.apache.ant</groupId>
+            <artifactId>ant</artifactId>
+            <version>1.9.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.axis</groupId>
+            <artifactId>axis</artifactId>
+            <version>1.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.xml</groupId>
+            <artifactId>jaxrpc</artifactId>
+            <version>1.1</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.axis</groupId>
+            <artifactId>axis-ant</artifactId>
+            <version>1.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>rome</groupId>
+            <artifactId>rome</artifactId>
+            <version>0.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-envers</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.8.10</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.incava</groupId>
+            <artifactId>java-diff</artifactId>
+            <version>1.1</version>
+        </dependency>
+
 
         <!-- Test -->
         <dependency>
