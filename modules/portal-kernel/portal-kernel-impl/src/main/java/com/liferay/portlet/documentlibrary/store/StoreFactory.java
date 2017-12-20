@@ -165,20 +165,20 @@ public class StoreFactory {
 			"com.liferay.documentlibrary.util.AdvancedFileSystemHook",
 			AdvancedFileSystemStore.class.getName()
 		},
-		new String[] {
-			"com.liferay.documentlibrary.util.CMISHook",
-			CMISStore.class.getName()
-		},
+//		new String[] {
+//			"com.liferay.documentlibrary.util.CMISHook",
+//			CMISStore.class.getName()
+//		},
 		new String[] {
 			"com.liferay.documentlibrary.util.FileSystemHook",
 			FileSystemStore.class.getName()
-		},
-		new String[] {
-			"com.liferay.documentlibrary.util.JCRHook", JCRStore.class.getName()
-		},
-		new String[] {
-			"com.liferay.documentlibrary.util.S3Hook", S3Store.class.getName()
-		}
+		}//,
+//		new String[] {
+//			"com.liferay.documentlibrary.util.JCRHook", JCRStore.class.getName()
+//		},
+//		new String[] {
+//			"com.liferay.documentlibrary.util.S3Hook", S3Store.class.getName()
+//		}
 	};
 
 	private static Log _log = LogFactoryUtil.getLog(StoreFactory.class);
