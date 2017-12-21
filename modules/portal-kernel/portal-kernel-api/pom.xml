@@ -109,6 +109,11 @@
             <version>${javax-mail.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.17</version>
+        </dependency>
 
         <!-- Quartz -->
         <!--<dependency>-->

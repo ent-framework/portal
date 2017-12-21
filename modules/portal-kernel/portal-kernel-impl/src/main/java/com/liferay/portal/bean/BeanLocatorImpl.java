@@ -39,8 +39,6 @@ import org.springframework.context.ApplicationContext;
 @SuppressWarnings("deprecation")
 public class BeanLocatorImpl implements BeanLocator {
 
-	public static final String VELOCITY_SUFFIX = ".velocity";
-
 	public BeanLocatorImpl(
 		ClassLoader classLoader, ApplicationContext applicationContext) {
 

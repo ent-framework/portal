@@ -147,41 +147,10 @@ import com.liferay.portlet.journal.model.impl.JournalArticleModelImpl;
 import com.liferay.portlet.journal.model.impl.JournalArticleResourceModelImpl;
 import com.liferay.portlet.journal.model.impl.JournalContentSearchModelImpl;
 import com.liferay.portlet.journal.social.JournalActivityKeys;
-import com.liferay.portlet.messageboards.model.MBCategory;
-import com.liferay.portlet.messageboards.model.MBCategoryConstants;
-import com.liferay.portlet.messageboards.model.MBCategoryModel;
-import com.liferay.portlet.messageboards.model.MBDiscussion;
-import com.liferay.portlet.messageboards.model.MBDiscussionModel;
-import com.liferay.portlet.messageboards.model.MBMailingListModel;
-import com.liferay.portlet.messageboards.model.MBMessage;
-import com.liferay.portlet.messageboards.model.MBMessageConstants;
-import com.liferay.portlet.messageboards.model.MBMessageModel;
-import com.liferay.portlet.messageboards.model.MBStatsUserModel;
-import com.liferay.portlet.messageboards.model.MBThread;
-import com.liferay.portlet.messageboards.model.MBThreadFlagModel;
-import com.liferay.portlet.messageboards.model.MBThreadModel;
-import com.liferay.portlet.messageboards.model.impl.MBCategoryModelImpl;
-import com.liferay.portlet.messageboards.model.impl.MBDiscussionModelImpl;
-import com.liferay.portlet.messageboards.model.impl.MBMailingListModelImpl;
-import com.liferay.portlet.messageboards.model.impl.MBMessageModelImpl;
-import com.liferay.portlet.messageboards.model.impl.MBStatsUserModelImpl;
-import com.liferay.portlet.messageboards.model.impl.MBThreadFlagModelImpl;
-import com.liferay.portlet.messageboards.model.impl.MBThreadModelImpl;
-import com.liferay.portlet.messageboards.social.MBActivityKeys;
 import com.liferay.portlet.social.model.SocialActivity;
 import com.liferay.portlet.social.model.SocialActivityConstants;
 import com.liferay.portlet.social.model.SocialActivityModel;
 import com.liferay.portlet.social.model.impl.SocialActivityModelImpl;
-import com.liferay.portlet.wiki.model.WikiNode;
-import com.liferay.portlet.wiki.model.WikiNodeModel;
-import com.liferay.portlet.wiki.model.WikiPage;
-import com.liferay.portlet.wiki.model.WikiPageConstants;
-import com.liferay.portlet.wiki.model.WikiPageModel;
-import com.liferay.portlet.wiki.model.WikiPageResourceModel;
-import com.liferay.portlet.wiki.model.impl.WikiNodeModelImpl;
-import com.liferay.portlet.wiki.model.impl.WikiPageModelImpl;
-import com.liferay.portlet.wiki.model.impl.WikiPageResourceModelImpl;
-import com.liferay.portlet.wiki.social.WikiActivityKeys;
 import com.liferay.util.SimpleCounter;
 
 import java.io.IOException;
@@ -560,10 +529,6 @@ public class DataFactory {
 		return _virtualHostModel;
 	}
 
-	public long getWikiPageClassNameId() {
-		return _classNameModelsMap.get(WikiPage.class.getName());
-	}
-
 	public void initAssetCategoryModels() {
 		_assetCategoryModelsArray =
 			(List<AssetCategoryModel>[])new List<?>[_maxGroupsCount];
@@ -660,11 +625,11 @@ public class DataFactory {
 
 				assetTagStatsModels.add(assetTagStatsModel);
 
-				assetTagStatsModel = newAssetTagStatsModel(
-					assetTagModel.getTagId(),
-					_classNameModelsMap.get(WikiPage.class.getName()));
-
-				assetTagStatsModels.add(assetTagStatsModel);
+//				assetTagStatsModel = newAssetTagStatsModel(
+//					assetTagModel.getTagId(),
+//					_classNameModelsMap.get(WikiPage.class.getName()));
+//
+//				assetTagStatsModels.add(assetTagStatsModel);
 			}
 
 			_assetTagModelsArray[i - 1] = assetTagModels;
@@ -998,44 +963,6 @@ public class DataFactory {
 			journalArticleModel.getResourcePrimKey(),
 			journalArticleModel.getUuid(), 0, true, ContentTypes.TEXT_HTML,
 			journalArticleModel.getTitle());
-	}
-
-	public AssetEntryModel newAssetEntryModel(MBMessageModel mbMessageModel) {
-		long classNameId = 0;
-		boolean visible = false;
-
-		if (mbMessageModel.getCategoryId() ==
-				MBCategoryConstants.DISCUSSION_CATEGORY_ID) {
-
-			classNameId = _classNameModelsMap.get(MBDiscussion.class.getName());
-		}
-		else {
-			classNameId = _classNameModelsMap.get(MBMessage.class.getName());
-			visible = true;
-		}
-
-		return newAssetEntryModel(
-			mbMessageModel.getGroupId(), mbMessageModel.getCreateDate(),
-			mbMessageModel.getModifiedDate(), classNameId,
-			mbMessageModel.getMessageId(), mbMessageModel.getUuid(), 0, visible,
-			ContentTypes.TEXT_HTML, mbMessageModel.getSubject());
-	}
-
-	public AssetEntryModel newAssetEntryModel(MBThreadModel mbThreadModel) {
-		return newAssetEntryModel(
-			mbThreadModel.getGroupId(), mbThreadModel.getCreateDate(),
-			mbThreadModel.getModifiedDate(),
-			_classNameModelsMap.get(MBThread.class.getName()),
-			mbThreadModel.getThreadId(), mbThreadModel.getUuid(), 0, false,
-			StringPool.BLANK, String.valueOf(mbThreadModel.getRootMessageId()));
-	}
-
-	public AssetEntryModel newAssetEntryModel(WikiPageModel wikiPageModel) {
-		return newAssetEntryModel(
-			wikiPageModel.getGroupId(), wikiPageModel.getCreateDate(),
-			wikiPageModel.getModifiedDate(), getWikiPageClassNameId(),
-			wikiPageModel.getResourcePrimKey(), wikiPageModel.getUuid(), 0,
-			true, ContentTypes.TEXT_HTML, wikiPageModel.getTitle());
 	}
 
 	public List<PortletPreferencesModel>
@@ -1594,190 +1521,6 @@ public class DataFactory {
 		return layoutSetModels;
 	}
 
-	public List<MBCategoryModel> newMBCategoryModels(long groupId) {
-		List<MBCategoryModel> mbCategoryModels = new ArrayList<MBCategoryModel>(
-			_maxMBCategoryCount);
-
-		for (int i = 1; i <= _maxMBCategoryCount; i++) {
-			mbCategoryModels.add(newMBCategoryModel(groupId, i));
-		}
-
-		return mbCategoryModels;
-	}
-
-	public MBDiscussionModel newMBDiscussionModel(
-		long groupId, long classNameId, long classPK, long threadId) {
-
-		MBDiscussionModel mbDiscussionModel = new MBDiscussionModelImpl();
-
-		mbDiscussionModel.setUuid(SequentialUUID.generate());
-		mbDiscussionModel.setDiscussionId(_counter.get());
-		mbDiscussionModel.setGroupId(groupId);
-		mbDiscussionModel.setCompanyId(_companyId);
-		mbDiscussionModel.setUserId(_sampleUserId);
-		mbDiscussionModel.setUserName(_SAMPLE_USER_NAME);
-		mbDiscussionModel.setCreateDate(new Date());
-		mbDiscussionModel.setModifiedDate(new Date());
-		mbDiscussionModel.setClassNameId(classNameId);
-		mbDiscussionModel.setClassPK(classPK);
-		mbDiscussionModel.setThreadId(threadId);
-
-		return mbDiscussionModel;
-	}
-
-	public MBMailingListModel newMBMailingListModel(
-		MBCategoryModel mbCategoryModel) {
-
-		MBMailingListModel mbMailingListModel = new MBMailingListModelImpl();
-
-		mbMailingListModel.setUuid(SequentialUUID.generate());
-		mbMailingListModel.setMailingListId(_counter.get());
-		mbMailingListModel.setGroupId(mbCategoryModel.getGroupId());
-		mbMailingListModel.setCompanyId(_companyId);
-		mbMailingListModel.setUserId(_sampleUserId);
-		mbMailingListModel.setUserName(_SAMPLE_USER_NAME);
-		mbMailingListModel.setCreateDate(new Date());
-		mbMailingListModel.setModifiedDate(new Date());
-		mbMailingListModel.setCategoryId(mbCategoryModel.getCategoryId());
-		mbMailingListModel.setInProtocol("pop3");
-		mbMailingListModel.setInServerPort(110);
-		mbMailingListModel.setInUserName(_sampleUserModel.getEmailAddress());
-		mbMailingListModel.setInPassword(_sampleUserModel.getPassword());
-		mbMailingListModel.setInReadInterval(5);
-		mbMailingListModel.setOutServerPort(25);
-
-		return mbMailingListModel;
-	}
-
-	public MBMessageModel newMBMessageModel(
-		MBThreadModel mbThreadModel, long classNameId, long classPK,
-		int index) {
-
-		long messageId = 0;
-		long parentMessageId = 0;
-		String subject = null;
-		String body = null;
-
-		if (index == 0) {
-			messageId = mbThreadModel.getRootMessageId();
-			parentMessageId = MBMessageConstants.DEFAULT_PARENT_MESSAGE_ID;
-			subject = String.valueOf(classPK);
-			body = String.valueOf(classPK);
-		}
-		else {
-			messageId = _counter.get();
-			parentMessageId = mbThreadModel.getRootMessageId();
-			subject = "N/A";
-			body = "This is test comment " + index + ".";
-		}
-
-		return newMBMessageModel(
-			mbThreadModel.getGroupId(), classNameId, classPK,
-			MBCategoryConstants.DISCUSSION_CATEGORY_ID,
-			mbThreadModel.getThreadId(), messageId,
-			mbThreadModel.getRootMessageId(), parentMessageId, subject, body);
-	}
-
-	public List<MBMessageModel> newMBMessageModels(
-		MBThreadModel mbThreadModel) {
-
-		List<MBMessageModel> mbMessageModels = new ArrayList<MBMessageModel>(
-			_maxMBMessageCount);
-
-		mbMessageModels.add(
-			newMBMessageModel(
-				mbThreadModel.getGroupId(), 0, 0, mbThreadModel.getCategoryId(),
-				mbThreadModel.getThreadId(), mbThreadModel.getRootMessageId(),
-				mbThreadModel.getRootMessageId(),
-				MBMessageConstants.DEFAULT_PARENT_MESSAGE_ID, "Test Message 1",
-				"This is test message 1."));
-
-		for (int i = 2; i <= _maxMBMessageCount; i++) {
-			mbMessageModels.add(
-				newMBMessageModel(
-					mbThreadModel.getGroupId(), 0, 0,
-					mbThreadModel.getCategoryId(), mbThreadModel.getThreadId(),
-					_counter.get(), mbThreadModel.getRootMessageId(),
-					mbThreadModel.getRootMessageId(), "Test Message " + i,
-					"This is test message " + i + "."));
-		}
-
-		return mbMessageModels;
-	}
-
-	public List<MBMessageModel> newMBMessageModels(
-		MBThreadModel mbThreadModel, long classNameId, long classPK,
-		int maxMessageCount) {
-
-		List<MBMessageModel> mbMessageModels = new ArrayList<MBMessageModel>(
-			maxMessageCount);
-
-		for (int i = 1; i <= maxMessageCount; i++) {
-			mbMessageModels.add(
-				newMBMessageModel(mbThreadModel, classNameId, classPK, i));
-		}
-
-		return mbMessageModels;
-	}
-
-	public MBStatsUserModel newMBStatsUserModel(long groupId) {
-		MBStatsUserModel mbStatsUserModel = new MBStatsUserModelImpl();
-
-		mbStatsUserModel.setStatsUserId(_counter.get());
-		mbStatsUserModel.setGroupId(groupId);
-		mbStatsUserModel.setUserId(_sampleUserId);
-		mbStatsUserModel.setMessageCount(
-			_maxMBCategoryCount * _maxMBThreadCount * _maxMBMessageCount);
-		mbStatsUserModel.setLastPostDate(new Date());
-
-		return mbStatsUserModel;
-	}
-
-	public MBThreadFlagModel newMBThreadFlagModel(MBThreadModel mbThreadModel) {
-		MBThreadFlagModel mbThreadFlagModel = new MBThreadFlagModelImpl();
-
-		mbThreadFlagModel.setUuid(SequentialUUID.generate());
-		mbThreadFlagModel.setThreadFlagId(_counter.get());
-		mbThreadFlagModel.setGroupId(mbThreadModel.getGroupId());
-		mbThreadFlagModel.setCompanyId(_companyId);
-		mbThreadFlagModel.setUserId(_sampleUserId);
-		mbThreadFlagModel.setUserName(_SAMPLE_USER_NAME);
-		mbThreadFlagModel.setCreateDate(new Date());
-		mbThreadFlagModel.setModifiedDate(new Date());
-		mbThreadFlagModel.setThreadId(mbThreadModel.getThreadId());
-
-		return mbThreadFlagModel;
-	}
-
-	public MBThreadModel newMBThreadModel(
-		long threadId, long groupId, long rootMessageId, int messageCount) {
-
-		if (messageCount == 0) {
-			messageCount = 1;
-		}
-
-		return newMBThreadModel(
-			threadId, groupId, MBCategoryConstants.DISCUSSION_CATEGORY_ID,
-			rootMessageId, messageCount);
-	}
-
-	public List<MBThreadModel> newMBThreadModels(
-		MBCategoryModel mbCategoryModel) {
-
-		List<MBThreadModel> mbThreadModels = new ArrayList<MBThreadModel>(
-			_maxMBThreadCount);
-
-		for (int i = 0; i < _maxMBThreadCount; i++) {
-			mbThreadModels.add(
-				newMBThreadModel(
-					_counter.get(), mbCategoryModel.getGroupId(),
-					mbCategoryModel.getCategoryId(), _counter.get(),
-					_maxMBMessageCount));
-		}
-
-		return mbThreadModels;
-	}
-
 	public PortletPreferencesModel newPortletPreferencesModel(
 			long plid, long groupId, String portletId, int currentIndex)
 		throws Exception {
@@ -2031,21 +1774,6 @@ public class DataFactory {
 			_sampleUserId);
 	}
 
-	public List<ResourcePermissionModel> newResourcePermissionModels(
-		MBCategoryModel mbCategoryModel) {
-
-		return newResourcePermissionModels(
-			MBCategory.class.getName(),
-			String.valueOf(mbCategoryModel.getCategoryId()), _sampleUserId);
-	}
-
-	public List<ResourcePermissionModel> newResourcePermissionModels(
-		MBMessageModel mbMessageModel) {
-
-		return newResourcePermissionModels(
-			MBMessage.class.getName(),
-			String.valueOf(mbMessageModel.getMessageId()), _sampleUserId);
-	}
 
 	public List<ResourcePermissionModel> newResourcePermissionModels(
 		PortletPreferencesModel portletPreferencesModel) {
@@ -2064,22 +1792,6 @@ public class DataFactory {
 			portletPreferencesModel.getPlid(), portletId);
 
 		return newResourcePermissionModels(name, primKey, 0);
-	}
-
-	public List<ResourcePermissionModel> newResourcePermissionModels(
-		WikiNodeModel wikiNodeModel) {
-
-		return newResourcePermissionModels(
-			WikiNode.class.getName(), String.valueOf(wikiNodeModel.getNodeId()),
-			_sampleUserId);
-	}
-
-	public List<ResourcePermissionModel> newResourcePermissionModels(
-		WikiPageModel wikiPageModel) {
-
-		return newResourcePermissionModels(
-			WikiPage.class.getName(),
-			String.valueOf(wikiPageModel.getResourcePrimKey()), _sampleUserId);
 	}
 
 	public SocialActivityModel newSocialActivityModel(
@@ -2118,45 +1830,6 @@ public class DataFactory {
 			"{\"title\":\""+ journalArticleModel.getUrlTitle() +"\"}");
 	}
 
-	public SocialActivityModel newSocialActivityModel(
-		MBMessageModel mbMessageModel) {
-
-		long classNameId = mbMessageModel.getClassNameId();
-		long classPK = mbMessageModel.getClassPK();
-
-		int type = 0;
-		String extraData = null;
-
-		if (classNameId == _classNameModelsMap.get(WikiPage.class.getName())) {
-			extraData = "{\"version\":1}";
-
-			type = WikiActivityKeys.ADD_PAGE;
-		}
-		else if (classNameId == 0) {
-			extraData = "{\"title\":\"" + mbMessageModel.getSubject() + "\"}";
-
-			type = MBActivityKeys.ADD_MESSAGE;
-
-			classNameId = _classNameModelsMap.get(MBMessage.class.getName());
-			classPK = mbMessageModel.getMessageId();
-		}
-		else {
-			StringBundler sb = new StringBundler(5);
-
-			sb.append("{\"messageId\":\"");
-			sb.append(mbMessageModel.getMessageId());
-			sb.append("\", \"title\":");
-			sb.append(mbMessageModel.getSubject());
-			sb.append("}");
-
-			extraData = sb.toString();
-
-			type = SocialActivityConstants.TYPE_ADD_COMMENT;
-		}
-
-		return newSocialActivityModel(
-			mbMessageModel.getGroupId(), classNameId, classPK, type, extraData);
-	}
 
 	public SubscriptionModel newSubscriptionModel(
 		BlogsEntryModel blogsEntryModel) {
@@ -2164,18 +1837,6 @@ public class DataFactory {
 		return newSubscriptionModel(
 			_classNameModelsMap.get(BlogsEntry.class.getName()),
 			blogsEntryModel.getEntryId());
-	}
-
-	public SubscriptionModel newSubscriptionModel(MBThreadModel mBThreadModel) {
-		return newSubscriptionModel(
-			_classNameModelsMap.get(MBThread.class.getName()),
-			mBThreadModel.getThreadId());
-	}
-
-	public SubscriptionModel newSubscriptionModel(WikiPageModel wikiPageModel) {
-		return newSubscriptionModel(
-			_classNameModelsMap.get(WikiPage.class.getName()),
-			wikiPageModel.getResourcePrimKey());
 	}
 
 	public List<UserModel> newUserModels() {
@@ -2190,43 +1851,6 @@ public class DataFactory {
 		}
 
 		return userModels;
-	}
-
-	public List<WikiNodeModel> newWikiNodeModels(long groupId) {
-		List<WikiNodeModel> wikiNodeModels = new ArrayList<WikiNodeModel>(
-			_maxWikiNodeCount);
-
-		for (int i = 1; i <= _maxWikiNodeCount; i++) {
-			wikiNodeModels.add(newWikiNodeModel(groupId, i));
-		}
-
-		return wikiNodeModels;
-	}
-
-	public List<WikiPageModel> newWikiPageModels(WikiNodeModel wikiNodeModel) {
-		List<WikiPageModel> wikiPageModels = new ArrayList<WikiPageModel>(
-			_maxWikiPageCount);
-
-		for (int i = 1; i <= _maxWikiPageCount; i++) {
-			wikiPageModels.add(newWikiPageModel(wikiNodeModel, i));
-		}
-
-		return wikiPageModels;
-	}
-
-	public WikiPageResourceModel newWikiPageResourceModel(
-		WikiPageModel wikiPageModel) {
-
-		WikiPageResourceModel wikiPageResourceModel =
-			new WikiPageResourceModelImpl();
-
-		wikiPageResourceModel.setUuid(SequentialUUID.generate());
-		wikiPageResourceModel.setResourcePrimKey(
-			wikiPageModel.getResourcePrimKey());
-		wikiPageResourceModel.setNodeId(wikiPageModel.getNodeId());
-		wikiPageResourceModel.setTitle(wikiPageModel.getTitle());
-
-		return wikiPageResourceModel;
 	}
 
 	public String[] nextUserName(long index) {
@@ -2583,83 +2207,6 @@ public class DataFactory {
 		return layoutSetModel;
 	}
 
-	protected MBCategoryModel newMBCategoryModel(long groupId, int index) {
-		MBCategoryModel mbCategoryModel = new MBCategoryModelImpl();
-
-		mbCategoryModel.setUuid(SequentialUUID.generate());
-		mbCategoryModel.setCategoryId(_counter.get());
-		mbCategoryModel.setGroupId(groupId);
-		mbCategoryModel.setCompanyId(_companyId);
-		mbCategoryModel.setUserId(_sampleUserId);
-		mbCategoryModel.setUserName(_SAMPLE_USER_NAME);
-		mbCategoryModel.setCreateDate(new Date());
-		mbCategoryModel.setModifiedDate(new Date());
-		mbCategoryModel.setParentCategoryId(
-			MBCategoryConstants.DEFAULT_PARENT_CATEGORY_ID);
-		mbCategoryModel.setName("Test Category " + index);
-		mbCategoryModel.setDisplayStyle(
-			MBCategoryConstants.DEFAULT_DISPLAY_STYLE);
-		mbCategoryModel.setThreadCount(_maxMBThreadCount);
-		mbCategoryModel.setMessageCount(_maxMBThreadCount * _maxMBMessageCount);
-		mbCategoryModel.setLastPostDate(new Date());
-		mbCategoryModel.setStatusDate(new Date());
-
-		return mbCategoryModel;
-	}
-
-	protected MBMessageModel newMBMessageModel(
-		long groupId, long classNameId, long classPK, long categoryId,
-		long threadId, long messageId, long rootMessageId, long parentMessageId,
-		String subject, String body) {
-
-		MBMessageModel mBMessageModel = new MBMessageModelImpl();
-
-		mBMessageModel.setUuid(SequentialUUID.generate());
-		mBMessageModel.setMessageId(messageId);
-		mBMessageModel.setGroupId(groupId);
-		mBMessageModel.setCompanyId(_companyId);
-		mBMessageModel.setUserId(_sampleUserId);
-		mBMessageModel.setUserName(_SAMPLE_USER_NAME);
-		mBMessageModel.setCreateDate(new Date());
-		mBMessageModel.setModifiedDate(new Date());
-		mBMessageModel.setClassNameId(classNameId);
-		mBMessageModel.setClassPK(classPK);
-		mBMessageModel.setCategoryId(categoryId);
-		mBMessageModel.setThreadId(threadId);
-		mBMessageModel.setRootMessageId(rootMessageId);
-		mBMessageModel.setParentMessageId(parentMessageId);
-		mBMessageModel.setSubject(subject);
-		mBMessageModel.setBody(body);
-		mBMessageModel.setFormat(MBMessageConstants.DEFAULT_FORMAT);
-		mBMessageModel.setStatusDate(new Date());
-
-		return mBMessageModel;
-	}
-
-	protected MBThreadModel newMBThreadModel(
-		long threadId, long groupId, long categoryId, long rootMessageId,
-		int messageCount) {
-
-		MBThreadModel mbThreadModel = new MBThreadModelImpl();
-
-		mbThreadModel.setUuid(SequentialUUID.generate());
-		mbThreadModel.setThreadId(threadId);
-		mbThreadModel.setGroupId(groupId);
-		mbThreadModel.setCompanyId(_companyId);
-		mbThreadModel.setUserId(_sampleUserId);
-		mbThreadModel.setUserName(_SAMPLE_USER_NAME);
-		mbThreadModel.setCreateDate(new Date());
-		mbThreadModel.setModifiedDate(new Date());
-		mbThreadModel.setCategoryId(categoryId);
-		mbThreadModel.setRootMessageId(rootMessageId);
-		mbThreadModel.setRootMessageUserId(_sampleUserId);
-		mbThreadModel.setMessageCount(messageCount);
-		mbThreadModel.setLastPostByUserId(_sampleUserId);
-		mbThreadModel.setLastPostDate(new Date());
-		mbThreadModel.setStatusDate(new Date());
-
-		return mbThreadModel;
-	}
 
 	protected PortletPreferencesModel newPortletPreferencesModel(
 		long plid, String portletId, String preferences) {
@@ -2806,48 +2353,6 @@ public class DataFactory {
 		userModel.setEmailAddressVerified(true);
 
 		return userModel;
-	}
-
-	protected WikiNodeModel newWikiNodeModel(long groupId, int index) {
-		WikiNodeModel wikiNodeModel = new WikiNodeModelImpl();
-
-		wikiNodeModel.setUuid(SequentialUUID.generate());
-		wikiNodeModel.setNodeId(_counter.get());
-		wikiNodeModel.setGroupId(groupId);
-		wikiNodeModel.setCompanyId(_companyId);
-		wikiNodeModel.setUserId(_sampleUserId);
-		wikiNodeModel.setUserName(_SAMPLE_USER_NAME);
-		wikiNodeModel.setCreateDate(new Date());
-		wikiNodeModel.setModifiedDate(new Date());
-		wikiNodeModel.setName("Test Node " + index);
-		wikiNodeModel.setLastPostDate(new Date());
-		wikiNodeModel.setStatusDate(new Date());
-
-		return wikiNodeModel;
-	}
-
-	protected WikiPageModel newWikiPageModel(
-		WikiNodeModel wikiNodeModel, int index) {
-
-		WikiPageModel wikiPageModel = new WikiPageModelImpl();
-
-		wikiPageModel.setUuid(SequentialUUID.generate());
-		wikiPageModel.setPageId(_counter.get());
-		wikiPageModel.setResourcePrimKey(_counter.get());
-		wikiPageModel.setGroupId(wikiNodeModel.getGroupId());
-		wikiPageModel.setCompanyId(_companyId);
-		wikiPageModel.setUserId(_sampleUserId);
-		wikiPageModel.setUserName(_SAMPLE_USER_NAME);
-		wikiPageModel.setCreateDate(new Date());
-		wikiPageModel.setModifiedDate(new Date());
-		wikiPageModel.setNodeId(wikiNodeModel.getNodeId());
-		wikiPageModel.setTitle("Test Page " + index);
-		wikiPageModel.setVersion(WikiPageConstants.VERSION_DEFAULT);
-		wikiPageModel.setContent("This is test page " + index + ".");
-		wikiPageModel.setFormat(WikiPageConstants.DEFAULT_FORMAT);
-		wikiPageModel.setHead(true);
-
-		return wikiPageModel;
 	}
 
 	protected String nextDDLCustomFieldName(

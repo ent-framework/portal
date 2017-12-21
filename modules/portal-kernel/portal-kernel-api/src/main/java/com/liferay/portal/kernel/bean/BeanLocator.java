@@ -22,6 +22,8 @@ import java.util.Map;
  */
 public interface BeanLocator {
 
+	public static final String VELOCITY_SUFFIX = ".velocity";
+
 	public ClassLoader getClassLoader();
 
 	public String[] getNames();

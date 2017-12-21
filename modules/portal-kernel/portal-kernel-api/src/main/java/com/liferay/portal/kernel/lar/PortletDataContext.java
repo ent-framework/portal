@@ -31,7 +31,6 @@ import com.liferay.portal.model.StagedModel;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portlet.asset.model.AssetLink;
 import com.liferay.portlet.expando.model.ExpandoColumn;
-import com.liferay.portlet.messageboards.model.MBMessage;
 import com.liferay.portlet.ratings.model.RatingsEntry;
 
 import java.io.InputStream;
@@ -130,9 +129,6 @@ public interface PortletDataContext extends Serializable {
 
 	public void addComments(Class<?> clazz, long classPK)
 		throws SystemException;
-
-	public void addComments(
-		String className, long classPK, List<MBMessage> messages);
 
 	public void addDateRangeCriteria(
 		DynamicQuery dynamicQuery, String propertyName);
@@ -265,8 +261,6 @@ public interface PortletDataContext extends Serializable {
 		String namespace, String name, boolean useDefaultValue);
 
 	public ClassLoader getClassLoader();
-
-	public Map<String, List<MBMessage>> getComments();
 
 	public long getCompanyGroupId();
 

@@ -2,9 +2,10 @@
 <project>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.9.RELEASE</version>
+        <groupId>com.acn.portal.parent</groupId>
+        <artifactId>portal-parent</artifactId>
+        <version>3.0.3</version>
+        <relativePath>../</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -30,19 +31,34 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+        <aspectj.version>1.8.13</aspectj.version>
+        <commons-beanutils.version>1.9.3</commons-beanutils.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
+        <commons-codec.version>1.10</commons-codec.version>
+        <commons-dbcp.version>1.4</commons-dbcp.version>
+        <commons-dbcp2.version>2.1.1</commons-dbcp2.version>
+        <commons-digester.version>2.1</commons-digester.version>
+        <commons-pool.version>1.6</commons-pool.version>
+        <commons-pool2.version>2.4.3</commons-pool2.version>
         <commons-fileupload.version>1.2.2</commons-fileupload.version>
-        <hibernate.version>5.2.12.Final</hibernate.version>
+        <!--<hibernate.version>5.2.12.Final</hibernate.version>-->
+        <ehcache.version>2.10.4</ehcache.version>
+        <ehcache3.version>3.2.3</ehcache3.version>
+        <hibernate.version>3.6.10.Final</hibernate.version>
 
         <java.version>1.8</java.version>
+        <junit.version>4.12</junit.version>
         <javax-mail.version>1.5.6</javax-mail.version>
+        <logback.version>1.1.11</logback.version>
         <portlet-api.version>2.0</portlet-api.version>
         <quartz.version>2.2.1</quartz.version>
         <spymemcached.version>2.12.3</spymemcached.version>
         <servlet.api.version>3.1.0</servlet.api.version>
         <servlet.jsp.api.version>2.1</servlet.jsp.api.version>
         <servlet.jstl.version>1.2</servlet.jstl.version>
-        <spring.version>4.3.13.RELEASE</spring.version>
-        <xstream.version>1.4.10</xstream.version>
+        <!--<spring.version>4.3.13.RELEASE</spring.version>-->
+        <spring.version>3.0.7.RELEASE</spring.version>
+        <xstream.version>1.4.7</xstream.version>
     </properties>
 
     <dependencyManagement>
