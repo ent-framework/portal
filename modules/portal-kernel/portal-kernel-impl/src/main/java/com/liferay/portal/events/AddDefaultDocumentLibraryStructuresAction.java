@@ -29,7 +29,7 @@ import com.liferay.portal.model.Group;
 import com.liferay.portal.service.GroupLocalServiceUtil;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.UserLocalServiceUtil;
-import com.liferay.portal.upgrade.UpgradeProcessUtil;
+//import com.liferay.portal.upgrade.UpgradeProcessUtil;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portlet.documentlibrary.NoSuchFileEntryTypeException;
 import com.liferay.portlet.documentlibrary.model.DLFileEntryMetadata;
@@ -171,13 +171,13 @@ public class AddDefaultDocumentLibraryStructuresAction
 			DLFileEntryTypeConstants.NAME_SALES_PRESENTATION, ddmStructureNames,
 			serviceContext);
 
-		if (UpgradeProcessUtil.isCreateIGImageDocumentType()) {
+/*		if (UpgradeProcessUtil.isCreateIGImageDocumentType()) {
 			addDLFileEntryType(
 				userId, groupId,
 				DLFileEntryTypeConstants.NAME_LOCALIZED_IG_IMAGE,
 				DLFileEntryTypeConstants.NAME_IG_IMAGE, ddmStructureNames,
 				serviceContext);
-		}
+		}*/
 	}
 
 	protected void addDLRawMetadataStructures(

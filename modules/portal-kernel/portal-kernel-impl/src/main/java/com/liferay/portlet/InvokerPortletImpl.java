@@ -36,7 +36,6 @@ import com.liferay.portal.model.Layout;
 import com.liferay.portal.model.PortletApp;
 import com.liferay.portal.model.PortletConstants;
 import com.liferay.portal.model.impl.PortletFilterImpl;
-import com.liferay.portal.tools.deploy.PortletDeployer;
 import com.liferay.portal.util.ClassLoaderUtil;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portal.util.WebKeys;
@@ -165,11 +164,11 @@ public class InvokerPortletImpl implements InvokerPortlet {
 
 		boolean facesPortlet = false;
 
-		if (ClassUtil.isSubclass(
-				portlet.getClass(), PortletDeployer.JSF_STANDARD)) {
-
-			facesPortlet = true;
-		}
+//		if (ClassUtil.isSubclass(
+//				portlet.getClass(), PortletDeployer.JSF_STANDARD)) {
+//
+//			facesPortlet = true;
+//		}
 
 		boolean strutsPortlet = ClassUtil.isSubclass(
 			portlet.getClass(), StrutsPortlet.class);

@@ -27,8 +27,8 @@ import com.liferay.portlet.asset.model.AssetRendererFactory;
 import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 import com.liferay.portlet.documentlibrary.service.DLAppLocalServiceUtil;
 import com.liferay.portlet.journal.model.JournalArticle;
-import com.liferay.portlet.messageboards.model.MBMessage;
-import com.liferay.portlet.messageboards.service.MBMessageLocalServiceUtil;
+//import com.liferay.portlet.messageboards.model.MBMessage;
+//import com.liferay.portlet.messageboards.service.MBMessageLocalServiceUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,36 +57,36 @@ public class SearchResultUtil {
 				long classPK = entryClassPK;
 
 				FileEntry fileEntry = null;
-				MBMessage mbMessage = null;
+				//MBMessage mbMessage = null;
 
-				if (entryClassName.equals(DLFileEntry.class.getName()) ||
-					entryClassName.equals(MBMessage.class.getName())) {
-
-					classPK = GetterUtil.getLong(document.get(Field.CLASS_PK));
-					long classNameId = GetterUtil.getLong(
-						document.get(Field.CLASS_NAME_ID));
-
-					if ((classPK > 0) && (classNameId > 0)) {
-						className = PortalUtil.getClassName(classNameId);
-
-						if (entryClassName.equals(
-								DLFileEntry.class.getName())) {
-
-							fileEntry = DLAppLocalServiceUtil.getFileEntry(
-								entryClassPK);
-						}
-						else if (entryClassName.equals(
-									MBMessage.class.getName())) {
-
-							mbMessage = MBMessageLocalServiceUtil.getMessage(
-								entryClassPK);
-						}
-					}
-					else {
-						className = entryClassName;
-						classPK = entryClassPK;
-					}
-				}
+//				if (entryClassName.equals(DLFileEntry.class.getName()) ||
+//					entryClassName.equals(MBMessage.class.getName())) {
+//
+//					classPK = GetterUtil.getLong(document.get(Field.CLASS_PK));
+//					long classNameId = GetterUtil.getLong(
+//						document.get(Field.CLASS_NAME_ID));
+//
+//					if ((classPK > 0) && (classNameId > 0)) {
+//						className = PortalUtil.getClassName(classNameId);
+//
+//						if (entryClassName.equals(
+//								DLFileEntry.class.getName())) {
+//
+//							fileEntry = DLAppLocalServiceUtil.getFileEntry(
+//								entryClassPK);
+//						}
+//						else if (entryClassName.equals(
+//									MBMessage.class.getName())) {
+//
+//							mbMessage = MBMessageLocalServiceUtil.getMessage(
+//								entryClassPK);
+//						}
+//					}
+//					else {
+//						className = entryClassName;
+//						classPK = entryClassPK;
+//					}
+//				}
 
 				SearchResult searchResult = new SearchResult(
 					className, classPK);
@@ -108,9 +108,9 @@ public class SearchResultUtil {
 					searchResult.addFileEntry(fileEntry, summary);
 				}
 
-				if (mbMessage != null) {
-					searchResult.addMBMessage(mbMessage);
-				}
+//				if (mbMessage != null) {
+//					searchResult.addMBMessage(mbMessage);
+//				}
 
 				if (entryClassName.equals(JournalArticle.class.getName())) {
 					String version = document.get(Field.VERSION);
@@ -118,12 +118,12 @@ public class SearchResultUtil {
 					searchResult.addVersion(version);
 				}
 
-				if ((mbMessage == null) && (fileEntry == null)) {
-					Summary summary = getSummary(
-						document, className, classPK, locale, portletURL);
-
-					searchResult.setSummary(summary);
-				}
+//				if ((mbMessage == null) && (fileEntry == null)) {
+//					Summary summary = getSummary(
+//						document, className, classPK, locale, portletURL);
+//
+//					searchResult.setSummary(summary);
+//				}
 				else {
 					if (searchResult.getSummary() == null) {
 						Summary summary = getSummary(

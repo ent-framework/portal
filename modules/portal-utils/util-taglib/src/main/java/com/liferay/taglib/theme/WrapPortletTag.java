@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -37,102 +37,97 @@ import javax.servlet.jsp.tagext.BodyTag;
  * @author Brian Wing Shun Chan
  */
 public class WrapPortletTag
-	extends ParamAndPropertyAncestorTagImpl implements BodyTag {
+        extends ParamAndPropertyAncestorTagImpl implements BodyTag {
 
-	public static String doTag(
-			String wrapPage, String portletPage, ServletContext servletContext,
-			HttpServletRequest request, HttpServletResponse response,
-			PageContext pageContext)
-		throws Exception {
+    private static final String _CONTENT_WRAPPER_POST = "</div>";
+    private static final String _CONTENT_WRAPPER_PRE =
+            "<div class=\"column-1\" id=\"main-content\" role=\"main\">";
+    private String _page;
 
-		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
-			WebKeys.THEME_DISPLAY);
+    public static String doTag(
+            String wrapPage, String portletPage, ServletContext servletContext,
+            HttpServletRequest request, HttpServletResponse response,
+            PageContext pageContext)
+            throws Exception {
 
-		Theme theme = themeDisplay.getTheme();
-		PortletDisplay portletDisplay = themeDisplay.getPortletDisplay();
+        ThemeDisplay themeDisplay = (ThemeDisplay) request.getAttribute(
+                WebKeys.THEME_DISPLAY);
 
-		// Portlet content
+        Theme theme = themeDisplay.getTheme();
+        PortletDisplay portletDisplay = themeDisplay.getPortletDisplay();
 
-		RequestDispatcher requestDispatcher =
-			DirectRequestDispatcherFactoryUtil.getRequestDispatcher(
-				servletContext, portletPage);
+        // Portlet content
 
-		UnsyncStringWriter unsyncStringWriter = new UnsyncStringWriter();
+        RequestDispatcher requestDispatcher =
+                DirectRequestDispatcherFactoryUtil.getRequestDispatcher(
+                        servletContext, portletPage);
 
-		PipingServletResponse pipingServletResponse = new PipingServletResponse(
-			response, unsyncStringWriter);
+        UnsyncStringWriter unsyncStringWriter = new UnsyncStringWriter();
 
-		requestDispatcher.include(request, pipingServletResponse);
+        PipingServletResponse pipingServletResponse = new PipingServletResponse(
+                response, unsyncStringWriter);
 
-		portletDisplay.setContent(unsyncStringWriter.getStringBundler());
+        requestDispatcher.include(request, pipingServletResponse);
 
-		// Page
+        portletDisplay.setContent(unsyncStringWriter.getStringBundler());
 
-		String content = null;
+        // Page
 
-		String extension = theme.getTemplateExtension();
+        String content = null;
 
-		if (extension.equals(ThemeHelper.TEMPLATE_EXTENSION_FTL)) {
-			content = ThemeUtil.includeFTL(
-				servletContext, request, pageContext, wrapPage, theme, false);
-		}
-		else if (extension.equals(ThemeHelper.TEMPLATE_EXTENSION_VM)) {
-			content = ThemeUtil.includeVM(
-				servletContext, request, pageContext, wrapPage, theme, false);
-		}
+        String extension = theme.getTemplateExtension();
 
-		return _CONTENT_WRAPPER_PRE.concat(content).concat(
-			_CONTENT_WRAPPER_POST);
-	}
+        if (extension.equals(ThemeHelper.TEMPLATE_EXTENSION_FTL)) {
+            content = ThemeUtil.includeFTL(
+                    servletContext, request, pageContext, wrapPage, theme, false);
+        } else if (extension.equals(ThemeHelper.TEMPLATE_EXTENSION_VM)) {
+            content = ThemeUtil.includeVM(
+                    servletContext, request, pageContext, wrapPage, theme, false);
+        }
 
-	@Override
-	public int doEndTag() throws JspException {
-		try {
-			ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
-				WebKeys.THEME_DISPLAY);
+        return _CONTENT_WRAPPER_PRE.concat(content).concat(
+                _CONTENT_WRAPPER_POST);
+    }
 
-			Theme theme = themeDisplay.getTheme();
-			PortletDisplay portletDisplay = themeDisplay.getPortletDisplay();
+    @Override
+    public int doEndTag() throws JspException {
+        try {
+            ThemeDisplay themeDisplay = (ThemeDisplay) request.getAttribute(
+                    WebKeys.THEME_DISPLAY);
 
-			// Portlet content
+            Theme theme = themeDisplay.getTheme();
+            PortletDisplay portletDisplay = themeDisplay.getPortletDisplay();
 
-			portletDisplay.setContent(getBodyContentAsStringBundler());
+            // Portlet content
 
-			// Page
+            portletDisplay.setContent(getBodyContentAsStringBundler());
 
-			ThemeUtil.include(
-				servletContext, request, new PipingServletResponse(pageContext),
-				pageContext, getPage(), theme);
+            // Page
 
-			return EVAL_PAGE;
-		}
-		catch (Exception e) {
-			throw new JspException(e);
-		}
-		finally {
-			clearParams();
-			clearProperties();
-		}
-	}
+            ThemeUtil.include(
+                    servletContext, request, new PipingServletResponse(pageContext),
+                    pageContext, getPage(), theme);
 
-	@Override
-	public int doStartTag() {
-		return EVAL_BODY_BUFFERED;
-	}
+            return EVAL_PAGE;
+        } catch (Exception e) {
+            throw new JspException(e);
+        } finally {
+            clearParams();
+            clearProperties();
+        }
+    }
 
-	public void setPage(String page) {
-		_page = page;
-	}
+    @Override
+    public int doStartTag() {
+        return EVAL_BODY_BUFFERED;
+    }
 
-	protected String getPage() {
-		return _page;
-	}
+    protected String getPage() {
+        return _page;
+    }
 
-	private static final String _CONTENT_WRAPPER_POST = "</div>";
-
-	private static final String _CONTENT_WRAPPER_PRE =
-		"<div class=\"column-1\" id=\"main-content\" role=\"main\">";
-
-	private String _page;
+    public void setPage(String page) {
+        _page = page;
+    }
 
 }

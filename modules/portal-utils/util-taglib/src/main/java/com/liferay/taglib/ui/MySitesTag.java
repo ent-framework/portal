@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -23,51 +23,50 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class MySitesTag extends IncludeTag {
 
-	public void setClassNames(String[] classNames) {
-		_classNames = classNames;
-	}
+    private static final String _PAGE = "/html/taglib/ui/my_sites/page.jsp";
+    private String[] _classNames;
+    private String _cssClass;
+    private boolean _includeControlPanel;
+    private int _max;
 
-	public void setCssClass(String cssClass) {
-		_cssClass = cssClass;
-	}
+    public void setClassNames(String[] classNames) {
+        _classNames = classNames;
+    }
 
-	public void setIncludeControlPanel(boolean includeControlPanel) {
-		_includeControlPanel = includeControlPanel;
-	}
+    public void setCssClass(String cssClass) {
+        _cssClass = cssClass;
+    }
 
-	public void setMax(int max) {
-		_max = max;
-	}
+    public void setIncludeControlPanel(boolean includeControlPanel) {
+        _includeControlPanel = includeControlPanel;
+    }
 
-	@Override
-	protected void cleanUp() {
-		_classNames = null;
-		_cssClass = null;
-		_includeControlPanel = false;
-		_max = 0;
-	}
+    public void setMax(int max) {
+        _max = max;
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _classNames = null;
+        _cssClass = null;
+        _includeControlPanel = false;
+        _max = 0;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute("liferay-ui:my_sites:classNames", _classNames);
-		request.setAttribute(
-			"liferay-ui:my_sites:cssClass", String.valueOf(_cssClass));
-		request.setAttribute(
-			"liferay-ui:my_sites:includeControlPanel",
-			String.valueOf(_includeControlPanel));
-		request.setAttribute("liferay-ui:my_sites:max", String.valueOf(_max));
-	}
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
-	private static final String _PAGE = "/html/taglib/ui/my_sites/page.jsp";
-
-	private String[] _classNames;
-	private String _cssClass;
-	private boolean _includeControlPanel;
-	private int _max;
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        request.setAttribute("liferay-ui:my_sites:classNames", _classNames);
+        request.setAttribute(
+                "liferay-ui:my_sites:cssClass", String.valueOf(_cssClass));
+        request.setAttribute(
+                "liferay-ui:my_sites:includeControlPanel",
+                String.valueOf(_includeControlPanel));
+        request.setAttribute("liferay-ui:my_sites:max", String.valueOf(_max));
+    }
 
 }

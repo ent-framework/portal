@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -21,12 +21,12 @@ import com.liferay.taglib.util.IncludeTag;
  */
 public class InputSchedulerTag extends IncludeTag {
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    private static final String _PAGE =
+            "/html/taglib/ui/input_scheduler/page.jsp";
 
-	private static final String _PAGE =
-		"/html/taglib/ui/input_scheduler/page.jsp";
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
 }

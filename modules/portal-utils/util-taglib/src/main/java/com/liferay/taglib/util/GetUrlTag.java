@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -29,44 +29,42 @@ import javax.servlet.jsp.tagext.TagSupport;
  */
 public class GetUrlTag extends TagSupport {
 
-	@Override
-	public int doEndTag() throws JspException {
-		try {
-			WebCacheItem wci = new GetUrlWebCacheItem(_url, _expires);
+    private long _expires = Time.WEEK;
+    private String _url;
+    private String _var;
 
-			String content = (String)WebCachePoolUtil.get(
-				GetUrlTag.class.getName() + StringPool.PERIOD + _url, wci);
+    @Override
+    public int doEndTag() throws JspException {
+        try {
+            WebCacheItem wci = new GetUrlWebCacheItem(_url, _expires);
 
-			if (Validator.isNotNull(_var)) {
-				pageContext.setAttribute(_var, content);
-			}
-			else {
-				JspWriter jspWriter = pageContext.getOut();
+            String content = (String) WebCachePoolUtil.get(
+                    GetUrlTag.class.getName() + StringPool.PERIOD + _url, wci);
 
-				jspWriter.print(content);
-			}
+            if (Validator.isNotNull(_var)) {
+                pageContext.setAttribute(_var, content);
+            } else {
+                JspWriter jspWriter = pageContext.getOut();
 
-			return EVAL_PAGE;
-		}
-		catch (Exception e) {
-			throw new JspException(e);
-		}
-	}
+                jspWriter.print(content);
+            }
 
-	public void setExpires(long expires) {
-		_expires = expires;
-	}
+            return EVAL_PAGE;
+        } catch (Exception e) {
+            throw new JspException(e);
+        }
+    }
 
-	public void setUrl(String url) {
-		_url = url;
-	}
+    public void setExpires(long expires) {
+        _expires = expires;
+    }
 
-	public void setVar(String var) {
-		_var = var;
-	}
+    public void setUrl(String url) {
+        _url = url;
+    }
 
-	private long _expires = Time.WEEK;
-	private String _url;
-	private String _var;
+    public void setVar(String var) {
+        _var = var;
+    }
 
 }

@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -25,82 +25,80 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class RSSSettingsTag extends IncludeTag {
 
-	public void setDelta(int delta) {
-		_delta = delta;
-	}
+    private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
+    private static final String _PAGE = "/html/taglib/ui/rss_settings/page.jsp";
+    private int _delta = SearchContainer.DEFAULT_DELTA;
+    private String _displayStyle = RSSUtil.DISPLAY_STYLE_DEFAULT;
+    private String[] _displayStyles = RSSUtil.DISPLAY_STYLES;
+    private boolean _enabled;
+    private String _feedType = RSSUtil.FEED_TYPE_DEFAULT;
+    private String _name;
+    private boolean _nameEnabled;
 
-	public void setDisplayStyle(String displayStyle) {
-		_displayStyle = displayStyle;
-	}
+    public void setDelta(int delta) {
+        _delta = delta;
+    }
 
-	public void setDisplayStyles(String[] displayStyles) {
-		_displayStyles = displayStyles;
-	}
+    public void setDisplayStyle(String displayStyle) {
+        _displayStyle = displayStyle;
+    }
 
-	public void setEnabled(boolean enabled) {
-		_enabled = enabled;
-	}
+    public void setDisplayStyles(String[] displayStyles) {
+        _displayStyles = displayStyles;
+    }
 
-	public void setFeedType(String feedType) {
-		_feedType = feedType;
-	}
+    public void setEnabled(boolean enabled) {
+        _enabled = enabled;
+    }
 
-	public void setName(String name) {
-		_name = name;
-	}
+    public void setFeedType(String feedType) {
+        _feedType = feedType;
+    }
 
-	public void setNameEnabled(boolean nameEnabled) {
-		_nameEnabled = nameEnabled;
-	}
+    public void setName(String name) {
+        _name = name;
+    }
 
-	@Override
-	protected void cleanUp() {
-		_delta = SearchContainer.DEFAULT_DELTA;
-		_displayStyle = RSSUtil.DISPLAY_STYLE_DEFAULT;
-		_displayStyles = RSSUtil.DISPLAY_STYLES;
-		_enabled = false;
-		_feedType = RSSUtil.FEED_TYPE_DEFAULT;
-		_name = null;
-		_nameEnabled = false;
-	}
+    public void setNameEnabled(boolean nameEnabled) {
+        _nameEnabled = nameEnabled;
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _delta = SearchContainer.DEFAULT_DELTA;
+        _displayStyle = RSSUtil.DISPLAY_STYLE_DEFAULT;
+        _displayStyles = RSSUtil.DISPLAY_STYLES;
+        _enabled = false;
+        _feedType = RSSUtil.FEED_TYPE_DEFAULT;
+        _name = null;
+        _nameEnabled = false;
+    }
 
-	@Override
-	protected boolean isCleanUpSetAttributes() {
-		return _CLEAN_UP_SET_ATTRIBUTES;
-	}
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute(
-			"liferay-ui:rss-settings:delta", String.valueOf(_delta));
-		request.setAttribute(
-			"liferay-ui:rss-settings:displayStyle", _displayStyle);
-		request.setAttribute(
-			"liferay-ui:rss-settings:displayStyles", _displayStyles);
-		request.setAttribute(
-			"liferay-ui:rss-settings:enabled", String.valueOf(_enabled));
-		request.setAttribute("liferay-ui:rss-settings:feedType", _feedType);
-		request.setAttribute("liferay-ui:rss-settings:name", _name);
-		request.setAttribute(
-			"liferay-ui:rss-settings:nameEnabled",
-			String.valueOf(_nameEnabled));
-	}
+    @Override
+    protected boolean isCleanUpSetAttributes() {
+        return _CLEAN_UP_SET_ATTRIBUTES;
+    }
 
-	private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
-
-	private static final String _PAGE = "/html/taglib/ui/rss_settings/page.jsp";
-
-	private int _delta = SearchContainer.DEFAULT_DELTA;
-	private String _displayStyle = RSSUtil.DISPLAY_STYLE_DEFAULT;
-	private String[] _displayStyles = RSSUtil.DISPLAY_STYLES;
-	private boolean _enabled;
-	private String _feedType = RSSUtil.FEED_TYPE_DEFAULT;
-	private String _name;
-	private boolean _nameEnabled;
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        request.setAttribute(
+                "liferay-ui:rss-settings:delta", String.valueOf(_delta));
+        request.setAttribute(
+                "liferay-ui:rss-settings:displayStyle", _displayStyle);
+        request.setAttribute(
+                "liferay-ui:rss-settings:displayStyles", _displayStyles);
+        request.setAttribute(
+                "liferay-ui:rss-settings:enabled", String.valueOf(_enabled));
+        request.setAttribute("liferay-ui:rss-settings:feedType", _feedType);
+        request.setAttribute("liferay-ui:rss-settings:name", _name);
+        request.setAttribute(
+                "liferay-ui:rss-settings:nameEnabled",
+                String.valueOf(_nameEnabled));
+    }
 
 }

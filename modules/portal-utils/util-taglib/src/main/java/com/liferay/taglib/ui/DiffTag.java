@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -17,50 +17,48 @@ package com.liferay.taglib.ui;
 import com.liferay.portal.kernel.util.DiffResult;
 import com.liferay.taglib.util.IncludeTag;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * @author Bruno Farache
  */
 public class DiffTag extends IncludeTag {
 
-	public void setDiffResults(List<DiffResult>[] diffResults) {
-		_diffResults = diffResults;
-	}
+    private static final String _PAGE = "/html/taglib/ui/diff/page.jsp";
+    private List<DiffResult>[] _diffResults;
+    private String _sourceName;
+    private String _targetName;
 
-	public void setSourceName(String sourceName) {
-		_sourceName = sourceName;
-	}
+    public void setDiffResults(List<DiffResult>[] diffResults) {
+        _diffResults = diffResults;
+    }
 
-	public void setTargetName(String targetName) {
-		_targetName = targetName;
-	}
+    public void setSourceName(String sourceName) {
+        _sourceName = sourceName;
+    }
 
-	@Override
-	protected void cleanUp() {
-		_diffResults = null;
-		_sourceName = null;
-		_targetName = null;
-	}
+    public void setTargetName(String targetName) {
+        _targetName = targetName;
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _diffResults = null;
+        _sourceName = null;
+        _targetName = null;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute("liferay-ui:diff:diffResults", _diffResults);
-		request.setAttribute("liferay-ui:diff:sourceName", _sourceName);
-		request.setAttribute("liferay-ui:diff:targetName", _targetName);
-	}
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
-	private static final String _PAGE = "/html/taglib/ui/diff/page.jsp";
-
-	private List<DiffResult>[] _diffResults;
-	private String _sourceName;
-	private String _targetName;
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        request.setAttribute("liferay-ui:diff:diffResults", _diffResults);
+        request.setAttribute("liferay-ui:diff:sourceName", _sourceName);
+        request.setAttribute("liferay-ui:diff:targetName", _targetName);
+    }
 
 }

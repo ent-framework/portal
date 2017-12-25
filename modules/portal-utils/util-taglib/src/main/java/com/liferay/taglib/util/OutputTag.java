@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -28,83 +28,81 @@ import javax.servlet.jsp.JspException;
  */
 public class OutputTag extends PositionTagSupport {
 
-	public static StringBundler getData(
-		ServletRequest servletRequest, String webKey) {
+    private boolean _output;
+    private String _outputKey;
+    private String _webKey;
 
-		OutputData outputData = _getOutputData(servletRequest);
+    public OutputTag(String stringBundlerKey) {
+        _webKey = stringBundlerKey;
+    }
 
-		return outputData.getMergedData(webKey);
-	}
+    public static StringBundler getData(
+            ServletRequest servletRequest, String webKey) {
 
-	public OutputTag(String stringBundlerKey) {
-		_webKey = stringBundlerKey;
-	}
+        OutputData outputData = _getOutputData(servletRequest);
 
-	@Override
-	public int doEndTag() throws JspException {
-		try {
-			if (_output) {
-				OutputData outputData = _getOutputData(
-					pageContext.getRequest());
+        return outputData.getMergedData(webKey);
+    }
 
-				outputData.addData(
-					_outputKey, _webKey, getBodyContentAsStringBundler());
-			}
+    private static OutputData _getOutputData(ServletRequest servletRequest) {
+        OutputData outputData = (OutputData) servletRequest.getAttribute(
+                WebKeys.OUTPUT_DATA);
 
-			return EVAL_PAGE;
-		}
-		catch (Exception e) {
-			throw new JspException(e);
-		}
-		finally {
-			if (!ServerDetector.isResin()) {
-				cleanUp();
-			}
-		}
-	}
+        if (outputData == null) {
+            outputData = new OutputData();
 
-	@Override
-	public int doStartTag() {
-		if (Validator.isNotNull(_outputKey)) {
-			OutputData outputData = _getOutputData(pageContext.getRequest());
+            servletRequest.setAttribute(WebKeys.OUTPUT_DATA, outputData);
+        }
 
-			if (!outputData.addOutputKey(_outputKey)) {
-				_output = false;
+        return outputData;
+    }
 
-				return SKIP_BODY;
-			}
-		}
+    @Override
+    public int doEndTag() throws JspException {
+        try {
+            if (_output) {
+                OutputData outputData = _getOutputData(
+                        pageContext.getRequest());
 
-		if (isPositionInLine()) {
-			_output = false;
+                outputData.addData(
+                        _outputKey, _webKey, getBodyContentAsStringBundler());
+            }
 
-			return EVAL_BODY_INCLUDE;
-		}
+            return EVAL_PAGE;
+        } catch (Exception e) {
+            throw new JspException(e);
+        } finally {
+            if (!ServerDetector.isResin()) {
+                cleanUp();
+            }
+        }
+    }
 
-		_output = true;
+    @Override
+    public int doStartTag() {
+        if (Validator.isNotNull(_outputKey)) {
+            OutputData outputData = _getOutputData(pageContext.getRequest());
 
-		return EVAL_BODY_BUFFERED;
-	}
+            if (!outputData.addOutputKey(_outputKey)) {
+                _output = false;
 
-	public void setOutputKey(String outputKey) {
-		_outputKey = outputKey;
-	}
+                return SKIP_BODY;
+            }
+        }
 
-	private static OutputData _getOutputData(ServletRequest servletRequest) {
-		OutputData outputData = (OutputData)servletRequest.getAttribute(
-			WebKeys.OUTPUT_DATA);
+        if (isPositionInLine()) {
+            _output = false;
 
-		if (outputData == null) {
-			outputData = new OutputData();
+            return EVAL_BODY_INCLUDE;
+        }
 
-			servletRequest.setAttribute(WebKeys.OUTPUT_DATA, outputData);
-		}
+        _output = true;
 
-		return outputData;
-	}
+        return EVAL_BODY_BUFFERED;
+    }
 
-	private boolean _output;
-	private String _outputKey;
-	private String _webKey;
+    public void setOutputKey(String outputKey) {
+        _outputKey = outputKey;
+    }
 
 }

@@ -54,8 +54,8 @@ import javax.sql.DataSource;
 import jodd.bean.BeanUtil;
 
 import org.apache.commons.dbcp.BasicDataSourceFactory;
-import org.apache.tomcat.jdbc.pool.PoolProperties;
-import org.apache.tomcat.jdbc.pool.jmx.ConnectionPool;
+//import org.apache.tomcat.jdbc.pool.PoolProperties;
+//import org.apache.tomcat.jdbc.pool.jmx.ConnectionPool;
 
 /**
  * @author Brian Wing Shun Chan
@@ -78,12 +78,12 @@ public class DataSourceFactoryImpl implements DataSourceFactory {
 
 			comboPooledDataSource.close();
 		}
-		else if (dataSource instanceof org.apache.tomcat.jdbc.pool.DataSource) {
-			org.apache.tomcat.jdbc.pool.DataSource tomcatDataSource =
-				(org.apache.tomcat.jdbc.pool.DataSource)dataSource;
-
-			tomcatDataSource.close();
-		}
+//		else if (dataSource instanceof org.apache.tomcat.jdbc.pool.DataSource) {
+//			org.apache.tomcat.jdbc.pool.DataSource tomcatDataSource =
+//				(org.apache.tomcat.jdbc.pool.DataSource)dataSource;
+//
+//			tomcatDataSource.close();
+//		}
 	}
 
 	@Override
@@ -251,59 +251,60 @@ public class DataSourceFactoryImpl implements DataSourceFactory {
 	protected DataSource initDataSourceTomcat(Properties properties)
 		throws Exception {
 
-		PoolProperties poolProperties = new PoolProperties();
-
-		for (Map.Entry<Object, Object> entry : properties.entrySet()) {
-			String key = (String)entry.getKey();
-			String value = (String)entry.getValue();
-
-			// Ignore Liferay properties
-
-			if (isPropertyLiferay(key)) {
-				continue;
-			}
-
-			// Ignore C3P0 properties
-
-			if (isPropertyC3PO(key)) {
-				continue;
-			}
-
-			try {
-				BeanUtil.setProperty(poolProperties, key, value);
-			}
-			catch (Exception e) {
-				if (_log.isWarnEnabled()) {
-					_log.warn(
-						"Property " + key + " is not a valid Tomcat JDBC " +
-							"Connection Pool property");
-				}
-			}
-		}
-
-		String poolName = StringUtil.randomString();
-
-		poolProperties.setName(poolName);
-
-		org.apache.tomcat.jdbc.pool.DataSource dataSource =
-			new org.apache.tomcat.jdbc.pool.DataSource(poolProperties);
-
-		if (poolProperties.isJmxEnabled()) {
-			org.apache.tomcat.jdbc.pool.ConnectionPool jdbcConnectionPool =
-				dataSource.createPool();
-
-			ConnectionPool jmxConnectionPool = jdbcConnectionPool.getJmxPool();
-
-			MBeanServer mBeanServer =
-				ManagementFactory.getPlatformMBeanServer();
-
-			ObjectName objectName = new ObjectName(
-				_TOMCAT_JDBC_POOL_OBJECT_NAME_PREFIX + poolName);
-
-			mBeanServer.registerMBean(jmxConnectionPool, objectName);
-		}
-
-		return dataSource;
+//		PoolProperties poolProperties = new PoolProperties();
+//
+//		for (Map.Entry<Object, Object> entry : properties.entrySet()) {
+//			String key = (String)entry.getKey();
+//			String value = (String)entry.getValue();
+//
+//			// Ignore Liferay properties
+//
+//			if (isPropertyLiferay(key)) {
+//				continue;
+//			}
+//
+//			// Ignore C3P0 properties
+//
+//			if (isPropertyC3PO(key)) {
+//				continue;
+//			}
+//
+//			try {
+//				BeanUtil.setProperty(poolProperties, key, value);
+//			}
+//			catch (Exception e) {
+//				if (_log.isWarnEnabled()) {
+//					_log.warn(
+//						"Property " + key + " is not a valid Tomcat JDBC " +
+//							"Connection Pool property");
+//				}
+//			}
+//		}
+//
+//		String poolName = StringUtil.randomString();
+//
+//		poolProperties.setName(poolName);
+//
+//		org.apache.tomcat.jdbc.pool.DataSource dataSource =
+//			new org.apache.tomcat.jdbc.pool.DataSource(poolProperties);
+//
+//		if (poolProperties.isJmxEnabled()) {
+//			org.apache.tomcat.jdbc.pool.ConnectionPool jdbcConnectionPool =
+//				dataSource.createPool();
+//
+//			ConnectionPool jmxConnectionPool = jdbcConnectionPool.getJmxPool();
+//
+//			MBeanServer mBeanServer =
+//				ManagementFactory.getPlatformMBeanServer();
+//
+//			ObjectName objectName = new ObjectName(
+//				_TOMCAT_JDBC_POOL_OBJECT_NAME_PREFIX + poolName);
+//
+//			mBeanServer.registerMBean(jmxConnectionPool, objectName);
+//		}
+//
+//		return dataSource;
+		return null;
 	}
 
 	protected boolean isPropertyC3PO(String key) {

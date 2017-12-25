@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -26,103 +26,100 @@ import javax.servlet.jsp.JspException;
  */
 public class BaseColumnTag extends com.liferay.taglib.util.IncludeTag {
 
-	@Override
-	public int doStartTag() throws JspException {
-		setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
+    protected static final String _ATTRIBUTE_NAMESPACE = "aui:column:";
+    private static final String _END_PAGE =
+            "/html/taglib/aui/column/end.jsp";
+    private static final String _START_PAGE =
+            "/html/taglib/aui/column/start.jsp";
+    private int _columnWidth = 0;
+    private java.lang.String _cssClass = null;
+    private boolean _first = false;
+    private java.lang.String _id = null;
+    private boolean _last = false;
 
-		return super.doStartTag();
-	}
+    @Override
+    public int doStartTag() throws JspException {
+        setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
 
-	public int getColumnWidth() {
-		return _columnWidth;
-	}
+        return super.doStartTag();
+    }
 
-	public java.lang.String getCssClass() {
-		return _cssClass;
-	}
+    public int getColumnWidth() {
+        return _columnWidth;
+    }
 
-	public boolean getFirst() {
-		return _first;
-	}
+    public void setColumnWidth(int columnWidth) {
+        _columnWidth = columnWidth;
 
-	public java.lang.String getId() {
-		return _id;
-	}
+        setScopedAttribute("columnWidth", columnWidth);
+    }
 
-	public boolean getLast() {
-		return _last;
-	}
+    public java.lang.String getCssClass() {
+        return _cssClass;
+    }
 
-	public void setColumnWidth(int columnWidth) {
-		_columnWidth = columnWidth;
+    public void setCssClass(java.lang.String cssClass) {
+        _cssClass = cssClass;
 
-		setScopedAttribute("columnWidth", columnWidth);
-	}
+        setScopedAttribute("cssClass", cssClass);
+    }
 
-	public void setCssClass(java.lang.String cssClass) {
-		_cssClass = cssClass;
+    public boolean getFirst() {
+        return _first;
+    }
 
-		setScopedAttribute("cssClass", cssClass);
-	}
+    public void setFirst(boolean first) {
+        _first = first;
 
-	public void setFirst(boolean first) {
-		_first = first;
+        setScopedAttribute("first", first);
+    }
 
-		setScopedAttribute("first", first);
-	}
+    public java.lang.String getId() {
+        return _id;
+    }
 
-	public void setId(java.lang.String id) {
-		_id = id;
+    public void setId(java.lang.String id) {
+        _id = id;
 
-		setScopedAttribute("id", id);
-	}
+        setScopedAttribute("id", id);
+    }
 
-	public void setLast(boolean last) {
-		_last = last;
+    public boolean getLast() {
+        return _last;
+    }
 
-		setScopedAttribute("last", last);
-	}
+    public void setLast(boolean last) {
+        _last = last;
 
-	@Override
-	protected void cleanUp() {
-		_columnWidth = 0;
-		_cssClass = null;
-		_first = false;
-		_id = null;
-		_last = false;
-	}
+        setScopedAttribute("last", last);
+    }
 
-	@Override
-	protected String getEndPage() {
-		return _END_PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _columnWidth = 0;
+        _cssClass = null;
+        _first = false;
+        _id = null;
+        _last = false;
+    }
 
-	@Override
-	protected String getStartPage() {
-		return _START_PAGE;
-	}
+    @Override
+    protected String getEndPage() {
+        return _END_PAGE;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		setNamespacedAttribute(request, "columnWidth", _columnWidth);
-		setNamespacedAttribute(request, "cssClass", _cssClass);
-		setNamespacedAttribute(request, "first", _first);
-		setNamespacedAttribute(request, "id", _id);
-		setNamespacedAttribute(request, "last", _last);
-	}
+    @Override
+    protected String getStartPage() {
+        return _START_PAGE;
+    }
 
-	protected static final String _ATTRIBUTE_NAMESPACE = "aui:column:";
-
-	private static final String _END_PAGE =
-		"/html/taglib/aui/column/end.jsp";
-
-	private static final String _START_PAGE =
-		"/html/taglib/aui/column/start.jsp";
-
-	private int _columnWidth = 0;
-	private java.lang.String _cssClass = null;
-	private boolean _first = false;
-	private java.lang.String _id = null;
-	private boolean _last = false;
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        setNamespacedAttribute(request, "columnWidth", _columnWidth);
+        setNamespacedAttribute(request, "cssClass", _cssClass);
+        setNamespacedAttribute(request, "first", _first);
+        setNamespacedAttribute(request, "id", _id);
+        setNamespacedAttribute(request, "last", _last);
+    }
 
 }

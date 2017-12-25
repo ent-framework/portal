@@ -15,7 +15,7 @@
 package com.liferay.portal.spring.context;
 
 import com.liferay.portal.bean.BeanLocatorImpl;
-import com.liferay.portal.cache.ehcache.ClearEhcacheThreadUtil;
+//import com.liferay.portal.cache.ehcache.ClearEhcacheThreadUtil;
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.cache.CacheRegistryUtil;
 import com.liferay.portal.kernel.cache.MultiVMPoolUtil;
@@ -60,7 +60,7 @@ import com.liferay.portal.util.PropsUtil;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portal.util.WebAppPool;
 import com.liferay.portlet.PortletContextBagPool;
-import com.liferay.portlet.wiki.util.WikiCacheUtil;
+//import com.liferay.portlet.wiki.util.WikiCacheUtil;
 
 import java.beans.PropertyDescriptor;
 
@@ -126,12 +126,12 @@ public class PortalContextLoaderListener extends ContextLoaderListener {
 			_log.error(e, e);
 		}
 
-		try {
-			ClearEhcacheThreadUtil.clearEhcacheReplicationThread();
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-		}
+//		try {
+//			ClearEhcacheThreadUtil.clearEhcacheReplicationThread();
+//		}
+//		catch (Exception e) {
+//			_log.error(e, e);
+//		}
 
 		try {
 			DirectServletRegistryUtil.clearServlets();
@@ -267,7 +267,7 @@ public class PortalContextLoaderListener extends ContextLoaderListener {
 			PermissionCacheUtil.clearCache();
 			PermissionCacheUtil.clearLocalCache();
 			TemplateResourceLoaderUtil.clearCache();
-			WikiCacheUtil.clearCache(0);
+		//	WikiCacheUtil.clearCache(0);
 
 			ServletContextPool.clear();
 

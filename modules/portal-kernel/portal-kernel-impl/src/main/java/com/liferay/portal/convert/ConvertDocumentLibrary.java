@@ -42,21 +42,13 @@ import com.liferay.portlet.documentlibrary.model.DLFolderConstants;
 import com.liferay.portlet.documentlibrary.service.DLFileEntryLocalServiceUtil;
 import com.liferay.portlet.documentlibrary.service.persistence.DLFileEntryActionableDynamicQuery;
 import com.liferay.portlet.documentlibrary.store.AdvancedFileSystemStore;
-import com.liferay.portlet.documentlibrary.store.CMISStore;
+
 import com.liferay.portlet.documentlibrary.store.DBStore;
 import com.liferay.portlet.documentlibrary.store.FileSystemStore;
-import com.liferay.portlet.documentlibrary.store.JCRStore;
-import com.liferay.portlet.documentlibrary.store.S3Store;
 import com.liferay.portlet.documentlibrary.store.Store;
 import com.liferay.portlet.documentlibrary.store.StoreFactory;
 import com.liferay.portlet.documentlibrary.util.DLPreviewableProcessor;
 import com.liferay.portlet.documentlibrary.util.comparator.FileVersionVersionComparator;
-import com.liferay.portlet.messageboards.model.MBMessage;
-import com.liferay.portlet.messageboards.service.MBMessageLocalServiceUtil;
-import com.liferay.portlet.messageboards.service.persistence.MBMessageActionableDynamicQuery;
-import com.liferay.portlet.wiki.model.WikiPage;
-import com.liferay.portlet.wiki.service.WikiPageLocalServiceUtil;
-import com.liferay.portlet.wiki.service.persistence.WikiPageActionableDynamicQuery;
 
 import java.io.InputStream;
 
@@ -248,90 +240,15 @@ public class ConvertDocumentLibrary extends ConvertProcess {
 		actionableDynamicQuery.performActions();
 	}
 
-	protected void migrateMB() throws PortalException, SystemException {
-		int count = MBMessageLocalServiceUtil.getMBMessagesCount();
-
-		MaintenanceUtil.appendStatus(
-			"Migrating message boards attachments in " + count + " messages");
-
-		ActionableDynamicQuery actionableDynamicQuery =
-			new MBMessageActionableDynamicQuery() {
-
-			@Override
-			protected void performAction(Object object)
-				throws PortalException, SystemException {
-
-				MBMessage mbMessage = (MBMessage)object;
-
-				for (FileEntry fileEntry :
-						mbMessage.getAttachmentsFileEntries()) {
-
-					DLFileEntry dlFileEntry = (DLFileEntry)fileEntry.getModel();
-
-					migrateDLFileEntry(
-						mbMessage.getCompanyId(),
-						DLFolderConstants.getDataRepositoryId(
-							dlFileEntry.getRepositoryId(),
-							dlFileEntry.getFolderId()),
-						dlFileEntry);
-				}
-			}
-
-		};
-
-		actionableDynamicQuery.performActions();
-	}
-
 	protected void migratePortlets() throws Exception {
 		migrateImages();
 		migrateDL();
-		migrateMB();
-		migrateWiki();
 	}
 
-	protected void migrateWiki() throws PortalException, SystemException {
-		int count = WikiPageLocalServiceUtil.getWikiPagesCount();
-
-		MaintenanceUtil.appendStatus(
-			"Migrating wiki page attachments in " + count + " pages");
-
-		ActionableDynamicQuery actionableDynamicQuery =
-			new WikiPageActionableDynamicQuery() {
-
-			@Override
-			protected void addCriteria(DynamicQuery dynamicQuery) {
-				Property property = PropertyFactoryUtil.forName("head");
-
-				dynamicQuery.add(property.eq(true));
-			}
-
-			@Override
-			protected void performAction(Object object) throws SystemException {
-				WikiPage wikiPage = (WikiPage)object;
-
-				for (FileEntry fileEntry :
-						wikiPage.getAttachmentsFileEntries()) {
-
-					DLFileEntry dlFileEntry = (DLFileEntry)fileEntry.getModel();
-
-					migrateDLFileEntry(
-						wikiPage.getCompanyId(),
-						DLFolderConstants.getDataRepositoryId(
-							dlFileEntry.getRepositoryId(),
-							dlFileEntry.getFolderId()),
-						dlFileEntry);
-				}
-			}
-
-		};
-
-		actionableDynamicQuery.performActions();
-	}
 
 	private static final String[] _HOOKS = new String[] {
-		AdvancedFileSystemStore.class.getName(), CMISStore.class.getName(),
-		DBStore.class.getName(), FileSystemStore.class.getName(),
-		JCRStore.class.getName(), S3Store.class.getName()
+		AdvancedFileSystemStore.class.getName(),
+		DBStore.class.getName(), FileSystemStore.class.getName()
 	};
 
 	private static Log _log = LogFactoryUtil.getLog(

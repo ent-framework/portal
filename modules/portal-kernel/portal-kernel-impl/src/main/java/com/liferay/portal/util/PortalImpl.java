@@ -202,14 +202,10 @@ import com.liferay.portlet.journal.model.JournalArticleConstants;
 import com.liferay.portlet.journal.model.JournalFolder;
 import com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil;
 import com.liferay.portlet.login.util.LoginUtil;
-import com.liferay.portlet.messageboards.action.EditDiscussionAction;
-import com.liferay.portlet.messageboards.model.MBMessage;
-import com.liferay.portlet.messageboards.model.MBThread;
 import com.liferay.portlet.sites.util.Sites;
 import com.liferay.portlet.sites.util.SitesUtil;
 import com.liferay.portlet.social.model.SocialRelationConstants;
 import com.liferay.portlet.social.util.FacebookUtil;
-import com.liferay.portlet.wiki.model.WikiPage;
 import com.liferay.util.Encryptor;
 import com.liferay.util.JS;
 
@@ -5854,8 +5850,7 @@ public class PortalImpl implements Portal {
 			getClassNameId(BookmarksFolder.class),
 			getClassNameId(CalEvent.class), getClassNameId(DLFileEntry.class),
 			getClassNameId(DLFolder.class), getClassNameId(JournalFolder.class),
-			getClassNameId(MBMessage.class), getClassNameId(MBThread.class),
-			getClassNameId(WikiPage.class), ResourceConstants.SCOPE_COMPANY,
+				ResourceConstants.SCOPE_COMPANY,
 			ResourceConstants.SCOPE_GROUP,
 			ResourceConstants.SCOPE_GROUP_TEMPLATE,
 			ResourceConstants.SCOPE_INDIVIDUAL,
@@ -5914,8 +5909,8 @@ public class PortalImpl implements Portal {
 			ActionResponse actionResponse)
 		throws Exception {
 
-		_editDiscussionAction.processAction(
-			null, null, portletConfig, actionRequest, actionResponse);
+//		_editDiscussionAction.processAction(
+//			null, null, portletConfig, actionRequest, actionResponse);
 	}
 
 	/**
@@ -8074,8 +8069,6 @@ public class PortalImpl implements Portal {
 	private String _computerName;
 	private String[] _customSqlKeys;
 	private String[] _customSqlValues;
-	private EditDiscussionAction _editDiscussionAction =
-		new EditDiscussionAction();
 	private String _pathContext;
 	private String _pathFriendlyURLPrivateGroup;
 	private String _pathFriendlyURLPrivateUser;

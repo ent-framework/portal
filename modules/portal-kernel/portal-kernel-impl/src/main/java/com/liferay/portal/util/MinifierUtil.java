@@ -21,8 +21,8 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 
 import com.yahoo.platform.yui.compressor.CssCompressor;
 import com.yahoo.platform.yui.compressor.JavaScriptCompressor;
-import com.yahoo.platform.yui.mozilla.javascript.ErrorReporter;
-import com.yahoo.platform.yui.mozilla.javascript.EvaluatorException;
+//import com.yahoo.platform.yui.mozilla.javascript.ErrorReporter;
+//import com.yahoo.platform.yui.mozilla.javascript.EvaluatorException;
 
 /**
  * @author Brian Wing Shun Chan
@@ -71,24 +71,26 @@ public class MinifierUtil {
 	private String _minifyJavaScript(String content) {
 		UnsyncStringWriter unsyncStringWriter = new UnsyncStringWriter();
 
-		try {
-			JavaScriptCompressor javaScriptCompressor =
-				new JavaScriptCompressor(
-					new UnsyncStringReader(content),
-					new JavaScriptErrorReporter());
+//		try {
+//			JavaScriptCompressor javaScriptCompressor =
+//					new JavaScriptCompressor(
+//							new UnsyncStringReader(content),
+//							new JavaScriptErrorReporter());
+//
+//			javaScriptCompressor.compress(
+//					unsyncStringWriter, PropsValues.YUI_COMPRESSOR_JS_LINE_BREAK,
+//					PropsValues.YUI_COMPRESSOR_JS_MUNGE,
+//					PropsValues.YUI_COMPRESSOR_JS_VERBOSE,
+//					PropsValues.YUI_COMPRESSOR_JS_PRESERVE_ALL_SEMICOLONS,
+//					PropsValues.YUI_COMPRESSOR_JS_DISABLE_OPTIMIZATIONS);
+//		}
+//		catch (Exception e) {
+//			_log.error("JavaScript Minifier failed for\n" + content);
+//
+//			unsyncStringWriter.append(content);
+//		}
 
-			javaScriptCompressor.compress(
-				unsyncStringWriter, PropsValues.YUI_COMPRESSOR_JS_LINE_BREAK,
-				PropsValues.YUI_COMPRESSOR_JS_MUNGE,
-				PropsValues.YUI_COMPRESSOR_JS_VERBOSE,
-				PropsValues.YUI_COMPRESSOR_JS_PRESERVE_ALL_SEMICOLONS,
-				PropsValues.YUI_COMPRESSOR_JS_DISABLE_OPTIMIZATIONS);
-		}
-		catch (Exception e) {
-			_log.error("JavaScript Minifier failed for\n" + content);
-
-			unsyncStringWriter.append(content);
-		}
+		unsyncStringWriter.append(content);
 
 		return unsyncStringWriter.toString();
 	}
@@ -97,48 +99,48 @@ public class MinifierUtil {
 
 	private static MinifierUtil _instance = new MinifierUtil();
 
-	private class JavaScriptErrorReporter implements ErrorReporter {
-
-		@Override
-		public void error(
-			String message, String sourceName, int line, String lineSource,
-			int lineOffset) {
-
-			if (line < 0) {
-				_log.error(message);
-			}
-			else {
-				_log.error(line + ": " + lineOffset + ": " + message);
-			}
-		}
-
-		@Override
-		public EvaluatorException runtimeError(
-			String message, String sourceName, int line, String lineSource,
-			int lineOffset) {
-
-			error(message, sourceName, line, lineSource, lineOffset);
-
-			return new EvaluatorException(message);
-		}
-
-		@Override
-		public void warning(
-			String message, String sourceName, int line, String lineSource,
-			int lineOffset) {
-
-			if (!_log.isWarnEnabled()) {
-				return;
-			}
-
-			if (line < 0) {
-				_log.warn(message);
-			}
-			else {
-				_log.warn(line + ": " + lineOffset + ": " + message);
-			}
-		}
-
-	}
+//	private class JavaScriptErrorReporter implements ErrorReporter {
+//
+//		@Override
+//		public void error(
+//			String message, String sourceName, int line, String lineSource,
+//			int lineOffset) {
+//
+//			if (line < 0) {
+//				_log.error(message);
+//			}
+//			else {
+//				_log.error(line + ": " + lineOffset + ": " + message);
+//			}
+//		}
+//
+//		@Override
+//		public EvaluatorException runtimeError(
+//			String message, String sourceName, int line, String lineSource,
+//			int lineOffset) {
+//
+//			error(message, sourceName, line, lineSource, lineOffset);
+//
+//			return new EvaluatorException(message);
+//		}
+//
+//		@Override
+//		public void warning(
+//			String message, String sourceName, int line, String lineSource,
+//			int lineOffset) {
+//
+//			if (!_log.isWarnEnabled()) {
+//				return;
+//			}
+//
+//			if (line < 0) {
+//				_log.warn(message);
+//			}
+//			else {
+//				_log.warn(line + ": " + lineOffset + ": " + message);
+//			}
+//		}
+//
+//	}
 
 }

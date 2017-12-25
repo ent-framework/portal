@@ -82,7 +82,7 @@ import com.liferay.portlet.expando.model.ExpandoBridge;
 import com.liferay.portlet.expando.model.ExpandoColumnConstants;
 import com.liferay.portlet.expando.util.ExpandoBridgeFactoryUtil;
 import com.liferay.portlet.expando.util.ExpandoBridgeIndexerUtil;
-import com.liferay.portlet.messageboards.model.MBMessage;
+//import com.liferay.portlet.messageboards.model.MBMessage;
 import com.liferay.portlet.ratings.model.RatingsStats;
 import com.liferay.portlet.ratings.service.RatingsStatsLocalServiceUtil;
 import com.liferay.portlet.trash.model.TrashEntry;
@@ -220,10 +220,10 @@ public abstract class BaseIndexer implements Indexer {
 			}
 
 			if (searchContext.isIncludeDiscussions()) {
-				entryClassNames = ArrayUtil.append(
+/*				entryClassNames = ArrayUtil.append(
 					entryClassNames, MBMessage.class.getName());
 
-				searchContext.setAttribute("discussion", Boolean.TRUE);
+				searchContext.setAttribute("discussion", Boolean.TRUE);*/
 			}
 
 			searchContext.setEntryClassNames(entryClassNames);

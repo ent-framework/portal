@@ -14,9 +14,7 @@
 
 package com.liferay.portal.events;
 
-import com.liferay.portal.deploy.DeployUtil;
-import com.liferay.portal.deploy.messaging.RequiredPluginsMessageListener;
-import com.liferay.portal.jcr.JCRFactoryUtil;
+//import com.liferay.portal.jcr.JCRFactoryUtil;
 import com.liferay.portal.kernel.deploy.auto.AutoDeployDir;
 import com.liferay.portal.kernel.deploy.auto.AutoDeployListener;
 import com.liferay.portal.kernel.deploy.auto.AutoDeployUtil;
@@ -57,8 +55,6 @@ import java.io.File;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.jamwiki.Environment;
 
 /**
  * @author Brian Wing Shun Chan
@@ -170,42 +166,42 @@ public class GlobalStartupAction extends SimpleAction {
 
 		// Auto deploy
 
-		try {
-			File deployDir = new File(
-				PrefsPropsUtil.getString(
-					PropsKeys.AUTO_DEPLOY_DEPLOY_DIR,
-					PropsValues.AUTO_DEPLOY_DEPLOY_DIR));
-			File destDir = new File(DeployUtil.getAutoDeployDestDir());
-			long interval = PrefsPropsUtil.getLong(
-				PropsKeys.AUTO_DEPLOY_INTERVAL,
-				PropsValues.AUTO_DEPLOY_INTERVAL);
-
-			List<AutoDeployListener> autoDeployListeners =
-				getAutoDeployListeners(false);
-
-			AutoDeployDir autoDeployDir = new AutoDeployDir(
-				AutoDeployDir.DEFAULT_NAME, deployDir, destDir, interval,
-				autoDeployListeners);
-
-			if (PrefsPropsUtil.getBoolean(
-					PropsKeys.AUTO_DEPLOY_ENABLED,
-					PropsValues.AUTO_DEPLOY_ENABLED)) {
-
-				if (_log.isInfoEnabled()) {
-					_log.info("Registering auto deploy directories");
-				}
-
-				AutoDeployUtil.registerDir(autoDeployDir);
-			}
-			else {
-				if (_log.isInfoEnabled()) {
-					_log.info("Not registering auto deploy directories");
-				}
-			}
-		}
-		catch (Exception e) {
-			_log.error(e);
-		}
+//		try {
+//			File deployDir = new File(
+//				PrefsPropsUtil.getString(
+//					PropsKeys.AUTO_DEPLOY_DEPLOY_DIR,
+//					PropsValues.AUTO_DEPLOY_DEPLOY_DIR));
+//			File destDir = new File(DeployUtil.getAutoDeployDestDir());
+//			long interval = PrefsPropsUtil.getLong(
+//				PropsKeys.AUTO_DEPLOY_INTERVAL,
+//				PropsValues.AUTO_DEPLOY_INTERVAL);
+//
+//			List<AutoDeployListener> autoDeployListeners =
+//				getAutoDeployListeners(false);
+//
+//			AutoDeployDir autoDeployDir = new AutoDeployDir(
+//				AutoDeployDir.DEFAULT_NAME, deployDir, destDir, interval,
+//				autoDeployListeners);
+//
+//			if (PrefsPropsUtil.getBoolean(
+//					PropsKeys.AUTO_DEPLOY_ENABLED,
+//					PropsValues.AUTO_DEPLOY_ENABLED)) {
+//
+//				if (_log.isInfoEnabled()) {
+//					_log.info("Registering auto deploy directories");
+//				}
+//
+//				AutoDeployUtil.registerDir(autoDeployDir);
+//			}
+//			else {
+//				if (_log.isInfoEnabled()) {
+//					_log.info("Not registering auto deploy directories");
+//				}
+//			}
+//		}
+//		catch (Exception e) {
+//			_log.error(e);
+//		}
 
 		// Hot deploy
 
@@ -264,7 +260,7 @@ public class GlobalStartupAction extends SimpleAction {
 		try {
 			String tmpDir = SystemProperties.get(SystemProperties.TMP_DIR);
 
-			Environment.setValue(Environment.PROP_BASE_FILE_DIR, tmpDir);
+			// Environment.setValue(Environment.PROP_BASE_FILE_DIR, tmpDir);
 		}
 		catch (Throwable t) {
 			_log.error(t);
@@ -279,18 +275,18 @@ public class GlobalStartupAction extends SimpleAction {
 
 		// JCR
 
-		try {
-			JCRFactoryUtil.prepare();
-
-			if (GetterUtil.getBoolean(
-					PropsUtil.get(PropsKeys.JCR_INITIALIZE_ON_STARTUP))) {
-
-				JCRFactoryUtil.initialize();
-			}
-		}
-		catch (Exception e) {
-			_log.error(e);
-		}
+//		try {
+//			JCRFactoryUtil.prepare();
+//
+//			if (GetterUtil.getBoolean(
+//					PropsUtil.get(PropsKeys.JCR_INITIALIZE_ON_STARTUP))) {
+//
+//				JCRFactoryUtil.initialize();
+//			}
+//		}
+//		catch (Exception e) {
+//			_log.error(e);
+//		}
 
 		// JNDI
 
@@ -319,21 +315,21 @@ public class GlobalStartupAction extends SimpleAction {
 
 		// Plugins
 
-		try {
-			SchedulerEntry schedulerEntry = new SchedulerEntryImpl();
-
-			schedulerEntry.setEventListenerClass(
-				RequiredPluginsMessageListener.class.getName());
-			schedulerEntry.setTimeUnit(TimeUnit.MINUTE);
-			schedulerEntry.setTriggerType(TriggerType.SIMPLE);
-			schedulerEntry.setTriggerValue(1);
-
-			SchedulerEngineHelperUtil.schedule(
-				schedulerEntry, StorageType.MEMORY, null, 0);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-		}
+//		try {
+//			SchedulerEntry schedulerEntry = new SchedulerEntryImpl();
+//
+//			schedulerEntry.setEventListenerClass(
+//				RequiredPluginsMessageListener.class.getName());
+//			schedulerEntry.setTimeUnit(TimeUnit.MINUTE);
+//			schedulerEntry.setTriggerType(TriggerType.SIMPLE);
+//			schedulerEntry.setTriggerValue(1);
+//
+//			SchedulerEngineHelperUtil.schedule(
+//				schedulerEntry, StorageType.MEMORY, null, 0);
+//		}
+//		catch (Exception e) {
+//			_log.error(e, e);
+//		}
 
 		// POP server
 

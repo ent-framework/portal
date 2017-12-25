@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -17,7 +17,6 @@ package com.liferay.taglib.ui;
 import com.liferay.taglib.util.IncludeTag;
 
 import javax.portlet.PortletURL;
-
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -25,84 +24,79 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class TrashEmptyTag extends IncludeTag {
 
-	@Override
-	public int doStartTag() {
-		return EVAL_BODY_INCLUDE;
-	}
+    private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
+    private static final String _CONFIRM_MESSAGE =
+            "are-you-sure-you-want-to-empty-the-recycle-bin";
+    private static final String _EMPTY_MESSAGE = "empty-the-recycle-bin";
+    private static final String _INFO_MESSAGE =
+            "entries-that-have-been-in-the-recycle-bin-for-more-than-x-will-be-" +
+                    "automatically-deleted";
+    private static final String _PAGE = "/html/taglib/ui/trash_empty/page.jsp";
+    private String _confirmMessage = _CONFIRM_MESSAGE;
+    private String _emptyMessage = _EMPTY_MESSAGE;
+    private String _infoMessage = _INFO_MESSAGE;
+    private String _portletURL;
+    private int _totalEntries;
 
-	public void setConfirmMessage(String confirmMessage) {
-		_confirmMessage = confirmMessage;
-	}
+    @Override
+    public int doStartTag() {
+        return EVAL_BODY_INCLUDE;
+    }
 
-	public void setEmptyMessage(String emptyMessage) {
-		_emptyMessage = emptyMessage;
-	}
+    public void setConfirmMessage(String confirmMessage) {
+        _confirmMessage = confirmMessage;
+    }
 
-	public void setInfoMessage(String infoMessage) {
-		_infoMessage = infoMessage;
-	}
+    public void setEmptyMessage(String emptyMessage) {
+        _emptyMessage = emptyMessage;
+    }
 
-	public void setPortletURL(PortletURL portletURL) {
-		_portletURL = portletURL.toString();
-	}
+    public void setInfoMessage(String infoMessage) {
+        _infoMessage = infoMessage;
+    }
 
-	public void setPortletURL(String portletURL) {
-		_portletURL = portletURL;
-	}
+    public void setPortletURL(PortletURL portletURL) {
+        _portletURL = portletURL.toString();
+    }
 
-	public void setTotalEntries(int totalEntries) {
-		_totalEntries = totalEntries;
-	}
+    public void setPortletURL(String portletURL) {
+        _portletURL = portletURL;
+    }
 
-	@Override
-	protected void cleanUp() {
-		_confirmMessage = _CONFIRM_MESSAGE;
-		_emptyMessage = _EMPTY_MESSAGE;
-		_infoMessage = _INFO_MESSAGE;
-		_portletURL = null;
-		_totalEntries = 0;
-	}
+    public void setTotalEntries(int totalEntries) {
+        _totalEntries = totalEntries;
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _confirmMessage = _CONFIRM_MESSAGE;
+        _emptyMessage = _EMPTY_MESSAGE;
+        _infoMessage = _INFO_MESSAGE;
+        _portletURL = null;
+        _totalEntries = 0;
+    }
 
-	@Override
-	protected boolean isCleanUpSetAttributes() {
-		return _CLEAN_UP_SET_ATTRIBUTES;
-	}
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute(
-			"liferay-ui:trash-empty:confirmMessage", _confirmMessage);
-		request.setAttribute(
-			"liferay-ui:trash-empty:emptyMessage", _emptyMessage);
-		request.setAttribute(
-			"liferay-ui:trash-empty:infoMessage", _infoMessage);
-		request.setAttribute("liferay-ui:trash-empty:portletURL", _portletURL);
-		request.setAttribute(
-			"liferay-ui:trash-empty:totalEntries", _totalEntries);
-	}
+    @Override
+    protected boolean isCleanUpSetAttributes() {
+        return _CLEAN_UP_SET_ATTRIBUTES;
+    }
 
-	private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
-
-	private static final String _CONFIRM_MESSAGE =
-		"are-you-sure-you-want-to-empty-the-recycle-bin";
-
-	private static final String _EMPTY_MESSAGE = "empty-the-recycle-bin";
-
-	private static final String _INFO_MESSAGE =
-		"entries-that-have-been-in-the-recycle-bin-for-more-than-x-will-be-" +
-			"automatically-deleted";
-
-	private static final String _PAGE = "/html/taglib/ui/trash_empty/page.jsp";
-
-	private String _confirmMessage = _CONFIRM_MESSAGE;
-	private String _emptyMessage = _EMPTY_MESSAGE;
-	private String _infoMessage = _INFO_MESSAGE;
-	private String _portletURL;
-	private int _totalEntries;
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        request.setAttribute(
+                "liferay-ui:trash-empty:confirmMessage", _confirmMessage);
+        request.setAttribute(
+                "liferay-ui:trash-empty:emptyMessage", _emptyMessage);
+        request.setAttribute(
+                "liferay-ui:trash-empty:infoMessage", _infoMessage);
+        request.setAttribute("liferay-ui:trash-empty:portletURL", _portletURL);
+        request.setAttribute(
+                "liferay-ui:trash-empty:totalEntries", _totalEntries);
+    }
 
 }

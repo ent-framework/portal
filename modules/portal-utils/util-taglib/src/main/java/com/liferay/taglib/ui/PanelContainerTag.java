@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -30,160 +30,153 @@ import javax.servlet.jsp.tagext.BodyTag;
  */
 public class PanelContainerTag extends BaseBodyTagSupport implements BodyTag {
 
-	@Override
-	public int doAfterBody() {
-		HttpServletRequest request =
-			(HttpServletRequest)pageContext.getRequest();
+    private static final String _END_PAGE =
+            "/html/taglib/ui/panel_container/end.jsp";
+    private static final String _START_PAGE =
+            "/html/taglib/ui/panel_container/start.jsp";
+    private boolean _accordion;
+    private String _cssClass;
+    private String _endPage;
+    private Boolean _extended;
+    private String _id;
+    private boolean _persistState;
+    private String _startPage;
 
-		IntegerWrapper panelCount = (IntegerWrapper)request.getAttribute(
-			"liferay-ui:panel-container:panelCount" + _id);
+    @Override
+    public int doAfterBody() {
+        HttpServletRequest request =
+                (HttpServletRequest) pageContext.getRequest();
 
-		if ((panelCount != null) && (panelCount.getValue() == 1)) {
-			bodyContent.clearBody();
+        IntegerWrapper panelCount = (IntegerWrapper) request.getAttribute(
+                "liferay-ui:panel-container:panelCount" + _id);
 
-			return EVAL_BODY_AGAIN;
-		}
-		else {
-			return SKIP_BODY;
-		}
-	}
+        if ((panelCount != null) && (panelCount.getValue() == 1)) {
+            bodyContent.clearBody();
 
-	@Override
-	public int doEndTag() throws JspException {
-		try {
-			HttpServletRequest request =
-				(HttpServletRequest)pageContext.getRequest();
+            return EVAL_BODY_AGAIN;
+        } else {
+            return SKIP_BODY;
+        }
+    }
 
-			IntegerWrapper panelCount = (IntegerWrapper)request.getAttribute(
-				"liferay-ui:panel-container:panelCount" + _id);
+    @Override
+    public int doEndTag() throws JspException {
+        try {
+            HttpServletRequest request =
+                    (HttpServletRequest) pageContext.getRequest();
 
-			request.removeAttribute(
-				"liferay-ui:panel-container:panelCount" + _id);
+            IntegerWrapper panelCount = (IntegerWrapper) request.getAttribute(
+                    "liferay-ui:panel-container:panelCount" + _id);
 
-			if ((panelCount != null) && (panelCount.getValue() >= 1)) {
-				PortalIncludeUtil.include(pageContext, getStartPage());
-			}
+            request.removeAttribute(
+                    "liferay-ui:panel-container:panelCount" + _id);
 
-			writeBodyContent(pageContext.getOut());
+            if ((panelCount != null) && (panelCount.getValue() >= 1)) {
+                PortalIncludeUtil.include(pageContext, getStartPage());
+            }
 
-			if ((panelCount != null) && (panelCount.getValue() >= 1)) {
-				PortalIncludeUtil.include(pageContext, getEndPage());
-			}
+            writeBodyContent(pageContext.getOut());
 
-			request.removeAttribute("liferay-ui:panel-container:id");
-			request.removeAttribute("liferay-ui:panel-container:accordion");
-			request.removeAttribute("liferay-ui:panel-container:persistState");
-			request.removeAttribute("liferay-ui:panel-container:extended");
-			request.removeAttribute("liferay-ui:panel-container:cssClass");
+            if ((panelCount != null) && (panelCount.getValue() >= 1)) {
+                PortalIncludeUtil.include(pageContext, getEndPage());
+            }
 
-			return EVAL_PAGE;
-		}
-		catch (Exception e) {
-			throw new JspException(e);
-		}
-		finally {
-			if (!ServerDetector.isResin()) {
-				cleanUp();
-			}
-		}
-	}
+            request.removeAttribute("liferay-ui:panel-container:id");
+            request.removeAttribute("liferay-ui:panel-container:accordion");
+            request.removeAttribute("liferay-ui:panel-container:persistState");
+            request.removeAttribute("liferay-ui:panel-container:extended");
+            request.removeAttribute("liferay-ui:panel-container:cssClass");
 
-	@Override
-	public int doStartTag() {
-		HttpServletRequest request =
-			(HttpServletRequest)pageContext.getRequest();
+            return EVAL_PAGE;
+        } catch (Exception e) {
+            throw new JspException(e);
+        } finally {
+            if (!ServerDetector.isResin()) {
+                cleanUp();
+            }
+        }
+    }
 
-		if (Validator.isNull(_id)) {
-			_id = StringUtil.randomId();
-		}
+    @Override
+    public int doStartTag() {
+        HttpServletRequest request =
+                (HttpServletRequest) pageContext.getRequest();
 
-		request.setAttribute("liferay-ui:panel-container:id", _id);
-		request.setAttribute(
-			"liferay-ui:panel-container:accordion", String.valueOf(_accordion));
-		request.setAttribute(
-			"liferay-ui:panel-container:persistState",
-			String.valueOf(_persistState));
-		request.setAttribute("liferay-ui:panel-container:extended", _extended);
-		request.setAttribute("liferay-ui:panel-container:cssClass", _cssClass);
-		request.setAttribute(
-			"liferay-ui:panel-container:panelCount" + _id,
-			new IntegerWrapper());
+        if (Validator.isNull(_id)) {
+            _id = StringUtil.randomId();
+        }
 
-		return EVAL_BODY_BUFFERED;
-	}
+        request.setAttribute("liferay-ui:panel-container:id", _id);
+        request.setAttribute(
+                "liferay-ui:panel-container:accordion", String.valueOf(_accordion));
+        request.setAttribute(
+                "liferay-ui:panel-container:persistState",
+                String.valueOf(_persistState));
+        request.setAttribute("liferay-ui:panel-container:extended", _extended);
+        request.setAttribute("liferay-ui:panel-container:cssClass", _cssClass);
+        request.setAttribute(
+                "liferay-ui:panel-container:panelCount" + _id,
+                new IntegerWrapper());
 
-	public String getId() {
-		return _id;
-	}
+        return EVAL_BODY_BUFFERED;
+    }
 
-	public void setAccordion(boolean accordion) {
-		_accordion = accordion;
-	}
+    public String getId() {
+        return _id;
+    }
 
-	public void setCssClass(String cssClass) {
-		_cssClass = cssClass;
-	}
+    public void setId(String id) {
+        _id = id;
+    }
 
-	public void setEndPage(String endPage) {
-		_endPage = endPage;
-	}
+    public void setAccordion(boolean accordion) {
+        _accordion = accordion;
+    }
 
-	public void setExtended(Boolean extended) {
-		_extended = extended;
-	}
+    public void setCssClass(String cssClass) {
+        _cssClass = cssClass;
+    }
 
-	public void setId(String id) {
-		_id = id;
-	}
+    public void setExtended(Boolean extended) {
+        _extended = extended;
+    }
 
-	public void setPersistState(boolean persistState) {
-		_persistState = persistState;
-	}
+    public void setPersistState(boolean persistState) {
+        _persistState = persistState;
+    }
 
-	public void setStartPage(String startPage) {
-		_startPage = startPage;
-	}
+    protected void cleanUp() {
+        _accordion = false;
+        _cssClass = null;
+        _endPage = null;
+        _extended = false;
+        _id = null;
+        _persistState = false;
+        _startPage = null;
+    }
 
-	protected void cleanUp() {
-		_accordion = false;
-		_cssClass = null;
-		_endPage = null;
-		_extended = false;
-		_id = null;
-		_persistState = false;
-		_startPage = null;
-	}
+    protected String getEndPage() {
+        if (Validator.isNull(_endPage)) {
+            return _END_PAGE;
+        } else {
+            return _endPage;
+        }
+    }
 
-	protected String getEndPage() {
-		if (Validator.isNull(_endPage)) {
-			return _END_PAGE;
-		}
-		else {
-			return _endPage;
-		}
-	}
+    public void setEndPage(String endPage) {
+        _endPage = endPage;
+    }
 
-	protected String getStartPage() {
-		if (Validator.isNull(_startPage)) {
-			return _START_PAGE;
-		}
-		else {
-			return _startPage;
-		}
-	}
+    protected String getStartPage() {
+        if (Validator.isNull(_startPage)) {
+            return _START_PAGE;
+        } else {
+            return _startPage;
+        }
+    }
 
-	private static final String _END_PAGE =
-		"/html/taglib/ui/panel_container/end.jsp";
-
-	private static final String _START_PAGE =
-		"/html/taglib/ui/panel_container/start.jsp";
-
-	private boolean _accordion;
-	private String _cssClass;
-	private String _endPage;
-	private Boolean _extended;
-	private String _id;
-	private boolean _persistState;
-	private String _startPage;
+    public void setStartPage(String startPage) {
+        _startPage = startPage;
+    }
 
 }

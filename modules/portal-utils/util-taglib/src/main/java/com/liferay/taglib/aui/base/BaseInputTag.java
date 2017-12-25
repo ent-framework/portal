@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -26,589 +26,587 @@ import javax.servlet.jsp.JspException;
  */
 public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 
-	@Override
-	public int doStartTag() throws JspException {
-		setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
+    protected static final String _ATTRIBUTE_NAMESPACE = "aui:input:";
+    private static final String _PAGE =
+            "/html/taglib/aui/input/page.jsp";
+    private boolean _autoFocus = false;
+    private boolean _autoSize = false;
+    private java.lang.Object _bean = null;
+    private boolean _changesContext = false;
+    private boolean _checked = false;
+    private long _classPK = 0;
+    private java.lang.String _cssClass = null;
+    private java.lang.Object _data = null;
+    private java.lang.String _dateTogglerCheckboxLabel = null;
+    private java.lang.String _defaultLanguageId = null;
+    private boolean _disabled = false;
+    private java.lang.String _field = null;
+    private java.lang.String _fieldParam = null;
+    private boolean _first = false;
+    private java.lang.String _formName = null;
+    private java.lang.String _helpMessage = null;
+    private java.lang.String _helpTextCssClass = "add-on";
+    private java.lang.String _id = null;
+    private boolean _ignoreRequestValue = false;
+    private boolean _inlineField = false;
+    private java.lang.String _inlineLabel = null;
+    private java.lang.String _label = null;
+    private java.lang.String _languageId = null;
+    private boolean _last = false;
+    private boolean _localized = false;
+    private java.lang.Object _max = null;
+    private java.lang.Class<?> _model = null;
+    private java.lang.Object _min = null;
+    private boolean _multiple = false;
+    private java.lang.String _name = null;
+    private java.lang.String _onChange = null;
+    private java.lang.String _onClick = null;
+    private java.lang.String _placeholder = null;
+    private java.lang.String _prefix = null;
+    private boolean _required = false;
+    private boolean _resizable = false;
+    private boolean _showRequiredLabel = true;
+    private java.lang.String _suffix = null;
+    private java.lang.String _title = null;
+    private java.lang.String _type = null;
+    private boolean _useNamespace = true;
+    private java.lang.Object _value = null;
+    private java.lang.String _wrapperCssClass = null;
+
+    @Override
+    public int doStartTag() throws JspException {
+        setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
+
+        return super.doStartTag();
+    }
+
+    public boolean getAutoFocus() {
+        return _autoFocus;
+    }
+
+    public void setAutoFocus(boolean autoFocus) {
+        _autoFocus = autoFocus;
+
+        setScopedAttribute("autoFocus", autoFocus);
+    }
+
+    public boolean getAutoSize() {
+        return _autoSize;
+    }
+
+    public void setAutoSize(boolean autoSize) {
+        _autoSize = autoSize;
+
+        setScopedAttribute("autoSize", autoSize);
+    }
+
+    public java.lang.Object getBean() {
+        return _bean;
+    }
+
+    public void setBean(java.lang.Object bean) {
+        _bean = bean;
+
+        setScopedAttribute("bean", bean);
+    }
+
+    public boolean getChangesContext() {
+        return _changesContext;
+    }
+
+    public void setChangesContext(boolean changesContext) {
+        _changesContext = changesContext;
+
+        setScopedAttribute("changesContext", changesContext);
+    }
+
+    public boolean getChecked() {
+        return _checked;
+    }
+
+    public void setChecked(boolean checked) {
+        _checked = checked;
+
+        setScopedAttribute("checked", checked);
+    }
 
-		return super.doStartTag();
-	}
-
-	public boolean getAutoFocus() {
-		return _autoFocus;
-	}
-
-	public boolean getAutoSize() {
-		return _autoSize;
-	}
-
-	public java.lang.Object getBean() {
-		return _bean;
-	}
-
-	public boolean getChangesContext() {
-		return _changesContext;
-	}
-
-	public boolean getChecked() {
-		return _checked;
-	}
-
-	public long getClassPK() {
-		return _classPK;
-	}
-
-	public java.lang.String getCssClass() {
-		return _cssClass;
-	}
-
-	public java.lang.Object getData() {
-		return _data;
-	}
-
-	public java.lang.String getDateTogglerCheckboxLabel() {
-		return _dateTogglerCheckboxLabel;
-	}
-
-	public java.lang.String getDefaultLanguageId() {
-		return _defaultLanguageId;
-	}
-
-	public boolean getDisabled() {
-		return _disabled;
-	}
-
-	public java.lang.String getField() {
-		return _field;
-	}
-
-	public java.lang.String getFieldParam() {
-		return _fieldParam;
-	}
-
-	public boolean getFirst() {
-		return _first;
-	}
-
-	public java.lang.String getFormName() {
-		return _formName;
-	}
-
-	public java.lang.String getHelpMessage() {
-		return _helpMessage;
-	}
-
-	public java.lang.String getHelpTextCssClass() {
-		return _helpTextCssClass;
-	}
-
-	public java.lang.String getId() {
-		return _id;
-	}
-
-	public boolean getIgnoreRequestValue() {
-		return _ignoreRequestValue;
-	}
+    public long getClassPK() {
+        return _classPK;
+    }
 
-	public boolean getInlineField() {
-		return _inlineField;
-	}
+    public void setClassPK(long classPK) {
+        _classPK = classPK;
 
-	public java.lang.String getInlineLabel() {
-		return _inlineLabel;
-	}
+        setScopedAttribute("classPK", classPK);
+    }
 
-	public java.lang.String getLabel() {
-		return _label;
-	}
+    public java.lang.String getCssClass() {
+        return _cssClass;
+    }
 
-	public java.lang.String getLanguageId() {
-		return _languageId;
-	}
+    public void setCssClass(java.lang.String cssClass) {
+        _cssClass = cssClass;
 
-	public boolean getLast() {
-		return _last;
-	}
+        setScopedAttribute("cssClass", cssClass);
+    }
 
-	public boolean getLocalized() {
-		return _localized;
-	}
+    public java.lang.Object getData() {
+        return _data;
+    }
 
-	public java.lang.Object getMax() {
-		return _max;
-	}
+    public void setData(java.lang.Object data) {
+        _data = data;
 
-	public java.lang.Class<?> getModel() {
-		return _model;
-	}
+        setScopedAttribute("data", data);
+    }
 
-	public java.lang.Object getMin() {
-		return _min;
-	}
+    public java.lang.String getDateTogglerCheckboxLabel() {
+        return _dateTogglerCheckboxLabel;
+    }
 
-	public boolean getMultiple() {
-		return _multiple;
-	}
+    public void setDateTogglerCheckboxLabel(java.lang.String dateTogglerCheckboxLabel) {
+        _dateTogglerCheckboxLabel = dateTogglerCheckboxLabel;
 
-	public java.lang.String getName() {
-		return _name;
-	}
+        setScopedAttribute("dateTogglerCheckboxLabel", dateTogglerCheckboxLabel);
+    }
 
-	public java.lang.String getOnChange() {
-		return _onChange;
-	}
+    public java.lang.String getDefaultLanguageId() {
+        return _defaultLanguageId;
+    }
 
-	public java.lang.String getOnClick() {
-		return _onClick;
-	}
+    public void setDefaultLanguageId(java.lang.String defaultLanguageId) {
+        _defaultLanguageId = defaultLanguageId;
 
-	public java.lang.String getPlaceholder() {
-		return _placeholder;
-	}
+        setScopedAttribute("defaultLanguageId", defaultLanguageId);
+    }
 
-	public java.lang.String getPrefix() {
-		return _prefix;
-	}
+    public boolean getDisabled() {
+        return _disabled;
+    }
 
-	public boolean getRequired() {
-		return _required;
-	}
+    public void setDisabled(boolean disabled) {
+        _disabled = disabled;
 
-	public boolean getResizable() {
-		return _resizable;
-	}
+        setScopedAttribute("disabled", disabled);
+    }
 
-	public boolean getShowRequiredLabel() {
-		return _showRequiredLabel;
-	}
+    public java.lang.String getField() {
+        return _field;
+    }
 
-	public java.lang.String getSuffix() {
-		return _suffix;
-	}
+    public void setField(java.lang.String field) {
+        _field = field;
 
-	public java.lang.String getTitle() {
-		return _title;
-	}
+        setScopedAttribute("field", field);
+    }
 
-	public java.lang.String getType() {
-		return _type;
-	}
+    public java.lang.String getFieldParam() {
+        return _fieldParam;
+    }
 
-	public boolean getUseNamespace() {
-		return _useNamespace;
-	}
+    public void setFieldParam(java.lang.String fieldParam) {
+        _fieldParam = fieldParam;
 
-	public java.lang.Object getValue() {
-		return _value;
-	}
+        setScopedAttribute("fieldParam", fieldParam);
+    }
 
-	public java.lang.String getWrapperCssClass() {
-		return _wrapperCssClass;
-	}
+    public boolean getFirst() {
+        return _first;
+    }
 
-	public void setAutoFocus(boolean autoFocus) {
-		_autoFocus = autoFocus;
+    public void setFirst(boolean first) {
+        _first = first;
 
-		setScopedAttribute("autoFocus", autoFocus);
-	}
+        setScopedAttribute("first", first);
+    }
 
-	public void setAutoSize(boolean autoSize) {
-		_autoSize = autoSize;
+    public java.lang.String getFormName() {
+        return _formName;
+    }
 
-		setScopedAttribute("autoSize", autoSize);
-	}
+    public void setFormName(java.lang.String formName) {
+        _formName = formName;
 
-	public void setBean(java.lang.Object bean) {
-		_bean = bean;
+        setScopedAttribute("formName", formName);
+    }
 
-		setScopedAttribute("bean", bean);
-	}
+    public java.lang.String getHelpMessage() {
+        return _helpMessage;
+    }
 
-	public void setChangesContext(boolean changesContext) {
-		_changesContext = changesContext;
+    public void setHelpMessage(java.lang.String helpMessage) {
+        _helpMessage = helpMessage;
 
-		setScopedAttribute("changesContext", changesContext);
-	}
+        setScopedAttribute("helpMessage", helpMessage);
+    }
 
-	public void setChecked(boolean checked) {
-		_checked = checked;
+    public java.lang.String getHelpTextCssClass() {
+        return _helpTextCssClass;
+    }
 
-		setScopedAttribute("checked", checked);
-	}
+    public void setHelpTextCssClass(java.lang.String helpTextCssClass) {
+        _helpTextCssClass = helpTextCssClass;
 
-	public void setClassPK(long classPK) {
-		_classPK = classPK;
+        setScopedAttribute("helpTextCssClass", helpTextCssClass);
+    }
 
-		setScopedAttribute("classPK", classPK);
-	}
+    public java.lang.String getId() {
+        return _id;
+    }
 
-	public void setCssClass(java.lang.String cssClass) {
-		_cssClass = cssClass;
+    public void setId(java.lang.String id) {
+        _id = id;
 
-		setScopedAttribute("cssClass", cssClass);
-	}
+        setScopedAttribute("id", id);
+    }
 
-	public void setData(java.lang.Object data) {
-		_data = data;
+    public boolean getIgnoreRequestValue() {
+        return _ignoreRequestValue;
+    }
 
-		setScopedAttribute("data", data);
-	}
+    public void setIgnoreRequestValue(boolean ignoreRequestValue) {
+        _ignoreRequestValue = ignoreRequestValue;
 
-	public void setDateTogglerCheckboxLabel(java.lang.String dateTogglerCheckboxLabel) {
-		_dateTogglerCheckboxLabel = dateTogglerCheckboxLabel;
+        setScopedAttribute("ignoreRequestValue", ignoreRequestValue);
+    }
 
-		setScopedAttribute("dateTogglerCheckboxLabel", dateTogglerCheckboxLabel);
-	}
+    public boolean getInlineField() {
+        return _inlineField;
+    }
 
-	public void setDefaultLanguageId(java.lang.String defaultLanguageId) {
-		_defaultLanguageId = defaultLanguageId;
+    public void setInlineField(boolean inlineField) {
+        _inlineField = inlineField;
 
-		setScopedAttribute("defaultLanguageId", defaultLanguageId);
-	}
+        setScopedAttribute("inlineField", inlineField);
+    }
 
-	public void setDisabled(boolean disabled) {
-		_disabled = disabled;
+    public java.lang.String getInlineLabel() {
+        return _inlineLabel;
+    }
 
-		setScopedAttribute("disabled", disabled);
-	}
+    public void setInlineLabel(java.lang.String inlineLabel) {
+        _inlineLabel = inlineLabel;
 
-	public void setField(java.lang.String field) {
-		_field = field;
+        setScopedAttribute("inlineLabel", inlineLabel);
+    }
 
-		setScopedAttribute("field", field);
-	}
+    public java.lang.String getLabel() {
+        return _label;
+    }
 
-	public void setFieldParam(java.lang.String fieldParam) {
-		_fieldParam = fieldParam;
+    public void setLabel(java.lang.String label) {
+        _label = label;
 
-		setScopedAttribute("fieldParam", fieldParam);
-	}
+        setScopedAttribute("label", label);
+    }
 
-	public void setFirst(boolean first) {
-		_first = first;
+    public java.lang.String getLanguageId() {
+        return _languageId;
+    }
 
-		setScopedAttribute("first", first);
-	}
+    public void setLanguageId(java.lang.String languageId) {
+        _languageId = languageId;
 
-	public void setFormName(java.lang.String formName) {
-		_formName = formName;
+        setScopedAttribute("languageId", languageId);
+    }
 
-		setScopedAttribute("formName", formName);
-	}
+    public boolean getLast() {
+        return _last;
+    }
 
-	public void setHelpMessage(java.lang.String helpMessage) {
-		_helpMessage = helpMessage;
+    public void setLast(boolean last) {
+        _last = last;
 
-		setScopedAttribute("helpMessage", helpMessage);
-	}
+        setScopedAttribute("last", last);
+    }
 
-	public void setHelpTextCssClass(java.lang.String helpTextCssClass) {
-		_helpTextCssClass = helpTextCssClass;
+    public boolean getLocalized() {
+        return _localized;
+    }
 
-		setScopedAttribute("helpTextCssClass", helpTextCssClass);
-	}
+    public void setLocalized(boolean localized) {
+        _localized = localized;
 
-	public void setId(java.lang.String id) {
-		_id = id;
+        setScopedAttribute("localized", localized);
+    }
 
-		setScopedAttribute("id", id);
-	}
+    public java.lang.Object getMax() {
+        return _max;
+    }
 
-	public void setIgnoreRequestValue(boolean ignoreRequestValue) {
-		_ignoreRequestValue = ignoreRequestValue;
+    public void setMax(java.lang.Object max) {
+        _max = max;
 
-		setScopedAttribute("ignoreRequestValue", ignoreRequestValue);
-	}
+        setScopedAttribute("max", max);
+    }
 
-	public void setInlineField(boolean inlineField) {
-		_inlineField = inlineField;
+    public java.lang.Class<?> getModel() {
+        return _model;
+    }
 
-		setScopedAttribute("inlineField", inlineField);
-	}
+    public void setModel(java.lang.Class<?> model) {
+        _model = model;
 
-	public void setInlineLabel(java.lang.String inlineLabel) {
-		_inlineLabel = inlineLabel;
+        setScopedAttribute("model", model);
+    }
 
-		setScopedAttribute("inlineLabel", inlineLabel);
-	}
+    public java.lang.Object getMin() {
+        return _min;
+    }
 
-	public void setLabel(java.lang.String label) {
-		_label = label;
+    public void setMin(java.lang.Object min) {
+        _min = min;
 
-		setScopedAttribute("label", label);
-	}
+        setScopedAttribute("min", min);
+    }
 
-	public void setLanguageId(java.lang.String languageId) {
-		_languageId = languageId;
+    public boolean getMultiple() {
+        return _multiple;
+    }
 
-		setScopedAttribute("languageId", languageId);
-	}
+    public void setMultiple(boolean multiple) {
+        _multiple = multiple;
 
-	public void setLast(boolean last) {
-		_last = last;
+        setScopedAttribute("multiple", multiple);
+    }
 
-		setScopedAttribute("last", last);
-	}
+    public java.lang.String getName() {
+        return _name;
+    }
 
-	public void setLocalized(boolean localized) {
-		_localized = localized;
+    public void setName(java.lang.String name) {
+        _name = name;
 
-		setScopedAttribute("localized", localized);
-	}
+        setScopedAttribute("name", name);
+    }
 
-	public void setMax(java.lang.Object max) {
-		_max = max;
+    public java.lang.String getOnChange() {
+        return _onChange;
+    }
 
-		setScopedAttribute("max", max);
-	}
+    public void setOnChange(java.lang.String onChange) {
+        _onChange = onChange;
 
-	public void setModel(java.lang.Class<?> model) {
-		_model = model;
+        setScopedAttribute("onChange", onChange);
+    }
 
-		setScopedAttribute("model", model);
-	}
+    public java.lang.String getOnClick() {
+        return _onClick;
+    }
 
-	public void setMin(java.lang.Object min) {
-		_min = min;
+    public void setOnClick(java.lang.String onClick) {
+        _onClick = onClick;
 
-		setScopedAttribute("min", min);
-	}
+        setScopedAttribute("onClick", onClick);
+    }
 
-	public void setMultiple(boolean multiple) {
-		_multiple = multiple;
+    public java.lang.String getPlaceholder() {
+        return _placeholder;
+    }
 
-		setScopedAttribute("multiple", multiple);
-	}
+    public void setPlaceholder(java.lang.String placeholder) {
+        _placeholder = placeholder;
 
-	public void setName(java.lang.String name) {
-		_name = name;
+        setScopedAttribute("placeholder", placeholder);
+    }
 
-		setScopedAttribute("name", name);
-	}
+    public java.lang.String getPrefix() {
+        return _prefix;
+    }
 
-	public void setOnChange(java.lang.String onChange) {
-		_onChange = onChange;
+    public void setPrefix(java.lang.String prefix) {
+        _prefix = prefix;
 
-		setScopedAttribute("onChange", onChange);
-	}
+        setScopedAttribute("prefix", prefix);
+    }
 
-	public void setOnClick(java.lang.String onClick) {
-		_onClick = onClick;
+    public boolean getRequired() {
+        return _required;
+    }
 
-		setScopedAttribute("onClick", onClick);
-	}
+    public void setRequired(boolean required) {
+        _required = required;
 
-	public void setPlaceholder(java.lang.String placeholder) {
-		_placeholder = placeholder;
+        setScopedAttribute("required", required);
+    }
 
-		setScopedAttribute("placeholder", placeholder);
-	}
+    public boolean getResizable() {
+        return _resizable;
+    }
 
-	public void setPrefix(java.lang.String prefix) {
-		_prefix = prefix;
+    public void setResizable(boolean resizable) {
+        _resizable = resizable;
 
-		setScopedAttribute("prefix", prefix);
-	}
+        setScopedAttribute("resizable", resizable);
+    }
 
-	public void setRequired(boolean required) {
-		_required = required;
+    public boolean getShowRequiredLabel() {
+        return _showRequiredLabel;
+    }
 
-		setScopedAttribute("required", required);
-	}
+    public void setShowRequiredLabel(boolean showRequiredLabel) {
+        _showRequiredLabel = showRequiredLabel;
 
-	public void setResizable(boolean resizable) {
-		_resizable = resizable;
+        setScopedAttribute("showRequiredLabel", showRequiredLabel);
+    }
 
-		setScopedAttribute("resizable", resizable);
-	}
+    public java.lang.String getSuffix() {
+        return _suffix;
+    }
 
-	public void setShowRequiredLabel(boolean showRequiredLabel) {
-		_showRequiredLabel = showRequiredLabel;
+    public void setSuffix(java.lang.String suffix) {
+        _suffix = suffix;
 
-		setScopedAttribute("showRequiredLabel", showRequiredLabel);
-	}
+        setScopedAttribute("suffix", suffix);
+    }
 
-	public void setSuffix(java.lang.String suffix) {
-		_suffix = suffix;
+    public java.lang.String getTitle() {
+        return _title;
+    }
 
-		setScopedAttribute("suffix", suffix);
-	}
+    public void setTitle(java.lang.String title) {
+        _title = title;
 
-	public void setTitle(java.lang.String title) {
-		_title = title;
+        setScopedAttribute("title", title);
+    }
 
-		setScopedAttribute("title", title);
-	}
+    public java.lang.String getType() {
+        return _type;
+    }
 
-	public void setType(java.lang.String type) {
-		_type = type;
+    public void setType(java.lang.String type) {
+        _type = type;
 
-		setScopedAttribute("type", type);
-	}
+        setScopedAttribute("type", type);
+    }
 
-	public void setUseNamespace(boolean useNamespace) {
-		_useNamespace = useNamespace;
+    public boolean getUseNamespace() {
+        return _useNamespace;
+    }
 
-		setScopedAttribute("useNamespace", useNamespace);
-	}
+    public void setUseNamespace(boolean useNamespace) {
+        _useNamespace = useNamespace;
 
-	public void setValue(java.lang.Object value) {
-		_value = value;
+        setScopedAttribute("useNamespace", useNamespace);
+    }
 
-		setScopedAttribute("value", value);
-	}
+    public java.lang.Object getValue() {
+        return _value;
+    }
 
-	public void setWrapperCssClass(java.lang.String wrapperCssClass) {
-		_wrapperCssClass = wrapperCssClass;
-
-		setScopedAttribute("wrapperCssClass", wrapperCssClass);
-	}
+    public void setValue(java.lang.Object value) {
+        _value = value;
 
-	@Override
-	protected void cleanUp() {
-		_autoFocus = false;
-		_autoSize = false;
-		_bean = null;
-		_changesContext = false;
-		_checked = false;
-		_classPK = 0;
-		_cssClass = null;
-		_data = null;
-		_dateTogglerCheckboxLabel = null;
-		_defaultLanguageId = null;
-		_disabled = false;
-		_field = null;
-		_fieldParam = null;
-		_first = false;
-		_formName = null;
-		_helpMessage = null;
-		_helpTextCssClass = "add-on";
-		_id = null;
-		_ignoreRequestValue = false;
-		_inlineField = false;
-		_inlineLabel = null;
-		_label = null;
-		_languageId = null;
-		_last = false;
-		_localized = false;
-		_max = null;
-		_model = null;
-		_min = null;
-		_multiple = false;
-		_name = null;
-		_onChange = null;
-		_onClick = null;
-		_placeholder = null;
-		_prefix = null;
-		_required = false;
-		_resizable = false;
-		_showRequiredLabel = true;
-		_suffix = null;
-		_title = null;
-		_type = null;
-		_useNamespace = true;
-		_value = null;
-		_wrapperCssClass = null;
-	}
-
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
-
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		setNamespacedAttribute(request, "autoFocus", _autoFocus);
-		setNamespacedAttribute(request, "autoSize", _autoSize);
-		setNamespacedAttribute(request, "bean", _bean);
-		setNamespacedAttribute(request, "changesContext", _changesContext);
-		setNamespacedAttribute(request, "checked", _checked);
-		setNamespacedAttribute(request, "classPK", _classPK);
-		setNamespacedAttribute(request, "cssClass", _cssClass);
-		setNamespacedAttribute(request, "data", _data);
-		setNamespacedAttribute(request, "dateTogglerCheckboxLabel", _dateTogglerCheckboxLabel);
-		setNamespacedAttribute(request, "defaultLanguageId", _defaultLanguageId);
-		setNamespacedAttribute(request, "disabled", _disabled);
-		setNamespacedAttribute(request, "field", _field);
-		setNamespacedAttribute(request, "fieldParam", _fieldParam);
-		setNamespacedAttribute(request, "first", _first);
-		setNamespacedAttribute(request, "formName", _formName);
-		setNamespacedAttribute(request, "helpMessage", _helpMessage);
-		setNamespacedAttribute(request, "helpTextCssClass", _helpTextCssClass);
-		setNamespacedAttribute(request, "id", _id);
-		setNamespacedAttribute(request, "ignoreRequestValue", _ignoreRequestValue);
-		setNamespacedAttribute(request, "inlineField", _inlineField);
-		setNamespacedAttribute(request, "inlineLabel", _inlineLabel);
-		setNamespacedAttribute(request, "label", _label);
-		setNamespacedAttribute(request, "languageId", _languageId);
-		setNamespacedAttribute(request, "last", _last);
-		setNamespacedAttribute(request, "localized", _localized);
-		setNamespacedAttribute(request, "max", _max);
-		setNamespacedAttribute(request, "model", _model);
-		setNamespacedAttribute(request, "min", _min);
-		setNamespacedAttribute(request, "multiple", _multiple);
-		setNamespacedAttribute(request, "name", _name);
-		setNamespacedAttribute(request, "onChange", _onChange);
-		setNamespacedAttribute(request, "onClick", _onClick);
-		setNamespacedAttribute(request, "placeholder", _placeholder);
-		setNamespacedAttribute(request, "prefix", _prefix);
-		setNamespacedAttribute(request, "required", _required);
-		setNamespacedAttribute(request, "resizable", _resizable);
-		setNamespacedAttribute(request, "showRequiredLabel", _showRequiredLabel);
-		setNamespacedAttribute(request, "suffix", _suffix);
-		setNamespacedAttribute(request, "title", _title);
-		setNamespacedAttribute(request, "type", _type);
-		setNamespacedAttribute(request, "useNamespace", _useNamespace);
-		setNamespacedAttribute(request, "value", _value);
-		setNamespacedAttribute(request, "wrapperCssClass", _wrapperCssClass);
-	}
-
-	protected static final String _ATTRIBUTE_NAMESPACE = "aui:input:";
-
-	private static final String _PAGE =
-		"/html/taglib/aui/input/page.jsp";
-
-	private boolean _autoFocus = false;
-	private boolean _autoSize = false;
-	private java.lang.Object _bean = null;
-	private boolean _changesContext = false;
-	private boolean _checked = false;
-	private long _classPK = 0;
-	private java.lang.String _cssClass = null;
-	private java.lang.Object _data = null;
-	private java.lang.String _dateTogglerCheckboxLabel = null;
-	private java.lang.String _defaultLanguageId = null;
-	private boolean _disabled = false;
-	private java.lang.String _field = null;
-	private java.lang.String _fieldParam = null;
-	private boolean _first = false;
-	private java.lang.String _formName = null;
-	private java.lang.String _helpMessage = null;
-	private java.lang.String _helpTextCssClass = "add-on";
-	private java.lang.String _id = null;
-	private boolean _ignoreRequestValue = false;
-	private boolean _inlineField = false;
-	private java.lang.String _inlineLabel = null;
-	private java.lang.String _label = null;
-	private java.lang.String _languageId = null;
-	private boolean _last = false;
-	private boolean _localized = false;
-	private java.lang.Object _max = null;
-	private java.lang.Class<?> _model = null;
-	private java.lang.Object _min = null;
-	private boolean _multiple = false;
-	private java.lang.String _name = null;
-	private java.lang.String _onChange = null;
-	private java.lang.String _onClick = null;
-	private java.lang.String _placeholder = null;
-	private java.lang.String _prefix = null;
-	private boolean _required = false;
-	private boolean _resizable = false;
-	private boolean _showRequiredLabel = true;
-	private java.lang.String _suffix = null;
-	private java.lang.String _title = null;
-	private java.lang.String _type = null;
-	private boolean _useNamespace = true;
-	private java.lang.Object _value = null;
-	private java.lang.String _wrapperCssClass = null;
+        setScopedAttribute("value", value);
+    }
+
+    public java.lang.String getWrapperCssClass() {
+        return _wrapperCssClass;
+    }
+
+    public void setWrapperCssClass(java.lang.String wrapperCssClass) {
+        _wrapperCssClass = wrapperCssClass;
+
+        setScopedAttribute("wrapperCssClass", wrapperCssClass);
+    }
+
+    @Override
+    protected void cleanUp() {
+        _autoFocus = false;
+        _autoSize = false;
+        _bean = null;
+        _changesContext = false;
+        _checked = false;
+        _classPK = 0;
+        _cssClass = null;
+        _data = null;
+        _dateTogglerCheckboxLabel = null;
+        _defaultLanguageId = null;
+        _disabled = false;
+        _field = null;
+        _fieldParam = null;
+        _first = false;
+        _formName = null;
+        _helpMessage = null;
+        _helpTextCssClass = "add-on";
+        _id = null;
+        _ignoreRequestValue = false;
+        _inlineField = false;
+        _inlineLabel = null;
+        _label = null;
+        _languageId = null;
+        _last = false;
+        _localized = false;
+        _max = null;
+        _model = null;
+        _min = null;
+        _multiple = false;
+        _name = null;
+        _onChange = null;
+        _onClick = null;
+        _placeholder = null;
+        _prefix = null;
+        _required = false;
+        _resizable = false;
+        _showRequiredLabel = true;
+        _suffix = null;
+        _title = null;
+        _type = null;
+        _useNamespace = true;
+        _value = null;
+        _wrapperCssClass = null;
+    }
+
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
+
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        setNamespacedAttribute(request, "autoFocus", _autoFocus);
+        setNamespacedAttribute(request, "autoSize", _autoSize);
+        setNamespacedAttribute(request, "bean", _bean);
+        setNamespacedAttribute(request, "changesContext", _changesContext);
+        setNamespacedAttribute(request, "checked", _checked);
+        setNamespacedAttribute(request, "classPK", _classPK);
+        setNamespacedAttribute(request, "cssClass", _cssClass);
+        setNamespacedAttribute(request, "data", _data);
+        setNamespacedAttribute(request, "dateTogglerCheckboxLabel", _dateTogglerCheckboxLabel);
+        setNamespacedAttribute(request, "defaultLanguageId", _defaultLanguageId);
+        setNamespacedAttribute(request, "disabled", _disabled);
+        setNamespacedAttribute(request, "field", _field);
+        setNamespacedAttribute(request, "fieldParam", _fieldParam);
+        setNamespacedAttribute(request, "first", _first);
+        setNamespacedAttribute(request, "formName", _formName);
+        setNamespacedAttribute(request, "helpMessage", _helpMessage);
+        setNamespacedAttribute(request, "helpTextCssClass", _helpTextCssClass);
+        setNamespacedAttribute(request, "id", _id);
+        setNamespacedAttribute(request, "ignoreRequestValue", _ignoreRequestValue);
+        setNamespacedAttribute(request, "inlineField", _inlineField);
+        setNamespacedAttribute(request, "inlineLabel", _inlineLabel);
+        setNamespacedAttribute(request, "label", _label);
+        setNamespacedAttribute(request, "languageId", _languageId);
+        setNamespacedAttribute(request, "last", _last);
+        setNamespacedAttribute(request, "localized", _localized);
+        setNamespacedAttribute(request, "max", _max);
+        setNamespacedAttribute(request, "model", _model);
+        setNamespacedAttribute(request, "min", _min);
+        setNamespacedAttribute(request, "multiple", _multiple);
+        setNamespacedAttribute(request, "name", _name);
+        setNamespacedAttribute(request, "onChange", _onChange);
+        setNamespacedAttribute(request, "onClick", _onClick);
+        setNamespacedAttribute(request, "placeholder", _placeholder);
+        setNamespacedAttribute(request, "prefix", _prefix);
+        setNamespacedAttribute(request, "required", _required);
+        setNamespacedAttribute(request, "resizable", _resizable);
+        setNamespacedAttribute(request, "showRequiredLabel", _showRequiredLabel);
+        setNamespacedAttribute(request, "suffix", _suffix);
+        setNamespacedAttribute(request, "title", _title);
+        setNamespacedAttribute(request, "type", _type);
+        setNamespacedAttribute(request, "useNamespace", _useNamespace);
+        setNamespacedAttribute(request, "value", _value);
+        setNamespacedAttribute(request, "wrapperCssClass", _wrapperCssClass);
+    }
 
 }

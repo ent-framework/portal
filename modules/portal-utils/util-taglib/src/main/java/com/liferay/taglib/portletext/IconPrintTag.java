@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -24,36 +24,36 @@ import com.liferay.taglib.ui.IconTag;
  */
 public class IconPrintTag extends IconTag {
 
-	@Override
-	protected String getPage() {
-		if (FileAvailabilityUtil.isAvailable(servletContext, _PAGE)) {
-			return _PAGE;
-		}
+    private static final String _PAGE =
+            "/html/taglib/portlet/icon_print/page.jsp";
 
-		PortletDisplay portletDisplay =
-			(PortletDisplay)pageContext.getAttribute("portletDisplay");
+    @Override
+    protected String getPage() {
+        if (FileAvailabilityUtil.isAvailable(servletContext, _PAGE)) {
+            return _PAGE;
+        }
 
-		if (!portletDisplay.isShowPrintIcon()) {
-			return null;
-		}
+        PortletDisplay portletDisplay =
+                (PortletDisplay) pageContext.getAttribute("portletDisplay");
 
-		setCssClass("portlet-print portlet-print-icon");
-		setImage("../aui/print");
-		setMessage("print");
+        if (!portletDisplay.isShowPrintIcon()) {
+            return null;
+        }
 
-		String onClick = "location.href = '".concat(
-			portletDisplay.getURLPrint()).concat("'; return false;");
+        setCssClass("portlet-print portlet-print-icon");
+        setImage("../aui/print");
+        setMessage("print");
 
-		setOnClick(onClick);
+        String onClick = "location.href = '".concat(
+                portletDisplay.getURLPrint()).concat("'; return false;");
 
-		setTarget("_blank");
-		setToolTip(false);
-		setUrl(portletDisplay.getURLPrint());
+        setOnClick(onClick);
 
-		return super.getPage();
-	}
+        setTarget("_blank");
+        setToolTip(false);
+        setUrl(portletDisplay.getURLPrint());
 
-	private static final String _PAGE =
-		"/html/taglib/portlet/icon_print/page.jsp";
+        return super.getPage();
+    }
 
 }

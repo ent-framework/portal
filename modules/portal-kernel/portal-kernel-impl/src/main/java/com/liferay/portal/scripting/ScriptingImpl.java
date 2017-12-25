@@ -36,10 +36,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.commons.lang.time.StopWatch;
 
-import org.python.core.Py;
-import org.python.core.PyFile;
-import org.python.core.PySyntaxError;
-
 /**
  * @author Alberto Montero
  * @author Brian Wing Shun Chan
@@ -139,19 +135,6 @@ public class ScriptingImpl implements Scripting {
 	protected String getErrorMessage(Exception e) {
 		String message = e.getMessage();
 
-		if (e instanceof PySyntaxError) {
-			PySyntaxError pySyntaxError = (PySyntaxError)e;
-
-			UnsyncByteArrayOutputStream unsyncByteArrayOutputStream =
-				new UnsyncByteArrayOutputStream();
-
-			Py.displayException(
-				pySyntaxError.type, pySyntaxError.value,
-				pySyntaxError.traceback,
-				new PyFile(unsyncByteArrayOutputStream));
-
-			message = unsyncByteArrayOutputStream.toString();
-		}
 
 		return message;
 	}

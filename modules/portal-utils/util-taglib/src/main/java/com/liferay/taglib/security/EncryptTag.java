@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -16,191 +16,177 @@ package com.liferay.taglib.security;
 
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.kernel.util.CharPool;
-import com.liferay.portal.kernel.util.Http;
-import com.liferay.portal.kernel.util.HttpUtil;
-import com.liferay.portal.kernel.util.StringBundler;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.kernel.util.StringUtil;
-import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.model.Company;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.util.Encryptor;
 import com.liferay.util.EncryptorException;
 
-import java.security.Key;
-
-import java.util.HashSet;
-import java.util.Set;
-import java.util.StringTokenizer;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
+import java.security.Key;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.StringTokenizer;
 
 /**
  * @author Brian Wing Shun Chan
  */
 public class EncryptTag extends TagSupport {
 
-	@Override
-	public int doEndTag() throws JspException {
-		try {
-			JspWriter jspWriter = pageContext.getOut();
+    private static Log _log = LogFactoryUtil.getLog(EncryptTag.class);
+    private String _className;
+    private String _protocol;
+    private String _style;
+    private String _target;
+    private Set<String> _unencryptedParamsSet = new HashSet<String>();
+    private String _url;
 
-			jspWriter.write("</a>");
+    @Override
+    public int doEndTag() throws JspException {
+        try {
+            JspWriter jspWriter = pageContext.getOut();
 
-			return EVAL_PAGE;
-		}
-		catch (Exception e) {
-			throw new JspException(e);
-		}
-	}
+            jspWriter.write("</a>");
 
-	@Override
-	public int doStartTag() throws JspException {
-		try {
-			StringBundler sb = new StringBundler();
+            return EVAL_PAGE;
+        } catch (Exception e) {
+            throw new JspException(e);
+        }
+    }
 
-			// Open anchor
+    @Override
+    public int doStartTag() throws JspException {
+        try {
+            StringBundler sb = new StringBundler();
 
-			sb.append("<a ");
+            // Open anchor
 
-			// Class
+            sb.append("<a ");
 
-			if (Validator.isNotNull(_className)) {
-				sb.append("class=\"");
-				sb.append(_className);
-				sb.append("\" ");
-			}
+            // Class
 
-			// HREF
+            if (Validator.isNotNull(_className)) {
+                sb.append("class=\"");
+                sb.append(_className);
+                sb.append("\" ");
+            }
 
-			sb.append("href=\"");
-			sb.append(_protocol);
-			sb.append(Http.PROTOCOL_DELIMITER);
+            // HREF
 
-			int pos = _url.indexOf(CharPool.QUESTION);
+            sb.append("href=\"");
+            sb.append(_protocol);
+            sb.append(Http.PROTOCOL_DELIMITER);
 
-			if (pos == -1) {
-				sb.append(_url);
-			}
-			else {
-				sb.append(_url.substring(0, pos));
-				sb.append(StringPool.QUESTION);
+            int pos = _url.indexOf(CharPool.QUESTION);
 
-				Company company = PortalUtil.getCompany(
-					(HttpServletRequest)pageContext.getRequest());
+            if (pos == -1) {
+                sb.append(_url);
+            } else {
+                sb.append(_url.substring(0, pos));
+                sb.append(StringPool.QUESTION);
 
-				Key key = company.getKeyObj();
+                Company company = PortalUtil.getCompany(
+                        (HttpServletRequest) pageContext.getRequest());
 
-				StringTokenizer st = new StringTokenizer(
-					_url.substring(pos + 1, _url.length()),
-					StringPool.AMPERSAND);
+                Key key = company.getKeyObj();
 
-				while (st.hasMoreTokens()) {
-					String paramAndValue = st.nextToken();
+                StringTokenizer st = new StringTokenizer(
+                        _url.substring(pos + 1, _url.length()),
+                        StringPool.AMPERSAND);
 
-					int x = paramAndValue.indexOf(CharPool.EQUAL);
+                while (st.hasMoreTokens()) {
+                    String paramAndValue = st.nextToken();
 
-					String param = paramAndValue.substring(0, x);
-					String value = paramAndValue.substring(x + 1);
+                    int x = paramAndValue.indexOf(CharPool.EQUAL);
 
-					sb.append(param).append(StringPool.EQUAL);
+                    String param = paramAndValue.substring(0, x);
+                    String value = paramAndValue.substring(x + 1);
 
-					if (_unencryptedParamsSet.contains(param)) {
-						sb.append(HttpUtil.encodeURL(value));
-					}
-					else {
-						try {
-							sb.append(
-								HttpUtil.encodeURL(
-									Encryptor.encrypt(key, value)));
-						}
-						catch (EncryptorException ee) {
-							_log.error(ee.getMessage());
-						}
+                    sb.append(param).append(StringPool.EQUAL);
 
-						if (st.hasMoreTokens()) {
-							sb.append(StringPool.AMPERSAND);
-						}
-					}
-				}
+                    if (_unencryptedParamsSet.contains(param)) {
+                        sb.append(HttpUtil.encodeURL(value));
+                    } else {
+                        try {
+                            sb.append(
+                                    HttpUtil.encodeURL(
+                                            Encryptor.encrypt(key, value)));
+                        } catch (EncryptorException ee) {
+                            _log.error(ee.getMessage());
+                        }
 
-				sb.append("&shuo=1");
-			}
+                        if (st.hasMoreTokens()) {
+                            sb.append(StringPool.AMPERSAND);
+                        }
+                    }
+                }
 
-			sb.append("\" ");
+                sb.append("&shuo=1");
+            }
 
-			// Style
+            sb.append("\" ");
 
-			if (Validator.isNotNull(_style)) {
-				sb.append("style=\"");
-				sb.append(_style);
-				sb.append("\" ");
-			}
+            // Style
 
-			// Target
+            if (Validator.isNotNull(_style)) {
+                sb.append("style=\"");
+                sb.append(_style);
+                sb.append("\" ");
+            }
 
-			if (Validator.isNotNull(_target)) {
-				sb.append("target=\"");
-				sb.append(_target);
-				sb.append("\"");
-			}
+            // Target
 
-			// Close anchor
+            if (Validator.isNotNull(_target)) {
+                sb.append("target=\"");
+                sb.append(_target);
+                sb.append("\"");
+            }
 
-			sb.append(">");
+            // Close anchor
 
-			JspWriter jspWriter = pageContext.getOut();
+            sb.append(">");
 
-			jspWriter.write(sb.toString());
+            JspWriter jspWriter = pageContext.getOut();
 
-			return EVAL_BODY_INCLUDE;
-		}
-		catch (Exception e) {
-			throw new JspException(e);
-		}
-	}
+            jspWriter.write(sb.toString());
 
-	public void setClassName(String className) {
-		_className = className;
-	}
+            return EVAL_BODY_INCLUDE;
+        } catch (Exception e) {
+            throw new JspException(e);
+        }
+    }
 
-	public void setProtocol(String protocol) {
-		_protocol = protocol;
-	}
+    public void setClassName(String className) {
+        _className = className;
+    }
 
-	public void setStyle(String style) {
-		_style = style;
-	}
+    public void setProtocol(String protocol) {
+        _protocol = protocol;
+    }
 
-	public void setTarget(String target) {
-		_target = target;
-	}
+    public void setStyle(String style) {
+        _style = style;
+    }
 
-	public void setUnencryptedParams(String unencryptedParams) {
-		_unencryptedParamsSet.clear();
+    public void setTarget(String target) {
+        _target = target;
+    }
 
-		String[] unencryptedParamsArray = StringUtil.split(unencryptedParams);
+    public void setUnencryptedParams(String unencryptedParams) {
+        _unencryptedParamsSet.clear();
 
-		for (int i = 0; i < unencryptedParamsArray.length; i++) {
-			_unencryptedParamsSet.add(unencryptedParamsArray[i]);
-		}
-	}
+        String[] unencryptedParamsArray = StringUtil.split(unencryptedParams);
 
-	public void setUrl(String url) {
-		_url = url;
-	}
+        for (int i = 0; i < unencryptedParamsArray.length; i++) {
+            _unencryptedParamsSet.add(unencryptedParamsArray[i]);
+        }
+    }
 
-	private static Log _log = LogFactoryUtil.getLog(EncryptTag.class);
-
-	private String _className;
-	private String _protocol;
-	private String _style;
-	private String _target;
-	private Set<String> _unencryptedParamsSet = new HashSet<String>();
-	private String _url;
+    public void setUrl(String url) {
+        _url = url;
+    }
 
 }

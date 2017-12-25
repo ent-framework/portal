@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -23,41 +23,40 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class PngImageTag extends IncludeTag {
 
-	public void setHeight(String height) {
-		_height = height;
-	}
+    private static final String _PAGE = "/html/taglib/ui/png_image/page.jsp";
+    private String _height;
+    private String _image;
+    private String _width;
 
-	public void setImage(String image) {
-		_image = image;
-	}
+    public void setHeight(String height) {
+        _height = height;
+    }
 
-	public void setWidth(String width) {
-		_width = width;
-	}
+    public void setImage(String image) {
+        _image = image;
+    }
 
-	@Override
-	protected void cleanUp() {
-		_height = null;
-		_image = null;
-		_width = null;
-	}
+    public void setWidth(String width) {
+        _width = width;
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _height = null;
+        _image = null;
+        _width = null;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute("liferay-ui:png_image:height", _height);
-		request.setAttribute("liferay-ui:png_image:image", _image);
-		request.setAttribute("liferay-ui:png_image:width", _width);
-	}
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
-	private static final String _PAGE = "/html/taglib/ui/png_image/page.jsp";
-
-	private String _height;
-	private String _image;
-	private String _width;
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        request.setAttribute("liferay-ui:png_image:height", _height);
+        request.setAttribute("liferay-ui:png_image:image", _image);
+        request.setAttribute("liferay-ui:png_image:width", _width);
+    }
 
 }

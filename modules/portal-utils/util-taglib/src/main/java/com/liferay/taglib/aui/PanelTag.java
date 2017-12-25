@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -19,10 +19,9 @@ import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.taglib.aui.base.BasePanelTag;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author Julio Camarero
@@ -30,52 +29,51 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class PanelTag extends BasePanelTag {
 
-	public void addToolTag(ToolTag toolTag) {
-		if (_toolTags == null) {
-			_toolTags = new ArrayList<ToolTag>();
-		}
+    private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
+    private List<ToolTag> _toolTags;
 
-		_toolTags.add(toolTag);
-	}
+    public void addToolTag(ToolTag toolTag) {
+        if (_toolTags == null) {
+            _toolTags = new ArrayList<ToolTag>();
+        }
 
-	public List<ToolTag> getToolTags() {
-		return _toolTags;
-	}
+        _toolTags.add(toolTag);
+    }
 
-	@Override
-	protected void cleanUp() {
-		super.cleanUp();
+    public List<ToolTag> getToolTags() {
+        return _toolTags;
+    }
 
-		if (_toolTags != null) {
-			for (ToolTag toolTag : _toolTags) {
-				toolTag.cleanUp();
-			}
+    @Override
+    protected void cleanUp() {
+        super.cleanUp();
 
-			_toolTags = null;
-		}
-	}
+        if (_toolTags != null) {
+            for (ToolTag toolTag : _toolTags) {
+                toolTag.cleanUp();
+            }
 
-	@Override
-	protected boolean isCleanUpSetAttributes() {
-		return _CLEAN_UP_SET_ATTRIBUTES;
-	}
+            _toolTags = null;
+        }
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		super.setAttributes(request);
+    @Override
+    protected boolean isCleanUpSetAttributes() {
+        return _CLEAN_UP_SET_ATTRIBUTES;
+    }
 
-		String id = getId();
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        super.setAttributes(request);
 
-		if (Validator.isNull(id)) {
-			id = StringUtil.randomId();
-		}
+        String id = getId();
 
-		setNamespacedAttribute(request, "id", id);
-		setNamespacedAttribute(request, "toolTags", _toolTags);
-	}
+        if (Validator.isNull(id)) {
+            id = StringUtil.randomId();
+        }
 
-	private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
-
-	private List<ToolTag> _toolTags;
+        setNamespacedAttribute(request, "id", id);
+        setNamespacedAttribute(request, "toolTags", _toolTags);
+    }
 
 }

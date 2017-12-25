@@ -14,11 +14,7 @@
 
 package com.liferay.portal.events;
 
-import com.liferay.portal.im.AIMConnector;
-import com.liferay.portal.im.ICQConnector;
-import com.liferay.portal.im.MSNConnector;
-import com.liferay.portal.im.YMConnector;
-import com.liferay.portal.jcr.JCRFactoryUtil;
+//import com.liferay.portal.jcr.JCRFactoryUtil;
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBFactoryUtil;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
@@ -75,51 +71,51 @@ public class GlobalShutdownAction extends SimpleAction {
 
 		// Instant messenger AIM
 
-		try {
-			if (_log.isDebugEnabled()) {
-				_log.debug("Shutting down AIM");
-			}
-
-			AIMConnector.disconnect();
-		}
-		catch (Exception e) {
-		}
+//		try {
+//			if (_log.isDebugEnabled()) {
+//				_log.debug("Shutting down AIM");
+//			}
+//
+//			AIMConnector.disconnect();
+//		}
+//		catch (Exception e) {
+//		}
 
 		// Instant messenger ICQ
 
-		try {
-			if (_log.isDebugEnabled()) {
-				_log.debug("Shutting down ICQ");
-			}
-
-			ICQConnector.disconnect();
-		}
-		catch (Exception e) {
-		}
+//		try {
+//			if (_log.isDebugEnabled()) {
+//				_log.debug("Shutting down ICQ");
+//			}
+//
+//			ICQConnector.disconnect();
+//		}
+//		catch (Exception e) {
+//		}
 
 		// Instant messenger MSN
 
-		try {
-			if (_log.isDebugEnabled()) {
-				_log.debug("Shutting down MSN");
-			}
-
-			MSNConnector.disconnect();
-		}
-		catch (Exception e) {
-		}
+//		try {
+//			if (_log.isDebugEnabled()) {
+//				_log.debug("Shutting down MSN");
+//			}
+//
+//			MSNConnector.disconnect();
+//		}
+//		catch (Exception e) {
+//		}
 
 		// Instant messenger YM
 
-		try {
-			if (_log.isDebugEnabled()) {
-				_log.debug("Shutting down YM");
-			}
-
-			YMConnector.disconnect();
-		}
-		catch (Exception e) {
-		}
+//		try {
+//			if (_log.isDebugEnabled()) {
+//				_log.debug("Shutting down YM");
+//			}
+//
+//			YMConnector.disconnect();
+//		}
+//		catch (Exception e) {
+//		}
 
 		// Javadoc
 
@@ -127,15 +123,15 @@ public class GlobalShutdownAction extends SimpleAction {
 
 		// JCR
 
-		try {
-			if (_log.isDebugEnabled()) {
-				_log.debug("Shutting down JCR");
-			}
-
-			JCRFactoryUtil.shutdown();
-		}
-		catch (Exception e) {
-		}
+//		try {
+//			if (_log.isDebugEnabled()) {
+//				_log.debug("Shutting down JCR");
+//			}
+//
+//			JCRFactoryUtil.shutdown();
+//		}
+//		catch (Exception e) {
+//		}
 
 		// Lucene
 

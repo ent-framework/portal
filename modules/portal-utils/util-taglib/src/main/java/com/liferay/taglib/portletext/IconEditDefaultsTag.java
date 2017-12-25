@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -24,28 +24,28 @@ import com.liferay.taglib.ui.IconTag;
  */
 public class IconEditDefaultsTag extends IconTag {
 
-	@Override
-	protected String getPage() {
-		if (FileAvailabilityUtil.isAvailable(servletContext, _PAGE)) {
-			return _PAGE;
-		}
+    private static final String _PAGE =
+            "/html/taglib/portlet/icon_edit_defaults/page.jsp";
 
-		PortletDisplay portletDisplay =
-			(PortletDisplay)pageContext.getAttribute("portletDisplay");
+    @Override
+    protected String getPage() {
+        if (FileAvailabilityUtil.isAvailable(servletContext, _PAGE)) {
+            return _PAGE;
+        }
 
-		if (!portletDisplay.isShowEditDefaultsIcon()) {
-			return null;
-		}
+        PortletDisplay portletDisplay =
+                (PortletDisplay) pageContext.getAttribute("portletDisplay");
 
-		setImage("../aui/edit-sign");
-		setMessage("default-preferences");
-		setToolTip(false);
-		setUrl(portletDisplay.getURLEditDefaults());
+        if (!portletDisplay.isShowEditDefaultsIcon()) {
+            return null;
+        }
 
-		return super.getPage();
-	}
+        setImage("../aui/edit-sign");
+        setMessage("default-preferences");
+        setToolTip(false);
+        setUrl(portletDisplay.getURLEditDefaults());
 
-	private static final String _PAGE =
-		"/html/taglib/portlet/icon_edit_defaults/page.jsp";
+        return super.getPage();
+    }
 
 }

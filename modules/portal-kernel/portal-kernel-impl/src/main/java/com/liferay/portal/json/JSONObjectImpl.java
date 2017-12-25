@@ -358,6 +358,12 @@ public class JSONObjectImpl implements JSONObject {
 		objectOutput.writeUTF(toString());
 	}
 
+
+	@Override
+	public Object get(String key) {
+		return null;
+	}
+
 	private static final String _NULL_JSON = "{}";
 
 	private static Log _log = LogFactoryUtil.getLog(JSONObjectImpl.class);

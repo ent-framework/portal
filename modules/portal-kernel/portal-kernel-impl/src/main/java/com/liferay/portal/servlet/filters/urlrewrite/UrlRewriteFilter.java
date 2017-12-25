@@ -20,6 +20,7 @@ import com.liferay.portal.servlet.filters.BasePortalFilter;
 
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -44,7 +45,11 @@ public class UrlRewriteFilter extends BasePortalFilter {
 		_urlRewriteFilter =
 			new org.tuckey.web.filters.urlrewrite.UrlRewriteFilter();
 
-		_urlRewriteFilter.init(filterConfig);
+		try {
+			_urlRewriteFilter.init(filterConfig);
+		} catch (ServletException e) {
+			_log.error(e.getMessage());
+		}
 	}
 
 	@Override

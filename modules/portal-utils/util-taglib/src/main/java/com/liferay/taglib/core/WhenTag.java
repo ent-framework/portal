@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -22,47 +22,46 @@ import javax.servlet.jsp.tagext.Tag;
  */
 public class WhenTag extends ConditionalTagSupport {
 
-	@Override
-	public int doStartTag() throws JspTagException {
-		Tag parentTag = getParent();
+    private boolean _test;
 
-		if (!(parentTag instanceof ChooseTag)) {
-			throw new JspTagException(
-				"The when tag must exist under a choose tag");
-		}
+    @Override
+    public int doStartTag() throws JspTagException {
+        Tag parentTag = getParent();
 
-		ChooseTag chooseTag = (ChooseTag)parentTag;
+        if (!(parentTag instanceof ChooseTag)) {
+            throw new JspTagException(
+                    "The when tag must exist under a choose tag");
+        }
 
-		if (!chooseTag.canRun()) {
-			return SKIP_BODY;
-		}
+        ChooseTag chooseTag = (ChooseTag) parentTag;
 
-		if (condition()) {
-			chooseTag.markRan();
+        if (!chooseTag.canRun()) {
+            return SKIP_BODY;
+        }
 
-			return EVAL_BODY_INCLUDE;
-		}
-		else {
-			return SKIP_BODY;
-		}
-	}
+        if (condition()) {
+            chooseTag.markRan();
 
-	@Override
-	public void release() {
-		super.release();
+            return EVAL_BODY_INCLUDE;
+        } else {
+            return SKIP_BODY;
+        }
+    }
 
-		_test = false;
-	}
+    @Override
+    public void release() {
+        super.release();
 
-	public void setTest(boolean test) {
-		_test = test;
-	}
+        _test = false;
+    }
 
-	@Override
-	protected boolean condition() {
-		return _test;
-	}
+    public void setTest(boolean test) {
+        _test = test;
+    }
 
-	private boolean _test;
+    @Override
+    protected boolean condition() {
+        return _test;
+    }
 
 }

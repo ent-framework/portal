@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -29,121 +29,121 @@ import javax.servlet.jsp.tagext.BodyTag;
  * @author Brian Wing Shun Chan
  */
 public class ValidatorTagImpl
-	extends BaseValidatorTagImpl implements BodyTag, ValidatorTag {
+        extends BaseValidatorTagImpl implements BodyTag, ValidatorTag {
 
-	public ValidatorTagImpl() {
-	}
+    private String _body;
+    private boolean _custom;
+    private boolean _customValidatorRequired = true;
 
-	public ValidatorTagImpl(
-		String name, String errorMessage, String body, boolean custom) {
+    public ValidatorTagImpl() {
+    }
 
-		this(name, errorMessage, body, custom, true);
-	}
+    public ValidatorTagImpl(
+            String name, String errorMessage, String body, boolean custom) {
 
-	public ValidatorTagImpl(
-		String name, String errorMessage, String body, boolean custom,
-		boolean customValidatorRequired) {
+        this(name, errorMessage, body, custom, true);
+    }
 
-		setName(name);
-		setErrorMessage(errorMessage);
+    public ValidatorTagImpl(
+            String name, String errorMessage, String body, boolean custom,
+            boolean customValidatorRequired) {
 
-		_body = body;
-		_custom = custom;
-		_customValidatorRequired = customValidatorRequired;
-	}
+        setName(name);
+        setErrorMessage(errorMessage);
 
-	@Override
-	public void cleanUp() {
-		super.cleanUp();
+        _body = body;
+        _custom = custom;
+        _customValidatorRequired = customValidatorRequired;
+    }
 
-		_body = null;
-		_custom = false;
-		_customValidatorRequired = true;
-	}
+    @Override
+    public void cleanUp() {
+        super.cleanUp();
 
-	@Override
-	public int doAfterBody() {
-		BodyContent bodyContent = getBodyContent();
+        _body = null;
+        _custom = false;
+        _customValidatorRequired = true;
+    }
 
-		if (bodyContent != null) {
-			_body = bodyContent.getString();
-		}
+    @Override
+    public int doAfterBody() {
+        BodyContent bodyContent = getBodyContent();
 
-		return SKIP_BODY;
-	}
+        if (bodyContent != null) {
+            _body = bodyContent.getString();
+        }
 
-	@Override
-	public int doEndTag() {
-		InputTag inputTag = (InputTag)findAncestorWithClass(
-			this, InputTag.class);
+        return SKIP_BODY;
+    }
 
-		String name = getName();
+    @Override
+    public int doEndTag() {
+        InputTag inputTag = (InputTag) findAncestorWithClass(
+                this, InputTag.class);
 
-		_custom = ModelHintsUtil.isCustomValidator(name);
+        String name = getName();
 
-		if (_custom) {
-			name = ModelHintsUtil.buildCustomValidatorName(name);
-		}
+        _custom = ModelHintsUtil.isCustomValidator(name);
 
-		ValidatorTag validatorTag = new ValidatorTagImpl(
-			name, getErrorMessage(), _body, _custom, _customValidatorRequired);
+        if (_custom) {
+            name = ModelHintsUtil.buildCustomValidatorName(name);
+        }
 
-		inputTag.addValidatorTag(name, validatorTag);
+        ValidatorTag validatorTag = new ValidatorTagImpl(
+                name, getErrorMessage(), _body, _custom, _customValidatorRequired);
 
-		return EVAL_BODY_BUFFERED;
-	}
+        inputTag.addValidatorTag(name, validatorTag);
 
-	@Override
-	public String getBody() {
-		if (Validator.isNull(_body)) {
-			return StringPool.DOUBLE_APOSTROPHE;
-		}
+        return EVAL_BODY_BUFFERED;
+    }
 
-		return _body.trim();
-	}
+    @Override
+    public String getBody() {
+        if (Validator.isNull(_body)) {
+            return StringPool.DOUBLE_APOSTROPHE;
+        }
 
-	@Override
-	public String getErrorMessage() {
-		String errorMessage = super.getErrorMessage();
+        return _body.trim();
+    }
 
-		if (errorMessage == null) {
-			return StringPool.BLANK;
-		}
+    public void setBody(String body) {
+        _body = body;
+    }
 
-		return errorMessage;
-	}
+    @Override
+    public String getErrorMessage() {
+        String errorMessage = super.getErrorMessage();
 
-	@Override
-	public boolean isCustom() {
-		return _custom;
-	}
+        if (errorMessage == null) {
+            return StringPool.BLANK;
+        }
 
-	@Override
-	public boolean isCustomValidatorRequired() {
-		return _customValidatorRequired;
-	}
+        return errorMessage;
+    }
 
-	public void setCustomValidatorRequired(boolean customValidatorRequired) {
-		_customValidatorRequired = customValidatorRequired;
-	}
+    @Override
+    public boolean isCustom() {
+        return _custom;
+    }
 
-	public void setBody(String body) {
-		_body = body;
-	}
+    @Override
+    public boolean isCustomValidatorRequired() {
+        return _customValidatorRequired;
+    }
 
-	protected String processCustom(String name) {
-		if (name.equals("custom")) {
-			_custom = true;
+    public void setCustomValidatorRequired(boolean customValidatorRequired) {
+        _customValidatorRequired = customValidatorRequired;
+    }
 
-			return name.concat(StringPool.UNDERLINE).concat(
-				StringUtil.randomId());
-		}
+    protected String processCustom(String name) {
+        if (name.equals("custom")) {
+            _custom = true;
 
-		return name;
-	}
+            return name.concat(StringPool.UNDERLINE).concat(
+                    StringUtil.randomId());
+        }
 
-	private String _body;
-	private boolean _custom;
-	private boolean _customValidatorRequired = true;
+        return name;
+    }
 
 }

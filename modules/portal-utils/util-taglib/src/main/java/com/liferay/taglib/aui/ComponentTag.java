@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -18,14 +18,12 @@ import com.liferay.alloy.util.ReservedAttributeUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.taglib.aui.base.BaseComponentTag;
+import org.apache.commons.lang.StringUtils;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.commons.lang.StringUtils;
 
 /**
  * @author Eduardo Lundgren
@@ -33,109 +31,107 @@ import org.apache.commons.lang.StringUtils;
  */
 public class ComponentTag extends BaseComponentTag {
 
-	protected boolean isEventAttribute(String key) {
-		if (StringUtil.startsWith(key, "after") ||
-			StringUtil.startsWith(key, "on")) {
+    protected boolean isEventAttribute(String key) {
+        if (StringUtil.startsWith(key, "after") ||
+                StringUtil.startsWith(key, "on")) {
 
-			return true;
-		}
+            return true;
+        }
 
-		return false;
-	}
+        return false;
+    }
 
-	protected boolean isValidAttribute(String key) {
-		String excludeAttributes = getExcludeAttributes();
+    protected boolean isValidAttribute(String key) {
+        String excludeAttributes = getExcludeAttributes();
 
-		if (excludeAttributes == null) {
-			return true;
-		}
+        if (excludeAttributes == null) {
+            return true;
+        }
 
-		Set<String> excludeAttributesSet = SetUtil.fromArray(
-			StringUtil.split(excludeAttributes));
+        Set<String> excludeAttributesSet = SetUtil.fromArray(
+                StringUtil.split(excludeAttributes));
 
-		if (key.equals("dynamicAttributes") ||
-			excludeAttributesSet.contains(key)) {
+        if (key.equals("dynamicAttributes") ||
+                excludeAttributesSet.contains(key)) {
 
-			return false;
-		}
+            return false;
+        }
 
-		return true;
-	}
+        return true;
+    }
 
-	protected void proccessAttributes(
-		Map<String, Object> options, Map<String, Object> jsonifiedOptions) {
+    protected void proccessAttributes(
+            Map<String, Object> options, Map<String, Object> jsonifiedOptions) {
 
-		Map<String, String> afterEventOptions = new HashMap<String, String>();
-		Map<String, String> onEventOptions = new HashMap<String, String>();
+        Map<String, String> afterEventOptions = new HashMap<String, String>();
+        Map<String, String> onEventOptions = new HashMap<String, String>();
 
-		for (String key : options.keySet()) {
-			if (!isValidAttribute(key)) {
-				continue;
-			}
+        for (String key : options.keySet()) {
+            if (!isValidAttribute(key)) {
+                continue;
+            }
 
-			Object value = options.get(key);
+            Object value = options.get(key);
 
-			String originalKey = ReservedAttributeUtil.getOriginalName(
-				getName(), key);
+            String originalKey = ReservedAttributeUtil.getOriginalName(
+                    getName(), key);
 
-			if (value instanceof Map) {
-				Map<String, Object> childOptions =
-					new HashMap<String, Object>();
+            if (value instanceof Map) {
+                Map<String, Object> childOptions =
+                        new HashMap<String, Object>();
 
-				proccessAttributes((Map<String, Object>)value, childOptions);
+                proccessAttributes((Map<String, Object>) value, childOptions);
 
-				jsonifiedOptions.put(originalKey, childOptions);
+                jsonifiedOptions.put(originalKey, childOptions);
 
-				continue;
-			}
+                continue;
+            }
 
-			if (isEventAttribute(key)) {
-				processEventAttribute(
-					key, String.valueOf(value), afterEventOptions,
-					onEventOptions);
-			}
-			else {
-				jsonifiedOptions.put(originalKey, value);
-			}
-		}
+            if (isEventAttribute(key)) {
+                processEventAttribute(
+                        key, String.valueOf(value), afterEventOptions,
+                        onEventOptions);
+            } else {
+                jsonifiedOptions.put(originalKey, value);
+            }
+        }
 
-		if (!afterEventOptions.isEmpty()) {
-			jsonifiedOptions.put("after", afterEventOptions);
-		}
+        if (!afterEventOptions.isEmpty()) {
+            jsonifiedOptions.put("after", afterEventOptions);
+        }
 
-		if (!onEventOptions.isEmpty()) {
-			jsonifiedOptions.put("on", onEventOptions);
-		}
-	}
+        if (!onEventOptions.isEmpty()) {
+            jsonifiedOptions.put("on", onEventOptions);
+        }
+    }
 
-	protected void processEventAttribute(
-			String key, String value, Map<String, String> afterEventOptions,
-			Map<String, String> onEventsOptions) {
+    protected void processEventAttribute(
+            String key, String value, Map<String, String> afterEventOptions,
+            Map<String, String> onEventsOptions) {
 
-		if (key.startsWith("after")) {
-			String eventName = StringUtils.uncapitalize(key.substring(5));
+        if (key.startsWith("after")) {
+            String eventName = StringUtils.uncapitalize(key.substring(5));
 
-			afterEventOptions.put(eventName, value);
-		}
-		else {
-			String eventName = StringUtils.uncapitalize(key.substring(2));
+            afterEventOptions.put(eventName, value);
+        } else {
+            String eventName = StringUtils.uncapitalize(key.substring(2));
 
-			onEventsOptions.put(eventName, value);
-		}
-	}
+            onEventsOptions.put(eventName, value);
+        }
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		Map<String, Object> options = getOptions();
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        Map<String, Object> options = getOptions();
 
-		Map<String, Object> jsonifiedOptions = new HashMap<String, Object>();
+        Map<String, Object> jsonifiedOptions = new HashMap<String, Object>();
 
-		proccessAttributes(options, jsonifiedOptions);
+        proccessAttributes(options, jsonifiedOptions);
 
-		super.setAttributes(request);
+        super.setAttributes(request);
 
-		setNamespacedAttribute(request, "jsonifiedOptions", jsonifiedOptions);
-		setNamespacedAttribute(request, "options", options);
-	}
+        setNamespacedAttribute(request, "jsonifiedOptions", jsonifiedOptions);
+        setNamespacedAttribute(request, "options", options);
+    }
 
 }

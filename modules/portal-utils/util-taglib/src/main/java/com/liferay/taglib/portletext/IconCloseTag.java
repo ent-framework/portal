@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -24,36 +24,36 @@ import com.liferay.taglib.ui.IconTag;
  */
 public class IconCloseTag extends IconTag {
 
-	@Override
-	protected String getPage() {
-		if (FileAvailabilityUtil.isAvailable(servletContext, _PAGE)) {
-			return _PAGE;
-		}
+    private static final String _PAGE =
+            "/html/taglib/portlet/icon_close/page.jsp";
 
-		PortletDisplay portletDisplay =
-			(PortletDisplay)pageContext.getAttribute("portletDisplay");
+    @Override
+    protected String getPage() {
+        if (FileAvailabilityUtil.isAvailable(servletContext, _PAGE)) {
+            return _PAGE;
+        }
 
-		if (!portletDisplay.isShowCloseIcon()) {
-			return null;
-		}
+        PortletDisplay portletDisplay =
+                (PortletDisplay) pageContext.getAttribute("portletDisplay");
 
-		setCssClass("portlet-close portlet-close-icon");
-		setImage("../aui/remove");
-		setMessage("remove");
+        if (!portletDisplay.isShowCloseIcon()) {
+            return null;
+        }
 
-		String onClick =
-			"Liferay.Portlet.close('#p_p_id_".concat(
-				portletDisplay.getId()).concat("_'); return false;");
+        setCssClass("portlet-close portlet-close-icon");
+        setImage("../aui/remove");
+        setMessage("remove");
 
-		setOnClick(onClick);
+        String onClick =
+                "Liferay.Portlet.close('#p_p_id_".concat(
+                        portletDisplay.getId()).concat("_'); return false;");
 
-		setToolTip(false);
-		setUrl(portletDisplay.getURLClose());
+        setOnClick(onClick);
 
-		return super.getPage();
-	}
+        setToolTip(false);
+        setUrl(portletDisplay.getURLClose());
 
-	private static final String _PAGE =
-		"/html/taglib/portlet/icon_close/page.jsp";
+        return super.getPage();
+    }
 
 }

@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -20,92 +20,90 @@ import com.liferay.portal.kernel.dao.search.SearchEntry;
 import com.liferay.portal.kernel.util.ServerDetector;
 import com.liferay.portal.kernel.util.StringPool;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspTagException;
+import java.util.List;
 
 /**
  * @author Raymond Augé
  */
 public class SearchContainerColumnJSPTag<R> extends SearchContainerColumnTag {
 
-	@Override
-	public int doEndTag() {
-		try {
-			SearchContainerRowTag<R> searchContainerRowTag =
-				(SearchContainerRowTag<R>)findAncestorWithClass(
-					this, SearchContainerRowTag.class);
+    private String _path;
 
-			ResultRow resultRow = searchContainerRowTag.getRow();
+    @Override
+    public int doEndTag() {
+        try {
+            SearchContainerRowTag<R> searchContainerRowTag =
+                    (SearchContainerRowTag<R>) findAncestorWithClass(
+                            this, SearchContainerRowTag.class);
 
-			if (index <= -1) {
-				List<SearchEntry> searchEntries = resultRow.getEntries();
+            ResultRow resultRow = searchContainerRowTag.getRow();
 
-				index = searchEntries.size();
-			}
+            if (index <= -1) {
+                List<SearchEntry> searchEntries = resultRow.getEntries();
 
-			JSPSearchEntry jspSearchEntry = new JSPSearchEntry();
+                index = searchEntries.size();
+            }
 
-			jspSearchEntry.setAlign(getAlign());
-			jspSearchEntry.setColspan(getColspan());
-			jspSearchEntry.setCssClass(getCssClass());
-			jspSearchEntry.setPath(getPath());
-			jspSearchEntry.setRequest(
-				(HttpServletRequest)pageContext.getRequest());
-			jspSearchEntry.setResponse(
-				(HttpServletResponse)pageContext.getResponse());
-			jspSearchEntry.setServletContext(pageContext.getServletContext());
-			jspSearchEntry.setValign(getValign());
+            JSPSearchEntry jspSearchEntry = new JSPSearchEntry();
 
-			resultRow.addSearchEntry(index, jspSearchEntry);
+            jspSearchEntry.setAlign(getAlign());
+            jspSearchEntry.setColspan(getColspan());
+            jspSearchEntry.setCssClass(getCssClass());
+            jspSearchEntry.setPath(getPath());
+            jspSearchEntry.setRequest(
+                    (HttpServletRequest) pageContext.getRequest());
+            jspSearchEntry.setResponse(
+                    (HttpServletResponse) pageContext.getResponse());
+            jspSearchEntry.setServletContext(pageContext.getServletContext());
+            jspSearchEntry.setValign(getValign());
 
-			return EVAL_PAGE;
-		}
-		finally {
-			index = -1;
+            resultRow.addSearchEntry(index, jspSearchEntry);
 
-			if (!ServerDetector.isResin()) {
-				align = SearchEntry.DEFAULT_ALIGN;
-				colspan = SearchEntry.DEFAULT_COLSPAN;
-				cssClass = SearchEntry.DEFAULT_CSS_CLASS;
-				name = StringPool.BLANK;
-				_path = null;
-				valign = SearchEntry.DEFAULT_VALIGN;
-			}
-		}
-	}
+            return EVAL_PAGE;
+        } finally {
+            index = -1;
 
-	@Override
-	public int doStartTag() throws JspException {
-		SearchContainerRowTag<R> searchContainerRowTag =
-			(SearchContainerRowTag<R>)findAncestorWithClass(
-				this, SearchContainerRowTag.class);
+            if (!ServerDetector.isResin()) {
+                align = SearchEntry.DEFAULT_ALIGN;
+                colspan = SearchEntry.DEFAULT_COLSPAN;
+                cssClass = SearchEntry.DEFAULT_CSS_CLASS;
+                name = StringPool.BLANK;
+                _path = null;
+                valign = SearchEntry.DEFAULT_VALIGN;
+            }
+        }
+    }
 
-		if (searchContainerRowTag == null) {
-			throw new JspTagException(
-				"Requires liferay-ui:search-container-row");
-		}
+    @Override
+    public int doStartTag() throws JspException {
+        SearchContainerRowTag<R> searchContainerRowTag =
+                (SearchContainerRowTag<R>) findAncestorWithClass(
+                        this, SearchContainerRowTag.class);
 
-		if (!searchContainerRowTag.isHeaderNamesAssigned()) {
-			List<String> headerNames = searchContainerRowTag.getHeaderNames();
+        if (searchContainerRowTag == null) {
+            throw new JspTagException(
+                    "Requires liferay-ui:search-container-row");
+        }
 
-			headerNames.add(name);
-		}
+        if (!searchContainerRowTag.isHeaderNamesAssigned()) {
+            List<String> headerNames = searchContainerRowTag.getHeaderNames();
 
-		return EVAL_BODY_INCLUDE;
-	}
+            headerNames.add(name);
+        }
 
-	public String getPath() {
-		return _path;
-	}
+        return EVAL_BODY_INCLUDE;
+    }
 
-	public void setPath(String path) {
-		_path = path;
-	}
+    public String getPath() {
+        return _path;
+    }
 
-	private String _path;
+    public void setPath(String path) {
+        _path = path;
+    }
 
 }

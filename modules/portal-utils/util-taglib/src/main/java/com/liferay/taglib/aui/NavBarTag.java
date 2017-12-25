@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -28,30 +28,30 @@ import javax.servlet.jsp.tagext.BodyTag;
  */
 public class NavBarTag extends BaseNavBarTag implements BodyTag {
 
-	@Override
-	public int doEndTag() throws JspException {
-		setNamespacedAttribute(
-			request, "responsiveButtons", _responsiveButtonsSB.toString());
+    private StringBundler _responsiveButtonsSB = new StringBundler();
 
-		return super.doEndTag();
-	}
+    @Override
+    public int doEndTag() throws JspException {
+        setNamespacedAttribute(
+                request, "responsiveButtons", _responsiveButtonsSB.toString());
 
-	public StringBundler getResponsiveButtonsSB() {
-		return _responsiveButtonsSB;
-	}
+        return super.doEndTag();
+    }
 
-	@Override
-	protected void cleanUp() {
-		super.cleanUp();
+    public StringBundler getResponsiveButtonsSB() {
+        return _responsiveButtonsSB;
+    }
 
-		_responsiveButtonsSB.setIndex(0);
-	}
+    @Override
+    protected void cleanUp() {
+        super.cleanUp();
 
-	@Override
-	protected int processStartTag() throws Exception {
-		return EVAL_BODY_BUFFERED;
-	}
+        _responsiveButtonsSB.setIndex(0);
+    }
 
-	private StringBundler _responsiveButtonsSB = new StringBundler();
+    @Override
+    protected int processStartTag() throws Exception {
+        return EVAL_BODY_BUFFERED;
+    }
 
 }

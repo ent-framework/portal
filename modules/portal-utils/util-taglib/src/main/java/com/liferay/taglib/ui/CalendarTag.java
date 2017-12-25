@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -16,84 +16,81 @@ package com.liferay.taglib.ui;
 
 import com.liferay.taglib.util.IncludeTag;
 
-import java.text.Format;
-
-import java.util.Set;
-
 import javax.servlet.http.HttpServletRequest;
+import java.text.Format;
+import java.util.Set;
 
 /**
  * @author Brian Wing Shun Chan
  */
 public class CalendarTag extends IncludeTag {
 
-	public void setData(Set<Integer> data) {
-		_data = data;
-	}
+    private static final String _PAGE = "/html/taglib/ui/calendar/page.jsp";
+    private Set<Integer> _data;
+    private int _day;
+    private Format _headerFormat;
+    private String _headerPattern;
+    private int _month;
+    private boolean _showAllPotentialWeeks;
+    private int _year;
 
-	public void setDay(int day) {
-		_day = day;
-	}
+    public void setData(Set<Integer> data) {
+        _data = data;
+    }
 
-	public void setHeaderFormat(Format headerFormat) {
-		_headerFormat = headerFormat;
-	}
+    public void setDay(int day) {
+        _day = day;
+    }
 
-	public void setHeaderPattern(String headerPattern) {
-		_headerPattern = headerPattern;
-	}
+    public void setHeaderFormat(Format headerFormat) {
+        _headerFormat = headerFormat;
+    }
 
-	public void setMonth(int month) {
-		_month = month;
-	}
+    public void setHeaderPattern(String headerPattern) {
+        _headerPattern = headerPattern;
+    }
 
-	public void setShowAllPotentialWeeks(boolean showAllPotentialWeeks) {
-		_showAllPotentialWeeks = showAllPotentialWeeks;
-	}
+    public void setMonth(int month) {
+        _month = month;
+    }
 
-	public void setYear(int year) {
-		_year = year;
-	}
+    public void setShowAllPotentialWeeks(boolean showAllPotentialWeeks) {
+        _showAllPotentialWeeks = showAllPotentialWeeks;
+    }
 
-	@Override
-	protected void cleanUp() {
-		_data = null;
-		_day = 0;
-		_headerFormat = null;
-		_headerPattern = null;
-		_month = 0;
-		_showAllPotentialWeeks = false;
-		_year = 0;
-	}
+    public void setYear(int year) {
+        _year = year;
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _data = null;
+        _day = 0;
+        _headerFormat = null;
+        _headerPattern = null;
+        _month = 0;
+        _showAllPotentialWeeks = false;
+        _year = 0;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute("liferay-ui:calendar:data", _data);
-		request.setAttribute("liferay-ui:calendar:day", String.valueOf(_day));
-		request.setAttribute(
-			"liferay-ui:calendar:headerPattern", _headerPattern);
-		request.setAttribute("liferay-ui:calendar:headerFormat", _headerFormat);
-		request.setAttribute(
-			"liferay-ui:calendar:month", String.valueOf(_month));
-		request.setAttribute(
-			"liferay-ui:calendar:showAllPotentialWeeks",
-			String.valueOf(_showAllPotentialWeeks));
-		request.setAttribute("liferay-ui:calendar:year", String.valueOf(_year));
-	}
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
-	private static final String _PAGE = "/html/taglib/ui/calendar/page.jsp";
-
-	private Set<Integer> _data;
-	private int _day;
-	private Format _headerFormat;
-	private String _headerPattern;
-	private int _month;
-	private boolean _showAllPotentialWeeks;
-	private int _year;
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        request.setAttribute("liferay-ui:calendar:data", _data);
+        request.setAttribute("liferay-ui:calendar:day", String.valueOf(_day));
+        request.setAttribute(
+                "liferay-ui:calendar:headerPattern", _headerPattern);
+        request.setAttribute("liferay-ui:calendar:headerFormat", _headerFormat);
+        request.setAttribute(
+                "liferay-ui:calendar:month", String.valueOf(_month));
+        request.setAttribute(
+                "liferay-ui:calendar:showAllPotentialWeeks",
+                String.valueOf(_showAllPotentialWeeks));
+        request.setAttribute("liferay-ui:calendar:year", String.valueOf(_year));
+    }
 
 }

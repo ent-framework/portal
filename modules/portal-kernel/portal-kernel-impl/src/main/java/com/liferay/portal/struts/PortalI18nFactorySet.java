@@ -25,13 +25,13 @@ import org.apache.struts.tiles.xmlDefinition.XmlDefinitionsSet;
  */
 public class PortalI18nFactorySet extends I18nFactorySet {
 
-	@Override
-	protected XmlDefinitionsSet parseXmlFiles(
-			ServletContext servletContext, String postfix,
-			XmlDefinitionsSet xmlDefinitionsSet)
-		throws DefinitionsFactoryException {
-
-		return super.parseXmlFiles(servletContext, postfix, xmlDefinitionsSet);
-	}
+//	@Override
+//	protected XmlDefinitionsSet parseXmlFiles(
+//			ServletContext servletContext, String postfix,
+//			XmlDefinitionsSet xmlDefinitionsSet)
+//		throws DefinitionsFactoryException {
+//
+//		return super.parseXmlFiles(servletContext, postfix, xmlDefinitionsSet);
+//	}
 
 }

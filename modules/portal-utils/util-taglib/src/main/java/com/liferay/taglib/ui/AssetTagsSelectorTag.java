@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -30,128 +30,126 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class AssetTagsSelectorTag extends IncludeTag {
 
-	public void setAutoFocus(boolean autoFocus) {
-		_autoFocus = autoFocus;
-	}
+    private static final String _PAGE =
+            "/html/taglib/ui/asset_tags_selector/page.jsp";
+    private boolean _autoFocus;
+    private String _className;
+    private long _classPK;
+    private String _contentCallback;
+    private String _curTags;
+    private long[] _groupIds;
+    private String _hiddenInput = "assetTagNames";
+    private String _id;
+    private boolean _ignoreRequestValue;
 
-	public void setClassName(String className) {
-		_className = className;
-	}
+    public void setAutoFocus(boolean autoFocus) {
+        _autoFocus = autoFocus;
+    }
 
-	public void setClassPK(long classPK) {
-		_classPK = classPK;
-	}
+    public void setClassName(String className) {
+        _className = className;
+    }
 
-	public void setContentCallback(String contentCallback) {
-		_contentCallback = contentCallback;
-	}
+    public void setClassPK(long classPK) {
+        _classPK = classPK;
+    }
 
-	public void setCurTags(String curTags) {
-		_curTags = curTags;
-	}
+    public void setContentCallback(String contentCallback) {
+        _contentCallback = contentCallback;
+    }
 
-	public void setGroupIds(long[] groupIds) {
-		_groupIds = groupIds;
-	}
+    public void setCurTags(String curTags) {
+        _curTags = curTags;
+    }
 
-	public void setHiddenInput(String hiddenInput) {
-		_hiddenInput = hiddenInput;
-	}
+    public void setGroupIds(long[] groupIds) {
+        _groupIds = groupIds;
+    }
 
-	public void setId(String id) {
-		_id = id;
-	}
+    public void setHiddenInput(String hiddenInput) {
+        _hiddenInput = hiddenInput;
+    }
 
-	public void setIgnoreRequestValue(boolean ignoreRequestValue) {
-		_ignoreRequestValue = ignoreRequestValue;
-	}
+    public void setId(String id) {
+        _id = id;
+    }
 
-	@Override
-	protected void cleanUp() {
-		_autoFocus = false;
-		_className = null;
-		_classPK = 0;
-		_contentCallback = null;
-		_curTags = null;
-		_groupIds = null;
-		_hiddenInput = "assetTagNames";
-		_id = null;
-		_ignoreRequestValue = false;
-	}
+    public void setIgnoreRequestValue(boolean ignoreRequestValue) {
+        _ignoreRequestValue = ignoreRequestValue;
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _autoFocus = false;
+        _className = null;
+        _classPK = 0;
+        _contentCallback = null;
+        _curTags = null;
+        _groupIds = null;
+        _hiddenInput = "assetTagNames";
+        _id = null;
+        _ignoreRequestValue = false;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		String id = _id;
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
-		if (Validator.isNull(id)) {
-			id = PortalUtil.generateRandomKey(
-				request,
-				"taglib_ui_asset_tags_selector_page") + StringPool.UNDERLINE;
-		}
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        String id = _id;
 
-		request.setAttribute(
-			"liferay-ui:asset-tags-selector:autoFocus",
-			String.valueOf(_autoFocus));
-		request.setAttribute(
-			"liferay-ui:asset-tags-selector:className", _className);
-		request.setAttribute(
-			"liferay-ui:asset-tags-selector:classPK", String.valueOf(_classPK));
-		request.setAttribute(
-			"liferay-ui:asset-tags-selector:contentCallback",
-			String.valueOf(_contentCallback));
-		request.setAttribute(
-			"liferay-ui:asset-tags-selector:curTags", _curTags);
+        if (Validator.isNull(id)) {
+            id = PortalUtil.generateRandomKey(
+                    request,
+                    "taglib_ui_asset_tags_selector_page") + StringPool.UNDERLINE;
+        }
 
-		if (_groupIds == null) {
-			ThemeDisplay themeDisplay = (ThemeDisplay)pageContext.getAttribute(
-				"themeDisplay");
+        request.setAttribute(
+                "liferay-ui:asset-tags-selector:autoFocus",
+                String.valueOf(_autoFocus));
+        request.setAttribute(
+                "liferay-ui:asset-tags-selector:className", _className);
+        request.setAttribute(
+                "liferay-ui:asset-tags-selector:classPK", String.valueOf(_classPK));
+        request.setAttribute(
+                "liferay-ui:asset-tags-selector:contentCallback",
+                String.valueOf(_contentCallback));
+        request.setAttribute(
+                "liferay-ui:asset-tags-selector:curTags", _curTags);
 
-			long[] groupIds = null;
+        if (_groupIds == null) {
+            ThemeDisplay themeDisplay = (ThemeDisplay) pageContext.getAttribute(
+                    "themeDisplay");
 
-			Group group = themeDisplay.getScopeGroup();
+            long[] groupIds = null;
 
-			if (group.isLayout()) {
-				groupIds = new long[] {group.getParentGroupId()};
-			}
-			else {
-				groupIds = new long[] {group.getGroupId()};
-			}
+            Group group = themeDisplay.getScopeGroup();
 
-			if (group.getParentGroupId() != themeDisplay.getCompanyGroupId()) {
-				groupIds = ArrayUtil.append(
-					groupIds, themeDisplay.getCompanyGroupId());
-			}
+            if (group.isLayout()) {
+                groupIds = new long[]{group.getParentGroupId()};
+            } else {
+                groupIds = new long[]{group.getGroupId()};
+            }
 
-			_groupIds = groupIds;
-		}
+            if (group.getParentGroupId() != themeDisplay.getCompanyGroupId()) {
+                groupIds = ArrayUtil.append(
+                        groupIds, themeDisplay.getCompanyGroupId());
+            }
 
-		request.setAttribute(
-			"liferay-ui:asset-tags-selector:groupIds", _groupIds);
+            _groupIds = groupIds;
+        }
 
-		request.setAttribute(
-			"liferay-ui:asset-tags-selector:hiddenInput", _hiddenInput);
-		request.setAttribute("liferay-ui:asset-tags-selector:id", id);
-		request.setAttribute(
-			"liferay-ui:asset-tags-selector:ignoreRequestValue",
-			_ignoreRequestValue);
-	}
+        request.setAttribute(
+                "liferay-ui:asset-tags-selector:groupIds", _groupIds);
 
-	private static final String _PAGE =
-		"/html/taglib/ui/asset_tags_selector/page.jsp";
-
-	private boolean _autoFocus;
-	private String _className;
-	private long _classPK;
-	private String _contentCallback;
-	private String _curTags;
-	private long[] _groupIds;
-	private String _hiddenInput = "assetTagNames";
-	private String _id;
-	private boolean _ignoreRequestValue;
+        request.setAttribute(
+                "liferay-ui:asset-tags-selector:hiddenInput", _hiddenInput);
+        request.setAttribute("liferay-ui:asset-tags-selector:id", id);
+        request.setAttribute(
+                "liferay-ui:asset-tags-selector:ignoreRequestValue",
+                _ignoreRequestValue);
+    }
 
 }

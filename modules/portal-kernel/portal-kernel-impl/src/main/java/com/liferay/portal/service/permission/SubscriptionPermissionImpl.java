@@ -37,19 +37,6 @@ import com.liferay.portlet.documentlibrary.service.permission.DLFolderPermission
 import com.liferay.portlet.documentlibrary.service.persistence.DLFolderUtil;
 import com.liferay.portlet.journal.model.JournalArticle;
 import com.liferay.portlet.journal.service.permission.JournalPermission;
-import com.liferay.portlet.messageboards.model.MBCategory;
-import com.liferay.portlet.messageboards.model.MBDiscussion;
-import com.liferay.portlet.messageboards.model.MBThread;
-import com.liferay.portlet.messageboards.service.MBDiscussionLocalServiceUtil;
-import com.liferay.portlet.messageboards.service.MBThreadLocalServiceUtil;
-import com.liferay.portlet.messageboards.service.permission.MBCategoryPermission;
-import com.liferay.portlet.messageboards.service.permission.MBDiscussionPermission;
-import com.liferay.portlet.messageboards.service.permission.MBMessagePermission;
-import com.liferay.portlet.messageboards.service.permission.MBPermission;
-import com.liferay.portlet.wiki.model.WikiNode;
-import com.liferay.portlet.wiki.model.WikiPage;
-import com.liferay.portlet.wiki.service.permission.WikiNodePermission;
-import com.liferay.portlet.wiki.service.permission.WikiPagePermission;
 
 /**
  * @author Mate Thurzo
@@ -149,29 +136,6 @@ public class SubscriptionPermissionImpl implements SubscriptionPermission {
 			String actionId)
 		throws PortalException, SystemException {
 
-		MBDiscussion mbDiscussion =
-			MBDiscussionLocalServiceUtil.fetchDiscussion(className, classPK);
-
-		if (mbDiscussion != null) {
-			if (className.equals(Layout.class.getName())) {
-				return LayoutPermissionUtil.contains(
-					permissionChecker, classPK, ActionKeys.VIEW);
-			}
-
-			MBThread mbThread = MBThreadLocalServiceUtil.fetchThread(
-				mbDiscussion.getThreadId());
-
-			if (className.equals(WorkflowInstance.class.getName())) {
-				return permissionChecker.hasPermission(
-					mbThread.getGroupId(), PortletKeys.WORKFLOW_DEFINITIONS,
-					mbThread.getGroupId(), ActionKeys.VIEW);
-			}
-
-			return MBDiscussionPermission.contains(
-				permissionChecker, mbThread.getCompanyId(),
-				mbThread.getGroupId(), className, classPK, mbThread.getUserId(),
-				ActionKeys.VIEW);
-		}
 
 		if (className.equals(BlogsEntry.class.getName())) {
 			return BlogsPermission.contains(
@@ -187,34 +151,6 @@ public class SubscriptionPermissionImpl implements SubscriptionPermission {
 		}
 		else if (className.equals(JournalArticle.class.getName())) {
 			return JournalPermission.contains(
-				permissionChecker, classPK, actionId);
-		}
-		else if (className.equals(MBCategory.class.getName())) {
-			Group group = GroupLocalServiceUtil.fetchGroup(classPK);
-
-			if (group == null) {
-				return MBCategoryPermission.contains(
-					permissionChecker, classPK, actionId);
-			}
-
-			return MBPermission.contains(permissionChecker, classPK, actionId);
-		}
-		else if (className.equals(MBThread.class.getName())) {
-			MBThread mbThread = MBThreadLocalServiceUtil.fetchThread(classPK);
-
-			if (mbThread == null) {
-				return false;
-			}
-
-			return MBMessagePermission.contains(
-				permissionChecker, mbThread.getRootMessageId(), actionId);
-		}
-		else if (className.equals(WikiNode.class.getName())) {
-			return WikiNodePermission.contains(
-				permissionChecker, classPK, actionId);
-		}
-		else if (className.equals(WikiPage.class.getName())) {
-			return WikiPagePermission.contains(
 				permissionChecker, classPK, actionId);
 		}
 

@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -24,81 +24,80 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class AssetCategoriesSelectorTag extends IncludeTag {
 
-	public void setClassName(String className) {
-		_className = className;
-	}
+    private static final String _PAGE =
+            "/html/taglib/ui/asset_categories_selector/page.jsp";
+    private String _className;
+    private long _classPK;
+    private String _contentCallback;
+    private String _curCategoryIds;
+    private long[] _groupIds;
+    private String _hiddenInput = "assetCategoryIds";
+    private boolean _ignoreRequestValue;
 
-	public void setClassPK(long classPK) {
-		_classPK = classPK;
-	}
+    public void setClassName(String className) {
+        _className = className;
+    }
 
-	public void setContentCallback(String contentCallback) {
-		_contentCallback = contentCallback;
-	}
+    public void setClassPK(long classPK) {
+        _classPK = classPK;
+    }
 
-	public void setCurCategoryIds(String curCategoryIds) {
-		_curCategoryIds = curCategoryIds;
-	}
+    public void setContentCallback(String contentCallback) {
+        _contentCallback = contentCallback;
+    }
 
-	public void setGroupIds(long[] groupIds) {
-		_groupIds = groupIds;
-	}
+    public void setCurCategoryIds(String curCategoryIds) {
+        _curCategoryIds = curCategoryIds;
+    }
 
-	public void setHiddenInput(String hiddenInput) {
-		_hiddenInput = hiddenInput;
-	}
+    public void setGroupIds(long[] groupIds) {
+        _groupIds = groupIds;
+    }
 
-	public void setIgnoreRequestValue(boolean ignoreRequestValue) {
-		_ignoreRequestValue = ignoreRequestValue;
-	}
+    public void setHiddenInput(String hiddenInput) {
+        _hiddenInput = hiddenInput;
+    }
 
-	@Override
-	protected void cleanUp() {
-		_className = null;
-		_classPK = 0;
-		_contentCallback = null;
-		_curCategoryIds = null;
-		_groupIds = null;
-		_hiddenInput = "assetCategoryIds";
-		_ignoreRequestValue = false;
-	}
+    public void setIgnoreRequestValue(boolean ignoreRequestValue) {
+        _ignoreRequestValue = ignoreRequestValue;
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _className = null;
+        _classPK = 0;
+        _contentCallback = null;
+        _curCategoryIds = null;
+        _groupIds = null;
+        _hiddenInput = "assetCategoryIds";
+        _ignoreRequestValue = false;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute(
-			"liferay-ui:asset-categories-selector:className", _className);
-		request.setAttribute(
-			"liferay-ui:asset-categories-selector:classPK",
-			String.valueOf(_classPK));
-		request.setAttribute(
-			"liferay-ui:asset-categories-selector:contentCallback",
-			String.valueOf(_contentCallback));
-		request.setAttribute(
-			"liferay-ui:asset-categories-selector:curCategoryIds",
-			_curCategoryIds);
-		request.setAttribute(
-			"liferay-ui:asset-categories-selector:groupIds", _groupIds);
-		request.setAttribute(
-			"liferay-ui:asset-categories-selector:hiddenInput", _hiddenInput);
-		request.setAttribute(
-			"liferay-ui:asset-categories-selector:ignoreRequestValue",
-			_ignoreRequestValue);
-	}
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
-	private static final String _PAGE =
-		"/html/taglib/ui/asset_categories_selector/page.jsp";
-
-	private String _className;
-	private long _classPK;
-	private String _contentCallback;
-	private String _curCategoryIds;
-	private long[] _groupIds;
-	private String _hiddenInput = "assetCategoryIds";
-	private boolean _ignoreRequestValue;
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        request.setAttribute(
+                "liferay-ui:asset-categories-selector:className", _className);
+        request.setAttribute(
+                "liferay-ui:asset-categories-selector:classPK",
+                String.valueOf(_classPK));
+        request.setAttribute(
+                "liferay-ui:asset-categories-selector:contentCallback",
+                String.valueOf(_contentCallback));
+        request.setAttribute(
+                "liferay-ui:asset-categories-selector:curCategoryIds",
+                _curCategoryIds);
+        request.setAttribute(
+                "liferay-ui:asset-categories-selector:groupIds", _groupIds);
+        request.setAttribute(
+                "liferay-ui:asset-categories-selector:hiddenInput", _hiddenInput);
+        request.setAttribute(
+                "liferay-ui:asset-categories-selector:ignoreRequestValue",
+                _ignoreRequestValue);
+    }
 
 }

@@ -34,8 +34,9 @@ import com.liferay.portal.model.PortletConstants;
 import com.liferay.portal.model.Theme;
 import com.liferay.portal.scripting.ruby.RubyExecutor;
 import com.liferay.portal.service.ThemeLocalServiceUtil;
+import com.liferay.portal.servlet.filters.aggregate.AggregateContext;
 import com.liferay.portal.theme.ThemeDisplay;
-import com.liferay.portal.tools.SassToCssBuilder;
+//import com.liferay.portal.tools.SassToCssBuilder;
 import com.liferay.portal.util.ClassLoaderUtil;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PropsValues;
@@ -167,7 +168,12 @@ public class DynamicCSSUtil {
 			}
 		}
 		else {
+			System.out.println("SassToCssBuilder NOT implemented");
+
+			/*
 			content = SassToCssBuilder.parseStaticTokens(content);
+
+
 
 			String queryString = request.getQueryString();
 
@@ -203,7 +209,7 @@ public class DynamicCSSUtil {
 
 					parsedContent += parsedRtlCustomContent;
 				}
-			}
+			}*/
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(
@@ -245,7 +251,7 @@ public class DynamicCSSUtil {
 	}
 
 	/**
-	 * @see com.liferay.portal.servlet.filters.aggregate.AggregateFilter#aggregateCss(
+	 * @see com.liferay.portal.servlet.filters.aggregate.AggregateFilter#aggregateCss(AggregateContext, String) (
 	 *      com.liferay.portal.servlet.filters.aggregate.ServletPaths, String)
 	 */
 	protected static String propagateQueryString(
@@ -320,8 +326,9 @@ public class DynamicCSSUtil {
 			suffix = "_rtl";
 		}
 
-		return servletContext.getResource(
-			SassToCssBuilder.getCacheFileName(resourcePath, suffix));
+		return null;
+/*		return servletContext.getResource(
+			SassToCssBuilder.getCacheFileName(resourcePath, suffix));*/
 	}
 
 	private static String _getCssThemePath(
@@ -349,8 +356,9 @@ public class DynamicCSSUtil {
 			ServletContext servletContext, String resourcePath)
 		throws Exception {
 
-		return servletContext.getResource(
-			SassToCssBuilder.getRtlCustomFileName(resourcePath));
+		return null;
+/*		return servletContext.getResource(
+			SassToCssBuilder.getRtlCustomFileName(resourcePath));*/
 	}
 
 	private static File _getSassTempDir(ServletContext servletContext) {

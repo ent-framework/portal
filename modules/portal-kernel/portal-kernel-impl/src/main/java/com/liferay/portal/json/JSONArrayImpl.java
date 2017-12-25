@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 import java.io.Writer;
+import java.util.List;
 
 /**
  * @author Brian Wing Shun Chan
@@ -217,6 +218,11 @@ public class JSONArrayImpl implements JSONArray {
 	@Override
 	public void writeExternal(ObjectOutput objectOutput) throws IOException {
 		objectOutput.writeUTF(toString());
+	}
+
+	@Override
+	public List<JSONObject> toList() {
+		return null;
 	}
 
 	private static final String _NULL_JSON = "[]";

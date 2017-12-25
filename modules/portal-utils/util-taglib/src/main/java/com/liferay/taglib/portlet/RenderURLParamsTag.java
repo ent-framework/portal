@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -14,17 +14,9 @@
 
 package com.liferay.taglib.portlet;
 
-import com.liferay.portal.kernel.util.ArrayUtil;
-import com.liferay.portal.kernel.util.CharPool;
-import com.liferay.portal.kernel.util.HtmlUtil;
-import com.liferay.portal.kernel.util.HttpUtil;
-import com.liferay.portal.kernel.util.ParamUtil;
-import com.liferay.portal.kernel.util.StringBundler;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.*;
 
 import javax.portlet.PortletURL;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
@@ -36,87 +28,86 @@ import javax.servlet.jsp.tagext.TagSupport;
  */
 public class RenderURLParamsTag extends TagSupport {
 
-	public static String doTag(String varImpl, PageContext pageContext)
-		throws Exception {
+    private String _varImpl;
 
-		PortletURL portletURL = (PortletURL)pageContext.getAttribute(varImpl);
+    public static String doTag(String varImpl, PageContext pageContext)
+            throws Exception {
 
-		String params = StringPool.BLANK;
+        PortletURL portletURL = (PortletURL) pageContext.getAttribute(varImpl);
 
-		if (portletURL != null) {
-			params = _toParamsString(portletURL, pageContext);
+        String params = StringPool.BLANK;
 
-			JspWriter jspWriter = pageContext.getOut();
+        if (portletURL != null) {
+            params = _toParamsString(portletURL, pageContext);
 
-			jspWriter.write(params);
-		}
+            JspWriter jspWriter = pageContext.getOut();
 
-		return params;
-	}
+            jspWriter.write(params);
+        }
 
-	@Override
-	public int doEndTag() throws JspException {
-		try {
-			doTag(_varImpl, pageContext);
+        return params;
+    }
 
-			return EVAL_PAGE;
-		}
-		catch (Exception e) {
-			throw new JspException(e);
-		}
-	}
+    private static String _toParamsString(
+            PortletURL portletURL, PageContext pageContext)
+            throws Exception {
 
-	public void setVarImpl(String varImpl) {
-		_varImpl = varImpl;
-	}
+        StringBundler sb = new StringBundler();
 
-	private static String _toParamsString(
-			PortletURL portletURL, PageContext pageContext)
-		throws Exception {
+        String url = portletURL.toString();
 
-		StringBundler sb = new StringBundler();
+        HttpServletRequest request =
+                (HttpServletRequest) pageContext.getRequest();
 
-		String url = portletURL.toString();
+        if (ParamUtil.getBoolean(request, "wsrp")) {
+            int x = url.indexOf("/wsrp_rewrite");
 
-		HttpServletRequest request =
-			(HttpServletRequest)pageContext.getRequest();
+            url = url.substring(0, x);
+        }
 
-		if (ParamUtil.getBoolean(request, "wsrp")) {
-			int x = url.indexOf("/wsrp_rewrite");
+        String queryString = HttpUtil.getQueryString(url);
 
-			url = url.substring(0, x);
-		}
+        String[] parameters = StringUtil.split(queryString, CharPool.AMPERSAND);
 
-		String queryString = HttpUtil.getQueryString(url);
+        for (String parameter : parameters) {
+            if (parameter.length() > 0) {
+                String[] kvp = StringUtil.split(parameter, CharPool.EQUAL);
 
-		String[] parameters = StringUtil.split(queryString, CharPool.AMPERSAND);
+                if (ArrayUtil.isNotEmpty(kvp)) {
+                    String key = kvp[0];
+                    String value = StringPool.BLANK;
 
-		for (String parameter : parameters) {
-			if (parameter.length() > 0) {
-				String[] kvp = StringUtil.split(parameter, CharPool.EQUAL);
+                    if (kvp.length > 1) {
+                        value = kvp[1];
+                    }
 
-				if (ArrayUtil.isNotEmpty(kvp)) {
-					String key = kvp[0];
-					String value = StringPool.BLANK;
+                    value = HttpUtil.decodeURL(value);
 
-					if (kvp.length > 1) {
-						value = kvp[1];
-					}
+                    sb.append("<input name=\"");
+                    sb.append(key);
+                    sb.append("\" type=\"hidden\" value=\"");
+                    sb.append(HtmlUtil.escapeAttribute(value));
+                    sb.append("\" />");
+                }
+            }
+        }
 
-					value = HttpUtil.decodeURL(value);
+        return sb.toString();
+    }
 
-					sb.append("<input name=\"");
-					sb.append(key);
-					sb.append("\" type=\"hidden\" value=\"");
-					sb.append(HtmlUtil.escapeAttribute(value));
-					sb.append("\" />");
-				}
-			}
-		}
+    @Override
+    public int doEndTag() throws JspException {
+        try {
+            doTag(_varImpl, pageContext);
 
-		return sb.toString();
-	}
+            return EVAL_PAGE;
+        } catch (Exception e) {
+            throw new JspException(e);
+        }
+    }
 
-	private String _varImpl;
+    public void setVarImpl(String varImpl) {
+        _varImpl = varImpl;
+    }
 
 }

@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -32,70 +32,67 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class IconPortletTag extends IconTag {
 
-	public void setPortlet(Portlet portlet) {
-		_portlet = portlet;
-	}
+    private static final String _PAGE =
+            "/html/taglib/portlet/icon_portlet/page.jsp";
+    private Portlet _portlet;
 
-	@Override
-	protected void cleanUp() {
-		super.cleanUp();
+    public void setPortlet(Portlet portlet) {
+        _portlet = portlet;
+    }
 
-		_portlet = null;
-	}
+    @Override
+    protected void cleanUp() {
+        super.cleanUp();
 
-	@Override
-	protected String getPage() {
-		if (FileAvailabilityUtil.isAvailable(servletContext, _PAGE)) {
-			return _PAGE;
-		}
+        _portlet = null;
+    }
 
-		ThemeDisplay themeDisplay = (ThemeDisplay)pageContext.getAttribute(
-			"themeDisplay");
+    @Override
+    protected String getPage() {
+        if (FileAvailabilityUtil.isAvailable(servletContext, _PAGE)) {
+            return _PAGE;
+        }
 
-		String message = null;
-		String src = null;
+        ThemeDisplay themeDisplay = (ThemeDisplay) pageContext.getAttribute(
+                "themeDisplay");
 
-		if (_portlet != null) {
-			message = PortalUtil.getPortletTitle(
-				_portlet, pageContext.getServletContext(),
-				themeDisplay.getLocale());
+        String message = null;
+        String src = null;
 
-			if (Validator.isNotNull(_portlet.getIcon())) {
-				src = _portlet.getStaticResourcePath().concat(
-					_portlet.getIcon());
-			}
-			else {
-				src = themeDisplay.getPathContext() + "/html/icons/default.png";
-			}
-		}
-		else {
-			PortletDisplay portletDisplay = themeDisplay.getPortletDisplay();
+        if (_portlet != null) {
+            message = PortalUtil.getPortletTitle(
+                    _portlet, pageContext.getServletContext(),
+                    themeDisplay.getLocale());
 
-			if (!portletDisplay.isShowPortletIcon()) {
-				return null;
-			}
+            if (Validator.isNotNull(_portlet.getIcon())) {
+                src = _portlet.getStaticResourcePath().concat(
+                        _portlet.getIcon());
+            } else {
+                src = themeDisplay.getPathContext() + "/html/icons/default.png";
+            }
+        } else {
+            PortletDisplay portletDisplay = themeDisplay.getPortletDisplay();
 
-			message = portletDisplay.getTitle();
-			src = portletDisplay.getURLPortlet();
-		}
+            if (!portletDisplay.isShowPortletIcon()) {
+                return null;
+            }
 
-		setAlt(StringPool.BLANK);
-		setMessage(HtmlUtil.escape(message));
-		setSrc(src);
+            message = portletDisplay.getTitle();
+            src = portletDisplay.getURLPortlet();
+        }
 
-		return super.getPage();
-	}
+        setAlt(StringPool.BLANK);
+        setMessage(HtmlUtil.escape(message));
+        setSrc(src);
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		super.setAttributes(request);
+        return super.getPage();
+    }
 
-		request.setAttribute("liferay-portlet:icon_portlet:portlet", _portlet);
-	}
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        super.setAttributes(request);
 
-	private static final String _PAGE =
-		"/html/taglib/portlet/icon_portlet/page.jsp";
-
-	private Portlet _portlet;
+        request.setAttribute("liferay-portlet:icon_portlet:portlet", _portlet);
+    }
 
 }

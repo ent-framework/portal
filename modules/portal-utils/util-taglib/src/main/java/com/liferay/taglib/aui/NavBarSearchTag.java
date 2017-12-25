@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -21,7 +21,6 @@ import com.liferay.portal.kernel.util.Validator;
 import com.liferay.taglib.aui.base.BaseNavBarSearchTag;
 
 import javax.portlet.PortletResponse;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 
@@ -33,63 +32,63 @@ import javax.servlet.jsp.JspException;
  */
 public class NavBarSearchTag extends BaseNavBarSearchTag {
 
-	@Override
-	public int doStartTag() throws JspException {
-		NavBarTag navBarTag = (NavBarTag)findAncestorWithClass(
-			this, NavBarTag.class);
+    private String _namespacedId;
 
-		if (navBarTag != null) {
-			StringBundler sb = navBarTag.getResponsiveButtonsSB();
+    @Override
+    public int doStartTag() throws JspException {
+        NavBarTag navBarTag = (NavBarTag) findAncestorWithClass(
+                this, NavBarTag.class);
 
-			sb.append("<a class=\"btn btn-navbar\" id=\"");
-			sb.append(_getNamespacedId());
-			sb.append("NavbarBtn\" data-navId=\"");
-			sb.append(_getNamespacedId());
-			sb.append("\" tabindex=\"0\">");
-			sb.append("<i class=\"icon-search\"></i></a>");
-		}
+        if (navBarTag != null) {
+            StringBundler sb = navBarTag.getResponsiveButtonsSB();
 
-		return super.doStartTag();
-	}
+            sb.append("<a class=\"btn btn-navbar\" id=\"");
+            sb.append(_getNamespacedId());
+            sb.append("NavbarBtn\" data-navId=\"");
+            sb.append(_getNamespacedId());
+            sb.append("\" tabindex=\"0\">");
+            sb.append("<i class=\"icon-search\"></i></a>");
+        }
 
-	@Override
-	protected void cleanUp() {
-		super.cleanUp();
+        return super.doStartTag();
+    }
 
-		_namespacedId = null;
-	}
+    @Override
+    protected void cleanUp() {
+        super.cleanUp();
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		super.setAttributes(request);
+        _namespacedId = null;
+    }
 
-		setNamespacedAttribute(request, "id", _getNamespacedId());
-	}
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        super.setAttributes(request);
 
-	private String _getNamespacedId() {
-		if (Validator.isNotNull(_namespacedId)) {
-			return _namespacedId;
-		}
+        setNamespacedAttribute(request, "id", _getNamespacedId());
+    }
 
-		_namespacedId = getId();
+    private String _getNamespacedId() {
+        if (Validator.isNotNull(_namespacedId)) {
+            return _namespacedId;
+        }
 
-		if (Validator.isNull(_namespacedId)) {
-			_namespacedId = StringUtil.randomId();
-		}
+        _namespacedId = getId();
 
-		HttpServletRequest request =
-			(HttpServletRequest)pageContext.getRequest();
+        if (Validator.isNull(_namespacedId)) {
+            _namespacedId = StringUtil.randomId();
+        }
 
-		PortletResponse portletResponse = (PortletResponse)request.getAttribute(
-			JavaConstants.JAVAX_PORTLET_RESPONSE);
+        HttpServletRequest request =
+                (HttpServletRequest) pageContext.getRequest();
 
-		if (portletResponse != null) {
-			_namespacedId = portletResponse.getNamespace() + _namespacedId;
-		}
+        PortletResponse portletResponse = (PortletResponse) request.getAttribute(
+                JavaConstants.JAVAX_PORTLET_RESPONSE);
 
-		return _namespacedId;
-	}
+        if (portletResponse != null) {
+            _namespacedId = portletResponse.getNamespace() + _namespacedId;
+        }
 
-	private String _namespacedId;
+        return _namespacedId;
+    }
 
 }

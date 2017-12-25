@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -26,119 +26,118 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class InputSearchTag extends IncludeTag {
 
-	public void setAutoFocus(boolean autoFocus) {
-		_autoFocus = autoFocus;
-	}
+    private static final String _PAGE = "/html/taglib/ui/input_search/page.jsp";
+    private boolean _autoFocus;
+    private String _buttonLabel;
+    private String _cssClass;
+    private String _id;
+    private String _name;
+    private String _placeholder;
+    private boolean _showButton = true;
+    private String _title;
+    private boolean _useNamespace = true;
 
-	public void setButtonLabel(String buttonLabel) {
-		_buttonLabel = buttonLabel;
-	}
+    public void setAutoFocus(boolean autoFocus) {
+        _autoFocus = autoFocus;
+    }
 
-	public void setCssClass(String cssClass) {
-		_cssClass = cssClass;
-	}
+    public void setButtonLabel(String buttonLabel) {
+        _buttonLabel = buttonLabel;
+    }
 
-	public void setId(String id) {
-		_id = id;
-	}
+    public void setCssClass(String cssClass) {
+        _cssClass = cssClass;
+    }
 
-	public void setName(String name) {
-		_name = name;
-	}
+    public void setId(String id) {
+        _id = id;
+    }
 
-	public void setPlaceholder(String placeholder) {
-		_placeholder = placeholder;
-	}
+    public void setName(String name) {
+        _name = name;
+    }
 
-	public void setShowButton(boolean showButton) {
-		_showButton = showButton;
-	}
+    public void setPlaceholder(String placeholder) {
+        _placeholder = placeholder;
+    }
 
-	public void setTitle(String title) {
-		_title = title;
-	}
+    public void setShowButton(boolean showButton) {
+        _showButton = showButton;
+    }
 
-	public void setUseNamespace(boolean useNamespace) {
-		_useNamespace = useNamespace;
-	}
+    public void setTitle(String title) {
+        _title = title;
+    }
 
-	@Override
-	protected void cleanUp() {
-		super.cleanUp();
+    public void setUseNamespace(boolean useNamespace) {
+        _useNamespace = useNamespace;
+    }
 
-		_autoFocus = false;
-		_buttonLabel = null;
-		_cssClass = null;
-		_id = null;
-		_name = null;
-		_placeholder = null;
-		_showButton = true;
-		_title = null;
-		_useNamespace = true;
-	}
+    @Override
+    protected void cleanUp() {
+        super.cleanUp();
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+        _autoFocus = false;
+        _buttonLabel = null;
+        _cssClass = null;
+        _id = null;
+        _name = null;
+        _placeholder = null;
+        _showButton = true;
+        _title = null;
+        _useNamespace = true;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		String buttonLabel = _buttonLabel;
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
-		if (Validator.isNull(buttonLabel)) {
-			buttonLabel = LanguageUtil.get(pageContext, "search");
-		}
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        String buttonLabel = _buttonLabel;
 
-		String cssClass = _cssClass;
+        if (Validator.isNull(buttonLabel)) {
+            buttonLabel = LanguageUtil.get(pageContext, "search");
+        }
 
-		if (Validator.isNull(cssClass)) {
-			cssClass = "input-append";
-		}
+        String cssClass = _cssClass;
 
-		String name = _name;
+        if (Validator.isNull(cssClass)) {
+            cssClass = "input-append";
+        }
 
-		if (Validator.isNull(name)) {
-			name = DisplayTerms.KEYWORDS;
-		}
+        String name = _name;
 
-		String id = _id;
+        if (Validator.isNull(name)) {
+            name = DisplayTerms.KEYWORDS;
+        }
 
-		if (Validator.isNull(id)) {
-			id = name;
-		}
+        String id = _id;
 
-		String placeholder = _placeholder;
+        if (Validator.isNull(id)) {
+            id = name;
+        }
 
-		if (Validator.isNull(placeholder)) {
-			placeholder = buttonLabel;
-		}
+        String placeholder = _placeholder;
 
-		request.setAttribute(
-			"liferay-ui:input-search:autoFocus", String.valueOf(_autoFocus));
-		request.setAttribute(
-			"liferay-ui:input-search:buttonLabel", buttonLabel);
-		request.setAttribute("liferay-ui:input-search:cssClass", cssClass);
-		request.setAttribute("liferay-ui:input-search:id", id);
-		request.setAttribute("liferay-ui:input-search:name", name);
-		request.setAttribute(
-			"liferay-ui:input-search:placeholder", placeholder);
-		request.setAttribute("liferay-ui:input-search:showButton", _showButton);
-		request.setAttribute("liferay-ui:input-search:title", _title);
-		request.setAttribute(
-			"liferay-ui:input-search:useNamespace", _useNamespace);
-	}
+        if (Validator.isNull(placeholder)) {
+            placeholder = buttonLabel;
+        }
 
-	private static final String _PAGE = "/html/taglib/ui/input_search/page.jsp";
-
-	private boolean _autoFocus;
-	private String _buttonLabel;
-	private String _cssClass;
-	private String _id;
-	private String _name;
-	private String _placeholder;
-	private boolean _showButton = true;
-	private String _title;
-	private boolean _useNamespace = true;
+        request.setAttribute(
+                "liferay-ui:input-search:autoFocus", String.valueOf(_autoFocus));
+        request.setAttribute(
+                "liferay-ui:input-search:buttonLabel", buttonLabel);
+        request.setAttribute("liferay-ui:input-search:cssClass", cssClass);
+        request.setAttribute("liferay-ui:input-search:id", id);
+        request.setAttribute("liferay-ui:input-search:name", name);
+        request.setAttribute(
+                "liferay-ui:input-search:placeholder", placeholder);
+        request.setAttribute("liferay-ui:input-search:showButton", _showButton);
+        request.setAttribute("liferay-ui:input-search:title", _title);
+        request.setAttribute(
+                "liferay-ui:input-search:useNamespace", _useNamespace);
+    }
 
 }

@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -24,49 +24,48 @@ import com.liferay.taglib.ui.IconTag;
  */
 public class IconMinimizeTag extends IconTag {
 
-	@Override
-	protected String getPage() {
-		if (FileAvailabilityUtil.isAvailable(servletContext, _PAGE)) {
-			return _PAGE;
-		}
+    private static final String _PAGE =
+            "/html/taglib/portlet/icon_minimize/page.jsp";
 
-		PortletDisplay portletDisplay =
-			(PortletDisplay)pageContext.getAttribute("portletDisplay");
+    @Override
+    protected String getPage() {
+        if (FileAvailabilityUtil.isAvailable(servletContext, _PAGE)) {
+            return _PAGE;
+        }
 
-		if (!portletDisplay.isShowMinIcon()) {
-			return null;
-		}
+        PortletDisplay portletDisplay =
+                (PortletDisplay) pageContext.getAttribute("portletDisplay");
 
-		setCssClass("portlet-minimize portlet-minimize-icon");
+        if (!portletDisplay.isShowMinIcon()) {
+            return null;
+        }
 
-		String image = null;
-		String message = null;
+        setCssClass("portlet-minimize portlet-minimize-icon");
 
-		if (portletDisplay.isStateMin()) {
-			image = "resize-vertical";
-			message = "restore";
-		}
-		else {
-			image = "minus";
-			message = "minimize";
-		}
+        String image = null;
+        String message = null;
 
-		setImage("../aui/".concat(image));
-		setMessage(message);
+        if (portletDisplay.isStateMin()) {
+            image = "resize-vertical";
+            message = "restore";
+        } else {
+            image = "minus";
+            message = "minimize";
+        }
 
-		String onClick =
-			"Liferay.Portlet.minimize('#p_p_id_".concat(
-				portletDisplay.getId()).concat("_', this); return false;");
+        setImage("../aui/".concat(image));
+        setMessage(message);
 
-		setOnClick(onClick);
+        String onClick =
+                "Liferay.Portlet.minimize('#p_p_id_".concat(
+                        portletDisplay.getId()).concat("_', this); return false;");
 
-		setToolTip(false);
-		setUrl(portletDisplay.getURLMin());
+        setOnClick(onClick);
 
-		return super.getPage();
-	}
+        setToolTip(false);
+        setUrl(portletDisplay.getURLMin());
 
-	private static final String _PAGE =
-		"/html/taglib/portlet/icon_minimize/page.jsp";
+        return super.getPage();
+    }
 
 }

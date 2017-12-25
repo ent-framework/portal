@@ -33,7 +33,7 @@ import com.liferay.portal.model.ModelHintsUtil;
 import com.liferay.portal.model.ServiceComponent;
 import com.liferay.portal.service.ServiceComponentLocalServiceUtil;
 import com.liferay.portal.spring.hibernate.DialectDetector;
-import com.liferay.portal.upgrade.util.Table;
+//import com.liferay.portal.upgrade.util.Table;
 import com.liferay.portal.util.ClassLoaderUtil;
 import com.liferay.portal.util.MaintenanceUtil;
 import com.liferay.portal.util.ShutdownUtil;
@@ -272,23 +272,23 @@ public class ConvertDatabase extends ConvertProcess {
 			DB db, Connection connection, String tableName, Object[][] columns,
 			String sqlCreate)
 		throws Exception {
-
-		Table table = new Table(tableName, columns);
-
-		try {
-			String tempFileName = table.generateTempFile();
-
-			db.runSQL(connection, sqlCreate);
-
-			if (tempFileName != null) {
-				table.populateTable(tempFileName, connection);
-			}
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-
-			MaintenanceUtil.appendStatus(e.getMessage());
-		}
+//
+//		Table table = new Table(tableName, columns);
+//
+//		try {
+//			String tempFileName = table.generateTempFile();
+//
+//			db.runSQL(connection, sqlCreate);
+//
+//			if (tempFileName != null) {
+//				table.populateTable(tempFileName, connection);
+//			}
+//		}
+//		catch (Exception e) {
+//			_log.error(e, e);
+//
+//			MaintenanceUtil.appendStatus(e.getMessage());
+//		}
 	}
 
 	private static final Tuple[] _UNMAPPED_TABLES = new Tuple[] {

@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -23,30 +23,30 @@ import javax.servlet.jsp.JspException;
  */
 public class ParamTag extends TagSupport {
 
-	@Override
-	public int doStartTag() throws JspException {
-		ParamAncestorTag paramAncestorTag =
-			(ParamAncestorTag)findAncestorWithClass(
-				this, ParamAncestorTag.class);
+    private String _name;
+    private String _value;
 
-		if (paramAncestorTag == null) {
-			throw new JspException();
-		}
+    @Override
+    public int doStartTag() throws JspException {
+        ParamAncestorTag paramAncestorTag =
+                (ParamAncestorTag) findAncestorWithClass(
+                        this, ParamAncestorTag.class);
 
-		paramAncestorTag.addParam(_name, _value);
+        if (paramAncestorTag == null) {
+            throw new JspException();
+        }
 
-		return SKIP_BODY;
-	}
+        paramAncestorTag.addParam(_name, _value);
 
-	public void setName(String name) {
-		_name = name;
-	}
+        return SKIP_BODY;
+    }
 
-	public void setValue(String value) {
-		_value = value;
-	}
+    public void setName(String name) {
+        _name = name;
+    }
 
-	private String _name;
-	private String _value;
+    public void setValue(String value) {
+        _value = value;
+    }
 
 }

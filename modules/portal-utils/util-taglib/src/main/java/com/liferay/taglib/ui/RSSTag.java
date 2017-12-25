@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -22,7 +22,6 @@ import com.liferay.taglib.util.IncludeTag;
 import com.liferay.util.RSSUtil;
 
 import javax.portlet.ResourceURL;
-
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -30,133 +29,130 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class RSSTag extends IncludeTag {
 
-	public void setDelta(int delta) {
-		_delta = delta;
-	}
+    private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
+    private static final String _PAGE = "/html/taglib/ui/rss/page.jsp";
+    private int _delta = SearchContainer.DEFAULT_DELTA;
+    private String _displayStyle = RSSUtil.DISPLAY_STYLE_DEFAULT;
+    private String _feedType = RSSUtil.FEED_TYPE_DEFAULT;
+    private String _message = "rss";
+    private String _name;
+    private ResourceURL _resourceURL;
+    private String _url;
 
-	public void setDisplayStyle(String displayStyle) {
-		_displayStyle = displayStyle;
-	}
+    public void setDelta(int delta) {
+        _delta = delta;
+    }
 
-	public void setFeedType(String feedType) {
-		_feedType = feedType;
-	}
+    public void setDisplayStyle(String displayStyle) {
+        _displayStyle = displayStyle;
+    }
 
-	public void setMessage(String message) {
-		_message = message;
-	}
+    public void setFeedType(String feedType) {
+        _feedType = feedType;
+    }
 
-	public void setName(String name) {
-		_name = name;
-	}
+    public void setMessage(String message) {
+        _message = message;
+    }
 
-	public void setResourceURL(ResourceURL resourceURL) {
-		_resourceURL = resourceURL;
-	}
+    public void setName(String name) {
+        _name = name;
+    }
 
-	public void setUrl(String url) {
-		_url = url;
-	}
+    public void setResourceURL(ResourceURL resourceURL) {
+        _resourceURL = resourceURL;
+    }
 
-	@Override
-	protected void cleanUp() {
-		_delta = SearchContainer.DEFAULT_DELTA;
-		_displayStyle = RSSUtil.DISPLAY_STYLE_DEFAULT;
-		_feedType = RSSUtil.FEED_TYPE_DEFAULT;
-		_message = "RSS";
-		_name = null;
-		_resourceURL = null;
-		_url = null;
-	}
+    public void setUrl(String url) {
+        _url = url;
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _delta = SearchContainer.DEFAULT_DELTA;
+        _displayStyle = RSSUtil.DISPLAY_STYLE_DEFAULT;
+        _feedType = RSSUtil.FEED_TYPE_DEFAULT;
+        _message = "RSS";
+        _name = null;
+        _resourceURL = null;
+        _url = null;
+    }
 
-	@Override
-	protected boolean isCleanUpSetAttributes() {
-		return _CLEAN_UP_SET_ATTRIBUTES;
-	}
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute("liferay-ui:rss:message", _message);
-		request.setAttribute("liferay-ui:rss:url", getURL());
-	}
+    @Override
+    protected boolean isCleanUpSetAttributes() {
+        return _CLEAN_UP_SET_ATTRIBUTES;
+    }
 
-	private String getURL() {
-		if (_resourceURL != null) {
-			_resourceURL.setCacheability(ResourceURL.FULL);
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        request.setAttribute("liferay-ui:rss:message", _message);
+        request.setAttribute("liferay-ui:rss:url", getURL());
+    }
 
-			if ((_delta > 0) && (_delta != SearchContainer.DEFAULT_DELTA)) {
-				_resourceURL.setParameter("max", String.valueOf(_delta));
-			}
+    private String getURL() {
+        if (_resourceURL != null) {
+            _resourceURL.setCacheability(ResourceURL.FULL);
 
-			if (Validator.isNotNull(_displayStyle) &&
-				!_displayStyle.equals(RSSUtil.DISPLAY_STYLE_DEFAULT)) {
+            if ((_delta > 0) && (_delta != SearchContainer.DEFAULT_DELTA)) {
+                _resourceURL.setParameter("max", String.valueOf(_delta));
+            }
 
-				_resourceURL.setParameter("displayStyle", _displayStyle);
-			}
+            if (Validator.isNotNull(_displayStyle) &&
+                    !_displayStyle.equals(RSSUtil.DISPLAY_STYLE_DEFAULT)) {
 
-			if (Validator.isNotNull(_feedType) &&
-				!_feedType.equals(RSSUtil.FEED_TYPE_DEFAULT)) {
+                _resourceURL.setParameter("displayStyle", _displayStyle);
+            }
 
-				_resourceURL.setParameter(
-					"type", RSSUtil.getFeedTypeFormat(_feedType));
-				_resourceURL.setParameter(
-					"version",
-					String.valueOf(RSSUtil.getFeedTypeVersion(_feedType)));
-			}
+            if (Validator.isNotNull(_feedType) &&
+                    !_feedType.equals(RSSUtil.FEED_TYPE_DEFAULT)) {
 
-			if (Validator.isNotNull(_name)) {
-				_resourceURL.setParameter("feedTitle", _name);
-			}
+                _resourceURL.setParameter(
+                        "type", RSSUtil.getFeedTypeFormat(_feedType));
+                _resourceURL.setParameter(
+                        "version",
+                        String.valueOf(RSSUtil.getFeedTypeVersion(_feedType)));
+            }
 
-			return _resourceURL.toString();
-		}
-		else if (Validator.isNotNull(_url)) {
-			if ((_delta > 0) && (_delta != SearchContainer.DEFAULT_DELTA)) {
-				_url = HttpUtil.addParameter(_url, "max", _delta);
-			}
+            if (Validator.isNotNull(_name)) {
+                _resourceURL.setParameter("feedTitle", _name);
+            }
 
-			if (Validator.isNotNull(_displayStyle) &&
-				!_displayStyle.equals(RSSUtil.DISPLAY_STYLE_DEFAULT)) {
+            return _resourceURL.toString();
+        } else if (Validator.isNotNull(_url)) {
+            if ((_delta > 0) && (_delta != SearchContainer.DEFAULT_DELTA)) {
+                _url = HttpUtil.addParameter(_url, "max", _delta);
+            }
 
-				_url = HttpUtil.addParameter(
-					_url, "displayStyle", _displayStyle);
-			}
+            if (Validator.isNotNull(_displayStyle) &&
+                    !_displayStyle.equals(RSSUtil.DISPLAY_STYLE_DEFAULT)) {
 
-			if (Validator.isNotNull(_feedType) &&
-				!_feedType.equals(RSSUtil.FEED_TYPE_DEFAULT)) {
+                _url = HttpUtil.addParameter(
+                        _url, "displayStyle", _displayStyle);
+            }
 
-				_url = HttpUtil.addParameter(
-					_url, "type", RSSUtil.getFeedTypeFormat(_feedType));
-				_url = HttpUtil.addParameter(
-					_url, "version",
-					String.valueOf(RSSUtil.getFeedTypeVersion(_feedType)));
-			}
+            if (Validator.isNotNull(_feedType) &&
+                    !_feedType.equals(RSSUtil.FEED_TYPE_DEFAULT)) {
 
-			if (Validator.isNotNull(_name)) {
-				_url = HttpUtil.addParameter(_url, "feedTitle", _name);
-			}
+                _url = HttpUtil.addParameter(
+                        _url, "type", RSSUtil.getFeedTypeFormat(_feedType));
+                _url = HttpUtil.addParameter(
+                        _url, "version",
+                        String.valueOf(RSSUtil.getFeedTypeVersion(_feedType)));
+            }
 
-			return _url;
-		}
+            if (Validator.isNotNull(_name)) {
+                _url = HttpUtil.addParameter(_url, "feedTitle", _name);
+            }
 
-		return StringPool.BLANK;
-	}
+            return _url;
+        }
 
-	private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
-
-	private static final String _PAGE = "/html/taglib/ui/rss/page.jsp";
-
-	private int _delta = SearchContainer.DEFAULT_DELTA;
-	private String _displayStyle = RSSUtil.DISPLAY_STYLE_DEFAULT;
-	private String _feedType = RSSUtil.FEED_TYPE_DEFAULT;
-	private String _message = "rss";
-	private String _name;
-	private ResourceURL _resourceURL;
-	private String _url;
+        return StringPool.BLANK;
+    }
 
 }

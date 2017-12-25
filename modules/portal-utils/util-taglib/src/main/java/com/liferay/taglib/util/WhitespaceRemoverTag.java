@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -27,36 +27,35 @@ import javax.servlet.jsp.tagext.BodyTagSupport;
  */
 public class WhitespaceRemoverTag extends BodyTagSupport {
 
-	@Override
-	public int doEndTag() throws JspException {
-		try {
-			JspWriter jspWriter = pageContext.getOut();
+    @Override
+    public int doEndTag() throws JspException {
+        try {
+            JspWriter jspWriter = pageContext.getOut();
 
-			jspWriter.write(getBodyContentString());
-		}
-		catch (Exception e) {
-			throw new JspException(e);
-		}
+            jspWriter.write(getBodyContentString());
+        } catch (Exception e) {
+            throw new JspException(e);
+        }
 
-		return EVAL_PAGE;
-	}
+        return EVAL_PAGE;
+    }
 
-	@Override
-	public int doStartTag() {
-		return EVAL_BODY_BUFFERED;
-	}
+    @Override
+    public int doStartTag() {
+        return EVAL_BODY_BUFFERED;
+    }
 
-	protected String getBodyContentString() {
-		BodyContent bodyContent = getBodyContent();
+    protected String getBodyContentString() {
+        BodyContent bodyContent = getBodyContent();
 
-		String bodyContentString = StringUtil.trim(bodyContent.getString());
+        String bodyContentString = StringUtil.trim(bodyContent.getString());
 
-		bodyContentString = StringUtil.replace(
-			bodyContentString,
-			new String[] {StringPool.NEW_LINE, StringPool.TAB},
-			new String[] {StringPool.BLANK, StringPool.BLANK});
+        bodyContentString = StringUtil.replace(
+                bodyContentString,
+                new String[]{StringPool.NEW_LINE, StringPool.TAB},
+                new String[]{StringPool.BLANK, StringPool.BLANK});
 
-		return bodyContentString;
-	}
+        return bodyContentString;
+    }
 
 }

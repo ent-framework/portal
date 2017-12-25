@@ -63,7 +63,7 @@ import javax.imageio.ImageIO;
 
 import javax.media.jai.RenderedImageAdapter;
 
-import net.jmge.gif.Gif89Encoder;
+//import net.jmge.gif.Gif89Encoder;
 
 import org.im4java.core.IMOperation;
 
@@ -244,9 +244,9 @@ public class ImageToolImpl implements ImageTool {
 					bufferedImage, BufferedImage.TYPE_BYTE_INDEXED);
 			}
 
-			Gif89Encoder encoder = new Gif89Encoder(bufferedImage);
-
-			encoder.encode(os);
+//			Gif89Encoder encoder = new Gif89Encoder(bufferedImage);
+//
+//			encoder.encode(os);
 		}
 	}
 

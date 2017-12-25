@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -19,12 +19,7 @@ import com.liferay.portal.kernel.util.SearchContainerReference;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.util.PortalUtil;
 
-import javax.portlet.PortletConfig;
-import javax.portlet.PortletPreferences;
-import javax.portlet.PortletRequest;
-import javax.portlet.PortletResponse;
-import javax.portlet.PortletSession;
-
+import javax.portlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.tagext.TagSupport;
 
@@ -33,108 +28,101 @@ import javax.servlet.jsp.tagext.TagSupport;
  */
 public class DefineObjectsTag extends TagSupport {
 
-	@Override
-	public int doStartTag() {
-		HttpServletRequest request =
-			(HttpServletRequest)pageContext.getRequest();
+    @Override
+    public int doStartTag() {
+        HttpServletRequest request =
+                (HttpServletRequest) pageContext.getRequest();
 
-		String lifecycle = (String)request.getAttribute(
-			PortletRequest.LIFECYCLE_PHASE);
+        String lifecycle = (String) request.getAttribute(
+                PortletRequest.LIFECYCLE_PHASE);
 
-		PortletConfig portletConfig = (PortletConfig)request.getAttribute(
-			JavaConstants.JAVAX_PORTLET_CONFIG);
+        PortletConfig portletConfig = (PortletConfig) request.getAttribute(
+                JavaConstants.JAVAX_PORTLET_CONFIG);
 
-		if (portletConfig != null) {
-			pageContext.setAttribute("portletConfig", portletConfig);
-			pageContext.setAttribute(
-				"portletName", portletConfig.getPortletName());
-		}
+        if (portletConfig != null) {
+            pageContext.setAttribute("portletConfig", portletConfig);
+            pageContext.setAttribute(
+                    "portletName", portletConfig.getPortletName());
+        }
 
-		PortletRequest portletRequest = (PortletRequest)request.getAttribute(
-			JavaConstants.JAVAX_PORTLET_REQUEST);
+        PortletRequest portletRequest = (PortletRequest) request.getAttribute(
+                JavaConstants.JAVAX_PORTLET_REQUEST);
 
-		if (portletRequest != null) {
-			pageContext.setAttribute(
-				"liferayPortletRequest",
-				PortalUtil.getLiferayPortletRequest(portletRequest));
+        if (portletRequest != null) {
+            pageContext.setAttribute(
+                    "liferayPortletRequest",
+                    PortalUtil.getLiferayPortletRequest(portletRequest));
 
-			String portletRequestAttrName = null;
+            String portletRequestAttrName = null;
 
-			if (lifecycle.equals(PortletRequest.ACTION_PHASE)) {
-				portletRequestAttrName = "actionRequest";
-			}
-			else if (lifecycle.equals(PortletRequest.EVENT_PHASE)) {
-				portletRequestAttrName = "eventRequest";
-			}
-			else if (lifecycle.equals(PortletRequest.RENDER_PHASE)) {
-				portletRequestAttrName = "renderRequest";
-			}
-			else if (lifecycle.equals(PortletRequest.RESOURCE_PHASE)) {
-				portletRequestAttrName = "resourceRequest";
-			}
+            if (lifecycle.equals(PortletRequest.ACTION_PHASE)) {
+                portletRequestAttrName = "actionRequest";
+            } else if (lifecycle.equals(PortletRequest.EVENT_PHASE)) {
+                portletRequestAttrName = "eventRequest";
+            } else if (lifecycle.equals(PortletRequest.RENDER_PHASE)) {
+                portletRequestAttrName = "renderRequest";
+            } else if (lifecycle.equals(PortletRequest.RESOURCE_PHASE)) {
+                portletRequestAttrName = "resourceRequest";
+            }
 
-			pageContext.setAttribute(portletRequestAttrName, portletRequest);
+            pageContext.setAttribute(portletRequestAttrName, portletRequest);
 
-			PortletPreferences portletPreferences =
-				portletRequest.getPreferences();
+            PortletPreferences portletPreferences =
+                    portletRequest.getPreferences();
 
-			pageContext.setAttribute("portletPreferences", portletPreferences);
-			pageContext.setAttribute(
-				"portletPreferencesValues", portletPreferences.getMap());
+            pageContext.setAttribute("portletPreferences", portletPreferences);
+            pageContext.setAttribute(
+                    "portletPreferencesValues", portletPreferences.getMap());
 
-			PortletSession portletSession = portletRequest.getPortletSession();
+            PortletSession portletSession = portletRequest.getPortletSession();
 
-			pageContext.setAttribute("portletSession", portletSession);
+            pageContext.setAttribute("portletSession", portletSession);
 
-			try {
-				pageContext.setAttribute(
-					"portletSessionScope", portletSession.getAttributeMap());
-			}
-			catch (IllegalStateException ise) {
-			}
-		}
+            try {
+                pageContext.setAttribute(
+                        "portletSessionScope", portletSession.getAttributeMap());
+            } catch (IllegalStateException ise) {
+            }
+        }
 
-		PortletResponse portletResponse = (PortletResponse)request.getAttribute(
-			JavaConstants.JAVAX_PORTLET_RESPONSE);
+        PortletResponse portletResponse = (PortletResponse) request.getAttribute(
+                JavaConstants.JAVAX_PORTLET_RESPONSE);
 
-		if (portletResponse == null) {
-			return SKIP_BODY;
-		}
+        if (portletResponse == null) {
+            return SKIP_BODY;
+        }
 
-		pageContext.setAttribute(
-			"liferayPortletResponse",
-			PortalUtil.getLiferayPortletResponse(portletResponse));
+        pageContext.setAttribute(
+                "liferayPortletResponse",
+                PortalUtil.getLiferayPortletResponse(portletResponse));
 
-		String portletResponseAttrName = null;
+        String portletResponseAttrName = null;
 
-		if (lifecycle.equals(PortletRequest.ACTION_PHASE)) {
-			portletResponseAttrName = "actionResponse";
-		}
-		else if (lifecycle.equals(PortletRequest.EVENT_PHASE)) {
-			portletResponseAttrName = "eventResponse";
-		}
-		else if (lifecycle.equals(PortletRequest.RENDER_PHASE)) {
-			portletResponseAttrName = "renderResponse";
-		}
-		else if (lifecycle.equals(PortletRequest.RESOURCE_PHASE)) {
-			portletResponseAttrName = "resourceResponse";
-		}
+        if (lifecycle.equals(PortletRequest.ACTION_PHASE)) {
+            portletResponseAttrName = "actionResponse";
+        } else if (lifecycle.equals(PortletRequest.EVENT_PHASE)) {
+            portletResponseAttrName = "eventResponse";
+        } else if (lifecycle.equals(PortletRequest.RENDER_PHASE)) {
+            portletResponseAttrName = "renderResponse";
+        } else if (lifecycle.equals(PortletRequest.RESOURCE_PHASE)) {
+            portletResponseAttrName = "resourceResponse";
+        }
 
-		pageContext.setAttribute(portletResponseAttrName, portletResponse);
+        pageContext.setAttribute(portletResponseAttrName, portletResponse);
 
-		SearchContainerReference searchContainerReference =
-			(SearchContainerReference)request.getAttribute(
-				WebKeys.SEARCH_CONTAINER_REFERENCE);
+        SearchContainerReference searchContainerReference =
+                (SearchContainerReference) request.getAttribute(
+                        WebKeys.SEARCH_CONTAINER_REFERENCE);
 
-		if (searchContainerReference == null) {
-			searchContainerReference = new SearchContainerReference(
-				request, portletResponse.getNamespace());
-		}
+        if (searchContainerReference == null) {
+            searchContainerReference = new SearchContainerReference(
+                    request, portletResponse.getNamespace());
+        }
 
-		pageContext.setAttribute(
-			"searchContainerReference", searchContainerReference);
+        pageContext.setAttribute(
+                "searchContainerReference", searchContainerReference);
 
-		return SKIP_BODY;
-	}
+        return SKIP_BODY;
+    }
 
 }

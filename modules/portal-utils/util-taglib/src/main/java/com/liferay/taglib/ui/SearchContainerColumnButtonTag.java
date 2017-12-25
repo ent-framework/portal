@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -22,93 +22,90 @@ import com.liferay.portal.kernel.util.ServerDetector;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 
-import java.util.List;
-
 import javax.portlet.PortletURL;
-
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspTagException;
+import java.util.List;
 
 /**
  * @author Raymond Augé
  */
 public class SearchContainerColumnButtonTag<R>
-	extends SearchContainerColumnTag {
+        extends SearchContainerColumnTag {
 
-	@Override
-	public int doEndTag() {
-		try {
-			SearchContainerRowTag<R> searchContainerRowTag =
-				(SearchContainerRowTag<R>)findAncestorWithClass(
-					this, SearchContainerRowTag.class);
+    private Object _href;
 
-			ResultRow resultRow = searchContainerRowTag.getRow();
+    @Override
+    public int doEndTag() {
+        try {
+            SearchContainerRowTag<R> searchContainerRowTag =
+                    (SearchContainerRowTag<R>) findAncestorWithClass(
+                            this, SearchContainerRowTag.class);
 
-			if (index <= -1) {
-				List<SearchEntry> searchEntries = resultRow.getEntries();
+            ResultRow resultRow = searchContainerRowTag.getRow();
 
-				index = searchEntries.size();
-			}
+            if (index <= -1) {
+                List<SearchEntry> searchEntries = resultRow.getEntries();
 
-			ButtonSearchEntry buttonSearchEntry = new ButtonSearchEntry();
+                index = searchEntries.size();
+            }
 
-			buttonSearchEntry.setAlign(getAlign());
-			buttonSearchEntry.setColspan(getColspan());
-			buttonSearchEntry.setCssClass(getCssClass());
-			buttonSearchEntry.setHref((String)getHref());
-			buttonSearchEntry.setName(LanguageUtil.get(pageContext, getName()));
-			buttonSearchEntry.setValign(getValign());
+            ButtonSearchEntry buttonSearchEntry = new ButtonSearchEntry();
 
-			resultRow.addSearchEntry(index, buttonSearchEntry);
+            buttonSearchEntry.setAlign(getAlign());
+            buttonSearchEntry.setColspan(getColspan());
+            buttonSearchEntry.setCssClass(getCssClass());
+            buttonSearchEntry.setHref((String) getHref());
+            buttonSearchEntry.setName(LanguageUtil.get(pageContext, getName()));
+            buttonSearchEntry.setValign(getValign());
 
-			return EVAL_PAGE;
-		}
-		finally {
-			index = -1;
+            resultRow.addSearchEntry(index, buttonSearchEntry);
 
-			if (!ServerDetector.isResin()) {
-				align = SearchEntry.DEFAULT_ALIGN;
-				colspan = SearchEntry.DEFAULT_COLSPAN;
-				cssClass = SearchEntry.DEFAULT_CSS_CLASS;
-				_href = null;
-				name = StringPool.BLANK;
-				valign = SearchEntry.DEFAULT_VALIGN;
-			}
-		}
-	}
+            return EVAL_PAGE;
+        } finally {
+            index = -1;
 
-	@Override
-	public int doStartTag() throws JspException {
-		SearchContainerRowTag<R> searchContainerRowTag =
-			(SearchContainerRowTag<R>)findAncestorWithClass(
-				this, SearchContainerRowTag.class);
+            if (!ServerDetector.isResin()) {
+                align = SearchEntry.DEFAULT_ALIGN;
+                colspan = SearchEntry.DEFAULT_COLSPAN;
+                cssClass = SearchEntry.DEFAULT_CSS_CLASS;
+                _href = null;
+                name = StringPool.BLANK;
+                valign = SearchEntry.DEFAULT_VALIGN;
+            }
+        }
+    }
 
-		if (searchContainerRowTag == null) {
-			throw new JspTagException(
-				"Requires liferay-ui:search-container-row");
-		}
+    @Override
+    public int doStartTag() throws JspException {
+        SearchContainerRowTag<R> searchContainerRowTag =
+                (SearchContainerRowTag<R>) findAncestorWithClass(
+                        this, SearchContainerRowTag.class);
 
-		if (!searchContainerRowTag.isHeaderNamesAssigned()) {
-			List<String> headerNames = searchContainerRowTag.getHeaderNames();
+        if (searchContainerRowTag == null) {
+            throw new JspTagException(
+                    "Requires liferay-ui:search-container-row");
+        }
 
-			headerNames.add(StringPool.BLANK);
-		}
+        if (!searchContainerRowTag.isHeaderNamesAssigned()) {
+            List<String> headerNames = searchContainerRowTag.getHeaderNames();
 
-		return EVAL_BODY_INCLUDE;
-	}
+            headerNames.add(StringPool.BLANK);
+        }
 
-	public Object getHref() {
-		if (Validator.isNotNull(_href) && (_href instanceof PortletURL)) {
-			_href = _href.toString();
-		}
+        return EVAL_BODY_INCLUDE;
+    }
 
-		return _href;
-	}
+    public Object getHref() {
+        if (Validator.isNotNull(_href) && (_href instanceof PortletURL)) {
+            _href = _href.toString();
+        }
 
-	public void setHref(Object href) {
-		_href = href;
-	}
+        return _href;
+    }
 
-	private Object _href;
+    public void setHref(Object href) {
+        _href = href;
+    }
 
 }

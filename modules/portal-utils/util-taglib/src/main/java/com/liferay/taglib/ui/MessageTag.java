@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -31,102 +31,95 @@ import javax.servlet.jsp.tagext.TagSupport;
  */
 public class MessageTag extends TagSupport {
 
-	@Override
-	public int doEndTag() throws JspException {
-		try {
-			String value = StringPool.BLANK;
+    private Object[] _arguments;
+    private String _key;
+    private boolean _localizeKey = true;
+    private boolean _translateArguments = true;
+    private boolean _unicode;
 
-			HttpServletRequest request =
-				(HttpServletRequest)pageContext.getRequest();
+    @Override
+    public int doEndTag() throws JspException {
+        try {
+            String value = StringPool.BLANK;
 
-			boolean unicode = GetterUtil.getBoolean(
-				request.getAttribute(WebKeys.JAVASCRIPT_CONTEXT));
+            HttpServletRequest request =
+                    (HttpServletRequest) pageContext.getRequest();
 
-			if (unicode) {
-				_unicode = unicode;
-			}
+            boolean unicode = GetterUtil.getBoolean(
+                    request.getAttribute(WebKeys.JAVASCRIPT_CONTEXT));
 
-			if (_arguments == null) {
-				if (!_localizeKey) {
-					value = _key;
-				}
-				else if (_unicode) {
-					value = UnicodeLanguageUtil.get(pageContext, _key);
-				}
-				else {
-					value = LanguageUtil.get(pageContext, _key);
-				}
-			}
-			else {
-				if (_unicode) {
-					value = UnicodeLanguageUtil.format(
-						pageContext, _key, _arguments, _translateArguments);
-				}
-				else {
-					value = LanguageUtil.format(
-						pageContext, _key, _arguments, _translateArguments);
-				}
-			}
+            if (unicode) {
+                _unicode = unicode;
+            }
 
-			if (value != null) {
-				JspWriter jspWriter = pageContext.getOut();
+            if (_arguments == null) {
+                if (!_localizeKey) {
+                    value = _key;
+                } else if (_unicode) {
+                    value = UnicodeLanguageUtil.get(pageContext, _key);
+                } else {
+                    value = LanguageUtil.get(pageContext, _key);
+                }
+            } else {
+                if (_unicode) {
+                    value = UnicodeLanguageUtil.format(
+                            pageContext, _key, _arguments, _translateArguments);
+                } else {
+                    value = LanguageUtil.format(
+                            pageContext, _key, _arguments, _translateArguments);
+                }
+            }
 
-				jspWriter.write(value);
-			}
+            if (value != null) {
+                JspWriter jspWriter = pageContext.getOut();
 
-			return EVAL_PAGE;
-		}
-		catch (Exception e) {
-			throw new JspException(e);
-		}
-		finally {
-			if (!ServerDetector.isResin()) {
-				_arguments = null;
-				_key = null;
-				_localizeKey = true;
-				_translateArguments = true;
-				_unicode = false;
-			}
-		}
-	}
+                jspWriter.write(value);
+            }
 
-	public void setArguments(Object argument) {
-		if (argument == null) {
-			_arguments = null;
+            return EVAL_PAGE;
+        } catch (Exception e) {
+            throw new JspException(e);
+        } finally {
+            if (!ServerDetector.isResin()) {
+                _arguments = null;
+                _key = null;
+                _localizeKey = true;
+                _translateArguments = true;
+                _unicode = false;
+            }
+        }
+    }
 
-			return;
-		}
+    public void setArguments(Object argument) {
+        if (argument == null) {
+            _arguments = null;
 
-		Class<?> clazz = argument.getClass();
+            return;
+        }
 
-		if (clazz.isArray()) {
-			_arguments = (Object[])argument;
-		}
-		else {
-			_arguments = new Object[] {argument};
-		}
-	}
+        Class<?> clazz = argument.getClass();
 
-	public void setKey(String key) {
-		_key = key;
-	}
+        if (clazz.isArray()) {
+            _arguments = (Object[]) argument;
+        } else {
+            _arguments = new Object[]{argument};
+        }
+    }
 
-	public void setLocalizeKey(boolean localizeKey) {
-		_localizeKey = localizeKey;
-	}
+    public void setKey(String key) {
+        _key = key;
+    }
 
-	public void setTranslateArguments(boolean translateArguments) {
-		_translateArguments = translateArguments;
-	}
+    public void setLocalizeKey(boolean localizeKey) {
+        _localizeKey = localizeKey;
+    }
 
-	public void setUnicode(boolean unicode) {
-		_unicode = unicode;
-	}
+    public void setTranslateArguments(boolean translateArguments) {
+        _translateArguments = translateArguments;
+    }
 
-	private Object[] _arguments;
-	private String _key;
-	private boolean _localizeKey = true;
-	private boolean _translateArguments = true;
-	private boolean _unicode;
+    public void setUnicode(boolean unicode) {
+        _unicode = unicode;
+    }
 
 }

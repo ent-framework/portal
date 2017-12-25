@@ -27,39 +27,47 @@
 
 
 <%!
-private static ArrayList<Object> _toArrayList(Object obj) {
-	return (ArrayList<Object>)_deserialize(obj);
-}
+private static ArrayList
+<Object> _toArrayList(Object obj) {
+    return (ArrayList
+    <Object>)_deserialize(obj);
+        }
 
-private static HashMap<String, Object> _toHashMap(Object obj) {
-	return (HashMap<String, Object>)_deserialize(obj);
-}
+        private static HashMap
+        <String
+        , Object> _toHashMap(Object obj) {
+        return (HashMap
+        <String
+        , Object>)_deserialize(obj);
+        }
 
-public static void _initJSONFactoryUtil() {
-	if (JSONFactoryUtil.getJSONFactory() == null) {
-		(new JSONFactoryUtil()).setJSONFactory(new JSONFactoryImpl());
-	}
-}
+        public static void _initJSONFactoryUtil() {
+        if (JSONFactoryUtil.getJSONFactory() == null) {
+        (new JSONFactoryUtil()).setJSONFactory(new JSONFactoryImpl());
+        }
+        }
 
-private static Object _deserialize(Object obj) {
-	if (obj != null) {
-		String json = JSONFactoryUtil.looseSerialize(obj);
+        private static Object _deserialize(Object obj) {
+        if (obj != null) {
+        String json = JSONFactoryUtil.looseSerialize(obj);
 
-		json = StringUtil.unquote(json);
+        json = StringUtil.unquote(json);
 
-		return JSONFactoryUtil.looseDeserialize(json);
-	}
+        return JSONFactoryUtil.looseDeserialize(json);
+        }
 
-	return null;
-}
+        return null;
+        }
 
-private static void _updateOptions(Map<String, Object> options, String key, Object value) {
-	if ((options != null) && options.containsKey(key)) {
-		options.put(key, value);
-	}
-}
-%>
+        private static void _updateOptions(Map
+        <String
+        , Object> options, String key, Object value) {
+        if ((options != null) && options.containsKey(key)) {
+        options.put(key, value);
+        }
+        }
+        %>
 
-<%
-_initJSONFactoryUtil();
-%>
+        <%
+        _initJSONFactoryUtil();
+        %>

@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -28,78 +28,76 @@ import javax.servlet.jsp.JspException;
  */
 public class PreviewTag extends IncludeTag {
 
-	public static void doTag(
-			String portletName, String queryString, boolean showBorders,
-			String width, ServletContext servletContext,
-			HttpServletRequest request, HttpServletResponse response)
-		throws Exception {
+    private static final String _PAGE = "/html/taglib/portlet/preview/page.jsp";
+    private String _portletName;
+    private String _queryString;
+    private boolean _showBorders;
+    private String _width;
 
-		doTag(
-			_PAGE, portletName, queryString, showBorders, width, servletContext,
-			request, response);
-	}
+    public static void doTag(
+            String portletName, String queryString, boolean showBorders,
+            String width, ServletContext servletContext,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
 
-	public static void doTag(
-			String page, String portletName, String queryString,
-			boolean showBorders, String width, ServletContext servletContext,
-			HttpServletRequest request, HttpServletResponse response)
-		throws Exception {
+        doTag(
+                _PAGE, portletName, queryString, showBorders, width, servletContext,
+                request, response);
+    }
 
-		request.setAttribute(
-			"liferay-portlet:preview:portletName", portletName);
-		request.setAttribute(
-			"liferay-portlet:preview:queryString", queryString);
-		request.setAttribute(
-			"liferay-portlet:preview:showBorders", String.valueOf(showBorders));
-		request.setAttribute("liferay-portlet:preview:width", width);
+    public static void doTag(
+            String page, String portletName, String queryString,
+            boolean showBorders, String width, ServletContext servletContext,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
 
-		RequestDispatcher requestDispatcher =
-			servletContext.getRequestDispatcher(page);
+        request.setAttribute(
+                "liferay-portlet:preview:portletName", portletName);
+        request.setAttribute(
+                "liferay-portlet:preview:queryString", queryString);
+        request.setAttribute(
+                "liferay-portlet:preview:showBorders", String.valueOf(showBorders));
+        request.setAttribute("liferay-portlet:preview:width", width);
 
-		requestDispatcher.include(request, response);
-	}
+        RequestDispatcher requestDispatcher =
+                servletContext.getRequestDispatcher(page);
 
-	@Override
-	public int doEndTag() throws JspException {
-		try {
-			doTag(
-				getPage(), _portletName, _queryString, _showBorders, _width,
-				servletContext, request,
-				new PipingServletResponse(pageContext));
+        requestDispatcher.include(request, response);
+    }
 
-			return EVAL_PAGE;
-		}
-		catch (Exception e) {
-			throw new JspException(e);
-		}
-	}
+    @Override
+    public int doEndTag() throws JspException {
+        try {
+            doTag(
+                    getPage(), _portletName, _queryString, _showBorders, _width,
+                    servletContext, request,
+                    new PipingServletResponse(pageContext));
 
-	public void setPortletName(String portletName) {
-		_portletName = portletName;
-	}
+            return EVAL_PAGE;
+        } catch (Exception e) {
+            throw new JspException(e);
+        }
+    }
 
-	public void setQueryString(String queryString) {
-		_queryString = queryString;
-	}
+    public void setPortletName(String portletName) {
+        _portletName = portletName;
+    }
 
-	public void setShowBorders(boolean showBorders) {
-		_showBorders = showBorders;
-	}
+    public void setQueryString(String queryString) {
+        _queryString = queryString;
+    }
 
-	public void setWidth(String width) {
-		_width = width;
-	}
+    public void setShowBorders(boolean showBorders) {
+        _showBorders = showBorders;
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    public void setWidth(String width) {
+        _width = width;
+    }
 
-	private static final String _PAGE = "/html/taglib/portlet/preview/page.jsp";
-
-	private String _portletName;
-	private String _queryString;
-	private boolean _showBorders;
-	private String _width;
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
 }

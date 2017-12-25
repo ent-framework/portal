@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -16,11 +16,7 @@ package com.liferay.taglib.ui;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.util.HttpUtil;
-import com.liferay.portal.kernel.util.JavaConstants;
-import com.liferay.portal.kernel.util.StringBundler;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.Layout;
 import com.liferay.portal.model.Role;
@@ -31,14 +27,12 @@ import com.liferay.portal.service.GroupLocalServiceUtil;
 import com.liferay.portal.service.RoleLocalServiceUtil;
 import com.liferay.portal.theme.ThemeDisplay;
 
-import java.util.List;
-
 import javax.portlet.RenderResponse;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.TagSupport;
+import java.util.List;
 
 /**
  * @author Brian Wing Shun Chan
@@ -47,159 +41,155 @@ import javax.servlet.jsp.tagext.TagSupport;
  */
 public class InputPermissionsParamsTag extends TagSupport {
 
-	public static String doTag(String modelName, PageContext pageContext)
-		throws Exception {
+    private String _modelName;
 
-		try {
-			HttpServletRequest request =
-				(HttpServletRequest)pageContext.getRequest();
+    public static String doTag(String modelName, PageContext pageContext)
+            throws Exception {
 
-			RenderResponse renderResponse =
-				(RenderResponse)request.getAttribute(
-					JavaConstants.JAVAX_PORTLET_RESPONSE);
+        try {
+            HttpServletRequest request =
+                    (HttpServletRequest) pageContext.getRequest();
 
-			ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
-				WebKeys.THEME_DISPLAY);
+            RenderResponse renderResponse =
+                    (RenderResponse) request.getAttribute(
+                            JavaConstants.JAVAX_PORTLET_RESPONSE);
 
-			Layout layout = themeDisplay.getLayout();
+            ThemeDisplay themeDisplay = (ThemeDisplay) request.getAttribute(
+                    WebKeys.THEME_DISPLAY);
 
-			Group layoutGroup = layout.getGroup();
+            Layout layout = themeDisplay.getLayout();
 
-			Group group = themeDisplay.getScopeGroup();
+            Group layoutGroup = layout.getGroup();
 
-			List<String> supportedActions =
-				ResourceActionsUtil.getModelResourceActions(modelName);
-			List<String> groupDefaultActions =
-				ResourceActionsUtil.getModelResourceGroupDefaultActions(
-					modelName);
-			List<String> guestDefaultActions =
-				ResourceActionsUtil.getModelResourceGuestDefaultActions(
-					modelName);
-			List<String> guestUnsupportedActions =
-				ResourceActionsUtil.getModelResourceGuestUnsupportedActions(
-					modelName);
+            Group group = themeDisplay.getScopeGroup();
 
-			StringBundler sb = new StringBundler();
+            List<String> supportedActions =
+                    ResourceActionsUtil.getModelResourceActions(modelName);
+            List<String> groupDefaultActions =
+                    ResourceActionsUtil.getModelResourceGroupDefaultActions(
+                            modelName);
+            List<String> guestDefaultActions =
+                    ResourceActionsUtil.getModelResourceGuestDefaultActions(
+                            modelName);
+            List<String> guestUnsupportedActions =
+                    ResourceActionsUtil.getModelResourceGuestUnsupportedActions(
+                            modelName);
 
-			for (int i = 0; i < supportedActions.size(); i++) {
-				String action = supportedActions.get(i);
+            StringBundler sb = new StringBundler();
 
-				boolean groupChecked = groupDefaultActions.contains(action);
+            for (int i = 0; i < supportedActions.size(); i++) {
+                String action = supportedActions.get(i);
 
-				boolean guestChecked = false;
+                boolean groupChecked = groupDefaultActions.contains(action);
 
-				if (layoutGroup.isControlPanel()) {
-					if (!group.hasPrivateLayouts() &&
-						guestDefaultActions.contains(action)) {
+                boolean guestChecked = false;
 
-						guestChecked = true;
-					}
-				}
-				else if (layout.isPublicLayout() &&
-						 guestDefaultActions.contains(action)) {
+                if (layoutGroup.isControlPanel()) {
+                    if (!group.hasPrivateLayouts() &&
+                            guestDefaultActions.contains(action)) {
 
-					guestChecked = true;
-				}
+                        guestChecked = true;
+                    }
+                } else if (layout.isPublicLayout() &&
+                        guestDefaultActions.contains(action)) {
 
-				boolean guestDisabled = guestUnsupportedActions.contains(
-					action);
+                    guestChecked = true;
+                }
 
-				if (guestDisabled) {
-					guestChecked = false;
-				}
+                boolean guestDisabled = guestUnsupportedActions.contains(
+                        action);
 
-				if (group.isOrganization() || group.isRegularSite()) {
-					if (groupChecked) {
-						sb.append(StringPool.AMPERSAND);
-						sb.append(renderResponse.getNamespace());
-						sb.append("groupPermissions=");
-						sb.append(HttpUtil.encodeURL(action));
-					}
-				}
+                if (guestDisabled) {
+                    guestChecked = false;
+                }
 
-				if (guestChecked) {
-					sb.append(StringPool.AMPERSAND);
-					sb.append(renderResponse.getNamespace());
-					sb.append("guestPermissions=");
-					sb.append(HttpUtil.encodeURL(action));
-				}
-			}
+                if (group.isOrganization() || group.isRegularSite()) {
+                    if (groupChecked) {
+                        sb.append(StringPool.AMPERSAND);
+                        sb.append(renderResponse.getNamespace());
+                        sb.append("groupPermissions=");
+                        sb.append(HttpUtil.encodeURL(action));
+                    }
+                }
 
-			String inputPermissionsViewRole = getDefaultViewRole(
-				modelName, themeDisplay);
+                if (guestChecked) {
+                    sb.append(StringPool.AMPERSAND);
+                    sb.append(renderResponse.getNamespace());
+                    sb.append("guestPermissions=");
+                    sb.append(HttpUtil.encodeURL(action));
+                }
+            }
 
-			sb.append(StringPool.AMPERSAND);
-			sb.append(renderResponse.getNamespace());
-			sb.append("inputPermissionsViewRole=");
-			sb.append(HttpUtil.encodeURL(inputPermissionsViewRole));
+            String inputPermissionsViewRole = getDefaultViewRole(
+                    modelName, themeDisplay);
 
-			pageContext.getOut().print(sb.toString());
-		}
-		catch (Exception e) {
-			throw new JspException(e);
-		}
+            sb.append(StringPool.AMPERSAND);
+            sb.append(renderResponse.getNamespace());
+            sb.append("inputPermissionsViewRole=");
+            sb.append(HttpUtil.encodeURL(inputPermissionsViewRole));
 
-		return StringPool.BLANK;
-	}
+            pageContext.getOut().print(sb.toString());
+        } catch (Exception e) {
+            throw new JspException(e);
+        }
 
-	public static String getDefaultViewRole(
-			String modelName, ThemeDisplay themeDisplay)
-		throws PortalException, SystemException {
+        return StringPool.BLANK;
+    }
 
-		Layout layout = themeDisplay.getLayout();
+    public static String getDefaultViewRole(
+            String modelName, ThemeDisplay themeDisplay)
+            throws PortalException, SystemException {
 
-		Group layoutGroup = layout.getGroup();
+        Layout layout = themeDisplay.getLayout();
 
-		List<String> guestDefaultActions =
-			ResourceActionsUtil.getModelResourceGuestDefaultActions(modelName);
+        Group layoutGroup = layout.getGroup();
 
-		if (layoutGroup.isControlPanel()) {
-			Group group = themeDisplay.getScopeGroup();
+        List<String> guestDefaultActions =
+                ResourceActionsUtil.getModelResourceGuestDefaultActions(modelName);
 
-			if (!group.hasPrivateLayouts() &&
-				guestDefaultActions.contains(ActionKeys.VIEW)) {
+        if (layoutGroup.isControlPanel()) {
+            Group group = themeDisplay.getScopeGroup();
 
-				return RoleConstants.GUEST;
-			}
-		}
-		else if (layout.isPublicLayout() &&
-				 guestDefaultActions.contains(ActionKeys.VIEW)) {
+            if (!group.hasPrivateLayouts() &&
+                    guestDefaultActions.contains(ActionKeys.VIEW)) {
 
-			return RoleConstants.GUEST;
-		}
+                return RoleConstants.GUEST;
+            }
+        } else if (layout.isPublicLayout() &&
+                guestDefaultActions.contains(ActionKeys.VIEW)) {
 
-		List<String> groupDefaultActions =
-			ResourceActionsUtil.getModelResourceGroupDefaultActions(modelName);
+            return RoleConstants.GUEST;
+        }
 
-		if (groupDefaultActions.contains(ActionKeys.VIEW)) {
-			Group siteGroup = GroupLocalServiceUtil.getGroup(
-				themeDisplay.getSiteGroupId());
+        List<String> groupDefaultActions =
+                ResourceActionsUtil.getModelResourceGroupDefaultActions(modelName);
 
-			Role defaultGroupRole = RoleLocalServiceUtil.getDefaultGroupRole(
-				siteGroup.getGroupId());
+        if (groupDefaultActions.contains(ActionKeys.VIEW)) {
+            Group siteGroup = GroupLocalServiceUtil.getGroup(
+                    themeDisplay.getSiteGroupId());
 
-			return defaultGroupRole.getName();
-		}
+            Role defaultGroupRole = RoleLocalServiceUtil.getDefaultGroupRole(
+                    siteGroup.getGroupId());
 
-		return RoleConstants.OWNER;
-	}
+            return defaultGroupRole.getName();
+        }
 
-	@Override
-	public int doEndTag() throws JspException {
-		try {
-			doTag(_modelName, pageContext);
+        return RoleConstants.OWNER;
+    }
 
-			return EVAL_PAGE;
-		}
-		catch (Exception e) {
-			throw new JspException(e);
-		}
-	}
+    @Override
+    public int doEndTag() throws JspException {
+        try {
+            doTag(_modelName, pageContext);
 
-	public void setModelName(String modelName) {
-		_modelName = modelName;
-	}
+            return EVAL_PAGE;
+        } catch (Exception e) {
+            throw new JspException(e);
+        }
+    }
 
-	private String _modelName;
+    public void setModelName(String modelName) {
+        _modelName = modelName;
+    }
 
 }

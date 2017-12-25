@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -26,160 +26,158 @@ import javax.servlet.jsp.JspException;
  */
 public class BaseComponentTag extends com.liferay.taglib.util.IncludeTag {
 
-	@Override
-	public int doStartTag() throws JspException {
-		setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
+    protected static final String _ATTRIBUTE_NAMESPACE = "aui:component:";
+    private static final String _PAGE =
+            "/html/taglib/aui/component/page.jsp";
+    private boolean _defineVar = true;
+    private java.lang.String _excludeAttributes = null;
+    private java.lang.String _javaScriptAttributes = null;
+    private java.lang.String _module = null;
+    private java.lang.String _name = null;
+    private java.util.Map<java.lang.String, java.lang.Object> _options = null;
+    private java.lang.String _scriptPosition = null;
+    private javax.servlet.jsp.JspContext _tagPageContext = null;
+    private java.io.Serializable _useJavaScript = true;
+    private java.lang.String _var = null;
 
-		return super.doStartTag();
-	}
+    @Override
+    public int doStartTag() throws JspException {
+        setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
 
-	public boolean getDefineVar() {
-		return _defineVar;
-	}
+        return super.doStartTag();
+    }
 
-	public java.lang.String getExcludeAttributes() {
-		return _excludeAttributes;
-	}
+    public boolean getDefineVar() {
+        return _defineVar;
+    }
 
-	public java.lang.String getJavaScriptAttributes() {
-		return _javaScriptAttributes;
-	}
+    public void setDefineVar(boolean defineVar) {
+        _defineVar = defineVar;
 
-	public java.lang.String getModule() {
-		return _module;
-	}
+        setScopedAttribute("defineVar", defineVar);
+    }
 
-	public java.lang.String getName() {
-		return _name;
-	}
+    public java.lang.String getExcludeAttributes() {
+        return _excludeAttributes;
+    }
 
-	public java.util.Map<java.lang.String, java.lang.Object> getOptions() {
-		return _options;
-	}
+    public void setExcludeAttributes(java.lang.String excludeAttributes) {
+        _excludeAttributes = excludeAttributes;
 
-	public java.lang.String getScriptPosition() {
-		return _scriptPosition;
-	}
+        setScopedAttribute("excludeAttributes", excludeAttributes);
+    }
 
-	public javax.servlet.jsp.JspContext getTagPageContext() {
-		return _tagPageContext;
-	}
+    public java.lang.String getJavaScriptAttributes() {
+        return _javaScriptAttributes;
+    }
 
-	public java.io.Serializable getUseJavaScript() {
-		return _useJavaScript;
-	}
+    public void setJavaScriptAttributes(java.lang.String javaScriptAttributes) {
+        _javaScriptAttributes = javaScriptAttributes;
 
-	public java.lang.String getVar() {
-		return _var;
-	}
+        setScopedAttribute("javaScriptAttributes", javaScriptAttributes);
+    }
 
-	public void setDefineVar(boolean defineVar) {
-		_defineVar = defineVar;
+    public java.lang.String getModule() {
+        return _module;
+    }
 
-		setScopedAttribute("defineVar", defineVar);
-	}
+    public void setModule(java.lang.String module) {
+        _module = module;
 
-	public void setExcludeAttributes(java.lang.String excludeAttributes) {
-		_excludeAttributes = excludeAttributes;
+        setScopedAttribute("module", module);
+    }
 
-		setScopedAttribute("excludeAttributes", excludeAttributes);
-	}
+    public java.lang.String getName() {
+        return _name;
+    }
 
-	public void setJavaScriptAttributes(java.lang.String javaScriptAttributes) {
-		_javaScriptAttributes = javaScriptAttributes;
+    public void setName(java.lang.String name) {
+        _name = name;
 
-		setScopedAttribute("javaScriptAttributes", javaScriptAttributes);
-	}
+        setScopedAttribute("name", name);
+    }
 
-	public void setModule(java.lang.String module) {
-		_module = module;
+    public java.util.Map<java.lang.String, java.lang.Object> getOptions() {
+        return _options;
+    }
 
-		setScopedAttribute("module", module);
-	}
+    public void setOptions(java.util.Map<java.lang.String, java.lang.Object> options) {
+        _options = options;
 
-	public void setName(java.lang.String name) {
-		_name = name;
+        setScopedAttribute("options", options);
+    }
 
-		setScopedAttribute("name", name);
-	}
+    public java.lang.String getScriptPosition() {
+        return _scriptPosition;
+    }
 
-	public void setOptions(java.util.Map<java.lang.String, java.lang.Object> options) {
-		_options = options;
+    public void setScriptPosition(java.lang.String scriptPosition) {
+        _scriptPosition = scriptPosition;
 
-		setScopedAttribute("options", options);
-	}
+        setScopedAttribute("scriptPosition", scriptPosition);
+    }
 
-	public void setScriptPosition(java.lang.String scriptPosition) {
-		_scriptPosition = scriptPosition;
+    public javax.servlet.jsp.JspContext getTagPageContext() {
+        return _tagPageContext;
+    }
 
-		setScopedAttribute("scriptPosition", scriptPosition);
-	}
+    public void setTagPageContext(javax.servlet.jsp.JspContext tagPageContext) {
+        _tagPageContext = tagPageContext;
 
-	public void setTagPageContext(javax.servlet.jsp.JspContext tagPageContext) {
-		_tagPageContext = tagPageContext;
+        setScopedAttribute("tagPageContext", tagPageContext);
+    }
 
-		setScopedAttribute("tagPageContext", tagPageContext);
-	}
+    public java.io.Serializable getUseJavaScript() {
+        return _useJavaScript;
+    }
 
-	public void setUseJavaScript(java.io.Serializable useJavaScript) {
-		_useJavaScript = useJavaScript;
+    public void setUseJavaScript(java.io.Serializable useJavaScript) {
+        _useJavaScript = useJavaScript;
 
-		setScopedAttribute("useJavaScript", useJavaScript);
-	}
+        setScopedAttribute("useJavaScript", useJavaScript);
+    }
 
-	public void setVar(java.lang.String var) {
-		_var = var;
+    public java.lang.String getVar() {
+        return _var;
+    }
 
-		setScopedAttribute("var", var);
-	}
+    public void setVar(java.lang.String var) {
+        _var = var;
 
-	@Override
-	protected void cleanUp() {
-		_defineVar = true;
-		_excludeAttributes = null;
-		_javaScriptAttributes = null;
-		_module = null;
-		_name = null;
-		_options = null;
-		_scriptPosition = null;
-		_tagPageContext = null;
-		_useJavaScript = true;
-		_var = null;
-	}
+        setScopedAttribute("var", var);
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _defineVar = true;
+        _excludeAttributes = null;
+        _javaScriptAttributes = null;
+        _module = null;
+        _name = null;
+        _options = null;
+        _scriptPosition = null;
+        _tagPageContext = null;
+        _useJavaScript = true;
+        _var = null;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		setNamespacedAttribute(request, "defineVar", _defineVar);
-		setNamespacedAttribute(request, "excludeAttributes", _excludeAttributes);
-		setNamespacedAttribute(request, "javaScriptAttributes", _javaScriptAttributes);
-		setNamespacedAttribute(request, "module", _module);
-		setNamespacedAttribute(request, "name", _name);
-		setNamespacedAttribute(request, "options", _options);
-		setNamespacedAttribute(request, "scriptPosition", _scriptPosition);
-		setNamespacedAttribute(request, "tagPageContext", _tagPageContext);
-		setNamespacedAttribute(request, "useJavaScript", _useJavaScript);
-		setNamespacedAttribute(request, "var", _var);
-	}
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
-	protected static final String _ATTRIBUTE_NAMESPACE = "aui:component:";
-
-	private static final String _PAGE =
-		"/html/taglib/aui/component/page.jsp";
-
-	private boolean _defineVar = true;
-	private java.lang.String _excludeAttributes = null;
-	private java.lang.String _javaScriptAttributes = null;
-	private java.lang.String _module = null;
-	private java.lang.String _name = null;
-	private java.util.Map<java.lang.String, java.lang.Object> _options = null;
-	private java.lang.String _scriptPosition = null;
-	private javax.servlet.jsp.JspContext _tagPageContext = null;
-	private java.io.Serializable _useJavaScript = true;
-	private java.lang.String _var = null;
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        setNamespacedAttribute(request, "defineVar", _defineVar);
+        setNamespacedAttribute(request, "excludeAttributes", _excludeAttributes);
+        setNamespacedAttribute(request, "javaScriptAttributes", _javaScriptAttributes);
+        setNamespacedAttribute(request, "module", _module);
+        setNamespacedAttribute(request, "name", _name);
+        setNamespacedAttribute(request, "options", _options);
+        setNamespacedAttribute(request, "scriptPosition", _scriptPosition);
+        setNamespacedAttribute(request, "tagPageContext", _tagPageContext);
+        setNamespacedAttribute(request, "useJavaScript", _useJavaScript);
+        setNamespacedAttribute(request, "var", _var);
+    }
 
 }

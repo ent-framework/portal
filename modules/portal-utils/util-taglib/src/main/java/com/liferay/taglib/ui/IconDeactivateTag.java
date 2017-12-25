@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -26,45 +26,45 @@ import com.liferay.portal.kernel.util.StringBundler;
  */
 public class IconDeactivateTag extends IconTag {
 
-	@Override
-	protected String getPage() {
-		if (FileAvailabilityUtil.isAvailable(servletContext, _PAGE)) {
-			return _PAGE;
-		}
+    private static final String _PAGE =
+            "/html/taglib/ui/icon_deactivate/page.jsp";
 
-		String url = getUrl();
+    @Override
+    protected String getPage() {
+        if (FileAvailabilityUtil.isAvailable(servletContext, _PAGE)) {
+            return _PAGE;
+        }
 
-		if (url.startsWith("javascript:")) {
-			url = url.substring(11);
-		}
+        String url = getUrl();
 
-		if (url.startsWith(Http.HTTP_WITH_SLASH) ||
-			url.startsWith(Http.HTTPS_WITH_SLASH)) {
+        if (url.startsWith("javascript:")) {
+            url = url.substring(11);
+        }
 
-			url =
-				"submitForm(document.hrefFm, '".concat(
-					HttpUtil.encodeURL(url)).concat("');");
-		}
+        if (url.startsWith(Http.HTTP_WITH_SLASH) ||
+                url.startsWith(Http.HTTPS_WITH_SLASH)) {
 
-		StringBundler sb = new StringBundler(5);
+            url =
+                    "submitForm(document.hrefFm, '".concat(
+                            HttpUtil.encodeURL(url)).concat("');");
+        }
 
-		sb.append("javascript:if (confirm('");
-		sb.append(
-			UnicodeLanguageUtil.get(
-				pageContext, "are-you-sure-you-want-to-deactivate-this"));
-		sb.append("')) { ");
-		sb.append(url);
-		sb.append(" } else { self.focus(); }");
+        StringBundler sb = new StringBundler(5);
 
-		url = sb.toString();
+        sb.append("javascript:if (confirm('");
+        sb.append(
+                UnicodeLanguageUtil.get(
+                        pageContext, "are-you-sure-you-want-to-deactivate-this"));
+        sb.append("')) { ");
+        sb.append(url);
+        sb.append(" } else { self.focus(); }");
 
-		setImage("deactivate");
-		setUrl(url);
+        url = sb.toString();
 
-		return super.getPage();
-	}
+        setImage("deactivate");
+        setUrl(url);
 
-	private static final String _PAGE =
-		"/html/taglib/ui/icon_deactivate/page.jsp";
+        return super.getPage();
+    }
 
 }

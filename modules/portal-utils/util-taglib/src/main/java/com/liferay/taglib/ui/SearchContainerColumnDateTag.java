@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -21,168 +21,163 @@ import com.liferay.portal.kernel.dao.search.SearchEntry;
 import com.liferay.portal.kernel.util.ServerDetector;
 import com.liferay.portal.kernel.util.Validator;
 
+import javax.portlet.PortletURL;
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.JspTagException;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-
-import javax.portlet.PortletURL;
-
-import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.JspTagException;
 
 /**
  * @author Raymond Augé
  */
 public class SearchContainerColumnDateTag<R> extends SearchContainerColumnTag {
 
-	@Override
-	public int doEndTag() {
-		try {
-			SearchContainerRowTag<R> searchContainerRowTag =
-				(SearchContainerRowTag<R>)findAncestorWithClass(
-					this, SearchContainerRowTag.class);
+    private Object _href;
+    private boolean _orderable;
+    private String _orderableProperty;
+    private String _property;
+    private Date _value;
 
-			ResultRow resultRow = searchContainerRowTag.getRow();
+    @Override
+    public int doEndTag() {
+        try {
+            SearchContainerRowTag<R> searchContainerRowTag =
+                    (SearchContainerRowTag<R>) findAncestorWithClass(
+                            this, SearchContainerRowTag.class);
 
-			if (Validator.isNotNull(_property)) {
-				_value = (Date)BeanPropertiesUtil.getObject(
-					resultRow.getObject(), _property);
-			}
+            ResultRow resultRow = searchContainerRowTag.getRow();
 
-			if (index <= -1) {
-				List<SearchEntry> searchEntries = resultRow.getEntries();
+            if (Validator.isNotNull(_property)) {
+                _value = (Date) BeanPropertiesUtil.getObject(
+                        resultRow.getObject(), _property);
+            }
 
-				index = searchEntries.size();
-			}
+            if (index <= -1) {
+                List<SearchEntry> searchEntries = resultRow.getEntries();
 
-			if (resultRow.isRestricted()) {
-				_href = null;
-			}
+                index = searchEntries.size();
+            }
 
-			DateSearchEntry dateSearchEntry = new DateSearchEntry();
+            if (resultRow.isRestricted()) {
+                _href = null;
+            }
 
-			dateSearchEntry.setAlign(getAlign());
-			dateSearchEntry.setColspan(getColspan());
-			dateSearchEntry.setCssClass(getCssClass());
-			dateSearchEntry.setDate(_value);
-			dateSearchEntry.setHref((String)getHref());
-			dateSearchEntry.setValign(getValign());
+            DateSearchEntry dateSearchEntry = new DateSearchEntry();
 
-			resultRow.addSearchEntry(index, dateSearchEntry);
+            dateSearchEntry.setAlign(getAlign());
+            dateSearchEntry.setColspan(getColspan());
+            dateSearchEntry.setCssClass(getCssClass());
+            dateSearchEntry.setDate(_value);
+            dateSearchEntry.setHref((String) getHref());
+            dateSearchEntry.setValign(getValign());
 
-			return EVAL_PAGE;
-		}
-		finally {
-			index = -1;
-			_value = null;
+            resultRow.addSearchEntry(index, dateSearchEntry);
 
-			if (!ServerDetector.isResin()) {
-				align = SearchEntry.DEFAULT_ALIGN;
-				colspan = SearchEntry.DEFAULT_COLSPAN;
-				cssClass = SearchEntry.DEFAULT_CSS_CLASS;
-				_href = null;
-				name = null;
-				_orderable = false;
-				_orderableProperty = null;
-				_property = null;
-				valign = SearchEntry.DEFAULT_VALIGN;
-			}
-		}
-	}
+            return EVAL_PAGE;
+        } finally {
+            index = -1;
+            _value = null;
 
-	@Override
-	public int doStartTag() throws JspException {
-		if (_orderable && Validator.isNull(_orderableProperty)) {
-			_orderableProperty = name;
-		}
+            if (!ServerDetector.isResin()) {
+                align = SearchEntry.DEFAULT_ALIGN;
+                colspan = SearchEntry.DEFAULT_COLSPAN;
+                cssClass = SearchEntry.DEFAULT_CSS_CLASS;
+                _href = null;
+                name = null;
+                _orderable = false;
+                _orderableProperty = null;
+                _property = null;
+                valign = SearchEntry.DEFAULT_VALIGN;
+            }
+        }
+    }
 
-		SearchContainerRowTag<R> searchContainerRowTag =
-			(SearchContainerRowTag<R>)findAncestorWithClass(
-				this, SearchContainerRowTag.class);
+    @Override
+    public int doStartTag() throws JspException {
+        if (_orderable && Validator.isNull(_orderableProperty)) {
+            _orderableProperty = name;
+        }
 
-		if (searchContainerRowTag == null) {
-			throw new JspTagException(
-				"Requires liferay-ui:search-container-row");
-		}
+        SearchContainerRowTag<R> searchContainerRowTag =
+                (SearchContainerRowTag<R>) findAncestorWithClass(
+                        this, SearchContainerRowTag.class);
 
-		if (!searchContainerRowTag.isHeaderNamesAssigned()) {
-			List<String> headerNames = searchContainerRowTag.getHeaderNames();
+        if (searchContainerRowTag == null) {
+            throw new JspTagException(
+                    "Requires liferay-ui:search-container-row");
+        }
 
-			String name = getName();
+        if (!searchContainerRowTag.isHeaderNamesAssigned()) {
+            List<String> headerNames = searchContainerRowTag.getHeaderNames();
 
-			if (Validator.isNull(name) && Validator.isNotNull(_property)) {
-				name = _property;
-			}
+            String name = getName();
 
-			headerNames.add(name);
+            if (Validator.isNull(name) && Validator.isNotNull(_property)) {
+                name = _property;
+            }
 
-			if (_orderable) {
-				Map<String, String> orderableHeaders =
-					searchContainerRowTag.getOrderableHeaders();
+            headerNames.add(name);
 
-				if (Validator.isNotNull(_orderableProperty)) {
-					orderableHeaders.put(name, _orderableProperty);
-				}
-				else if (Validator.isNotNull(_property)) {
-					orderableHeaders.put(name, _property);
-				}
-				else if (Validator.isNotNull(name)) {
-					orderableHeaders.put(name, name);
-				}
-			}
-		}
+            if (_orderable) {
+                Map<String, String> orderableHeaders =
+                        searchContainerRowTag.getOrderableHeaders();
 
-		return EVAL_BODY_INCLUDE;
-	}
+                if (Validator.isNotNull(_orderableProperty)) {
+                    orderableHeaders.put(name, _orderableProperty);
+                } else if (Validator.isNotNull(_property)) {
+                    orderableHeaders.put(name, _property);
+                } else if (Validator.isNotNull(name)) {
+                    orderableHeaders.put(name, name);
+                }
+            }
+        }
 
-	public Object getHref() {
-		if (Validator.isNotNull(_href) && (_href instanceof PortletURL)) {
-			_href = _href.toString();
-		}
+        return EVAL_BODY_INCLUDE;
+    }
 
-		return _href;
-	}
+    public Object getHref() {
+        if (Validator.isNotNull(_href) && (_href instanceof PortletURL)) {
+            _href = _href.toString();
+        }
 
-	public String getOrderableProperty() {
-		return _orderableProperty;
-	}
+        return _href;
+    }
 
-	public String getProperty() {
-		return _property;
-	}
+    public void setHref(Object href) {
+        _href = href;
+    }
 
-	public Date getValue() {
-		return _value;
-	}
+    public String getOrderableProperty() {
+        return _orderableProperty;
+    }
 
-	public boolean isOrderable() {
-		return _orderable;
-	}
+    public void setOrderableProperty(String orderableProperty) {
+        _orderableProperty = orderableProperty;
+    }
 
-	public void setHref(Object href) {
-		_href = href;
-	}
+    public String getProperty() {
+        return _property;
+    }
 
-	public void setOrderable(boolean orderable) {
-		_orderable = orderable;
-	}
+    public void setProperty(String property) {
+        _property = property;
+    }
 
-	public void setOrderableProperty(String orderableProperty) {
-		_orderableProperty = orderableProperty;
-	}
+    public Date getValue() {
+        return _value;
+    }
 
-	public void setProperty(String property) {
-		_property = property;
-	}
+    public void setValue(Date value) {
+        _value = value;
+    }
 
-	public void setValue(Date value) {
-		_value = value;
-	}
+    public boolean isOrderable() {
+        return _orderable;
+    }
 
-	private Object _href;
-	private boolean _orderable;
-	private String _orderableProperty;
-	private String _property;
-	private Date _value;
+    public void setOrderable(boolean orderable) {
+        _orderable = orderable;
+    }
 
 }

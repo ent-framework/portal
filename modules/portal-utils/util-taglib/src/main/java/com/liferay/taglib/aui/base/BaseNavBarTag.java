@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -26,56 +26,54 @@ import javax.servlet.jsp.JspException;
  */
 public class BaseNavBarTag extends com.liferay.taglib.util.IncludeTag {
 
-	@Override
-	public int doStartTag() throws JspException {
-		setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
+    protected static final String _ATTRIBUTE_NAMESPACE = "aui:nav-bar:";
+    private static final String _PAGE =
+            "/html/taglib/aui/nav_bar/page.jsp";
+    private java.lang.String _cssClass = null;
+    private java.lang.String _id = null;
 
-		return super.doStartTag();
-	}
+    @Override
+    public int doStartTag() throws JspException {
+        setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
 
-	public java.lang.String getCssClass() {
-		return _cssClass;
-	}
+        return super.doStartTag();
+    }
 
-	public java.lang.String getId() {
-		return _id;
-	}
+    public java.lang.String getCssClass() {
+        return _cssClass;
+    }
 
-	public void setCssClass(java.lang.String cssClass) {
-		_cssClass = cssClass;
+    public void setCssClass(java.lang.String cssClass) {
+        _cssClass = cssClass;
 
-		setScopedAttribute("cssClass", cssClass);
-	}
+        setScopedAttribute("cssClass", cssClass);
+    }
 
-	public void setId(java.lang.String id) {
-		_id = id;
+    public java.lang.String getId() {
+        return _id;
+    }
 
-		setScopedAttribute("id", id);
-	}
+    public void setId(java.lang.String id) {
+        _id = id;
 
-	@Override
-	protected void cleanUp() {
-		_cssClass = null;
-		_id = null;
-	}
+        setScopedAttribute("id", id);
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _cssClass = null;
+        _id = null;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		setNamespacedAttribute(request, "cssClass", _cssClass);
-		setNamespacedAttribute(request, "id", _id);
-	}
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
-	protected static final String _ATTRIBUTE_NAMESPACE = "aui:nav-bar:";
-
-	private static final String _PAGE =
-		"/html/taglib/aui/nav_bar/page.jsp";
-
-	private java.lang.String _cssClass = null;
-	private java.lang.String _id = null;
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        setNamespacedAttribute(request, "cssClass", _cssClass);
+        setNamespacedAttribute(request, "id", _id);
+    }
 
 }

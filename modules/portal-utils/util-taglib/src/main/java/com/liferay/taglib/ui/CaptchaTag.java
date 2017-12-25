@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -23,27 +23,26 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class CaptchaTag extends IncludeTag {
 
-	public void setUrl(String url) {
-		_url = url;
-	}
+    private static final String _PAGE = "/html/taglib/ui/captcha/page.jsp";
+    private String _url;
 
-	@Override
-	protected void cleanUp() {
-		_url = null;
-	}
+    public void setUrl(String url) {
+        _url = url;
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _url = null;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute("liferay-ui:captcha:url", _url);
-	}
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
-	private static final String _PAGE = "/html/taglib/ui/captcha/page.jsp";
-
-	private String _url;
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        request.setAttribute("liferay-ui:captcha:url", _url);
+    }
 
 }

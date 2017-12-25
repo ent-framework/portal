@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -34,149 +34,144 @@ import javax.servlet.jsp.JspException;
  */
 public class ToggleTag extends IncludeTag {
 
-	public static void doTag(
-			String id, String showImage, String hideImage, String showMessage,
-			String hideMessage, boolean defaultShowContent, String stateVar,
-			ServletContext servletContext, HttpServletRequest request,
-			HttpServletResponse response)
-		throws Exception {
+    private static final String _PAGE = "/html/taglib/ui/toggle/page.jsp";
+    private boolean _defaultShowContent = true;
+    private String _hideImage;
+    private String _hideMessage;
+    private String _id;
+    private String _showImage;
+    private String _showMessage;
+    private String _stateVar;
 
-		doTag(
-			_PAGE, id, showImage, hideImage, showMessage, hideMessage,
-			defaultShowContent, stateVar, servletContext, request, response);
-	}
+    public static void doTag(
+            String id, String showImage, String hideImage, String showMessage,
+            String hideMessage, boolean defaultShowContent, String stateVar,
+            ServletContext servletContext, HttpServletRequest request,
+            HttpServletResponse response)
+            throws Exception {
 
-	public static void doTag(
-			String page, String id, String showImage, String hideImage,
-			String showMessage, String hideMessage, boolean defaultShowContent,
-			String stateVar, ServletContext servletContext,
-			HttpServletRequest request, HttpServletResponse response)
-		throws Exception {
+        doTag(
+                _PAGE, id, showImage, hideImage, showMessage, hideMessage,
+                defaultShowContent, stateVar, servletContext, request, response);
+    }
 
-		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
-			WebKeys.THEME_DISPLAY);
+    public static void doTag(
+            String page, String id, String showImage, String hideImage,
+            String showMessage, String hideMessage, boolean defaultShowContent,
+            String stateVar, ServletContext servletContext,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
 
-		if (Validator.isNull(showImage) && Validator.isNull(showMessage)) {
-			showImage =
-				themeDisplay.getPathThemeImages() + "/arrows/01_down.png";
-		}
+        ThemeDisplay themeDisplay = (ThemeDisplay) request.getAttribute(
+                WebKeys.THEME_DISPLAY);
 
-		if (Validator.isNull(hideImage) && Validator.isNull(hideImage)) {
-			hideImage =
-				themeDisplay.getPathThemeImages() + "/arrows/01_right.png";
-		}
+        if (Validator.isNull(showImage) && Validator.isNull(showMessage)) {
+            showImage =
+                    themeDisplay.getPathThemeImages() + "/arrows/01_down.png";
+        }
 
-		String defaultStateValue =
-			defaultShowContent ? StringPool.BLANK : "none";
-		String defaultImage = defaultShowContent ? hideImage : showImage;
-		String defaultMessage = defaultShowContent ? hideMessage : showMessage;
+        if (Validator.isNull(hideImage) && Validator.isNull(hideImage)) {
+            hideImage =
+                    themeDisplay.getPathThemeImages() + "/arrows/01_right.png";
+        }
 
-		String clickValue = SessionClicks.get(request, id, null);
+        String defaultStateValue =
+                defaultShowContent ? StringPool.BLANK : "none";
+        String defaultImage = defaultShowContent ? hideImage : showImage;
+        String defaultMessage = defaultShowContent ? hideMessage : showMessage;
 
-		if (defaultShowContent) {
-			if ((clickValue != null) && clickValue.equals("none")) {
-				defaultStateValue = "none";
-				defaultImage = showImage;
-				defaultMessage = showMessage;
-			}
-			else {
-				defaultStateValue = "";
-				defaultImage = hideImage;
-				defaultMessage = hideMessage;
-			}
-		}
-		else {
-			if ((clickValue == null) || clickValue.equals("none")) {
-				defaultStateValue = "none";
-				defaultImage = showImage;
-				defaultMessage = showMessage;
-			}
-			else {
-				defaultStateValue = "";
-				defaultImage = hideImage;
-				defaultMessage = hideMessage;
-			}
-		}
+        String clickValue = SessionClicks.get(request, id, null);
 
-		if (stateVar == null) {
-			stateVar = DeterminateKeyGenerator.generate(
-				ToggleTag.class.getName());
-		}
+        if (defaultShowContent) {
+            if ((clickValue != null) && clickValue.equals("none")) {
+                defaultStateValue = "none";
+                defaultImage = showImage;
+                defaultMessage = showMessage;
+            } else {
+                defaultStateValue = "";
+                defaultImage = hideImage;
+                defaultMessage = hideMessage;
+            }
+        } else {
+            if ((clickValue == null) || clickValue.equals("none")) {
+                defaultStateValue = "none";
+                defaultImage = showImage;
+                defaultMessage = showMessage;
+            } else {
+                defaultStateValue = "";
+                defaultImage = hideImage;
+                defaultMessage = hideMessage;
+            }
+        }
 
-		request.setAttribute("liferay-ui:toggle:id", id);
-		request.setAttribute("liferay-ui:toggle:showImage", showImage);
-		request.setAttribute("liferay-ui:toggle:hideImage", hideImage);
-		request.setAttribute("liferay-ui:toggle:showMessage", showMessage);
-		request.setAttribute("liferay-ui:toggle:hideMessage", hideMessage);
-		request.setAttribute("liferay-ui:toggle:stateVar", stateVar);
-		request.setAttribute(
-			"liferay-ui:toggle:defaultStateValue", defaultStateValue);
-		request.setAttribute("liferay-ui:toggle:defaultImage", defaultImage);
-		request.setAttribute(
-			"liferay-ui:toggle:defaultMessage", defaultMessage);
+        if (stateVar == null) {
+            stateVar = DeterminateKeyGenerator.generate(
+                    ToggleTag.class.getName());
+        }
 
-		RequestDispatcher requestDispatcher =
-			servletContext.getRequestDispatcher(page);
+        request.setAttribute("liferay-ui:toggle:id", id);
+        request.setAttribute("liferay-ui:toggle:showImage", showImage);
+        request.setAttribute("liferay-ui:toggle:hideImage", hideImage);
+        request.setAttribute("liferay-ui:toggle:showMessage", showMessage);
+        request.setAttribute("liferay-ui:toggle:hideMessage", hideMessage);
+        request.setAttribute("liferay-ui:toggle:stateVar", stateVar);
+        request.setAttribute(
+                "liferay-ui:toggle:defaultStateValue", defaultStateValue);
+        request.setAttribute("liferay-ui:toggle:defaultImage", defaultImage);
+        request.setAttribute(
+                "liferay-ui:toggle:defaultMessage", defaultMessage);
 
-		requestDispatcher.include(request, response);
-	}
+        RequestDispatcher requestDispatcher =
+                servletContext.getRequestDispatcher(page);
 
-	@Override
-	public int doEndTag() throws JspException {
-		try {
-			doTag(
-				getPage(), _id, _showImage, _hideImage, _showMessage,
-				_hideMessage, _defaultShowContent, _stateVar, servletContext,
-				request, new PipingServletResponse(pageContext));
+        requestDispatcher.include(request, response);
+    }
 
-			return EVAL_PAGE;
-		}
-		catch (Exception e) {
-			throw new JspException(e);
-		}
-	}
+    @Override
+    public int doEndTag() throws JspException {
+        try {
+            doTag(
+                    getPage(), _id, _showImage, _hideImage, _showMessage,
+                    _hideMessage, _defaultShowContent, _stateVar, servletContext,
+                    request, new PipingServletResponse(pageContext));
 
-	public void setDefaultShowContent(boolean defaultShowContent) {
-		_defaultShowContent = defaultShowContent;
-	}
+            return EVAL_PAGE;
+        } catch (Exception e) {
+            throw new JspException(e);
+        }
+    }
 
-	public void setHideImage(String hideImage) {
-		_hideImage = hideImage;
-	}
+    public void setDefaultShowContent(boolean defaultShowContent) {
+        _defaultShowContent = defaultShowContent;
+    }
 
-	public void setHideMessage(String hideMessage) {
-		_hideMessage = hideMessage;
-	}
+    public void setHideImage(String hideImage) {
+        _hideImage = hideImage;
+    }
 
-	public void setId(String id) {
-		_id = id;
-	}
+    public void setHideMessage(String hideMessage) {
+        _hideMessage = hideMessage;
+    }
 
-	public void setShowImage(String showImage) {
-		_showImage = showImage;
-	}
+    public void setId(String id) {
+        _id = id;
+    }
 
-	public void setShowMessage(String showMessage) {
-		_showMessage = showMessage;
-	}
+    public void setShowImage(String showImage) {
+        _showImage = showImage;
+    }
 
-	public void setStateVar(String stateVar) {
-		_stateVar = stateVar;
-	}
+    public void setShowMessage(String showMessage) {
+        _showMessage = showMessage;
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    public void setStateVar(String stateVar) {
+        _stateVar = stateVar;
+    }
 
-	private static final String _PAGE = "/html/taglib/ui/toggle/page.jsp";
-
-	private boolean _defaultShowContent = true;
-	private String _hideImage;
-	private String _hideMessage;
-	private String _id;
-	private String _showImage;
-	private String _showMessage;
-	private String _stateVar;
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
 }

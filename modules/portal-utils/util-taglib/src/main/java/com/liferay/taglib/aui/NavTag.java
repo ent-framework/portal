@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -24,7 +24,6 @@ import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.taglib.aui.base.BaseNavTag;
 
 import javax.portlet.PortletResponse;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 
@@ -36,109 +35,106 @@ import javax.servlet.jsp.JspException;
  */
 public class NavTag extends BaseNavTag {
 
-	@Override
-	public int doStartTag() throws JspException {
-		NavBarTag navBarTag = (NavBarTag)findAncestorWithClass(
-			this, NavBarTag.class);
+    private boolean _calledCollapsibleSetter;
+    private String _namespacedId;
 
-		if ((navBarTag != null) &&
-			(!_calledCollapsibleSetter || getCollapsible())) {
+    @Override
+    public int doStartTag() throws JspException {
+        NavBarTag navBarTag = (NavBarTag) findAncestorWithClass(
+                this, NavBarTag.class);
 
-			setCollapsible(true);
+        if ((navBarTag != null) &&
+                (!_calledCollapsibleSetter || getCollapsible())) {
 
-			ThemeDisplay themeDisplay = (ThemeDisplay)pageContext.getAttribute(
-				"themeDisplay");
+            setCollapsible(true);
 
-			StringBundler sb = navBarTag.getResponsiveButtonsSB();
+            ThemeDisplay themeDisplay = (ThemeDisplay) pageContext.getAttribute(
+                    "themeDisplay");
 
-			sb.append("<a class=\"btn btn-navbar\" id=\"");
-			sb.append(_getNamespacedId());
-			sb.append("NavbarBtn\" ");
-			sb.append("data-navId=\"");
-			sb.append(_getNamespacedId());
-			sb.append("\" tabindex=\"0\">");
+            StringBundler sb = navBarTag.getResponsiveButtonsSB();
 
-			String icon = getIcon();
+            sb.append("<a class=\"btn btn-navbar\" id=\"");
+            sb.append(_getNamespacedId());
+            sb.append("NavbarBtn\" ");
+            sb.append("data-navId=\"");
+            sb.append(_getNamespacedId());
+            sb.append("\" tabindex=\"0\">");
 
-			if (Validator.isNull(icon)) {
-				sb.append("<span class=\"icon-bar\"></span>");
-				sb.append("<span class=\"icon-bar\"></span>");
-				sb.append("<span class=\"icon-bar\"></span>");
-			}
-			else if (icon.equals("user") && themeDisplay.isSignedIn()) {
-				try {
-					User user = themeDisplay.getUser();
+            String icon = getIcon();
 
-					sb.append("<img alt=\"");
-					sb.append(LanguageUtil.get(pageContext, "my-account"));
-					sb.append("\" class=\"user-avatar-image\" ");
-					sb.append("src=\"");
-					sb.append(user.getPortraitURL(themeDisplay));
-					sb.append("\">");
-				}
-				catch (Exception e) {
-					throw new JspException(e);
-				}
-			}
-			else {
-				sb.append("<i class=\"icon-");
-				sb.append(icon);
-				sb.append("\"></i>");
-			}
+            if (Validator.isNull(icon)) {
+                sb.append("<span class=\"icon-bar\"></span>");
+                sb.append("<span class=\"icon-bar\"></span>");
+                sb.append("<span class=\"icon-bar\"></span>");
+            } else if (icon.equals("user") && themeDisplay.isSignedIn()) {
+                try {
+                    User user = themeDisplay.getUser();
 
-			sb.append("</a>");
-		}
+                    sb.append("<img alt=\"");
+                    sb.append(LanguageUtil.get(pageContext, "my-account"));
+                    sb.append("\" class=\"user-avatar-image\" ");
+                    sb.append("src=\"");
+                    sb.append(user.getPortraitURL(themeDisplay));
+                    sb.append("\">");
+                } catch (Exception e) {
+                    throw new JspException(e);
+                }
+            } else {
+                sb.append("<i class=\"icon-");
+                sb.append(icon);
+                sb.append("\"></i>");
+            }
 
-		return super.doStartTag();
-	}
+            sb.append("</a>");
+        }
 
-	@Override
-	public void setCollapsible(boolean collapsible) {
-		super.setCollapsible(collapsible);
+        return super.doStartTag();
+    }
 
-		_calledCollapsibleSetter = true;
-	}
+    @Override
+    public void setCollapsible(boolean collapsible) {
+        super.setCollapsible(collapsible);
 
-	@Override
-	protected void cleanUp() {
-		super.cleanUp();
+        _calledCollapsibleSetter = true;
+    }
 
-		_calledCollapsibleSetter = false;
-		_namespacedId = null;
-	}
+    @Override
+    protected void cleanUp() {
+        super.cleanUp();
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		super.setAttributes(request);
+        _calledCollapsibleSetter = false;
+        _namespacedId = null;
+    }
 
-		setNamespacedAttribute(request, "id", _getNamespacedId());
-	}
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        super.setAttributes(request);
 
-	private String _getNamespacedId() {
-		if (Validator.isNotNull(_namespacedId)) {
-			return _namespacedId;
-		}
+        setNamespacedAttribute(request, "id", _getNamespacedId());
+    }
 
-		_namespacedId = getId();
+    private String _getNamespacedId() {
+        if (Validator.isNotNull(_namespacedId)) {
+            return _namespacedId;
+        }
 
-		if (Validator.isNull(_namespacedId)) {
-			_namespacedId = StringUtil.randomId();
-		}
+        _namespacedId = getId();
 
-		HttpServletRequest request =
-			(HttpServletRequest)pageContext.getRequest();
+        if (Validator.isNull(_namespacedId)) {
+            _namespacedId = StringUtil.randomId();
+        }
 
-		PortletResponse portletResponse = (PortletResponse)request.getAttribute(
-			JavaConstants.JAVAX_PORTLET_RESPONSE);
+        HttpServletRequest request =
+                (HttpServletRequest) pageContext.getRequest();
 
-		if ((portletResponse != null) && getUseNamespace()) {
-			_namespacedId = portletResponse.getNamespace() + _namespacedId;
-		}
+        PortletResponse portletResponse = (PortletResponse) request.getAttribute(
+                JavaConstants.JAVAX_PORTLET_RESPONSE);
 
-		return _namespacedId;
-	}
+        if ((portletResponse != null) && getUseNamespace()) {
+            _namespacedId = portletResponse.getNamespace() + _namespacedId;
+        }
 
-	private boolean _calledCollapsibleSetter;
-	private String _namespacedId;
+        return _namespacedId;
+    }
 
 }

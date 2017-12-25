@@ -52,6 +52,11 @@
             <version>2.5</version>
         </dependency>
         <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-compress</artifactId>
             <version>1.12</version>
@@ -64,7 +69,7 @@
         <dependency>
             <groupId>commons-configuration</groupId>
             <artifactId>commons-configuration</artifactId>
-            <version>1.10</version>
+            <version>1.6</version>
         </dependency>
 
         <dependency>
@@ -107,19 +112,52 @@
                     <groupId>xpp3</groupId>
                     <artifactId>xpp3_min</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>xstream</groupId>
+                    <artifactId>xstream</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
 
         <dependency>
             <groupId>org.jodd</groupId>
             <artifactId>jodd-core</artifactId>
-            <version>3.6.7</version>
+            <version>3.6.5</version>
         </dependency>
         <dependency>
             <groupId>org.jodd</groupId>
             <artifactId>jodd-bean</artifactId>
-            <version>3.6.7</version>
+            <version>3.6.5</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.jodd</groupId>
+            <artifactId>jodd-servlet</artifactId>
+            <version>3.6.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jodd</groupId>
+            <artifactId>jodd-proxetta</artifactId>
+            <version>3.6.5</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.artofsolving</groupId>
+            <artifactId>jodconverter</artifactId>
+            <version>2.2.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.outerj.daisy/daisydiff -->
+        <!--<dependency>-->
+            <!--<groupId>org.outerj.daisy</groupId>-->
+            <!--<artifactId>daisydiff</artifactId>-->
+            <!--<version>1.1-atlassian-5</version>-->
+        <!--</dependency>-->
+
 
         <!-- Spring -->
         <dependency>
@@ -145,6 +183,11 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
         <dependency>
@@ -268,6 +311,7 @@
             </exclusions>
         </dependency>
 
+
         <dependency>
             <groupId>javax.mail</groupId>
             <artifactId>javax.mail-api</artifactId>
@@ -340,7 +384,7 @@
         <dependency>
             <groupId>rome</groupId>
             <artifactId>rome</artifactId>
-            <version>0.9</version>
+            <version>1.0</version>
         </dependency>
 
         <dependency>
@@ -355,12 +399,24 @@
             <version>3.2.0.Final</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/de.schlichtherle.io/truezip -->
+        <dependency>
+            <groupId>de.schlichtherle</groupId>
+            <artifactId>truezip</artifactId>
+            <version>6.8.4</version>
+        </dependency>
 
         <!-- jabsorb A JSON-RPC ORB in Java and JavaScript -->
         <dependency>
             <groupId>org.jabsorb</groupId>
             <artifactId>jabsorb</artifactId>
             <version>1.3.2</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.mortbay.jetty</groupId>
+                    <artifactId>jetty</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -463,7 +519,7 @@
         <dependency>
             <groupId>net.htmlparser.jericho</groupId>
             <artifactId>jericho-html</artifactId>
-            <version>3.4</version>
+            <version>3.3</version>
         </dependency>
         <dependency>
             <groupId>javax.media</groupId>
@@ -475,6 +531,26 @@
             <artifactId>jai-codec</artifactId>
             <version>1.0</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.yahoo.platform.yui/yuicompressor -->
+        <dependency>
+            <groupId>com.yahoo.platform.yui</groupId>
+            <artifactId>yuicompressor</artifactId>
+            <version>2.4.8</version>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.mozilla.javascript</groupId>-->
+            <!--<artifactId>javascript</artifactId>-->
+            <!--<version>1.0</version>-->
+        <!--</dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/org.tuckey/urlrewrite -->
+        <dependency>
+            <groupId>org.tuckey</groupId>
+            <artifactId>urlrewritefilter</artifactId>
+            <version>4.0.4</version>
+        </dependency>
+
 
         <!-- Test -->
         <dependency>

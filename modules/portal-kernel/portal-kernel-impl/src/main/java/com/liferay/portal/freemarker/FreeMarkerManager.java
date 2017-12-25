@@ -59,7 +59,7 @@ public class FreeMarkerManager extends BaseTemplateManager {
 		templateContextHelper = null;
 
 		if (isEnableDebuggerService()) {
-			DebuggerService.shutdown();
+			//DebuggerService.shutdown();
 		}
 	}
 

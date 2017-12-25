@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -26,94 +26,88 @@ import javax.servlet.jsp.tagext.TagSupport;
  */
 public class AppViewToolbarTag extends TagSupport {
 
-	@Override
-	public int doEndTag() throws JspException {
-		try {
-			HttpServletRequest request =
-				(HttpServletRequest)pageContext.getRequest();
+    private static final String _END_PAGE =
+            "/html/taglib/ui/app_view_toolbar/end.jsp";
+    private static final String _START_PAGE =
+            "/html/taglib/ui/app_view_toolbar/start.jsp";
+    private String _endPage;
+    private boolean _includeDisplayStyle = false;
+    private boolean _includeSelectAll = false;
+    private String _searchJsp;
+    private String _startPage;
 
-			request.setAttribute(
-				"liferay-ui:app_view_toolbar:includeDisplayStyle",
-				_includeDisplayStyle);
+    @Override
+    public int doEndTag() throws JspException {
+        try {
+            HttpServletRequest request =
+                    (HttpServletRequest) pageContext.getRequest();
 
-			PortalIncludeUtil.include(pageContext, getEndPage());
+            request.setAttribute(
+                    "liferay-ui:app_view_toolbar:includeDisplayStyle",
+                    _includeDisplayStyle);
 
-			return EVAL_PAGE;
-		}
-		catch (Exception e) {
-			throw new JspException(e);
-		}
-	}
+            PortalIncludeUtil.include(pageContext, getEndPage());
 
-	@Override
-	public int doStartTag() throws JspException {
-		try {
-			HttpServletRequest request =
-				(HttpServletRequest)pageContext.getRequest();
+            return EVAL_PAGE;
+        } catch (Exception e) {
+            throw new JspException(e);
+        }
+    }
 
-			request.setAttribute(
-				"liferay-ui:app_view_toolbar:includeSelectAll",
-				_includeSelectAll);
-			request.setAttribute(
-				"liferay-ui:app_view_toolbar:searchJsp", _searchJsp);
+    @Override
+    public int doStartTag() throws JspException {
+        try {
+            HttpServletRequest request =
+                    (HttpServletRequest) pageContext.getRequest();
 
-			PortalIncludeUtil.include(pageContext, getStartPage());
+            request.setAttribute(
+                    "liferay-ui:app_view_toolbar:includeSelectAll",
+                    _includeSelectAll);
+            request.setAttribute(
+                    "liferay-ui:app_view_toolbar:searchJsp", _searchJsp);
 
-			return EVAL_BODY_INCLUDE;
-		}
-		catch (Exception e) {
-			throw new JspException(e);
-		}
-	}
+            PortalIncludeUtil.include(pageContext, getStartPage());
 
-	public void setEndPage(String endPage) {
-		_endPage = endPage;
-	}
+            return EVAL_BODY_INCLUDE;
+        } catch (Exception e) {
+            throw new JspException(e);
+        }
+    }
 
-	public void setIncludeDisplayStyle(boolean includeDisplayStyle) {
-		_includeDisplayStyle = includeDisplayStyle;
-	}
+    public void setIncludeDisplayStyle(boolean includeDisplayStyle) {
+        _includeDisplayStyle = includeDisplayStyle;
+    }
 
-	public void setIncludeSelectAll(boolean includeSelectAll) {
-		_includeSelectAll = includeSelectAll;
-	}
+    public void setIncludeSelectAll(boolean includeSelectAll) {
+        _includeSelectAll = includeSelectAll;
+    }
 
-	public void setSearchJsp(String searchJsp) {
-		_searchJsp = searchJsp;
-	}
+    public void setSearchJsp(String searchJsp) {
+        _searchJsp = searchJsp;
+    }
 
-	public void setStartPage(String startPage) {
-		_startPage = startPage;
-	}
+    protected String getEndPage() {
+        if (Validator.isNull(_endPage)) {
+            return _END_PAGE;
+        } else {
+            return _endPage;
+        }
+    }
 
-	protected String getEndPage() {
-		if (Validator.isNull(_endPage)) {
-			return _END_PAGE;
-		}
-		else {
-			return _endPage;
-		}
-	}
+    public void setEndPage(String endPage) {
+        _endPage = endPage;
+    }
 
-	protected String getStartPage() {
-		if (Validator.isNull(_startPage)) {
-			return _START_PAGE;
-		}
-		else {
-			return _startPage;
-		}
-	}
+    protected String getStartPage() {
+        if (Validator.isNull(_startPage)) {
+            return _START_PAGE;
+        } else {
+            return _startPage;
+        }
+    }
 
-	private static final String _END_PAGE =
-		"/html/taglib/ui/app_view_toolbar/end.jsp";
-
-	private static final String _START_PAGE =
-		"/html/taglib/ui/app_view_toolbar/start.jsp";
-
-	private String _endPage;
-	private boolean _includeDisplayStyle = false;
-	private boolean _includeSelectAll = false;
-	private String _searchJsp;
-	private String _startPage;
+    public void setStartPage(String startPage) {
+        _startPage = startPage;
+    }
 
 }

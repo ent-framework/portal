@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -22,7 +22,6 @@ import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 
 import javax.portlet.PortletRequest;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
@@ -32,179 +31,171 @@ import javax.servlet.jsp.tagext.TagSupport;
  */
 public class ErrorTag extends TagSupport {
 
-	@Override
-	public int doEndTag() throws JspException {
-		try {
-			HttpServletRequest request =
-				(HttpServletRequest)pageContext.getRequest();
+    private static final String _END_PAGE = "/html/taglib/ui/error/end.jsp";
+    private static final String _START_PAGE = "/html/taglib/ui/error/start.jsp";
+    private String _endPage;
+    private Class<?> _exception;
+    private String _focusField;
+    private String _key;
+    private String _message;
+    private String _rowBreak = StringPool.BLANK;
+    private String _startPage;
+    private boolean _translateMessage = true;
 
-			PortletRequest portletRequest =
-				(PortletRequest)request.getAttribute(
-					JavaConstants.JAVAX_PORTLET_REQUEST);
+    @Override
+    public int doEndTag() throws JspException {
+        try {
+            HttpServletRequest request =
+                    (HttpServletRequest) pageContext.getRequest();
 
-			boolean includeEndPage = false;
+            PortletRequest portletRequest =
+                    (PortletRequest) request.getAttribute(
+                            JavaConstants.JAVAX_PORTLET_REQUEST);
 
-			if (Validator.isNull(_key)) {
-				if (!SessionErrors.isEmpty(portletRequest)) {
-					includeEndPage = true;
-				}
-			}
-			else {
-				if (SessionErrors.contains(portletRequest, _key)) {
-					includeEndPage = true;
-				}
-			}
+            boolean includeEndPage = false;
 
-			if (includeEndPage) {
-				PortalIncludeUtil.include(pageContext, getEndPage());
+            if (Validator.isNull(_key)) {
+                if (!SessionErrors.isEmpty(portletRequest)) {
+                    includeEndPage = true;
+                }
+            } else {
+                if (SessionErrors.contains(portletRequest, _key)) {
+                    includeEndPage = true;
+                }
+            }
 
-				String errorMarkerKey = (String)request.getAttribute(
-					"liferay-ui:error-marker:key");
-				String errorMarkerValue = (String)request.getAttribute(
-					"liferay-ui:error-marker:value");
+            if (includeEndPage) {
+                PortalIncludeUtil.include(pageContext, getEndPage());
 
-				if (Validator.isNotNull(errorMarkerKey) &&
-					Validator.isNotNull(errorMarkerValue)) {
+                String errorMarkerKey = (String) request.getAttribute(
+                        "liferay-ui:error-marker:key");
+                String errorMarkerValue = (String) request.getAttribute(
+                        "liferay-ui:error-marker:value");
 
-					request.setAttribute(errorMarkerKey, errorMarkerValue);
+                if (Validator.isNotNull(errorMarkerKey) &&
+                        Validator.isNotNull(errorMarkerValue)) {
 
-					Object exception = getException(portletRequest);
+                    request.setAttribute(errorMarkerKey, errorMarkerValue);
 
-					if (exception instanceof Exception) {
-						request.setAttribute(
-							"liferay-ui:error:exception", exception);
-					}
+                    Object exception = getException(portletRequest);
 
-					request.setAttribute(
-						"liferay-ui:error:focusField", _focusField);
-				}
-			}
+                    if (exception instanceof Exception) {
+                        request.setAttribute(
+                                "liferay-ui:error:exception", exception);
+                    }
 
-			return EVAL_PAGE;
-		}
-		catch (Exception e) {
-			throw new JspException(e);
-		}
-	}
+                    request.setAttribute(
+                            "liferay-ui:error:focusField", _focusField);
+                }
+            }
 
-	@Override
-	public int doStartTag() throws JspException {
-		try {
-			HttpServletRequest request =
-				(HttpServletRequest)pageContext.getRequest();
+            return EVAL_PAGE;
+        } catch (Exception e) {
+            throw new JspException(e);
+        }
+    }
 
-			PortletRequest portletRequest =
-				(PortletRequest)request.getAttribute(
-					JavaConstants.JAVAX_PORTLET_REQUEST);
+    @Override
+    public int doStartTag() throws JspException {
+        try {
+            HttpServletRequest request =
+                    (HttpServletRequest) pageContext.getRequest();
 
-			request.setAttribute("liferay-ui:error:key", _key);
-			request.setAttribute("liferay-ui:error:message", _message);
-			request.setAttribute("liferay-ui:error:rowBreak", _rowBreak);
-			request.setAttribute(
-				"liferay-ui:error:translateMessage",
-				String.valueOf(_translateMessage));
+            PortletRequest portletRequest =
+                    (PortletRequest) request.getAttribute(
+                            JavaConstants.JAVAX_PORTLET_REQUEST);
 
-			if (Validator.isNotNull(_message)) {
-				return SKIP_BODY;
-			}
+            request.setAttribute("liferay-ui:error:key", _key);
+            request.setAttribute("liferay-ui:error:message", _message);
+            request.setAttribute("liferay-ui:error:rowBreak", _rowBreak);
+            request.setAttribute(
+                    "liferay-ui:error:translateMessage",
+                    String.valueOf(_translateMessage));
 
-			if (SessionErrors.contains(portletRequest, _key)) {
-				Object value = getException(portletRequest);
+            if (Validator.isNotNull(_message)) {
+                return SKIP_BODY;
+            }
 
-				PortalIncludeUtil.include(pageContext, getStartPage());
+            if (SessionErrors.contains(portletRequest, _key)) {
+                Object value = getException(portletRequest);
 
-				if (value != null) {
-					pageContext.setAttribute("errorException", value);
-				}
+                PortalIncludeUtil.include(pageContext, getStartPage());
 
-				return EVAL_BODY_INCLUDE;
-			}
+                if (value != null) {
+                    pageContext.setAttribute("errorException", value);
+                }
 
-			return SKIP_BODY;
-		}
-		catch (Exception e) {
-			throw new JspException(e);
-		}
-	}
+                return EVAL_BODY_INCLUDE;
+            }
 
-	public void setEndPage(String endPage) {
-		_endPage = endPage;
-	}
+            return SKIP_BODY;
+        } catch (Exception e) {
+            throw new JspException(e);
+        }
+    }
 
-	public void setException(Class<?> exception) {
-		_exception = exception;
+    public void setException(Class<?> exception) {
+        _exception = exception;
 
-		if (_exception != null) {
-			_key = _exception.getName();
-		}
-	}
+        if (_exception != null) {
+            _key = _exception.getName();
+        }
+    }
 
-	public void setFocusField(String focusField) {
-		_focusField = focusField;
-	}
+    public void setFocusField(String focusField) {
+        _focusField = focusField;
+    }
 
-	public void setKey(String key) {
-		_key = key;
-	}
+    public void setKey(String key) {
+        _key = key;
+    }
 
-	public void setMessage(String message) {
-		_message = message;
-	}
+    public void setMessage(String message) {
+        _message = message;
+    }
 
-	public void setRowBreak(String rowBreak) {
-		_rowBreak = HtmlUtil.unescape(rowBreak);
-	}
+    public void setRowBreak(String rowBreak) {
+        _rowBreak = HtmlUtil.unescape(rowBreak);
+    }
 
-	public void setStartPage(String startPage) {
-		_startPage = startPage;
-	}
+    public void setTranslateMessage(boolean translateMessage) {
+        _translateMessage = translateMessage;
+    }
 
-	public void setTranslateMessage(boolean translateMessage) {
-		_translateMessage = translateMessage;
-	}
+    protected String getEndPage() {
+        if (Validator.isNull(_endPage)) {
+            return _END_PAGE;
+        } else {
+            return _endPage;
+        }
+    }
 
-	protected String getEndPage() {
-		if (Validator.isNull(_endPage)) {
-			return _END_PAGE;
-		}
-		else {
-			return _endPage;
-		}
-	}
+    public void setEndPage(String endPage) {
+        _endPage = endPage;
+    }
 
-	protected Object getException(PortletRequest portletRequest) {
-		Object value = null;
+    protected Object getException(PortletRequest portletRequest) {
+        Object value = null;
 
-		if (_exception != null) {
-			value = SessionErrors.get(portletRequest, _exception.getName());
-		}
-		else {
-			value = SessionErrors.get(portletRequest, _key);
-		}
+        if (_exception != null) {
+            value = SessionErrors.get(portletRequest, _exception.getName());
+        } else {
+            value = SessionErrors.get(portletRequest, _key);
+        }
 
-		return value;
-	}
+        return value;
+    }
 
-	protected String getStartPage() {
-		if (Validator.isNull(_startPage)) {
-			return _START_PAGE;
-		}
-		else {
-			return _startPage;
-		}
-	}
+    protected String getStartPage() {
+        if (Validator.isNull(_startPage)) {
+            return _START_PAGE;
+        } else {
+            return _startPage;
+        }
+    }
 
-	private static final String _END_PAGE = "/html/taglib/ui/error/end.jsp";
-
-	private static final String _START_PAGE = "/html/taglib/ui/error/start.jsp";
-
-	private String _endPage;
-	private Class<?> _exception;
-	private String _focusField;
-	private String _key;
-	private String _message;
-	private String _rowBreak = StringPool.BLANK;
-	private String _startPage;
-	private boolean _translateMessage = true;
+    public void setStartPage(String startPage) {
+        _startPage = startPage;
+    }
 
 }

@@ -15,7 +15,7 @@
 package com.liferay.portal.dao.shard;
 
 import com.liferay.portal.kernel.dao.shard.ShardUtil;
-import com.liferay.portal.tools.javadocformatter.SinceJava;
+//import com.liferay.portal.tools.javadocformatter.SinceJava;
 
 import java.io.PrintWriter;
 
@@ -57,7 +57,7 @@ public class ShardDataSource implements DataSource {
 		return getDataSource().getLogWriter();
 	}
 
-	@SinceJava(1.7)
+	//@SinceJava(1.7)
 	public Logger getParentLogger() {
 		throw new UnsupportedOperationException();
 	}

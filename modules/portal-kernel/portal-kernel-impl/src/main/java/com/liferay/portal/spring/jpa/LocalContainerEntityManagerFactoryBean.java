@@ -29,7 +29,7 @@ import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.orm.jpa.vendor.OpenJpaVendorAdapter;
-import org.springframework.orm.jpa.vendor.TopLinkJpaVendorAdapter;
+//import org.springframework.orm.jpa.vendor.TopLinkJpaVendorAdapter;
 
 /**
  * @author Prashant Dighe
@@ -200,10 +200,10 @@ public class LocalContainerEntityManagerFactoryBean
 		}
 		else if (StringUtil.equalsIgnoreCase(provider, "openjpa")) {
 			return OpenJpaVendorAdapter.class;
-		}
+		}/*
 		else if (StringUtil.equalsIgnoreCase(provider, "toplink")) {
 			return TopLinkJpaVendorAdapter.class;
-		}
+		}*/
 
 		return null;
 	}

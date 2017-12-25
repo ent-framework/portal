@@ -23,7 +23,7 @@ import java.io.UnsupportedEncodingException;
 
 import java.util.Random;
 
-import org.vps.crypt.Crypt;
+//import org.vps.crypt.Crypt;
 
 /**
  * @author Michael C. Han
@@ -49,13 +49,14 @@ public class CryptPasswordEncryptor
 
 		byte[] saltBytes = getSalt(encryptedPassword);
 
-		try {
+/*		try {
 			return Crypt.crypt(
 				saltBytes, plainTextPassword.getBytes(Digester.ENCODING));
 		}
 		catch (UnsupportedEncodingException uee) {
 			throw new PwdEncryptorException(uee.getMessage(), uee);
-		}
+		}*/
+		return null;
 	}
 
 	protected byte[] getSalt(String encryptedPassword)

@@ -56,10 +56,6 @@ import com.liferay.portlet.journal.model.JournalArticle;
 import com.liferay.portlet.journal.model.JournalFeed;
 import com.liferay.portlet.journal.service.permission.JournalArticlePermission;
 import com.liferay.portlet.journal.service.permission.JournalFeedPermission;
-import com.liferay.portlet.messageboards.model.MBCategory;
-import com.liferay.portlet.messageboards.model.MBMessage;
-import com.liferay.portlet.messageboards.service.permission.MBCategoryPermission;
-import com.liferay.portlet.messageboards.service.permission.MBMessagePermission;
 import com.liferay.portlet.polls.model.PollsQuestion;
 import com.liferay.portlet.polls.service.permission.PollsQuestionPermission;
 import com.liferay.portlet.shopping.model.ShoppingCategory;
@@ -70,10 +66,6 @@ import com.liferay.portlet.softwarecatalog.model.SCFrameworkVersion;
 import com.liferay.portlet.softwarecatalog.model.SCProductEntry;
 import com.liferay.portlet.softwarecatalog.service.permission.SCFrameworkVersionPermission;
 import com.liferay.portlet.softwarecatalog.service.permission.SCProductEntryPermission;
-import com.liferay.portlet.wiki.model.WikiNode;
-import com.liferay.portlet.wiki.model.WikiPage;
-import com.liferay.portlet.wiki.service.permission.WikiNodePermission;
-import com.liferay.portlet.wiki.service.permission.WikiPagePermission;
 
 import java.util.List;
 
@@ -173,16 +165,6 @@ public class PermissionServiceImpl extends PermissionServiceBaseImpl {
 				permissionChecker, GetterUtil.getLong(primKey),
 				ActionKeys.PERMISSIONS);
 		}
-		else if (name.equals(MBCategory.class.getName())) {
-			MBCategoryPermission.check(
-				permissionChecker, groupId, GetterUtil.getLong(primKey),
-				ActionKeys.PERMISSIONS);
-		}
-		else if (name.equals(MBMessage.class.getName())) {
-			MBMessagePermission.check(
-				permissionChecker, GetterUtil.getLong(primKey),
-				ActionKeys.PERMISSIONS);
-		}
 		else if (name.equals(PollsQuestion.class.getName())) {
 			PollsQuestionPermission.check(
 				permissionChecker, GetterUtil.getLong(primKey),
@@ -223,16 +205,6 @@ public class PermissionServiceImpl extends PermissionServiceBaseImpl {
 
 			UserPermissionUtil.check(
 				permissionChecker, userId, user.getOrganizationIds(),
-				ActionKeys.PERMISSIONS);
-		}
-		else if (name.equals(WikiNode.class.getName())) {
-			WikiNodePermission.check(
-				permissionChecker, GetterUtil.getLong(primKey),
-				ActionKeys.PERMISSIONS);
-		}
-		else if (name.equals(WikiPage.class.getName())) {
-			WikiPagePermission.check(
-				permissionChecker, GetterUtil.getLong(primKey),
 				ActionKeys.PERMISSIONS);
 		}
 		else if ((primKey != null) &&

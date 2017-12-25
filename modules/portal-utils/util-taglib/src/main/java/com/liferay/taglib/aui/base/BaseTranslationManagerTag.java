@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -26,108 +26,106 @@ import javax.servlet.jsp.JspException;
  */
 public class BaseTranslationManagerTag extends com.liferay.taglib.util.IncludeTag {
 
-	@Override
-	public int doStartTag() throws JspException {
-		setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
+    protected static final String _ATTRIBUTE_NAMESPACE = "aui:translation-manager:";
+    private static final String _PAGE =
+            "/html/taglib/aui/translation_manager/page.jsp";
+    private java.util.Locale[] _availableLocales = null;
+    private java.lang.String _defaultLanguageId = null;
+    private java.lang.String _editingLanguageId = null;
+    private java.lang.String _id = null;
+    private boolean _initialize = true;
+    private boolean _readOnly = false;
 
-		return super.doStartTag();
-	}
+    @Override
+    public int doStartTag() throws JspException {
+        setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
 
-	public java.util.Locale[] getAvailableLocales() {
-		return _availableLocales;
-	}
+        return super.doStartTag();
+    }
 
-	public java.lang.String getDefaultLanguageId() {
-		return _defaultLanguageId;
-	}
+    public java.util.Locale[] getAvailableLocales() {
+        return _availableLocales;
+    }
 
-	public java.lang.String getEditingLanguageId() {
-		return _editingLanguageId;
-	}
+    public void setAvailableLocales(java.util.Locale[] availableLocales) {
+        _availableLocales = availableLocales;
 
-	public java.lang.String getId() {
-		return _id;
-	}
+        setScopedAttribute("availableLocales", availableLocales);
+    }
 
-	public boolean getInitialize() {
-		return _initialize;
-	}
+    public java.lang.String getDefaultLanguageId() {
+        return _defaultLanguageId;
+    }
 
-	public boolean getReadOnly() {
-		return _readOnly;
-	}
+    public void setDefaultLanguageId(java.lang.String defaultLanguageId) {
+        _defaultLanguageId = defaultLanguageId;
 
-	public void setAvailableLocales(java.util.Locale[] availableLocales) {
-		_availableLocales = availableLocales;
+        setScopedAttribute("defaultLanguageId", defaultLanguageId);
+    }
 
-		setScopedAttribute("availableLocales", availableLocales);
-	}
+    public java.lang.String getEditingLanguageId() {
+        return _editingLanguageId;
+    }
 
-	public void setDefaultLanguageId(java.lang.String defaultLanguageId) {
-		_defaultLanguageId = defaultLanguageId;
+    public void setEditingLanguageId(java.lang.String editingLanguageId) {
+        _editingLanguageId = editingLanguageId;
 
-		setScopedAttribute("defaultLanguageId", defaultLanguageId);
-	}
+        setScopedAttribute("editingLanguageId", editingLanguageId);
+    }
 
-	public void setEditingLanguageId(java.lang.String editingLanguageId) {
-		_editingLanguageId = editingLanguageId;
+    public java.lang.String getId() {
+        return _id;
+    }
 
-		setScopedAttribute("editingLanguageId", editingLanguageId);
-	}
+    public void setId(java.lang.String id) {
+        _id = id;
 
-	public void setId(java.lang.String id) {
-		_id = id;
+        setScopedAttribute("id", id);
+    }
 
-		setScopedAttribute("id", id);
-	}
+    public boolean getInitialize() {
+        return _initialize;
+    }
 
-	public void setInitialize(boolean initialize) {
-		_initialize = initialize;
+    public void setInitialize(boolean initialize) {
+        _initialize = initialize;
 
-		setScopedAttribute("initialize", initialize);
-	}
+        setScopedAttribute("initialize", initialize);
+    }
 
-	public void setReadOnly(boolean readOnly) {
-		_readOnly = readOnly;
+    public boolean getReadOnly() {
+        return _readOnly;
+    }
 
-		setScopedAttribute("readOnly", readOnly);
-	}
+    public void setReadOnly(boolean readOnly) {
+        _readOnly = readOnly;
 
-	@Override
-	protected void cleanUp() {
-		_availableLocales = null;
-		_defaultLanguageId = null;
-		_editingLanguageId = null;
-		_id = null;
-		_initialize = true;
-		_readOnly = false;
-	}
+        setScopedAttribute("readOnly", readOnly);
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _availableLocales = null;
+        _defaultLanguageId = null;
+        _editingLanguageId = null;
+        _id = null;
+        _initialize = true;
+        _readOnly = false;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		setNamespacedAttribute(request, "availableLocales", _availableLocales);
-		setNamespacedAttribute(request, "defaultLanguageId", _defaultLanguageId);
-		setNamespacedAttribute(request, "editingLanguageId", _editingLanguageId);
-		setNamespacedAttribute(request, "id", _id);
-		setNamespacedAttribute(request, "initialize", _initialize);
-		setNamespacedAttribute(request, "readOnly", _readOnly);
-	}
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
-	protected static final String _ATTRIBUTE_NAMESPACE = "aui:translation-manager:";
-
-	private static final String _PAGE =
-		"/html/taglib/aui/translation_manager/page.jsp";
-
-	private java.util.Locale[] _availableLocales = null;
-	private java.lang.String _defaultLanguageId = null;
-	private java.lang.String _editingLanguageId = null;
-	private java.lang.String _id = null;
-	private boolean _initialize = true;
-	private boolean _readOnly = false;
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        setNamespacedAttribute(request, "availableLocales", _availableLocales);
+        setNamespacedAttribute(request, "defaultLanguageId", _defaultLanguageId);
+        setNamespacedAttribute(request, "editingLanguageId", _editingLanguageId);
+        setNamespacedAttribute(request, "id", _id);
+        setNamespacedAttribute(request, "initialize", _initialize);
+        setNamespacedAttribute(request, "readOnly", _readOnly);
+    }
 
 }

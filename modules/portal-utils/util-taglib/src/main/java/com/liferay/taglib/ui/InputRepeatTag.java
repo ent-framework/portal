@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -25,34 +25,33 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class InputRepeatTag extends IncludeTag {
 
-	public void setCssClass(String cssClass) {
-		_cssClass = cssClass;
-	}
+    private static final String _PAGE = "/html/taglib/ui/input_repeat/page.jsp";
+    private String _cssClass;
+    private CalEvent _event;
 
-	public void setEvent(CalEvent event) {
-		_event = event;
-	}
+    public void setCssClass(String cssClass) {
+        _cssClass = cssClass;
+    }
 
-	@Override
-	protected void cleanUp() {
-		_cssClass = null;
-		_event = null;
-	}
+    public void setEvent(CalEvent event) {
+        _event = event;
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _cssClass = null;
+        _event = null;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute("liferay-ui:input-repeat:cssClass", _cssClass);
-		request.setAttribute("liferay-ui:input-repeat:event", _event);
-	}
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
-	private static final String _PAGE = "/html/taglib/ui/input_repeat/page.jsp";
-
-	private String _cssClass;
-	private CalEvent _event;
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        request.setAttribute("liferay-ui:input-repeat:cssClass", _cssClass);
+        request.setAttribute("liferay-ui:input-repeat:event", _event);
+    }
 
 }

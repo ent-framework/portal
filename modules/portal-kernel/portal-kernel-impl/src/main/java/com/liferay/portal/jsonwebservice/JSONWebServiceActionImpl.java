@@ -19,31 +19,17 @@ import com.liferay.portal.kernel.jsonwebservice.JSONWebServiceAction;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebServiceActionMapping;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.kernel.util.CamelCaseUtil;
-import com.liferay.portal.kernel.util.GetterUtil;
-import com.liferay.portal.kernel.util.LocaleUtil;
-import com.liferay.portal.kernel.util.MethodParameter;
-import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.service.ServiceContext;
+import jodd.bean.BeanCopy;
+import jodd.bean.BeanUtil;
+import jodd.typeconverter.TypeConverterManager;
+import jodd.util.NameValue;
+import jodd.util.ReflectUtil;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Method;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-
-import jodd.bean.BeanCopy;
-import jodd.bean.BeanUtil;
-
-import jodd.typeconverter.TypeConverterManager;
-
-import jodd.util.NameValue;
-import jodd.util.ReflectUtil;
+import java.util.*;
 
 /**
  * @author Igor Spasic
@@ -376,7 +362,7 @@ public class JSONWebServiceActionImpl implements JSONWebServiceAction {
 
 					parameterType = classLoader.loadClass(parameterTypeName);
 
-					if (!ReflectUtil.isSubclass(
+					if (!isSubclass(
 							parameterType, methodParameters[i].getType())) {
 
 						throw new IllegalArgumentException(
@@ -428,4 +414,32 @@ public class JSONWebServiceActionImpl implements JSONWebServiceAction {
 	private JSONWebServiceActionConfig _jsonWebServiceActionConfig;
 	private JSONWebServiceActionParameters _jsonWebServiceActionParameters;
 
+
+	/**
+	 * Determines if first class match the destination and simulates kind
+	 * of <code>instanceof</code>. All subclasses and interface of first class
+	 * are examined against second class. Method is not symetric.
+	 */
+	public static boolean isSubclass(Class thisClass, Class target) {
+		if (thisClass == target) {
+			return true;
+		}
+		if ((thisClass == null) || (target == null)) {
+			return false;
+		}
+		for (Class x = thisClass; x != null; x = x.getSuperclass()) {
+			if (x == target) {
+				return true;
+			}
+			if (target.isInterface() == true) {
+				Class[] interfaces = x.getInterfaces();
+				for (int i = 0; i < interfaces.length; i++) {
+					if (isSubclass(interfaces[i], target)) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
 }

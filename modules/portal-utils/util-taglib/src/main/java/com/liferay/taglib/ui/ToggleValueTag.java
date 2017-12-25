@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -28,56 +28,55 @@ import javax.servlet.jsp.tagext.TagSupport;
  */
 public class ToggleValueTag extends TagSupport {
 
-	/**
-	 * @deprecated As of 6.1.0
-	 */
-	public static void doTag(
-			String id, PageContext pageContext, HttpServletRequest request)
-		throws Exception {
+    private String _defaultValue = "block";
+    private String _id;
 
-		doTag(id, "block", pageContext);
-	}
+    /**
+     * @deprecated As of 6.1.0
+     */
+    public static void doTag(
+            String id, PageContext pageContext, HttpServletRequest request)
+            throws Exception {
 
-	public static void doTag(
-			String id, String defaultValue, PageContext pageContext)
-		throws Exception {
+        doTag(id, "block", pageContext);
+    }
 
-		HttpServletRequest request =
-			(HttpServletRequest)pageContext.getRequest();
+    public static void doTag(
+            String id, String defaultValue, PageContext pageContext)
+            throws Exception {
 
-		String value = SessionClicks.get(request, id, StringPool.BLANK);
+        HttpServletRequest request =
+                (HttpServletRequest) pageContext.getRequest();
 
-		if (value.equals(StringPool.BLANK)) {
-			value = defaultValue;
-		}
+        String value = SessionClicks.get(request, id, StringPool.BLANK);
 
-		JspWriter jspWriter = pageContext.getOut();
+        if (value.equals(StringPool.BLANK)) {
+            value = defaultValue;
+        }
 
-		jspWriter.write(value);
-	}
+        JspWriter jspWriter = pageContext.getOut();
 
-	@Override
-	public int doEndTag() throws JspException {
-		try {
-			doTag(_id, _defaultValue, pageContext);
+        jspWriter.write(value);
+    }
 
-			return EVAL_PAGE;
-		}
-		catch (Exception e) {
-			throw new JspException(e);
-		}
-	}
+    @Override
+    public int doEndTag() throws JspException {
+        try {
+            doTag(_id, _defaultValue, pageContext);
 
-	public void setDefaultValue(String defaultValue) {
-		_defaultValue = defaultValue;
-	}
+            return EVAL_PAGE;
+        } catch (Exception e) {
+            throw new JspException(e);
+        }
+    }
 
-	@Override
-	public void setId(String id) {
-		_id = id;
-	}
+    public void setDefaultValue(String defaultValue) {
+        _defaultValue = defaultValue;
+    }
 
-	private String _defaultValue = "block";
-	private String _id;
+    @Override
+    public void setId(String id) {
+        _id = id;
+    }
 
 }

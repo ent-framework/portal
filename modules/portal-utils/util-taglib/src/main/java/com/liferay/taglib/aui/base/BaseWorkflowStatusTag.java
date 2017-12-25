@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -26,147 +26,145 @@ import javax.servlet.jsp.JspException;
  */
 public class BaseWorkflowStatusTag extends com.liferay.taglib.util.IncludeTag {
 
-	@Override
-	public int doStartTag() throws JspException {
-		setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
+    protected static final String _ATTRIBUTE_NAMESPACE = "aui:workflow-status:";
+    private static final String _PAGE =
+            "/html/taglib/aui/workflow_status/page.jsp";
+    private java.lang.Object _bean = null;
+    private java.lang.String _helpMessage = null;
+    private java.lang.String _id = null;
+    private java.lang.Class<?> _model = null;
+    private boolean _showIcon = true;
+    private boolean _showLabel = true;
+    private java.lang.Integer _status = null;
+    private java.lang.String _statusMessage = null;
+    private java.lang.String _version = null;
 
-		return super.doStartTag();
-	}
+    @Override
+    public int doStartTag() throws JspException {
+        setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
 
-	public java.lang.Object getBean() {
-		return _bean;
-	}
+        return super.doStartTag();
+    }
 
-	public java.lang.String getHelpMessage() {
-		return _helpMessage;
-	}
+    public java.lang.Object getBean() {
+        return _bean;
+    }
 
-	public java.lang.String getId() {
-		return _id;
-	}
+    public void setBean(java.lang.Object bean) {
+        _bean = bean;
 
-	public java.lang.Class<?> getModel() {
-		return _model;
-	}
+        setScopedAttribute("bean", bean);
+    }
 
-	public boolean getShowIcon() {
-		return _showIcon;
-	}
+    public java.lang.String getHelpMessage() {
+        return _helpMessage;
+    }
 
-	public boolean getShowLabel() {
-		return _showLabel;
-	}
+    public void setHelpMessage(java.lang.String helpMessage) {
+        _helpMessage = helpMessage;
 
-	public java.lang.Integer getStatus() {
-		return _status;
-	}
+        setScopedAttribute("helpMessage", helpMessage);
+    }
 
-	public java.lang.String getStatusMessage() {
-		return _statusMessage;
-	}
+    public java.lang.String getId() {
+        return _id;
+    }
 
-	public java.lang.String getVersion() {
-		return _version;
-	}
+    public void setId(java.lang.String id) {
+        _id = id;
 
-	public void setBean(java.lang.Object bean) {
-		_bean = bean;
+        setScopedAttribute("id", id);
+    }
 
-		setScopedAttribute("bean", bean);
-	}
+    public java.lang.Class<?> getModel() {
+        return _model;
+    }
 
-	public void setHelpMessage(java.lang.String helpMessage) {
-		_helpMessage = helpMessage;
+    public void setModel(java.lang.Class<?> model) {
+        _model = model;
 
-		setScopedAttribute("helpMessage", helpMessage);
-	}
+        setScopedAttribute("model", model);
+    }
 
-	public void setId(java.lang.String id) {
-		_id = id;
+    public boolean getShowIcon() {
+        return _showIcon;
+    }
 
-		setScopedAttribute("id", id);
-	}
+    public void setShowIcon(boolean showIcon) {
+        _showIcon = showIcon;
 
-	public void setModel(java.lang.Class<?> model) {
-		_model = model;
+        setScopedAttribute("showIcon", showIcon);
+    }
 
-		setScopedAttribute("model", model);
-	}
+    public boolean getShowLabel() {
+        return _showLabel;
+    }
 
-	public void setShowIcon(boolean showIcon) {
-		_showIcon = showIcon;
+    public void setShowLabel(boolean showLabel) {
+        _showLabel = showLabel;
 
-		setScopedAttribute("showIcon", showIcon);
-	}
+        setScopedAttribute("showLabel", showLabel);
+    }
 
-	public void setShowLabel(boolean showLabel) {
-		_showLabel = showLabel;
+    public java.lang.Integer getStatus() {
+        return _status;
+    }
 
-		setScopedAttribute("showLabel", showLabel);
-	}
+    public void setStatus(java.lang.Integer status) {
+        _status = status;
 
-	public void setStatus(java.lang.Integer status) {
-		_status = status;
+        setScopedAttribute("status", status);
+    }
 
-		setScopedAttribute("status", status);
-	}
+    public java.lang.String getStatusMessage() {
+        return _statusMessage;
+    }
 
-	public void setStatusMessage(java.lang.String statusMessage) {
-		_statusMessage = statusMessage;
+    public void setStatusMessage(java.lang.String statusMessage) {
+        _statusMessage = statusMessage;
 
-		setScopedAttribute("statusMessage", statusMessage);
-	}
+        setScopedAttribute("statusMessage", statusMessage);
+    }
 
-	public void setVersion(java.lang.String version) {
-		_version = version;
+    public java.lang.String getVersion() {
+        return _version;
+    }
 
-		setScopedAttribute("version", version);
-	}
+    public void setVersion(java.lang.String version) {
+        _version = version;
 
-	@Override
-	protected void cleanUp() {
-		_bean = null;
-		_helpMessage = null;
-		_id = null;
-		_model = null;
-		_showIcon = true;
-		_showLabel = true;
-		_status = null;
-		_statusMessage = null;
-		_version = null;
-	}
+        setScopedAttribute("version", version);
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _bean = null;
+        _helpMessage = null;
+        _id = null;
+        _model = null;
+        _showIcon = true;
+        _showLabel = true;
+        _status = null;
+        _statusMessage = null;
+        _version = null;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		setNamespacedAttribute(request, "bean", _bean);
-		setNamespacedAttribute(request, "helpMessage", _helpMessage);
-		setNamespacedAttribute(request, "id", _id);
-		setNamespacedAttribute(request, "model", _model);
-		setNamespacedAttribute(request, "showIcon", _showIcon);
-		setNamespacedAttribute(request, "showLabel", _showLabel);
-		setNamespacedAttribute(request, "status", _status);
-		setNamespacedAttribute(request, "statusMessage", _statusMessage);
-		setNamespacedAttribute(request, "version", _version);
-	}
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
-	protected static final String _ATTRIBUTE_NAMESPACE = "aui:workflow-status:";
-
-	private static final String _PAGE =
-		"/html/taglib/aui/workflow_status/page.jsp";
-
-	private java.lang.Object _bean = null;
-	private java.lang.String _helpMessage = null;
-	private java.lang.String _id = null;
-	private java.lang.Class<?> _model = null;
-	private boolean _showIcon = true;
-	private boolean _showLabel = true;
-	private java.lang.Integer _status = null;
-	private java.lang.String _statusMessage = null;
-	private java.lang.String _version = null;
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        setNamespacedAttribute(request, "bean", _bean);
+        setNamespacedAttribute(request, "helpMessage", _helpMessage);
+        setNamespacedAttribute(request, "id", _id);
+        setNamespacedAttribute(request, "model", _model);
+        setNamespacedAttribute(request, "showIcon", _showIcon);
+        setNamespacedAttribute(request, "showLabel", _showLabel);
+        setNamespacedAttribute(request, "status", _status);
+        setNamespacedAttribute(request, "statusMessage", _statusMessage);
+        setNamespacedAttribute(request, "version", _version);
+    }
 
 }

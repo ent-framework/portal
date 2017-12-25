@@ -24,7 +24,7 @@ import com.liferay.portal.kernel.xml.DocumentException;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.UnsecureSAXReaderUtil;
 import com.liferay.portal.service.ServiceContext;
-import com.liferay.portal.upgrade.UpgradeProcessUtil;
+//import com.liferay.portal.upgrade.UpgradeProcessUtil;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portlet.documentlibrary.model.DLFileEntryTypeConstants;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
@@ -96,8 +96,8 @@ public abstract class BaseDefaultDDMStructureAction extends SimpleAction {
 			xsd = DDMXMLUtil.updateXMLDefaultLocale(
 				xsd, ddmStructureDefaultLocale, locale);
 
-			if (name.equals(DLFileEntryTypeConstants.NAME_IG_IMAGE) &&
-				!UpgradeProcessUtil.isCreateIGImageDocumentType()) {
+			if (name.equals(DLFileEntryTypeConstants.NAME_IG_IMAGE) /*&&
+				!UpgradeProcessUtil.isCreateIGImageDocumentType()*/) {
 
 				continue;
 			}

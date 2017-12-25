@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -18,579 +18,541 @@ import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.servlet.taglib.ui.BreadcrumbEntry;
-import com.liferay.portal.kernel.util.ArrayUtil;
-import com.liferay.portal.kernel.util.CookieKeys;
-import com.liferay.portal.kernel.util.GetterUtil;
-import com.liferay.portal.kernel.util.HtmlUtil;
-import com.liferay.portal.kernel.util.HttpUtil;
-import com.liferay.portal.kernel.util.PropsKeys;
-import com.liferay.portal.kernel.util.PropsUtil;
-import com.liferay.portal.kernel.util.StringBundler;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.kernel.util.StringUtil;
-import com.liferay.portal.kernel.util.UnicodeProperties;
-import com.liferay.portal.kernel.util.Validator;
-import com.liferay.portal.kernel.util.WebKeys;
-import com.liferay.portal.model.Account;
-import com.liferay.portal.model.Group;
-import com.liferay.portal.model.GroupConstants;
-import com.liferay.portal.model.Layout;
-import com.liferay.portal.model.LayoutConstants;
-import com.liferay.portal.model.LayoutSet;
-import com.liferay.portal.model.Organization;
-import com.liferay.portal.model.User;
-import com.liferay.portal.service.GroupLocalServiceUtil;
-import com.liferay.portal.service.LayoutLocalServiceUtil;
-import com.liferay.portal.service.LayoutSetLocalServiceUtil;
-import com.liferay.portal.service.OrganizationLocalServiceUtil;
-import com.liferay.portal.service.UserLocalServiceUtil;
+import com.liferay.portal.kernel.util.*;
+import com.liferay.portal.model.*;
+import com.liferay.portal.service.*;
 import com.liferay.portal.theme.PortletDisplay;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.taglib.aui.AUIUtil;
 import com.liferay.taglib.util.IncludeTag;
 
-import java.util.List;
-import java.util.Map;
-
 import javax.portlet.PortletURL;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author Brian Wing Shun Chan
  */
 public class BreadcrumbTag extends IncludeTag {
 
-	public void setDisplayStyle(String displayStyle) {
-		_displayStyle = displayStyle;
-	}
-
-	public void setPortletURL(PortletURL portletURL) {
-		_portletURL = portletURL;
-	}
-
-	public void setSelLayout(Layout selLayout) {
-		_selLayout = selLayout;
-	}
-
-	public void setSelLayoutParam(String selLayoutParam) {
-		_selLayoutParam = selLayoutParam;
-	}
+    private static final String _DISPLAY_STYLE = GetterUtil.getString(
+            PropsUtil.get(PropsKeys.BREADCRUMB_DISPLAY_STYLE_DEFAULT));
+    private static final String[] _DISPLAY_STYLE_OPTIONS = PropsUtil.getArray(
+            PropsKeys.BREADCRUMB_DISPLAY_STYLE_OPTIONS);
+    private static final String _PAGE = "/html/taglib/ui/breadcrumb/page.jsp";
+    private static final boolean _SHOW_GUEST_GROUP = GetterUtil.getBoolean(
+            PropsUtil.get(PropsKeys.BREADCRUMB_SHOW_GUEST_GROUP));
+    private static final boolean _SHOW_PARENT_GROUPS = GetterUtil.getBoolean(
+            PropsUtil.get(PropsKeys.BREADCRUMB_SHOW_PARENT_GROUPS));
+    private static Log _log = LogFactoryUtil.getLog(BreadcrumbTag.class);
+    private String _displayStyle = _DISPLAY_STYLE;
+    private PortletURL _portletURL;
+    private Layout _selLayout;
+    private String _selLayoutParam;
+    private boolean _showCurrentGroup = true;
+    private boolean _showCurrentPortlet = true;
+    private boolean _showGuestGroup = _SHOW_GUEST_GROUP;
+    private boolean _showLayout = true;
+    private Boolean _showParentGroups = null;
+    private boolean _showPortletBreadcrumb = true;
+
+    public void setDisplayStyle(String displayStyle) {
+        _displayStyle = displayStyle;
+    }
+
+    public void setPortletURL(PortletURL portletURL) {
+        _portletURL = portletURL;
+    }
+
+    public void setSelLayout(Layout selLayout) {
+        _selLayout = selLayout;
+    }
+
+    public void setSelLayoutParam(String selLayoutParam) {
+        _selLayoutParam = selLayoutParam;
+    }
+
+    public void setShowCurrentGroup(boolean showCurrentGroup) {
+        _showCurrentGroup = showCurrentGroup;
+    }
+
+    public void setShowCurrentPortlet(boolean showCurrentPortlet) {
+        _showCurrentPortlet = showCurrentPortlet;
+    }
+
+    public void setShowGuestGroup(boolean showGuestGroup) {
+        _showGuestGroup = showGuestGroup;
+    }
+
+    public void setShowLayout(boolean showLayout) {
+        _showLayout = showLayout;
+    }
+
+    public void setShowParentGroups(boolean showParentGroups) {
+        _showParentGroups = showParentGroups;
+    }
+
+    public void setShowPortletBreadcrumb(boolean showPortletBreadcrumb) {
+        _showPortletBreadcrumb = showPortletBreadcrumb;
+    }
+
+    protected void buildGroupsBreadcrumb(
+            LayoutSet layoutSet, PortletURL portletURL,
+            ThemeDisplay themeDisplay, boolean includeParentGroups,
+            StringBundler sb)
+            throws Exception {
+
+        Group group = layoutSet.getGroup();
+
+        if (group.isControlPanel()) {
+            return;
+        }
+
+        if (includeParentGroups) {
+            LayoutSet parentLayoutSet = getParentLayoutSet(layoutSet);
+
+            if (parentLayoutSet != null) {
+                buildGroupsBreadcrumb(
+                        parentLayoutSet, portletURL, themeDisplay, true, sb);
+            }
+        }
+
+        int layoutsPageCount = 0;
+
+        if (layoutSet.isPrivateLayout()) {
+            layoutsPageCount = group.getPrivateLayoutsPageCount();
+        } else {
+            layoutsPageCount = group.getPublicLayoutsPageCount();
+        }
+
+        if ((layoutsPageCount > 0) && !group.isGuest()) {
+            String layoutSetFriendlyURL = PortalUtil.getLayoutSetFriendlyURL(
+                    layoutSet, themeDisplay);
+
+            if (themeDisplay.isAddSessionIdToURL()) {
+                layoutSetFriendlyURL = PortalUtil.getURLWithSessionId(
+                        layoutSetFriendlyURL, themeDisplay.getSessionId());
+            }
+
+            sb.append("<li><a href=\"");
+            sb.append(layoutSetFriendlyURL);
+            sb.append("\">");
+            sb.append(HtmlUtil.escape(group.getDescriptiveName()));
+            sb.append("</a><span class=\"divider\">/</span></li>");
+        }
+    }
 
-	public void setShowCurrentGroup(boolean showCurrentGroup) {
-		_showCurrentGroup = showCurrentGroup;
-	}
+    protected void buildGuestGroupBreadcrumb(
+            ThemeDisplay themeDisplay, StringBundler sb)
+            throws Exception {
 
-	public void setShowCurrentPortlet(boolean showCurrentPortlet) {
-		_showCurrentPortlet = showCurrentPortlet;
-	}
+        Group group = GroupLocalServiceUtil.getGroup(
+                themeDisplay.getCompanyId(), GroupConstants.GUEST);
 
-	public void setShowGuestGroup(boolean showGuestGroup) {
-		_showGuestGroup = showGuestGroup;
-	}
+        if (group.getPublicLayoutsPageCount() == 0) {
+            return;
+        }
 
-	public void setShowLayout(boolean showLayout) {
-		_showLayout = showLayout;
-	}
+        sb.append("<li><a href=\"");
 
-	public void setShowParentGroups(boolean showParentGroups) {
-		_showParentGroups = showParentGroups;
-	}
+        LayoutSet layoutSet = LayoutSetLocalServiceUtil.getLayoutSet(
+                group.getGroupId(), false);
 
-	public void setShowPortletBreadcrumb(boolean showPortletBreadcrumb) {
-		_showPortletBreadcrumb = showPortletBreadcrumb;
-	}
+        String layoutSetFriendlyURL = PortalUtil.getLayoutSetFriendlyURL(
+                layoutSet, themeDisplay);
 
-	protected void buildGroupsBreadcrumb(
-			LayoutSet layoutSet, PortletURL portletURL,
-			ThemeDisplay themeDisplay, boolean includeParentGroups,
-			StringBundler sb)
-		throws Exception {
+        if (themeDisplay.isAddSessionIdToURL()) {
+            layoutSetFriendlyURL = PortalUtil.getURLWithSessionId(
+                    layoutSetFriendlyURL, themeDisplay.getSessionId());
+        }
 
-		Group group = layoutSet.getGroup();
+        sb.append(layoutSetFriendlyURL);
 
-		if (group.isControlPanel()) {
-			return;
-		}
+        sb.append("\">");
 
-		if (includeParentGroups) {
-			LayoutSet parentLayoutSet = getParentLayoutSet(layoutSet);
+        Account account = themeDisplay.getAccount();
 
-			if (parentLayoutSet != null) {
-				buildGroupsBreadcrumb(
-					parentLayoutSet, portletURL, themeDisplay, true, sb);
-			}
-		}
+        sb.append(HtmlUtil.escape(account.getName()));
 
-		int layoutsPageCount = 0;
+        sb.append("</a><span class=\"divider\">/</span></li>");
+    }
 
-		if (layoutSet.isPrivateLayout()) {
-			layoutsPageCount = group.getPrivateLayoutsPageCount();
-		}
-		else {
-			layoutsPageCount = group.getPublicLayoutsPageCount();
-		}
+    protected void buildLayoutBreadcrumb(
+            Layout selLayout, String selLayoutParam, boolean selectedLayout,
+            PortletURL portletURL, ThemeDisplay themeDisplay, StringBundler sb)
+            throws Exception {
 
-		if ((layoutsPageCount > 0) && !group.isGuest()) {
-			String layoutSetFriendlyURL = PortalUtil.getLayoutSetFriendlyURL(
-				layoutSet, themeDisplay);
+        if (selLayout.getParentLayoutId() !=
+                LayoutConstants.DEFAULT_PARENT_LAYOUT_ID) {
 
-			if (themeDisplay.isAddSessionIdToURL()) {
-				layoutSetFriendlyURL = PortalUtil.getURLWithSessionId(
-					layoutSetFriendlyURL, themeDisplay.getSessionId());
-			}
+            Layout parentLayout = LayoutLocalServiceUtil.getParentLayout(
+                    selLayout);
 
-			sb.append("<li><a href=\"");
-			sb.append(layoutSetFriendlyURL);
-			sb.append("\">");
-			sb.append(HtmlUtil.escape(group.getDescriptiveName()));
-			sb.append("</a><span class=\"divider\">/</span></li>");
-		}
-	}
+            buildLayoutBreadcrumb(
+                    parentLayout, selLayoutParam, false, portletURL, themeDisplay,
+                    sb);
+        }
 
-	protected void buildGuestGroupBreadcrumb(
-			ThemeDisplay themeDisplay, StringBundler sb)
-		throws Exception {
+        sb.append("<li><a href=\"");
 
-		Group group = GroupLocalServiceUtil.getGroup(
-			themeDisplay.getCompanyId(), GroupConstants.GUEST);
+        String layoutURL = getBreadcrumbLayoutURL(
+                selLayout, selLayoutParam, portletURL, themeDisplay);
 
-		if (group.getPublicLayoutsPageCount() == 0) {
-			return;
-		}
+        if (themeDisplay.isAddSessionIdToURL()) {
+            layoutURL = PortalUtil.getURLWithSessionId(
+                    layoutURL, themeDisplay.getSessionId());
+        }
 
-		sb.append("<li><a href=\"");
+        if (selLayout.isTypeControlPanel()) {
+            layoutURL = HttpUtil.removeParameter(
+                    layoutURL, "controlPanelCategory");
+        }
 
-		LayoutSet layoutSet = LayoutSetLocalServiceUtil.getLayoutSet(
-			group.getGroupId(), false);
+        sb.append(layoutURL);
 
-		String layoutSetFriendlyURL = PortalUtil.getLayoutSetFriendlyURL(
-			layoutSet, themeDisplay);
+        sb.append("\" ");
 
-		if (themeDisplay.isAddSessionIdToURL()) {
-			layoutSetFriendlyURL = PortalUtil.getURLWithSessionId(
-				layoutSetFriendlyURL, themeDisplay.getSessionId());
-		}
+        String layoutName = selLayout.getName(themeDisplay.getLocale());
 
-		sb.append(layoutSetFriendlyURL);
+        if (selLayout.isTypeControlPanel()) {
+            sb.append("target=\"_top\"");
 
-		sb.append("\">");
+            if (layoutName.equals(LayoutConstants.NAME_CONTROL_PANEL_DEFAULT)) {
+                layoutName = LanguageUtil.get(
+                        themeDisplay.getLocale(), "control-panel");
+            }
+        } else {
+            String target = PortalUtil.getLayoutTarget(selLayout);
 
-		Account account = themeDisplay.getAccount();
+            sb.append(target);
+        }
 
-		sb.append(HtmlUtil.escape(account.getName()));
+        sb.append(StringPool.GREATER_THAN);
+        sb.append(HtmlUtil.escape(layoutName));
+        sb.append("</a><span class=\"divider\">/</span></li>");
+    }
 
-		sb.append("</a><span class=\"divider\">/</span></li>");
-	}
+    protected void buildPortletBreadcrumb(
+            HttpServletRequest request, boolean showCurrentGroup,
+            boolean showCurrentPortlet, ThemeDisplay themeDisplay,
+            StringBundler sb)
+            throws Exception {
 
-	protected void buildLayoutBreadcrumb(
-			Layout selLayout, String selLayoutParam, boolean selectedLayout,
-			PortletURL portletURL, ThemeDisplay themeDisplay, StringBundler sb)
-		throws Exception {
+        List<BreadcrumbEntry> breadcrumbEntries =
+                PortalUtil.getPortletBreadcrumbs(request);
 
-		if (selLayout.getParentLayoutId() !=
-				LayoutConstants.DEFAULT_PARENT_LAYOUT_ID) {
+        if (breadcrumbEntries == null) {
+            return;
+        }
 
-			Layout parentLayout = LayoutLocalServiceUtil.getParentLayout(
-				selLayout);
+        for (int i = 0; i < breadcrumbEntries.size(); i++) {
+            BreadcrumbEntry breadcrumbEntry = breadcrumbEntries.get(i);
 
-			buildLayoutBreadcrumb(
-				parentLayout, selLayoutParam, false, portletURL, themeDisplay,
-				sb);
-		}
+            Map<String, Object> data = breadcrumbEntry.getData();
 
-		sb.append("<li><a href=\"");
+            String breadcrumbTitle = breadcrumbEntry.getTitle();
+            String breadcrumbURL = breadcrumbEntry.getURL();
 
-		String layoutURL = getBreadcrumbLayoutURL(
-			selLayout, selLayoutParam, portletURL, themeDisplay);
+            if (!showCurrentGroup) {
+                String siteGroupName = themeDisplay.getSiteGroupName();
 
-		if (themeDisplay.isAddSessionIdToURL()) {
-			layoutURL = PortalUtil.getURLWithSessionId(
-				layoutURL, themeDisplay.getSessionId());
-		}
+                if (siteGroupName.equals(breadcrumbTitle)) {
+                    continue;
+                }
+            }
 
-		if (selLayout.isTypeControlPanel()) {
-			layoutURL = HttpUtil.removeParameter(
-				layoutURL, "controlPanelCategory");
-		}
+            if (!showCurrentPortlet) {
+                PortletDisplay portletDisplay =
+                        themeDisplay.getPortletDisplay();
 
-		sb.append(layoutURL);
+                String portletTitle = PortalUtil.getPortletTitle(
+                        portletDisplay.getId(), themeDisplay.getUser());
 
-		sb.append("\" ");
+                if (portletTitle.equals(breadcrumbTitle)) {
+                    continue;
+                }
+            }
 
-		String layoutName = selLayout.getName(themeDisplay.getLocale());
+            if (!CookieKeys.hasSessionId(request) &&
+                    Validator.isNotNull(breadcrumbURL)) {
 
-		if (selLayout.isTypeControlPanel()) {
-			sb.append("target=\"_top\"");
+                HttpSession session = request.getSession();
 
-			if (layoutName.equals(LayoutConstants.NAME_CONTROL_PANEL_DEFAULT)) {
-				layoutName = LanguageUtil.get(
-					themeDisplay.getLocale(), "control-panel");
-			}
-		}
-		else {
-			String target = PortalUtil.getLayoutTarget(selLayout);
+                breadcrumbURL = PortalUtil.getURLWithSessionId(
+                        breadcrumbURL, session.getId());
+            }
 
-			sb.append(target);
-		}
+            sb.append("<li>");
 
-		sb.append(StringPool.GREATER_THAN);
-		sb.append(HtmlUtil.escape(layoutName));
-		sb.append("</a><span class=\"divider\">/</span></li>");
-	}
+            if (i < (breadcrumbEntries.size() - 1)) {
+                if (Validator.isNotNull(breadcrumbURL)) {
+                    sb.append("<a href=\"");
+                    sb.append(HtmlUtil.escape(breadcrumbURL));
+                    sb.append("\"");
+                    sb.append(AUIUtil.buildData(data));
+                    sb.append(">");
+                }
+
+                sb.append(HtmlUtil.escape(breadcrumbTitle));
+
+                if (Validator.isNotNull(breadcrumbURL)) {
+                    sb.append("</a>");
+                }
+
+                sb.append("<span class=\"divider\">/</span>");
+            } else {
+                sb.append(HtmlUtil.escape(breadcrumbTitle));
+            }
+
+            sb.append("</li>");
+        }
+    }
 
-	protected void buildPortletBreadcrumb(
-			HttpServletRequest request, boolean showCurrentGroup,
-			boolean showCurrentPortlet, ThemeDisplay themeDisplay,
-			StringBundler sb)
-		throws Exception {
+    @Override
+    protected void cleanUp() {
+        _displayStyle = _DISPLAY_STYLE;
+        _portletURL = null;
+        _selLayout = null;
+        _selLayoutParam = null;
+        _showCurrentGroup = true;
+        _showCurrentPortlet = true;
+        _showGuestGroup = _SHOW_GUEST_GROUP;
+        _showLayout = true;
+        _showParentGroups = null;
+        _showPortletBreadcrumb = true;
+    }
 
-		List<BreadcrumbEntry> breadcrumbEntries =
-			PortalUtil.getPortletBreadcrumbs(request);
+    protected String getBreadcrumbLayoutURL(
+            Layout selLayout, String selLayoutParam, PortletURL portletURL,
+            ThemeDisplay themeDisplay)
+            throws Exception {
 
-		if (breadcrumbEntries == null) {
-			return;
-		}
+        if (portletURL == null) {
+            return PortalUtil.getLayoutFullURL(selLayout, themeDisplay);
+        }
+
+        portletURL.setParameter(
+                selLayoutParam, String.valueOf(selLayout.getPlid()));
+
+        if (selLayout.isTypeControlPanel()) {
+            if (themeDisplay.getDoAsGroupId() > 0) {
+                portletURL.setParameter(
+                        "doAsGroupId",
+                        String.valueOf(themeDisplay.getDoAsGroupId()));
+            }
+
+            if (themeDisplay.getRefererPlid() != LayoutConstants.DEFAULT_PLID) {
+                portletURL.setParameter(
+                        "refererPlid",
+                        String.valueOf(themeDisplay.getRefererPlid()));
+            }
+        }
 
-		for (int i = 0; i < breadcrumbEntries.size(); i++) {
-			BreadcrumbEntry breadcrumbEntry = breadcrumbEntries.get(i);
-
-			Map<String, Object> data = breadcrumbEntry.getData();
+        return portletURL.toString();
+    }
 
-			String breadcrumbTitle = breadcrumbEntry.getTitle();
-			String breadcrumbURL = breadcrumbEntry.getURL();
+    protected String getBreadcrumbString(HttpServletRequest request) {
+        ThemeDisplay themeDisplay = (ThemeDisplay) request.getAttribute(
+                WebKeys.THEME_DISPLAY);
 
-			if (!showCurrentGroup) {
-				String siteGroupName = themeDisplay.getSiteGroupName();
-
-				if (siteGroupName.equals(breadcrumbTitle)) {
-					continue;
-				}
-			}
+        StringBundler sb = new StringBundler();
+
+        try {
+            if (Validator.isNull(_selLayout)) {
+                setSelLayout(themeDisplay.getLayout());
+            }
 
-			if (!showCurrentPortlet) {
-				PortletDisplay portletDisplay =
-					themeDisplay.getPortletDisplay();
+            Group group = _selLayout.getGroup();
 
-				String portletTitle = PortalUtil.getPortletTitle(
-					portletDisplay.getId(), themeDisplay.getUser());
+            if (_showGuestGroup) {
+                buildGuestGroupBreadcrumb(themeDisplay, sb);
+            }
 
-				if (portletTitle.equals(breadcrumbTitle)) {
-					continue;
-				}
-			}
+            if (_showParentGroups) {
+                LayoutSet parentLayoutSet = getParentLayoutSet(
+                        _selLayout.getLayoutSet());
 
-			if (!CookieKeys.hasSessionId(request) &&
-				Validator.isNotNull(breadcrumbURL)) {
+                if (parentLayoutSet != null) {
+                    buildGroupsBreadcrumb(
+                            parentLayoutSet, _portletURL, themeDisplay, true, sb);
+                }
+            }
 
-				HttpSession session = request.getSession();
+            if (_showCurrentGroup) {
+                buildGroupsBreadcrumb(
+                        _selLayout.getLayoutSet(), _portletURL, themeDisplay, false,
+                        sb);
+            }
 
-				breadcrumbURL = PortalUtil.getURLWithSessionId(
-					breadcrumbURL, session.getId());
-			}
+            if (_showLayout && !group.isLayoutPrototype()) {
+                buildLayoutBreadcrumb(
+                        _selLayout, _selLayoutParam, true, _portletURL,
+                        themeDisplay, sb);
+            }
 
-			sb.append("<li>");
-
-			if (i < (breadcrumbEntries.size() - 1)) {
-				if (Validator.isNotNull(breadcrumbURL)) {
-					sb.append("<a href=\"");
-					sb.append(HtmlUtil.escape(breadcrumbURL));
-					sb.append("\"");
-					sb.append(AUIUtil.buildData(data));
-					sb.append(">");
-				}
-
-				sb.append(HtmlUtil.escape(breadcrumbTitle));
-
-				if (Validator.isNotNull(breadcrumbURL)) {
-					sb.append("</a>");
-				}
-
-				sb.append("<span class=\"divider\">/</span>");
-			}
-			else {
-				sb.append(HtmlUtil.escape(breadcrumbTitle));
-			}
-
-			sb.append("</li>");
-		}
-	}
-
-	@Override
-	protected void cleanUp() {
-		_displayStyle = _DISPLAY_STYLE;
-		_portletURL = null;
-		_selLayout = null;
-		_selLayoutParam = null;
-		_showCurrentGroup = true;
-		_showCurrentPortlet = true;
-		_showGuestGroup = _SHOW_GUEST_GROUP;
-		_showLayout = true;
-		_showParentGroups = null;
-		_showPortletBreadcrumb = true;
-	}
+            if (_showPortletBreadcrumb) {
+                buildPortletBreadcrumb(
+                        request, _showCurrentGroup, _showCurrentPortlet,
+                        themeDisplay, sb);
+            }
+        } catch (Exception e) {
+            _log.error(e, e);
+        }
 
-	protected String getBreadcrumbLayoutURL(
-			Layout selLayout, String selLayoutParam, PortletURL portletURL,
-			ThemeDisplay themeDisplay)
-		throws Exception {
-
-		if (portletURL == null) {
-			return PortalUtil.getLayoutFullURL(selLayout, themeDisplay);
-		}
-
-		portletURL.setParameter(
-			selLayoutParam, String.valueOf(selLayout.getPlid()));
-
-		if (selLayout.isTypeControlPanel()) {
-			if (themeDisplay.getDoAsGroupId() > 0) {
-				portletURL.setParameter(
-					"doAsGroupId",
-					String.valueOf(themeDisplay.getDoAsGroupId()));
-			}
-
-			if (themeDisplay.getRefererPlid() != LayoutConstants.DEFAULT_PLID) {
-				portletURL.setParameter(
-					"refererPlid",
-					String.valueOf(themeDisplay.getRefererPlid()));
-			}
-		}
-
-		return portletURL.toString();
-	}
-
-	protected String getBreadcrumbString(HttpServletRequest request) {
-		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
-			WebKeys.THEME_DISPLAY);
-
-		StringBundler sb = new StringBundler();
-
-		try {
-			if (Validator.isNull(_selLayout)) {
-				setSelLayout(themeDisplay.getLayout());
-			}
+        String breadcrumbString = sb.toString();
 
-			Group group = _selLayout.getGroup();
-
-			if (_showGuestGroup) {
-				buildGuestGroupBreadcrumb(themeDisplay, sb);
-			}
-
-			if (_showParentGroups) {
-				LayoutSet parentLayoutSet = getParentLayoutSet(
-					_selLayout.getLayoutSet());
-
-				if (parentLayoutSet != null) {
-					buildGroupsBreadcrumb(
-						parentLayoutSet, _portletURL, themeDisplay, true, sb);
-				}
-			}
-
-			if (_showCurrentGroup) {
-				buildGroupsBreadcrumb(
-					_selLayout.getLayoutSet(), _portletURL, themeDisplay, false,
-					sb);
-			}
-
-			if (_showLayout && !group.isLayoutPrototype()) {
-				buildLayoutBreadcrumb(
-					_selLayout, _selLayoutParam, true, _portletURL,
-					themeDisplay, sb);
-			}
+        if (Validator.isNull(breadcrumbString)) {
+            return StringPool.BLANK;
+        }
 
-			if (_showPortletBreadcrumb) {
-				buildPortletBreadcrumb(
-					request, _showCurrentGroup, _showCurrentPortlet,
-					themeDisplay, sb);
-			}
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-		}
-
-		String breadcrumbString = sb.toString();
-
-		if (Validator.isNull(breadcrumbString)) {
-			return StringPool.BLANK;
-		}
+        String breadcrumbTruncateClass = StringPool.BLANK;
 
-		String breadcrumbTruncateClass = StringPool.BLANK;
+        String[] breadcrumbArray = breadcrumbString.split("<li", -1);
 
-		String[] breadcrumbArray = breadcrumbString.split("<li", -1);
+        boolean breadcrumbTruncate = false;
 
-		boolean breadcrumbTruncate = false;
-
-		if (breadcrumbArray.length > 3) {
-			breadcrumbTruncate = true;
-		}
-
-		if (breadcrumbTruncate) {
-			breadcrumbTruncateClass = " breadcrumb-truncate";
-		}
-
-		int x = breadcrumbString.indexOf("<li") + 3;
-		int y = breadcrumbString.lastIndexOf("<li") + 3;
-
-		if (x == y) {
-			breadcrumbString = StringUtil.insert(
-				breadcrumbString,
-				" class=\"active only" + breadcrumbTruncateClass + "\"", x);
-		}
-		else {
-			breadcrumbString = StringUtil.insert(
-				breadcrumbString,
-				" class=\"active last" + breadcrumbTruncateClass + "\"", y);
-
-			breadcrumbString = StringUtil.insert(
-				breadcrumbString,
-				" class=\"first" + breadcrumbTruncateClass + "\"", x);
-		}
-
-		if (breadcrumbTruncate) {
-			y = breadcrumbString.lastIndexOf("<li");
-
-			int z = breadcrumbString.lastIndexOf("<li", y - 1) + 3;
-
-			breadcrumbString = StringUtil.insert(
-				breadcrumbString,
-				" class=\"current-parent" + breadcrumbTruncateClass + "\"", z);
-		}
-
-		return breadcrumbString;
-	}
-
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
-
-	protected LayoutSet getParentLayoutSet(LayoutSet layoutSet)
-		throws Exception {
-
-		Group group = layoutSet.getGroup();
-
-		if (group.isSite()) {
-			Group parentGroup = group.getParentGroup();
-
-			if (parentGroup != null) {
-				return LayoutSetLocalServiceUtil.getLayoutSet(
-					parentGroup.getGroupId(), layoutSet.isPrivateLayout());
-			}
-		}
-		else if (group.isUser()) {
-			User user = UserLocalServiceUtil.getUser(group.getClassPK());
-
-			List<Organization> organizations =
-				OrganizationLocalServiceUtil.getUserOrganizations(
-					user.getUserId());
-
-			if (!organizations.isEmpty()) {
-				Organization organization = organizations.get(0);
-
-				Group parentGroup = organization.getGroup();
-
-				return LayoutSetLocalServiceUtil.getLayoutSet(
-					parentGroup.getGroupId(), layoutSet.isPrivateLayout());
-			}
-		}
-
-		return null;
-	}
-
-	protected void initShowParentGroups(HttpServletRequest request) {
-		if (_showParentGroups != null) {
-			return;
-		}
-
-		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
-			WebKeys.THEME_DISPLAY);
-
-		try {
-			if (Validator.isNull(_selLayout)) {
-				setSelLayout(themeDisplay.getLayout());
-			}
-
-			Group group = _selLayout.getGroup();
-
-			UnicodeProperties typeSettingsProperties =
-				group.getTypeSettingsProperties();
-
-			_showParentGroups = GetterUtil.getBoolean(
-				typeSettingsProperties.getProperty(
-					"breadcrumbShowParentGroups"),
-				_SHOW_PARENT_GROUPS);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-		}
-	}
-
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		initShowParentGroups(request);
-
-		request.setAttribute(
-			"liferay-ui:breadcrumb:breadcrumbString",
-			getBreadcrumbString(request));
-
-		String displayStyle = _displayStyle;
-
-		if (!ArrayUtil.contains(_DISPLAY_STYLE_OPTIONS, displayStyle)) {
-			displayStyle = _DISPLAY_STYLE_OPTIONS[0];
-		}
-
-		request.setAttribute(
-			"liferay-ui:breadcrumb:displayStyle", displayStyle);
-		request.setAttribute("liferay-ui:breadcrumb:portletURL", _portletURL);
-		request.setAttribute("liferay-ui:breadcrumb:selLayout", _selLayout);
-		request.setAttribute(
-			"liferay-ui:breadcrumb:selLayoutParam", _selLayoutParam);
-		request.setAttribute(
-			"liferay-ui:breadcrumb:showCurrentGroup",
-			String.valueOf(_showCurrentGroup));
-		request.setAttribute(
-			"liferay-ui:breadcrumb:showCurrentPortlet",
-			String.valueOf(_showCurrentPortlet));
-		request.setAttribute(
-			"liferay-ui:breadcrumb:showGuestGroup",
-			String.valueOf(_showGuestGroup));
-		request.setAttribute(
-			"liferay-ui:breadcrumb:showLayout", String.valueOf(_showLayout));
-		request.setAttribute(
-			"liferay-ui:breadcrumb:showParentGroups",
-			String.valueOf(_showParentGroups));
-		request.setAttribute(
-			"liferay-ui:breadcrumb:showPortletBreadcrumb",
-			String.valueOf(_showPortletBreadcrumb));
-	}
-
-	private static final String _DISPLAY_STYLE = GetterUtil.getString(
-		PropsUtil.get(PropsKeys.BREADCRUMB_DISPLAY_STYLE_DEFAULT));
-
-	private static final String[] _DISPLAY_STYLE_OPTIONS = PropsUtil.getArray(
-		PropsKeys.BREADCRUMB_DISPLAY_STYLE_OPTIONS);
-
-	private static final String _PAGE = "/html/taglib/ui/breadcrumb/page.jsp";
-
-	private static final boolean _SHOW_GUEST_GROUP = GetterUtil.getBoolean(
-		PropsUtil.get(PropsKeys.BREADCRUMB_SHOW_GUEST_GROUP));
-
-	private static final boolean _SHOW_PARENT_GROUPS = GetterUtil.getBoolean(
-		PropsUtil.get(PropsKeys.BREADCRUMB_SHOW_PARENT_GROUPS));
-
-	private static Log _log = LogFactoryUtil.getLog(BreadcrumbTag.class);
-
-	private String _displayStyle = _DISPLAY_STYLE;
-	private PortletURL _portletURL;
-	private Layout _selLayout;
-	private String _selLayoutParam;
-	private boolean _showCurrentGroup = true;
-	private boolean _showCurrentPortlet = true;
-	private boolean _showGuestGroup = _SHOW_GUEST_GROUP;
-	private boolean _showLayout = true;
-	private Boolean _showParentGroups = null;
-	private boolean _showPortletBreadcrumb = true;
+        if (breadcrumbArray.length > 3) {
+            breadcrumbTruncate = true;
+        }
+
+        if (breadcrumbTruncate) {
+            breadcrumbTruncateClass = " breadcrumb-truncate";
+        }
+
+        int x = breadcrumbString.indexOf("<li") + 3;
+        int y = breadcrumbString.lastIndexOf("<li") + 3;
+
+        if (x == y) {
+            breadcrumbString = StringUtil.insert(
+                    breadcrumbString,
+                    " class=\"active only" + breadcrumbTruncateClass + "\"", x);
+        } else {
+            breadcrumbString = StringUtil.insert(
+                    breadcrumbString,
+                    " class=\"active last" + breadcrumbTruncateClass + "\"", y);
+
+            breadcrumbString = StringUtil.insert(
+                    breadcrumbString,
+                    " class=\"first" + breadcrumbTruncateClass + "\"", x);
+        }
+
+        if (breadcrumbTruncate) {
+            y = breadcrumbString.lastIndexOf("<li");
+
+            int z = breadcrumbString.lastIndexOf("<li", y - 1) + 3;
+
+            breadcrumbString = StringUtil.insert(
+                    breadcrumbString,
+                    " class=\"current-parent" + breadcrumbTruncateClass + "\"", z);
+        }
+
+        return breadcrumbString;
+    }
+
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
+
+    protected LayoutSet getParentLayoutSet(LayoutSet layoutSet)
+            throws Exception {
+
+        Group group = layoutSet.getGroup();
+
+        if (group.isSite()) {
+            Group parentGroup = group.getParentGroup();
+
+            if (parentGroup != null) {
+                return LayoutSetLocalServiceUtil.getLayoutSet(
+                        parentGroup.getGroupId(), layoutSet.isPrivateLayout());
+            }
+        } else if (group.isUser()) {
+            User user = UserLocalServiceUtil.getUser(group.getClassPK());
+
+            List<Organization> organizations =
+                    OrganizationLocalServiceUtil.getUserOrganizations(
+                            user.getUserId());
+
+            if (!organizations.isEmpty()) {
+                Organization organization = organizations.get(0);
+
+                Group parentGroup = organization.getGroup();
+
+                return LayoutSetLocalServiceUtil.getLayoutSet(
+                        parentGroup.getGroupId(), layoutSet.isPrivateLayout());
+            }
+        }
+
+        return null;
+    }
+
+    protected void initShowParentGroups(HttpServletRequest request) {
+        if (_showParentGroups != null) {
+            return;
+        }
+
+        ThemeDisplay themeDisplay = (ThemeDisplay) request.getAttribute(
+                WebKeys.THEME_DISPLAY);
+
+        try {
+            if (Validator.isNull(_selLayout)) {
+                setSelLayout(themeDisplay.getLayout());
+            }
+
+            Group group = _selLayout.getGroup();
+
+            UnicodeProperties typeSettingsProperties =
+                    group.getTypeSettingsProperties();
+
+            _showParentGroups = GetterUtil.getBoolean(
+                    typeSettingsProperties.getProperty(
+                            "breadcrumbShowParentGroups"),
+                    _SHOW_PARENT_GROUPS);
+        } catch (Exception e) {
+            _log.error(e, e);
+        }
+    }
+
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        initShowParentGroups(request);
+
+        request.setAttribute(
+                "liferay-ui:breadcrumb:breadcrumbString",
+                getBreadcrumbString(request));
+
+        String displayStyle = _displayStyle;
+
+        if (!ArrayUtil.contains(_DISPLAY_STYLE_OPTIONS, displayStyle)) {
+            displayStyle = _DISPLAY_STYLE_OPTIONS[0];
+        }
+
+        request.setAttribute(
+                "liferay-ui:breadcrumb:displayStyle", displayStyle);
+        request.setAttribute("liferay-ui:breadcrumb:portletURL", _portletURL);
+        request.setAttribute("liferay-ui:breadcrumb:selLayout", _selLayout);
+        request.setAttribute(
+                "liferay-ui:breadcrumb:selLayoutParam", _selLayoutParam);
+        request.setAttribute(
+                "liferay-ui:breadcrumb:showCurrentGroup",
+                String.valueOf(_showCurrentGroup));
+        request.setAttribute(
+                "liferay-ui:breadcrumb:showCurrentPortlet",
+                String.valueOf(_showCurrentPortlet));
+        request.setAttribute(
+                "liferay-ui:breadcrumb:showGuestGroup",
+                String.valueOf(_showGuestGroup));
+        request.setAttribute(
+                "liferay-ui:breadcrumb:showLayout", String.valueOf(_showLayout));
+        request.setAttribute(
+                "liferay-ui:breadcrumb:showParentGroups",
+                String.valueOf(_showParentGroups));
+        request.setAttribute(
+                "liferay-ui:breadcrumb:showPortletBreadcrumb",
+                String.valueOf(_showPortletBreadcrumb));
+    }
 
 }

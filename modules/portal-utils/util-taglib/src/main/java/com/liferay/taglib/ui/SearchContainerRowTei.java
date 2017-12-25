@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -26,35 +26,35 @@ import javax.servlet.jsp.tagext.VariableInfo;
  */
 public class SearchContainerRowTei extends TagExtraInfo {
 
-	@Override
-	public VariableInfo[] getVariableInfo(TagData tagData) {
-		String className = tagData.getAttributeString("className");
+    @Override
+    public VariableInfo[] getVariableInfo(TagData tagData) {
+        String className = tagData.getAttributeString("className");
 
-		String indexVar = tagData.getAttributeString("indexVar");
+        String indexVar = tagData.getAttributeString("indexVar");
 
-		if (Validator.isNull(indexVar)) {
-			indexVar = SearchContainerRowTag.DEFAULT_INDEX_VAR;
-		}
+        if (Validator.isNull(indexVar)) {
+            indexVar = SearchContainerRowTag.DEFAULT_INDEX_VAR;
+        }
 
-		String modelVar = tagData.getAttributeString("modelVar");
+        String modelVar = tagData.getAttributeString("modelVar");
 
-		if (Validator.isNull(modelVar)) {
-			modelVar = SearchContainerRowTag.DEFAULT_MODEL_VAR;
-		}
+        if (Validator.isNull(modelVar)) {
+            modelVar = SearchContainerRowTag.DEFAULT_MODEL_VAR;
+        }
 
-		String rowVar = tagData.getAttributeString("rowVar");
+        String rowVar = tagData.getAttributeString("rowVar");
 
-		if (Validator.isNull(rowVar)) {
-			rowVar = SearchContainerRowTag.DEFAULT_ROW_VAR;
-		}
+        if (Validator.isNull(rowVar)) {
+            rowVar = SearchContainerRowTag.DEFAULT_ROW_VAR;
+        }
 
-		return new VariableInfo[] {
-			new VariableInfo(
-				indexVar, Integer.class.getName(), true, VariableInfo.NESTED),
-			new VariableInfo(modelVar, className, true, VariableInfo.NESTED),
-			new VariableInfo(
-				rowVar, ResultRow.class.getName(), true, VariableInfo.NESTED)
-		};
-	}
+        return new VariableInfo[]{
+                new VariableInfo(
+                        indexVar, Integer.class.getName(), true, VariableInfo.NESTED),
+                new VariableInfo(modelVar, className, true, VariableInfo.NESTED),
+                new VariableInfo(
+                        rowVar, ResultRow.class.getName(), true, VariableInfo.NESTED)
+        };
+    }
 
 }

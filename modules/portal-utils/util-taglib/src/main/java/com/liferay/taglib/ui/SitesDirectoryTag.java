@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -23,45 +23,43 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class SitesDirectoryTag extends IncludeTag {
 
-	public static final String SITES_CHILDREN = "children";
+    public static final String SITES_CHILDREN = "children";
 
-	public static final String SITES_PARENT_LEVEL = "parent-level";
+    public static final String SITES_PARENT_LEVEL = "parent-level";
 
-	public static final String SITES_SIBLINGS = "siblings";
+    public static final String SITES_SIBLINGS = "siblings";
 
-	public static final String SITES_TOP_LEVEL = "top-level";
+    public static final String SITES_TOP_LEVEL = "top-level";
+    private static final String _PAGE =
+            "/html/taglib/ui/sites_directory/page.jsp";
+    private String _displayStyle = "descriptive";
+    private String _sites = SITES_TOP_LEVEL;
 
-	public void setDisplayStyle(String displayStyle) {
-		_displayStyle = displayStyle;
-	}
+    public void setDisplayStyle(String displayStyle) {
+        _displayStyle = displayStyle;
+    }
 
-	public void setSites(String sites) {
-		_sites = sites;
-	}
+    public void setSites(String sites) {
+        _sites = sites;
+    }
 
-	@Override
-	protected void cleanUp() {
-		_displayStyle = "descriptive";
-		_sites = SITES_TOP_LEVEL;
-	}
+    @Override
+    protected void cleanUp() {
+        _displayStyle = "descriptive";
+        _sites = SITES_TOP_LEVEL;
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute(
-			"liferay-ui:sites-directory:displayStyle", _displayStyle);
-		request.setAttribute(
-			"liferay-ui:sites-directory:sites", String.valueOf(_sites));
-	}
-
-	private static final String _PAGE =
-		"/html/taglib/ui/sites_directory/page.jsp";
-
-	private String _displayStyle = "descriptive";
-	private String _sites = SITES_TOP_LEVEL;
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        request.setAttribute(
+                "liferay-ui:sites-directory:displayStyle", _displayStyle);
+        request.setAttribute(
+                "liferay-ui:sites-directory:sites", String.valueOf(_sites));
+    }
 
 }

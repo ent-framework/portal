@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -26,57 +26,56 @@ import javax.servlet.jsp.tagext.BodyTag;
  * @author Brian Wing Shun Chan
  */
 public class LayoutIconTag
-	extends com.liferay.taglib.util.IncludeTag implements BodyTag {
+        extends com.liferay.taglib.util.IncludeTag implements BodyTag {
 
-	public static void doTag(
-			Layout layout, ServletContext servletContext,
-			HttpServletRequest request, HttpServletResponse response)
-		throws Exception {
+    private static final String _PAGE =
+            "/html/taglib/theme/layout_icon/page.jsp";
+    private Layout _layout;
 
-		doTag(_PAGE, layout, servletContext, request, response);
-	}
+    public static void doTag(
+            Layout layout, ServletContext servletContext,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
 
-	public static void doTag(
-			String page, Layout layout, ServletContext servletContext,
-			HttpServletRequest request, HttpServletResponse response)
-		throws Exception {
+        doTag(_PAGE, layout, servletContext, request, response);
+    }
 
-		setRequestAttributes(request, layout);
+    public static void doTag(
+            String page, Layout layout, ServletContext servletContext,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
 
-		RequestDispatcher requestDispatcher =
-			servletContext.getRequestDispatcher(page);
+        setRequestAttributes(request, layout);
 
-		requestDispatcher.include(request, response);
-	}
+        RequestDispatcher requestDispatcher =
+                servletContext.getRequestDispatcher(page);
 
-	public static void setRequestAttributes(
-		HttpServletRequest request, Layout layout) {
+        requestDispatcher.include(request, response);
+    }
 
-		request.setAttribute("liferay-theme:layout-icon:layout", layout);
-	}
+    public static void setRequestAttributes(
+            HttpServletRequest request, Layout layout) {
 
-	@Override
-	public int doStartTag() {
-		HttpServletRequest request =
-			(HttpServletRequest)pageContext.getRequest();
+        request.setAttribute("liferay-theme:layout-icon:layout", layout);
+    }
 
-		setRequestAttributes(request, _layout);
+    @Override
+    public int doStartTag() {
+        HttpServletRequest request =
+                (HttpServletRequest) pageContext.getRequest();
 
-		return EVAL_BODY_BUFFERED;
-	}
+        setRequestAttributes(request, _layout);
 
-	public void setLayout(Layout layout) {
-		_layout = layout;
-	}
+        return EVAL_BODY_BUFFERED;
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    public void setLayout(Layout layout) {
+        _layout = layout;
+    }
 
-	private static final String _PAGE =
-		"/html/taglib/theme/layout_icon/page.jsp";
-
-	private Layout _layout;
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
 }

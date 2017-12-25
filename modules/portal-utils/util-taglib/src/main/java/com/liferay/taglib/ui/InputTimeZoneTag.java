@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -17,101 +17,99 @@ package com.liferay.taglib.ui;
 import com.liferay.portal.kernel.util.TimeZoneUtil;
 import com.liferay.taglib.util.IncludeTag;
 
-import java.util.TimeZone;
-
 import javax.servlet.http.HttpServletRequest;
+import java.util.TimeZone;
 
 /**
  * @author Brian Wing Shun Chan
  */
 public class InputTimeZoneTag extends IncludeTag {
 
-	public InputTimeZoneTag() {
-		TimeZone timeZone = TimeZoneUtil.getDefault();
+    private static final String _PAGE =
+            "/html/taglib/ui/input_time_zone/page.jsp";
+    private boolean _autoFocus;
+    private String _cssClass;
+    private boolean _daylight;
+    private boolean _disabled;
+    private int _displayStyle = TimeZone.LONG;
+    private String _name;
+    private boolean _nullable;
+    private String _value;
 
-		_value = timeZone.getID();
-	}
+    public InputTimeZoneTag() {
+        TimeZone timeZone = TimeZoneUtil.getDefault();
 
-	public void setAutoFocus(boolean autoFocus) {
-		_autoFocus = autoFocus;
-	}
+        _value = timeZone.getID();
+    }
 
-	public void setCssClass(String cssClass) {
-		_cssClass = cssClass;
-	}
+    public void setAutoFocus(boolean autoFocus) {
+        _autoFocus = autoFocus;
+    }
 
-	public void setDaylight(boolean daylight) {
-		_daylight = daylight;
-	}
+    public void setCssClass(String cssClass) {
+        _cssClass = cssClass;
+    }
 
-	public void setDisabled(boolean disabled) {
-		_disabled = disabled;
-	}
+    public void setDaylight(boolean daylight) {
+        _daylight = daylight;
+    }
 
-	public void setDisplayStyle(int displayStyle) {
-		_displayStyle = displayStyle;
-	}
+    public void setDisabled(boolean disabled) {
+        _disabled = disabled;
+    }
 
-	public void setName(String name) {
-		_name = name;
-	}
+    public void setDisplayStyle(int displayStyle) {
+        _displayStyle = displayStyle;
+    }
 
-	public void setNullable(boolean nullable) {
-		_nullable = nullable;
-	}
+    public void setName(String name) {
+        _name = name;
+    }
 
-	public void setValue(String value) {
-		_value = value;
-	}
+    public void setNullable(boolean nullable) {
+        _nullable = nullable;
+    }
 
-	@Override
-	protected void cleanUp() {
-		_autoFocus = false;
-		_cssClass = null;
-		_daylight = false;
-		_disabled = false;
-		_displayStyle = TimeZone.LONG;
-		_name = null;
-		_nullable = false;
+    public void setValue(String value) {
+        _value = value;
+    }
 
-		TimeZone timeZone = TimeZoneUtil.getDefault();
+    @Override
+    protected void cleanUp() {
+        _autoFocus = false;
+        _cssClass = null;
+        _daylight = false;
+        _disabled = false;
+        _displayStyle = TimeZone.LONG;
+        _name = null;
+        _nullable = false;
 
-		_value = timeZone.getID();
-	}
+        TimeZone timeZone = TimeZoneUtil.getDefault();
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+        _value = timeZone.getID();
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute(
-			"liferay-ui:input-time-zone:autoFocus", String.valueOf(_autoFocus));
-		request.setAttribute("liferay-ui:input-time-zone:cssClass", _cssClass);
-		request.setAttribute(
-			"liferay-ui:input-time-zone:daylight", String.valueOf(_daylight));
-		request.setAttribute(
-			"liferay-ui:input-time-zone:disabled", String.valueOf(_disabled));
-		request.setAttribute(
-			"liferay-ui:input-time-zone:displayStyle",
-			String.valueOf(_displayStyle));
-		request.setAttribute("liferay-ui:input-time-zone:name", _name);
-		request.setAttribute(
-			"liferay-ui:input-time-zone:nullable", String.valueOf(_nullable));
-		request.setAttribute("liferay-ui:input-time-zone:value", _value);
-	}
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
-	private static final String _PAGE =
-		"/html/taglib/ui/input_time_zone/page.jsp";
-
-	private boolean _autoFocus;
-	private String _cssClass;
-	private boolean _daylight;
-	private boolean _disabled;
-	private int _displayStyle = TimeZone.LONG;
-	private String _name;
-	private boolean _nullable;
-	private String _value;
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        request.setAttribute(
+                "liferay-ui:input-time-zone:autoFocus", String.valueOf(_autoFocus));
+        request.setAttribute("liferay-ui:input-time-zone:cssClass", _cssClass);
+        request.setAttribute(
+                "liferay-ui:input-time-zone:daylight", String.valueOf(_daylight));
+        request.setAttribute(
+                "liferay-ui:input-time-zone:disabled", String.valueOf(_disabled));
+        request.setAttribute(
+                "liferay-ui:input-time-zone:displayStyle",
+                String.valueOf(_displayStyle));
+        request.setAttribute("liferay-ui:input-time-zone:name", _name);
+        request.setAttribute(
+                "liferay-ui:input-time-zone:nullable", String.valueOf(_nullable));
+        request.setAttribute("liferay-ui:input-time-zone:value", _value);
+    }
 
 }

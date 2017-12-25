@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -26,38 +26,37 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class InputAssetLinksTag extends AssetLinksTag {
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    private static final String _PAGE =
+            "/html/taglib/ui/input_asset_links/page.jsp";
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		long assetEntryId = getAssetEntryId();
-		String className = getClassName();
-		long classPK = getClassPK();
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
-		if ((assetEntryId <= 0) && (classPK > 0)) {
-			try {
-				AssetEntry assetEntry = AssetEntryLocalServiceUtil.fetchEntry(
-					className, classPK);
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        long assetEntryId = getAssetEntryId();
+        String className = getClassName();
+        long classPK = getClassPK();
 
-				if (assetEntry != null) {
-					assetEntryId = assetEntry.getEntryId();
-				}
-			}
-			catch (SystemException se) {
-			}
-		}
+        if ((assetEntryId <= 0) && (classPK > 0)) {
+            try {
+                AssetEntry assetEntry = AssetEntryLocalServiceUtil.fetchEntry(
+                        className, classPK);
 
-		request.setAttribute(
-			"liferay-ui:input-asset-links:assetEntryId",
-			String.valueOf(assetEntryId));
-		request.setAttribute(
-			"liferay-ui:input-asset-links:className", className);
-	}
+                if (assetEntry != null) {
+                    assetEntryId = assetEntry.getEntryId();
+                }
+            } catch (SystemException se) {
+            }
+        }
 
-	private static final String _PAGE =
-		"/html/taglib/ui/input_asset_links/page.jsp";
+        request.setAttribute(
+                "liferay-ui:input-asset-links:assetEntryId",
+                String.valueOf(assetEntryId));
+        request.setAttribute(
+                "liferay-ui:input-asset-links:className", className);
+    }
 
 }

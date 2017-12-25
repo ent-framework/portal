@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -24,39 +24,37 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class WriteTag extends IncludeTag {
 
-	public void setBean(Object bean) {
-		_bean = bean;
-	}
+    private static final String _PAGE = "/html/taglib/ui/write/page.jsp";
+    private Object _bean;
+    private String _property;
 
-	public void setProperty(String property) {
-		_property = property;
-	}
+    public void setBean(Object bean) {
+        _bean = bean;
+    }
 
-	@Override
-	protected void cleanUp() {
-		_bean = null;
-		_property = null;
-	}
+    public void setProperty(String property) {
+        _property = property;
+    }
 
-	@Override
-	protected String getPage() {
-		if ((_bean == null) || Validator.isNull(_property)) {
-			return null;
-		}
-		else {
-			return _PAGE;
-		}
-	}
+    @Override
+    protected void cleanUp() {
+        _bean = null;
+        _property = null;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute("liferay-ui:write:bean", _bean);
-		request.setAttribute("liferay-ui:write:property", _property);
-	}
+    @Override
+    protected String getPage() {
+        if ((_bean == null) || Validator.isNull(_property)) {
+            return null;
+        } else {
+            return _PAGE;
+        }
+    }
 
-	private static final String _PAGE = "/html/taglib/ui/write/page.jsp";
-
-	private Object _bean;
-	private String _property;
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        request.setAttribute("liferay-ui:write:bean", _bean);
+        request.setAttribute("liferay-ui:write:property", _property);
+    }
 
 }

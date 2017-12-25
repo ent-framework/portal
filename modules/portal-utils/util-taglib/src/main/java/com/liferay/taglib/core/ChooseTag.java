@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -21,32 +21,32 @@ import com.liferay.portal.kernel.servlet.taglib.TagSupport;
  */
 public class ChooseTag extends TagSupport {
 
-	public boolean canRun() {
-		return !_ran;
-	}
+    private boolean _ran;
 
-	@Override
-	public int doStartTag() {
-		_ran = false;
+    public boolean canRun() {
+        return !_ran;
+    }
 
-		return EVAL_BODY_INCLUDE;
-	}
+    @Override
+    public int doStartTag() {
+        _ran = false;
 
-	public void markRan() {
-		if (_ran) {
-			throw new IllegalStateException("Another subtag has already run");
-		}
+        return EVAL_BODY_INCLUDE;
+    }
 
-		_ran = true;
-	}
+    public void markRan() {
+        if (_ran) {
+            throw new IllegalStateException("Another subtag has already run");
+        }
 
-	@Override
-	public void release() {
-		super.release();
+        _ran = true;
+    }
 
-		_ran = false;
-	}
+    @Override
+    public void release() {
+        super.release();
 
-	private boolean _ran;
+        _ran = false;
+    }
 
 }

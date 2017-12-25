@@ -14,7 +14,7 @@
 
 package com.liferay.portal.template;
 
-import com.liferay.portal.deploy.sandbox.SandboxHandler;
+//import com.liferay.portal.deploy.sandbox.SandboxHandler;
 import com.liferay.portal.kernel.cache.CacheListener;
 import com.liferay.portal.kernel.cache.CacheListenerScope;
 import com.liferay.portal.kernel.cache.MultiVMPoolUtil;
@@ -231,9 +231,9 @@ public class DefaultTemplateResourceLoader implements TemplateResourceLoader {
 
 				if (templateResource != null) {
 					if ((_modificationCheckInterval != 0) &&
-						(!_name.equals(TemplateConstants.LANG_TYPE_VM) ||
+						(!_name.equals(TemplateConstants.LANG_TYPE_VM)/* ||
 						 !templateId.contains(
-							 SandboxHandler.SANDBOX_MARKER))) {
+							 SandboxHandler.SANDBOX_MARKER)*/)) {
 
 						templateResource = new CacheTemplateResource(
 							templateResource);

@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -26,168 +26,165 @@ import javax.servlet.jsp.JspException;
  */
 public class BaseFieldWrapperTag extends com.liferay.taglib.util.IncludeTag {
 
-	@Override
-	public int doStartTag() throws JspException {
-		setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
+    protected static final String _ATTRIBUTE_NAMESPACE = "aui:field-wrapper:";
+    private static final String _END_PAGE =
+            "/html/taglib/aui/field_wrapper/end.jsp";
+    private static final String _START_PAGE =
+            "/html/taglib/aui/field_wrapper/start.jsp";
+    private java.lang.String _cssClass = null;
+    private java.lang.Object _data = null;
+    private boolean _first = false;
+    private java.lang.String _helpMessage = null;
+    private boolean _inlineField = false;
+    private java.lang.String _inlineLabel = null;
+    private java.lang.String _label = null;
+    private boolean _last = false;
+    private java.lang.String _name = null;
+    private boolean _required = false;
 
-		return super.doStartTag();
-	}
+    @Override
+    public int doStartTag() throws JspException {
+        setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
 
-	public java.lang.String getCssClass() {
-		return _cssClass;
-	}
+        return super.doStartTag();
+    }
 
-	public java.lang.Object getData() {
-		return _data;
-	}
+    public java.lang.String getCssClass() {
+        return _cssClass;
+    }
 
-	public boolean getFirst() {
-		return _first;
-	}
+    public void setCssClass(java.lang.String cssClass) {
+        _cssClass = cssClass;
 
-	public java.lang.String getHelpMessage() {
-		return _helpMessage;
-	}
+        setScopedAttribute("cssClass", cssClass);
+    }
 
-	public boolean getInlineField() {
-		return _inlineField;
-	}
+    public java.lang.Object getData() {
+        return _data;
+    }
 
-	public java.lang.String getInlineLabel() {
-		return _inlineLabel;
-	}
+    public void setData(java.lang.Object data) {
+        _data = data;
 
-	public java.lang.String getLabel() {
-		return _label;
-	}
+        setScopedAttribute("data", data);
+    }
 
-	public boolean getLast() {
-		return _last;
-	}
+    public boolean getFirst() {
+        return _first;
+    }
 
-	public java.lang.String getName() {
-		return _name;
-	}
+    public void setFirst(boolean first) {
+        _first = first;
 
-	public boolean getRequired() {
-		return _required;
-	}
+        setScopedAttribute("first", first);
+    }
 
-	public void setCssClass(java.lang.String cssClass) {
-		_cssClass = cssClass;
+    public java.lang.String getHelpMessage() {
+        return _helpMessage;
+    }
 
-		setScopedAttribute("cssClass", cssClass);
-	}
+    public void setHelpMessage(java.lang.String helpMessage) {
+        _helpMessage = helpMessage;
 
-	public void setData(java.lang.Object data) {
-		_data = data;
+        setScopedAttribute("helpMessage", helpMessage);
+    }
 
-		setScopedAttribute("data", data);
-	}
+    public boolean getInlineField() {
+        return _inlineField;
+    }
 
-	public void setFirst(boolean first) {
-		_first = first;
+    public void setInlineField(boolean inlineField) {
+        _inlineField = inlineField;
 
-		setScopedAttribute("first", first);
-	}
+        setScopedAttribute("inlineField", inlineField);
+    }
 
-	public void setHelpMessage(java.lang.String helpMessage) {
-		_helpMessage = helpMessage;
+    public java.lang.String getInlineLabel() {
+        return _inlineLabel;
+    }
 
-		setScopedAttribute("helpMessage", helpMessage);
-	}
+    public void setInlineLabel(java.lang.String inlineLabel) {
+        _inlineLabel = inlineLabel;
 
-	public void setInlineField(boolean inlineField) {
-		_inlineField = inlineField;
+        setScopedAttribute("inlineLabel", inlineLabel);
+    }
 
-		setScopedAttribute("inlineField", inlineField);
-	}
+    public java.lang.String getLabel() {
+        return _label;
+    }
 
-	public void setInlineLabel(java.lang.String inlineLabel) {
-		_inlineLabel = inlineLabel;
+    public void setLabel(java.lang.String label) {
+        _label = label;
 
-		setScopedAttribute("inlineLabel", inlineLabel);
-	}
+        setScopedAttribute("label", label);
+    }
 
-	public void setLabel(java.lang.String label) {
-		_label = label;
+    public boolean getLast() {
+        return _last;
+    }
 
-		setScopedAttribute("label", label);
-	}
+    public void setLast(boolean last) {
+        _last = last;
 
-	public void setLast(boolean last) {
-		_last = last;
+        setScopedAttribute("last", last);
+    }
 
-		setScopedAttribute("last", last);
-	}
+    public java.lang.String getName() {
+        return _name;
+    }
 
-	public void setName(java.lang.String name) {
-		_name = name;
+    public void setName(java.lang.String name) {
+        _name = name;
 
-		setScopedAttribute("name", name);
-	}
+        setScopedAttribute("name", name);
+    }
 
-	public void setRequired(boolean required) {
-		_required = required;
+    public boolean getRequired() {
+        return _required;
+    }
 
-		setScopedAttribute("required", required);
-	}
+    public void setRequired(boolean required) {
+        _required = required;
 
-	@Override
-	protected void cleanUp() {
-		_cssClass = null;
-		_data = null;
-		_first = false;
-		_helpMessage = null;
-		_inlineField = false;
-		_inlineLabel = null;
-		_label = null;
-		_last = false;
-		_name = null;
-		_required = false;
-	}
+        setScopedAttribute("required", required);
+    }
 
-	@Override
-	protected String getEndPage() {
-		return _END_PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _cssClass = null;
+        _data = null;
+        _first = false;
+        _helpMessage = null;
+        _inlineField = false;
+        _inlineLabel = null;
+        _label = null;
+        _last = false;
+        _name = null;
+        _required = false;
+    }
 
-	@Override
-	protected String getStartPage() {
-		return _START_PAGE;
-	}
+    @Override
+    protected String getEndPage() {
+        return _END_PAGE;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		setNamespacedAttribute(request, "cssClass", _cssClass);
-		setNamespacedAttribute(request, "data", _data);
-		setNamespacedAttribute(request, "first", _first);
-		setNamespacedAttribute(request, "helpMessage", _helpMessage);
-		setNamespacedAttribute(request, "inlineField", _inlineField);
-		setNamespacedAttribute(request, "inlineLabel", _inlineLabel);
-		setNamespacedAttribute(request, "label", _label);
-		setNamespacedAttribute(request, "last", _last);
-		setNamespacedAttribute(request, "name", _name);
-		setNamespacedAttribute(request, "required", _required);
-	}
+    @Override
+    protected String getStartPage() {
+        return _START_PAGE;
+    }
 
-	protected static final String _ATTRIBUTE_NAMESPACE = "aui:field-wrapper:";
-
-	private static final String _END_PAGE =
-		"/html/taglib/aui/field_wrapper/end.jsp";
-
-	private static final String _START_PAGE =
-		"/html/taglib/aui/field_wrapper/start.jsp";
-
-	private java.lang.String _cssClass = null;
-	private java.lang.Object _data = null;
-	private boolean _first = false;
-	private java.lang.String _helpMessage = null;
-	private boolean _inlineField = false;
-	private java.lang.String _inlineLabel = null;
-	private java.lang.String _label = null;
-	private boolean _last = false;
-	private java.lang.String _name = null;
-	private boolean _required = false;
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        setNamespacedAttribute(request, "cssClass", _cssClass);
+        setNamespacedAttribute(request, "data", _data);
+        setNamespacedAttribute(request, "first", _first);
+        setNamespacedAttribute(request, "helpMessage", _helpMessage);
+        setNamespacedAttribute(request, "inlineField", _inlineField);
+        setNamespacedAttribute(request, "inlineLabel", _inlineLabel);
+        setNamespacedAttribute(request, "label", _label);
+        setNamespacedAttribute(request, "last", _last);
+        setNamespacedAttribute(request, "name", _name);
+        setNamespacedAttribute(request, "required", _required);
+    }
 
 }

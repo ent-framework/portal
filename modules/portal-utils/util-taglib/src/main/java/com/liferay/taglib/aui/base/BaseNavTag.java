@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2014 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -26,129 +26,126 @@ import javax.servlet.jsp.JspException;
  */
 public class BaseNavTag extends com.liferay.taglib.util.IncludeTag {
 
-	@Override
-	public int doStartTag() throws JspException {
-		setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
+    protected static final String _ATTRIBUTE_NAMESPACE = "aui:nav:";
+    private static final String _END_PAGE =
+            "/html/taglib/aui/nav/end.jsp";
+    private static final String _START_PAGE =
+            "/html/taglib/aui/nav/start.jsp";
+    private java.lang.String _ariaLabel = null;
+    private java.lang.String _ariaRole = null;
+    private boolean _collapsible = false;
+    private java.lang.String _cssClass = null;
+    private java.lang.String _icon = null;
+    private java.lang.String _id = null;
+    private boolean _useNamespace = true;
 
-		return super.doStartTag();
-	}
+    @Override
+    public int doStartTag() throws JspException {
+        setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
 
-	public java.lang.String getAriaLabel() {
-		return _ariaLabel;
-	}
+        return super.doStartTag();
+    }
 
-	public java.lang.String getAriaRole() {
-		return _ariaRole;
-	}
+    public java.lang.String getAriaLabel() {
+        return _ariaLabel;
+    }
 
-	public boolean getCollapsible() {
-		return _collapsible;
-	}
+    public void setAriaLabel(java.lang.String ariaLabel) {
+        _ariaLabel = ariaLabel;
 
-	public java.lang.String getCssClass() {
-		return _cssClass;
-	}
+        setScopedAttribute("ariaLabel", ariaLabel);
+    }
 
-	public java.lang.String getIcon() {
-		return _icon;
-	}
+    public java.lang.String getAriaRole() {
+        return _ariaRole;
+    }
 
-	public java.lang.String getId() {
-		return _id;
-	}
+    public void setAriaRole(java.lang.String ariaRole) {
+        _ariaRole = ariaRole;
 
-	public boolean getUseNamespace() {
-		return _useNamespace;
-	}
+        setScopedAttribute("ariaRole", ariaRole);
+    }
 
-	public void setAriaLabel(java.lang.String ariaLabel) {
-		_ariaLabel = ariaLabel;
+    public boolean getCollapsible() {
+        return _collapsible;
+    }
 
-		setScopedAttribute("ariaLabel", ariaLabel);
-	}
+    public void setCollapsible(boolean collapsible) {
+        _collapsible = collapsible;
 
-	public void setAriaRole(java.lang.String ariaRole) {
-		_ariaRole = ariaRole;
+        setScopedAttribute("collapsible", collapsible);
+    }
 
-		setScopedAttribute("ariaRole", ariaRole);
-	}
+    public java.lang.String getCssClass() {
+        return _cssClass;
+    }
 
-	public void setCollapsible(boolean collapsible) {
-		_collapsible = collapsible;
+    public void setCssClass(java.lang.String cssClass) {
+        _cssClass = cssClass;
 
-		setScopedAttribute("collapsible", collapsible);
-	}
+        setScopedAttribute("cssClass", cssClass);
+    }
 
-	public void setCssClass(java.lang.String cssClass) {
-		_cssClass = cssClass;
+    public java.lang.String getIcon() {
+        return _icon;
+    }
 
-		setScopedAttribute("cssClass", cssClass);
-	}
+    public void setIcon(java.lang.String icon) {
+        _icon = icon;
 
-	public void setIcon(java.lang.String icon) {
-		_icon = icon;
+        setScopedAttribute("icon", icon);
+    }
 
-		setScopedAttribute("icon", icon);
-	}
+    public java.lang.String getId() {
+        return _id;
+    }
 
-	public void setId(java.lang.String id) {
-		_id = id;
+    public void setId(java.lang.String id) {
+        _id = id;
 
-		setScopedAttribute("id", id);
-	}
+        setScopedAttribute("id", id);
+    }
 
-	public void setUseNamespace(boolean useNamespace) {
-		_useNamespace = useNamespace;
+    public boolean getUseNamespace() {
+        return _useNamespace;
+    }
 
-		setScopedAttribute("useNamespace", useNamespace);
-	}
+    public void setUseNamespace(boolean useNamespace) {
+        _useNamespace = useNamespace;
 
-	@Override
-	protected void cleanUp() {
-		_ariaLabel = null;
-		_ariaRole = null;
-		_collapsible = false;
-		_cssClass = null;
-		_icon = null;
-		_id = null;
-		_useNamespace = true;
-	}
+        setScopedAttribute("useNamespace", useNamespace);
+    }
 
-	@Override
-	protected String getEndPage() {
-		return _END_PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _ariaLabel = null;
+        _ariaRole = null;
+        _collapsible = false;
+        _cssClass = null;
+        _icon = null;
+        _id = null;
+        _useNamespace = true;
+    }
 
-	@Override
-	protected String getStartPage() {
-		return _START_PAGE;
-	}
+    @Override
+    protected String getEndPage() {
+        return _END_PAGE;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		setNamespacedAttribute(request, "ariaLabel", _ariaLabel);
-		setNamespacedAttribute(request, "ariaRole", _ariaRole);
-		setNamespacedAttribute(request, "collapsible", _collapsible);
-		setNamespacedAttribute(request, "cssClass", _cssClass);
-		setNamespacedAttribute(request, "icon", _icon);
-		setNamespacedAttribute(request, "id", _id);
-		setNamespacedAttribute(request, "useNamespace", _useNamespace);
-	}
+    @Override
+    protected String getStartPage() {
+        return _START_PAGE;
+    }
 
-	protected static final String _ATTRIBUTE_NAMESPACE = "aui:nav:";
-
-	private static final String _END_PAGE =
-		"/html/taglib/aui/nav/end.jsp";
-
-	private static final String _START_PAGE =
-		"/html/taglib/aui/nav/start.jsp";
-
-	private java.lang.String _ariaLabel = null;
-	private java.lang.String _ariaRole = null;
-	private boolean _collapsible = false;
-	private java.lang.String _cssClass = null;
-	private java.lang.String _icon = null;
-	private java.lang.String _id = null;
-	private boolean _useNamespace = true;
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        setNamespacedAttribute(request, "ariaLabel", _ariaLabel);
+        setNamespacedAttribute(request, "ariaRole", _ariaRole);
+        setNamespacedAttribute(request, "collapsible", _collapsible);
+        setNamespacedAttribute(request, "cssClass", _cssClass);
+        setNamespacedAttribute(request, "icon", _icon);
+        setNamespacedAttribute(request, "id", _id);
+        setNamespacedAttribute(request, "useNamespace", _useNamespace);
+    }
 
 }

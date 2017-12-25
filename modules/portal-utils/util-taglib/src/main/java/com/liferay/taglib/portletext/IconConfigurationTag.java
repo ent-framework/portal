@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -26,47 +26,47 @@ import com.liferay.taglib.ui.IconTag;
  */
 public class IconConfigurationTag extends IconTag {
 
-	@Override
-	protected String getPage() {
-		if (FileAvailabilityUtil.isAvailable(servletContext, _PAGE)) {
-			return _PAGE;
-		}
+    private static final String _PAGE =
+            "/html/taglib/portlet/icon_configuration/page.jsp";
 
-		PortletDisplay portletDisplay =
-			(PortletDisplay)pageContext.getAttribute("portletDisplay");
+    @Override
+    protected String getPage() {
+        if (FileAvailabilityUtil.isAvailable(servletContext, _PAGE)) {
+            return _PAGE;
+        }
 
-		if (!portletDisplay.isShowConfigurationIcon()) {
-			return null;
-		}
+        PortletDisplay portletDisplay =
+                (PortletDisplay) pageContext.getAttribute("portletDisplay");
 
-		setCssClass("portlet-configuration portlet-configuration-icon");
-		setImage("../aui/wrench");
-		setMessage("configuration");
-		setMethod("get");
+        if (!portletDisplay.isShowConfigurationIcon()) {
+            return null;
+        }
 
-		StringBundler sb = new StringBundler(11);
+        setCssClass("portlet-configuration portlet-configuration-icon");
+        setImage("../aui/wrench");
+        setMessage("configuration");
+        setMethod("get");
 
-		sb.append("Liferay.Portlet.openWindow('#p_p_id_");
-		sb.append(portletDisplay.getId());
-		sb.append("_', '");
-		sb.append(portletDisplay.getId());
-		sb.append("', '");
-		sb.append(portletDisplay.getURLConfiguration());
-		sb.append("', '");
-		sb.append(portletDisplay.getNamespace());
-		sb.append("', '");
-		sb.append(LanguageUtil.get(pageContext, "configuration"));
-		sb.append("'); return false;");
+        StringBundler sb = new StringBundler(11);
 
-		setOnClick(sb.toString());
+        sb.append("Liferay.Portlet.openWindow('#p_p_id_");
+        sb.append(portletDisplay.getId());
+        sb.append("_', '");
+        sb.append(portletDisplay.getId());
+        sb.append("', '");
+        sb.append(portletDisplay.getURLConfiguration());
+        sb.append("', '");
+        sb.append(portletDisplay.getNamespace());
+        sb.append("', '");
+        sb.append(LanguageUtil.get(pageContext, "configuration"));
+        sb.append("'); return false;");
 
-		setToolTip(false);
-		setUrl(portletDisplay.getURLConfiguration());
+        setOnClick(sb.toString());
 
-		return super.getPage();
-	}
+        setToolTip(false);
+        setUrl(portletDisplay.getURLConfiguration());
 
-	private static final String _PAGE =
-		"/html/taglib/portlet/icon_configuration/page.jsp";
+        return super.getPage();
+    }
 
 }

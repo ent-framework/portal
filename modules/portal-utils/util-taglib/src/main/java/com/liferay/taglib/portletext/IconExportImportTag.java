@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -26,47 +26,47 @@ import com.liferay.taglib.ui.IconTag;
  */
 public class IconExportImportTag extends IconTag {
 
-	@Override
-	protected String getPage() {
-		if (FileAvailabilityUtil.isAvailable(servletContext, _PAGE)) {
-			return _PAGE;
-		}
+    private static final String _PAGE =
+            "/html/taglib/portlet/icon_export_import/page.jsp";
 
-		PortletDisplay portletDisplay =
-			(PortletDisplay)pageContext.getAttribute("portletDisplay");
+    @Override
+    protected String getPage() {
+        if (FileAvailabilityUtil.isAvailable(servletContext, _PAGE)) {
+            return _PAGE;
+        }
 
-		if (!portletDisplay.isShowExportImportIcon()) {
-			return null;
-		}
+        PortletDisplay portletDisplay =
+                (PortletDisplay) pageContext.getAttribute("portletDisplay");
 
-		setCssClass("portlet-export-import portlet-export-import-icon");
-		setImage("../aui/download-alt");
-		setMessage("export-import");
-		setMethod("get");
+        if (!portletDisplay.isShowExportImportIcon()) {
+            return null;
+        }
 
-		StringBundler sb = new StringBundler(11);
+        setCssClass("portlet-export-import portlet-export-import-icon");
+        setImage("../aui/download-alt");
+        setMessage("export-import");
+        setMethod("get");
 
-		sb.append("Liferay.Portlet.openWindow('#p_p_id_");
-		sb.append(portletDisplay.getId());
-		sb.append("_', '");
-		sb.append(portletDisplay.getId());
-		sb.append("', '");
-		sb.append(portletDisplay.getURLExportImport());
-		sb.append("', '");
-		sb.append(portletDisplay.getNamespace());
-		sb.append("', '");
-		sb.append(LanguageUtil.get(pageContext, "export-import"));
-		sb.append("'); return false;");
+        StringBundler sb = new StringBundler(11);
 
-		setOnClick(sb.toString());
+        sb.append("Liferay.Portlet.openWindow('#p_p_id_");
+        sb.append(portletDisplay.getId());
+        sb.append("_', '");
+        sb.append(portletDisplay.getId());
+        sb.append("', '");
+        sb.append(portletDisplay.getURLExportImport());
+        sb.append("', '");
+        sb.append(portletDisplay.getNamespace());
+        sb.append("', '");
+        sb.append(LanguageUtil.get(pageContext, "export-import"));
+        sb.append("'); return false;");
 
-		setToolTip(false);
-		setUrl(portletDisplay.getURLExportImport());
+        setOnClick(sb.toString());
 
-		return super.getPage();
-	}
+        setToolTip(false);
+        setUrl(portletDisplay.getURLExportImport());
 
-	private static final String _PAGE =
-		"/html/taglib/portlet/icon_export_import/page.jsp";
+        return super.getPage();
+    }
 
 }

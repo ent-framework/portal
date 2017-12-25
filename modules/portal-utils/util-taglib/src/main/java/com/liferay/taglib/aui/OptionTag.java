@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -28,45 +28,45 @@ import javax.servlet.jsp.JspWriter;
  */
 public class OptionTag extends BaseOptionTag {
 
-	@Override
-	protected boolean isCleanUpSetAttributes() {
-		return _CLEAN_UP_SET_ATTRIBUTES;
-	}
+    private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
 
-	@Override
-	protected int processEndTag() throws Exception {
-		JspWriter jspWriter = pageContext.getOut();
+    @Override
+    protected boolean isCleanUpSetAttributes() {
+        return _CLEAN_UP_SET_ATTRIBUTES;
+    }
 
-		jspWriter.write("</option>");
+    @Override
+    protected int processEndTag() throws Exception {
+        JspWriter jspWriter = pageContext.getOut();
 
-		return EVAL_PAGE;
-	}
+        jspWriter.write("</option>");
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		super.setAttributes(request);
+        return EVAL_PAGE;
+    }
 
-		Object value = getValue();
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        super.setAttributes(request);
 
-		if (value == null) {
-			value = getLabel();
-		}
+        Object value = getValue();
 
-		boolean selected = getSelected();
+        if (value == null) {
+            value = getLabel();
+        }
 
-		if (getUseModelValue()) {
-			String selectValue = GetterUtil.getString(
-				(String)request.getAttribute("aui:select:value"));
+        boolean selected = getSelected();
 
-			if (Validator.isNotNull(selectValue)) {
-				selected = selectValue.equals(String.valueOf(value));
-			}
-		}
+        if (getUseModelValue()) {
+            String selectValue = GetterUtil.getString(
+                    (String) request.getAttribute("aui:select:value"));
 
-		setNamespacedAttribute(request, "selected", String.valueOf(selected));
-		setNamespacedAttribute(request, "value", value);
-	}
+            if (Validator.isNotNull(selectValue)) {
+                selected = selectValue.equals(String.valueOf(value));
+            }
+        }
 
-	private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
+        setNamespacedAttribute(request, "selected", String.valueOf(selected));
+        setNamespacedAttribute(request, "value", value);
+    }
 
 }

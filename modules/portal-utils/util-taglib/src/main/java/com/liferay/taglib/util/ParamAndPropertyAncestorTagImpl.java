@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -18,173 +18,168 @@ import com.liferay.portal.kernel.servlet.DynamicServletRequest;
 import com.liferay.portal.kernel.servlet.taglib.BaseBodyTagSupport;
 import com.liferay.portal.kernel.util.WebKeys;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
-
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.jsp.PageContext;
 
 /**
  * @author Brian Wing Shun Chan
  * @author Shuyang Zhou
  */
 public class ParamAndPropertyAncestorTagImpl
-	extends BaseBodyTagSupport
-	implements ParamAncestorTag, PropertyAncestorTag {
+        extends BaseBodyTagSupport
+        implements ParamAncestorTag, PropertyAncestorTag {
 
-	@Override
-	public void addParam(String name, String value) {
-		if (_dynamicServletRequest == null) {
-			_dynamicServletRequest = new DynamicServletRequest(request);
+    protected HttpServletRequest request;
+    protected ServletContext servletContext;
+    private boolean _allowEmptyParam;
+    private DynamicServletRequest _dynamicServletRequest;
+    private Map<String, String[]> _properties;
+    private Set<String> _removedParameterNames;
 
-			request = _dynamicServletRequest;
-		}
+    @Override
+    public void addParam(String name, String value) {
+        if (_dynamicServletRequest == null) {
+            _dynamicServletRequest = new DynamicServletRequest(request);
 
-		Map<String, String[]> params =
-			_dynamicServletRequest.getDynamicParameterMap();
+            request = _dynamicServletRequest;
+        }
 
-		// PLT.26.6
+        Map<String, String[]> params =
+                _dynamicServletRequest.getDynamicParameterMap();
 
-		if (!_allowEmptyParam && ((value == null) || (value.length() == 0))) {
-			params.remove(name);
+        // PLT.26.6
 
-			if (_removedParameterNames == null) {
-				_removedParameterNames = new HashSet<String>();
-			}
+        if (!_allowEmptyParam && ((value == null) || (value.length() == 0))) {
+            params.remove(name);
 
-			_removedParameterNames.add(name);
+            if (_removedParameterNames == null) {
+                _removedParameterNames = new HashSet<String>();
+            }
 
-			return;
-		}
+            _removedParameterNames.add(name);
 
-		String[] values = params.get(name);
+            return;
+        }
 
-		if (values == null) {
-			values = new String[] {value};
-		}
-		else {
-			String[] newValues = new String[values.length + 1];
+        String[] values = params.get(name);
 
-			System.arraycopy(values, 0, newValues, 0, values.length);
+        if (values == null) {
+            values = new String[]{value};
+        } else {
+            String[] newValues = new String[values.length + 1];
 
-			newValues[newValues.length - 1] = value;
+            System.arraycopy(values, 0, newValues, 0, values.length);
 
-			values = newValues;
-		}
+            newValues[newValues.length - 1] = value;
 
-		params.put(name, values);
-	}
+            values = newValues;
+        }
 
-	@Override
-	public void addProperty(String name, String value) {
-		if (_properties == null) {
-			_properties = new LinkedHashMap<String, String[]>();
-		}
+        params.put(name, values);
+    }
 
-		String[] values = _properties.get(name);
+    @Override
+    public void addProperty(String name, String value) {
+        if (_properties == null) {
+            _properties = new LinkedHashMap<String, String[]>();
+        }
 
-		if (values == null) {
-			values = new String[] {value};
-		}
-		else {
-			String[] newValues = new String[values.length + 1];
+        String[] values = _properties.get(name);
 
-			System.arraycopy(values, 0, newValues, 0, values.length);
+        if (values == null) {
+            values = new String[]{value};
+        } else {
+            String[] newValues = new String[values.length + 1];
 
-			newValues[newValues.length - 1] = value;
+            System.arraycopy(values, 0, newValues, 0, values.length);
 
-			values = newValues;
-		}
+            newValues[newValues.length - 1] = value;
 
-		_properties.put(name, values);
-	}
+            values = newValues;
+        }
 
-	public void clearParams() {
-		if (_dynamicServletRequest != null) {
-			Map<String, String[]> params =
-				_dynamicServletRequest.getDynamicParameterMap();
+        _properties.put(name, values);
+    }
 
-			params.clear();
+    public void clearParams() {
+        if (_dynamicServletRequest != null) {
+            Map<String, String[]> params =
+                    _dynamicServletRequest.getDynamicParameterMap();
 
-			request = (HttpServletRequest)_dynamicServletRequest.getRequest();
+            params.clear();
 
-			_dynamicServletRequest = null;
-		}
+            request = (HttpServletRequest) _dynamicServletRequest.getRequest();
 
-		if (_removedParameterNames != null) {
-			_removedParameterNames.clear();
-		}
-	}
+            _dynamicServletRequest = null;
+        }
 
-	public void clearProperties() {
-		if (_properties != null) {
-			_properties.clear();
-		}
-	}
+        if (_removedParameterNames != null) {
+            _removedParameterNames.clear();
+        }
+    }
 
-	public Map<String, String[]> getParams() {
-		if (_dynamicServletRequest != null) {
-			return _dynamicServletRequest.getDynamicParameterMap();
-		}
-		else {
-			return null;
-		}
-	}
+    public void clearProperties() {
+        if (_properties != null) {
+            _properties.clear();
+        }
+    }
 
-	public Map<String, String[]> getProperties() {
-		return _properties;
-	}
+    public Map<String, String[]> getParams() {
+        if (_dynamicServletRequest != null) {
+            return _dynamicServletRequest.getDynamicParameterMap();
+        } else {
+            return null;
+        }
+    }
 
-	public Set<String> getRemovedParameterNames() {
-		return _removedParameterNames;
-	}
+    public Map<String, String[]> getProperties() {
+        return _properties;
+    }
 
-	public boolean isAllowEmptyParam() {
-		return _allowEmptyParam;
-	}
+    public Set<String> getRemovedParameterNames() {
+        return _removedParameterNames;
+    }
 
-	@Override
-	public void release() {
-		super.release();
+    public boolean isAllowEmptyParam() {
+        return _allowEmptyParam;
+    }
 
-		request = null;
-		servletContext = null;
+    public void setAllowEmptyParam(boolean allowEmptyParam) {
+        _allowEmptyParam = allowEmptyParam;
+    }
 
-		_allowEmptyParam = false;
-		_properties = null;
-		_removedParameterNames = null;
-	}
+    @Override
+    public void release() {
+        super.release();
 
-	public void setAllowEmptyParam(boolean allowEmptyParam) {
-		_allowEmptyParam = allowEmptyParam;
-	}
+        request = null;
+        servletContext = null;
 
-	@Override
-	public void setPageContext(PageContext pageContext) {
-		super.setPageContext(pageContext);
+        _allowEmptyParam = false;
+        _properties = null;
+        _removedParameterNames = null;
+    }
 
-		request = (HttpServletRequest)pageContext.getRequest();
+    @Override
+    public void setPageContext(PageContext pageContext) {
+        super.setPageContext(pageContext);
 
-		servletContext = (ServletContext)request.getAttribute(WebKeys.CTX);
+        request = (HttpServletRequest) pageContext.getRequest();
 
-		if (servletContext == null) {
-			servletContext = pageContext.getServletContext();
-		}
-	}
+        servletContext = (ServletContext) request.getAttribute(WebKeys.CTX);
 
-	public void setServletContext(ServletContext servletContext) {
-		this.servletContext = servletContext;
-	}
+        if (servletContext == null) {
+            servletContext = pageContext.getServletContext();
+        }
+    }
 
-	protected HttpServletRequest request;
-	protected ServletContext servletContext;
-
-	private boolean _allowEmptyParam;
-	private DynamicServletRequest _dynamicServletRequest;
-	private Map<String, String[]> _properties;
-	private Set<String> _removedParameterNames;
+    public void setServletContext(ServletContext servletContext) {
+        this.servletContext = servletContext;
+    }
 
 }

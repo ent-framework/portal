@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -20,45 +20,26 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.servlet.PipingServletResponse;
 import com.liferay.portal.kernel.servlet.PluginContextListener;
 import com.liferay.portal.kernel.servlet.ServletContextPool;
-import com.liferay.portal.kernel.template.Template;
-import com.liferay.portal.kernel.template.TemplateConstants;
-import com.liferay.portal.kernel.template.TemplateManagerUtil;
-import com.liferay.portal.kernel.template.TemplateResource;
-import com.liferay.portal.kernel.template.TemplateResourceLoaderUtil;
-import com.liferay.portal.kernel.util.GetterUtil;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.kernel.util.ThemeHelper;
-import com.liferay.portal.kernel.util.UnsyncPrintWriterPool;
-import com.liferay.portal.kernel.util.Validator;
-import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portal.kernel.template.*;
+import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.model.PortletConstants;
 import com.liferay.portal.model.Theme;
 import com.liferay.portal.theme.PortletDisplay;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.util.freemarker.FreeMarkerTaglibFactoryUtil;
-
 import freemarker.ext.servlet.HttpRequestHashModel;
 import freemarker.ext.servlet.ServletContextHashModel;
-
 import freemarker.template.ObjectWrapper;
 import freemarker.template.TemplateHashModel;
+import org.apache.struts.taglib.tiles.ComponentConstants;
+import org.apache.struts.tiles.ComponentContext;
 
-import java.io.IOException;
-import java.io.Writer;
-
-import javax.servlet.GenericServlet;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.Servlet;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.PageContext;
-
-import org.apache.struts.taglib.tiles.ComponentConstants;
-import org.apache.struts.tiles.ComponentContext;
+import java.io.IOException;
+import java.io.Writer;
 
 /**
  * @author Brian Wing Shun Chan
@@ -69,477 +50,463 @@ import org.apache.struts.tiles.ComponentContext;
  */
 public class ThemeUtil {
 
-	public static String getPortletId(HttpServletRequest request) {
-		String portletId = null;
-
-		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
-			WebKeys.THEME_DISPLAY);
-
-		if (themeDisplay != null) {
-			PortletDisplay portletDisplay = themeDisplay.getPortletDisplay();
-
-			portletId = portletDisplay.getId();
-		}
-
-		return portletId;
-	}
-
-	public static void include(
-			ServletContext servletContext, HttpServletRequest request,
-			HttpServletResponse response, PageContext pageContext, String path,
-			Theme theme)
-		throws Exception {
-
-		String extension = theme.getTemplateExtension();
-
-		if (extension.equals(ThemeHelper.TEMPLATE_EXTENSION_FTL)) {
-			includeFTL(servletContext, request, pageContext, path, theme, true);
-		}
-		else if (extension.equals(ThemeHelper.TEMPLATE_EXTENSION_VM)) {
-			includeVM(servletContext, request, pageContext, path, theme, true);
-		}
-		else {
-			path = theme.getTemplatesPath() + StringPool.SLASH + path;
-
-			includeJSP(servletContext, request, response, path, theme);
-		}
-	}
-
-	public static String includeFTL(
-			ServletContext servletContext, HttpServletRequest request,
-			PageContext pageContext, String path, Theme theme, boolean write)
-		throws Exception {
-
-		return doDispatch(
-			servletContext, request, null, pageContext, path, theme, write,
-			ThemeHelper.TEMPLATE_EXTENSION_FTL);
-	}
-
-	public static void includeJSP(
-			ServletContext servletContext, HttpServletRequest request,
-			HttpServletResponse response, String path, Theme theme)
-		throws Exception {
-
-		doDispatch(
-			servletContext, request, response, null, path, theme, true,
-			ThemeHelper.TEMPLATE_EXTENSION_JSP);
-	}
-
-	public static String includeVM(
-			ServletContext servletContext, HttpServletRequest request,
-			PageContext pageContext, String path, Theme theme, boolean write)
-		throws Exception {
-
-		return doDispatch(
-			servletContext, request, null, pageContext, path, theme, write,
-			ThemeHelper.TEMPLATE_EXTENSION_VM);
-	}
-
-	protected static String doDispatch(
-			ServletContext servletContext, HttpServletRequest request,
-			HttpServletResponse response, PageContext pageContext, String path,
-			Theme theme, boolean write, String extension)
-		throws Exception {
-
-		String pluginServletContextName = GetterUtil.getString(
-			theme.getServletContextName());
-
-		ServletContext pluginServletContext = ServletContextPool.get(
-			pluginServletContextName);
-
-		ClassLoader pluginClassLoader = null;
-
-		if (pluginServletContext != null) {
-			pluginClassLoader = (ClassLoader)pluginServletContext.getAttribute(
-				PluginContextListener.PLUGIN_CLASS_LOADER);
-		}
+    private static Log _log = LogFactoryUtil.getLog(ThemeUtil.class);
+
+    public static String getPortletId(HttpServletRequest request) {
+        String portletId = null;
+
+        ThemeDisplay themeDisplay = (ThemeDisplay) request.getAttribute(
+                WebKeys.THEME_DISPLAY);
+
+        if (themeDisplay != null) {
+            PortletDisplay portletDisplay = themeDisplay.getPortletDisplay();
+
+            portletId = portletDisplay.getId();
+        }
+
+        return portletId;
+    }
+
+    public static void include(
+            ServletContext servletContext, HttpServletRequest request,
+            HttpServletResponse response, PageContext pageContext, String path,
+            Theme theme)
+            throws Exception {
+
+        String extension = theme.getTemplateExtension();
+
+        if (extension.equals(ThemeHelper.TEMPLATE_EXTENSION_FTL)) {
+            includeFTL(servletContext, request, pageContext, path, theme, true);
+        } else if (extension.equals(ThemeHelper.TEMPLATE_EXTENSION_VM)) {
+            includeVM(servletContext, request, pageContext, path, theme, true);
+        } else {
+            path = theme.getTemplatesPath() + StringPool.SLASH + path;
+
+            includeJSP(servletContext, request, response, path, theme);
+        }
+    }
+
+    public static String includeFTL(
+            ServletContext servletContext, HttpServletRequest request,
+            PageContext pageContext, String path, Theme theme, boolean write)
+            throws Exception {
+
+        return doDispatch(
+                servletContext, request, null, pageContext, path, theme, write,
+                ThemeHelper.TEMPLATE_EXTENSION_FTL);
+    }
+
+    public static void includeJSP(
+            ServletContext servletContext, HttpServletRequest request,
+            HttpServletResponse response, String path, Theme theme)
+            throws Exception {
+
+        doDispatch(
+                servletContext, request, response, null, path, theme, true,
+                ThemeHelper.TEMPLATE_EXTENSION_JSP);
+    }
+
+    public static String includeVM(
+            ServletContext servletContext, HttpServletRequest request,
+            PageContext pageContext, String path, Theme theme, boolean write)
+            throws Exception {
+
+        return doDispatch(
+                servletContext, request, null, pageContext, path, theme, write,
+                ThemeHelper.TEMPLATE_EXTENSION_VM);
+    }
+
+    protected static String doDispatch(
+            ServletContext servletContext, HttpServletRequest request,
+            HttpServletResponse response, PageContext pageContext, String path,
+            Theme theme, boolean write, String extension)
+            throws Exception {
 
-		Thread currentThread = Thread.currentThread();
+        String pluginServletContextName = GetterUtil.getString(
+                theme.getServletContextName());
 
-		ClassLoader contextClassLoader = currentThread.getContextClassLoader();
+        ServletContext pluginServletContext = ServletContextPool.get(
+                pluginServletContextName);
 
-		if ((pluginClassLoader != null) &&
-			(pluginClassLoader != contextClassLoader)) {
+        ClassLoader pluginClassLoader = null;
 
-			currentThread.setContextClassLoader(pluginClassLoader);
-		}
+        if (pluginServletContext != null) {
+            pluginClassLoader = (ClassLoader) pluginServletContext.getAttribute(
+                    PluginContextListener.PLUGIN_CLASS_LOADER);
+        }
 
-		try {
-			if (extension.equals(ThemeHelper.TEMPLATE_EXTENSION_FTL)) {
-				return doIncludeFTL(
-					servletContext, request, pageContext, path, theme, false,
-					write);
-			}
-			else if (extension.equals(ThemeHelper.TEMPLATE_EXTENSION_JSP)) {
-				doIncludeJSP(servletContext, request, response, path, theme);
-			}
-			else if (extension.equals(ThemeHelper.TEMPLATE_EXTENSION_VM)) {
-				return doIncludeVM(
-					servletContext, request, pageContext, path, theme, false,
-					write);
-			}
+        Thread currentThread = Thread.currentThread();
 
-			return null;
-		}
-		finally {
-			if ((pluginClassLoader != null) &&
-				(pluginClassLoader != contextClassLoader)) {
+        ClassLoader contextClassLoader = currentThread.getContextClassLoader();
 
-				currentThread.setContextClassLoader(contextClassLoader);
-			}
-		}
-	}
+        if ((pluginClassLoader != null) &&
+                (pluginClassLoader != contextClassLoader)) {
 
-	protected static String doIncludeFTL(
-			ServletContext servletContext, HttpServletRequest request,
-			PageContext pageContext, String path, Theme theme,
-			boolean restricted, boolean write)
-		throws Exception {
+            currentThread.setContextClassLoader(pluginClassLoader);
+        }
 
-		// The servlet context name will be null when the theme is deployed to
-		// the root directory in Tomcat. See
-		// com.liferay.portal.servlet.MainServlet and
-		// com.liferay.portlet.PortletContextImpl for other cases where a null
-		// servlet context name is also converted to an empty string.
+        try {
+            if (extension.equals(ThemeHelper.TEMPLATE_EXTENSION_FTL)) {
+                return doIncludeFTL(
+                        servletContext, request, pageContext, path, theme, false,
+                        write);
+            } else if (extension.equals(ThemeHelper.TEMPLATE_EXTENSION_JSP)) {
+                doIncludeJSP(servletContext, request, response, path, theme);
+            } else if (extension.equals(ThemeHelper.TEMPLATE_EXTENSION_VM)) {
+                return doIncludeVM(
+                        servletContext, request, pageContext, path, theme, false,
+                        write);
+            }
 
-		String servletContextName = GetterUtil.getString(
-			theme.getServletContextName());
+            return null;
+        } finally {
+            if ((pluginClassLoader != null) &&
+                    (pluginClassLoader != contextClassLoader)) {
 
-		if (ServletContextPool.get(servletContextName) == null) {
+                currentThread.setContextClassLoader(contextClassLoader);
+            }
+        }
+    }
 
-			// This should only happen if the FreeMarker template is the first
-			// page to be accessed in the system
+    protected static String doIncludeFTL(
+            ServletContext servletContext, HttpServletRequest request,
+            PageContext pageContext, String path, Theme theme,
+            boolean restricted, boolean write)
+            throws Exception {
 
-			ServletContextPool.put(servletContextName, servletContext);
-		}
+        // The servlet context name will be null when the theme is deployed to
+        // the root directory in Tomcat. See
+        // com.liferay.portal.servlet.MainServlet and
+        // com.liferay.portlet.PortletContextImpl for other cases where a null
+        // servlet context name is also converted to an empty string.
 
-		String portletId = getPortletId(request);
+        String servletContextName = GetterUtil.getString(
+                theme.getServletContextName());
 
-		String resourcePath = theme.getResourcePath(
-			servletContext, portletId, path);
+        if (ServletContextPool.get(servletContextName) == null) {
 
-		if (Validator.isNotNull(portletId) &&
-			PortletConstants.hasInstanceId(portletId) &&
-			!TemplateResourceLoaderUtil.hasTemplateResource(
-				TemplateConstants.LANG_TYPE_FTL, resourcePath)) {
+            // This should only happen if the FreeMarker template is the first
+            // page to be accessed in the system
 
-			String rootPortletId = PortletConstants.getRootPortletId(portletId);
+            ServletContextPool.put(servletContextName, servletContext);
+        }
 
-			resourcePath = theme.getResourcePath(
-				servletContext, rootPortletId, path);
-		}
+        String portletId = getPortletId(request);
 
-		if (Validator.isNotNull(portletId) &&
-			!TemplateResourceLoaderUtil.hasTemplateResource(
-				TemplateConstants.LANG_TYPE_FTL, resourcePath)) {
+        String resourcePath = theme.getResourcePath(
+                servletContext, portletId, path);
 
-			resourcePath = theme.getResourcePath(servletContext, null, path);
-		}
+        if (Validator.isNotNull(portletId) &&
+                PortletConstants.hasInstanceId(portletId) &&
+                !TemplateResourceLoaderUtil.hasTemplateResource(
+                        TemplateConstants.LANG_TYPE_FTL, resourcePath)) {
 
-		if (!TemplateResourceLoaderUtil.hasTemplateResource(
-				TemplateConstants.LANG_TYPE_FTL, resourcePath)) {
+            String rootPortletId = PortletConstants.getRootPortletId(portletId);
 
-			_log.error(resourcePath + " does not exist");
+            resourcePath = theme.getResourcePath(
+                    servletContext, rootPortletId, path);
+        }
 
-			return null;
-		}
+        if (Validator.isNotNull(portletId) &&
+                !TemplateResourceLoaderUtil.hasTemplateResource(
+                        TemplateConstants.LANG_TYPE_FTL, resourcePath)) {
 
-		TemplateResource templateResource =
-			TemplateResourceLoaderUtil.getTemplateResource(
-				TemplateConstants.LANG_TYPE_FTL, resourcePath);
+            resourcePath = theme.getResourcePath(servletContext, null, path);
+        }
 
-		Template template = TemplateManagerUtil.getTemplate(
-			TemplateConstants.LANG_TYPE_FTL, templateResource, restricted);
+        if (!TemplateResourceLoaderUtil.hasTemplateResource(
+                TemplateConstants.LANG_TYPE_FTL, resourcePath)) {
 
-		// FreeMarker variables
+            _log.error(resourcePath + " does not exist");
 
-		template.prepare(request);
+            return null;
+        }
 
-		// Theme servlet context
+        TemplateResource templateResource =
+                TemplateResourceLoaderUtil.getTemplateResource(
+                        TemplateConstants.LANG_TYPE_FTL, resourcePath);
 
-		ServletContext themeServletContext = ServletContextPool.get(
-			servletContextName);
+        Template template = TemplateManagerUtil.getTemplate(
+                TemplateConstants.LANG_TYPE_FTL, templateResource, restricted);
 
-		template.put("themeServletContext", themeServletContext);
+        // FreeMarker variables
 
-		// Tag libraries
+        template.prepare(request);
 
-		HttpServletResponse response =
-			(HttpServletResponse)pageContext.getResponse();
+        // Theme servlet context
 
-		Writer writer = null;
+        ServletContext themeServletContext = ServletContextPool.get(
+                servletContextName);
 
-		if (write) {
+        template.put("themeServletContext", themeServletContext);
 
-			// Wrapping is needed because of a bug in FreeMarker
+        // Tag libraries
 
-			writer = UnsyncPrintWriterPool.borrow(pageContext.getOut());
-		}
-		else {
-			writer = new UnsyncStringWriter();
-		}
+        HttpServletResponse response =
+                (HttpServletResponse) pageContext.getResponse();
 
-		VelocityTaglib velocityTaglib = new VelocityTaglibImpl(
-			servletContext, request,
-			new PipingServletResponse(response, writer), pageContext, template);
+        Writer writer = null;
 
-		template.put(TemplateConstants.WRITER, writer);
-		template.put("taglibLiferay", velocityTaglib);
-		template.put("theme", velocityTaglib);
+        if (write) {
 
-		// Portal JSP tag library factory
+            // Wrapping is needed because of a bug in FreeMarker
 
-		TemplateHashModel portalTaglib =
-			FreeMarkerTaglibFactoryUtil.createTaglibFactory(servletContext);
+            writer = UnsyncPrintWriterPool.borrow(pageContext.getOut());
+        } else {
+            writer = new UnsyncStringWriter();
+        }
 
-		template.put("PortalJspTagLibs", portalTaglib);
+        VelocityTaglib velocityTaglib = new VelocityTaglibImpl(
+                servletContext, request,
+                new PipingServletResponse(response, writer), pageContext, template);
 
-		// Theme JSP tag library factory
+        template.put(TemplateConstants.WRITER, writer);
+        template.put("taglibLiferay", velocityTaglib);
+        template.put("theme", velocityTaglib);
 
-		TemplateHashModel themeTaglib =
-			FreeMarkerTaglibFactoryUtil.createTaglibFactory(
-				themeServletContext);
+        // Portal JSP tag library factory
 
-		template.put("ThemeJspTaglibs", themeTaglib);
+        TemplateHashModel portalTaglib =
+                FreeMarkerTaglibFactoryUtil.createTaglibFactory(servletContext);
 
-		// FreeMarker JSP tag library support
+        template.put("PortalJspTagLibs", portalTaglib);
 
-		final Servlet servlet = (Servlet)pageContext.getPage();
+        // Theme JSP tag library factory
 
-		GenericServlet genericServlet = null;
+        TemplateHashModel themeTaglib =
+                FreeMarkerTaglibFactoryUtil.createTaglibFactory(
+                        themeServletContext);
 
-		if (servlet instanceof GenericServlet) {
-			genericServlet = (GenericServlet)servlet;
-		}
-		else {
-			genericServlet = new GenericServlet() {
+        template.put("ThemeJspTaglibs", themeTaglib);
 
-				@Override
-				public void service(
-						ServletRequest servletRequest,
-						ServletResponse servletResponse)
-					throws IOException, ServletException {
+        // FreeMarker JSP tag library support
 
-					servlet.service(servletRequest, servletResponse);
-				}
+        final Servlet servlet = (Servlet) pageContext.getPage();
 
-			};
+        GenericServlet genericServlet = null;
 
-			genericServlet.init(pageContext.getServletConfig());
-		}
+        if (servlet instanceof GenericServlet) {
+            genericServlet = (GenericServlet) servlet;
+        } else {
+            genericServlet = new GenericServlet() {
 
-		ServletContextHashModel servletContextHashModel =
-			new ServletContextHashModel(
-				genericServlet, ObjectWrapper.DEFAULT_WRAPPER);
+                @Override
+                public void service(
+                        ServletRequest servletRequest,
+                        ServletResponse servletResponse)
+                        throws IOException, ServletException {
 
-		template.put("Application", servletContextHashModel);
+                    servlet.service(servletRequest, servletResponse);
+                }
 
-		HttpRequestHashModel httpRequestHashModel = new HttpRequestHashModel(
-			request, response, ObjectWrapper.DEFAULT_WRAPPER);
+            };
 
-		template.put("Request", httpRequestHashModel);
+            genericServlet.init(pageContext.getServletConfig());
+        }
 
-		// Merge templates
+        ServletContextHashModel servletContextHashModel =
+                new ServletContextHashModel(
+                        genericServlet, ObjectWrapper.DEFAULT_WRAPPER);
 
-		template.processTemplate(writer);
+        template.put("Application", servletContextHashModel);
 
-		if (write) {
-			return null;
-		}
-		else {
-			return writer.toString();
-		}
-	}
+        HttpRequestHashModel httpRequestHashModel = new HttpRequestHashModel(
+                request, response, ObjectWrapper.DEFAULT_WRAPPER);
 
-	protected static void doIncludeJSP(
-			ServletContext servletContext, HttpServletRequest request,
-			HttpServletResponse response, String path, Theme theme)
-		throws Exception {
+        template.put("Request", httpRequestHashModel);
 
-		insertTilesVariables(request);
+        // Merge templates
 
-		if (theme.isWARFile()) {
-			ServletContext themeServletContext = servletContext.getContext(
-				theme.getContextPath());
+        template.processTemplate(writer);
 
-			if (themeServletContext == null) {
-				_log.error(
-					"Theme " + theme.getThemeId() + " cannot find its " +
-						"servlet context at " + theme.getServletContextName());
-			}
-			else {
-				RequestDispatcher requestDispatcher =
-					themeServletContext.getRequestDispatcher(path);
+        if (write) {
+            return null;
+        } else {
+            return writer.toString();
+        }
+    }
 
-				if (requestDispatcher == null) {
-					_log.error(
-						"Theme " + theme.getThemeId() + " does not have " +
-							path);
-				}
-				else {
-					requestDispatcher.include(request, response);
-				}
-			}
-		}
-		else {
-			RequestDispatcher requestDispatcher =
-				servletContext.getRequestDispatcher(path);
+    protected static void doIncludeJSP(
+            ServletContext servletContext, HttpServletRequest request,
+            HttpServletResponse response, String path, Theme theme)
+            throws Exception {
 
-			if (requestDispatcher == null) {
-				_log.error(
-					"Theme " + theme.getThemeId() + " does not have " + path);
-			}
-			else {
-				requestDispatcher.include(request, response);
-			}
-		}
-	}
+        insertTilesVariables(request);
 
-	protected static String doIncludeVM(
-			ServletContext servletContext, HttpServletRequest request,
-			PageContext pageContext, String page, Theme theme,
-			boolean restricted, boolean write)
-		throws Exception {
+        if (theme.isWARFile()) {
+            ServletContext themeServletContext = servletContext.getContext(
+                    theme.getContextPath());
 
-		// The servlet context name will be null when the theme is deployed to
-		// the root directory in Tomcat. See
-		// com.liferay.portal.servlet.MainServlet and
-		// com.liferay.portlet.PortletContextImpl for other cases where a null
-		// servlet context name is also converted to an empty string.
+            if (themeServletContext == null) {
+                _log.error(
+                        "Theme " + theme.getThemeId() + " cannot find its " +
+                                "servlet context at " + theme.getServletContextName());
+            } else {
+                RequestDispatcher requestDispatcher =
+                        themeServletContext.getRequestDispatcher(path);
 
-		String servletContextName = GetterUtil.getString(
-			theme.getServletContextName());
+                if (requestDispatcher == null) {
+                    _log.error(
+                            "Theme " + theme.getThemeId() + " does not have " +
+                                    path);
+                } else {
+                    requestDispatcher.include(request, response);
+                }
+            }
+        } else {
+            RequestDispatcher requestDispatcher =
+                    servletContext.getRequestDispatcher(path);
 
-		if (ServletContextPool.get(servletContextName) == null) {
+            if (requestDispatcher == null) {
+                _log.error(
+                        "Theme " + theme.getThemeId() + " does not have " + path);
+            } else {
+                requestDispatcher.include(request, response);
+            }
+        }
+    }
 
-			// This should only happen if the Velocity template is the first
-			// page to be accessed in the system
+    protected static String doIncludeVM(
+            ServletContext servletContext, HttpServletRequest request,
+            PageContext pageContext, String page, Theme theme,
+            boolean restricted, boolean write)
+            throws Exception {
 
-			ServletContextPool.put(servletContextName, servletContext);
-		}
+        // The servlet context name will be null when the theme is deployed to
+        // the root directory in Tomcat. See
+        // com.liferay.portal.servlet.MainServlet and
+        // com.liferay.portlet.PortletContextImpl for other cases where a null
+        // servlet context name is also converted to an empty string.
 
-		String portletId = getPortletId(request);
+        String servletContextName = GetterUtil.getString(
+                theme.getServletContextName());
 
-		String resourcePath = theme.getResourcePath(
-			servletContext, portletId, page);
+        if (ServletContextPool.get(servletContextName) == null) {
 
-		boolean checkResourceExists = true;
+            // This should only happen if the Velocity template is the first
+            // page to be accessed in the system
 
-		if (Validator.isNotNull(portletId)) {
-			if (PortletConstants.hasInstanceId(portletId) &&
-				(checkResourceExists = !
-				TemplateResourceLoaderUtil.hasTemplateResource(
-					TemplateConstants.LANG_TYPE_VM, resourcePath))) {
+            ServletContextPool.put(servletContextName, servletContext);
+        }
 
-				String rootPortletId = PortletConstants.getRootPortletId(
-					portletId);
+        String portletId = getPortletId(request);
 
-				resourcePath = theme.getResourcePath(
-					servletContext, rootPortletId, page);
-			}
+        String resourcePath = theme.getResourcePath(
+                servletContext, portletId, page);
 
-			if (checkResourceExists &&
-				(checkResourceExists = !
-				TemplateResourceLoaderUtil.hasTemplateResource(
-					TemplateConstants.LANG_TYPE_VM, resourcePath))) {
+        boolean checkResourceExists = true;
 
-				resourcePath = theme.getResourcePath(
-					servletContext, null, page);
-			}
-		}
+        if (Validator.isNotNull(portletId)) {
+            if (PortletConstants.hasInstanceId(portletId) &&
+                    (checkResourceExists = !
+                            TemplateResourceLoaderUtil.hasTemplateResource(
+                                    TemplateConstants.LANG_TYPE_VM, resourcePath))) {
 
-		if (checkResourceExists &&
-			!TemplateResourceLoaderUtil.hasTemplateResource(
-				TemplateConstants.LANG_TYPE_VM, resourcePath)) {
+                String rootPortletId = PortletConstants.getRootPortletId(
+                        portletId);
 
-			_log.error(resourcePath + " does not exist");
+                resourcePath = theme.getResourcePath(
+                        servletContext, rootPortletId, page);
+            }
 
-			return null;
-		}
+            if (checkResourceExists &&
+                    (checkResourceExists = !
+                            TemplateResourceLoaderUtil.hasTemplateResource(
+                                    TemplateConstants.LANG_TYPE_VM, resourcePath))) {
 
-		TemplateResource templateResource =
-			TemplateResourceLoaderUtil.getTemplateResource(
-				TemplateConstants.LANG_TYPE_VM, resourcePath);
+                resourcePath = theme.getResourcePath(
+                        servletContext, null, page);
+            }
+        }
 
-		if (templateResource == null) {
-			throw new Exception(
-				"Unable to load template resource " + resourcePath);
-		}
+        if (checkResourceExists &&
+                !TemplateResourceLoaderUtil.hasTemplateResource(
+                        TemplateConstants.LANG_TYPE_VM, resourcePath)) {
 
-		Template template = TemplateManagerUtil.getTemplate(
-			TemplateConstants.LANG_TYPE_VM, templateResource, restricted);
+            _log.error(resourcePath + " does not exist");
 
-		// Velocity variables
+            return null;
+        }
 
-		template.prepare(request);
+        TemplateResource templateResource =
+                TemplateResourceLoaderUtil.getTemplateResource(
+                        TemplateConstants.LANG_TYPE_VM, resourcePath);
 
-		// Page context
+        if (templateResource == null) {
+            throw new Exception(
+                    "Unable to load template resource " + resourcePath);
+        }
 
-		template.put("pageContext", pageContext);
+        Template template = TemplateManagerUtil.getTemplate(
+                TemplateConstants.LANG_TYPE_VM, templateResource, restricted);
 
-		// Theme servlet context
+        // Velocity variables
 
-		ServletContext themeServletContext = ServletContextPool.get(
-			servletContextName);
+        template.prepare(request);
 
-		template.put("themeServletContext", themeServletContext);
+        // Page context
 
-		// Tag libraries
+        template.put("pageContext", pageContext);
 
-		HttpServletResponse response =
-			(HttpServletResponse)pageContext.getResponse();
+        // Theme servlet context
 
-		Writer writer = null;
+        ServletContext themeServletContext = ServletContextPool.get(
+                servletContextName);
 
-		if (write) {
-			writer = pageContext.getOut();
-		}
-		else {
-			writer = new UnsyncStringWriter();
-		}
+        template.put("themeServletContext", themeServletContext);
 
-		VelocityTaglib velocityTaglib = new VelocityTaglibImpl(
-			servletContext, request,
-			new PipingServletResponse(response, writer), pageContext, template);
+        // Tag libraries
 
-		template.put(TemplateConstants.WRITER, writer);
-		template.put("taglibLiferay", velocityTaglib);
-		template.put("theme", velocityTaglib);
+        HttpServletResponse response =
+                (HttpServletResponse) pageContext.getResponse();
 
-		// Merge templates
+        Writer writer = null;
 
-		template.processTemplate(writer);
+        if (write) {
+            writer = pageContext.getOut();
+        } else {
+            writer = new UnsyncStringWriter();
+        }
 
-		if (write) {
-			return null;
-		}
-		else {
-			return ((UnsyncStringWriter)writer).toString();
-		}
-	}
+        VelocityTaglib velocityTaglib = new VelocityTaglibImpl(
+                servletContext, request,
+                new PipingServletResponse(response, writer), pageContext, template);
 
-	protected static void insertTilesVariables(HttpServletRequest request) {
-		ComponentContext componentContext =
-			(ComponentContext)request.getAttribute(
-				ComponentConstants.COMPONENT_CONTEXT);
+        template.put(TemplateConstants.WRITER, writer);
+        template.put("taglibLiferay", velocityTaglib);
+        template.put("theme", velocityTaglib);
 
-		if (componentContext == null) {
-			return;
-		}
+        // Merge templates
 
-		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
-			WebKeys.THEME_DISPLAY);
+        template.processTemplate(writer);
 
-		String tilesTitle = (String)componentContext.getAttribute("title");
-		String tilesContent = (String)componentContext.getAttribute("content");
-		boolean tilesSelectable = GetterUtil.getBoolean(
-			(String)componentContext.getAttribute("selectable"));
+        if (write) {
+            return null;
+        } else {
+            return ((UnsyncStringWriter) writer).toString();
+        }
+    }
 
-		themeDisplay.setTilesTitle(tilesTitle);
-		themeDisplay.setTilesContent(tilesContent);
-		themeDisplay.setTilesSelectable(tilesSelectable);
-	}
+    protected static void insertTilesVariables(HttpServletRequest request) {
+        ComponentContext componentContext =
+                (ComponentContext) request.getAttribute(
+                        ComponentConstants.COMPONENT_CONTEXT);
 
-	private static Log _log = LogFactoryUtil.getLog(ThemeUtil.class);
+        if (componentContext == null) {
+            return;
+        }
+
+        ThemeDisplay themeDisplay = (ThemeDisplay) request.getAttribute(
+                WebKeys.THEME_DISPLAY);
+
+        String tilesTitle = (String) componentContext.getAttribute("title");
+        String tilesContent = (String) componentContext.getAttribute("content");
+        boolean tilesSelectable = GetterUtil.getBoolean(
+                (String) componentContext.getAttribute("selectable"));
+
+        themeDisplay.setTilesTitle(tilesTitle);
+        themeDisplay.setTilesContent(tilesContent);
+        themeDisplay.setTilesSelectable(tilesSelectable);
+    }
 
 }

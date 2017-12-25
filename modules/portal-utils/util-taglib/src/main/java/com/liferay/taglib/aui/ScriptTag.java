@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -35,143 +35,139 @@ import javax.servlet.jsp.tagext.BodyContent;
  */
 public class ScriptTag extends BaseScriptTag {
 
-	public static void doTag(
-			String position, String use, String bodyContentString,
-			BodyContent previousBodyContent, PageContext pageContext)
-		throws Exception {
+    public static void doTag(
+            String position, String use, String bodyContentString,
+            BodyContent previousBodyContent, PageContext pageContext)
+            throws Exception {
 
-		String previousBodyContentString = null;
+        String previousBodyContentString = null;
 
-		if ((previousBodyContent != null) &&
-			!(previousBodyContent instanceof BodyContentWrapper)) {
+        if ((previousBodyContent != null) &&
+                !(previousBodyContent instanceof BodyContentWrapper)) {
 
-			// LPS-22413
+            // LPS-22413
 
-			previousBodyContentString = previousBodyContent.getString();
-		}
+            previousBodyContentString = previousBodyContent.getString();
+        }
 
-		ScriptTag scriptTag = new ScriptTag();
+        ScriptTag scriptTag = new ScriptTag();
 
-		scriptTag.setPageContext(pageContext);
-		scriptTag.setPosition(position);
-		scriptTag.setUse(use);
+        scriptTag.setPageContext(pageContext);
+        scriptTag.setPosition(position);
+        scriptTag.setUse(use);
 
-		BodyContent bodyContent = pageContext.pushBody();
+        BodyContent bodyContent = pageContext.pushBody();
 
-		scriptTag.setBodyContent(bodyContent);
+        scriptTag.setBodyContent(bodyContent);
 
-		bodyContent.write(bodyContentString);
+        bodyContent.write(bodyContentString);
 
-		pageContext.popBody();
+        pageContext.popBody();
 
-		scriptTag.doEndTag();
+        scriptTag.doEndTag();
 
-		scriptTag.release();
+        scriptTag.release();
 
-		if (previousBodyContentString != null) {
+        if (previousBodyContentString != null) {
 
-			// LPS-22413
+            // LPS-22413
 
-			previousBodyContent.clear();
+            previousBodyContent.clear();
 
-			previousBodyContent.append(previousBodyContentString);
-		}
-	}
+            previousBodyContent.append(previousBodyContentString);
+        }
+    }
 
-	public static void flushScriptData(PageContext pageContext)
-		throws Exception {
+    public static void flushScriptData(PageContext pageContext)
+            throws Exception {
 
-		HttpServletRequest request =
-			(HttpServletRequest)pageContext.getRequest();
+        HttpServletRequest request =
+                (HttpServletRequest) pageContext.getRequest();
 
-		ScriptData scriptData = (ScriptData)request.getAttribute(
-			WebKeys.AUI_SCRIPT_DATA);
+        ScriptData scriptData = (ScriptData) request.getAttribute(
+                WebKeys.AUI_SCRIPT_DATA);
 
-		if (scriptData == null) {
-			return;
-		}
+        if (scriptData == null) {
+            return;
+        }
 
-		request.removeAttribute(WebKeys.AUI_SCRIPT_DATA);
+        request.removeAttribute(WebKeys.AUI_SCRIPT_DATA);
 
-		scriptData.writeTo(request, pageContext.getOut());
-	}
+        scriptData.writeTo(request, pageContext.getOut());
+    }
 
-	@Override
-	public int doEndTag() throws JspException {
-		HttpServletRequest request =
-			(HttpServletRequest)pageContext.getRequest();
+    @Override
+    public int doEndTag() throws JspException {
+        HttpServletRequest request =
+                (HttpServletRequest) pageContext.getRequest();
 
-		try {
-			String portletId = null;
+        try {
+            String portletId = null;
 
-			Portlet portlet = (Portlet)request.getAttribute(
-				WebKeys.RENDER_PORTLET);
+            Portlet portlet = (Portlet) request.getAttribute(
+                    WebKeys.RENDER_PORTLET);
 
-			if (portlet != null) {
-				portletId = portlet.getPortletId();
-			}
+            if (portlet != null) {
+                portletId = portlet.getPortletId();
+            }
 
-			StringBundler bodyContentSB = getBodyContentAsStringBundler();
+            StringBundler bodyContentSB = getBodyContentAsStringBundler();
 
-			String use = getUse();
+            String use = getUse();
 
-			if (isPositionInLine()) {
-				ScriptData scriptData = new ScriptData();
+            if (isPositionInLine()) {
+                ScriptData scriptData = new ScriptData();
 
-				scriptData.append(portletId, bodyContentSB, use);
+                scriptData.append(portletId, bodyContentSB, use);
 
-				String page = getPage();
+                String page = getPage();
 
-				if (FileAvailabilityUtil.isAvailable(
-						pageContext.getServletContext(), page)) {
+                if (FileAvailabilityUtil.isAvailable(
+                        pageContext.getServletContext(), page)) {
 
-					PortalIncludeUtil.include(pageContext, page);
-				}
-				else {
-					scriptData.writeTo(request, pageContext.getOut());
-				}
-			}
-			else {
-				ScriptData scriptData = (ScriptData)request.getAttribute(
-					WebKeys.AUI_SCRIPT_DATA);
+                    PortalIncludeUtil.include(pageContext, page);
+                } else {
+                    scriptData.writeTo(request, pageContext.getOut());
+                }
+            } else {
+                ScriptData scriptData = (ScriptData) request.getAttribute(
+                        WebKeys.AUI_SCRIPT_DATA);
 
-				if (scriptData == null) {
-					scriptData = new ScriptData();
+                if (scriptData == null) {
+                    scriptData = new ScriptData();
 
-					request.setAttribute(WebKeys.AUI_SCRIPT_DATA, scriptData);
-				}
+                    request.setAttribute(WebKeys.AUI_SCRIPT_DATA, scriptData);
+                }
 
-				scriptData.append(portletId, bodyContentSB, use);
-			}
+                scriptData.append(portletId, bodyContentSB, use);
+            }
 
-			return EVAL_PAGE;
-		}
-		catch (Exception e) {
-			throw new JspException(e);
-		}
-		finally {
-			if (!ServerDetector.isResin()) {
-				cleanUp();
-			}
+            return EVAL_PAGE;
+        } catch (Exception e) {
+            throw new JspException(e);
+        } finally {
+            if (!ServerDetector.isResin()) {
+                cleanUp();
+            }
 
-			request.removeAttribute(WebKeys.JAVASCRIPT_CONTEXT);
-		}
-	}
+            request.removeAttribute(WebKeys.JAVASCRIPT_CONTEXT);
+        }
+    }
 
-	@Override
-	public int doStartTag() throws JspException {
-		HttpServletRequest request =
-			(HttpServletRequest)pageContext.getRequest();
+    @Override
+    public int doStartTag() throws JspException {
+        HttpServletRequest request =
+                (HttpServletRequest) pageContext.getRequest();
 
-		request.setAttribute(WebKeys.JAVASCRIPT_CONTEXT, Boolean.TRUE);
+        request.setAttribute(WebKeys.JAVASCRIPT_CONTEXT, Boolean.TRUE);
 
-		return super.doStartTag();
-	}
+        return super.doStartTag();
+    }
 
-	@Override
-	protected void cleanUp() {
-		setPosition(null);
-		setUse(null);
-	}
+    @Override
+    protected void cleanUp() {
+        setPosition(null);
+        setUse(null);
+    }
 
 }

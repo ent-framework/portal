@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -16,85 +16,82 @@ package com.liferay.taglib.util;
 
 import com.liferay.portal.kernel.util.StringPool;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.tagext.DynamicAttributes;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Eduardo Lundgren
  * @author Shuyang Zhou
  */
 public class AttributesTagSupport
-	extends ParamAndPropertyAncestorTagImpl implements DynamicAttributes {
+        extends ParamAndPropertyAncestorTagImpl implements DynamicAttributes {
 
-	public void clearDynamicAttributes() {
-		_dynamicAttributes.clear();
-	}
+    private String _attributeNamespace = StringPool.BLANK;
+    private Map<String, Object> _dynamicAttributes =
+            new HashMap<String, Object>();
+    private Map<String, Object> _scopedAttributes =
+            new HashMap<String, Object>();
 
-	public String getAttributeNamespace() {
-		return _attributeNamespace;
-	}
+    public void clearDynamicAttributes() {
+        _dynamicAttributes.clear();
+    }
 
-	public Map<String, Object> getScopedAttributes() {
-		return _scopedAttributes;
-	}
+    public String getAttributeNamespace() {
+        return _attributeNamespace;
+    }
 
-	@Override
-	public void release() {
-		super.release();
+    public void setAttributeNamespace(String attributeNamespace) {
+        _attributeNamespace = attributeNamespace;
+    }
 
-		_attributeNamespace = null;
-		_dynamicAttributes = null;
-		_scopedAttributes = null;
-	}
+    public Map<String, Object> getScopedAttributes() {
+        return _scopedAttributes;
+    }
 
-	public void setAttributeNamespace(String attributeNamespace) {
-		_attributeNamespace = attributeNamespace;
-	}
+    @Override
+    public void release() {
+        super.release();
 
-	@Override
-	public void setDynamicAttribute(
-		String uri, String localName, Object value) {
+        _attributeNamespace = null;
+        _dynamicAttributes = null;
+        _scopedAttributes = null;
+    }
 
-		_dynamicAttributes.put(localName, value);
-	}
+    @Override
+    public void setDynamicAttribute(
+            String uri, String localName, Object value) {
 
-	public void setNamespacedAttribute(
-		HttpServletRequest request, String key, Object value) {
+        _dynamicAttributes.put(localName, value);
+    }
 
-		if (value instanceof Boolean) {
-			value = String.valueOf(value);
-		}
-		else if (value instanceof Number) {
-			value = String.valueOf(value);
-		}
+    public void setNamespacedAttribute(
+            HttpServletRequest request, String key, Object value) {
 
-		request.setAttribute(_encodeKey(key), value);
-	}
+        if (value instanceof Boolean) {
+            value = String.valueOf(value);
+        } else if (value instanceof Number) {
+            value = String.valueOf(value);
+        }
 
-	public void setScopedAttribute(String name, Object value) {
-		_scopedAttributes.put(name, value);
-	}
+        request.setAttribute(_encodeKey(key), value);
+    }
 
-	protected Map<String, Object> getDynamicAttributes() {
-		return _dynamicAttributes;
-	}
+    public void setScopedAttribute(String name, Object value) {
+        _scopedAttributes.put(name, value);
+    }
 
-	private String _encodeKey(String key) {
-		if (_attributeNamespace.length() == 0) {
-			return key;
-		}
-		else {
-			return _attributeNamespace.concat(key);
-		}
-	}
+    protected Map<String, Object> getDynamicAttributes() {
+        return _dynamicAttributes;
+    }
 
-	private String _attributeNamespace = StringPool.BLANK;
-	private Map<String, Object> _dynamicAttributes =
-		new HashMap<String, Object>();
-	private Map<String, Object> _scopedAttributes =
-		new HashMap<String, Object>();
+    private String _encodeKey(String key) {
+        if (_attributeNamespace.length() == 0) {
+            return key;
+        } else {
+            return _attributeNamespace.concat(key);
+        }
+    }
 
 }

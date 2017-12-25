@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -16,11 +16,7 @@ package com.liferay.taglib.ui;
 
 import com.liferay.portal.kernel.language.UnicodeLanguageUtil;
 import com.liferay.portal.kernel.servlet.taglib.FileAvailabilityUtil;
-import com.liferay.portal.kernel.util.Http;
-import com.liferay.portal.kernel.util.HttpUtil;
-import com.liferay.portal.kernel.util.StringBundler;
-import com.liferay.portal.kernel.util.StringUtil;
-import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.kernel.util.*;
 
 /**
  * @author Brian Wing Shun Chan
@@ -28,90 +24,86 @@ import com.liferay.portal.kernel.util.Validator;
  */
 public class IconDeleteTag extends IconTag {
 
-	public void setConfirmation(String confirmation) {
-		_confirmation = confirmation;
-	}
+    private static final String _PAGE = "/html/taglib/ui/icon_delete/page.jsp";
+    private String _confirmation;
+    private boolean _trash;
 
-	public void setTrash(boolean trash) {
-		_trash = trash;
-	}
+    public void setConfirmation(String confirmation) {
+        _confirmation = confirmation;
+    }
 
-	@Override
-	protected String getPage() {
-		if (FileAvailabilityUtil.isAvailable(servletContext, _PAGE)) {
-			return _PAGE;
-		}
+    public void setTrash(boolean trash) {
+        _trash = trash;
+    }
 
-		if (Validator.isNull(getImage())) {
-			if (_trash) {
-				setImage("trash");
-			}
-			else {
-				setImage("delete");
-			}
-		}
+    @Override
+    protected String getPage() {
+        if (FileAvailabilityUtil.isAvailable(servletContext, _PAGE)) {
+            return _PAGE;
+        }
 
-		if (_trash && Validator.isNull(getMessage())) {
-			setMessage("move-to-the-recycle-bin");
-		}
+        if (Validator.isNull(getImage())) {
+            if (_trash) {
+                setImage("trash");
+            } else {
+                setImage("delete");
+            }
+        }
 
-		String url = getUrl();
+        if (_trash && Validator.isNull(getMessage())) {
+            setMessage("move-to-the-recycle-bin");
+        }
 
-		if (url.startsWith("javascript:if (confirm('")) {
-			return super.getPage();
-		}
+        String url = getUrl();
 
-		if (url.startsWith("javascript:")) {
-			url = url.substring(11);
-		}
+        if (url.startsWith("javascript:if (confirm('")) {
+            return super.getPage();
+        }
 
-		if (url.startsWith(Http.HTTP_WITH_SLASH) ||
-			url.startsWith(Http.HTTPS_WITH_SLASH)) {
+        if (url.startsWith("javascript:")) {
+            url = url.substring(11);
+        }
 
-			url =
-				"submitForm(document.hrefFm, '".concat(
-					HttpUtil.encodeURL(url)).concat("');");
-		}
+        if (url.startsWith(Http.HTTP_WITH_SLASH) ||
+                url.startsWith(Http.HTTPS_WITH_SLASH)) {
 
-		if (url.startsWith("wsrp_rewrite?")) {
-			url = StringUtil.replace(
-				url, "/wsrp_rewrite",
-				"&wsrp-extensions=encodeURL/wsrp_rewrite");
-			url = "submitForm(document.hrefFm, '".concat(url).concat("');");
-		}
+            url =
+                    "submitForm(document.hrefFm, '".concat(
+                            HttpUtil.encodeURL(url)).concat("');");
+        }
 
-		if (!_trash) {
-			StringBundler sb = new StringBundler(5);
+        if (url.startsWith("wsrp_rewrite?")) {
+            url = StringUtil.replace(
+                    url, "/wsrp_rewrite",
+                    "&wsrp-extensions=encodeURL/wsrp_rewrite");
+            url = "submitForm(document.hrefFm, '".concat(url).concat("');");
+        }
 
-			sb.append("javascript:if (confirm('");
+        if (!_trash) {
+            StringBundler sb = new StringBundler(5);
 
-			if (Validator.isNotNull(_confirmation)) {
-				sb.append(UnicodeLanguageUtil.get(pageContext, _confirmation));
-			}
-			else {
-				String confirmation = "are-you-sure-you-want-to-delete-this";
+            sb.append("javascript:if (confirm('");
 
-				sb.append(UnicodeLanguageUtil.get(pageContext, confirmation));
-			}
+            if (Validator.isNotNull(_confirmation)) {
+                sb.append(UnicodeLanguageUtil.get(pageContext, _confirmation));
+            } else {
+                String confirmation = "are-you-sure-you-want-to-delete-this";
 
-			sb.append("')) { ");
-			sb.append(url);
-			sb.append(" } else { self.focus(); }");
+                sb.append(UnicodeLanguageUtil.get(pageContext, confirmation));
+            }
 
-			url = sb.toString();
-		}
-		else {
-			url = "javascript:".concat(url);
-		}
+            sb.append("')) { ");
+            sb.append(url);
+            sb.append(" } else { self.focus(); }");
 
-		setUrl(url);
+            url = sb.toString();
+        } else {
+            url = "javascript:".concat(url);
+        }
 
-		return super.getPage();
-	}
+        setUrl(url);
 
-	private static final String _PAGE = "/html/taglib/ui/icon_delete/page.jsp";
-
-	private String _confirmation;
-	private boolean _trash;
+        return super.getPage();
+    }
 
 }

@@ -14,7 +14,7 @@
 
 package com.liferay.portal.ccpp;
 
-import com.sun.ccpp.ProfileFactoryImpl;
+//import com.sun.ccpp.ProfileFactoryImpl;
 
 import javax.ccpp.Profile;
 import javax.ccpp.ProfileFactory;
@@ -31,7 +31,7 @@ public class PortalProfileFactory {
 		ProfileFactory profileFactory = ProfileFactory.getInstance();
 
 		if (profileFactory == null) {
-			profileFactory = ProfileFactoryImpl.getInstance();
+			profileFactory = ProfileFactory.getInstance();
 
 			ProfileFactory.setInstance(profileFactory);
 		}

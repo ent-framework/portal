@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -23,72 +23,66 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class RestoreEntryTag extends IncludeTag {
 
-	public void setDuplicateEntryAction(String duplicateEntryAction) {
-		_duplicateEntryAction = duplicateEntryAction;
-	}
+    private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
+    private static final String _DUPLICATE_ENTRY_ACTION =
+            "/trash/restore_entry";
+    private static final String _OVERRIDE_MESSAGE =
+            "overwrite-the-existing-entry-with-the-one-from-the-recycle-bin";
+    private static final String _PAGE =
+            "/html/taglib/ui/restore_entry/page.jsp";
+    private static final String _RENAME_MESSAGE =
+            "keep-both-entries-and-rename-the-entry-from-the-recycle-bin-as";
+    private static final String _RESTORE_ENTRY_ACTION = "/trash/edit_entry";
+    private String _duplicateEntryAction = _DUPLICATE_ENTRY_ACTION;
+    private String _overrideMessage = _OVERRIDE_MESSAGE;
+    private String _renameMessage = _RENAME_MESSAGE;
+    private String _restoreEntryAction = _RESTORE_ENTRY_ACTION;
 
-	public void setOverrideMessage(String overrideMessage) {
-		_overrideMessage = overrideMessage;
-	}
+    public void setDuplicateEntryAction(String duplicateEntryAction) {
+        _duplicateEntryAction = duplicateEntryAction;
+    }
 
-	public void setRenameMessage(String renameMessage) {
-		_renameMessage = renameMessage;
-	}
+    public void setOverrideMessage(String overrideMessage) {
+        _overrideMessage = overrideMessage;
+    }
 
-	public void setRestoreEntryAction(String restoreEntryAction) {
-		_restoreEntryAction = restoreEntryAction;
-	}
+    public void setRenameMessage(String renameMessage) {
+        _renameMessage = renameMessage;
+    }
 
-	@Override
-	protected void cleanUp() {
-		_duplicateEntryAction = _DUPLICATE_ENTRY_ACTION;
-		_overrideMessage = _OVERRIDE_MESSAGE;
-		_renameMessage = _RENAME_MESSAGE;
-		_restoreEntryAction = _RESTORE_ENTRY_ACTION;
-	}
+    public void setRestoreEntryAction(String restoreEntryAction) {
+        _restoreEntryAction = restoreEntryAction;
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _duplicateEntryAction = _DUPLICATE_ENTRY_ACTION;
+        _overrideMessage = _OVERRIDE_MESSAGE;
+        _renameMessage = _RENAME_MESSAGE;
+        _restoreEntryAction = _RESTORE_ENTRY_ACTION;
+    }
 
-	@Override
-	protected boolean isCleanUpSetAttributes() {
-		return _CLEAN_UP_SET_ATTRIBUTES;
-	}
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute(
-			"liferay-ui:restore-entry:duplicateEntryAction",
-			_duplicateEntryAction);
-		request.setAttribute(
-			"liferay-ui:restore-entry:overrideMessage", _overrideMessage);
-		request.setAttribute(
-			"liferay-ui:restore-entry:renameMessage", _renameMessage);
-		request.setAttribute(
-			"liferay-ui:restore-entry:restoreEntryAction", _restoreEntryAction);
-	}
+    @Override
+    protected boolean isCleanUpSetAttributes() {
+        return _CLEAN_UP_SET_ATTRIBUTES;
+    }
 
-	private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
-
-	private static final String _DUPLICATE_ENTRY_ACTION =
-		"/trash/restore_entry";
-
-	private static final String _OVERRIDE_MESSAGE =
-		"overwrite-the-existing-entry-with-the-one-from-the-recycle-bin";
-
-	private static final String _PAGE =
-		"/html/taglib/ui/restore_entry/page.jsp";
-
-	private static final String _RENAME_MESSAGE =
-		"keep-both-entries-and-rename-the-entry-from-the-recycle-bin-as";
-
-	private static final String _RESTORE_ENTRY_ACTION = "/trash/edit_entry";
-
-	private String _duplicateEntryAction = _DUPLICATE_ENTRY_ACTION;
-	private String _overrideMessage = _OVERRIDE_MESSAGE;
-	private String _renameMessage = _RENAME_MESSAGE;
-	private String _restoreEntryAction = _RESTORE_ENTRY_ACTION;
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        request.setAttribute(
+                "liferay-ui:restore-entry:duplicateEntryAction",
+                _duplicateEntryAction);
+        request.setAttribute(
+                "liferay-ui:restore-entry:overrideMessage", _overrideMessage);
+        request.setAttribute(
+                "liferay-ui:restore-entry:renameMessage", _renameMessage);
+        request.setAttribute(
+                "liferay-ui:restore-entry:restoreEntryAction", _restoreEntryAction);
+    }
 
 }

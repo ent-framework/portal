@@ -17,7 +17,7 @@ package com.liferay.portal.kernel.search;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.util.Tuple;
 import com.liferay.portal.kernel.util.Validator;
-import com.liferay.portlet.messageboards.model.MBMessage;
+//import com.liferay.portlet.messageboards.model.MBMessage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,9 +38,9 @@ public class SearchResult {
 		_fileEntryTuples.add(tuple);
 	}
 
-	public void addMBMessage(MBMessage mbMessage) {
-		_mbMessages.add(mbMessage);
-	}
+//	public void addMBMessage(MBMessage mbMessage) {
+//		_mbMessages.add(mbMessage);
+//	}
 
 	public void addVersion(String version) {
 		_versions.add(version);
@@ -79,9 +79,9 @@ public class SearchResult {
 		return _fileEntryTuples;
 	}
 
-	public List<MBMessage> getMBMessages() {
-		return _mbMessages;
-	}
+//	public List<MBMessage> getMBMessages() {
+//		return _mbMessages;
+//	}
 
 	public Summary getSummary() {
 		return _summary;
@@ -99,9 +99,9 @@ public class SearchResult {
 		_classPK = classPK;
 	}
 
-	public void setMessages(List<MBMessage> mbMessages) {
-		_mbMessages = mbMessages;
-	}
+//	public void setMessages(List<MBMessage> mbMessages) {
+//		_mbMessages = mbMessages;
+//	}
 
 	public void setSummary(Summary summary) {
 		_summary = summary;
@@ -110,7 +110,7 @@ public class SearchResult {
 	private String _className;
 	private long _classPK;
 	private List<Tuple> _fileEntryTuples = new ArrayList<Tuple>();
-	private List<MBMessage> _mbMessages = new ArrayList<MBMessage>();
+	//private List<MBMessage> _mbMessages = new ArrayList<MBMessage>();
 	private Summary _summary;
 	private List<String> _versions = new ArrayList<String>();
 

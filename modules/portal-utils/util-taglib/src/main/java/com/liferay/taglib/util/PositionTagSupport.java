@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -28,71 +28,66 @@ import javax.servlet.jsp.tagext.BodyTag;
  */
 public class PositionTagSupport extends BaseBodyTagSupport implements BodyTag {
 
-	public String getPosition() {
-		return getPositionValue();
-	}
+    private static final String _POSITION_AUTO = "auto";
+    private static final String _POSITION_INLINE = "inline";
+    private String _position;
 
-	public boolean isPositionAuto() {
-		String position = getPosition();
+    public String getPosition() {
+        return getPositionValue();
+    }
 
-		if (position.equals(_POSITION_AUTO)) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
+    public void setPosition(String position) {
+        _position = position;
+    }
 
-	public boolean isPositionInLine() {
-		String position = getPosition();
+    public boolean isPositionAuto() {
+        String position = getPosition();
 
-		if (position.equals(_POSITION_INLINE)) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
+        if (position.equals(_POSITION_AUTO)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-	public void setPosition(String position) {
-		_position = position;
-	}
+    public boolean isPositionInLine() {
+        String position = getPosition();
 
-	protected void cleanUp() {
-		_position = null;
-	}
+        if (position.equals(_POSITION_INLINE)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-	protected String getPositionValue() {
-		HttpServletRequest request =
-			(HttpServletRequest)pageContext.getRequest();
+    protected void cleanUp() {
+        _position = null;
+    }
 
-		String position = _position;
+    protected String getPositionValue() {
+        HttpServletRequest request =
+                (HttpServletRequest) pageContext.getRequest();
 
-		String fragmentId = ParamUtil.getString(request, "p_f_id");
+        String position = _position;
 
-		if (Validator.isNotNull(fragmentId)) {
-			position = _POSITION_INLINE;
-		}
+        String fragmentId = ParamUtil.getString(request, "p_f_id");
 
-		if (Validator.isNull(position)) {
-			ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
-				WebKeys.THEME_DISPLAY);
+        if (Validator.isNotNull(fragmentId)) {
+            position = _POSITION_INLINE;
+        }
 
-			if (themeDisplay.isStateExclusive() || themeDisplay.isIsolated()) {
-				position = _POSITION_INLINE;
-			}
-			else {
-				position = _POSITION_AUTO;
-			}
-		}
+        if (Validator.isNull(position)) {
+            ThemeDisplay themeDisplay = (ThemeDisplay) request.getAttribute(
+                    WebKeys.THEME_DISPLAY);
 
-		return position;
-	}
+            if (themeDisplay.isStateExclusive() || themeDisplay.isIsolated()) {
+                position = _POSITION_INLINE;
+            } else {
+                position = _POSITION_AUTO;
+            }
+        }
 
-	private static final String _POSITION_AUTO = "auto";
-
-	private static final String _POSITION_INLINE = "inline";
-
-	private String _position;
+        return position;
+    }
 
 }

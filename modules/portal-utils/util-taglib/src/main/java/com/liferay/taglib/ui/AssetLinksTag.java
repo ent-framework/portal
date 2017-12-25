@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -28,66 +28,64 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class AssetLinksTag extends IncludeTag {
 
-	public long getAssetEntryId() {
-		return _assetEntryId;
-	}
+    private static final String _PAGE = "/html/taglib/ui/asset_links/page.jsp";
+    private long _assetEntryId;
+    private String _className = StringPool.BLANK;
+    private long _classPK;
 
-	public String getClassName() {
-		return _className;
-	}
+    public long getAssetEntryId() {
+        return _assetEntryId;
+    }
 
-	public long getClassPK() {
-		return _classPK;
-	}
+    public void setAssetEntryId(long assetEntryId) {
+        _assetEntryId = assetEntryId;
+    }
 
-	public void setAssetEntryId(long assetEntryId) {
-		_assetEntryId = assetEntryId;
-	}
+    public String getClassName() {
+        return _className;
+    }
 
-	public void setClassName(String className) {
-		_className = className;
-	}
+    public void setClassName(String className) {
+        _className = className;
+    }
 
-	public void setClassPK(long classPK) {
-		_classPK = classPK;
-	}
+    public long getClassPK() {
+        return _classPK;
+    }
 
-	@Override
-	protected void cleanUp() {
-		_assetEntryId = 0;
-		_className = StringPool.BLANK;
-		_classPK = 0;
-	}
+    public void setClassPK(long classPK) {
+        _classPK = classPK;
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _assetEntryId = 0;
+        _className = StringPool.BLANK;
+        _classPK = 0;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		if ((_assetEntryId <= 0) && (_classPK > 0)) {
-			try {
-				AssetEntry assetEntry = AssetEntryLocalServiceUtil.fetchEntry(
-					_className, _classPK);
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
-				if (assetEntry != null) {
-					_assetEntryId = assetEntry.getEntryId();
-				}
-			}
-			catch (SystemException se) {
-			}
-		}
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        if ((_assetEntryId <= 0) && (_classPK > 0)) {
+            try {
+                AssetEntry assetEntry = AssetEntryLocalServiceUtil.fetchEntry(
+                        _className, _classPK);
 
-		request.setAttribute(
-			"liferay-ui:asset-links:assetEntryId",
-			String.valueOf(_assetEntryId));
-	}
+                if (assetEntry != null) {
+                    _assetEntryId = assetEntry.getEntryId();
+                }
+            } catch (SystemException se) {
+            }
+        }
 
-	private static final String _PAGE = "/html/taglib/ui/asset_links/page.jsp";
-
-	private long _assetEntryId;
-	private String _className = StringPool.BLANK;
-	private long _classPK;
+        request.setAttribute(
+                "liferay-ui:asset-links:assetEntryId",
+                String.valueOf(_assetEntryId));
+    }
 
 }

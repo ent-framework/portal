@@ -37,7 +37,7 @@ import com.liferay.portal.model.Repository;
 import com.liferay.portal.model.RepositoryEntry;
 import com.liferay.portal.model.SystemEventConstants;
 import com.liferay.portal.model.User;
-import com.liferay.portal.repository.cmis.CMISRepository;
+//import com.liferay.portal.repository.cmis.CMISRepository;
 import com.liferay.portal.repository.liferayrepository.LiferayLocalRepository;
 import com.liferay.portal.repository.liferayrepository.LiferayRepository;
 import com.liferay.portal.repository.proxy.BaseRepositoryProxyBean;
@@ -470,14 +470,14 @@ public class RepositoryLocalServiceImpl extends RepositoryLocalServiceBaseImpl {
 			}
 		}
 
-		if (cmisRepositoryHandler != null) {
-			CMISRepository cmisRepository = new CMISRepository(
-				cmisRepositoryHandler);
-
-			cmisRepositoryHandler.setCmisRepository(cmisRepository);
-
-			setupRepository(repositoryId, repository, cmisRepository);
-		}
+//		if (cmisRepositoryHandler != null) {
+//			CMISRepository cmisRepository = new CMISRepository(
+//				cmisRepositoryHandler);
+//
+//			cmisRepositoryHandler.setCmisRepository(cmisRepository);
+//
+//			setupRepository(repositoryId, repository, cmisRepository);
+//		}
 
 		setupRepository(repositoryId, repository, baseRepository);
 

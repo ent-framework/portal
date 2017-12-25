@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -23,48 +23,46 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class SuccessTag extends IncludeTag {
 
-	@Override
-	public int doStartTag() {
-		return EVAL_BODY_INCLUDE;
-	}
+    private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
+    private static final String _PAGE = "/html/taglib/ui/success/page.jsp";
+    private String _key;
+    private String _message;
+    private boolean _translateMessage = true;
 
-	public void setKey(String key) {
-		_key = key;
-	}
+    @Override
+    public int doStartTag() {
+        return EVAL_BODY_INCLUDE;
+    }
 
-	public void setMessage(String message) {
-		_message = message;
-	}
+    public void setKey(String key) {
+        _key = key;
+    }
 
-	public void setTranslateMessage(boolean translateMessage) {
-		_translateMessage = translateMessage;
-	}
+    public void setMessage(String message) {
+        _message = message;
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    public void setTranslateMessage(boolean translateMessage) {
+        _translateMessage = translateMessage;
+    }
 
-	@Override
-	protected boolean isCleanUpSetAttributes() {
-		return _CLEAN_UP_SET_ATTRIBUTES;
-	}
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute("liferay-ui:success:key", _key);
-		request.setAttribute("liferay-ui:success:message", _message);
-		request.setAttribute(
-			"liferay-ui:success:translateMessage",
-			String.valueOf(_translateMessage));
-	}
+    @Override
+    protected boolean isCleanUpSetAttributes() {
+        return _CLEAN_UP_SET_ATTRIBUTES;
+    }
 
-	private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
-
-	private static final String _PAGE = "/html/taglib/ui/success/page.jsp";
-
-	private String _key;
-	private String _message;
-	private boolean _translateMessage = true;
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        request.setAttribute("liferay-ui:success:key", _key);
+        request.setAttribute("liferay-ui:success:message", _message);
+        request.setAttribute(
+                "liferay-ui:success:translateMessage",
+                String.valueOf(_translateMessage));
+    }
 
 }

@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -25,154 +25,151 @@ import javax.servlet.jsp.JspException;
  */
 public class BaseATag extends com.liferay.taglib.util.IncludeTag {
 
-	@Override
-	public int doStartTag() throws JspException {
-		setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
+    protected static final String _ATTRIBUTE_NAMESPACE = "aui:a:";
+    private static final String _END_PAGE =
+            "/html/taglib/aui/a/end.jsp";
+    private static final String _START_PAGE =
+            "/html/taglib/aui/a/start.jsp";
+    private java.lang.String _ariaRole = null;
+    private java.lang.String _cssClass = null;
+    private java.util.Map<java.lang.String, java.lang.Object> _data = null;
+    private java.lang.String _href = null;
+    private java.lang.String _id = null;
+    private java.lang.String _label = null;
+    private java.lang.String _lang = null;
+    private java.lang.String _onClick = null;
+    private java.lang.String _target = null;
+    private java.lang.String _title = null;
 
-		return super.doStartTag();
-	}
+    @Override
+    public int doStartTag() throws JspException {
+        setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
 
-	public java.lang.String getAriaRole() {
-		return _ariaRole;
-	}
+        return super.doStartTag();
+    }
 
-	public java.lang.String getCssClass() {
-		return _cssClass;
-	}
+    public java.lang.String getAriaRole() {
+        return _ariaRole;
+    }
 
-	public java.util.Map<java.lang.String, java.lang.Object> getData() {
-		return _data;
-	}
+    public void setAriaRole(java.lang.String ariaRole) {
+        _ariaRole = ariaRole;
 
-	public java.lang.String getHref() {
-		return _href;
-	}
+        setScopedAttribute("ariaRole", ariaRole);
+    }
 
-	public java.lang.String getId() {
-		return _id;
-	}
+    public java.lang.String getCssClass() {
+        return _cssClass;
+    }
 
-	public java.lang.String getLabel() {
-		return _label;
-	}
+    public void setCssClass(java.lang.String cssClass) {
+        _cssClass = cssClass;
 
-	public java.lang.String getLang() {
-		return _lang;
-	}
+        setScopedAttribute("cssClass", cssClass);
+    }
 
-	public java.lang.String getOnClick() {
-		return _onClick;
-	}
+    public java.util.Map<java.lang.String, java.lang.Object> getData() {
+        return _data;
+    }
 
-	public java.lang.String getTarget() {
-		return _target;
-	}
+    public void setData(java.util.Map<java.lang.String, java.lang.Object> data) {
+        _data = data;
 
-	public java.lang.String getTitle() {
-		return _title;
-	}
+        setScopedAttribute("data", data);
+    }
 
-	public void setAriaRole(java.lang.String ariaRole) {
-		_ariaRole = ariaRole;
+    public java.lang.String getHref() {
+        return _href;
+    }
 
-		setScopedAttribute("ariaRole", ariaRole);
-	}
+    public void setHref(java.lang.String href) {
+        _href = href;
 
-	public void setCssClass(java.lang.String cssClass) {
-		_cssClass = cssClass;
+        setScopedAttribute("href", href);
+    }
 
-		setScopedAttribute("cssClass", cssClass);
-	}
+    public java.lang.String getId() {
+        return _id;
+    }
 
-	public void setData(java.util.Map<java.lang.String, java.lang.Object> data) {
-		_data = data;
+    public void setId(java.lang.String id) {
+        _id = id;
 
-		setScopedAttribute("data", data);
-	}
+        setScopedAttribute("id", id);
+    }
 
-	public void setHref(java.lang.String href) {
-		_href = href;
+    public java.lang.String getLabel() {
+        return _label;
+    }
 
-		setScopedAttribute("href", href);
-	}
+    public void setLabel(java.lang.String label) {
+        _label = label;
 
-	public void setId(java.lang.String id) {
-		_id = id;
+        setScopedAttribute("label", label);
+    }
 
-		setScopedAttribute("id", id);
-	}
+    public java.lang.String getLang() {
+        return _lang;
+    }
 
-	public void setLabel(java.lang.String label) {
-		_label = label;
+    public void setLang(java.lang.String lang) {
+        _lang = lang;
 
-		setScopedAttribute("label", label);
-	}
+        setScopedAttribute("lang", lang);
+    }
 
-	public void setLang(java.lang.String lang) {
-		_lang = lang;
+    public java.lang.String getOnClick() {
+        return _onClick;
+    }
 
-		setScopedAttribute("lang", lang);
-	}
+    public void setOnClick(java.lang.String onClick) {
+        _onClick = onClick;
 
-	public void setOnClick(java.lang.String onClick) {
-		_onClick = onClick;
+        setScopedAttribute("onClick", onClick);
+    }
 
-		setScopedAttribute("onClick", onClick);
-	}
+    public java.lang.String getTarget() {
+        return _target;
+    }
 
-	public void setTarget(java.lang.String target) {
-		_target = target;
+    public void setTarget(java.lang.String target) {
+        _target = target;
 
-		setScopedAttribute("target", target);
-	}
+        setScopedAttribute("target", target);
+    }
 
-	public void setTitle(java.lang.String title) {
-		_title = title;
+    public java.lang.String getTitle() {
+        return _title;
+    }
 
-		setScopedAttribute("title", title);
-	}
+    public void setTitle(java.lang.String title) {
+        _title = title;
 
-	@Override
-	protected void cleanUp() {
-		_ariaRole = null;
-		_cssClass = null;
-		_data = null;
-		_href = null;
-		_id = null;
-		_label = null;
-		_lang = null;
-		_onClick = null;
-		_target = null;
-		_title = null;
-	}
+        setScopedAttribute("title", title);
+    }
 
-	@Override
-	protected String getEndPage() {
-		return _END_PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _ariaRole = null;
+        _cssClass = null;
+        _data = null;
+        _href = null;
+        _id = null;
+        _label = null;
+        _lang = null;
+        _onClick = null;
+        _target = null;
+        _title = null;
+    }
 
-	@Override
-	protected String getStartPage() {
-		return _START_PAGE;
-	}
+    @Override
+    protected String getEndPage() {
+        return _END_PAGE;
+    }
 
-	protected static final String _ATTRIBUTE_NAMESPACE = "aui:a:";
-
-	private static final String _END_PAGE =
-		"/html/taglib/aui/a/end.jsp";
-
-	private static final String _START_PAGE =
-		"/html/taglib/aui/a/start.jsp";
-
-	private java.lang.String _ariaRole = null;
-	private java.lang.String _cssClass = null;
-	private java.util.Map<java.lang.String, java.lang.Object> _data = null;
-	private java.lang.String _href = null;
-	private java.lang.String _id = null;
-	private java.lang.String _label = null;
-	private java.lang.String _lang = null;
-	private java.lang.String _onClick = null;
-	private java.lang.String _target = null;
-	private java.lang.String _title = null;
+    @Override
+    protected String getStartPage() {
+        return _START_PAGE;
+    }
 
 }

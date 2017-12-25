@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -25,88 +25,85 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class HeaderTag extends IncludeTag {
 
-	public void setBackLabel(String backLabel) {
-		_backLabel = backLabel;
-	}
+    private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
+    private static final String _PAGE = "/html/taglib/ui/header/page.jsp";
+    private String _backLabel;
+    private String _backURL;
+    private String _cssClass;
+    private boolean _escapeXml = true;
+    private boolean _localizeTitle = true;
+    private boolean _showBackURL = true;
+    private String _title;
 
-	public void setBackURL(String backURL) {
-		_backURL = backURL;
-	}
+    public void setBackLabel(String backLabel) {
+        _backLabel = backLabel;
+    }
 
-	public void setCssClass(String cssClass) {
-		_cssClass = cssClass;
-	}
+    public void setBackURL(String backURL) {
+        _backURL = backURL;
+    }
 
-	public void setEscapeXml(boolean escapeXml) {
-		_escapeXml = escapeXml;
-	}
+    public void setCssClass(String cssClass) {
+        _cssClass = cssClass;
+    }
 
-	public void setLocalizeTitle(boolean localizeTitle) {
-		_localizeTitle = localizeTitle;
-	}
+    public void setEscapeXml(boolean escapeXml) {
+        _escapeXml = escapeXml;
+    }
 
-	public void setShowBackURL(boolean showBackURL) {
-		_showBackURL = showBackURL;
-	}
+    public void setLocalizeTitle(boolean localizeTitle) {
+        _localizeTitle = localizeTitle;
+    }
 
-	public void setTitle(String title) {
-		_title = title;
-	}
+    public void setShowBackURL(boolean showBackURL) {
+        _showBackURL = showBackURL;
+    }
 
-	@Override
-	protected void cleanUp() {
-		_backLabel = null;
-		_backURL = null;
-		_cssClass = null;
-		_escapeXml = true;
-		_localizeTitle = true;
-		_showBackURL = true;
-		_title = null;
-	}
+    public void setTitle(String title) {
+        _title = title;
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _backLabel = null;
+        _backURL = null;
+        _cssClass = null;
+        _escapeXml = true;
+        _localizeTitle = true;
+        _showBackURL = true;
+        _title = null;
+    }
 
-	@Override
-	protected boolean isCleanUpSetAttributes() {
-		return _CLEAN_UP_SET_ATTRIBUTES;
-	}
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute("liferay-ui:header:backLabel", _backLabel);
+    @Override
+    protected boolean isCleanUpSetAttributes() {
+        return _CLEAN_UP_SET_ATTRIBUTES;
+    }
 
-		String redirect = ParamUtil.getString(request, "redirect");
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        request.setAttribute("liferay-ui:header:backLabel", _backLabel);
 
-		if (Validator.isNull(_backURL) && Validator.isNotNull(redirect)) {
-			request.setAttribute("liferay-ui:header:backURL", redirect);
-		}
-		else {
-			request.setAttribute("liferay-ui:header:backURL", _backURL);
-		}
+        String redirect = ParamUtil.getString(request, "redirect");
 
-		request.setAttribute("liferay-ui:header:cssClass", _cssClass);
-		request.setAttribute(
-			"liferay-ui:header:escapeXml", String.valueOf(_escapeXml));
-		request.setAttribute(
-			"liferay-ui:header:localizeTitle", String.valueOf(_localizeTitle));
-		request.setAttribute(
-			"liferay-ui:header:showBackURL", String.valueOf(_showBackURL));
-		request.setAttribute("liferay-ui:header:title", _title);
-	}
+        if (Validator.isNull(_backURL) && Validator.isNotNull(redirect)) {
+            request.setAttribute("liferay-ui:header:backURL", redirect);
+        } else {
+            request.setAttribute("liferay-ui:header:backURL", _backURL);
+        }
 
-	private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
-
-	private static final String _PAGE = "/html/taglib/ui/header/page.jsp";
-
-	private String _backLabel;
-	private String _backURL;
-	private String _cssClass;
-	private boolean _escapeXml = true;
-	private boolean _localizeTitle = true;
-	private boolean _showBackURL = true;
-	private String _title;
+        request.setAttribute("liferay-ui:header:cssClass", _cssClass);
+        request.setAttribute(
+                "liferay-ui:header:escapeXml", String.valueOf(_escapeXml));
+        request.setAttribute(
+                "liferay-ui:header:localizeTitle", String.valueOf(_localizeTitle));
+        request.setAttribute(
+                "liferay-ui:header:showBackURL", String.valueOf(_showBackURL));
+        request.setAttribute("liferay-ui:header:title", _title);
+    }
 
 }

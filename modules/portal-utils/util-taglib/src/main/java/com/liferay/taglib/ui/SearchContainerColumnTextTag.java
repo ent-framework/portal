@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -23,246 +23,235 @@ import com.liferay.portal.kernel.util.ServerDetector;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.Validator;
 
-import java.util.List;
-import java.util.Map;
-
 import javax.portlet.PortletURL;
-
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.tagext.BodyContent;
 import javax.servlet.jsp.tagext.BodyTag;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author Raymond Augé
  */
 public class SearchContainerColumnTextTag<R>
-	extends SearchContainerColumnTag implements BodyTag {
+        extends SearchContainerColumnTag implements BodyTag {
 
-	@Override
-	public int doEndTag() {
-		try {
-			SearchContainerRowTag<R> searchContainerRowTag =
-				(SearchContainerRowTag<R>)findAncestorWithClass(
-					this, SearchContainerRowTag.class);
+    private String _buffer;
+    private Object _href;
+    private boolean _orderable;
+    private String _orderableProperty;
+    private String _property;
+    private StringBundler _sb;
+    private String _target;
+    private String _title;
+    private boolean _translate;
+    private String _value;
 
-			ResultRow resultRow = searchContainerRowTag.getRow();
+    @Override
+    public int doEndTag() {
+        try {
+            SearchContainerRowTag<R> searchContainerRowTag =
+                    (SearchContainerRowTag<R>) findAncestorWithClass(
+                            this, SearchContainerRowTag.class);
 
-			if (Validator.isNotNull(_property)) {
-				_value = String.valueOf(
-					BeanPropertiesUtil.getObject(
-						resultRow.getObject(), _property));
-			}
-			else if (Validator.isNotNull(_buffer)) {
-				_value = _sb.toString();
-			}
-			else if (_value == null) {
-				BodyContent bodyContent = getBodyContent();
+            ResultRow resultRow = searchContainerRowTag.getRow();
 
-				if (bodyContent != null) {
-					_value = bodyContent.getString();
-				}
-				else {
-					Object object = BeanPropertiesUtil.getObject(
-						resultRow.getObject(), getName());
+            if (Validator.isNotNull(_property)) {
+                _value = String.valueOf(
+                        BeanPropertiesUtil.getObject(
+                                resultRow.getObject(), _property));
+            } else if (Validator.isNotNull(_buffer)) {
+                _value = _sb.toString();
+            } else if (_value == null) {
+                BodyContent bodyContent = getBodyContent();
 
-					_value = String.valueOf(object);
-				}
-			}
+                if (bodyContent != null) {
+                    _value = bodyContent.getString();
+                } else {
+                    Object object = BeanPropertiesUtil.getObject(
+                            resultRow.getObject(), getName());
 
-			if (_translate) {
-				_value = LanguageUtil.get(pageContext, _value);
-			}
+                    _value = String.valueOf(object);
+                }
+            }
 
-			if (index <= -1) {
-				List<SearchEntry> searchEntries = resultRow.getEntries();
+            if (_translate) {
+                _value = LanguageUtil.get(pageContext, _value);
+            }
 
-				index = searchEntries.size();
-			}
+            if (index <= -1) {
+                List<SearchEntry> searchEntries = resultRow.getEntries();
 
-			if (resultRow.isRestricted()) {
-				_href = null;
-			}
+                index = searchEntries.size();
+            }
 
-			TextSearchEntry textSearchEntry = new TextSearchEntry();
+            if (resultRow.isRestricted()) {
+                _href = null;
+            }
 
-			textSearchEntry.setAlign(getAlign());
-			textSearchEntry.setColspan(getColspan());
-			textSearchEntry.setCssClass(getCssClass());
-			textSearchEntry.setHref((String)getHref());
-			textSearchEntry.setName(getValue());
-			textSearchEntry.setTarget(getTarget());
-			textSearchEntry.setTitle(getTitle());
-			textSearchEntry.setValign(getValign());
+            TextSearchEntry textSearchEntry = new TextSearchEntry();
 
-			resultRow.addSearchEntry(index, textSearchEntry);
+            textSearchEntry.setAlign(getAlign());
+            textSearchEntry.setColspan(getColspan());
+            textSearchEntry.setCssClass(getCssClass());
+            textSearchEntry.setHref((String) getHref());
+            textSearchEntry.setName(getValue());
+            textSearchEntry.setTarget(getTarget());
+            textSearchEntry.setTitle(getTitle());
+            textSearchEntry.setValign(getValign());
 
-			return EVAL_PAGE;
-		}
-		finally {
-			index = -1;
-			_value = null;
+            resultRow.addSearchEntry(index, textSearchEntry);
 
-			if (!ServerDetector.isResin()) {
-				align = SearchEntry.DEFAULT_ALIGN;
-				_buffer = null;
-				colspan = SearchEntry.DEFAULT_COLSPAN;
-				cssClass = SearchEntry.DEFAULT_CSS_CLASS;
-				_href = null;
-				name = null;
-				_orderable = false;
-				_orderableProperty = null;
-				_property = null;
-				_sb = null;
-				_target = null;
-				_title = null;
-				_translate = false;
-				valign = SearchEntry.DEFAULT_VALIGN;
-			}
-		}
-	}
+            return EVAL_PAGE;
+        } finally {
+            index = -1;
+            _value = null;
 
-	@Override
-	public int doStartTag() throws JspException {
-		if (_orderable && Validator.isNull(_orderableProperty)) {
-			_orderableProperty = name;
-		}
+            if (!ServerDetector.isResin()) {
+                align = SearchEntry.DEFAULT_ALIGN;
+                _buffer = null;
+                colspan = SearchEntry.DEFAULT_COLSPAN;
+                cssClass = SearchEntry.DEFAULT_CSS_CLASS;
+                _href = null;
+                name = null;
+                _orderable = false;
+                _orderableProperty = null;
+                _property = null;
+                _sb = null;
+                _target = null;
+                _title = null;
+                _translate = false;
+                valign = SearchEntry.DEFAULT_VALIGN;
+            }
+        }
+    }
 
-		SearchContainerRowTag<R> searchContainerRowTag =
-			(SearchContainerRowTag<R>)findAncestorWithClass(
-				this, SearchContainerRowTag.class);
+    @Override
+    public int doStartTag() throws JspException {
+        if (_orderable && Validator.isNull(_orderableProperty)) {
+            _orderableProperty = name;
+        }
 
-		if (searchContainerRowTag == null) {
-			throw new JspTagException(
-				"Requires liferay-ui:search-container-row");
-		}
+        SearchContainerRowTag<R> searchContainerRowTag =
+                (SearchContainerRowTag<R>) findAncestorWithClass(
+                        this, SearchContainerRowTag.class);
 
-		if (!searchContainerRowTag.isHeaderNamesAssigned()) {
-			List<String> headerNames = searchContainerRowTag.getHeaderNames();
+        if (searchContainerRowTag == null) {
+            throw new JspTagException(
+                    "Requires liferay-ui:search-container-row");
+        }
 
-			String name = getName();
+        if (!searchContainerRowTag.isHeaderNamesAssigned()) {
+            List<String> headerNames = searchContainerRowTag.getHeaderNames();
 
-			if (Validator.isNull(name) && Validator.isNotNull(_property)) {
-				name = _property;
-			}
+            String name = getName();
 
-			headerNames.add(name);
+            if (Validator.isNull(name) && Validator.isNotNull(_property)) {
+                name = _property;
+            }
 
-			if (_orderable) {
-				Map<String, String> orderableHeaders =
-					searchContainerRowTag.getOrderableHeaders();
+            headerNames.add(name);
 
-				if (Validator.isNotNull(_orderableProperty)) {
-					orderableHeaders.put(name, _orderableProperty);
-				}
-				else if (Validator.isNotNull(_property)) {
-					orderableHeaders.put(name, _property);
-				}
-				else if (Validator.isNotNull(name)) {
-					orderableHeaders.put(name, name);
-				}
-			}
-		}
+            if (_orderable) {
+                Map<String, String> orderableHeaders =
+                        searchContainerRowTag.getOrderableHeaders();
 
-		if (Validator.isNotNull(_property)) {
-			return SKIP_BODY;
-		}
-		else if (Validator.isNotNull(_buffer)) {
-			_sb = new StringBundler();
+                if (Validator.isNotNull(_orderableProperty)) {
+                    orderableHeaders.put(name, _orderableProperty);
+                } else if (Validator.isNotNull(_property)) {
+                    orderableHeaders.put(name, _property);
+                } else if (Validator.isNotNull(name)) {
+                    orderableHeaders.put(name, name);
+                }
+            }
+        }
 
-			pageContext.setAttribute(_buffer, _sb);
+        if (Validator.isNotNull(_property)) {
+            return SKIP_BODY;
+        } else if (Validator.isNotNull(_buffer)) {
+            _sb = new StringBundler();
 
-			return EVAL_BODY_INCLUDE;
-		}
-		else if (Validator.isNull(_value)) {
-			return EVAL_BODY_BUFFERED;
-		}
-		else {
-			return SKIP_BODY;
-		}
-	}
+            pageContext.setAttribute(_buffer, _sb);
 
-	public String getBuffer() {
-		return _buffer;
-	}
+            return EVAL_BODY_INCLUDE;
+        } else if (Validator.isNull(_value)) {
+            return EVAL_BODY_BUFFERED;
+        } else {
+            return SKIP_BODY;
+        }
+    }
 
-	public Object getHref() {
-		if (Validator.isNotNull(_href) && (_href instanceof PortletURL)) {
-			_href = _href.toString();
-		}
+    public String getBuffer() {
+        return _buffer;
+    }
 
-		return _href;
-	}
+    public void setBuffer(String buffer) {
+        _buffer = buffer;
+    }
 
-	public String getOrderableProperty() {
-		return _orderableProperty;
-	}
+    public Object getHref() {
+        if (Validator.isNotNull(_href) && (_href instanceof PortletURL)) {
+            _href = _href.toString();
+        }
 
-	public String getProperty() {
-		return _property;
-	}
+        return _href;
+    }
 
-	public String getTarget() {
-		return _target;
-	}
+    public void setHref(Object href) {
+        _href = href;
+    }
 
-	public String getTitle() {
-		return _title;
-	}
+    public String getOrderableProperty() {
+        return _orderableProperty;
+    }
 
-	public String getValue() {
-		return _value;
-	}
+    public void setOrderableProperty(String orderableProperty) {
+        _orderableProperty = orderableProperty;
+    }
 
-	public boolean isOrderable() {
-		return _orderable;
-	}
+    public String getProperty() {
+        return _property;
+    }
 
-	public void setBuffer(String buffer) {
-		_buffer = buffer;
-	}
+    public void setProperty(String property) {
+        _property = property;
+    }
 
-	public void setHref(Object href) {
-		_href = href;
-	}
+    public String getTarget() {
+        return _target;
+    }
 
-	public void setOrderable(boolean orderable) {
-		_orderable = orderable;
-	}
+    public void setTarget(String target) {
+        _target = target;
+    }
 
-	public void setOrderableProperty(String orderableProperty) {
-		_orderableProperty = orderableProperty;
-	}
+    public String getTitle() {
+        return _title;
+    }
 
-	public void setProperty(String property) {
-		_property = property;
-	}
+    public void setTitle(String title) {
+        _title = title;
+    }
 
-	public void setTarget(String target) {
-		_target = target;
-	}
+    public String getValue() {
+        return _value;
+    }
 
-	public void setTitle(String title) {
-		_title = title;
-	}
+    public void setValue(String value) {
+        _value = value;
+    }
 
-	public void setTranslate(boolean translate) {
-		_translate = translate;
-	}
+    public boolean isOrderable() {
+        return _orderable;
+    }
 
-	public void setValue(String value) {
-		_value = value;
-	}
+    public void setOrderable(boolean orderable) {
+        _orderable = orderable;
+    }
 
-	private String _buffer;
-	private Object _href;
-	private boolean _orderable;
-	private String _orderableProperty;
-	private String _property;
-	private StringBundler _sb;
-	private String _target;
-	private String _title;
-	private boolean _translate;
-	private String _value;
+    public void setTranslate(boolean translate) {
+        _translate = translate;
+    }
 
 }

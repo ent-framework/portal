@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -18,13 +18,11 @@ import com.liferay.portal.kernel.servlet.taglib.aui.ValidatorTag;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.taglib.aui.base.BaseFormTag;
 
+import javax.portlet.PortletURL;
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.portlet.PortletURL;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author Julio Camarero
@@ -33,55 +31,54 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class FormTag extends BaseFormTag {
 
-	@Override
-	public String getAction() {
-		return super.getAction();
-	}
+    private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
+    private Map<String, List<ValidatorTag>> _validatorTagsMap =
+            new HashMap<String, List<ValidatorTag>>();
 
-	public void setAction(PortletURL portletURL) {
-		if (portletURL != null) {
-			setAction(portletURL.toString());
-		}
-	}
+    @Override
+    public String getAction() {
+        return super.getAction();
+    }
 
-	@Override
-	protected void cleanUp() {
-		super.cleanUp();
+    public void setAction(PortletURL portletURL) {
+        if (portletURL != null) {
+            setAction(portletURL.toString());
+        }
+    }
 
-		if (_validatorTagsMap != null) {
-			for (List<ValidatorTag> validatorTags :
-					_validatorTagsMap.values()) {
+    @Override
+    protected void cleanUp() {
+        super.cleanUp();
 
-				for (ValidatorTag validatorTag : validatorTags) {
-					validatorTag.cleanUp();
-				}
-			}
+        if (_validatorTagsMap != null) {
+            for (List<ValidatorTag> validatorTags :
+                    _validatorTagsMap.values()) {
 
-			_validatorTagsMap.clear();
-		}
-	}
+                for (ValidatorTag validatorTag : validatorTags) {
+                    validatorTag.cleanUp();
+                }
+            }
 
-	@Override
-	protected boolean isCleanUpSetAttributes() {
-		return _CLEAN_UP_SET_ATTRIBUTES;
-	}
+            _validatorTagsMap.clear();
+        }
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		super.setAttributes(request);
+    @Override
+    protected boolean isCleanUpSetAttributes() {
+        return _CLEAN_UP_SET_ATTRIBUTES;
+    }
 
-		if (getEscapeXml()) {
-			String action = getAction();
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        super.setAttributes(request);
 
-			super.setAction(HtmlUtil.escape(action));
-		}
+        if (getEscapeXml()) {
+            String action = getAction();
 
-		request.setAttribute("aui:form:validatorTagsMap", _validatorTagsMap);
-	}
+            super.setAction(HtmlUtil.escape(action));
+        }
 
-	private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
-
-	private Map<String, List<ValidatorTag>> _validatorTagsMap =
-		new HashMap<String, List<ValidatorTag>>();
+        request.setAttribute("aui:form:validatorTagsMap", _validatorTagsMap);
+    }
 
 }

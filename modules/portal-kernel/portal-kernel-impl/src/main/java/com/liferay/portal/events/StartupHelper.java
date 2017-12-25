@@ -25,7 +25,6 @@ import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.ReleaseInfo;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
-import com.liferay.portal.upgrade.UpgradeProcessUtil;
 import com.liferay.portal.util.ClassLoaderUtil;
 import com.liferay.portal.util.PropsUtil;
 import com.liferay.portal.verify.VerifyException;
@@ -134,10 +133,10 @@ public class StartupHelper {
 				System.exit(0);
 			}
 		}
-
-		_upgraded = UpgradeProcessUtil.upgradeProcess(
-			buildNumber, upgradeProcessClassNames,
-			ClassLoaderUtil.getPortalClassLoader());
+//
+//		_upgraded = UpgradeProcessUtil.upgradeProcess(
+//			buildNumber, upgradeProcessClassNames,
+//			ClassLoaderUtil.getPortalClassLoader());
 	}
 
 	public void verifyProcess(boolean newBuildNumber, boolean verified)

@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -24,28 +24,28 @@ import java.util.Map;
  */
 public class InlineUtil {
 
-	public static String buildDynamicAttributes(
-		Map<String, Object> dynamicAttributes) {
+    public static String buildDynamicAttributes(
+            Map<String, Object> dynamicAttributes) {
 
-		if ((dynamicAttributes == null) || dynamicAttributes.isEmpty()) {
-			return StringPool.BLANK;
-		}
+        if ((dynamicAttributes == null) || dynamicAttributes.isEmpty()) {
+            return StringPool.BLANK;
+        }
 
-		StringBundler sb = new StringBundler(dynamicAttributes.size() * 4);
+        StringBundler sb = new StringBundler(dynamicAttributes.size() * 4);
 
-		for (Map.Entry<String, Object> entry : dynamicAttributes.entrySet()) {
-			String key = entry.getKey();
-			String value = String.valueOf(entry.getValue());
+        for (Map.Entry<String, Object> entry : dynamicAttributes.entrySet()) {
+            String key = entry.getKey();
+            String value = String.valueOf(entry.getValue());
 
-			if (!key.equals("class")) {
-				sb.append(key);
-				sb.append("=\"");
-				sb.append(value);
-				sb.append("\" ");
-			}
-		}
+            if (!key.equals("class")) {
+                sb.append(key);
+                sb.append("=\"");
+                sb.append(value);
+                sb.append("\" ");
+            }
+        }
 
-		return sb.toString();
-	}
+        return sb.toString();
+    }
 
 }

@@ -29,12 +29,12 @@ import javax.xml.transform.sax.SAXTransformerFactory;
 import javax.xml.transform.sax.TransformerHandler;
 import javax.xml.transform.stream.StreamResult;
 
-import org.outerj.daisy.diff.HtmlCleaner;
-import org.outerj.daisy.diff.XslFilter;
-import org.outerj.daisy.diff.html.HTMLDiffer;
-import org.outerj.daisy.diff.html.HtmlSaxDiffOutput;
-import org.outerj.daisy.diff.html.TextNodeComparator;
-import org.outerj.daisy.diff.html.dom.DomTreeBuilder;
+//import org.outerj.daisy.diff.HtmlCleaner;
+//import org.outerj.daisy.diff.XslFilter;
+//import org.outerj.daisy.diff.html.HTMLDiffer;
+//import org.outerj.daisy.diff.html.HtmlSaxDiffOutput;
+//import org.outerj.daisy.diff.html.TextNodeComparator;
+//import org.outerj.daisy.diff.html.dom.DomTreeBuilder;
 
 import org.xml.sax.ContentHandler;
 import org.xml.sax.InputSource;
@@ -61,7 +61,7 @@ public class DiffHtmlImpl implements DiffHtml {
 	 */
 	@Override
 	public String diff(Reader source, Reader target) throws Exception {
-		InputSource oldSource = new InputSource(source);
+/*		InputSource oldSource = new InputSource(source);
 		InputSource newSource = new InputSource(target);
 
 		UnsyncStringWriter unsyncStringWriter = new UnsyncStringWriter();
@@ -125,7 +125,8 @@ public class DiffHtmlImpl implements DiffHtml {
 			string = string.substring(index + 2);
 		}
 
-		return string;
+		return string;*/
+		return null;
 	}
 
 	private static final String _DIFF = "diff";

@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -27,46 +27,45 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class WorkflowStatusTag extends BaseWorkflowStatusTag {
 
-	@Override
-	protected boolean isCleanUpSetAttributes() {
-		return _CLEAN_UP_SET_ATTRIBUTES;
-	}
+    private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
+    private static final String _HELP_MESSAGE_DEFAULT =
+            "a-new-version-will-be-created-automatically-if-this-content-is-" +
+                    "modified";
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		super.setAttributes(request);
+    @Override
+    protected boolean isCleanUpSetAttributes() {
+        return _CLEAN_UP_SET_ATTRIBUTES;
+    }
 
-		Object bean = getBean();
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        super.setAttributes(request);
 
-		if (bean == null) {
-			bean = pageContext.getAttribute("aui:model-context:bean");
-		}
+        Object bean = getBean();
 
-		String helpMessage = getHelpMessage();
+        if (bean == null) {
+            bean = pageContext.getAttribute("aui:model-context:bean");
+        }
 
-		if (Validator.isNull(helpMessage) &&
-			(getStatus() == WorkflowConstants.STATUS_APPROVED) &&
-			Validator.isNotNull(getVersion())) {
+        String helpMessage = getHelpMessage();
 
-			helpMessage = _HELP_MESSAGE_DEFAULT;
-		}
+        if (Validator.isNull(helpMessage) &&
+                (getStatus() == WorkflowConstants.STATUS_APPROVED) &&
+                Validator.isNotNull(getVersion())) {
 
-		Class<?> model = getModel();
+            helpMessage = _HELP_MESSAGE_DEFAULT;
+        }
 
-		if (model == null) {
-			model = (Class<?>)pageContext.getAttribute(
-				"aui:model-context:model");
-		}
+        Class<?> model = getModel();
 
-		setNamespacedAttribute(request, "bean", bean);
-		setNamespacedAttribute(request, "helpMessage", helpMessage);
-		setNamespacedAttribute(request, "model", model);
-	}
+        if (model == null) {
+            model = (Class<?>) pageContext.getAttribute(
+                    "aui:model-context:model");
+        }
 
-	private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
-
-	private static final String _HELP_MESSAGE_DEFAULT =
-		"a-new-version-will-be-created-automatically-if-this-content-is-" +
-			"modified";
+        setNamespacedAttribute(request, "bean", bean);
+        setNamespacedAttribute(request, "helpMessage", helpMessage);
+        setNamespacedAttribute(request, "model", model);
+    }
 
 }

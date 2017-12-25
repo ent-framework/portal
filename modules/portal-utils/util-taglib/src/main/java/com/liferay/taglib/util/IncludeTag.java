@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -24,13 +24,7 @@ import com.liferay.portal.kernel.servlet.PipingServletResponse;
 import com.liferay.portal.kernel.servlet.TrackedServletRequest;
 import com.liferay.portal.kernel.servlet.taglib.FileAvailabilityUtil;
 import com.liferay.portal.kernel.staging.StagingUtil;
-import com.liferay.portal.kernel.util.GetterUtil;
-import com.liferay.portal.kernel.util.PropsKeys;
-import com.liferay.portal.kernel.util.PropsUtil;
-import com.liferay.portal.kernel.util.ServerDetector;
-import com.liferay.portal.kernel.util.UnicodeProperties;
-import com.liferay.portal.kernel.util.Validator;
-import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.PortletConstants;
 import com.liferay.portal.model.Theme;
@@ -51,316 +45,308 @@ import javax.servlet.jsp.JspException;
  */
 public class IncludeTag extends AttributesTagSupport {
 
-	@Override
-	public int doEndTag() throws JspException {
-		try {
-			String page = null;
+    private static final boolean _CLEAN_UP_SET_ATTRIBUTES = false;
+    private static final boolean _THEME_JSP_OVERRIDE_ENABLED =
+            GetterUtil.getBoolean(
+                    PropsUtil.get(PropsKeys.THEME_JSP_OVERRIDE_ENABLED));
+    private static Log _log = LogFactoryUtil.getLog(IncludeTag.class);
+    private String _page;
+    private boolean _strict;
+    private TrackedServletRequest _trackedRequest;
+    private boolean _useCustomPage = true;
+
+    @Override
+    public int doEndTag() throws JspException {
+        try {
+            String page = null;
 
-			if (_useCustomPage) {
-				page = getCustomPage(servletContext, request);
-			}
+            if (_useCustomPage) {
+                page = getCustomPage(servletContext, request);
+            }
+
+            if (Validator.isNull(page)) {
+                page = getPage();
+            }
 
-			if (Validator.isNull(page)) {
-				page = getPage();
-			}
+            if (Validator.isNull(page)) {
+                page = getEndPage();
+            }
 
-			if (Validator.isNull(page)) {
-				page = getEndPage();
-			}
+            callSetAttributes();
 
-			callSetAttributes();
+            if (themeResourceExists(page)) {
+                doIncludeTheme(page);
 
-			if (themeResourceExists(page)) {
-				doIncludeTheme(page);
+                return EVAL_PAGE;
+            }
+
+            if (!FileAvailabilityUtil.isAvailable(servletContext, page)) {
+                return processEndTag();
+            }
+
+            doInclude(page);
+
+            return EVAL_PAGE;
+        } catch (Exception e) {
+            throw new JspException(e);
+        } finally {
+            clearDynamicAttributes();
+            clearParams();
+            clearProperties();
 
-				return EVAL_PAGE;
-			}
+            cleanUpSetAttributes();
+
+            if (!ServerDetector.isResin()) {
+                setPage(null);
+                setUseCustomPage(true);
+
+                cleanUp();
+            }
+        }
+    }
+
+    @Override
+    public int doStartTag() throws JspException {
+        try {
+            String page = getStartPage();
 
-			if (!FileAvailabilityUtil.isAvailable(servletContext, page)) {
-				return processEndTag();
-			}
+            callSetAttributes();
+
+            if (themeResourceExists(page)) {
+                doIncludeTheme(page);
+
+                return EVAL_BODY_INCLUDE;
+            }
 
-			doInclude(page);
+            if (!FileAvailabilityUtil.isAvailable(servletContext, page)) {
+                return processStartTag();
+            }
 
-			return EVAL_PAGE;
-		}
-		catch (Exception e) {
-			throw new JspException(e);
-		}
-		finally {
-			clearDynamicAttributes();
-			clearParams();
-			clearProperties();
+            doInclude(page);
 
-			cleanUpSetAttributes();
-
-			if (!ServerDetector.isResin()) {
-				setPage(null);
-				setUseCustomPage(true);
-
-				cleanUp();
-			}
-		}
-	}
+            return EVAL_BODY_INCLUDE;
+        } catch (Exception e) {
+            throw new JspException(e);
+        }
+    }
 
-	@Override
-	public int doStartTag() throws JspException {
-		try {
-			String page = getStartPage();
+    public void runTag() throws JspException {
+        doStartTag();
+        doEndTag();
+    }
 
-			callSetAttributes();
-
-			if (themeResourceExists(page)) {
-				doIncludeTheme(page);
-
-				return EVAL_BODY_INCLUDE;
-			}
+    public void setPortletId(String portletId) {
+        if (Validator.isNotNull(portletId)) {
+            String rootPortletId = PortletConstants.getRootPortletId(portletId);
 
-			if (!FileAvailabilityUtil.isAvailable(servletContext, page)) {
-				return processStartTag();
-			}
+            PortletBag portletBag = PortletBagPool.get(rootPortletId);
 
-			doInclude(page);
+            servletContext = portletBag.getServletContext();
+        }
+    }
 
-			return EVAL_BODY_INCLUDE;
-		}
-		catch (Exception e) {
-			throw new JspException(e);
-		}
-	}
+    public void setStrict(boolean strict) {
+        _strict = strict;
+    }
 
-	public void runTag() throws JspException {
-		doStartTag();
-		doEndTag();
-	}
+    protected void callSetAttributes() {
+        HttpServletRequest request = getOriginalServletRequest();
 
-	public void setPage(String page) {
-		_page = page;
-	}
+        if (isCleanUpSetAttributes()) {
+            _trackedRequest = new TrackedServletRequest(request);
 
-	public void setPortletId(String portletId) {
-		if (Validator.isNotNull(portletId)) {
-			String rootPortletId = PortletConstants.getRootPortletId(portletId);
+            request = _trackedRequest;
+        }
 
-			PortletBag portletBag = PortletBagPool.get(rootPortletId);
+        setNamespacedAttribute(request, "bodyContent", getBodyContent());
+        setNamespacedAttribute(
+                request, "dynamicAttributes", getDynamicAttributes());
+        setNamespacedAttribute(
+                request, "scopedAttributes", getScopedAttributes());
 
-			servletContext = portletBag.getServletContext();
-		}
-	}
+        setAttributes(request);
+    }
 
-	public void setStrict(boolean strict) {
-		_strict = strict;
-	}
+    protected void cleanUp() {
+    }
 
-	public void setUseCustomPage(boolean useCustomPage) {
-		_useCustomPage = useCustomPage;
-	}
+    protected void cleanUpSetAttributes() {
+        if (isCleanUpSetAttributes()) {
+            for (String name : _trackedRequest.getSetAttributes()) {
+                _trackedRequest.removeAttribute(name);
+            }
 
-	protected void callSetAttributes() {
-		HttpServletRequest request = getOriginalServletRequest();
+            _trackedRequest = null;
+        }
+    }
 
-		if (isCleanUpSetAttributes()) {
-			_trackedRequest = new TrackedServletRequest(request);
+    protected void doInclude(String page) throws JspException {
+        try {
+            include(page);
+        } catch (Exception e) {
+            String currentURL = (String) request.getAttribute(
+                    WebKeys.CURRENT_URL);
 
-			request = _trackedRequest;
-		}
+            String message =
+                    "Current URL " + currentURL + " generates exception: " +
+                            e.getMessage();
 
-		setNamespacedAttribute(request, "bodyContent", getBodyContent());
-		setNamespacedAttribute(
-			request, "dynamicAttributes", getDynamicAttributes());
-		setNamespacedAttribute(
-			request, "scopedAttributes", getScopedAttributes());
+            LogUtil.log(_log, e, message);
 
-		setAttributes(request);
-	}
+            if (e instanceof JspException) {
+                throw (JspException) e;
+            }
+        }
+    }
 
-	protected void cleanUp() {
-	}
+    protected void doIncludeTheme(String page) throws Exception {
+        HttpServletResponse response =
+                (HttpServletResponse) pageContext.getResponse();
 
-	protected void cleanUpSetAttributes() {
-		if (isCleanUpSetAttributes()) {
-			for (String name : _trackedRequest.getSetAttributes()) {
-				_trackedRequest.removeAttribute(name);
-			}
+        Theme theme = (Theme) request.getAttribute(WebKeys.THEME);
 
-			_trackedRequest = null;
-		}
-	}
+        ThemeUtil.include(
+                servletContext, request, response, pageContext, page, theme);
+    }
 
-	protected void doInclude(String page) throws JspException {
-		try {
-			include(page);
-		}
-		catch (Exception e) {
-			String currentURL = (String)request.getAttribute(
-				WebKeys.CURRENT_URL);
+    protected String getCustomPage(
+            ServletContext servletContext, HttpServletRequest request) {
 
-			String message =
-				"Current URL " + currentURL + " generates exception: " +
-					e.getMessage();
+        ThemeDisplay themeDisplay = (ThemeDisplay) request.getAttribute(
+                WebKeys.THEME_DISPLAY);
 
-			LogUtil.log(_log, e, message);
+        if (themeDisplay == null) {
+            return null;
+        }
 
-			if (e instanceof JspException) {
-				throw (JspException)e;
-			}
-		}
-	}
+        Group group = null;
 
-	protected void doIncludeTheme(String page) throws Exception {
-		HttpServletResponse response =
-			(HttpServletResponse)pageContext.getResponse();
+        try {
+            group = StagingUtil.getLiveGroup(themeDisplay.getScopeGroupId());
+        } catch (Exception e) {
+            return null;
+        }
 
-		Theme theme = (Theme)request.getAttribute(WebKeys.THEME);
+        UnicodeProperties typeSettingsProperties =
+                group.getTypeSettingsProperties();
 
-		ThemeUtil.include(
-			servletContext, request, response, pageContext, page, theme);
-	}
+        String customJspServletContextName = typeSettingsProperties.getProperty(
+                "customJspServletContextName");
 
-	protected String getCustomPage(
-		ServletContext servletContext, HttpServletRequest request) {
+        if (Validator.isNull(customJspServletContextName)) {
+            return null;
+        }
 
-		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
-			WebKeys.THEME_DISPLAY);
+        String page = getPage();
 
-		if (themeDisplay == null) {
-			return null;
-		}
+        if (Validator.isNull(page)) {
+            page = getEndPage();
+        }
 
-		Group group = null;
+        if (Validator.isNull(page)) {
+            return null;
+        }
 
-		try {
-			group = StagingUtil.getLiveGroup(themeDisplay.getScopeGroupId());
-		}
-		catch (Exception e) {
-			return null;
-		}
+        String customPage = CustomJspRegistryUtil.getCustomJspFileName(
+                customJspServletContextName, page);
 
-		UnicodeProperties typeSettingsProperties =
-			group.getTypeSettingsProperties();
+        if (FileAvailabilityUtil.isAvailable(servletContext, customPage)) {
+            return customPage;
+        }
 
-		String customJspServletContextName = typeSettingsProperties.getProperty(
-			"customJspServletContextName");
+        return null;
+    }
 
-		if (Validator.isNull(customJspServletContextName)) {
-			return null;
-		}
+    protected String getEndPage() {
+        return null;
+    }
 
-		String page = getPage();
+    protected HttpServletRequest getOriginalServletRequest() {
+        return (HttpServletRequest) pageContext.getRequest();
+    }
 
-		if (Validator.isNull(page)) {
-			page = getEndPage();
-		}
+    protected String getPage() {
+        return _page;
+    }
 
-		if (Validator.isNull(page)) {
-			return null;
-		}
+    public void setPage(String page) {
+        _page = page;
+    }
 
-		String customPage = CustomJspRegistryUtil.getCustomJspFileName(
-			customJspServletContextName, page);
+    protected String getStartPage() {
+        return null;
+    }
 
-		if (FileAvailabilityUtil.isAvailable(servletContext, customPage)) {
-			return customPage;
-		}
+    protected void include(String page) throws Exception {
+        RequestDispatcher requestDispatcher =
+                DirectRequestDispatcherFactoryUtil.getRequestDispatcher(
+                        servletContext, page);
 
-		return null;
-	}
+        request.setAttribute(
+                WebKeys.SERVLET_CONTEXT_INCLUDE_FILTER_STRICT, _strict);
 
-	protected String getEndPage() {
-		return null;
-	}
+        HttpServletResponse response = new PipingServletResponse(pageContext);
 
-	protected HttpServletRequest getOriginalServletRequest() {
-		return (HttpServletRequest)pageContext.getRequest();
-	}
+        requestDispatcher.include(request, response);
 
-	protected String getPage() {
-		return _page;
-	}
+        request.removeAttribute(WebKeys.SERVLET_CONTEXT_INCLUDE_FILTER_STRICT);
+    }
 
-	protected String getStartPage() {
-		return null;
-	}
+    protected boolean isCleanUpSetAttributes() {
+        return _CLEAN_UP_SET_ATTRIBUTES;
+    }
 
-	protected void include(String page) throws Exception {
-		RequestDispatcher requestDispatcher =
-			DirectRequestDispatcherFactoryUtil.getRequestDispatcher(
-				servletContext, page);
+    protected boolean isUseCustomPage() {
+        return _useCustomPage;
+    }
 
-		request.setAttribute(
-			WebKeys.SERVLET_CONTEXT_INCLUDE_FILTER_STRICT, _strict);
+    public void setUseCustomPage(boolean useCustomPage) {
+        _useCustomPage = useCustomPage;
+    }
 
-		HttpServletResponse response = new PipingServletResponse(pageContext);
+    protected int processEndTag() throws Exception {
+        return EVAL_PAGE;
+    }
 
-		requestDispatcher.include(request, response);
+    protected int processStartTag() throws Exception {
+        return EVAL_BODY_INCLUDE;
+    }
 
-		request.removeAttribute(WebKeys.SERVLET_CONTEXT_INCLUDE_FILTER_STRICT);
-	}
+    protected void setAttributes(HttpServletRequest request) {
+    }
 
-	protected boolean isCleanUpSetAttributes() {
-		return _CLEAN_UP_SET_ATTRIBUTES;
-	}
+    protected boolean themeResourceExists(String page) throws Exception {
+        if ((page == null) || !_THEME_JSP_OVERRIDE_ENABLED || _strict) {
+            return false;
+        }
 
-	protected boolean isUseCustomPage() {
-		return _useCustomPage;
-	}
+        Theme theme = (Theme) request.getAttribute(WebKeys.THEME);
 
-	protected int processEndTag() throws Exception {
-		return EVAL_PAGE;
-	}
+        if (theme == null) {
+            ThemeDisplay themeDisplay = (ThemeDisplay) request.getAttribute(
+                    WebKeys.THEME_DISPLAY);
 
-	protected int processStartTag() throws Exception {
-		return EVAL_BODY_INCLUDE;
-	}
+            if (themeDisplay != null) {
+                theme = themeDisplay.getTheme();
+            }
+        }
 
-	protected void setAttributes(HttpServletRequest request) {
-	}
+        if (theme == null) {
+            return false;
+        }
 
-	protected boolean themeResourceExists(String page) throws Exception {
-		if ((page == null) || !_THEME_JSP_OVERRIDE_ENABLED || _strict) {
-			return false;
-		}
+        String portletId = ThemeUtil.getPortletId(request);
 
-		Theme theme = (Theme)request.getAttribute(WebKeys.THEME);
+        boolean exists = theme.resourceExists(servletContext, portletId, page);
 
-		if (theme == null) {
-			ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
-				WebKeys.THEME_DISPLAY);
+        if (_log.isDebugEnabled() && exists) {
+            String resourcePath = theme.getResourcePath(
+                    servletContext, null, page);
 
-			if (themeDisplay != null) {
-				theme = themeDisplay.getTheme();
-			}
-		}
+            _log.debug(resourcePath);
+        }
 
-		if (theme == null) {
-			return false;
-		}
-
-		String portletId = ThemeUtil.getPortletId(request);
-
-		boolean exists = theme.resourceExists(servletContext, portletId, page);
-
-		if (_log.isDebugEnabled() && exists) {
-			String resourcePath = theme.getResourcePath(
-				servletContext, null, page);
-
-			_log.debug(resourcePath);
-		}
-
-		return exists;
-	}
-
-	private static final boolean _CLEAN_UP_SET_ATTRIBUTES = false;
-
-	private static final boolean _THEME_JSP_OVERRIDE_ENABLED =
-		GetterUtil.getBoolean(
-			PropsUtil.get(PropsKeys.THEME_JSP_OVERRIDE_ENABLED));
-
-	private static Log _log = LogFactoryUtil.getLog(IncludeTag.class);
-
-	private String _page;
-	private boolean _strict;
-	private TrackedServletRequest _trackedRequest;
-	private boolean _useCustomPage = true;
+        return exists;
+    }
 
 }

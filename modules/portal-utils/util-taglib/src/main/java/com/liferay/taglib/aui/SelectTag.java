@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -16,19 +16,14 @@ package com.liferay.taglib.aui;
 
 import com.liferay.portal.kernel.bean.BeanPropertiesUtil;
 import com.liferay.portal.kernel.servlet.taglib.aui.ValidatorTag;
-import com.liferay.portal.kernel.util.ListUtil;
-import com.liferay.portal.kernel.util.ParamUtil;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.kernel.util.TextFormatter;
-import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.kernel.util.*;
 import com.liferay.taglib.aui.base.BaseSelectTag;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author Julio Camarero
@@ -37,133 +32,132 @@ import javax.servlet.jsp.JspException;
  */
 public class SelectTag extends BaseSelectTag {
 
-	@Override
-	public int doEndTag() throws JspException {
-		updateFormValidators();
+    private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
+    private Map<String, ValidatorTag> _validators;
 
-		return super.doEndTag();
-	}
+    @Override
+    public int doEndTag() throws JspException {
+        updateFormValidators();
 
-	@Override
-	public int doStartTag() throws JspException {
-		addRequiredValidatorTag();
+        return super.doEndTag();
+    }
 
-		return super.doStartTag();
-	}
+    @Override
+    public int doStartTag() throws JspException {
+        addRequiredValidatorTag();
 
-	protected void addRequiredValidatorTag() {
-		if (!getRequired()) {
-			return;
-		}
+        return super.doStartTag();
+    }
 
-		ValidatorTag validatorTag = new ValidatorTagImpl(
-			"required", null, null, false);
+    protected void addRequiredValidatorTag() {
+        if (!getRequired()) {
+            return;
+        }
 
-		addValidatorTag("required", validatorTag);
-	}
+        ValidatorTag validatorTag = new ValidatorTagImpl(
+                "required", null, null, false);
 
-	protected void addValidatorTag(
-		String validatorName, ValidatorTag validatorTag) {
+        addValidatorTag("required", validatorTag);
+    }
 
-		if (_validators == null) {
-			_validators = new HashMap<String, ValidatorTag>();
-		}
+    protected void addValidatorTag(
+            String validatorName, ValidatorTag validatorTag) {
 
-		_validators.put(validatorName, validatorTag);
-	}
+        if (_validators == null) {
+            _validators = new HashMap<String, ValidatorTag>();
+        }
 
-	@Override
-	protected boolean isCleanUpSetAttributes() {
-		return _CLEAN_UP_SET_ATTRIBUTES;
-	}
+        _validators.put(validatorName, validatorTag);
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		super.setAttributes(request);
+    @Override
+    protected boolean isCleanUpSetAttributes() {
+        return _CLEAN_UP_SET_ATTRIBUTES;
+    }
 
-		Object bean = getBean();
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        super.setAttributes(request);
 
-		if (bean == null) {
-			bean = pageContext.getAttribute("aui:model-context:bean");
-		}
+        Object bean = getBean();
 
-		String name = getName();
+        if (bean == null) {
+            bean = pageContext.getAttribute("aui:model-context:bean");
+        }
 
-		int pos = name.indexOf(StringPool.DOUBLE_DASH);
+        String name = getName();
 
-		if (pos != -1) {
-			name = name.substring(pos + 2, name.length() - 2);
-		}
+        int pos = name.indexOf(StringPool.DOUBLE_DASH);
 
-		String id = getId();
+        if (pos != -1) {
+            name = name.substring(pos + 2, name.length() - 2);
+        }
 
-		if (Validator.isNull(id)) {
-			id = name;
-		}
+        String id = getId();
 
-		String label = getLabel();
+        if (Validator.isNull(id)) {
+            id = name;
+        }
 
-		if (label == null) {
-			label = TextFormatter.format(name, TextFormatter.P);
-		}
+        String label = getLabel();
 
-		String listType = getListType();
-		String listTypeFieldName = getListTypeFieldName();
+        if (label == null) {
+            label = TextFormatter.format(name, TextFormatter.P);
+        }
 
-		if (Validator.isNotNull(listType) &&
-			Validator.isNull(listTypeFieldName)) {
+        String listType = getListType();
+        String listTypeFieldName = getListTypeFieldName();
 
-			listTypeFieldName = "typeId";
-		}
+        if (Validator.isNotNull(listType) &&
+                Validator.isNull(listTypeFieldName)) {
 
-		String title = getTitle();
+            listTypeFieldName = "typeId";
+        }
 
-		if ((title == null) && Validator.isNull(label)) {
-			title = TextFormatter.format(name, TextFormatter.P);
-		}
+        String title = getTitle();
 
-		String value = StringPool.BLANK;
+        if ((title == null) && Validator.isNull(label)) {
+            title = TextFormatter.format(name, TextFormatter.P);
+        }
 
-		if (Validator.isNull(listType)) {
-			if (bean != null) {
-				value = BeanPropertiesUtil.getStringSilent(bean, name, value);
-			}
+        String value = StringPool.BLANK;
 
-			if (!getIgnoreRequestValue()) {
-				value = ParamUtil.getString(request, name, value);
-			}
-		}
+        if (Validator.isNull(listType)) {
+            if (bean != null) {
+                value = BeanPropertiesUtil.getStringSilent(bean, name, value);
+            }
 
-		setNamespacedAttribute(request, "bean", bean);
-		setNamespacedAttribute(request, "id", id);
-		setNamespacedAttribute(request, "label", label);
-		setNamespacedAttribute(request, "listTypeFieldName", listTypeFieldName);
-		setNamespacedAttribute(request, "title", String.valueOf(title));
-		setNamespacedAttribute(request, "value", value);
-	}
+            if (!getIgnoreRequestValue()) {
+                value = ParamUtil.getString(request, name, value);
+            }
+        }
 
-	protected void updateFormValidators() {
-		if (_validators == null) {
-			return;
-		}
+        setNamespacedAttribute(request, "bean", bean);
+        setNamespacedAttribute(request, "id", id);
+        setNamespacedAttribute(request, "label", label);
+        setNamespacedAttribute(request, "listTypeFieldName", listTypeFieldName);
+        setNamespacedAttribute(request, "title", String.valueOf(title));
+        setNamespacedAttribute(request, "value", value);
+    }
 
-		HttpServletRequest request =
-			(HttpServletRequest)pageContext.getRequest();
+    protected void updateFormValidators() {
+        if (_validators == null) {
+            return;
+        }
 
-		Map<String, List<ValidatorTag>> validatorTagsMap =
-			(Map<String, List<ValidatorTag>>)request.getAttribute(
-				"aui:form:validatorTagsMap");
+        HttpServletRequest request =
+                (HttpServletRequest) pageContext.getRequest();
 
-		if (validatorTagsMap != null) {
-			List<ValidatorTag> validatorTags = ListUtil.fromMapValues(
-				_validators);
+        Map<String, List<ValidatorTag>> validatorTagsMap =
+                (Map<String, List<ValidatorTag>>) request.getAttribute(
+                        "aui:form:validatorTagsMap");
 
-			validatorTagsMap.put(getName(), validatorTags);
-		}
-	}
+        if (validatorTagsMap != null) {
+            List<ValidatorTag> validatorTags = ListUtil.fromMapValues(
+                    _validators);
 
-	private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
-
-	private Map<String, ValidatorTag> _validators;
+            validatorTagsMap.put(getName(), validatorTags);
+        }
+    }
 
 }

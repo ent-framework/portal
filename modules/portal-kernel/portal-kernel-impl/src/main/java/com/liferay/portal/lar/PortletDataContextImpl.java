@@ -111,25 +111,12 @@ import com.liferay.portlet.expando.model.ExpandoColumn;
 import com.liferay.portlet.expando.service.ExpandoColumnLocalServiceUtil;
 import com.liferay.portlet.journal.model.impl.JournalArticleImpl;
 import com.liferay.portlet.journal.model.impl.JournalFeedImpl;
-import com.liferay.portlet.messageboards.model.MBDiscussion;
-import com.liferay.portlet.messageboards.model.MBMessage;
-import com.liferay.portlet.messageboards.model.MBThread;
-import com.liferay.portlet.messageboards.model.impl.MBBanImpl;
-import com.liferay.portlet.messageboards.model.impl.MBCategoryImpl;
-import com.liferay.portlet.messageboards.model.impl.MBMessageImpl;
-import com.liferay.portlet.messageboards.model.impl.MBThreadFlagImpl;
-import com.liferay.portlet.messageboards.service.MBMessageLocalServiceUtil;
-import com.liferay.portlet.messageboards.service.MBThreadLocalServiceUtil;
-import com.liferay.portlet.messageboards.service.persistence.MBDiscussionUtil;
-import com.liferay.portlet.messageboards.service.persistence.MBMessageUtil;
 import com.liferay.portlet.polls.model.impl.PollsChoiceImpl;
 import com.liferay.portlet.polls.model.impl.PollsQuestionImpl;
 import com.liferay.portlet.polls.model.impl.PollsVoteImpl;
 import com.liferay.portlet.ratings.model.RatingsEntry;
 import com.liferay.portlet.ratings.model.impl.RatingsEntryImpl;
 import com.liferay.portlet.ratings.service.RatingsEntryLocalServiceUtil;
-import com.liferay.portlet.wiki.model.impl.WikiNodeImpl;
-import com.liferay.portlet.wiki.model.impl.WikiPageImpl;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.security.NoTypePermission;
@@ -365,39 +352,15 @@ public class PortletDataContextImpl implements PortletDataContext {
 
 		long classNameId = PortalUtil.getClassNameId(clazz);
 
-		MBDiscussion discussion = MBDiscussionUtil.fetchByC_C(
-			classNameId, classPK);
-
-		if (discussion == null) {
-			return;
-		}
-
-		List<MBMessage> messages = MBMessageLocalServiceUtil.getThreadMessages(
-			discussion.getThreadId(), WorkflowConstants.STATUS_APPROVED);
-
-		if (messages.isEmpty()) {
-			return;
-		}
-
-		MBMessage firstMessage = messages.get(0);
-
-		if ((messages.size() == 1) && firstMessage.isRoot()) {
-			return;
-		}
-
-		for (MBMessage message : messages) {
-			addRatingsEntries(MBDiscussion.class, message.getPrimaryKey());
-		}
-
-		_commentsMap.put(getPrimaryKeyString(clazz, classPK), messages);
+		// _commentsMap.put(getPrimaryKeyString(clazz, classPK), messages);
 	}
 
-	@Override
-	public void addComments(
-		String className, long classPK, List<MBMessage> messages) {
-
-		_commentsMap.put(getPrimaryKeyString(className, classPK), messages);
-	}
+//	@Override
+//	public void addComments(
+//		String className, long classPK, List<MBMessage> messages) {
+//
+//		_commentsMap.put(getPrimaryKeyString(className, classPK), messages);
+//	}
 
 	/**
 	 * @see #isWithinDateRange(Date)
@@ -901,10 +864,10 @@ public class PortletDataContextImpl implements PortletDataContext {
 		return _xStream.getClassLoader();
 	}
 
-	@Override
-	public Map<String, List<MBMessage>> getComments() {
-		return _commentsMap;
-	}
+//	@Override
+//	public Map<String, List<MBMessage>> getComments() {
+//		return _commentsMap;
+//	}
 
 	@Override
 	public long getCompanyGroupId() {
@@ -1589,117 +1552,117 @@ public class PortletDataContextImpl implements PortletDataContext {
 			Class<?> clazz, long classPK, long newClassPK, long groupId)
 		throws PortalException, SystemException {
 
-		Map<Long, Long> messagePKs = new HashMap<Long, Long>();
-		Map<Long, Long> threadPKs = new HashMap<Long, Long>();
-
-		List<MBMessage> messages = _commentsMap.get(
-			getPrimaryKeyString(clazz, classPK));
-
-		if ((messages == null) || messages.isEmpty()) {
-			return;
-		}
-
-		MBMessage firstMessage = messages.get(0);
-
-		if ((messages.size() == 1) && firstMessage.isRoot()) {
-			return;
-		}
-
-		long classNameId = PortalUtil.getClassNameId(clazz);
-
-		MBDiscussion discussion = MBDiscussionUtil.fetchByC_C(
-			classNameId, newClassPK);
-
-		for (MBMessage message : messages) {
-			long userId = getUserId(message.getUserUuid());
-			long parentMessageId = MapUtil.getLong(
-				messagePKs, message.getParentMessageId(),
-				message.getParentMessageId());
-			long threadId = MapUtil.getLong(
-				threadPKs, message.getThreadId(), message.getThreadId());
-
-			if (message.isRoot()) {
-				if (discussion != null) {
-					MBThread thread = MBThreadLocalServiceUtil.getThread(
-						discussion.getThreadId());
-
-					long rootMessageId = thread.getRootMessageId();
-
-					messagePKs.put(message.getMessageId(), rootMessageId);
-					threadPKs.put(message.getThreadId(), thread.getThreadId());
-				}
-				else if (clazz == Layout.class) {
-					MBMessage importedMessage =
-						MBMessageLocalServiceUtil.addDiscussionMessage(
-							userId, message.getUserName(), groupId,
-							clazz.getName(), newClassPK,
-							WorkflowConstants.ACTION_PUBLISH);
-
-					messagePKs.put(
-						message.getMessageId(), importedMessage.getMessageId());
-					threadPKs.put(
-						message.getThreadId(), importedMessage.getThreadId());
-				}
-			}
-			else {
-				ServiceContext serviceContext = new ServiceContext();
-
-				serviceContext.setCreateDate(message.getCreateDate());
-				serviceContext.setModifiedDate(message.getModifiedDate());
-				serviceContext.setScopeGroupId(groupId);
-
-				MBMessage importedMessage = null;
-
-				if (_dataStrategy.equals(
-						PortletDataHandlerKeys.DATA_STRATEGY_MIRROR) ||
-					_dataStrategy.equals(
-						PortletDataHandlerKeys.
-							DATA_STRATEGY_MIRROR_OVERWRITE)) {
-
-					MBMessage existingMessage = MBMessageUtil.fetchByUUID_G(
-						message.getUuid(), groupId);
-
-					if (existingMessage == null) {
-						serviceContext.setUuid(message.getUuid());
-
-						importedMessage =
-							MBMessageLocalServiceUtil.addDiscussionMessage(
-								userId, message.getUserName(), groupId,
-								clazz.getName(), newClassPK, threadId,
-								parentMessageId, message.getSubject(),
-								message.getBody(), serviceContext);
-					}
-					else {
-						serviceContext.setWorkflowAction(
-							WorkflowConstants.ACTION_PUBLISH);
-
-						importedMessage =
-							MBMessageLocalServiceUtil.updateDiscussionMessage(
-								userId, existingMessage.getMessageId(),
-								clazz.getName(), newClassPK,
-								message.getSubject(), message.getBody(),
-								serviceContext);
-					}
-				}
-				else {
-					importedMessage =
-						MBMessageLocalServiceUtil.addDiscussionMessage(
-							userId, message.getUserName(), groupId,
-							clazz.getName(), newClassPK, threadId,
-							parentMessageId, message.getSubject(),
-							message.getBody(), serviceContext);
-				}
-
-				messagePKs.put(
-					message.getMessageId(), importedMessage.getMessageId());
-				threadPKs.put(
-					message.getThreadId(), importedMessage.getThreadId());
-			}
-
-			importRatingsEntries(
-				MBDiscussion.class, message.getPrimaryKey(),
-				messagePKs.get(message.getPrimaryKey()));
-		}
+//		Map<Long, Long> messagePKs = new HashMap<Long, Long>();
+//		Map<Long, Long> threadPKs = new HashMap<Long, Long>();
+//
+//		List<MBMessage> messages = _commentsMap.get(
+//			getPrimaryKeyString(clazz, classPK));
+//
+//		if ((messages == null) || messages.isEmpty()) {
+//			return;
+//		}
+//
+//		MBMessage firstMessage = messages.get(0);
+//
+//		if ((messages.size() == 1) && firstMessage.isRoot()) {
+//			return;
+//		}
+//
+//		long classNameId = PortalUtil.getClassNameId(clazz);
+//
+//		MBDiscussion discussion = MBDiscussionUtil.fetchByC_C(
+//			classNameId, newClassPK);
+//
+//		for (MBMessage message : messages) {
+//			long userId = getUserId(message.getUserUuid());
+//			long parentMessageId = MapUtil.getLong(
+//				messagePKs, message.getParentMessageId(),
+//				message.getParentMessageId());
+//			long threadId = MapUtil.getLong(
+//				threadPKs, message.getThreadId(), message.getThreadId());
+//
+//			if (message.isRoot()) {
+//				if (discussion != null) {
+//					MBThread thread = MBThreadLocalServiceUtil.getThread(
+//						discussion.getThreadId());
+//
+//					long rootMessageId = thread.getRootMessageId();
+//
+//					messagePKs.put(message.getMessageId(), rootMessageId);
+//					threadPKs.put(message.getThreadId(), thread.getThreadId());
+//				}
+//				else if (clazz == Layout.class) {
+//					MBMessage importedMessage =
+//						MBMessageLocalServiceUtil.addDiscussionMessage(
+//							userId, message.getUserName(), groupId,
+//							clazz.getName(), newClassPK,
+//							WorkflowConstants.ACTION_PUBLISH);
+//
+//					messagePKs.put(
+//						message.getMessageId(), importedMessage.getMessageId());
+//					threadPKs.put(
+//						message.getThreadId(), importedMessage.getThreadId());
+//				}
+//			}
+//			else {
+//				ServiceContext serviceContext = new ServiceContext();
+//
+//				serviceContext.setCreateDate(message.getCreateDate());
+//				serviceContext.setModifiedDate(message.getModifiedDate());
+//				serviceContext.setScopeGroupId(groupId);
+//
+//				MBMessage importedMessage = null;
+//
+//				if (_dataStrategy.equals(
+//						PortletDataHandlerKeys.DATA_STRATEGY_MIRROR) ||
+//					_dataStrategy.equals(
+//						PortletDataHandlerKeys.
+//							DATA_STRATEGY_MIRROR_OVERWRITE)) {
+//
+//					MBMessage existingMessage = MBMessageUtil.fetchByUUID_G(
+//						message.getUuid(), groupId);
+//
+//					if (existingMessage == null) {
+//						serviceContext.setUuid(message.getUuid());
+//
+//						importedMessage =
+//							MBMessageLocalServiceUtil.addDiscussionMessage(
+//								userId, message.getUserName(), groupId,
+//								clazz.getName(), newClassPK, threadId,
+//								parentMessageId, message.getSubject(),
+//								message.getBody(), serviceContext);
+//					}
+//					else {
+//						serviceContext.setWorkflowAction(
+//							WorkflowConstants.ACTION_PUBLISH);
+//
+//						importedMessage =
+//							MBMessageLocalServiceUtil.updateDiscussionMessage(
+//								userId, existingMessage.getMessageId(),
+//								clazz.getName(), newClassPK,
+//								message.getSubject(), message.getBody(),
+//								serviceContext);
+//					}
+//				}
+//				else {
+//					importedMessage =
+//						MBMessageLocalServiceUtil.addDiscussionMessage(
+//							userId, message.getUserName(), groupId,
+//							clazz.getName(), newClassPK, threadId,
+//							parentMessageId, message.getSubject(),
+//							message.getBody(), serviceContext);
+//				}
+//
+//				messagePKs.put(
+//					message.getMessageId(), importedMessage.getMessageId());
+//				threadPKs.put(
+//					message.getThreadId(), importedMessage.getThreadId());
+//			}
+//
+//			importRatingsEntries(
+//				MBDiscussion.class, message.getPrimaryKey(),
+//				messagePKs.get(message.getPrimaryKey()));
+//		}
 	}
 
 	@Override
@@ -2666,16 +2629,16 @@ public class PortletDataContextImpl implements PortletDataContext {
 		_xStream.alias("JournalArticle", JournalArticleImpl.class);
 		_xStream.alias("JournalFeed", JournalFeedImpl.class);
 		_xStream.alias("Lock", LockImpl.class);
-		_xStream.alias("MBBan", MBBanImpl.class);
-		_xStream.alias("MBCategory", MBCategoryImpl.class);
-		_xStream.alias("MBMessage", MBMessageImpl.class);
-		_xStream.alias("MBThreadFlag", MBThreadFlagImpl.class);
+//		_xStream.alias("MBBan", MBBanImpl.class);
+//		_xStream.alias("MBCategory", MBCategoryImpl.class);
+//		_xStream.alias("MBMessage", MBMessageImpl.class);
+//		_xStream.alias("MBThreadFlag", MBThreadFlagImpl.class);
 		_xStream.alias("PollsQuestion", PollsQuestionImpl.class);
 		_xStream.alias("PollsChoice", PollsChoiceImpl.class);
 		_xStream.alias("PollsVote", PollsVoteImpl.class);
 		_xStream.alias("RatingsEntry", RatingsEntryImpl.class);
-		_xStream.alias("WikiNode", WikiNodeImpl.class);
-		_xStream.alias("WikiPage", WikiPageImpl.class);
+//		_xStream.alias("WikiNode", WikiNodeImpl.class);
+//		_xStream.alias("WikiPage", WikiPageImpl.class);
 
 		// Omit fields
 
@@ -2759,8 +2722,6 @@ public class PortletDataContextImpl implements PortletDataContext {
 		new HashMap<String, List<AssetLink>>();
 	private Map<String, String[]> _assetTagNamesMap =
 		new HashMap<String, String[]>();
-	private Map<String, List<MBMessage>> _commentsMap =
-		new HashMap<String, List<MBMessage>>();
 	private long _companyGroupId;
 	private long _companyId;
 	private String _dataStrategy;

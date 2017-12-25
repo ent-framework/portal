@@ -26,6 +26,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.acn.portal.kernel</groupId>
     <artifactId>portal-kernel-api</artifactId>
     <name>Portal Kernel API</name>
     <description>Portal Kernel API</description>

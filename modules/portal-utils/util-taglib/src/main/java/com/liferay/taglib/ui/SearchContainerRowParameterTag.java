@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -26,45 +26,42 @@ import javax.servlet.jsp.tagext.TagSupport;
  */
 public class SearchContainerRowParameterTag<R> extends TagSupport {
 
-	@Override
-	public int doStartTag() throws JspException {
-		SearchContainerRowTag<R> searchContainerRowTag =
-			(SearchContainerRowTag<R>)findAncestorWithClass(
-				this, SearchContainerRowTag.class);
+    private String _name;
+    private Object _value;
 
-		if (searchContainerRowTag == null) {
-			throw new JspTagException(
-				"Requires liferay-ui:search-container-row");
-		}
+    @Override
+    public int doStartTag() throws JspException {
+        SearchContainerRowTag<R> searchContainerRowTag =
+                (SearchContainerRowTag<R>) findAncestorWithClass(
+                        this, SearchContainerRowTag.class);
 
-		ResultRow resultRow = searchContainerRowTag.getRow();
+        if (searchContainerRowTag == null) {
+            throw new JspTagException(
+                    "Requires liferay-ui:search-container-row");
+        }
 
-		if (_name.equals("className")) {
-			resultRow.setClassName((String)_value);
-		}
-		else if (_name.equals("classHoverName")) {
-			resultRow.setClassHoverName((String)_value);
-		}
-		else if (_name.equals("restricted")) {
-			resultRow.setRestricted(
-				GetterUtil.getBoolean((String)_value, false));
-		}
-		else {
-			resultRow.setParameter(_name, _value);
-		}
+        ResultRow resultRow = searchContainerRowTag.getRow();
 
-		return EVAL_BODY_INCLUDE;
-	}
+        if (_name.equals("className")) {
+            resultRow.setClassName((String) _value);
+        } else if (_name.equals("classHoverName")) {
+            resultRow.setClassHoverName((String) _value);
+        } else if (_name.equals("restricted")) {
+            resultRow.setRestricted(
+                    GetterUtil.getBoolean((String) _value, false));
+        } else {
+            resultRow.setParameter(_name, _value);
+        }
 
-	public void setName(String name) {
-		_name = name;
-	}
+        return EVAL_BODY_INCLUDE;
+    }
 
-	public void setValue(Object value) {
-		_value = value;
-	}
+    public void setName(String name) {
+        _name = name;
+    }
 
-	private String _name;
-	private Object _value;
+    public void setValue(Object value) {
+        _value = value;
+    }
 
 }

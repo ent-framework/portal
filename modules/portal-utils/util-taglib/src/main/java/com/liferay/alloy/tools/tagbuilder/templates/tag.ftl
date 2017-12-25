@@ -6,8 +6,8 @@ import ${packagePath}.${component.getPackage()}.base.Base${component.getClassNam
 
 /**
 <#list component.getAuthors() as author>
- * @author ${author}
+* @author ${author}
 </#list>
- */
+*/
 public class ${component.getClassName()} extends Base${component.getClassName()} {
 }

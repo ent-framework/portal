@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -32,145 +32,136 @@ import javax.servlet.jsp.tagext.BodyTag;
  */
 public class IconListTag extends BaseBodyTagSupport implements BodyTag {
 
-	@Override
-	public int doAfterBody() {
-		HttpServletRequest request =
-			(HttpServletRequest)pageContext.getRequest();
+    private static final String _END_PAGE = "/html/taglib/ui/icon_list/end.jsp";
+    private static final String _START_PAGE =
+            "/html/taglib/ui/icon_list/start.jsp";
+    private String _endPage;
+    private boolean _showWhenSingleIcon = false;
+    private String _startPage;
 
-		IntegerWrapper iconCount = (IntegerWrapper)request.getAttribute(
-			"liferay-ui:icon-list:icon-count");
+    @Override
+    public int doAfterBody() {
+        HttpServletRequest request =
+                (HttpServletRequest) pageContext.getRequest();
 
-		Boolean singleIcon = (Boolean)request.getAttribute(
-			"liferay-ui:icon-list:single-icon");
+        IntegerWrapper iconCount = (IntegerWrapper) request.getAttribute(
+                "liferay-ui:icon-list:icon-count");
 
-		if ((iconCount != null) && (iconCount.getValue() == 1) &&
-			(singleIcon == null)) {
+        Boolean singleIcon = (Boolean) request.getAttribute(
+                "liferay-ui:icon-list:single-icon");
 
-			bodyContent.clearBody();
+        if ((iconCount != null) && (iconCount.getValue() == 1) &&
+                (singleIcon == null)) {
 
-			request.setAttribute(
-				"liferay-ui:icon-list:single-icon", Boolean.TRUE);
+            bodyContent.clearBody();
 
-			return EVAL_BODY_AGAIN;
-		}
-		else {
-			return SKIP_BODY;
-		}
-	}
+            request.setAttribute(
+                    "liferay-ui:icon-list:single-icon", Boolean.TRUE);
 
-	@Override
-	public int doEndTag() throws JspException {
-		try {
-			HttpServletRequest request =
-				(HttpServletRequest)pageContext.getRequest();
+            return EVAL_BODY_AGAIN;
+        } else {
+            return SKIP_BODY;
+        }
+    }
 
-			IntegerWrapper iconCount = (IntegerWrapper)request.getAttribute(
-				"liferay-ui:icon-list:icon-count");
+    @Override
+    public int doEndTag() throws JspException {
+        try {
+            HttpServletRequest request =
+                    (HttpServletRequest) pageContext.getRequest();
 
-			request.removeAttribute("liferay-ui:icon-list:icon-count");
+            IntegerWrapper iconCount = (IntegerWrapper) request.getAttribute(
+                    "liferay-ui:icon-list:icon-count");
 
-			Boolean singleIcon = (Boolean)request.getAttribute(
-				"liferay-ui:icon-list:single-icon");
+            request.removeAttribute("liferay-ui:icon-list:icon-count");
 
-			request.removeAttribute("liferay-ui:icon-list:single-icon");
+            Boolean singleIcon = (Boolean) request.getAttribute(
+                    "liferay-ui:icon-list:single-icon");
 
-			JspWriter jspWriter = pageContext.getOut();
+            request.removeAttribute("liferay-ui:icon-list:single-icon");
 
-			if ((iconCount != null) && (iconCount.getValue() > 1) &&
-				((singleIcon == null) || _showWhenSingleIcon)) {
+            JspWriter jspWriter = pageContext.getOut();
 
-				if (!FileAvailabilityUtil.isAvailable(
-						pageContext.getServletContext(), getStartPage())) {
+            if ((iconCount != null) && (iconCount.getValue() > 1) &&
+                    ((singleIcon == null) || _showWhenSingleIcon)) {
 
-					jspWriter.write("<ul class=\"taglib-icon-list unstyled\">");
-				}
-				else {
-					PortalIncludeUtil.include(pageContext, _startPage);
-				}
-			}
+                if (!FileAvailabilityUtil.isAvailable(
+                        pageContext.getServletContext(), getStartPage())) {
 
-			writeBodyContent(jspWriter);
+                    jspWriter.write("<ul class=\"taglib-icon-list unstyled\">");
+                } else {
+                    PortalIncludeUtil.include(pageContext, _startPage);
+                }
+            }
 
-			if ((iconCount != null) && (iconCount.getValue() > 1) &&
-				((singleIcon == null) || _showWhenSingleIcon)) {
+            writeBodyContent(jspWriter);
 
-				if (!FileAvailabilityUtil.isAvailable(
-						pageContext.getServletContext(), getEndPage())) {
+            if ((iconCount != null) && (iconCount.getValue() > 1) &&
+                    ((singleIcon == null) || _showWhenSingleIcon)) {
 
-					jspWriter.write("</ul>");
-				}
-				else {
-					PortalIncludeUtil.include(pageContext, _endPage);
-				}
-			}
+                if (!FileAvailabilityUtil.isAvailable(
+                        pageContext.getServletContext(), getEndPage())) {
 
-			request.removeAttribute("liferay-ui:icon-list:showWhenSingleIcon");
+                    jspWriter.write("</ul>");
+                } else {
+                    PortalIncludeUtil.include(pageContext, _endPage);
+                }
+            }
 
-			return EVAL_PAGE;
-		}
-		catch (Exception e) {
-			throw new JspException(e);
-		}
-		finally {
-			if (!ServerDetector.isResin()) {
-				_endPage = null;
-				_showWhenSingleIcon = false;
-				_startPage = null;
-			}
-		}
-	}
+            request.removeAttribute("liferay-ui:icon-list:showWhenSingleIcon");
 
-	@Override
-	public int doStartTag() {
-		HttpServletRequest request =
-			(HttpServletRequest)pageContext.getRequest();
+            return EVAL_PAGE;
+        } catch (Exception e) {
+            throw new JspException(e);
+        } finally {
+            if (!ServerDetector.isResin()) {
+                _endPage = null;
+                _showWhenSingleIcon = false;
+                _startPage = null;
+            }
+        }
+    }
 
-		request.setAttribute(
-			"liferay-ui:icon-list:icon-count", new IntegerWrapper());
-		request.setAttribute(
-			"liferay-ui:icon-list:showWhenSingleIcon",
-			String.valueOf(_showWhenSingleIcon));
+    @Override
+    public int doStartTag() {
+        HttpServletRequest request =
+                (HttpServletRequest) pageContext.getRequest();
 
-		return EVAL_BODY_BUFFERED;
-	}
+        request.setAttribute(
+                "liferay-ui:icon-list:icon-count", new IntegerWrapper());
+        request.setAttribute(
+                "liferay-ui:icon-list:showWhenSingleIcon",
+                String.valueOf(_showWhenSingleIcon));
 
-	public void setEndPage(String endPage) {
-		_endPage = endPage;
-	}
+        return EVAL_BODY_BUFFERED;
+    }
 
-	public void setShowWhenSingleIcon(boolean showWhenSingleIcon) {
-		_showWhenSingleIcon = showWhenSingleIcon;
-	}
+    public void setShowWhenSingleIcon(boolean showWhenSingleIcon) {
+        _showWhenSingleIcon = showWhenSingleIcon;
+    }
 
-	public void setStartPage(String startPage) {
-		_startPage = startPage;
-	}
+    protected String getEndPage() {
+        if (Validator.isNull(_endPage)) {
+            return _END_PAGE;
+        } else {
+            return _endPage;
+        }
+    }
 
-	protected String getEndPage() {
-		if (Validator.isNull(_endPage)) {
-			return _END_PAGE;
-		}
-		else {
-			return _endPage;
-		}
-	}
+    public void setEndPage(String endPage) {
+        _endPage = endPage;
+    }
 
-	protected String getStartPage() {
-		if (Validator.isNull(_startPage)) {
-			return _START_PAGE;
-		}
-		else {
-			return _startPage;
-		}
-	}
+    protected String getStartPage() {
+        if (Validator.isNull(_startPage)) {
+            return _START_PAGE;
+        } else {
+            return _startPage;
+        }
+    }
 
-	private static final String _END_PAGE = "/html/taglib/ui/icon_list/end.jsp";
-
-	private static final String _START_PAGE =
-		"/html/taglib/ui/icon_list/start.jsp";
-
-	private String _endPage;
-	private boolean _showWhenSingleIcon = false;
-	private String _startPage;
+    public void setStartPage(String startPage) {
+        _startPage = startPage;
+    }
 
 }

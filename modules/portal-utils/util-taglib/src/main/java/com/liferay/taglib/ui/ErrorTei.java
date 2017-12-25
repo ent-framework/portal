@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -23,14 +23,14 @@ import javax.servlet.jsp.tagext.VariableInfo;
  */
 public class ErrorTei extends TagExtraInfo {
 
-	@Override
-	public VariableInfo[] getVariableInfo(TagData tagData) {
-		return _variableInfo;
-	}
+    private static VariableInfo[] _variableInfo = new VariableInfo[]{
+            new VariableInfo(
+                    "errorException", Object.class.getName(), true, VariableInfo.NESTED)
+    };
 
-	private static VariableInfo[] _variableInfo = new VariableInfo[] {
-		new VariableInfo(
-			"errorException", Object.class.getName(), true, VariableInfo.NESTED)
-	};
+    @Override
+    public VariableInfo[] getVariableInfo(TagData tagData) {
+        return _variableInfo;
+    }
 
 }

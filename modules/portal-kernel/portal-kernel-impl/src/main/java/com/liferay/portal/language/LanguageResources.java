@@ -23,7 +23,8 @@ import com.liferay.portal.kernel.util.PropertiesUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
-import com.liferay.portal.tools.LangBuilder;
+import org.apache.commons.lang.NotImplementedException;
+//import com.liferay.portal.tools.LangBuilder;
 
 import java.io.InputStream;
 
@@ -43,7 +44,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class LanguageResources {
 
 	public static String fixValue(String value) {
-		if (value.endsWith(LangBuilder.AUTOMATIC_COPY)) {
+/*		if (value.endsWith(LangBuilder.AUTOMATIC_COPY)) {
 			value = value.substring(
 				0, value.length() - LangBuilder.AUTOMATIC_COPY.length());
 		}
@@ -51,9 +52,11 @@ public class LanguageResources {
 		if (value.endsWith(LangBuilder.AUTOMATIC_TRANSLATION)) {
 			value = value.substring(
 				0, value.length() - LangBuilder.AUTOMATIC_TRANSLATION.length());
-		}
+		}*/
 
-		return value;
+			throw new NotImplementedException("");
+
+		//return value;
 	}
 
 	public static void fixValues(

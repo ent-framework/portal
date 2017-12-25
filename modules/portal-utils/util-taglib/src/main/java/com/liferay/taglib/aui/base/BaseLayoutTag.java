@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -26,51 +26,48 @@ import javax.servlet.jsp.JspException;
  */
 public class BaseLayoutTag extends com.liferay.taglib.util.IncludeTag {
 
-	@Override
-	public int doStartTag() throws JspException {
-		setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
+    protected static final String _ATTRIBUTE_NAMESPACE = "aui:layout:";
+    private static final String _END_PAGE =
+            "/html/taglib/aui/layout/end.jsp";
+    private static final String _START_PAGE =
+            "/html/taglib/aui/layout/start.jsp";
+    private java.lang.String _cssClass = null;
 
-		return super.doStartTag();
-	}
+    @Override
+    public int doStartTag() throws JspException {
+        setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
 
-	public java.lang.String getCssClass() {
-		return _cssClass;
-	}
+        return super.doStartTag();
+    }
 
-	public void setCssClass(java.lang.String cssClass) {
-		_cssClass = cssClass;
+    public java.lang.String getCssClass() {
+        return _cssClass;
+    }
 
-		setScopedAttribute("cssClass", cssClass);
-	}
+    public void setCssClass(java.lang.String cssClass) {
+        _cssClass = cssClass;
 
-	@Override
-	protected void cleanUp() {
-		_cssClass = null;
-	}
+        setScopedAttribute("cssClass", cssClass);
+    }
 
-	@Override
-	protected String getEndPage() {
-		return _END_PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _cssClass = null;
+    }
 
-	@Override
-	protected String getStartPage() {
-		return _START_PAGE;
-	}
+    @Override
+    protected String getEndPage() {
+        return _END_PAGE;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		setNamespacedAttribute(request, "cssClass", _cssClass);
-	}
+    @Override
+    protected String getStartPage() {
+        return _START_PAGE;
+    }
 
-	protected static final String _ATTRIBUTE_NAMESPACE = "aui:layout:";
-
-	private static final String _END_PAGE =
-		"/html/taglib/aui/layout/end.jsp";
-
-	private static final String _START_PAGE =
-		"/html/taglib/aui/layout/start.jsp";
-
-	private java.lang.String _cssClass = null;
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        setNamespacedAttribute(request, "cssClass", _cssClass);
+    }
 
 }

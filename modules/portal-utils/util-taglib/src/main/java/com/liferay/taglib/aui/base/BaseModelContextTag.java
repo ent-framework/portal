@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -25,62 +25,60 @@ import javax.servlet.jsp.JspException;
  */
 public class BaseModelContextTag extends com.liferay.taglib.util.IncludeTag {
 
-	@Override
-	public int doStartTag() throws JspException {
-		setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
+    protected static final String _ATTRIBUTE_NAMESPACE = "aui:model-context:";
+    private static final String _PAGE =
+            "/html/taglib/aui/model_context/page.jsp";
+    private java.lang.Object _bean = null;
+    private java.lang.String _defaultLanguageId = null;
+    private java.lang.Class<?> _model = null;
 
-		return super.doStartTag();
-	}
+    @Override
+    public int doStartTag() throws JspException {
+        setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
 
-	public java.lang.Object getBean() {
-		return _bean;
-	}
+        return super.doStartTag();
+    }
 
-	public java.lang.String getDefaultLanguageId() {
-		return _defaultLanguageId;
-	}
+    public java.lang.Object getBean() {
+        return _bean;
+    }
 
-	public java.lang.Class<?> getModel() {
-		return _model;
-	}
+    public void setBean(java.lang.Object bean) {
+        _bean = bean;
 
-	public void setBean(java.lang.Object bean) {
-		_bean = bean;
+        setScopedAttribute("bean", bean);
+    }
 
-		setScopedAttribute("bean", bean);
-	}
+    public java.lang.String getDefaultLanguageId() {
+        return _defaultLanguageId;
+    }
 
-	public void setDefaultLanguageId(java.lang.String defaultLanguageId) {
-		_defaultLanguageId = defaultLanguageId;
+    public void setDefaultLanguageId(java.lang.String defaultLanguageId) {
+        _defaultLanguageId = defaultLanguageId;
 
-		setScopedAttribute("defaultLanguageId", defaultLanguageId);
-	}
+        setScopedAttribute("defaultLanguageId", defaultLanguageId);
+    }
 
-	public void setModel(java.lang.Class<?> model) {
-		_model = model;
+    public java.lang.Class<?> getModel() {
+        return _model;
+    }
 
-		setScopedAttribute("model", model);
-	}
+    public void setModel(java.lang.Class<?> model) {
+        _model = model;
 
-	@Override
-	protected void cleanUp() {
-		_bean = null;
-		_defaultLanguageId = null;
-		_model = null;
-	}
+        setScopedAttribute("model", model);
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _bean = null;
+        _defaultLanguageId = null;
+        _model = null;
+    }
 
-	protected static final String _ATTRIBUTE_NAMESPACE = "aui:model-context:";
-
-	private static final String _PAGE =
-		"/html/taglib/aui/model_context/page.jsp";
-
-	private java.lang.Object _bean = null;
-	private java.lang.String _defaultLanguageId = null;
-	private java.lang.Class<?> _model = null;
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
 }

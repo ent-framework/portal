@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -26,121 +26,119 @@ import javax.servlet.jsp.JspException;
  */
 public class BaseIconTag extends com.liferay.taglib.util.IncludeTag {
 
-	@Override
-	public int doStartTag() throws JspException {
-		setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
+    protected static final String _ATTRIBUTE_NAMESPACE = "aui:icon:";
+    private static final String _PAGE =
+            "/html/taglib/aui/icon/page.jsp";
+    private java.lang.String _cssClass = null;
+    private java.util.Map<java.lang.String, java.lang.Object> _data = null;
+    private java.lang.String _id = null;
+    private java.lang.String _image = null;
+    private java.lang.String _label = null;
+    private java.lang.String _target = null;
+    private java.lang.String _url = null;
 
-		return super.doStartTag();
-	}
+    @Override
+    public int doStartTag() throws JspException {
+        setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
 
-	public java.lang.String getCssClass() {
-		return _cssClass;
-	}
+        return super.doStartTag();
+    }
 
-	public java.util.Map<java.lang.String, java.lang.Object> getData() {
-		return _data;
-	}
+    public java.lang.String getCssClass() {
+        return _cssClass;
+    }
 
-	public java.lang.String getId() {
-		return _id;
-	}
+    public void setCssClass(java.lang.String cssClass) {
+        _cssClass = cssClass;
 
-	public java.lang.String getImage() {
-		return _image;
-	}
+        setScopedAttribute("cssClass", cssClass);
+    }
 
-	public java.lang.String getLabel() {
-		return _label;
-	}
+    public java.util.Map<java.lang.String, java.lang.Object> getData() {
+        return _data;
+    }
 
-	public java.lang.String getTarget() {
-		return _target;
-	}
+    public void setData(java.util.Map<java.lang.String, java.lang.Object> data) {
+        _data = data;
 
-	public java.lang.String getUrl() {
-		return _url;
-	}
+        setScopedAttribute("data", data);
+    }
 
-	public void setCssClass(java.lang.String cssClass) {
-		_cssClass = cssClass;
+    public java.lang.String getId() {
+        return _id;
+    }
 
-		setScopedAttribute("cssClass", cssClass);
-	}
+    public void setId(java.lang.String id) {
+        _id = id;
 
-	public void setData(java.util.Map<java.lang.String, java.lang.Object> data) {
-		_data = data;
+        setScopedAttribute("id", id);
+    }
 
-		setScopedAttribute("data", data);
-	}
+    public java.lang.String getImage() {
+        return _image;
+    }
 
-	public void setId(java.lang.String id) {
-		_id = id;
+    public void setImage(java.lang.String image) {
+        _image = image;
 
-		setScopedAttribute("id", id);
-	}
+        setScopedAttribute("image", image);
+    }
 
-	public void setImage(java.lang.String image) {
-		_image = image;
+    public java.lang.String getLabel() {
+        return _label;
+    }
 
-		setScopedAttribute("image", image);
-	}
+    public void setLabel(java.lang.String label) {
+        _label = label;
 
-	public void setLabel(java.lang.String label) {
-		_label = label;
+        setScopedAttribute("label", label);
+    }
 
-		setScopedAttribute("label", label);
-	}
+    public java.lang.String getTarget() {
+        return _target;
+    }
 
-	public void setTarget(java.lang.String target) {
-		_target = target;
+    public void setTarget(java.lang.String target) {
+        _target = target;
 
-		setScopedAttribute("target", target);
-	}
+        setScopedAttribute("target", target);
+    }
 
-	public void setUrl(java.lang.String url) {
-		_url = url;
+    public java.lang.String getUrl() {
+        return _url;
+    }
 
-		setScopedAttribute("url", url);
-	}
+    public void setUrl(java.lang.String url) {
+        _url = url;
 
-	@Override
-	protected void cleanUp() {
-		_cssClass = null;
-		_data = null;
-		_id = null;
-		_image = null;
-		_label = null;
-		_target = null;
-		_url = null;
-	}
+        setScopedAttribute("url", url);
+    }
 
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
+    @Override
+    protected void cleanUp() {
+        _cssClass = null;
+        _data = null;
+        _id = null;
+        _image = null;
+        _label = null;
+        _target = null;
+        _url = null;
+    }
 
-	@Override
-	protected void setAttributes(HttpServletRequest request) {
-		setNamespacedAttribute(request, "cssClass", _cssClass);
-		setNamespacedAttribute(request, "data", _data);
-		setNamespacedAttribute(request, "id", _id);
-		setNamespacedAttribute(request, "image", _image);
-		setNamespacedAttribute(request, "label", _label);
-		setNamespacedAttribute(request, "target", _target);
-		setNamespacedAttribute(request, "url", _url);
-	}
+    @Override
+    protected String getPage() {
+        return _PAGE;
+    }
 
-	protected static final String _ATTRIBUTE_NAMESPACE = "aui:icon:";
-
-	private static final String _PAGE =
-		"/html/taglib/aui/icon/page.jsp";
-
-	private java.lang.String _cssClass = null;
-	private java.util.Map<java.lang.String, java.lang.Object> _data = null;
-	private java.lang.String _id = null;
-	private java.lang.String _image = null;
-	private java.lang.String _label = null;
-	private java.lang.String _target = null;
-	private java.lang.String _url = null;
+    @Override
+    protected void setAttributes(HttpServletRequest request) {
+        setNamespacedAttribute(request, "cssClass", _cssClass);
+        setNamespacedAttribute(request, "data", _data);
+        setNamespacedAttribute(request, "id", _id);
+        setNamespacedAttribute(request, "image", _image);
+        setNamespacedAttribute(request, "label", _label);
+        setNamespacedAttribute(request, "target", _target);
+        setNamespacedAttribute(request, "url", _url);
+    }
 
 }

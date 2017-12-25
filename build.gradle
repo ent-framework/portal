@@ -130,6 +130,33 @@ ext {
     VALID_MODULES = ["portal-kernel/portal-kernel-api", "portal-utils","portal-kernel/portal-kernel-impl", "portal-uaa", "portal-web"]
 }
 
+task("init") {
+    description "Init Extra maven dependency"
+
+    doFirst {
+        def module = getModule();
+    }
+
+    doLast {
+        def toBuildModules = VALID_MODULES
+        toBuildModules.remove("studio-ui")
+        toBuildModules.remove("test-suite")
+        if (!includeSocial) {
+            toBuildModules.remove("social")
+        }
+        if (module.equals("all")) {
+            toBuildModules.each {
+                buildModule(commandLinePrefix, it).execute()
+            }
+        } else if (toBuildModules.contains(module)) {
+            buildModule(commandLinePrefix, module).execute()
+
+        } else {
+            throw new InvalidUserDataException("${module} is not a valid module, please use one of ${VALID_MODULES}")
+        }
+    }
+}
+
 task("build") {
     description "Builds Portal"
 
