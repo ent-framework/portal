@@ -39,7 +39,7 @@ describe('Service Tests', () => {
         describe('Service methods', () => {
             it('should call correct URL', () => {
                 service.find('user').subscribe(() => {});
-                const resourceUrl = SERVER_API_URL + 'portal_uaa/api/users';
+                const resourceUrl = SERVER_API_URL + 'api/users';
 
                 expect(this.lastConnection).toBeDefined();
                 expect(this.lastConnection.request.url).toEqual(`${resourceUrl}/user`);

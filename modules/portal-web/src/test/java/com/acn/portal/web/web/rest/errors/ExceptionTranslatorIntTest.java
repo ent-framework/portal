@@ -1,7 +1,6 @@
 package com.acn.portal.web.web.rest.errors;
 
 import com.acn.portal.web.PortalWebApp;
-import com.acn.portal.web.config.SecurityBeanOverrideConfiguration;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,7 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see ExceptionTranslator
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {PortalWebApp.class, SecurityBeanOverrideConfiguration.class})
+@SpringBootTest(classes = PortalWebApp.class)
 public class ExceptionTranslatorIntTest {
 
     @Autowired

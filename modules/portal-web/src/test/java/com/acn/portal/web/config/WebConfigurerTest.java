@@ -13,6 +13,7 @@ import com.hazelcast.quorum.QuorumService;
 import com.hazelcast.ringbuffer.Ringbuffer;
 import com.hazelcast.scheduledexecutor.IScheduledExecutorService;
 import com.hazelcast.transaction.*;
+import com.hazelcast.web.spring.SpringAwareWebFilter;
 import io.github.jhipster.config.JHipsterConstants;
 import io.github.jhipster.config.JHipsterProperties;
 import io.github.jhipster.web.filter.CachingHttpHeadersFilter;
@@ -68,6 +69,8 @@ public class WebConfigurerTest {
             .when(servletContext).addFilter(anyString(), any(Filter.class));
         doReturn(new MockServletRegistration())
             .when(servletContext).addServlet(anyString(), any(Servlet.class));
+        doNothing()
+            .when(servletContext).addListener(any(EventListener.class));
 
         env = new MockEnvironment();
         props = new JHipsterProperties();
@@ -84,6 +87,7 @@ public class WebConfigurerTest {
 
         assertThat(servletContext.getAttribute(InstrumentedFilter.REGISTRY_ATTRIBUTE)).isEqualTo(metricRegistry);
         assertThat(servletContext.getAttribute(MetricsServlet.METRICS_REGISTRY)).isEqualTo(metricRegistry);
+        verify(servletContext).addFilter(eq("hazelcastWebFilter"), any(SpringAwareWebFilter.class));
         verify(servletContext).addFilter(eq("webappMetricsFilter"), any(InstrumentedFilter.class));
         verify(servletContext).addServlet(eq("metricsServlet"), any(MetricsServlet.class));
         verify(servletContext).addFilter(eq("cachingHttpHeadersFilter"), any(CachingHttpHeadersFilter.class));
@@ -96,6 +100,7 @@ public class WebConfigurerTest {
 
         assertThat(servletContext.getAttribute(InstrumentedFilter.REGISTRY_ATTRIBUTE)).isEqualTo(metricRegistry);
         assertThat(servletContext.getAttribute(MetricsServlet.METRICS_REGISTRY)).isEqualTo(metricRegistry);
+        verify(servletContext).addFilter(eq("hazelcastWebFilter"), any(SpringAwareWebFilter.class));
         verify(servletContext).addFilter(eq("webappMetricsFilter"), any(InstrumentedFilter.class));
         verify(servletContext).addServlet(eq("metricsServlet"), any(MetricsServlet.class));
         verify(servletContext, never()).addFilter(eq("cachingHttpHeadersFilter"), any(CachingHttpHeadersFilter.class));

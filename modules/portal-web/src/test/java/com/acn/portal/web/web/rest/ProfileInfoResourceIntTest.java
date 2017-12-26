@@ -2,7 +2,6 @@ package com.acn.portal.web.web.rest;
 
 import io.github.jhipster.config.JHipsterProperties;
 import com.acn.portal.web.PortalWebApp;
-import com.acn.portal.web.config.SecurityBeanOverrideConfiguration;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,7 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see ProfileInfoResource
  **/
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {PortalWebApp.class, SecurityBeanOverrideConfiguration.class})
+@SpringBootTest(classes = PortalWebApp.class)
 public class ProfileInfoResourceIntTest {
 
     @Mock

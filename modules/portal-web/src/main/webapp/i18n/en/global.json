@@ -20,7 +20,6 @@
             },
             "admin": {
                 "main": "Administration",
-                "gateway": "Gateway",
                 "userManagement": "User management",
                 "tracker": "User tracker",
                 "metrics": "Metrics",

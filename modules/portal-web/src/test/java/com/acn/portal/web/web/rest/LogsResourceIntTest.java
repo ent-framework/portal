@@ -1,7 +1,6 @@
 package com.acn.portal.web.web.rest;
 
 import com.acn.portal.web.PortalWebApp;
-import com.acn.portal.web.config.SecurityBeanOverrideConfiguration;
 import com.acn.portal.web.web.rest.vm.LoggerVM;
 import ch.qos.logback.classic.AsyncAppender;
 import ch.qos.logback.classic.LoggerContext;
@@ -28,7 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see LogsResource
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {PortalWebApp.class, SecurityBeanOverrideConfiguration.class})
+@SpringBootTest(classes = PortalWebApp.class)
 public class LogsResourceIntTest {
 
     private MockMvc restLogsMockMvc;

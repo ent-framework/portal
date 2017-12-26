@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { JhiLanguageService } from 'ng-jhipster';
 
 import { Principal } from '../auth/principal.service';
-import { AuthServerProvider } from '../auth/auth-jwt.service';
+import { AuthServerProvider } from '../auth/auth-session.service';
 
 @Injectable()
 export class LoginService {
@@ -36,10 +36,7 @@ export class LoginService {
     }
 
     logout() {
-        if (this.principal.isAuthenticated()) {
-            this.authServerProvider.logout().subscribe(() => this.principal.authenticate(null));
-        } else {
-            this.principal.authenticate(null);
-        }
+        this.authServerProvider.logout().subscribe();
+        this.principal.authenticate(null);
     }
 }

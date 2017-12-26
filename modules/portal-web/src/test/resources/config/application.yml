@@ -13,12 +13,6 @@
 # http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 # ===================================================================
 
-eureka:
-    client:
-        enabled: true
-    instance:
-        appname: portal_web
-        instanceId: portal_web:${spring.application.instance-id:${random.value}}
 
 spring:
     application:
@@ -88,12 +82,13 @@ jhipster:
             host: localhost
             port: 5000
             queue-size: 512
+    mail:
+        from: test@localhost
+        base-url: http://127.0.0.1:8080
     security:
-        authentication:
-            jwt:
-                secret: 
-                # Token is valid 24 hours
-                token-validity-in-seconds: 86400
+        remember-me:
+            # security key (this key should be unique for your application, and kept secret)
+            key: d4f09ca91c67f42c95932de71754057f5ecd31cd
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
         logs: # Reports Dropwizard metrics in the logs

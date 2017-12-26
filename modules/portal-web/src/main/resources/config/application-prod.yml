@@ -19,13 +19,6 @@ logging:
         com.acn.portal.web: INFO
         io.github.jhipster: INFO
 
-eureka:
-    instance:
-        prefer-ip-address: true
-    client:
-        service-url:
-            defaultZone: http://admin:${jhipster.registry.password}@localhost:8761/eureka/
-
 spring:
     devtools:
         restart:
@@ -63,12 +56,6 @@ spring:
         password:
     thymeleaf:
         cache: true
-    zipkin: # Use the "zipkin" Maven profile to have the Spring Cloud Zipkin dependencies
-        base-url: http://localhost:9411
-        enabled: false
-        locator:
-            discovery:
-                enabled: true
 
 liquibase:
     contexts: prod
@@ -104,11 +91,6 @@ server:
 # ===================================================================
 
 jhipster:
-    gateway:
-        rate-limiting:
-            enabled: false
-        authorized-microservices-endpoints: # Access Control Policy, if left empty for a route, all endpoints will be accessible
-            app1: /api # recommended prod configuration
     http:
         version: V_1_1 # To use HTTP/2 you will need SSL support (see above the "server.ssl" configuration)
         cache: # Used by the CachingHttpHeadersFilter
@@ -122,11 +104,9 @@ jhipster:
                 update-interval: 3
                 url:
     security:
-        client-authorization:
-            access-token-uri: http://portal_uaa/oauth/token
-            token-service-id: portal_uaa
-            client-id: internal
-            client-secret: internal
+        remember-me:
+            # security key (this key should be unique for your application, and kept secret)
+            key: d4f09ca91c67f42c95932de71754057f5ecd31cd
     mail: # specific JHipster mail property, for standard properties see MailProperties
         from: portal_web@localhost
         base-url: http://my-server-url-to-change # Modify according to your server's URL
@@ -149,24 +129,7 @@ jhipster:
             host: localhost
             port: 5000
             queue-size: 512
-        spectator-metrics: # Reports Spectator Circuit Breaker metrics in the logs
-            enabled: false
-            # edit spring.metrics.export.delay-millis to set report frequency
 
-oauth2:
-    signature-verification:
-        public-key-endpoint-uri: http://portal_uaa/oauth/token_key
-        #ttl for public keys to verify JWT tokens (in ms)
-        ttl: 3600000
-        #max. rate at which public keys will be fetched (in ms)
-        public-key-refresh-rate-limit: 10000
-    web-client-configuration:
-        #change client secret in production, keep in sync with UAA configuration
-        client-id: web_app
-        secret: changeit
-        # Controls session expiration due to inactivity (ignored for remember-me).
-        # Negative values disable session inactivity expiration.
-        session-timeout-in-seconds: 1800
 
 # ===================================================================
 # Application specific properties

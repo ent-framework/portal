@@ -83,16 +83,8 @@
                 });
 
                 function addApiKeyAuthorization() {
-                    var interceptor = {
-                        requestInterceptor: {
-                            apply: function (requestObj) {
-                                var headers = requestObj.headers || {};
-                                headers['X-XSRF-TOKEN'] = getCSRF();
-                                return requestObj;
-                            }
-                        }
-                    };
-                    window.swaggerUi.options.requestInterceptor = interceptor.requestInterceptor
+                    var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("X-XSRF-TOKEN", getCSRF(), "header");
+                    window.swaggerUi.api.clientAuthorizations.add("key", apiKeyAuth);
                 }
 
                 function getCSRF() {

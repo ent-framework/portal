@@ -41,12 +41,6 @@
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu>
                     <li>
-                        <a class="dropdown-item" routerLink="gateway" routerLinkActive="active" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-road" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.admin.gateway">Gateway</span>
-                        </a>
-                    </li>
-                    <li>
                         <a class="dropdown-item" routerLink="user-management" routerLinkActive="active" (click)="collapseNavbar()">
                             <i class="fa fa-fw fa-user" aria-hidden="true"></i>
                             <span jhiTranslate="global.menu.admin.userManagement">User management</span>
@@ -127,6 +121,12 @@
                         <a class="dropdown-item" routerLink="password" routerLinkActive="active" (click)="collapseNavbar()">
                             <i class="fa fa-fw fa-clock-o" aria-hidden="true"></i>
                             <span jhiTranslate="global.menu.account.password">Password</span>
+                        </a>
+                    </li>
+                    <li *ngSwitchCase="true">
+                        <a class="dropdown-item" routerLink="sessions" routerLinkActive="active" (click)="collapseNavbar()">
+                            <i class="fa fa-fw fa-cloud" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.account.sessions">Sessions</span>
                         </a>
                     </li>
                     <li *ngSwitchCase="true">

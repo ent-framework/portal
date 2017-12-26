@@ -19,6 +19,6 @@ export class AuditsService  {
             search: params
         };
 
-        return this.http.get(SERVER_API_URL + 'portal_uaa/management/audits', options);
+        return this.http.get(SERVER_API_URL + 'management/audits', options);
     }
 }
