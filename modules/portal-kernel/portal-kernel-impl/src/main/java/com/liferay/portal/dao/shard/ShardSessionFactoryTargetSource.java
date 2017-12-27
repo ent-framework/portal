@@ -74,13 +74,13 @@ public class ShardSessionFactoryTargetSource implements TargetSource {
 		for (String shardName : dataSources.keySet()) {
 			DataSource dataSource = dataSources.get(shardName);
 
-			PortalHibernateConfiguration portalHibernateConfiguration =
-				new PortalHibernateConfiguration();
+			PortalHibernateConfiguration portalHibernateConfiguration = new PortalHibernateConfiguration();
 
 			portalHibernateConfiguration.setDataSource(dataSource);
-
-			SessionFactory sessionFactory =
-				portalHibernateConfiguration.buildSessionFactory();
+			
+			portalHibernateConfiguration.initBuilder(dataSource);
+			
+			SessionFactory sessionFactory = portalHibernateConfiguration.buildSessionFactory();
 
 			_sessionFactories.put(shardName, sessionFactory);
 		}

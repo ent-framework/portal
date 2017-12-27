@@ -47,16 +47,12 @@ import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.model.DDMTemplate;
 import com.liferay.portlet.journal.model.JournalArticle;
 import com.liferay.portlet.journal.model.JournalFeed;
-import com.liferay.portlet.messageboards.model.MBCategory;
-import com.liferay.portlet.messageboards.model.MBMessage;
+
 import com.liferay.portlet.polls.model.PollsQuestion;
 import com.liferay.portlet.shopping.model.ShoppingCategory;
 import com.liferay.portlet.shopping.model.ShoppingItem;
 import com.liferay.portlet.softwarecatalog.model.SCFrameworkVersion;
 import com.liferay.portlet.softwarecatalog.model.SCProductEntry;
-import com.liferay.portlet.wiki.model.WikiNode;
-import com.liferay.portlet.wiki.model.WikiPage;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -244,12 +240,12 @@ public class VerifyResourcePermissions extends VerifyProcess {
 			LayoutSetBranch.class.getName(), "LayoutSetBranch",
 			"layoutSetBranchId"
 		},
-		new String[] {
-			MBCategory.class.getName(), "MBCategory", "categoryId"
-		},
-		new String[] {
-			MBMessage.class.getName(), "MBMessage", "messageId"
-		},
+//		new String[] {
+//			MBCategory.class.getName(), "MBCategory", "categoryId"
+//		},
+//		new String[] {
+//			MBMessage.class.getName(), "MBMessage", "messageId"
+//		},
 		new String[] {
 			PasswordPolicy.class.getName(), "PasswordPolicy", "passwordPolicyId"
 		},
@@ -275,12 +271,12 @@ public class VerifyResourcePermissions extends VerifyProcess {
 		new String[] {
 			User.class.getName(), "User_", "userId"
 		},
-		new String[] {
-			WikiNode.class.getName(), "WikiNode", "nodeId"
-		},
-		new String[] {
-			WikiPage.class.getName(), "WikiPage", "resourcePrimKey"
-		}
+//		new String[] {
+//			WikiNode.class.getName(), "WikiNode", "nodeId"
+//		},
+//		new String[] {
+//			WikiPage.class.getName(), "WikiPage", "resourcePrimKey"
+//		}
 	};
 
 	private static Log _log = LogFactoryUtil.getLog(

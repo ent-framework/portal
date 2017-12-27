@@ -20,6 +20,7 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import java.io.FileNotFoundException;
 
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -31,6 +32,10 @@ public class ArrayApplicationContext extends ClassPathXmlApplicationContext {
 		super(configLocations);
 	}
 
+	public ArrayApplicationContext(String[] configLocations, ApplicationContext parent) {
+		super(configLocations, parent);
+	}
+	
 	@Override
 	protected void loadBeanDefinitions(XmlBeanDefinitionReader reader) {
 		String[] configLocations = getConfigLocations();

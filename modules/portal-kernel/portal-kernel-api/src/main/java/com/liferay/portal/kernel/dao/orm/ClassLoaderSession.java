@@ -56,7 +56,7 @@ public class ClassLoaderSession implements Session {
 
 	@NotPrivileged
 	@Override
-	public Connection close() throws ORMException {
+	public void close() throws ORMException {
 		Thread currentThread = Thread.currentThread();
 
 		ClassLoader contextClassLoader = currentThread.getContextClassLoader();
@@ -66,7 +66,7 @@ public class ClassLoaderSession implements Session {
 				currentThread.setContextClassLoader(_classLoader);
 			}
 
-			return _session.close();
+			_session.close();
 		}
 		finally {
 			if (contextClassLoader != _classLoader) {

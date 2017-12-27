@@ -23,7 +23,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.hibernate.engine.SessionImplementor;
+import org.hibernate.HibernateException;
+import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.type.StandardBasicTypes;
 import org.hibernate.type.Type;
 import org.hibernate.usertype.CompositeUserType;
@@ -34,21 +35,10 @@ import org.hibernate.usertype.CompositeUserType;
 public class StringType implements CompositeUserType, Serializable {
 
 	@Override
-	public Object assemble(
-		Serializable cached, SessionImplementor session, Object owner) {
-
-		return cached;
-	}
-
-	@Override
 	public Object deepCopy(Object obj) {
 		return obj;
 	}
 
-	@Override
-	public Serializable disassemble(Object value, SessionImplementor session) {
-		return (Serializable)value;
-	}
 
 	@Override
 	public boolean equals(Object x, Object y) {
@@ -90,29 +80,29 @@ public class StringType implements CompositeUserType, Serializable {
 		return false;
 	}
 
-	@Override
-	public Object nullSafeGet(
-			ResultSet rs, String[] names, SessionImplementor session,
-			Object owner)
-		throws SQLException {
 
+	@Override
+	public Object nullSafeGet(ResultSet rs, String[] names, SharedSessionContractImplementor session, Object owner) throws HibernateException, SQLException {
 		return StandardBasicTypes.STRING.nullSafeGet(rs, names, session, owner);
 	}
 
 	@Override
-	public void nullSafeSet(
-			PreparedStatement ps, Object target, int index,
-			SessionImplementor session)
-		throws SQLException {
-
-		StandardBasicTypes.STRING.nullSafeSet(ps, target, index, session);
+	public void nullSafeSet(PreparedStatement st, Object value, int index, SharedSessionContractImplementor session) throws HibernateException, SQLException {
+		StandardBasicTypes.STRING.nullSafeSet(st, value, index, session);
 	}
 
 	@Override
-	public Object replace(
-		Object original, Object target, SessionImplementor session,
-		Object owner) {
+	public Serializable disassemble(Object value, SharedSessionContractImplementor session) throws HibernateException {
+		return (Serializable)value;
+	}
 
+	@Override
+	public Object assemble(Serializable cached, SharedSessionContractImplementor session, Object owner) throws HibernateException {
+		return cached;
+	}
+
+	@Override
+	public Object replace(Object original, Object target, SharedSessionContractImplementor session, Object owner) throws HibernateException {
 		return original;
 	}
 

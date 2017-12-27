@@ -10,6 +10,12 @@ import com.codahale.metrics.servlets.MetricsServlet;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.web.SessionListener;
 import com.hazelcast.web.spring.SpringAwareWebFilter;
+import com.liferay.portal.kernel.servlet.PortletSessionListenerManager;
+import com.liferay.portal.kernel.servlet.SerializableSessionAttributeListener;
+import com.liferay.portal.kernel.servlet.filters.invoker.InvokerFilter;
+import com.liferay.portal.servlet.PortalSessionListener;
+import com.liferay.portal.servlet.SharedSessionAttributeListener;
+import com.liferay.portal.spring.context.PortalContextLoaderListener;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,9 +24,15 @@ import org.springframework.boot.context.embedded.*;
 import org.springframework.boot.context.embedded.undertow.UndertowEmbeddedServletContainerFactory;
 import io.undertow.UndertowOptions;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.core.env.Environment;
+import org.springframework.web.context.ContextLoaderListener;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -35,6 +47,7 @@ import javax.servlet.*;
  * Configuration of web application with Servlet 3.0 APIs.
  */
 @Configuration
+@Order(Ordered.HIGHEST_PRECEDENCE)
 public class WebConfigurer implements ServletContextInitializer, EmbeddedServletContainerCustomizer {
 
     private final Logger log = LoggerFactory.getLogger(WebConfigurer.class);
@@ -59,12 +72,16 @@ public class WebConfigurer implements ServletContextInitializer, EmbeddedServlet
         if (env.getActiveProfiles().length != 0) {
             log.info("Web application configuration, using profiles: {}", (Object[]) env.getActiveProfiles());
         }
+
         EnumSet<DispatcherType> disps = EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD, DispatcherType.ASYNC);
         initClusteredHttpSessionFilter(servletContext, disps);
         initMetrics(servletContext, disps);
         if (env.acceptsProfiles(JHipsterConstants.SPRING_PROFILE_PRODUCTION)) {
             initCachingHttpHeadersFilter(servletContext, disps);
         }
+        initPortalListeners(servletContext);
+        initInvokerFilters(servletContext);
+
         log.info("Web application fully configured");
     }
 
@@ -109,6 +126,24 @@ public class WebConfigurer implements ServletContextInitializer, EmbeddedServlet
         hazelcastWebFilter.setInitParameters(parameters);
         hazelcastWebFilter.addMappingForUrlPatterns(disps, true, "/*");
         hazelcastWebFilter.setAsyncSupported(true);
+    }
+
+    private void initPortalListeners(ServletContext servletContext) {
+    		servletContext.addListener(new PortalContextLoaderListener());
+    		servletContext.addListener(new PortalSessionListener());
+    		servletContext.addListener(new PortletSessionListenerManager());
+    		servletContext.addListener(new SerializableSessionAttributeListener());
+    		servletContext.addListener(new SharedSessionAttributeListener());
+    }
+
+    private void initInvokerFilters(ServletContext servletContext) {
+    		FilterRegistration.Dynamic invokerFilterError = servletContext.addFilter("InvokerFilter-ERROR", new InvokerFilter());
+    		EnumSet<DispatcherType> disps = EnumSet.of(DispatcherType.ERROR, DispatcherType.FORWARD, DispatcherType.INCLUDE, DispatcherType.REQUEST,  DispatcherType.ASYNC);
+    		Map<String, String> parameters = new HashMap<>();
+    		parameters.put("register-portal-lifecycle","false");
+    		invokerFilterError.setInitParameters(parameters);
+    		invokerFilterError.addMappingForUrlPatterns(disps, true, "/*");
+    		invokerFilterError.setAsyncSupported(true);
     }
 
     /**

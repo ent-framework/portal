@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.9.2.201712210913-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+		<config>src/main/resources/META-INF/audit-spring.xml</config>
+		<config>src/main/resources/META-INF/base-spring.xml</config>
+		<config>src/main/resources/META-INF/cluster-spring.xml</config>
+		<config>src/main/resources/META-INF/counter-spring.xml</config>
+		<config>src/main/resources/META-INF/dynamic-data-source-spring.xml</config>
+		<config>src/main/resources/META-INF/editor-spring.xml</config>
+		<config>src/main/resources/META-INF/executor-spring.xml</config>
+		<config>src/main/resources/META-INF/hibernate-spring.xml</config>
+		<config>src/main/resources/META-INF/infrastructure-spring.xml</config>
+		<config>src/main/resources/META-INF/jcr-spring.xml</config>
+		<config>src/main/resources/META-INF/jpa-spring.xml</config>
+		<config>src/main/resources/META-INF/ldap-spring.xml</config>
+		<config>src/main/resources/META-INF/mail-spring.xml</config>
+		<config>src/main/resources/META-INF/management-spring.xml</config>
+		<config>src/main/resources/META-INF/memcached-spring.xml</config>
+		<config>src/main/resources/META-INF/messaging-core-spring.xml</config>
+		<config>src/main/resources/META-INF/messaging-misc-spring.xml</config>
+		<config>src/main/resources/META-INF/mobile-device-spring.xml</config>
+		<config>src/main/resources/META-INF/monitoring-spring.xml</config>
+		<config>src/main/resources/META-INF/notifications-spring.xml</config>
+		<config>src/main/resources/META-INF/poller-spring.xml</config>
+		<config>src/main/resources/META-INF/portal-spring.xml</config>
+		<config>src/main/resources/META-INF/portlet-container-spring.xml</config>
+		<config>src/main/resources/META-INF/rules-spring.xml</config>
+		<config>src/main/resources/META-INF/scheduler-spring.xml</config>
+		<config>src/main/resources/META-INF/search-spring.xml</config>
+		<config>src/main/resources/META-INF/service-builder-spring.xml</config>
+		<config>src/main/resources/META-INF/shard-data-source-spring.xml</config>
+		<config>src/main/resources/META-INF/staging-spring.xml</config>
+		<config>src/main/resources/META-INF/util-spring.xml</config>
+		<config>src/main/resources/META-INF/virtual-layouts-spring.xml</config>
+		<config>src/main/resources/META-INF/workflow-spring.xml</config>
+	</configs>
+	<autoconfigs>
+	</autoconfigs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>

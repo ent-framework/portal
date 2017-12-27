@@ -36,13 +36,12 @@ public class NewSessionImpl extends SessionImpl {
 	}
 
 	@Override
-	public Connection close() throws ORMException {
+	public void close() throws ORMException {
 		try {
 			entityManager.getTransaction().commit();
 
 			entityManager.close();
 
-			return null;
 		}
 		catch (Exception e) {
 			throw ExceptionTranslator.translate(e);

@@ -435,9 +435,9 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 		// Message boards
 
 		if (PropsValues.LAYOUT_COMMENTS_ENABLED) {
-			mbMessageLocalService.addDiscussionMessage(
-				userId, user.getFullName(), groupId, Layout.class.getName(),
-				plid, WorkflowConstants.ACTION_PUBLISH);
+//			mbMessageLocalService.addDiscussionMessage(
+//				userId, user.getFullName(), groupId, Layout.class.getName(),
+//				plid, WorkflowConstants.ACTION_PUBLISH);
 		}
 
 		return layout;
@@ -619,8 +619,8 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 
 		// Message boards
 
-		mbMessageLocalService.deleteDiscussionMessages(
-			Layout.class.getName(), layout.getPlid());
+//		mbMessageLocalService.deleteDiscussionMessages(
+//			Layout.class.getName(), layout.getPlid());
 
 		// Journal articles
 

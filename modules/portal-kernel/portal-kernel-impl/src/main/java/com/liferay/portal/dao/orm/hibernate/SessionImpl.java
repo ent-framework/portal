@@ -52,9 +52,9 @@ public class SessionImpl implements Session {
 
 	@NotPrivileged
 	@Override
-	public Connection close() throws ORMException {
+	public void close() throws ORMException {
 		try {
-			return _session.close();
+			_session.close();
 		}
 		catch (Exception e) {
 			throw ExceptionTranslator.translate(e);

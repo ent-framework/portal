@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import org.hibernate.engine.SessionFactoryImplementor;
+import org.hibernate.engine.spi.SessionFactoryImplementor;
 
 /**
  * @author Brian Wing Shun Chan
@@ -78,7 +78,7 @@ public class SessionFactoryImpl implements SessionFactory {
 
 	@Override
 	public Session openNewSession(Connection connection) throws ORMException {
-		return wrapSession(_sessionFactoryImplementor.openSession(connection));
+		return wrapSession(_sessionFactoryImplementor.openSession());
 	}
 
 	@Override
@@ -93,12 +93,12 @@ public class SessionFactoryImpl implements SessionFactory {
 		}
 
 		if (_log.isDebugEnabled()) {
-			org.hibernate.impl.SessionImpl sessionImpl =
-				(org.hibernate.impl.SessionImpl)session;
+			org.hibernate.internal.SessionImpl sessionImpl =
+				(org.hibernate.internal.SessionImpl)session;
 
-			_log.debug(
-				"Session is using connection release mode " +
-					sessionImpl.getConnectionReleaseMode());
+//			_log.debug(
+//				"Session is using connection release mode " +
+//					sessionImpl.getConnectionReleaseMode());
 		}
 
 		return wrapSession(session);

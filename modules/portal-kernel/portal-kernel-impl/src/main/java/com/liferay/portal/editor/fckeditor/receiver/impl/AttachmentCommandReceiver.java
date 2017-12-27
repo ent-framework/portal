@@ -21,10 +21,6 @@ import com.liferay.portal.kernel.util.ObjectValuePair;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.util.PortletKeys;
-import com.liferay.portlet.wiki.model.WikiPage;
-import com.liferay.portlet.wiki.service.WikiPageLocalServiceUtil;
-import com.liferay.portlet.wiki.service.WikiPageServiceUtil;
-
 import java.io.InputStream;
 
 import java.util.ArrayList;
@@ -52,28 +48,28 @@ public class AttachmentCommandReceiver extends BaseCommandReceiver {
 		InputStream inputStream, String extension, long size) {
 
 		try {
-			HttpServletRequest request =
-				commandArgument.getHttpServletRequest();
-
-			long resourcePK = ParamUtil.getLong(
-				request, "wikiPageResourcePrimKey");
-
-			WikiPage page = WikiPageLocalServiceUtil.getPage(resourcePK);
-
-			String title = page.getTitle();
-
-			long nodeId = page.getNodeId();
-
-			List<ObjectValuePair<String, InputStream>> inputStreamOVPs =
-				new ArrayList<ObjectValuePair<String, InputStream>>(1);
-
-			ObjectValuePair<String, InputStream> inputStreamOVP =
-				new ObjectValuePair<String, InputStream>(fileName, inputStream);
-
-			inputStreamOVPs.add(inputStreamOVP);
-
-			WikiPageServiceUtil.addPageAttachments(
-				nodeId, title, inputStreamOVPs);
+//			HttpServletRequest request =
+//				commandArgument.getHttpServletRequest();
+//
+//			long resourcePK = ParamUtil.getLong(
+//				request, "wikiPageResourcePrimKey");
+//
+//			WikiPage page = WikiPageLocalServiceUtil.getPage(resourcePK);
+//
+//			String title = page.getTitle();
+//
+//			long nodeId = page.getNodeId();
+//
+//			List<ObjectValuePair<String, InputStream>> inputStreamOVPs =
+//				new ArrayList<ObjectValuePair<String, InputStream>>(1);
+//
+//			ObjectValuePair<String, InputStream> inputStreamOVP =
+//				new ObjectValuePair<String, InputStream>(fileName, inputStream);
+//
+//			inputStreamOVPs.add(inputStreamOVP);
+//
+//			WikiPageServiceUtil.addPageAttachments(
+//				nodeId, title, inputStreamOVPs);
 		}
 		catch (Exception e) {
 			throw new FCKException(e);
@@ -117,24 +113,24 @@ public class AttachmentCommandReceiver extends BaseCommandReceiver {
 		long wikiPageResourcePrimKey = ParamUtil.getLong(
 			request, "wikiPageResourcePrimKey");
 
-		WikiPage wikiPage = WikiPageLocalServiceUtil.getPage(
-			wikiPageResourcePrimKey);
+//		WikiPage wikiPage = WikiPageLocalServiceUtil.getPage(
+//			wikiPageResourcePrimKey);
 
-		String attachmentURLPrefix = ParamUtil.getString(
-			request, "attachmentURLPrefix");
-
-		for (FileEntry fileEntry : wikiPage.getAttachmentsFileEntries()) {
-			Element fileElement = document.createElement("File");
-
-			filesElement.appendChild(fileElement);
-
-			fileElement.setAttribute("name", fileEntry.getTitle());
-			fileElement.setAttribute("desc", fileEntry.getTitle());
-			fileElement.setAttribute(
-				"size", String.valueOf(fileEntry.getSize()));
-			fileElement.setAttribute(
-				"url", attachmentURLPrefix + fileEntry.getTitle());
-		}
+//		String attachmentURLPrefix = ParamUtil.getString(
+//			request, "attachmentURLPrefix");
+//
+//		for (FileEntry fileEntry : wikiPage.getAttachmentsFileEntries()) {
+//			Element fileElement = document.createElement("File");
+//
+//			filesElement.appendChild(fileElement);
+//
+//			fileElement.setAttribute("name", fileEntry.getTitle());
+//			fileElement.setAttribute("desc", fileEntry.getTitle());
+//			fileElement.setAttribute(
+//				"size", String.valueOf(fileEntry.getSize()));
+//			fileElement.setAttribute(
+//				"url", attachmentURLPrefix + fileEntry.getTitle());
+//		}
 	}
 
 }

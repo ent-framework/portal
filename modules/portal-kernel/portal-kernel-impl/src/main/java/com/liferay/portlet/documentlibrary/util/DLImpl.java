@@ -74,8 +74,6 @@ import com.liferay.portlet.documentlibrary.util.comparator.RepositoryModelModifi
 import com.liferay.portlet.documentlibrary.util.comparator.RepositoryModelNameComparator;
 import com.liferay.portlet.documentlibrary.util.comparator.RepositoryModelReadCountComparator;
 import com.liferay.portlet.documentlibrary.util.comparator.RepositoryModelSizeComparator;
-import com.liferay.portlet.messageboards.model.MBMessage;
-import com.liferay.portlet.messageboards.service.MBMessageLocalServiceUtil;
 import com.liferay.portlet.trash.util.TrashUtil;
 import com.liferay.util.ContentUtil;
 
@@ -641,14 +639,14 @@ public class DLImpl implements DL {
 				if (entryClassName.equals(DLFileEntry.class.getName())) {
 					obj = DLAppLocalServiceUtil.getFileEntry(entryClassPK);
 				}
-				else if (entryClassName.equals(MBMessage.class.getName())) {
-					long classPK = GetterUtil.getLong(
-						document.get(Field.CLASS_PK));
-
-					DLAppLocalServiceUtil.getFileEntry(classPK);
-
-					obj = MBMessageLocalServiceUtil.getMessage(entryClassPK);
-				}
+//				else if (entryClassName.equals(MBMessage.class.getName())) {
+//					long classPK = GetterUtil.getLong(
+//						document.get(Field.CLASS_PK));
+//
+//					DLAppLocalServiceUtil.getFileEntry(classPK);
+//
+//					obj = MBMessageLocalServiceUtil.getMessage(entryClassPK);
+//				}
 
 				entries.add(obj);
 			}

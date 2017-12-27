@@ -30,7 +30,6 @@ import com.liferay.portal.service.UserLocalServiceUtil;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PortletKeys;
 import com.liferay.portlet.blogs.model.BlogsEntry;
-import com.liferay.portlet.wiki.model.WikiPage;
 
 import java.util.HashMap;
 import java.util.List;
@@ -179,9 +178,9 @@ public class AddDefaultLayoutPrototypesAction
 
 		Map<String, String> preferences = new HashMap<String, String>();
 
-		preferences.put(
-			"classNameId",
-			String.valueOf(PortalUtil.getClassNameId(WikiPage.class)));
+//		preferences.put(
+//			"classNameId",
+//			String.valueOf(PortalUtil.getClassNameId(WikiPage.class)));
 		preferences.put("showAssetCount", Boolean.TRUE.toString());
 
 		updatePortletSetup(layout, portletId, preferences);

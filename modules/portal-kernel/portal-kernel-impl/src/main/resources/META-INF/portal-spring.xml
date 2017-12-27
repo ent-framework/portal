@@ -14,10 +14,10 @@
 	<bean id="com.liferay.portal.service.persistence.BrowserTrackerPersistence" class="com.liferay.portal.service.persistence.BrowserTrackerPersistenceImpl" parent="basePersistence" />
 	<bean id="com.liferay.portal.service.ClassNameLocalService" class="com.liferay.portal.service.impl.ClassNameLocalServiceImpl" />
 	<bean id="com.liferay.portal.service.ClassNameService" class="com.liferay.portal.service.impl.ClassNameServiceImpl" />
+	<bean id="com.liferay.portal.service.CMISRepositoryLocalService" class="com.liferay.portal.service.impl.CMISRepositoryLocalServiceImpl" />
 	<bean id="com.liferay.portal.service.persistence.ClassNamePersistence" class="com.liferay.portal.service.persistence.ClassNamePersistenceImpl" parent="basePersistence" />
 	<bean id="com.liferay.portal.service.ClusterGroupLocalService" class="com.liferay.portal.service.impl.ClusterGroupLocalServiceImpl" />
 	<bean id="com.liferay.portal.service.persistence.ClusterGroupPersistence" class="com.liferay.portal.service.persistence.ClusterGroupPersistenceImpl" parent="basePersistence" />
-	<bean id="com.liferay.portal.service.CMISRepositoryLocalService" class="com.liferay.portal.service.impl.CMISRepositoryLocalServiceImpl" />
 	<bean id="com.liferay.portal.service.CompanyLocalService" class="com.liferay.portal.service.impl.CompanyLocalServiceImpl" />
 	<bean id="com.liferay.portal.service.CompanyService" class="com.liferay.portal.service.impl.CompanyServiceImpl" />
 	<bean id="com.liferay.portal.service.persistence.CompanyPersistence" class="com.liferay.portal.service.persistence.CompanyPersistenceImpl" parent="basePersistence" />
@@ -228,13 +228,6 @@
 	<bean id="com.liferay.portlet.asset.service.AssetVocabularyService" class="com.liferay.portlet.asset.service.impl.AssetVocabularyServiceImpl" />
 	<bean id="com.liferay.portlet.asset.service.persistence.AssetVocabularyPersistence" class="com.liferay.portlet.asset.service.persistence.AssetVocabularyPersistenceImpl" parent="basePersistence" />
 	<bean id="com.liferay.portlet.asset.service.persistence.AssetVocabularyFinder" class="com.liferay.portlet.asset.service.persistence.AssetVocabularyFinderImpl" parent="basePersistence" />
-	<bean id="com.liferay.portlet.blogs.service.BlogsEntryLocalService" class="com.liferay.portlet.blogs.service.impl.BlogsEntryLocalServiceImpl" />
-	<bean id="com.liferay.portlet.blogs.service.BlogsEntryService" class="com.liferay.portlet.blogs.service.impl.BlogsEntryServiceImpl" />
-	<bean id="com.liferay.portlet.blogs.service.persistence.BlogsEntryPersistence" class="com.liferay.portlet.blogs.service.persistence.BlogsEntryPersistenceImpl" parent="basePersistence" />
-	<bean id="com.liferay.portlet.blogs.service.persistence.BlogsEntryFinder" class="com.liferay.portlet.blogs.service.persistence.BlogsEntryFinderImpl" parent="basePersistence" />
-	<bean id="com.liferay.portlet.blogs.service.BlogsStatsUserLocalService" class="com.liferay.portlet.blogs.service.impl.BlogsStatsUserLocalServiceImpl" />
-	<bean id="com.liferay.portlet.blogs.service.persistence.BlogsStatsUserPersistence" class="com.liferay.portlet.blogs.service.persistence.BlogsStatsUserPersistenceImpl" parent="basePersistence" />
-	<bean id="com.liferay.portlet.blogs.service.persistence.BlogsStatsUserFinder" class="com.liferay.portlet.blogs.service.persistence.BlogsStatsUserFinderImpl" parent="basePersistence" />
 	<bean id="com.liferay.portlet.bookmarks.service.BookmarksEntryLocalService" class="com.liferay.portlet.bookmarks.service.impl.BookmarksEntryLocalServiceImpl" />
 	<bean id="com.liferay.portlet.bookmarks.service.BookmarksEntryService" class="com.liferay.portlet.bookmarks.service.impl.BookmarksEntryServiceImpl" />
 	<bean id="com.liferay.portlet.bookmarks.service.persistence.BookmarksEntryPersistence" class="com.liferay.portlet.bookmarks.service.persistence.BookmarksEntryPersistenceImpl" parent="basePersistence" />
@@ -332,29 +325,6 @@
 	<bean id="com.liferay.portlet.journal.service.JournalStructureService" class="com.liferay.portlet.journal.service.impl.JournalStructureServiceImpl" />
 	<bean id="com.liferay.portlet.journal.service.JournalTemplateLocalService" class="com.liferay.portlet.journal.service.impl.JournalTemplateLocalServiceImpl" />
 	<bean id="com.liferay.portlet.journal.service.JournalTemplateService" class="com.liferay.portlet.journal.service.impl.JournalTemplateServiceImpl" />
-	<bean id="com.liferay.portlet.messageboards.service.MBBanLocalService" class="com.liferay.portlet.messageboards.service.impl.MBBanLocalServiceImpl" />
-	<bean id="com.liferay.portlet.messageboards.service.MBBanService" class="com.liferay.portlet.messageboards.service.impl.MBBanServiceImpl" />
-	<bean id="com.liferay.portlet.messageboards.service.persistence.MBBanPersistence" class="com.liferay.portlet.messageboards.service.persistence.MBBanPersistenceImpl" parent="basePersistence" />
-	<bean id="com.liferay.portlet.messageboards.service.MBCategoryLocalService" class="com.liferay.portlet.messageboards.service.impl.MBCategoryLocalServiceImpl" />
-	<bean id="com.liferay.portlet.messageboards.service.MBCategoryService" class="com.liferay.portlet.messageboards.service.impl.MBCategoryServiceImpl" />
-	<bean id="com.liferay.portlet.messageboards.service.persistence.MBCategoryPersistence" class="com.liferay.portlet.messageboards.service.persistence.MBCategoryPersistenceImpl" parent="basePersistence" />
-	<bean id="com.liferay.portlet.messageboards.service.persistence.MBCategoryFinder" class="com.liferay.portlet.messageboards.service.persistence.MBCategoryFinderImpl" parent="basePersistence" />
-	<bean id="com.liferay.portlet.messageboards.service.MBDiscussionLocalService" class="com.liferay.portlet.messageboards.service.impl.MBDiscussionLocalServiceImpl" />
-	<bean id="com.liferay.portlet.messageboards.service.persistence.MBDiscussionPersistence" class="com.liferay.portlet.messageboards.service.persistence.MBDiscussionPersistenceImpl" parent="basePersistence" />
-	<bean id="com.liferay.portlet.messageboards.service.MBMailingListLocalService" class="com.liferay.portlet.messageboards.service.impl.MBMailingListLocalServiceImpl" />
-	<bean id="com.liferay.portlet.messageboards.service.persistence.MBMailingListPersistence" class="com.liferay.portlet.messageboards.service.persistence.MBMailingListPersistenceImpl" parent="basePersistence" />
-	<bean id="com.liferay.portlet.messageboards.service.MBMessageLocalService" class="com.liferay.portlet.messageboards.service.impl.MBMessageLocalServiceImpl" />
-	<bean id="com.liferay.portlet.messageboards.service.MBMessageService" class="com.liferay.portlet.messageboards.service.impl.MBMessageServiceImpl" />
-	<bean id="com.liferay.portlet.messageboards.service.persistence.MBMessagePersistence" class="com.liferay.portlet.messageboards.service.persistence.MBMessagePersistenceImpl" parent="basePersistence" />
-	<bean id="com.liferay.portlet.messageboards.service.persistence.MBMessageFinder" class="com.liferay.portlet.messageboards.service.persistence.MBMessageFinderImpl" parent="basePersistence" />
-	<bean id="com.liferay.portlet.messageboards.service.MBStatsUserLocalService" class="com.liferay.portlet.messageboards.service.impl.MBStatsUserLocalServiceImpl" />
-	<bean id="com.liferay.portlet.messageboards.service.persistence.MBStatsUserPersistence" class="com.liferay.portlet.messageboards.service.persistence.MBStatsUserPersistenceImpl" parent="basePersistence" />
-	<bean id="com.liferay.portlet.messageboards.service.MBThreadLocalService" class="com.liferay.portlet.messageboards.service.impl.MBThreadLocalServiceImpl" />
-	<bean id="com.liferay.portlet.messageboards.service.MBThreadService" class="com.liferay.portlet.messageboards.service.impl.MBThreadServiceImpl" />
-	<bean id="com.liferay.portlet.messageboards.service.persistence.MBThreadPersistence" class="com.liferay.portlet.messageboards.service.persistence.MBThreadPersistenceImpl" parent="basePersistence" />
-	<bean id="com.liferay.portlet.messageboards.service.persistence.MBThreadFinder" class="com.liferay.portlet.messageboards.service.persistence.MBThreadFinderImpl" parent="basePersistence" />
-	<bean id="com.liferay.portlet.messageboards.service.MBThreadFlagLocalService" class="com.liferay.portlet.messageboards.service.impl.MBThreadFlagLocalServiceImpl" />
-	<bean id="com.liferay.portlet.messageboards.service.persistence.MBThreadFlagPersistence" class="com.liferay.portlet.messageboards.service.persistence.MBThreadFlagPersistenceImpl" parent="basePersistence" />
 	<bean id="com.liferay.portlet.mobiledevicerules.service.MDRActionLocalService" class="com.liferay.portlet.mobiledevicerules.service.impl.MDRActionLocalServiceImpl" />
 	<bean id="com.liferay.portlet.mobiledevicerules.service.MDRActionService" class="com.liferay.portlet.mobiledevicerules.service.impl.MDRActionServiceImpl" />
 	<bean id="com.liferay.portlet.mobiledevicerules.service.persistence.MDRActionPersistence" class="com.liferay.portlet.mobiledevicerules.service.persistence.MDRActionPersistenceImpl" parent="basePersistence" />
@@ -450,13 +420,4 @@
 	<bean id="com.liferay.portlet.trash.service.persistence.TrashEntryPersistence" class="com.liferay.portlet.trash.service.persistence.TrashEntryPersistenceImpl" parent="basePersistence" />
 	<bean id="com.liferay.portlet.trash.service.TrashVersionLocalService" class="com.liferay.portlet.trash.service.impl.TrashVersionLocalServiceImpl" />
 	<bean id="com.liferay.portlet.trash.service.persistence.TrashVersionPersistence" class="com.liferay.portlet.trash.service.persistence.TrashVersionPersistenceImpl" parent="basePersistence" />
-	<bean id="com.liferay.portlet.wiki.service.WikiNodeLocalService" class="com.liferay.portlet.wiki.service.impl.WikiNodeLocalServiceImpl" />
-	<bean id="com.liferay.portlet.wiki.service.WikiNodeService" class="com.liferay.portlet.wiki.service.impl.WikiNodeServiceImpl" />
-	<bean id="com.liferay.portlet.wiki.service.persistence.WikiNodePersistence" class="com.liferay.portlet.wiki.service.persistence.WikiNodePersistenceImpl" parent="basePersistence" />
-	<bean id="com.liferay.portlet.wiki.service.WikiPageLocalService" class="com.liferay.portlet.wiki.service.impl.WikiPageLocalServiceImpl" />
-	<bean id="com.liferay.portlet.wiki.service.WikiPageService" class="com.liferay.portlet.wiki.service.impl.WikiPageServiceImpl" />
-	<bean id="com.liferay.portlet.wiki.service.persistence.WikiPagePersistence" class="com.liferay.portlet.wiki.service.persistence.WikiPagePersistenceImpl" parent="basePersistence" />
-	<bean id="com.liferay.portlet.wiki.service.persistence.WikiPageFinder" class="com.liferay.portlet.wiki.service.persistence.WikiPageFinderImpl" parent="basePersistence" />
-	<bean id="com.liferay.portlet.wiki.service.WikiPageResourceLocalService" class="com.liferay.portlet.wiki.service.impl.WikiPageResourceLocalServiceImpl" />
-	<bean id="com.liferay.portlet.wiki.service.persistence.WikiPageResourcePersistence" class="com.liferay.portlet.wiki.service.persistence.WikiPageResourcePersistenceImpl" parent="basePersistence" />
 </beans>

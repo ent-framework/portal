@@ -434,10 +434,10 @@ public class JournalArticleLocalServiceImpl
 		// Message boards
 
 		if (PropsValues.JOURNAL_ARTICLE_COMMENTS_ENABLED) {
-			mbMessageLocalService.addDiscussionMessage(
-				userId, article.getUserName(), groupId,
-				JournalArticle.class.getName(), resourcePrimKey,
-				WorkflowConstants.ACTION_PUBLISH);
+//			mbMessageLocalService.addDiscussionMessage(
+//				userId, article.getUserName(), groupId,
+//				JournalArticle.class.getName(), resourcePrimKey,
+//				WorkflowConstants.ACTION_PUBLISH);
 		}
 
 		// Email
@@ -999,8 +999,8 @@ public class JournalArticleLocalServiceImpl
 
 			// Message boards
 
-			mbMessageLocalService.deleteDiscussionMessages(
-				JournalArticle.class.getName(), article.getResourcePrimKey());
+//			mbMessageLocalService.deleteDiscussionMessages(
+//				JournalArticle.class.getName(), article.getResourcePrimKey());
 
 			// Asset
 
@@ -3606,8 +3606,8 @@ public class JournalArticleLocalServiceImpl
 		// Comment
 
 		if (PropsValues.JOURNAL_ARTICLE_COMMENTS_ENABLED) {
-			mbMessageLocalService.moveDiscussionToTrash(
-				JournalArticle.class.getName(), article.getResourcePrimKey());
+//			mbMessageLocalService.moveDiscussionToTrash(
+//				JournalArticle.class.getName(), article.getResourcePrimKey());
 		}
 
 		// Social
@@ -3800,8 +3800,8 @@ public class JournalArticleLocalServiceImpl
 		// Comment
 
 		if (PropsValues.JOURNAL_ARTICLE_COMMENTS_ENABLED) {
-			mbMessageLocalService.restoreDiscussionFromTrash(
-				JournalArticle.class.getName(), article.getResourcePrimKey());
+//			mbMessageLocalService.restoreDiscussionFromTrash(
+//				JournalArticle.class.getName(), article.getResourcePrimKey());
 		}
 
 		// Social

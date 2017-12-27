@@ -26,7 +26,7 @@ public interface Session {
 
 	public void clear() throws ORMException;
 
-	public Connection close() throws ORMException;
+	public void close() throws ORMException;
 
 	public boolean contains(Object object) throws ORMException;
 

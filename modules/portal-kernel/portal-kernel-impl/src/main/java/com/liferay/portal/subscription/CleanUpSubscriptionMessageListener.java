@@ -38,12 +38,6 @@ import com.liferay.portal.service.UserLocalServiceUtil;
 import com.liferay.portlet.asset.AssetRendererFactoryRegistryUtil;
 import com.liferay.portlet.asset.model.AssetEntry;
 import com.liferay.portlet.asset.model.AssetRendererFactory;
-import com.liferay.portlet.messageboards.model.MBCategory;
-import com.liferay.portlet.messageboards.model.MBThread;
-import com.liferay.portlet.messageboards.service.MBCategoryLocalServiceUtil;
-import com.liferay.portlet.messageboards.service.MBThreadLocalServiceUtil;
-import com.liferay.portlet.wiki.model.WikiNode;
-import com.liferay.portlet.wiki.service.WikiNodeLocalServiceUtil;
 
 import java.io.Serializable;
 
@@ -125,45 +119,45 @@ public class CleanUpSubscriptionMessageListener extends BaseMessageListener {
 			Subscription subscription, long groupId, long[] groupIds)
 		throws PortalException, SystemException {
 
-		MBCategory mbCategory = MBCategoryLocalServiceUtil.fetchMBCategory(
-			subscription.getClassPK());
-
-		if ((mbCategory != null) &&
-			((mbCategory.getGroupId() == groupId) ||
-			 !ArrayUtil.contains(groupIds, mbCategory.getGroupId()))) {
-
-			SubscriptionLocalServiceUtil.deleteSubscription(
-				subscription.getSubscriptionId());
-
-			return;
-		}
-
-		Group group = GroupLocalServiceUtil.fetchGroup(
-			subscription.getClassPK());
-
-		if ((group != null) &&
-			((group.getGroupId() == groupId) ||
-			 !ArrayUtil.contains(groupIds, group.getGroupId()))) {
-
-			SubscriptionLocalServiceUtil.deleteSubscription(
-				subscription.getSubscriptionId());
-		}
+//		MBCategory mbCategory = MBCategoryLocalServiceUtil.fetchMBCategory(
+//			subscription.getClassPK());
+//
+//		if ((mbCategory != null) &&
+//			((mbCategory.getGroupId() == groupId) ||
+//			 !ArrayUtil.contains(groupIds, mbCategory.getGroupId()))) {
+//
+//			SubscriptionLocalServiceUtil.deleteSubscription(
+//				subscription.getSubscriptionId());
+//
+//			return;
+//		}
+//
+//		Group group = GroupLocalServiceUtil.fetchGroup(
+//			subscription.getClassPK());
+//
+//		if ((group != null) &&
+//			((group.getGroupId() == groupId) ||
+//			 !ArrayUtil.contains(groupIds, group.getGroupId()))) {
+//
+//			SubscriptionLocalServiceUtil.deleteSubscription(
+//				subscription.getSubscriptionId());
+//		}
 	}
 
 	protected void processMBThread(
 			Subscription subscription, long groupId, long[] groupIds)
 		throws PortalException, SystemException {
 
-		MBThread mbThread = MBThreadLocalServiceUtil.fetchThread(
-			subscription.getClassPK());
-
-		if ((mbThread != null) &&
-			((mbThread.getGroupId() == groupId) ||
-			 !ArrayUtil.contains(groupIds, mbThread.getGroupId()))) {
-
-			SubscriptionLocalServiceUtil.deleteSubscription(
-				subscription.getSubscriptionId());
-		}
+//		MBThread mbThread = MBThreadLocalServiceUtil.fetchThread(
+//			subscription.getClassPK());
+//
+//		if ((mbThread != null) &&
+//			((mbThread.getGroupId() == groupId) ||
+//			 !ArrayUtil.contains(groupIds, mbThread.getGroupId()))) {
+//
+//			SubscriptionLocalServiceUtil.deleteSubscription(
+//				subscription.getSubscriptionId());
+//		}
 	}
 
 	protected void processSubscription(
@@ -175,15 +169,15 @@ public class CleanUpSubscriptionMessageListener extends BaseMessageListener {
 		if (className.equals(Layout.class.getName())) {
 			processLayout(subscription, groupId, groupIds);
 		}
-		else if (className.equals(MBCategory.class.getName())) {
-			processMBCategory(subscription, groupId, groupIds);
-		}
-		else if (className.equals(MBThread.class.getName())) {
-			processMBThread(subscription, groupId, groupIds);
-		}
-		else if (className.equals(WikiNode.class.getName())) {
-			processWikiNode(subscription, groupId, groupIds);
-		}
+//		else if (className.equals(MBCategory.class.getName())) {
+//			processMBCategory(subscription, groupId, groupIds);
+//		}
+//		else if (className.equals(MBThread.class.getName())) {
+//			processMBThread(subscription, groupId, groupIds);
+//		}
+//		else if (className.equals(WikiNode.class.getName())) {
+//			processWikiNode(subscription, groupId, groupIds);
+//		}
 		else if (className.equals(WorkflowInstance.class.getName())) {
 			processWorkflowInstance(subscription, groupId, groupIds);
 		}
@@ -236,16 +230,16 @@ public class CleanUpSubscriptionMessageListener extends BaseMessageListener {
 			Subscription subscription, long groupId, long[] groupIds)
 		throws PortalException, SystemException {
 
-		WikiNode wikiNode = WikiNodeLocalServiceUtil.fetchWikiNode(
-			subscription.getClassPK());
-
-		if ((wikiNode != null) &&
-			((wikiNode.getGroupId() == groupId) ||
-			 !ArrayUtil.contains(groupIds, wikiNode.getGroupId()))) {
-
-			SubscriptionLocalServiceUtil.deleteSubscription(
-				subscription.getSubscriptionId());
-		}
+//		WikiNode wikiNode = WikiNodeLocalServiceUtil.fetchWikiNode(
+//			subscription.getClassPK());
+//
+//		if ((wikiNode != null) &&
+//			((wikiNode.getGroupId() == groupId) ||
+//			 !ArrayUtil.contains(groupIds, wikiNode.getGroupId()))) {
+//
+//			SubscriptionLocalServiceUtil.deleteSubscription(
+//				subscription.getSubscriptionId());
+//		}
 	}
 
 	protected void processWorkflowInstance(

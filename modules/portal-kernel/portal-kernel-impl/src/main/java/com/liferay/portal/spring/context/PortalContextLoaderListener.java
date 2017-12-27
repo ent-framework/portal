@@ -23,6 +23,7 @@ import com.liferay.portal.kernel.cache.SingleVMPoolUtil;
 import com.liferay.portal.kernel.cache.ThreadLocalCacheManager;
 import com.liferay.portal.kernel.dao.db.DBFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.EntityCacheUtil;
+import com.liferay.portal.kernel.dao.orm.FinderCache;
 import com.liferay.portal.kernel.dao.orm.FinderCacheUtil;
 import com.liferay.portal.kernel.deploy.DeployManagerUtil;
 import com.liferay.portal.kernel.deploy.hot.HotDeployUtil;
@@ -49,7 +50,6 @@ import com.liferay.portal.kernel.util.ServerDetector;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.SystemProperties;
 import com.liferay.portal.kernel.webcache.WebCachePoolUtil;
-import com.liferay.portal.module.framework.ModuleFrameworkUtilAdapter;
 import com.liferay.portal.security.lang.SecurityManagerUtil;
 import com.liferay.portal.security.permission.PermissionCacheUtil;
 import com.liferay.portal.servlet.filters.cache.CacheUtil;
@@ -79,6 +79,7 @@ import org.springframework.beans.factory.support.AbstractAutowireCapableBeanFact
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.ContextLoaderListener;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 /**
  * @author Michael Young
@@ -148,13 +149,6 @@ public class PortalContextLoaderListener extends ContextLoaderListener {
 		}
 
 		try {
-			ModuleFrameworkUtilAdapter.stopRuntime();
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-		}
-
-		try {
 			PortalLifecycleUtil.reset();
 		}
 		catch (Exception e) {
@@ -163,13 +157,6 @@ public class PortalContextLoaderListener extends ContextLoaderListener {
 
 		try {
 			super.contextDestroyed(servletContextEvent);
-
-			try {
-				ModuleFrameworkUtilAdapter.stopFramework();
-			}
-			catch (Exception e) {
-				_log.error(e, e);
-			}
 		}
 		finally {
 			PortalContextLoaderLifecycleThreadLocal.setDestroying(false);
@@ -186,6 +173,8 @@ public class PortalContextLoaderListener extends ContextLoaderListener {
 		catch (ClassNotFoundException cnfe) {
 			throw new RuntimeException(cnfe);
 		}
+		
+		System.out.println("contextInitialized:" + ClassLoaderUtil.getPortalClassLoader().getClass().getName());
 
 		DBFactoryUtil.reset();
 		DeployManagerUtil.reset();
@@ -196,7 +185,7 @@ public class PortalContextLoaderListener extends ContextLoaderListener {
 
 		ReferenceRegistry.releaseReferences();
 
-		InitUtil.init();
+		//InitUtil.init();
 
 		ServletContext servletContext = servletContextEvent.getServletContext();
 
@@ -233,48 +222,52 @@ public class PortalContextLoaderListener extends ContextLoaderListener {
 		PropsValues.LIFERAY_WEB_PORTAL_CONTEXT_TEMPDIR =
 			tempDir.getAbsolutePath();
 
-		try {
-			ModuleFrameworkUtilAdapter.startFramework();
-		}
-		catch (Exception e) {
-			throw new RuntimeException(e);
-		}
+		PortalContextLoaderLifecycleThreadLocal.setInitializing(false);
 
-		PortalContextLoaderLifecycleThreadLocal.setInitializing(true);
+//		try {
+//			super.contextInitialized(servletContextEvent);
+//		}
+//		finally {
+//			PortalContextLoaderLifecycleThreadLocal.setInitializing(false);
+//		}
 
-		try {
-			super.contextInitialized(servletContextEvent);
-		}
-		finally {
-			PortalContextLoaderLifecycleThreadLocal.setInitializing(false);
-		}
+		ApplicationContext applicationContext = WebApplicationContextUtils.getWebApplicationContext(servletContext);
 
-		ApplicationContext applicationContext =
-			ContextLoader.getCurrentWebApplicationContext();
+//		ApplicationContext applicationContext = ContextLoader.getCurrentWebApplicationContext();
 
-		try {
-			BeanReferenceRefreshUtil.refresh(applicationContext);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-		}
+//		try {
+//			BeanReferenceRefreshUtil.refresh(applicationContext);
+//		}
+//		catch (Exception e) {
+//			_log.error(e, e);
+//		}
 
+		FinderCacheUtil finderCacheUtil = applicationContext.getBean(FinderCacheUtil.class);
+		EntityCacheUtil entityCacheUtil = applicationContext.getBean(EntityCacheUtil.class);
+		//PermissionCacheUtil permissionCacheUtil = applicationContext.getBean(PermissionCacheUtil.class);
+		TemplateResourceLoaderUtil templateResourceLoaderUtil = applicationContext.getBean(TemplateResourceLoaderUtil.class);
+
+		CacheUtil cacheUtil = applicationContext.getBean(CacheUtil.class);
+		MultiVMPoolUtil multiVMPoolUtil = applicationContext.getBean(MultiVMPoolUtil.class);
+		SingleVMPoolUtil singleVMPoolUtil = applicationContext.getBean(SingleVMPoolUtil.class);
+		WebCachePoolUtil webCachePoolUtil = applicationContext.getBean(WebCachePoolUtil.class);
+		
 		if (CACHE_CLEAR_ON_CONTEXT_INITIALIZATION) {
-			FinderCacheUtil.clearCache();
-			FinderCacheUtil.clearLocalCache();
-			EntityCacheUtil.clearCache();
-			EntityCacheUtil.clearLocalCache();
+			finderCacheUtil.clearCache();
+			finderCacheUtil.clearLocalCache();
+			entityCacheUtil.clearCache();
+			entityCacheUtil.clearLocalCache();
 			PermissionCacheUtil.clearCache();
 			PermissionCacheUtil.clearLocalCache();
-			TemplateResourceLoaderUtil.clearCache();
+			templateResourceLoaderUtil.clearCache();
 		//	WikiCacheUtil.clearCache(0);
 
 			ServletContextPool.clear();
 
-			CacheUtil.clearCache();
-			MultiVMPoolUtil.clear();
-			SingleVMPoolUtil.clear();
-			WebCachePoolUtil.clear();
+			cacheUtil.clearCache();
+			multiVMPoolUtil.clear();
+			singleVMPoolUtil.clear();
+			webCachePoolUtil.clear();
 		}
 
 		ClassLoader portalClassLoader = ClassLoaderUtil.getPortalClassLoader();
@@ -283,8 +276,7 @@ public class PortalContextLoaderListener extends ContextLoaderListener {
 
 		ServletContextPool.put(_portalServlerContextName, servletContext);
 
-		BeanLocatorImpl beanLocatorImpl = new BeanLocatorImpl(
-			portalClassLoader, applicationContext);
+		BeanLocatorImpl beanLocatorImpl = new BeanLocatorImpl(portalClassLoader, applicationContext);
 
 		PortalBeanLocatorUtil.setBeanLocator(beanLocatorImpl);
 
@@ -296,20 +288,10 @@ public class PortalContextLoaderListener extends ContextLoaderListener {
 			classLoader = classLoader.getParent();
 		}
 
-		AutowireCapableBeanFactory autowireCapableBeanFactory =
-			applicationContext.getAutowireCapableBeanFactory();
+		AutowireCapableBeanFactory autowireCapableBeanFactory = applicationContext.getAutowireCapableBeanFactory();
 
 		clearFilteredPropertyDescriptorsCache(autowireCapableBeanFactory);
 
-		try {
-			ModuleFrameworkUtilAdapter.registerContext(applicationContext);
-			ModuleFrameworkUtilAdapter.registerContext(servletContext);
-
-			ModuleFrameworkUtilAdapter.startRuntime();
-		}
-		catch (Exception e) {
-			throw new RuntimeException(e);
-		}
 	}
 
 	protected void clearFilteredPropertyDescriptorsCache(

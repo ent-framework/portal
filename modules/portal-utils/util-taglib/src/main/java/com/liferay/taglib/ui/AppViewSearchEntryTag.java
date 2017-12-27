@@ -15,7 +15,7 @@
 package com.liferay.taglib.ui;
 
 import com.liferay.portal.kernel.util.Tuple;
-import com.liferay.portlet.messageboards.model.MBMessage;
+//import com.liferay.portlet.messageboards.model.MBMessage;
 import com.liferay.taglib.util.IncludeTag;
 
 import javax.servlet.http.HttpServletRequest;
@@ -38,7 +38,6 @@ public class AppViewSearchEntryTag extends IncludeTag {
     private String _description;
     private List<Tuple> _fileEntryTuples;
     private boolean _locked;
-    private List<MBMessage> _mbMessages;
     private String[] _queryTerms;
     private String _rowCheckerId;
     private String _rowCheckerName;
@@ -90,10 +89,6 @@ public class AppViewSearchEntryTag extends IncludeTag {
         _locked = locked;
     }
 
-    public void setMbMessages(List<MBMessage> mbMessages) {
-        _mbMessages = mbMessages;
-    }
-
     public void setQueryTerms(String[] queryTerms) {
         _queryTerms = queryTerms;
     }
@@ -141,7 +136,6 @@ public class AppViewSearchEntryTag extends IncludeTag {
         _description = null;
         _fileEntryTuples = null;
         _locked = false;
-        _mbMessages = null;
         _queryTerms = null;
         _rowCheckerId = null;
         _rowCheckerName = null;
@@ -184,8 +178,8 @@ public class AppViewSearchEntryTag extends IncludeTag {
                 _fileEntryTuples);
         request.setAttribute(
                 "liferay-ui:app-view-search-entry:locked", _locked);
-        request.setAttribute(
-                "liferay-ui:app-view-search-entry:mbMessages", _mbMessages);
+//        request.setAttribute(
+//                "liferay-ui:app-view-search-entry:mbMessages", _mbMessages);
         request.setAttribute(
                 "liferay-ui:app-view-search-entry:queryTerms", _queryTerms);
         request.setAttribute(

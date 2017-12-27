@@ -94,7 +94,7 @@ public class PortletSessionFactoryImpl extends SessionFactoryImpl {
 				session = sessionFactory.getCurrentSession();
 			}
 			else {
-				session = sessionFactory.openSession(connection);
+				session = sessionFactory.openSession();
 			}
 		}
 		else {
@@ -102,12 +102,12 @@ public class PortletSessionFactoryImpl extends SessionFactoryImpl {
 		}
 
 		if (_log.isDebugEnabled()) {
-			org.hibernate.impl.SessionImpl sessionImpl =
-				(org.hibernate.impl.SessionImpl)session;
+			org.hibernate.internal.SessionImpl sessionImpl =
+				(org.hibernate.internal.SessionImpl)session;
 
-			_log.debug(
-				"Session is using connection release mode " +
-					sessionImpl.getConnectionReleaseMode());
+//			_log.debug(
+//				"Session is using connection release mode " +
+//					sessionImpl.getConnectionReleaseMode());
 		}
 
 		return wrapSession(session);

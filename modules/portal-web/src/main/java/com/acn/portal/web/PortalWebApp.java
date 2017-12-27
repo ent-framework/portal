@@ -3,6 +3,7 @@ package com.acn.portal.web;
 import com.acn.portal.web.config.ApplicationProperties;
 import com.acn.portal.web.config.DefaultProfileUtil;
 
+import com.acn.portal.web.config.portal.PortalApplicationContextInitializer;
 import io.github.jhipster.config.JHipsterConstants;
 
 import org.slf4j.Logger;
@@ -64,6 +65,7 @@ public class PortalWebApp {
     public static void main(String[] args) throws UnknownHostException {
         SpringApplication app = new SpringApplication(PortalWebApp.class);
         DefaultProfileUtil.addDefaultProfile(app);
+        app.addInitializers(new PortalApplicationContextInitializer());
         Environment env = app.run(args).getEnvironment();
         String protocol = "http";
         if (env.getProperty("server.ssl.key-store") != null) {

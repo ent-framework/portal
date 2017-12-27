@@ -135,10 +135,10 @@ public class SCProductEntryLocalServiceImpl
 		// Message boards
 
 		if (PropsValues.SC_PRODUCT_COMMENTS_ENABLED) {
-			mbMessageLocalService.addDiscussionMessage(
-				userId, productEntry.getUserName(), groupId,
-				SCProductEntry.class.getName(), productEntryId,
-				WorkflowConstants.ACTION_PUBLISH);
+//			mbMessageLocalService.addDiscussionMessage(
+//				userId, productEntry.getUserName(), groupId,
+//				SCProductEntry.class.getName(), productEntryId,
+//				WorkflowConstants.ACTION_PUBLISH);
 		}
 
 		return productEntry;
@@ -253,8 +253,8 @@ public class SCProductEntryLocalServiceImpl
 
 		// Message boards
 
-		mbMessageLocalService.deleteDiscussionMessages(
-			SCProductEntry.class.getName(), productEntry.getProductEntryId());
+//		mbMessageLocalService.deleteDiscussionMessages(
+//			SCProductEntry.class.getName(), productEntry.getProductEntryId());
 
 		// Ratings
 

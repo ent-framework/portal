@@ -35,7 +35,7 @@
 		<constructor-arg ref="liferayHibernateSessionFactory" />
 	</bean>
 	<bean id="hibernateMBeanExporter" class="org.springframework.jmx.export.MBeanExporter">
-		<property name="beans">
+<!-- 		<property name="beans">
 			<map>
 				<entry key="Hibernate:name=statistics">
 					<bean class="com.liferay.portal.dao.orm.hibernate.jmx.HibernateStatisticsService">
@@ -43,7 +43,7 @@
 					</bean>
 				</entry>
 			</map>
-		</property>
+		</property> -->
 		<property name="registrationBehavior">
 			<util:constant static-field="org.springframework.jmx.support.MBeanRegistrationSupport.REGISTRATION_IGNORE_EXISTING" />
 		</property>

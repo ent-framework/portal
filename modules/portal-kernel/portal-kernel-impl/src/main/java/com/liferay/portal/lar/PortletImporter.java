@@ -105,7 +105,6 @@ import com.liferay.portlet.expando.service.ExpandoColumnLocalServiceUtil;
 import com.liferay.portlet.expando.service.ExpandoTableLocalServiceUtil;
 import com.liferay.portlet.expando.util.ExpandoConverterUtil;
 import com.liferay.portlet.journalcontent.util.JournalContentUtil;
-import com.liferay.portlet.messageboards.model.MBMessage;
 import com.liferay.portlet.ratings.model.RatingsEntry;
 
 import java.io.File;
@@ -1475,19 +1474,19 @@ public class PortletImporter {
 			List<String> zipFolderEntries =
 				portletDataContext.getZipFolderEntries(path);
 
-			List<MBMessage> mbMessages = new ArrayList<MBMessage>();
+//			List<MBMessage> mbMessages = new ArrayList<MBMessage>();
+//
+//			for (String zipFolderEntry : zipFolderEntries) {
+//				MBMessage mbMessage =
+//					(MBMessage)portletDataContext.getZipEntryAsObject(
+//						zipFolderEntry);
+//
+//				if (mbMessage != null) {
+//					mbMessages.add(mbMessage);
+//				}
+//			}
 
-			for (String zipFolderEntry : zipFolderEntries) {
-				MBMessage mbMessage =
-					(MBMessage)portletDataContext.getZipEntryAsObject(
-						zipFolderEntry);
-
-				if (mbMessage != null) {
-					mbMessages.add(mbMessage);
-				}
-			}
-
-			portletDataContext.addComments(className, classPK, mbMessages);
+			//portletDataContext.addComments(className, classPK, mbMessages);
 		}
 	}
 

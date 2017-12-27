@@ -140,10 +140,10 @@ public class ShoppingOrderLocalServiceImpl
 		// Message boards
 
 		if (PropsValues.SHOPPING_ORDER_COMMENTS_ENABLED) {
-			mbMessageLocalService.addDiscussionMessage(
-				userId, order.getUserName(), groupId,
-				ShoppingOrder.class.getName(), orderId,
-				WorkflowConstants.ACTION_PUBLISH);
+//			mbMessageLocalService.addDiscussionMessage(
+//				userId, order.getUserName(), groupId,
+//				ShoppingOrder.class.getName(), orderId,
+//				WorkflowConstants.ACTION_PUBLISH);
 		}
 
 		return order;
@@ -259,8 +259,8 @@ public class ShoppingOrderLocalServiceImpl
 
 		// Message boards
 
-		mbMessageLocalService.deleteDiscussionMessages(
-			ShoppingOrder.class.getName(), order.getOrderId());
+//		mbMessageLocalService.deleteDiscussionMessages(
+//			ShoppingOrder.class.getName(), order.getOrderId());
 	}
 
 	@Override

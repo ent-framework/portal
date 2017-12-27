@@ -55,8 +55,7 @@ public class SessionImpl implements Session {
 	}
 
 	@Override
-	public Connection close() throws ORMException {
-		return null;
+	public void close() throws ORMException {
 	}
 
 	@Override

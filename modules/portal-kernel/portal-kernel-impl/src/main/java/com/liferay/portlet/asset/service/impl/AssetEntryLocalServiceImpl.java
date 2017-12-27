@@ -53,9 +53,7 @@ import com.liferay.portlet.blogs.model.BlogsEntry;
 import com.liferay.portlet.bookmarks.model.BookmarksEntry;
 import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 import com.liferay.portlet.journal.model.JournalArticle;
-import com.liferay.portlet.messageboards.model.MBMessage;
 import com.liferay.portlet.social.model.SocialActivityConstants;
-import com.liferay.portlet.wiki.model.WikiPage;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -705,22 +703,6 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 
 				journalArticlePersistence.update(journalArticle);
 			}
-			else if (className.equals(MBMessage.class.getName())) {
-				MBMessage mbMessage = mbMessagePersistence.findByPrimaryKey(
-					classPK);
-
-				mbMessage.setSubject(title);
-
-				mbMessagePersistence.update(mbMessage);
-			}
-			else if (className.equals(WikiPage.class.getName())) {
-				WikiPage wikiPage = wikiPagePersistence.findByPrimaryKey(
-					classPK);
-
-				wikiPage.setTitle(title);
-
-				wikiPagePersistence.update(wikiPage);
-			}
 		}
 
 		// Indexer
@@ -939,32 +921,6 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 
 			return assetEntryPersistence.findByC_C(classNameId, classPK);
 		}
-		else if (portletId.equals(PortletKeys.MESSAGE_BOARDS)) {
-			long messageId = GetterUtil.getLong(
-				document.get(Field.ENTRY_CLASS_PK));
-
-			long classNameId = PortalUtil.getClassNameId(
-				MBMessage.class.getName());
-			long classPK = messageId;
-
-			return assetEntryPersistence.findByC_C(classNameId, classPK);
-		}
-		else if (portletId.equals(PortletKeys.WIKI)) {
-			long nodeId = GetterUtil.getLong(
-				document.get(Field.ENTRY_CLASS_PK));
-			String title = document.get(Field.TITLE);
-
-			long pageResourcePrimKey =
-				wikiPageResourceLocalService.getPageResourcePrimKey(
-					nodeId, title);
-
-			long classNameId = PortalUtil.getClassNameId(
-				WikiPage.class.getName());
-			long classPK = pageResourcePrimKey;
-
-			return assetEntryPersistence.findByC_C(classNameId, classPK);
-		}
-
 		return null;
 	}
 

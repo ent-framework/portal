@@ -138,7 +138,6 @@ import com.liferay.portal.util.PrefsPropsUtil;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portal.util.SubscriptionSender;
 import com.liferay.portlet.documentlibrary.ImageSizeException;
-import com.liferay.portlet.messageboards.model.MBMessage;
 import com.liferay.portlet.usersadmin.util.UsersAdminUtil;
 import com.liferay.util.Encryptor;
 import com.liferay.util.EncryptorException;
@@ -1922,9 +1921,9 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		// Message boards
 
-		mbBanLocalService.deleteBansByBanUserId(user.getUserId());
-		mbStatsUserLocalService.deleteStatsUsersByUserId(user.getUserId());
-		mbThreadFlagLocalService.deleteThreadFlagsByUserId(user.getUserId());
+//		mbBanLocalService.deleteBansByBanUserId(user.getUserId());
+//		mbStatsUserLocalService.deleteStatsUsersByUserId(user.getUserId());
+//		mbThreadFlagLocalService.deleteThreadFlagsByUserId(user.getUserId());
 
 		// Membership requests
 
@@ -5223,12 +5222,12 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		// Message boards
 
-		if (GetterUtil.getBoolean(
-				PropsKeys.USERS_UPDATE_USER_NAME + MBMessage.class.getName()) &&
-			!oldFullName.equals(user.getFullName())) {
-
-			mbMessageLocalService.updateUserName(userId, user.getFullName());
-		}
+//		if (GetterUtil.getBoolean(
+//				PropsKeys.USERS_UPDATE_USER_NAME + MBMessage.class.getName()) &&
+//			!oldFullName.equals(user.getFullName())) {
+//
+//			mbMessageLocalService.updateUserName(userId, user.getFullName());
+//		}
 
 		// Indexer
 

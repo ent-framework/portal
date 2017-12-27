@@ -20,7 +20,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.hibernate.engine.SessionImplementor;
+import org.hibernate.HibernateException;
+import org.hibernate.engine.spi.SessionImplementor;
+import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.type.StandardBasicTypes;
 import org.hibernate.type.Type;
 import org.hibernate.usertype.CompositeUserType;
@@ -33,20 +35,8 @@ public class FloatType implements CompositeUserType, Serializable {
 	public static final Float DEFAULT_VALUE = Float.valueOf(0);
 
 	@Override
-	public Object assemble(
-		Serializable cached, SessionImplementor session, Object owner) {
-
-		return cached;
-	}
-
-	@Override
 	public Object deepCopy(Object obj) {
 		return obj;
-	}
-
-	@Override
-	public Serializable disassemble(Object value, SessionImplementor session) {
-		return (Serializable)value;
 	}
 
 	@Override
@@ -87,14 +77,11 @@ public class FloatType implements CompositeUserType, Serializable {
 		return false;
 	}
 
-	@Override
-	public Object nullSafeGet(
-			ResultSet rs, String[] names, SessionImplementor session,
-			Object owner)
-		throws SQLException {
 
+	@Override
+	public Object nullSafeGet(ResultSet rs, String[] names, SharedSessionContractImplementor session, Object owner) throws HibernateException, SQLException {
 		Float value = StandardBasicTypes.FLOAT.nullSafeGet(
-			rs, names[0], session);
+				rs, names[0], session);
 
 		if (value == null) {
 			return DEFAULT_VALUE;
@@ -105,23 +92,26 @@ public class FloatType implements CompositeUserType, Serializable {
 	}
 
 	@Override
-	public void nullSafeSet(
-			PreparedStatement ps, Object target, int index,
-			SessionImplementor session)
-		throws SQLException {
-
-		if (target == null) {
-			target = DEFAULT_VALUE;
+	public void nullSafeSet(PreparedStatement st, Object value, int index, SharedSessionContractImplementor session) throws HibernateException, SQLException {
+		if (value == null) {
+			value = DEFAULT_VALUE;
 		}
 
-		ps.setFloat(index, (Float)target);
+		st.setFloat(index, (Float)value);
 	}
 
 	@Override
-	public Object replace(
-		Object original, Object target, SessionImplementor session,
-		Object owner) {
+	public Serializable disassemble(Object value, SharedSessionContractImplementor session) throws HibernateException {
+		return (Serializable)value;
+	}
 
+	@Override
+	public Object assemble(Serializable cached, SharedSessionContractImplementor session, Object owner) throws HibernateException {
+		return cached;
+	}
+
+	@Override
+	public Object replace(Object original, Object target, SharedSessionContractImplementor session, Object owner) throws HibernateException {
 		return original;
 	}
 

@@ -35,7 +35,7 @@ import javax.persistence.EntityManagerFactory;
 
 import javax.sql.DataSource;
 
-import org.hibernate.engine.SessionFactoryImplementor;
+import org.hibernate.engine.spi.SessionFactoryImplementor;
 
 import org.springframework.orm.hibernate3.HibernateTransactionManager;
 import org.springframework.transaction.support.AbstractPlatformTransactionManager;

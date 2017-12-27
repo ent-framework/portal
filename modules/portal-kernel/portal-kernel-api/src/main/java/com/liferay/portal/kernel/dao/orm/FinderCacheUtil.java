@@ -36,8 +36,8 @@ public class FinderCacheUtil {
 	}
 
 	public static FinderCache getFinderCache() {
-		PortalRuntimePermission.checkGetBeanProperty(FinderCacheUtil.class);
 
+		PortalRuntimePermission.checkGetBeanProperty(FinderCacheUtil.class);
 		return _finderCache;
 	}
 

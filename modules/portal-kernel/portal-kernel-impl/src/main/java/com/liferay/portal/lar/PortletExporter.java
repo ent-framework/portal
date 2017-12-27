@@ -90,9 +90,6 @@ import com.liferay.portlet.asset.service.AssetTagPropertyLocalServiceUtil;
 import com.liferay.portlet.asset.service.persistence.AssetCategoryUtil;
 import com.liferay.portlet.asset.service.persistence.AssetVocabularyUtil;
 import com.liferay.portlet.expando.model.ExpandoColumn;
-import com.liferay.portlet.messageboards.model.MBDiscussion;
-import com.liferay.portlet.messageboards.model.MBMessage;
-import com.liferay.portlet.messageboards.service.MBDiscussionLocalServiceUtil;
 import com.liferay.portlet.ratings.model.RatingsEntry;
 import com.liferay.util.xml.DocUtil;
 
@@ -807,53 +804,53 @@ public class PortletExporter {
 
 		Element rootElement = document.addElement("comments");
 
-		Map<String, List<MBMessage>> commentsMap =
-			portletDataContext.getComments();
-
-		for (Map.Entry<String, List<MBMessage>> entry :
-				commentsMap.entrySet()) {
-
-			String[] commentParts = StringUtil.split(
-				entry.getKey(), CharPool.POUND);
-
-			String className = commentParts[0];
-			String classPK = commentParts[1];
-
-			String commentsPath = getCommentsPath(
-				portletDataContext, className, classPK);
-
-			Element assetElement = rootElement.addElement("asset");
-
-			assetElement.addAttribute("path", commentsPath);
-			assetElement.addAttribute("class-name", className);
-			assetElement.addAttribute("class-pk", classPK);
-
-			List<MBMessage> mbMessages = entry.getValue();
-
-			for (MBMessage mbMessage : mbMessages) {
-				String commentPath = getCommentPath(
-					portletDataContext, className, classPK, mbMessage);
-
-				if (portletDataContext.isPathNotProcessed(commentPath)) {
-					User user = UserLocalServiceUtil.fetchUser(
-						mbMessage.getUserId());
-
-					if (user == null) {
-						continue;
-					}
-
-					portletDataContext.addZipEntry(commentPath, mbMessage);
-
-					MBDiscussion mbDiscussion =
-						MBDiscussionLocalServiceUtil.getDiscussion(
-							className, GetterUtil.getLong(classPK));
-
-					portletDataContext.addReferenceElement(
-						mbDiscussion, assetElement, user,
-						PortletDataContext.REFERENCE_TYPE_WEAK, true);
-				}
-			}
-		}
+//		Map<String, List<MBMessage>> commentsMap =
+//			portletDataContext.getComments();
+//
+//		for (Map.Entry<String, List<MBMessage>> entry :
+//				commentsMap.entrySet()) {
+//
+//			String[] commentParts = StringUtil.split(
+//				entry.getKey(), CharPool.POUND);
+//
+//			String className = commentParts[0];
+//			String classPK = commentParts[1];
+//
+//			String commentsPath = getCommentsPath(
+//				portletDataContext, className, classPK);
+//
+//			Element assetElement = rootElement.addElement("asset");
+//
+//			assetElement.addAttribute("path", commentsPath);
+//			assetElement.addAttribute("class-name", className);
+//			assetElement.addAttribute("class-pk", classPK);
+//
+//			List<MBMessage> mbMessages = entry.getValue();
+//
+//			for (MBMessage mbMessage : mbMessages) {
+//				String commentPath = getCommentPath(
+//					portletDataContext, className, classPK, mbMessage);
+//
+//				if (portletDataContext.isPathNotProcessed(commentPath)) {
+//					User user = UserLocalServiceUtil.fetchUser(
+//						mbMessage.getUserId());
+//
+//					if (user == null) {
+//						continue;
+//					}
+//
+//					portletDataContext.addZipEntry(commentPath, mbMessage);
+//
+//					MBDiscussion mbDiscussion =
+//						MBDiscussionLocalServiceUtil.getDiscussion(
+//							className, GetterUtil.getLong(classPK));
+//
+//					portletDataContext.addReferenceElement(
+//						mbDiscussion, assetElement, user,
+//						PortletDataContext.REFERENCE_TYPE_WEAK, true);
+//				}
+//			}
+//		}
 
 		portletDataContext.addZipEntry(
 			ExportImportPathUtil.getRootPath(portletDataContext) +
@@ -1437,23 +1434,23 @@ public class PortletExporter {
 		return sb.toString();
 	}
 
-	protected String getCommentPath(
-		PortletDataContext portletDataContext, String className, String classPK,
-		MBMessage mbMessage) {
-
-		StringBundler sb = new StringBundler(8);
-
-		sb.append(ExportImportPathUtil.getRootPath(portletDataContext));
-		sb.append("/comments/");
-		sb.append(PortalUtil.getClassNameId(className));
-		sb.append(CharPool.FORWARD_SLASH);
-		sb.append(classPK);
-		sb.append(CharPool.FORWARD_SLASH);
-		sb.append(mbMessage.getMessageId());
-		sb.append(".xml");
-
-		return sb.toString();
-	}
+//	protected String getCommentPath(
+//		PortletDataContext portletDataContext, String className, String classPK,
+//		MBMessage mbMessage) {
+//
+//		StringBundler sb = new StringBundler(8);
+//
+//		sb.append(ExportImportPathUtil.getRootPath(portletDataContext));
+//		sb.append("/comments/");
+//		sb.append(PortalUtil.getClassNameId(className));
+//		sb.append(CharPool.FORWARD_SLASH);
+//		sb.append(classPK);
+//		sb.append(CharPool.FORWARD_SLASH);
+//		sb.append(mbMessage.getMessageId());
+//		sb.append(".xml");
+//
+//		return sb.toString();
+//	}
 
 	protected String getCommentsPath(
 		PortletDataContext portletDataContext, String className,

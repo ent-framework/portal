@@ -28,7 +28,7 @@ import java.rmi.RemoteException;
  */
 public class SPIPortalCacheManagerConfigurator {
 
-	public static <K extends Serializable, V extends Serializable>
+	public <K extends Serializable, V extends Serializable>
 		PortalCacheManager<K, V> createSPIPortalCacheManager(
 			PortalCacheManager<K, V> portalCacheManager)
 		throws RemoteException {

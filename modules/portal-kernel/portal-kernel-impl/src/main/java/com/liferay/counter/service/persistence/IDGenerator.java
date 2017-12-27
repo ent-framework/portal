@@ -19,7 +19,9 @@ import com.liferay.portal.kernel.exception.SystemException;
 
 import java.io.Serializable;
 
-import org.hibernate.engine.SessionImplementor;
+import org.hibernate.HibernateException;
+import org.hibernate.engine.spi.SessionImplementor;
+import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.id.IdentifierGenerator;
 
 /**
@@ -27,8 +29,22 @@ import org.hibernate.id.IdentifierGenerator;
  */
 public class IDGenerator implements IdentifierGenerator {
 
+//	@Override
+//	public Serializable generate(SessionImplementor session, Object object) {
+//		try {
+//			String name = object.getClass().getName();
+//
+//			int currentId = (int)CounterLocalServiceUtil.increment(name);
+//
+//			return new Integer(currentId);
+//		}
+//		catch (SystemException se) {
+//			throw new RuntimeException(se);
+//		}
+//	}
+
 	@Override
-	public Serializable generate(SessionImplementor session, Object object) {
+	public Serializable generate(SharedSessionContractImplementor session, Object object) throws HibernateException {
 		try {
 			String name = object.getClass().getName();
 
@@ -40,5 +56,4 @@ public class IDGenerator implements IdentifierGenerator {
 			throw new RuntimeException(se);
 		}
 	}
-
 }

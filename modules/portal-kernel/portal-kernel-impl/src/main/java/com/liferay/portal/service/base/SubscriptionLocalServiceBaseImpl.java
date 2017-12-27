@@ -113,8 +113,7 @@ import com.liferay.portal.service.persistence.WorkflowInstanceLinkPersistence;
 
 import com.liferay.portlet.asset.service.persistence.AssetEntryFinder;
 import com.liferay.portlet.asset.service.persistence.AssetEntryPersistence;
-import com.liferay.portlet.messageboards.service.persistence.MBThreadFinder;
-import com.liferay.portlet.messageboards.service.persistence.MBThreadPersistence;
+
 import com.liferay.portlet.social.service.persistence.SocialActivityFinder;
 import com.liferay.portlet.social.service.persistence.SocialActivityPersistence;
 
@@ -3999,79 +3998,7 @@ public abstract class SubscriptionLocalServiceBaseImpl
 		this.assetEntryFinder = assetEntryFinder;
 	}
 
-	/**
-	 * Returns the message boards thread local service.
-	 *
-	 * @return the message boards thread local service
-	 */
-	public com.liferay.portlet.messageboards.service.MBThreadLocalService getMBThreadLocalService() {
-		return mbThreadLocalService;
-	}
 
-	/**
-	 * Sets the message boards thread local service.
-	 *
-	 * @param mbThreadLocalService the message boards thread local service
-	 */
-	public void setMBThreadLocalService(
-		com.liferay.portlet.messageboards.service.MBThreadLocalService mbThreadLocalService) {
-		this.mbThreadLocalService = mbThreadLocalService;
-	}
-
-	/**
-	 * Returns the message boards thread remote service.
-	 *
-	 * @return the message boards thread remote service
-	 */
-	public com.liferay.portlet.messageboards.service.MBThreadService getMBThreadService() {
-		return mbThreadService;
-	}
-
-	/**
-	 * Sets the message boards thread remote service.
-	 *
-	 * @param mbThreadService the message boards thread remote service
-	 */
-	public void setMBThreadService(
-		com.liferay.portlet.messageboards.service.MBThreadService mbThreadService) {
-		this.mbThreadService = mbThreadService;
-	}
-
-	/**
-	 * Returns the message boards thread persistence.
-	 *
-	 * @return the message boards thread persistence
-	 */
-	public MBThreadPersistence getMBThreadPersistence() {
-		return mbThreadPersistence;
-	}
-
-	/**
-	 * Sets the message boards thread persistence.
-	 *
-	 * @param mbThreadPersistence the message boards thread persistence
-	 */
-	public void setMBThreadPersistence(MBThreadPersistence mbThreadPersistence) {
-		this.mbThreadPersistence = mbThreadPersistence;
-	}
-
-	/**
-	 * Returns the message boards thread finder.
-	 *
-	 * @return the message boards thread finder
-	 */
-	public MBThreadFinder getMBThreadFinder() {
-		return mbThreadFinder;
-	}
-
-	/**
-	 * Sets the message boards thread finder.
-	 *
-	 * @param mbThreadFinder the message boards thread finder
-	 */
-	public void setMBThreadFinder(MBThreadFinder mbThreadFinder) {
-		this.mbThreadFinder = mbThreadFinder;
-	}
 
 	/**
 	 * Returns the social activity local service.
@@ -4592,14 +4519,6 @@ public abstract class SubscriptionLocalServiceBaseImpl
 	protected AssetEntryPersistence assetEntryPersistence;
 	@BeanReference(type = AssetEntryFinder.class)
 	protected AssetEntryFinder assetEntryFinder;
-	@BeanReference(type = com.liferay.portlet.messageboards.service.MBThreadLocalService.class)
-	protected com.liferay.portlet.messageboards.service.MBThreadLocalService mbThreadLocalService;
-	@BeanReference(type = com.liferay.portlet.messageboards.service.MBThreadService.class)
-	protected com.liferay.portlet.messageboards.service.MBThreadService mbThreadService;
-	@BeanReference(type = MBThreadPersistence.class)
-	protected MBThreadPersistence mbThreadPersistence;
-	@BeanReference(type = MBThreadFinder.class)
-	protected MBThreadFinder mbThreadFinder;
 	@BeanReference(type = com.liferay.portlet.social.service.SocialActivityLocalService.class)
 	protected com.liferay.portlet.social.service.SocialActivityLocalService socialActivityLocalService;
 	@BeanReference(type = com.liferay.portlet.social.service.SocialActivityService.class)

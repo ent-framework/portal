@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <beans
-	default-destroy-method="destroy"
+	default-destroy-method="destroy" default-autowire="byType"
 	default-init-method="afterPropertiesSet"
 	xmlns="http://www.springframework.org/schema/beans"
 	xmlns:aop="http://www.springframework.org/schema/aop"
@@ -45,7 +45,7 @@
 	<bean id="com.liferay.portal.kernel.cache.MultiVMPoolUtil" class="com.liferay.portal.kernel.cache.MultiVMPoolUtil">
 		<property name="multiVMPool" ref="com.liferay.portal.kernel.cache.MultiVMPool" />
 	</bean>
-	<bean id="com.liferay.portal.kernel.cache.MultiVMPortalCacheManager" class="com.liferay.portal.resiliency.spi.cache.SPIPortalCacheManagerConfigurator" factory-method="createSPIPortalCacheManager">
+<!-- 	<bean id="com.liferay.portal.kernel.cache.MultiVMPortalCacheManager" class="com.liferay.portal.resiliency.spi.cache.SPIPortalCacheManagerConfigurator" factory-method="createSPIPortalCacheManager">
 		<constructor-arg name="portalCacheManager">
 			<bean class="com.liferay.portal.cache.ehcache.EhcachePortalCacheManager">
 				<property name="clusterAware" value="true" />
@@ -54,17 +54,13 @@
 				<property name="mpiOnly" value="true" />
 			</bean>
 		</constructor-arg>
-	</bean>
-	<!--<bean id="com.liferay.kernel.portal.cache.MultiVMPortalCacheManager" class="com.liferay.portal.cache.memory.MemoryPortalCacheManager" />-->
+	</bean> -->
+	<bean id="com.liferay.portal.kernel.cache.MultiVMPortalCacheManager" class="com.liferay.portal.cache.memory.MemoryPortalCacheManager" />
 	<bean id="com.liferay.portal.kernel.cache.SingleVMPool" class="com.liferay.portal.cache.SingleVMPoolImpl">
-		<property name="portalCacheManager" ref="com.liferay.portal.kernel.cache.SingleVMPortalCacheManager" />
+		<!--<property name="portalCacheManager" ref="com.liferay.portal.kernel.cache.SingleVMPortalCacheManager" />-->
 	</bean>
 	<bean id="com.liferay.portal.kernel.cache.SingleVMPoolUtil" class="com.liferay.portal.kernel.cache.SingleVMPoolUtil">
 		<property name="singleVMPool" ref="com.liferay.portal.kernel.cache.SingleVMPool" />
-	</bean>
-	<bean id="com.liferay.portal.kernel.cache.SingleVMPortalCacheManager" class="com.liferay.portal.cache.ehcache.EhcachePortalCacheManager">
-		<property name="configPropertyKey" value="ehcache.single.vm.config.location" />
-		<property name="MBeanServer" ref="registryAwareMBeanServer" />
 	</bean>
 	<!--<bean id="com.liferay.kernel.portal.cache.SingleVMPortalCacheManager" class="com.liferay.portal.cache.memory.MemoryPortalCacheManager" />-->
 	<bean id="com.liferay.portal.kernel.cache.key.CacheKeyGeneratorUtil" class="com.liferay.portal.kernel.cache.key.CacheKeyGeneratorUtil">
@@ -142,14 +138,8 @@
 		</property>
 	</bean>
 	<bean id="com.liferay.portal.kernel.deploy.DeployManagerUtil" class="com.liferay.portal.kernel.deploy.DeployManagerUtil">
-		<property name="deployManager">
-			<bean class="com.liferay.portal.deploy.DeployManagerImpl" />
-		</property>
 	</bean>
 	<bean id="com.liferay.portal.kernel.deploy.hot.HotDeployUtil" class="com.liferay.portal.kernel.deploy.hot.HotDeployUtil">
-		<property name="hotDeploy">
-			<bean class="com.liferay.portal.deploy.hot.HotDeployImpl" />
-		</property>
 	</bean>
 	<bean id="com.liferay.portal.kernel.facebook.FacebookConnectUtil" class="com.liferay.portal.kernel.facebook.FacebookConnectUtil">
 		<property name="facebookConnect">
@@ -261,9 +251,6 @@
 		</property>
 	</bean>
 	<bean id="com.liferay.portal.kernel.oauth.OAuthFactoryUtil" class="com.liferay.portal.kernel.oauth.OAuthFactoryUtil">
-		<property name="OAuthFactory">
-			<bean class="com.liferay.portal.oauth.OAuthFactoryImpl" />
-		</property>
 	</bean>
 	<bean id="com.liferay.portal.kernel.parsers.bbcode.BBCodeTranslatorUtil" class="com.liferay.portal.kernel.parsers.bbcode.BBCodeTranslatorUtil">
 		<property name="BBCodeTranslator">
@@ -311,17 +298,8 @@
 			<bean class="com.liferay.portal.scripting.ScriptingImpl">
 				<property name="scriptingExecutors">
 					<map>
-						<entry key="beanshell">
-							<bean class="com.liferay.portal.scripting.beanshell.BeanShellExecutor" />
-						</entry>
 						<entry key="groovy">
 							<bean class="com.liferay.portal.scripting.groovy.GroovyExecutor" />
-						</entry>
-						<entry key="javascript">
-							<bean class="com.liferay.portal.scripting.javascript.JavaScriptExecutor" />
-						</entry>
-						<entry key="python">
-							<bean class="com.liferay.portal.scripting.python.PythonExecutor" />
 						</entry>
 						<entry key="ruby">
 							<bean class="com.liferay.portal.scripting.ruby.RubyExecutor" depends-on="com.liferay.portal.kernel.util.FileUtil" />
@@ -435,14 +413,8 @@
 		</property>
 	</bean>
 	<bean id="com.liferay.portal.kernel.upgrade.util.UpgradeTableFactoryUtil" class="com.liferay.portal.kernel.upgrade.util.UpgradeTableFactoryUtil">
-		<property name="upgradeTableFactory">
-			<bean class="com.liferay.portal.upgrade.util.DefaultUpgradeTableFactoryImpl" />
-		</property>
 	</bean>
 	<bean id="com.liferay.portal.kernel.upgrade.util.ValueMapperFactoryUtil" class="com.liferay.portal.kernel.upgrade.util.ValueMapperFactoryUtil">
-		<property name="valueMapperFactory">
-			<bean class="com.liferay.portal.upgrade.util.MemoryValueMapperFactoryImpl" />
-		</property>
 	</bean>
 	<bean id="com.liferay.portal.kernel.util.CalendarFactoryUtil" class="com.liferay.portal.kernel.util.CalendarFactoryUtil">
 		<property name="calendarFactory">
@@ -540,7 +512,7 @@
 		</property>
 	</bean>
 	<bean id="com.liferay.portal.kernel.util.ThemeFactoryUtil" class="com.liferay.portal.kernel.util.ThemeFactoryUtil">
-		<property name="ThemeFactory">
+		<property name="themeFactory">
 			<bean class="com.liferay.portal.util.ThemeFactoryImpl" />
 		</property>
 	</bean>

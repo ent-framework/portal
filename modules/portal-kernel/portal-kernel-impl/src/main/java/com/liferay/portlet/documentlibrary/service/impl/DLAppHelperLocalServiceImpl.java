@@ -106,11 +106,11 @@ public class DLAppHelperLocalServiceImpl
 				serviceContext.getAssetLinkEntryIds());
 
 			if (PropsValues.DL_FILE_ENTRY_COMMENTS_ENABLED) {
-				mbMessageLocalService.addDiscussionMessage(
-					fileEntry.getUserId(), fileEntry.getUserName(),
-					fileEntry.getGroupId(), DLFileEntryConstants.getClassName(),
-					fileEntry.getFileEntryId(),
-					WorkflowConstants.ACTION_PUBLISH);
+//				mbMessageLocalService.addDiscussionMessage(
+//					fileEntry.getUserId(), fileEntry.getUserName(),
+//					fileEntry.getGroupId(), DLFileEntryConstants.getClassName(),
+//					fileEntry.getFileEntryId(),
+//					WorkflowConstants.ACTION_PUBLISH);
 			}
 		}
 
@@ -286,9 +286,9 @@ public class DLAppHelperLocalServiceImpl
 
 			// Message boards
 
-			mbMessageLocalService.deleteDiscussionMessages(
-				DLFileEntryConstants.getClassName(),
-				fileEntry.getFileEntryId());
+//			mbMessageLocalService.deleteDiscussionMessages(
+//				DLFileEntryConstants.getClassName(),
+//				fileEntry.getFileEntryId());
 
 			// Ratings
 

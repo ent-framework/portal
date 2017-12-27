@@ -78,7 +78,7 @@
 	<bean id="messageListener.document_library_raw_metadata_processor" class="com.liferay.portlet.documentlibrary.messaging.RawMetadataProcessorMessageListener" />
 	<bean id="messageListener.document_library_video_processor" class="com.liferay.portlet.documentlibrary.messaging.VideoProcessorMessageListener" />
 	<bean id="messageListener.flags" class="com.liferay.portlet.flags.messaging.FlagsRequestMessageListener" />
-	<bean id="messageListener.hot_deploy" class="com.liferay.portal.deploy.hot.messaging.HotDeployMessageListener" />
+	<!--<bean id="messageListener.hot_deploy" class="com.liferay.portal.deploy.hot.messaging.HotDeployMessageListener" />-->
 	<bean id="messageListener.layouts_local_publisher" class="com.liferay.portal.kernel.scheduler.messaging.SchedulerEventMessageListenerWrapper">
 		<property name="groupName" value="com.liferay.portal.messaging.LayoutsLocalPublisherMessageListener" />
 		<property name="jobName" value="com.liferay.portal.messaging.LayoutsLocalPublisherMessageListener" />
@@ -108,9 +108,9 @@
 	<bean id="messageListener.message_boards_mailing_list" class="com.liferay.portal.kernel.scheduler.messaging.SchedulerEventMessageListenerWrapper">
 		<property name="groupName" value="com.liferay.portlet.messageboards.messaging.MailingListMessageListener" />
 		<property name="jobName" value="com.liferay.portlet.messageboards.messaging.MailingListMessageListener" />
-		<property name="messageListener">
-			<bean class="com.liferay.portlet.messageboards.messaging.MailingListMessageListener" />
-		</property>
+		<!--<property name="messageListener">-->
+			<!--<bean class="com.liferay.portlet.messageboards.messaging.MailingListMessageListener" />-->
+		<!--</property>-->
 	</bean>
 	<bean id="messageListener.subscription_clean_up" class="com.liferay.portal.subscription.CleanUpSubscriptionMessageListener" />
 	<bean id="messageListener.subscription_sender" class="com.liferay.portal.messaging.SubscriptionSenderMessageListener" />
@@ -195,11 +195,11 @@
 						<ref bean="messageListener.flags" />
 					</list>
 				</entry>
-				<entry key="liferay/hot_deploy">
-					<list value-type="com.liferay.portal.kernel.messaging.MessageListener">
-						<ref bean="messageListener.hot_deploy" />
-					</list>
-				</entry>
+				<!--<entry key="liferay/hot_deploy">-->
+					<!--<list value-type="com.liferay.portal.kernel.messaging.MessageListener">-->
+						<!--<ref bean="messageListener.hot_deploy" />-->
+					<!--</list>-->
+				<!--</entry>-->
 				<entry key="liferay/layouts_local_publisher">
 					<list value-type="com.liferay.portal.kernel.messaging.MessageListener">
 						<ref bean="messageListener.layouts_local_publisher" />

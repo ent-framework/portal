@@ -43,7 +43,6 @@ import com.liferay.portal.service.permission.UserPermissionUtil;
 import com.liferay.portlet.asset.AssetRendererFactoryRegistryUtil;
 import com.liferay.portlet.asset.model.AssetRendererFactory;
 import com.liferay.portlet.blogs.model.BlogsEntry;
-import com.liferay.portlet.blogs.service.permission.BlogsEntryPermission;
 import com.liferay.portlet.bookmarks.model.BookmarksEntry;
 import com.liferay.portlet.bookmarks.model.BookmarksFolder;
 import com.liferay.portlet.bookmarks.service.permission.BookmarksEntryPermission;
@@ -121,9 +120,9 @@ public class PermissionServiceImpl extends PermissionServiceBaseImpl {
 		throws PortalException, SystemException {
 
 		if (name.equals(BlogsEntry.class.getName())) {
-			BlogsEntryPermission.check(
-				permissionChecker, GetterUtil.getLong(primKey),
-				ActionKeys.PERMISSIONS);
+//			BlogsEntryPermission.check(
+//				permissionChecker, GetterUtil.getLong(primKey),
+//				ActionKeys.PERMISSIONS);
 		}
 		else if (name.equals(BookmarksEntry.class.getName())) {
 			BookmarksEntryPermission.check(

@@ -37,6 +37,8 @@ public class PortalBeanLocatorUtil {
 	public static <T> Map<String, T> locate(Class<T> clazz) {
 		BeanLocator beanLocator = getBeanLocator();
 
+		System.out.println("Locate ClassLoader:" + Thread.currentThread().getContextClassLoader().getClass().getName());
+		
 		if (beanLocator == null) {
 			_log.error("BeanLocator is null");
 
@@ -112,6 +114,8 @@ public class PortalBeanLocatorUtil {
 		PortalRuntimePermission.checkSetBeanProperty(
 			PortalBeanLocatorUtil.class);
 
+		System.out.println("setBeanLocator ClassLoader:" + Thread.currentThread().getContextClassLoader().getClass().getName());
+		
 		if (_log.isDebugEnabled()) {
 			if (beanLocator == null) {
 				_log.debug("Setting BeanLocator " + beanLocator);

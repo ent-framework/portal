@@ -39,6 +39,8 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.WeakHashMap;
 
+import javax.sql.DataSource;
+
 import javassist.util.proxy.ProxyFactory;
 
 import org.hibernate.HibernateException;
@@ -46,8 +48,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.dialect.Dialect;
-
-import org.springframework.orm.hibernate3.LocalSessionFactoryBean;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 
 /**
  * @author Brian Wing Shun Chan
@@ -57,16 +59,29 @@ import org.springframework.orm.hibernate3.LocalSessionFactoryBean;
  */
 public class PortalHibernateConfiguration extends LocalSessionFactoryBean {
 
-	@Override
-	public SessionFactory buildSessionFactory() throws Exception {
-		setBeanClassLoader(getConfigurationClassLoader());
+	private LocalSessionFactoryBuilder builder;
+	
+	private DataSource dataSource;
+	
+	public void initBuilder(DataSource ds) {
+		this.dataSource = ds;
+		this.builder = new LocalSessionFactoryBuilder(ds, getConfigurationClassLoader());
+		
+	}
 
-		return super.buildSessionFactory();
+	public SessionFactory buildSessionFactory() throws Exception {
+		//setBeanClassLoader(getConfigurationClassLoader());
+		this.loadConfiguration();
+		
+		return super.buildSessionFactory(builder);
+		
+		//return super.buildSessionFactory();
 	}
 
 	@Override
 	public void destroy() throws HibernateException {
-		setBeanClassLoader(null);
+	
+		//setBeanClassLoader(null);
 
 		super.destroy();
 	}
@@ -98,7 +113,7 @@ public class PortalHibernateConfiguration extends LocalSessionFactoryBean {
 	}
 
 	protected Dialect determineDialect() {
-		return DialectDetector.getDialect(getDataSource());
+		return DialectDetector.getDialect(this.dataSource);
 	}
 
 	protected ClassLoader getConfigurationClassLoader() {
@@ -111,16 +126,18 @@ public class PortalHibernateConfiguration extends LocalSessionFactoryBean {
 		return PropsUtil.getArray(PropsKeys.HIBERNATE_CONFIGS);
 	}
 
-	@Override
-	protected Configuration newConfiguration() {
-		Configuration configuration = new Configuration();
+	//@Override
+	protected void loadConfiguration() {
+		//Configuration configuration = new Configuration();
 
+		Properties hibernateProperties = getHibernateProperties();
+		
 		try {
 			String[] resources = getConfigurationResources();
 
 			for (String resource : resources) {
 				try {
-					readResource(configuration, resource);
+					readResource(resource);
 				}
 				catch (Exception e2) {
 					if (_log.isWarnEnabled()) {
@@ -140,7 +157,8 @@ public class PortalHibernateConfiguration extends LocalSessionFactoryBean {
 					Boolean.FALSE.toString());
 			}
 
-			configuration.setProperties(properties);
+			//configuration.setProperties(properties);
+			hibernateProperties.putAll(properties);
 
 			if (Validator.isNull(PropsValues.HIBERNATE_DIALECT)) {
 				Dialect dialect = determineDialect();
@@ -149,7 +167,8 @@ public class PortalHibernateConfiguration extends LocalSessionFactoryBean {
 
 				Class<?> clazz = dialect.getClass();
 
-				configuration.setProperty("hibernate.dialect", clazz.getName());
+				//configuration.setProperty("hibernate.dialect", clazz.getName());
+				hibernateProperties.put("hibernate.dialect", clazz.getName());
 			}
 
 			DB db = DBFactoryUtil.getDB();
@@ -164,23 +183,23 @@ public class PortalHibernateConfiguration extends LocalSessionFactoryBean {
 			_log.error(e1, e1);
 		}
 
-		Properties hibernateProperties = getHibernateProperties();
 
-		if (hibernateProperties != null) {
-			for (Map.Entry<Object, Object> entry :
-					hibernateProperties.entrySet()) {
 
-				String key = (String)entry.getKey();
-				String value = (String)entry.getValue();
+//		if (hibernateProperties != null) {
+//			for (Map.Entry<Object, Object> entry :
+//					hibernateProperties.entrySet()) {
+//
+//				String key = (String)entry.getKey();
+//				String value = (String)entry.getValue();
+//
+//				configuration.setProperty(key, value);
+//			}
+//		}
 
-				configuration.setProperty(key, value);
-			}
-		}
-
-		return configuration;
+		//return configuration;
 	}
 
-	@Override
+	//@Override
 	protected void postProcessConfiguration(Configuration configuration) {
 
 		// Make sure that the Hibernate settings from PropsUtil are set. See the
@@ -197,8 +216,7 @@ public class PortalHibernateConfiguration extends LocalSessionFactoryBean {
 		}
 	}
 
-	protected void readResource(
-			Configuration configuration, InputStream inputStream)
+	protected void readResource(InputStream inputStream)
 		throws Exception {
 
 		if (inputStream == null) {
@@ -213,14 +231,15 @@ public class PortalHibernateConfiguration extends LocalSessionFactoryBean {
 
 			inputStream = new UnsyncByteArrayInputStream(
 				configurationString.getBytes());
+			
 		}
-
-		configuration = configuration.addInputStream(inputStream);
+		this.getMetadataSources().addInputStream(inputStream);
+		//configuration = configuration.addInputStream(inputStream);
 
 		inputStream.close();
 	}
 
-	protected void readResource(Configuration configuration, String resource)
+	protected void readResource(String resource)
 		throws Exception {
 
 		ClassLoader classLoader = getConfigurationClassLoader();
@@ -239,13 +258,13 @@ public class PortalHibernateConfiguration extends LocalSessionFactoryBean {
 
 				InputStream inputStream = url.openStream();
 
-				readResource(configuration, inputStream);
+				readResource(inputStream);
 			}
 		}
 		else {
 			InputStream inputStream = classLoader.getResourceAsStream(resource);
 
-			readResource(configuration, inputStream);
+			readResource(inputStream);
 		}
 	}
 

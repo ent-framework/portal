@@ -37,7 +37,7 @@ import javax.sql.DataSource;
 import org.hibernate.dialect.DB2400Dialect;
 import org.hibernate.dialect.Dialect;
 import org.hibernate.dialect.Oracle10gDialect;
-import org.hibernate.dialect.resolver.DialectFactory;
+import org.hibernate.engine.jdbc.dialect.spi.DialectFactory;
 
 /**
  * @author Brian Wing Shun Chan
@@ -102,10 +102,10 @@ public class DialectDetector {
 			else if (dbName.startsWith("Oracle") && (dbMajorVersion >= 10)) {
 				dialect = new Oracle10gDialect();
 			}
-			else {
-				dialect = DialectFactory.buildDialect(
-					new Properties(), connection);
-			}
+//			else {
+//				dialect = DialectFactory.buildDialect(
+//					new Properties(), connection);
+//			}
 		}
 		catch (Exception e) {
 			String msg = GetterUtil.getString(e.getMessage());

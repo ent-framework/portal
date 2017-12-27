@@ -95,7 +95,6 @@ import com.liferay.portlet.asset.service.AssetCategoryLocalServiceUtil;
 import com.liferay.portlet.asset.service.AssetEntryLocalServiceUtil;
 import com.liferay.portlet.asset.service.AssetLinkLocalServiceUtil;
 import com.liferay.portlet.asset.service.AssetTagLocalServiceUtil;
-import com.liferay.portlet.blogs.model.impl.BlogsEntryImpl;
 import com.liferay.portlet.bookmarks.model.impl.BookmarksEntryImpl;
 import com.liferay.portlet.bookmarks.model.impl.BookmarksFolderImpl;
 import com.liferay.portlet.documentlibrary.lar.xstream.FileEntryConverter;
@@ -2620,7 +2619,7 @@ public class PortletDataContextImpl implements PortletDataContext {
 
 		// Aliases
 
-		_xStream.alias("BlogsEntry", BlogsEntryImpl.class);
+//		_xStream.alias("BlogsEntry", BlogsEntryImpl.class);
 		_xStream.alias("BookmarksFolder", BookmarksFolderImpl.class);
 		_xStream.alias("BookmarksEntry", BookmarksEntryImpl.class);
 		_xStream.alias("DLFolder", DLFolderImpl.class);
