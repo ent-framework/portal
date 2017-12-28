@@ -196,7 +196,7 @@ public class InvokerFilter extends BasePortalLifecycle implements Filter {
 				InvokerFilterHelper.class.getName(), invokerFilterHelper);
 
 			invokerFilterHelper.readLiferayFilterWebXML(
-				servletContext, "/WEB-INF/liferay-web.xml");
+				servletContext, "portal-config/liferay-web.xml");
 		}
 
 		_invokerFilterHelper = invokerFilterHelper;

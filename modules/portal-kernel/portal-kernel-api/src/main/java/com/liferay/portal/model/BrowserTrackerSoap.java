@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -26,89 +12,88 @@ import java.util.List;
  * @generated
  */
 public class BrowserTrackerSoap implements Serializable {
-	public static BrowserTrackerSoap toSoapModel(BrowserTracker model) {
-		BrowserTrackerSoap soapModel = new BrowserTrackerSoap();
+    private long _browserTrackerId;
+    private long _userId;
+    private long _browserKey;
 
-		soapModel.setBrowserTrackerId(model.getBrowserTrackerId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setBrowserKey(model.getBrowserKey());
+    public BrowserTrackerSoap() {
+    }
 
-		return soapModel;
-	}
+    public static BrowserTrackerSoap toSoapModel(BrowserTracker model) {
+        BrowserTrackerSoap soapModel = new BrowserTrackerSoap();
 
-	public static BrowserTrackerSoap[] toSoapModels(BrowserTracker[] models) {
-		BrowserTrackerSoap[] soapModels = new BrowserTrackerSoap[models.length];
+        soapModel.setBrowserTrackerId(model.getBrowserTrackerId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setBrowserKey(model.getBrowserKey());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static BrowserTrackerSoap[] toSoapModels(BrowserTracker[] models) {
+        BrowserTrackerSoap[] soapModels = new BrowserTrackerSoap[models.length];
 
-	public static BrowserTrackerSoap[][] toSoapModels(BrowserTracker[][] models) {
-		BrowserTrackerSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new BrowserTrackerSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new BrowserTrackerSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static BrowserTrackerSoap[][] toSoapModels(BrowserTracker[][] models) {
+        BrowserTrackerSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new BrowserTrackerSoap[models.length][models[0].length];
+        } else {
+            soapModels = new BrowserTrackerSoap[0][0];
+        }
 
-	public static BrowserTrackerSoap[] toSoapModels(List<BrowserTracker> models) {
-		List<BrowserTrackerSoap> soapModels = new ArrayList<BrowserTrackerSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (BrowserTracker model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new BrowserTrackerSoap[soapModels.size()]);
-	}
+    public static BrowserTrackerSoap[] toSoapModels(List<BrowserTracker> models) {
+        List<BrowserTrackerSoap> soapModels = new ArrayList<BrowserTrackerSoap>(models.size());
 
-	public BrowserTrackerSoap() {
-	}
+        for (BrowserTracker model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _browserTrackerId;
-	}
+        return soapModels.toArray(new BrowserTrackerSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setBrowserTrackerId(pk);
-	}
+    public long getPrimaryKey() {
+        return _browserTrackerId;
+    }
 
-	public long getBrowserTrackerId() {
-		return _browserTrackerId;
-	}
+    public void setPrimaryKey(long pk) {
+        setBrowserTrackerId(pk);
+    }
 
-	public void setBrowserTrackerId(long browserTrackerId) {
-		_browserTrackerId = browserTrackerId;
-	}
+    public long getBrowserTrackerId() {
+        return _browserTrackerId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setBrowserTrackerId(long browserTrackerId) {
+        _browserTrackerId = browserTrackerId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public long getBrowserKey() {
-		return _browserKey;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setBrowserKey(long browserKey) {
-		_browserKey = browserKey;
-	}
+    public long getBrowserKey() {
+        return _browserKey;
+    }
 
-	private long _browserTrackerId;
-	private long _userId;
-	private long _browserKey;
+    public void setBrowserKey(long browserKey) {
+        _browserKey = browserKey;
+    }
 }

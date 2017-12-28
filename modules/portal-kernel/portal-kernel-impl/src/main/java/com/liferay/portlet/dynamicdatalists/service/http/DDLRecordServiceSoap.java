@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.dynamicdatalists.service.http;
 
 import aQute.bnd.annotation.ProviderType;
@@ -66,62 +52,58 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class DDLRecordServiceSoap {
-	public static void deleteRecord(long recordId) throws RemoteException {
-		try {
-			DDLRecordServiceUtil.deleteRecord(recordId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    private static Log _log = LogFactoryUtil.getLog(DDLRecordServiceSoap.class);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void deleteRecord(long recordId) throws RemoteException {
+        try {
+            DDLRecordServiceUtil.deleteRecord(recordId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.dynamicdatalists.model.DDLRecordSoap deleteRecordLocale(
-		long recordId, String locale,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			com.liferay.portlet.dynamicdatalists.model.DDLRecord returnValue = DDLRecordServiceUtil.deleteRecordLocale(recordId,
-					LocaleUtil.fromLanguageId(locale), serviceContext);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.dynamicdatalists.model.DDLRecordSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.dynamicdatalists.model.DDLRecordSoap deleteRecordLocale(
+        long recordId, String locale,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            com.liferay.portlet.dynamicdatalists.model.DDLRecord returnValue = DDLRecordServiceUtil.deleteRecordLocale(recordId,
+                    LocaleUtil.fromLanguageId(locale), serviceContext);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.dynamicdatalists.model.DDLRecordSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.dynamicdatalists.model.DDLRecordSoap getRecord(
-		long recordId) throws RemoteException {
-		try {
-			com.liferay.portlet.dynamicdatalists.model.DDLRecord returnValue = DDLRecordServiceUtil.getRecord(recordId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.dynamicdatalists.model.DDLRecordSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.dynamicdatalists.model.DDLRecordSoap getRecord(
+        long recordId) throws RemoteException {
+        try {
+            com.liferay.portlet.dynamicdatalists.model.DDLRecord returnValue = DDLRecordServiceUtil.getRecord(recordId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.dynamicdatalists.model.DDLRecordSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void revertRecordVersion(long recordId,
-		java.lang.String version,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			DDLRecordServiceUtil.revertRecordVersion(recordId, version,
-				serviceContext);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void revertRecordVersion(long recordId,
+        java.lang.String version,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            DDLRecordServiceUtil.revertRecordVersion(recordId, version,
+                serviceContext);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	private static Log _log = LogFactoryUtil.getLog(DDLRecordServiceSoap.class);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

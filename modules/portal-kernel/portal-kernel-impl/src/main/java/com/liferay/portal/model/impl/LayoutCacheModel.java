@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,444 +20,408 @@ import java.util.Date;
  * @generated
  */
 public class LayoutCacheModel implements CacheModel<Layout>, Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(63);
+    public String uuid;
+    public long plid;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public boolean privateLayout;
+    public long layoutId;
+    public long parentLayoutId;
+    public String name;
+    public String title;
+    public String description;
+    public String keywords;
+    public String robots;
+    public String type;
+    public String typeSettings;
+    public boolean hidden;
+    public String friendlyURL;
+    public boolean iconImage;
+    public long iconImageId;
+    public String themeId;
+    public String colorSchemeId;
+    public String wapThemeId;
+    public String wapColorSchemeId;
+    public String css;
+    public int priority;
+    public String layoutPrototypeUuid;
+    public boolean layoutPrototypeLinkEnabled;
+    public String sourcePrototypeLayoutUuid;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", plid=");
-		sb.append(plid);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", privateLayout=");
-		sb.append(privateLayout);
-		sb.append(", layoutId=");
-		sb.append(layoutId);
-		sb.append(", parentLayoutId=");
-		sb.append(parentLayoutId);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", title=");
-		sb.append(title);
-		sb.append(", description=");
-		sb.append(description);
-		sb.append(", keywords=");
-		sb.append(keywords);
-		sb.append(", robots=");
-		sb.append(robots);
-		sb.append(", type=");
-		sb.append(type);
-		sb.append(", typeSettings=");
-		sb.append(typeSettings);
-		sb.append(", hidden=");
-		sb.append(hidden);
-		sb.append(", friendlyURL=");
-		sb.append(friendlyURL);
-		sb.append(", iconImage=");
-		sb.append(iconImage);
-		sb.append(", iconImageId=");
-		sb.append(iconImageId);
-		sb.append(", themeId=");
-		sb.append(themeId);
-		sb.append(", colorSchemeId=");
-		sb.append(colorSchemeId);
-		sb.append(", wapThemeId=");
-		sb.append(wapThemeId);
-		sb.append(", wapColorSchemeId=");
-		sb.append(wapColorSchemeId);
-		sb.append(", css=");
-		sb.append(css);
-		sb.append(", priority=");
-		sb.append(priority);
-		sb.append(", layoutPrototypeUuid=");
-		sb.append(layoutPrototypeUuid);
-		sb.append(", layoutPrototypeLinkEnabled=");
-		sb.append(layoutPrototypeLinkEnabled);
-		sb.append(", sourcePrototypeLayoutUuid=");
-		sb.append(sourcePrototypeLayoutUuid);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(63);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", plid=");
+        sb.append(plid);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", privateLayout=");
+        sb.append(privateLayout);
+        sb.append(", layoutId=");
+        sb.append(layoutId);
+        sb.append(", parentLayoutId=");
+        sb.append(parentLayoutId);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", title=");
+        sb.append(title);
+        sb.append(", description=");
+        sb.append(description);
+        sb.append(", keywords=");
+        sb.append(keywords);
+        sb.append(", robots=");
+        sb.append(robots);
+        sb.append(", type=");
+        sb.append(type);
+        sb.append(", typeSettings=");
+        sb.append(typeSettings);
+        sb.append(", hidden=");
+        sb.append(hidden);
+        sb.append(", friendlyURL=");
+        sb.append(friendlyURL);
+        sb.append(", iconImage=");
+        sb.append(iconImage);
+        sb.append(", iconImageId=");
+        sb.append(iconImageId);
+        sb.append(", themeId=");
+        sb.append(themeId);
+        sb.append(", colorSchemeId=");
+        sb.append(colorSchemeId);
+        sb.append(", wapThemeId=");
+        sb.append(wapThemeId);
+        sb.append(", wapColorSchemeId=");
+        sb.append(wapColorSchemeId);
+        sb.append(", css=");
+        sb.append(css);
+        sb.append(", priority=");
+        sb.append(priority);
+        sb.append(", layoutPrototypeUuid=");
+        sb.append(layoutPrototypeUuid);
+        sb.append(", layoutPrototypeLinkEnabled=");
+        sb.append(layoutPrototypeLinkEnabled);
+        sb.append(", sourcePrototypeLayoutUuid=");
+        sb.append(sourcePrototypeLayoutUuid);
+        sb.append("}");
 
-	@Override
-	public Layout toEntityModel() {
-		LayoutImpl layoutImpl = new LayoutImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			layoutImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			layoutImpl.setUuid(uuid);
-		}
+    @Override
+    public Layout toEntityModel() {
+        LayoutImpl layoutImpl = new LayoutImpl();
 
-		layoutImpl.setPlid(plid);
-		layoutImpl.setGroupId(groupId);
-		layoutImpl.setCompanyId(companyId);
-		layoutImpl.setUserId(userId);
+        if (uuid == null) {
+            layoutImpl.setUuid(StringPool.BLANK);
+        } else {
+            layoutImpl.setUuid(uuid);
+        }
 
-		if (userName == null) {
-			layoutImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			layoutImpl.setUserName(userName);
-		}
+        layoutImpl.setPlid(plid);
+        layoutImpl.setGroupId(groupId);
+        layoutImpl.setCompanyId(companyId);
+        layoutImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			layoutImpl.setCreateDate(null);
-		}
-		else {
-			layoutImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            layoutImpl.setUserName(StringPool.BLANK);
+        } else {
+            layoutImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			layoutImpl.setModifiedDate(null);
-		}
-		else {
-			layoutImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            layoutImpl.setCreateDate(null);
+        } else {
+            layoutImpl.setCreateDate(new Date(createDate));
+        }
 
-		layoutImpl.setPrivateLayout(privateLayout);
-		layoutImpl.setLayoutId(layoutId);
-		layoutImpl.setParentLayoutId(parentLayoutId);
+        if (modifiedDate == Long.MIN_VALUE) {
+            layoutImpl.setModifiedDate(null);
+        } else {
+            layoutImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (name == null) {
-			layoutImpl.setName(StringPool.BLANK);
-		}
-		else {
-			layoutImpl.setName(name);
-		}
+        layoutImpl.setPrivateLayout(privateLayout);
+        layoutImpl.setLayoutId(layoutId);
+        layoutImpl.setParentLayoutId(parentLayoutId);
 
-		if (title == null) {
-			layoutImpl.setTitle(StringPool.BLANK);
-		}
-		else {
-			layoutImpl.setTitle(title);
-		}
+        if (name == null) {
+            layoutImpl.setName(StringPool.BLANK);
+        } else {
+            layoutImpl.setName(name);
+        }
 
-		if (description == null) {
-			layoutImpl.setDescription(StringPool.BLANK);
-		}
-		else {
-			layoutImpl.setDescription(description);
-		}
+        if (title == null) {
+            layoutImpl.setTitle(StringPool.BLANK);
+        } else {
+            layoutImpl.setTitle(title);
+        }
 
-		if (keywords == null) {
-			layoutImpl.setKeywords(StringPool.BLANK);
-		}
-		else {
-			layoutImpl.setKeywords(keywords);
-		}
+        if (description == null) {
+            layoutImpl.setDescription(StringPool.BLANK);
+        } else {
+            layoutImpl.setDescription(description);
+        }
 
-		if (robots == null) {
-			layoutImpl.setRobots(StringPool.BLANK);
-		}
-		else {
-			layoutImpl.setRobots(robots);
-		}
+        if (keywords == null) {
+            layoutImpl.setKeywords(StringPool.BLANK);
+        } else {
+            layoutImpl.setKeywords(keywords);
+        }
 
-		if (type == null) {
-			layoutImpl.setType(StringPool.BLANK);
-		}
-		else {
-			layoutImpl.setType(type);
-		}
+        if (robots == null) {
+            layoutImpl.setRobots(StringPool.BLANK);
+        } else {
+            layoutImpl.setRobots(robots);
+        }
 
-		if (typeSettings == null) {
-			layoutImpl.setTypeSettings(StringPool.BLANK);
-		}
-		else {
-			layoutImpl.setTypeSettings(typeSettings);
-		}
+        if (type == null) {
+            layoutImpl.setType(StringPool.BLANK);
+        } else {
+            layoutImpl.setType(type);
+        }
 
-		layoutImpl.setHidden(hidden);
+        if (typeSettings == null) {
+            layoutImpl.setTypeSettings(StringPool.BLANK);
+        } else {
+            layoutImpl.setTypeSettings(typeSettings);
+        }
 
-		if (friendlyURL == null) {
-			layoutImpl.setFriendlyURL(StringPool.BLANK);
-		}
-		else {
-			layoutImpl.setFriendlyURL(friendlyURL);
-		}
+        layoutImpl.setHidden(hidden);
 
-		layoutImpl.setIconImage(iconImage);
-		layoutImpl.setIconImageId(iconImageId);
+        if (friendlyURL == null) {
+            layoutImpl.setFriendlyURL(StringPool.BLANK);
+        } else {
+            layoutImpl.setFriendlyURL(friendlyURL);
+        }
 
-		if (themeId == null) {
-			layoutImpl.setThemeId(StringPool.BLANK);
-		}
-		else {
-			layoutImpl.setThemeId(themeId);
-		}
+        layoutImpl.setIconImage(iconImage);
+        layoutImpl.setIconImageId(iconImageId);
 
-		if (colorSchemeId == null) {
-			layoutImpl.setColorSchemeId(StringPool.BLANK);
-		}
-		else {
-			layoutImpl.setColorSchemeId(colorSchemeId);
-		}
+        if (themeId == null) {
+            layoutImpl.setThemeId(StringPool.BLANK);
+        } else {
+            layoutImpl.setThemeId(themeId);
+        }
 
-		if (wapThemeId == null) {
-			layoutImpl.setWapThemeId(StringPool.BLANK);
-		}
-		else {
-			layoutImpl.setWapThemeId(wapThemeId);
-		}
+        if (colorSchemeId == null) {
+            layoutImpl.setColorSchemeId(StringPool.BLANK);
+        } else {
+            layoutImpl.setColorSchemeId(colorSchemeId);
+        }
 
-		if (wapColorSchemeId == null) {
-			layoutImpl.setWapColorSchemeId(StringPool.BLANK);
-		}
-		else {
-			layoutImpl.setWapColorSchemeId(wapColorSchemeId);
-		}
+        if (wapThemeId == null) {
+            layoutImpl.setWapThemeId(StringPool.BLANK);
+        } else {
+            layoutImpl.setWapThemeId(wapThemeId);
+        }
 
-		if (css == null) {
-			layoutImpl.setCss(StringPool.BLANK);
-		}
-		else {
-			layoutImpl.setCss(css);
-		}
+        if (wapColorSchemeId == null) {
+            layoutImpl.setWapColorSchemeId(StringPool.BLANK);
+        } else {
+            layoutImpl.setWapColorSchemeId(wapColorSchemeId);
+        }
 
-		layoutImpl.setPriority(priority);
+        if (css == null) {
+            layoutImpl.setCss(StringPool.BLANK);
+        } else {
+            layoutImpl.setCss(css);
+        }
 
-		if (layoutPrototypeUuid == null) {
-			layoutImpl.setLayoutPrototypeUuid(StringPool.BLANK);
-		}
-		else {
-			layoutImpl.setLayoutPrototypeUuid(layoutPrototypeUuid);
-		}
+        layoutImpl.setPriority(priority);
 
-		layoutImpl.setLayoutPrototypeLinkEnabled(layoutPrototypeLinkEnabled);
+        if (layoutPrototypeUuid == null) {
+            layoutImpl.setLayoutPrototypeUuid(StringPool.BLANK);
+        } else {
+            layoutImpl.setLayoutPrototypeUuid(layoutPrototypeUuid);
+        }
 
-		if (sourcePrototypeLayoutUuid == null) {
-			layoutImpl.setSourcePrototypeLayoutUuid(StringPool.BLANK);
-		}
-		else {
-			layoutImpl.setSourcePrototypeLayoutUuid(sourcePrototypeLayoutUuid);
-		}
+        layoutImpl.setLayoutPrototypeLinkEnabled(layoutPrototypeLinkEnabled);
 
-		layoutImpl.resetOriginalValues();
+        if (sourcePrototypeLayoutUuid == null) {
+            layoutImpl.setSourcePrototypeLayoutUuid(StringPool.BLANK);
+        } else {
+            layoutImpl.setSourcePrototypeLayoutUuid(sourcePrototypeLayoutUuid);
+        }
 
-		return layoutImpl;
-	}
+        layoutImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		plid = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		privateLayout = objectInput.readBoolean();
-		layoutId = objectInput.readLong();
-		parentLayoutId = objectInput.readLong();
-		name = objectInput.readUTF();
-		title = objectInput.readUTF();
-		description = objectInput.readUTF();
-		keywords = objectInput.readUTF();
-		robots = objectInput.readUTF();
-		type = objectInput.readUTF();
-		typeSettings = objectInput.readUTF();
-		hidden = objectInput.readBoolean();
-		friendlyURL = objectInput.readUTF();
-		iconImage = objectInput.readBoolean();
-		iconImageId = objectInput.readLong();
-		themeId = objectInput.readUTF();
-		colorSchemeId = objectInput.readUTF();
-		wapThemeId = objectInput.readUTF();
-		wapColorSchemeId = objectInput.readUTF();
-		css = objectInput.readUTF();
-		priority = objectInput.readInt();
-		layoutPrototypeUuid = objectInput.readUTF();
-		layoutPrototypeLinkEnabled = objectInput.readBoolean();
-		sourcePrototypeLayoutUuid = objectInput.readUTF();
-	}
+        return layoutImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        plid = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        privateLayout = objectInput.readBoolean();
+        layoutId = objectInput.readLong();
+        parentLayoutId = objectInput.readLong();
+        name = objectInput.readUTF();
+        title = objectInput.readUTF();
+        description = objectInput.readUTF();
+        keywords = objectInput.readUTF();
+        robots = objectInput.readUTF();
+        type = objectInput.readUTF();
+        typeSettings = objectInput.readUTF();
+        hidden = objectInput.readBoolean();
+        friendlyURL = objectInput.readUTF();
+        iconImage = objectInput.readBoolean();
+        iconImageId = objectInput.readLong();
+        themeId = objectInput.readUTF();
+        colorSchemeId = objectInput.readUTF();
+        wapThemeId = objectInput.readUTF();
+        wapColorSchemeId = objectInput.readUTF();
+        css = objectInput.readUTF();
+        priority = objectInput.readInt();
+        layoutPrototypeUuid = objectInput.readUTF();
+        layoutPrototypeLinkEnabled = objectInput.readBoolean();
+        sourcePrototypeLayoutUuid = objectInput.readUTF();
+    }
 
-		objectOutput.writeLong(plid);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+        objectOutput.writeLong(plid);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeBoolean(privateLayout);
-		objectOutput.writeLong(layoutId);
-		objectOutput.writeLong(parentLayoutId);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeBoolean(privateLayout);
+        objectOutput.writeLong(layoutId);
+        objectOutput.writeLong(parentLayoutId);
 
-		if (title == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(title);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(description);
-		}
+        if (title == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(title);
+        }
 
-		if (keywords == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(keywords);
-		}
+        if (description == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(description);
+        }
 
-		if (robots == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(robots);
-		}
+        if (keywords == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(keywords);
+        }
 
-		if (type == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(type);
-		}
+        if (robots == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(robots);
+        }
 
-		if (typeSettings == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(typeSettings);
-		}
+        if (type == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(type);
+        }
 
-		objectOutput.writeBoolean(hidden);
+        if (typeSettings == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(typeSettings);
+        }
 
-		if (friendlyURL == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(friendlyURL);
-		}
+        objectOutput.writeBoolean(hidden);
 
-		objectOutput.writeBoolean(iconImage);
-		objectOutput.writeLong(iconImageId);
+        if (friendlyURL == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(friendlyURL);
+        }
 
-		if (themeId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(themeId);
-		}
+        objectOutput.writeBoolean(iconImage);
+        objectOutput.writeLong(iconImageId);
 
-		if (colorSchemeId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(colorSchemeId);
-		}
+        if (themeId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(themeId);
+        }
 
-		if (wapThemeId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(wapThemeId);
-		}
+        if (colorSchemeId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(colorSchemeId);
+        }
 
-		if (wapColorSchemeId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(wapColorSchemeId);
-		}
+        if (wapThemeId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(wapThemeId);
+        }
 
-		if (css == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(css);
-		}
+        if (wapColorSchemeId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(wapColorSchemeId);
+        }
 
-		objectOutput.writeInt(priority);
+        if (css == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(css);
+        }
 
-		if (layoutPrototypeUuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(layoutPrototypeUuid);
-		}
+        objectOutput.writeInt(priority);
 
-		objectOutput.writeBoolean(layoutPrototypeLinkEnabled);
+        if (layoutPrototypeUuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(layoutPrototypeUuid);
+        }
 
-		if (sourcePrototypeLayoutUuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(sourcePrototypeLayoutUuid);
-		}
-	}
+        objectOutput.writeBoolean(layoutPrototypeLinkEnabled);
 
-	public String uuid;
-	public long plid;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public boolean privateLayout;
-	public long layoutId;
-	public long parentLayoutId;
-	public String name;
-	public String title;
-	public String description;
-	public String keywords;
-	public String robots;
-	public String type;
-	public String typeSettings;
-	public boolean hidden;
-	public String friendlyURL;
-	public boolean iconImage;
-	public long iconImageId;
-	public String themeId;
-	public String colorSchemeId;
-	public String wapThemeId;
-	public String wapColorSchemeId;
-	public String css;
-	public int priority;
-	public String layoutPrototypeUuid;
-	public boolean layoutPrototypeLinkEnabled;
-	public String sourcePrototypeLayoutUuid;
+        if (sourcePrototypeLayoutUuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(sourcePrototypeLayoutUuid);
+        }
+    }
 }

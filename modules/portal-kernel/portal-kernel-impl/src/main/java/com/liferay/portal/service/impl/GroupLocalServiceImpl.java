@@ -108,7 +108,7 @@ import com.liferay.portal.util.PropsUtil;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portal.util.comparator.GroupIdComparator;
 import com.liferay.portal.util.comparator.GroupNameComparator;
-import com.liferay.portlet.blogs.model.BlogsEntry;
+//import com.liferay.portlet.blogs.model.BlogsEntry;
 import com.liferay.portlet.journal.model.JournalArticle;
 import com.liferay.util.dao.orm.CustomSQLUtil;
 
@@ -809,9 +809,9 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 
 			// Subscriptions
 
-			subscriptionLocalService.deleteSubscriptions(
-				group.getCompanyId(), BlogsEntry.class.getName(),
-				group.getGroupId());
+//			subscriptionLocalService.deleteSubscriptions(
+//				group.getCompanyId(), BlogsEntry.class.getName(),
+//				group.getGroupId());
 			subscriptionLocalService.deleteSubscriptions(
 				group.getCompanyId(), JournalArticle.class.getName(),
 				group.getGroupId());

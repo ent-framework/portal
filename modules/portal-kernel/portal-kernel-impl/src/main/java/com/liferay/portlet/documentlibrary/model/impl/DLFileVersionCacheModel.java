@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.documentlibrary.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -35,360 +21,333 @@ import java.util.Date;
  * @generated
  */
 public class DLFileVersionCacheModel implements CacheModel<DLFileVersion>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(53);
+    Externalizable {
+    public String uuid;
+    public long fileVersionId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public long repositoryId;
+    public long folderId;
+    public long fileEntryId;
+    public String treePath;
+    public String extension;
+    public String mimeType;
+    public String title;
+    public String description;
+    public String changeLog;
+    public String extraSettings;
+    public long fileEntryTypeId;
+    public String version;
+    public long size;
+    public String checksum;
+    public int status;
+    public long statusByUserId;
+    public String statusByUserName;
+    public long statusDate;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", fileVersionId=");
-		sb.append(fileVersionId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", repositoryId=");
-		sb.append(repositoryId);
-		sb.append(", folderId=");
-		sb.append(folderId);
-		sb.append(", fileEntryId=");
-		sb.append(fileEntryId);
-		sb.append(", treePath=");
-		sb.append(treePath);
-		sb.append(", extension=");
-		sb.append(extension);
-		sb.append(", mimeType=");
-		sb.append(mimeType);
-		sb.append(", title=");
-		sb.append(title);
-		sb.append(", description=");
-		sb.append(description);
-		sb.append(", changeLog=");
-		sb.append(changeLog);
-		sb.append(", extraSettings=");
-		sb.append(extraSettings);
-		sb.append(", fileEntryTypeId=");
-		sb.append(fileEntryTypeId);
-		sb.append(", version=");
-		sb.append(version);
-		sb.append(", size=");
-		sb.append(size);
-		sb.append(", checksum=");
-		sb.append(checksum);
-		sb.append(", status=");
-		sb.append(status);
-		sb.append(", statusByUserId=");
-		sb.append(statusByUserId);
-		sb.append(", statusByUserName=");
-		sb.append(statusByUserName);
-		sb.append(", statusDate=");
-		sb.append(statusDate);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(53);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", fileVersionId=");
+        sb.append(fileVersionId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", repositoryId=");
+        sb.append(repositoryId);
+        sb.append(", folderId=");
+        sb.append(folderId);
+        sb.append(", fileEntryId=");
+        sb.append(fileEntryId);
+        sb.append(", treePath=");
+        sb.append(treePath);
+        sb.append(", extension=");
+        sb.append(extension);
+        sb.append(", mimeType=");
+        sb.append(mimeType);
+        sb.append(", title=");
+        sb.append(title);
+        sb.append(", description=");
+        sb.append(description);
+        sb.append(", changeLog=");
+        sb.append(changeLog);
+        sb.append(", extraSettings=");
+        sb.append(extraSettings);
+        sb.append(", fileEntryTypeId=");
+        sb.append(fileEntryTypeId);
+        sb.append(", version=");
+        sb.append(version);
+        sb.append(", size=");
+        sb.append(size);
+        sb.append(", checksum=");
+        sb.append(checksum);
+        sb.append(", status=");
+        sb.append(status);
+        sb.append(", statusByUserId=");
+        sb.append(statusByUserId);
+        sb.append(", statusByUserName=");
+        sb.append(statusByUserName);
+        sb.append(", statusDate=");
+        sb.append(statusDate);
+        sb.append("}");
 
-	@Override
-	public DLFileVersion toEntityModel() {
-		DLFileVersionImpl dlFileVersionImpl = new DLFileVersionImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			dlFileVersionImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			dlFileVersionImpl.setUuid(uuid);
-		}
+    @Override
+    public DLFileVersion toEntityModel() {
+        DLFileVersionImpl dlFileVersionImpl = new DLFileVersionImpl();
 
-		dlFileVersionImpl.setFileVersionId(fileVersionId);
-		dlFileVersionImpl.setGroupId(groupId);
-		dlFileVersionImpl.setCompanyId(companyId);
-		dlFileVersionImpl.setUserId(userId);
+        if (uuid == null) {
+            dlFileVersionImpl.setUuid(StringPool.BLANK);
+        } else {
+            dlFileVersionImpl.setUuid(uuid);
+        }
 
-		if (userName == null) {
-			dlFileVersionImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			dlFileVersionImpl.setUserName(userName);
-		}
+        dlFileVersionImpl.setFileVersionId(fileVersionId);
+        dlFileVersionImpl.setGroupId(groupId);
+        dlFileVersionImpl.setCompanyId(companyId);
+        dlFileVersionImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			dlFileVersionImpl.setCreateDate(null);
-		}
-		else {
-			dlFileVersionImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            dlFileVersionImpl.setUserName(StringPool.BLANK);
+        } else {
+            dlFileVersionImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			dlFileVersionImpl.setModifiedDate(null);
-		}
-		else {
-			dlFileVersionImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            dlFileVersionImpl.setCreateDate(null);
+        } else {
+            dlFileVersionImpl.setCreateDate(new Date(createDate));
+        }
 
-		dlFileVersionImpl.setRepositoryId(repositoryId);
-		dlFileVersionImpl.setFolderId(folderId);
-		dlFileVersionImpl.setFileEntryId(fileEntryId);
+        if (modifiedDate == Long.MIN_VALUE) {
+            dlFileVersionImpl.setModifiedDate(null);
+        } else {
+            dlFileVersionImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (treePath == null) {
-			dlFileVersionImpl.setTreePath(StringPool.BLANK);
-		}
-		else {
-			dlFileVersionImpl.setTreePath(treePath);
-		}
+        dlFileVersionImpl.setRepositoryId(repositoryId);
+        dlFileVersionImpl.setFolderId(folderId);
+        dlFileVersionImpl.setFileEntryId(fileEntryId);
 
-		if (extension == null) {
-			dlFileVersionImpl.setExtension(StringPool.BLANK);
-		}
-		else {
-			dlFileVersionImpl.setExtension(extension);
-		}
+        if (treePath == null) {
+            dlFileVersionImpl.setTreePath(StringPool.BLANK);
+        } else {
+            dlFileVersionImpl.setTreePath(treePath);
+        }
 
-		if (mimeType == null) {
-			dlFileVersionImpl.setMimeType(StringPool.BLANK);
-		}
-		else {
-			dlFileVersionImpl.setMimeType(mimeType);
-		}
+        if (extension == null) {
+            dlFileVersionImpl.setExtension(StringPool.BLANK);
+        } else {
+            dlFileVersionImpl.setExtension(extension);
+        }
 
-		if (title == null) {
-			dlFileVersionImpl.setTitle(StringPool.BLANK);
-		}
-		else {
-			dlFileVersionImpl.setTitle(title);
-		}
+        if (mimeType == null) {
+            dlFileVersionImpl.setMimeType(StringPool.BLANK);
+        } else {
+            dlFileVersionImpl.setMimeType(mimeType);
+        }
 
-		if (description == null) {
-			dlFileVersionImpl.setDescription(StringPool.BLANK);
-		}
-		else {
-			dlFileVersionImpl.setDescription(description);
-		}
+        if (title == null) {
+            dlFileVersionImpl.setTitle(StringPool.BLANK);
+        } else {
+            dlFileVersionImpl.setTitle(title);
+        }
 
-		if (changeLog == null) {
-			dlFileVersionImpl.setChangeLog(StringPool.BLANK);
-		}
-		else {
-			dlFileVersionImpl.setChangeLog(changeLog);
-		}
+        if (description == null) {
+            dlFileVersionImpl.setDescription(StringPool.BLANK);
+        } else {
+            dlFileVersionImpl.setDescription(description);
+        }
 
-		if (extraSettings == null) {
-			dlFileVersionImpl.setExtraSettings(StringPool.BLANK);
-		}
-		else {
-			dlFileVersionImpl.setExtraSettings(extraSettings);
-		}
+        if (changeLog == null) {
+            dlFileVersionImpl.setChangeLog(StringPool.BLANK);
+        } else {
+            dlFileVersionImpl.setChangeLog(changeLog);
+        }
 
-		dlFileVersionImpl.setFileEntryTypeId(fileEntryTypeId);
+        if (extraSettings == null) {
+            dlFileVersionImpl.setExtraSettings(StringPool.BLANK);
+        } else {
+            dlFileVersionImpl.setExtraSettings(extraSettings);
+        }
 
-		if (version == null) {
-			dlFileVersionImpl.setVersion(StringPool.BLANK);
-		}
-		else {
-			dlFileVersionImpl.setVersion(version);
-		}
+        dlFileVersionImpl.setFileEntryTypeId(fileEntryTypeId);
 
-		dlFileVersionImpl.setSize(size);
+        if (version == null) {
+            dlFileVersionImpl.setVersion(StringPool.BLANK);
+        } else {
+            dlFileVersionImpl.setVersion(version);
+        }
 
-		if (checksum == null) {
-			dlFileVersionImpl.setChecksum(StringPool.BLANK);
-		}
-		else {
-			dlFileVersionImpl.setChecksum(checksum);
-		}
+        dlFileVersionImpl.setSize(size);
 
-		dlFileVersionImpl.setStatus(status);
-		dlFileVersionImpl.setStatusByUserId(statusByUserId);
+        if (checksum == null) {
+            dlFileVersionImpl.setChecksum(StringPool.BLANK);
+        } else {
+            dlFileVersionImpl.setChecksum(checksum);
+        }
 
-		if (statusByUserName == null) {
-			dlFileVersionImpl.setStatusByUserName(StringPool.BLANK);
-		}
-		else {
-			dlFileVersionImpl.setStatusByUserName(statusByUserName);
-		}
+        dlFileVersionImpl.setStatus(status);
+        dlFileVersionImpl.setStatusByUserId(statusByUserId);
 
-		if (statusDate == Long.MIN_VALUE) {
-			dlFileVersionImpl.setStatusDate(null);
-		}
-		else {
-			dlFileVersionImpl.setStatusDate(new Date(statusDate));
-		}
+        if (statusByUserName == null) {
+            dlFileVersionImpl.setStatusByUserName(StringPool.BLANK);
+        } else {
+            dlFileVersionImpl.setStatusByUserName(statusByUserName);
+        }
 
-		dlFileVersionImpl.resetOriginalValues();
+        if (statusDate == Long.MIN_VALUE) {
+            dlFileVersionImpl.setStatusDate(null);
+        } else {
+            dlFileVersionImpl.setStatusDate(new Date(statusDate));
+        }
 
-		return dlFileVersionImpl;
-	}
+        dlFileVersionImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		fileVersionId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		repositoryId = objectInput.readLong();
-		folderId = objectInput.readLong();
-		fileEntryId = objectInput.readLong();
-		treePath = objectInput.readUTF();
-		extension = objectInput.readUTF();
-		mimeType = objectInput.readUTF();
-		title = objectInput.readUTF();
-		description = objectInput.readUTF();
-		changeLog = objectInput.readUTF();
-		extraSettings = objectInput.readUTF();
-		fileEntryTypeId = objectInput.readLong();
-		version = objectInput.readUTF();
-		size = objectInput.readLong();
-		checksum = objectInput.readUTF();
-		status = objectInput.readInt();
-		statusByUserId = objectInput.readLong();
-		statusByUserName = objectInput.readUTF();
-		statusDate = objectInput.readLong();
-	}
+        return dlFileVersionImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        fileVersionId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        repositoryId = objectInput.readLong();
+        folderId = objectInput.readLong();
+        fileEntryId = objectInput.readLong();
+        treePath = objectInput.readUTF();
+        extension = objectInput.readUTF();
+        mimeType = objectInput.readUTF();
+        title = objectInput.readUTF();
+        description = objectInput.readUTF();
+        changeLog = objectInput.readUTF();
+        extraSettings = objectInput.readUTF();
+        fileEntryTypeId = objectInput.readLong();
+        version = objectInput.readUTF();
+        size = objectInput.readLong();
+        checksum = objectInput.readUTF();
+        status = objectInput.readInt();
+        statusByUserId = objectInput.readLong();
+        statusByUserName = objectInput.readUTF();
+        statusDate = objectInput.readLong();
+    }
 
-		objectOutput.writeLong(fileVersionId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+        objectOutput.writeLong(fileVersionId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(repositoryId);
-		objectOutput.writeLong(folderId);
-		objectOutput.writeLong(fileEntryId);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (treePath == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(treePath);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(repositoryId);
+        objectOutput.writeLong(folderId);
+        objectOutput.writeLong(fileEntryId);
 
-		if (extension == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(extension);
-		}
+        if (treePath == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(treePath);
+        }
 
-		if (mimeType == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(mimeType);
-		}
+        if (extension == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(extension);
+        }
 
-		if (title == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(title);
-		}
+        if (mimeType == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(mimeType);
+        }
 
-		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(description);
-		}
+        if (title == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(title);
+        }
 
-		if (changeLog == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(changeLog);
-		}
+        if (description == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(description);
+        }
 
-		if (extraSettings == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(extraSettings);
-		}
+        if (changeLog == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(changeLog);
+        }
 
-		objectOutput.writeLong(fileEntryTypeId);
+        if (extraSettings == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(extraSettings);
+        }
 
-		if (version == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(version);
-		}
+        objectOutput.writeLong(fileEntryTypeId);
 
-		objectOutput.writeLong(size);
+        if (version == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(version);
+        }
 
-		if (checksum == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(checksum);
-		}
+        objectOutput.writeLong(size);
 
-		objectOutput.writeInt(status);
-		objectOutput.writeLong(statusByUserId);
+        if (checksum == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(checksum);
+        }
 
-		if (statusByUserName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(statusByUserName);
-		}
+        objectOutput.writeInt(status);
+        objectOutput.writeLong(statusByUserId);
 
-		objectOutput.writeLong(statusDate);
-	}
+        if (statusByUserName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(statusByUserName);
+        }
 
-	public String uuid;
-	public long fileVersionId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public long repositoryId;
-	public long folderId;
-	public long fileEntryId;
-	public String treePath;
-	public String extension;
-	public String mimeType;
-	public String title;
-	public String description;
-	public String changeLog;
-	public String extraSettings;
-	public long fileEntryTypeId;
-	public String version;
-	public long size;
-	public String checksum;
-	public int status;
-	public long statusByUserId;
-	public String statusByUserName;
-	public long statusDate;
+        objectOutput.writeLong(statusDate);
+    }
 }

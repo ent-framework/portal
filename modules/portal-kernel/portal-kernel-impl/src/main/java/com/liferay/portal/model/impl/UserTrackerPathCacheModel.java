@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,76 +20,73 @@ import java.util.Date;
  * @generated
  */
 public class UserTrackerPathCacheModel implements CacheModel<UserTrackerPath>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(9);
+    Externalizable {
+    public long userTrackerPathId;
+    public long userTrackerId;
+    public String path;
+    public long pathDate;
 
-		sb.append("{userTrackerPathId=");
-		sb.append(userTrackerPathId);
-		sb.append(", userTrackerId=");
-		sb.append(userTrackerId);
-		sb.append(", path=");
-		sb.append(path);
-		sb.append(", pathDate=");
-		sb.append(pathDate);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(9);
 
-		return sb.toString();
-	}
+        sb.append("{userTrackerPathId=");
+        sb.append(userTrackerPathId);
+        sb.append(", userTrackerId=");
+        sb.append(userTrackerId);
+        sb.append(", path=");
+        sb.append(path);
+        sb.append(", pathDate=");
+        sb.append(pathDate);
+        sb.append("}");
 
-	@Override
-	public UserTrackerPath toEntityModel() {
-		UserTrackerPathImpl userTrackerPathImpl = new UserTrackerPathImpl();
+        return sb.toString();
+    }
 
-		userTrackerPathImpl.setUserTrackerPathId(userTrackerPathId);
-		userTrackerPathImpl.setUserTrackerId(userTrackerId);
+    @Override
+    public UserTrackerPath toEntityModel() {
+        UserTrackerPathImpl userTrackerPathImpl = new UserTrackerPathImpl();
 
-		if (path == null) {
-			userTrackerPathImpl.setPath(StringPool.BLANK);
-		}
-		else {
-			userTrackerPathImpl.setPath(path);
-		}
+        userTrackerPathImpl.setUserTrackerPathId(userTrackerPathId);
+        userTrackerPathImpl.setUserTrackerId(userTrackerId);
 
-		if (pathDate == Long.MIN_VALUE) {
-			userTrackerPathImpl.setPathDate(null);
-		}
-		else {
-			userTrackerPathImpl.setPathDate(new Date(pathDate));
-		}
+        if (path == null) {
+            userTrackerPathImpl.setPath(StringPool.BLANK);
+        } else {
+            userTrackerPathImpl.setPath(path);
+        }
 
-		userTrackerPathImpl.resetOriginalValues();
+        if (pathDate == Long.MIN_VALUE) {
+            userTrackerPathImpl.setPathDate(null);
+        } else {
+            userTrackerPathImpl.setPathDate(new Date(pathDate));
+        }
 
-		return userTrackerPathImpl;
-	}
+        userTrackerPathImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		userTrackerPathId = objectInput.readLong();
-		userTrackerId = objectInput.readLong();
-		path = objectInput.readUTF();
-		pathDate = objectInput.readLong();
-	}
+        return userTrackerPathImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(userTrackerPathId);
-		objectOutput.writeLong(userTrackerId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        userTrackerPathId = objectInput.readLong();
+        userTrackerId = objectInput.readLong();
+        path = objectInput.readUTF();
+        pathDate = objectInput.readLong();
+    }
 
-		if (path == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(path);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(userTrackerPathId);
+        objectOutput.writeLong(userTrackerId);
 
-		objectOutput.writeLong(pathDate);
-	}
+        if (path == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(path);
+        }
 
-	public long userTrackerPathId;
-	public long userTrackerId;
-	public String path;
-	public long pathDate;
+        objectOutput.writeLong(pathDate);
+    }
 }

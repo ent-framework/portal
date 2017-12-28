@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.expando.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -33,113 +19,107 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class ExpandoColumnCacheModel implements CacheModel<ExpandoColumn>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(15);
+    Externalizable {
+    public long columnId;
+    public long companyId;
+    public long tableId;
+    public String name;
+    public int type;
+    public String defaultData;
+    public String typeSettings;
 
-		sb.append("{columnId=");
-		sb.append(columnId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", tableId=");
-		sb.append(tableId);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", type=");
-		sb.append(type);
-		sb.append(", defaultData=");
-		sb.append(defaultData);
-		sb.append(", typeSettings=");
-		sb.append(typeSettings);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(15);
 
-		return sb.toString();
-	}
+        sb.append("{columnId=");
+        sb.append(columnId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", tableId=");
+        sb.append(tableId);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", type=");
+        sb.append(type);
+        sb.append(", defaultData=");
+        sb.append(defaultData);
+        sb.append(", typeSettings=");
+        sb.append(typeSettings);
+        sb.append("}");
 
-	@Override
-	public ExpandoColumn toEntityModel() {
-		ExpandoColumnImpl expandoColumnImpl = new ExpandoColumnImpl();
+        return sb.toString();
+    }
 
-		expandoColumnImpl.setColumnId(columnId);
-		expandoColumnImpl.setCompanyId(companyId);
-		expandoColumnImpl.setTableId(tableId);
+    @Override
+    public ExpandoColumn toEntityModel() {
+        ExpandoColumnImpl expandoColumnImpl = new ExpandoColumnImpl();
 
-		if (name == null) {
-			expandoColumnImpl.setName(StringPool.BLANK);
-		}
-		else {
-			expandoColumnImpl.setName(name);
-		}
+        expandoColumnImpl.setColumnId(columnId);
+        expandoColumnImpl.setCompanyId(companyId);
+        expandoColumnImpl.setTableId(tableId);
 
-		expandoColumnImpl.setType(type);
+        if (name == null) {
+            expandoColumnImpl.setName(StringPool.BLANK);
+        } else {
+            expandoColumnImpl.setName(name);
+        }
 
-		if (defaultData == null) {
-			expandoColumnImpl.setDefaultData(StringPool.BLANK);
-		}
-		else {
-			expandoColumnImpl.setDefaultData(defaultData);
-		}
+        expandoColumnImpl.setType(type);
 
-		if (typeSettings == null) {
-			expandoColumnImpl.setTypeSettings(StringPool.BLANK);
-		}
-		else {
-			expandoColumnImpl.setTypeSettings(typeSettings);
-		}
+        if (defaultData == null) {
+            expandoColumnImpl.setDefaultData(StringPool.BLANK);
+        } else {
+            expandoColumnImpl.setDefaultData(defaultData);
+        }
 
-		expandoColumnImpl.resetOriginalValues();
+        if (typeSettings == null) {
+            expandoColumnImpl.setTypeSettings(StringPool.BLANK);
+        } else {
+            expandoColumnImpl.setTypeSettings(typeSettings);
+        }
 
-		return expandoColumnImpl;
-	}
+        expandoColumnImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		columnId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		tableId = objectInput.readLong();
-		name = objectInput.readUTF();
-		type = objectInput.readInt();
-		defaultData = objectInput.readUTF();
-		typeSettings = objectInput.readUTF();
-	}
+        return expandoColumnImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(columnId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(tableId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        columnId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        tableId = objectInput.readLong();
+        name = objectInput.readUTF();
+        type = objectInput.readInt();
+        defaultData = objectInput.readUTF();
+        typeSettings = objectInput.readUTF();
+    }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(columnId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(tableId);
 
-		objectOutput.writeInt(type);
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		if (defaultData == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(defaultData);
-		}
+        objectOutput.writeInt(type);
 
-		if (typeSettings == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(typeSettings);
-		}
-	}
+        if (defaultData == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(defaultData);
+        }
 
-	public long columnId;
-	public long companyId;
-	public long tableId;
-	public String name;
-	public int type;
-	public String defaultData;
-	public String typeSettings;
+        if (typeSettings == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(typeSettings);
+        }
+    }
 }

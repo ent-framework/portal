@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.service.http;
 
 import com.liferay.portal.kernel.log.Log;
@@ -20,6 +6,7 @@ import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.LayoutRevisionServiceUtil;
+import com.liferay.portal.service.http.TunnelUtil;
 
 /**
  * Provides the HTTP utility for the
@@ -50,66 +37,64 @@ import com.liferay.portal.service.LayoutRevisionServiceUtil;
  * @generated
  */
 public class LayoutRevisionServiceHttp {
-	public static com.liferay.portal.model.LayoutRevision addLayoutRevision(
-		HttpPrincipal httpPrincipal, long userId, long layoutSetBranchId,
-		long layoutBranchId, long parentLayoutRevisionId, boolean head,
-		long plid, long portletPreferencesPlid, boolean privateLayout,
-		java.lang.String name, java.lang.String title,
-		java.lang.String description, java.lang.String keywords,
-		java.lang.String robots, java.lang.String typeSettings,
-		boolean iconImage, long iconImageId, java.lang.String themeId,
-		java.lang.String colorSchemeId, java.lang.String wapThemeId,
-		java.lang.String wapColorSchemeId, java.lang.String css,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(LayoutRevisionServiceUtil.class,
-					"addLayoutRevision", _addLayoutRevisionParameterTypes0);
+    private static Log _log = LogFactoryUtil.getLog(LayoutRevisionServiceHttp.class);
+    private static final Class<?>[] _addLayoutRevisionParameterTypes0 = new Class[] {
+            long.class, long.class, long.class, long.class, boolean.class,
+            long.class, long.class, boolean.class, java.lang.String.class,
+            java.lang.String.class, java.lang.String.class,
+            java.lang.String.class, java.lang.String.class,
+            java.lang.String.class, boolean.class, long.class,
+            java.lang.String.class, java.lang.String.class,
+            java.lang.String.class, java.lang.String.class,
+            java.lang.String.class,
+            com.liferay.portal.service.ServiceContext.class
+        };
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, userId,
-					layoutSetBranchId, layoutBranchId, parentLayoutRevisionId,
-					head, plid, portletPreferencesPlid, privateLayout, name,
-					title, description, keywords, robots, typeSettings,
-					iconImage, iconImageId, themeId, colorSchemeId, wapThemeId,
-					wapColorSchemeId, css, serviceContext);
+    public static com.liferay.portal.model.LayoutRevision addLayoutRevision(
+        HttpPrincipal httpPrincipal, long userId, long layoutSetBranchId,
+        long layoutBranchId, long parentLayoutRevisionId, boolean head,
+        long plid, long portletPreferencesPlid, boolean privateLayout,
+        java.lang.String name, java.lang.String title,
+        java.lang.String description, java.lang.String keywords,
+        java.lang.String robots, java.lang.String typeSettings,
+        boolean iconImage, long iconImageId, java.lang.String themeId,
+        java.lang.String colorSchemeId, java.lang.String wapThemeId,
+        java.lang.String wapColorSchemeId, java.lang.String css,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(LayoutRevisionServiceUtil.class,
+                    "addLayoutRevision", _addLayoutRevisionParameterTypes0);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey, userId,
+                    layoutSetBranchId, layoutBranchId, parentLayoutRevisionId,
+                    head, plid, portletPreferencesPlid, privateLayout, name,
+                    title, description, keywords, robots, typeSettings,
+                    iconImage, iconImageId, themeId, colorSchemeId, wapThemeId,
+                    wapColorSchemeId, css, serviceContext);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portal.model.LayoutRevision)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portal.model.LayoutRevision) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	private static Log _log = LogFactoryUtil.getLog(LayoutRevisionServiceHttp.class);
-	private static final Class<?>[] _addLayoutRevisionParameterTypes0 = new Class[] {
-			long.class, long.class, long.class, long.class, boolean.class,
-			long.class, long.class, boolean.class, java.lang.String.class,
-			java.lang.String.class, java.lang.String.class,
-			java.lang.String.class, java.lang.String.class,
-			java.lang.String.class, boolean.class, long.class,
-			java.lang.String.class, java.lang.String.class,
-			java.lang.String.class, java.lang.String.class,
-			java.lang.String.class,
-			com.liferay.portal.service.ServiceContext.class
-		};
+            throw se;
+        }
+    }
 }

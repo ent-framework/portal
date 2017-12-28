@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.bookmarks.model;
 
 import java.io.Serializable;
@@ -28,231 +14,230 @@ import java.util.List;
  * @generated
  */
 public class BookmarksFolderSoap implements Serializable {
-	public static BookmarksFolderSoap toSoapModel(BookmarksFolder model) {
-		BookmarksFolderSoap soapModel = new BookmarksFolderSoap();
+    private String _uuid;
+    private long _folderId;
+    private long _groupId;
+    private long _companyId;
+    private long _userId;
+    private String _userName;
+    private Date _createDate;
+    private Date _modifiedDate;
+    private long _resourceBlockId;
+    private long _parentFolderId;
+    private String _treePath;
+    private String _name;
+    private String _description;
+    private int _status;
+    private long _statusByUserId;
+    private String _statusByUserName;
+    private Date _statusDate;
 
-		soapModel.setUuid(model.getUuid());
-		soapModel.setFolderId(model.getFolderId());
-		soapModel.setGroupId(model.getGroupId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setUserName(model.getUserName());
-		soapModel.setCreateDate(model.getCreateDate());
-		soapModel.setModifiedDate(model.getModifiedDate());
-		soapModel.setResourceBlockId(model.getResourceBlockId());
-		soapModel.setParentFolderId(model.getParentFolderId());
-		soapModel.setTreePath(model.getTreePath());
-		soapModel.setName(model.getName());
-		soapModel.setDescription(model.getDescription());
-		soapModel.setStatus(model.getStatus());
-		soapModel.setStatusByUserId(model.getStatusByUserId());
-		soapModel.setStatusByUserName(model.getStatusByUserName());
-		soapModel.setStatusDate(model.getStatusDate());
+    public BookmarksFolderSoap() {
+    }
 
-		return soapModel;
-	}
+    public static BookmarksFolderSoap toSoapModel(BookmarksFolder model) {
+        BookmarksFolderSoap soapModel = new BookmarksFolderSoap();
 
-	public static BookmarksFolderSoap[] toSoapModels(BookmarksFolder[] models) {
-		BookmarksFolderSoap[] soapModels = new BookmarksFolderSoap[models.length];
+        soapModel.setUuid(model.getUuid());
+        soapModel.setFolderId(model.getFolderId());
+        soapModel.setGroupId(model.getGroupId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setUserName(model.getUserName());
+        soapModel.setCreateDate(model.getCreateDate());
+        soapModel.setModifiedDate(model.getModifiedDate());
+        soapModel.setResourceBlockId(model.getResourceBlockId());
+        soapModel.setParentFolderId(model.getParentFolderId());
+        soapModel.setTreePath(model.getTreePath());
+        soapModel.setName(model.getName());
+        soapModel.setDescription(model.getDescription());
+        soapModel.setStatus(model.getStatus());
+        soapModel.setStatusByUserId(model.getStatusByUserId());
+        soapModel.setStatusByUserName(model.getStatusByUserName());
+        soapModel.setStatusDate(model.getStatusDate());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static BookmarksFolderSoap[] toSoapModels(BookmarksFolder[] models) {
+        BookmarksFolderSoap[] soapModels = new BookmarksFolderSoap[models.length];
 
-	public static BookmarksFolderSoap[][] toSoapModels(
-		BookmarksFolder[][] models) {
-		BookmarksFolderSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new BookmarksFolderSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new BookmarksFolderSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static BookmarksFolderSoap[][] toSoapModels(
+        BookmarksFolder[][] models) {
+        BookmarksFolderSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new BookmarksFolderSoap[models.length][models[0].length];
+        } else {
+            soapModels = new BookmarksFolderSoap[0][0];
+        }
 
-	public static BookmarksFolderSoap[] toSoapModels(
-		List<BookmarksFolder> models) {
-		List<BookmarksFolderSoap> soapModels = new ArrayList<BookmarksFolderSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (BookmarksFolder model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new BookmarksFolderSoap[soapModels.size()]);
-	}
+    public static BookmarksFolderSoap[] toSoapModels(
+        List<BookmarksFolder> models) {
+        List<BookmarksFolderSoap> soapModels = new ArrayList<BookmarksFolderSoap>(models.size());
 
-	public BookmarksFolderSoap() {
-	}
+        for (BookmarksFolder model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _folderId;
-	}
+        return soapModels.toArray(new BookmarksFolderSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setFolderId(pk);
-	}
+    public long getPrimaryKey() {
+        return _folderId;
+    }
 
-	public String getUuid() {
-		return _uuid;
-	}
+    public void setPrimaryKey(long pk) {
+        setFolderId(pk);
+    }
 
-	public void setUuid(String uuid) {
-		_uuid = uuid;
-	}
+    public String getUuid() {
+        return _uuid;
+    }
 
-	public long getFolderId() {
-		return _folderId;
-	}
+    public void setUuid(String uuid) {
+        _uuid = uuid;
+    }
 
-	public void setFolderId(long folderId) {
-		_folderId = folderId;
-	}
+    public long getFolderId() {
+        return _folderId;
+    }
 
-	public long getGroupId() {
-		return _groupId;
-	}
+    public void setFolderId(long folderId) {
+        _folderId = folderId;
+    }
 
-	public void setGroupId(long groupId) {
-		_groupId = groupId;
-	}
+    public long getGroupId() {
+        return _groupId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setGroupId(long groupId) {
+        _groupId = groupId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public String getUserName() {
-		return _userName;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setUserName(String userName) {
-		_userName = userName;
-	}
+    public String getUserName() {
+        return _userName;
+    }
 
-	public Date getCreateDate() {
-		return _createDate;
-	}
+    public void setUserName(String userName) {
+        _userName = userName;
+    }
 
-	public void setCreateDate(Date createDate) {
-		_createDate = createDate;
-	}
+    public Date getCreateDate() {
+        return _createDate;
+    }
 
-	public Date getModifiedDate() {
-		return _modifiedDate;
-	}
+    public void setCreateDate(Date createDate) {
+        _createDate = createDate;
+    }
 
-	public void setModifiedDate(Date modifiedDate) {
-		_modifiedDate = modifiedDate;
-	}
+    public Date getModifiedDate() {
+        return _modifiedDate;
+    }
 
-	public long getResourceBlockId() {
-		return _resourceBlockId;
-	}
+    public void setModifiedDate(Date modifiedDate) {
+        _modifiedDate = modifiedDate;
+    }
 
-	public void setResourceBlockId(long resourceBlockId) {
-		_resourceBlockId = resourceBlockId;
-	}
+    public long getResourceBlockId() {
+        return _resourceBlockId;
+    }
 
-	public long getParentFolderId() {
-		return _parentFolderId;
-	}
+    public void setResourceBlockId(long resourceBlockId) {
+        _resourceBlockId = resourceBlockId;
+    }
 
-	public void setParentFolderId(long parentFolderId) {
-		_parentFolderId = parentFolderId;
-	}
+    public long getParentFolderId() {
+        return _parentFolderId;
+    }
 
-	public String getTreePath() {
-		return _treePath;
-	}
+    public void setParentFolderId(long parentFolderId) {
+        _parentFolderId = parentFolderId;
+    }
 
-	public void setTreePath(String treePath) {
-		_treePath = treePath;
-	}
+    public String getTreePath() {
+        return _treePath;
+    }
 
-	public String getName() {
-		return _name;
-	}
+    public void setTreePath(String treePath) {
+        _treePath = treePath;
+    }
 
-	public void setName(String name) {
-		_name = name;
-	}
+    public String getName() {
+        return _name;
+    }
 
-	public String getDescription() {
-		return _description;
-	}
+    public void setName(String name) {
+        _name = name;
+    }
 
-	public void setDescription(String description) {
-		_description = description;
-	}
+    public String getDescription() {
+        return _description;
+    }
 
-	public int getStatus() {
-		return _status;
-	}
+    public void setDescription(String description) {
+        _description = description;
+    }
 
-	public void setStatus(int status) {
-		_status = status;
-	}
+    public int getStatus() {
+        return _status;
+    }
 
-	public long getStatusByUserId() {
-		return _statusByUserId;
-	}
+    public void setStatus(int status) {
+        _status = status;
+    }
 
-	public void setStatusByUserId(long statusByUserId) {
-		_statusByUserId = statusByUserId;
-	}
+    public long getStatusByUserId() {
+        return _statusByUserId;
+    }
 
-	public String getStatusByUserName() {
-		return _statusByUserName;
-	}
+    public void setStatusByUserId(long statusByUserId) {
+        _statusByUserId = statusByUserId;
+    }
 
-	public void setStatusByUserName(String statusByUserName) {
-		_statusByUserName = statusByUserName;
-	}
+    public String getStatusByUserName() {
+        return _statusByUserName;
+    }
 
-	public Date getStatusDate() {
-		return _statusDate;
-	}
+    public void setStatusByUserName(String statusByUserName) {
+        _statusByUserName = statusByUserName;
+    }
 
-	public void setStatusDate(Date statusDate) {
-		_statusDate = statusDate;
-	}
+    public Date getStatusDate() {
+        return _statusDate;
+    }
 
-	private String _uuid;
-	private long _folderId;
-	private long _groupId;
-	private long _companyId;
-	private long _userId;
-	private String _userName;
-	private Date _createDate;
-	private Date _modifiedDate;
-	private long _resourceBlockId;
-	private long _parentFolderId;
-	private String _treePath;
-	private String _name;
-	private String _description;
-	private int _status;
-	private long _statusByUserId;
-	private String _statusByUserName;
-	private Date _statusDate;
+    public void setStatusDate(Date statusDate) {
+        _statusDate = statusDate;
+    }
 }

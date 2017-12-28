@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.documentlibrary.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -35,172 +21,160 @@ import java.util.Date;
  * @generated
  */
 public class DLFileEntryTypeCacheModel implements CacheModel<DLFileEntryType>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(23);
+    Externalizable {
+    public String uuid;
+    public long fileEntryTypeId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public String fileEntryTypeKey;
+    public String name;
+    public String description;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", fileEntryTypeId=");
-		sb.append(fileEntryTypeId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", fileEntryTypeKey=");
-		sb.append(fileEntryTypeKey);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", description=");
-		sb.append(description);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(23);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", fileEntryTypeId=");
+        sb.append(fileEntryTypeId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", fileEntryTypeKey=");
+        sb.append(fileEntryTypeKey);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", description=");
+        sb.append(description);
+        sb.append("}");
 
-	@Override
-	public DLFileEntryType toEntityModel() {
-		DLFileEntryTypeImpl dlFileEntryTypeImpl = new DLFileEntryTypeImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			dlFileEntryTypeImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			dlFileEntryTypeImpl.setUuid(uuid);
-		}
+    @Override
+    public DLFileEntryType toEntityModel() {
+        DLFileEntryTypeImpl dlFileEntryTypeImpl = new DLFileEntryTypeImpl();
 
-		dlFileEntryTypeImpl.setFileEntryTypeId(fileEntryTypeId);
-		dlFileEntryTypeImpl.setGroupId(groupId);
-		dlFileEntryTypeImpl.setCompanyId(companyId);
-		dlFileEntryTypeImpl.setUserId(userId);
+        if (uuid == null) {
+            dlFileEntryTypeImpl.setUuid(StringPool.BLANK);
+        } else {
+            dlFileEntryTypeImpl.setUuid(uuid);
+        }
 
-		if (userName == null) {
-			dlFileEntryTypeImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			dlFileEntryTypeImpl.setUserName(userName);
-		}
+        dlFileEntryTypeImpl.setFileEntryTypeId(fileEntryTypeId);
+        dlFileEntryTypeImpl.setGroupId(groupId);
+        dlFileEntryTypeImpl.setCompanyId(companyId);
+        dlFileEntryTypeImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			dlFileEntryTypeImpl.setCreateDate(null);
-		}
-		else {
-			dlFileEntryTypeImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            dlFileEntryTypeImpl.setUserName(StringPool.BLANK);
+        } else {
+            dlFileEntryTypeImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			dlFileEntryTypeImpl.setModifiedDate(null);
-		}
-		else {
-			dlFileEntryTypeImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            dlFileEntryTypeImpl.setCreateDate(null);
+        } else {
+            dlFileEntryTypeImpl.setCreateDate(new Date(createDate));
+        }
 
-		if (fileEntryTypeKey == null) {
-			dlFileEntryTypeImpl.setFileEntryTypeKey(StringPool.BLANK);
-		}
-		else {
-			dlFileEntryTypeImpl.setFileEntryTypeKey(fileEntryTypeKey);
-		}
+        if (modifiedDate == Long.MIN_VALUE) {
+            dlFileEntryTypeImpl.setModifiedDate(null);
+        } else {
+            dlFileEntryTypeImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (name == null) {
-			dlFileEntryTypeImpl.setName(StringPool.BLANK);
-		}
-		else {
-			dlFileEntryTypeImpl.setName(name);
-		}
+        if (fileEntryTypeKey == null) {
+            dlFileEntryTypeImpl.setFileEntryTypeKey(StringPool.BLANK);
+        } else {
+            dlFileEntryTypeImpl.setFileEntryTypeKey(fileEntryTypeKey);
+        }
 
-		if (description == null) {
-			dlFileEntryTypeImpl.setDescription(StringPool.BLANK);
-		}
-		else {
-			dlFileEntryTypeImpl.setDescription(description);
-		}
+        if (name == null) {
+            dlFileEntryTypeImpl.setName(StringPool.BLANK);
+        } else {
+            dlFileEntryTypeImpl.setName(name);
+        }
 
-		dlFileEntryTypeImpl.resetOriginalValues();
+        if (description == null) {
+            dlFileEntryTypeImpl.setDescription(StringPool.BLANK);
+        } else {
+            dlFileEntryTypeImpl.setDescription(description);
+        }
 
-		return dlFileEntryTypeImpl;
-	}
+        dlFileEntryTypeImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		fileEntryTypeId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		fileEntryTypeKey = objectInput.readUTF();
-		name = objectInput.readUTF();
-		description = objectInput.readUTF();
-	}
+        return dlFileEntryTypeImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        fileEntryTypeId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        fileEntryTypeKey = objectInput.readUTF();
+        name = objectInput.readUTF();
+        description = objectInput.readUTF();
+    }
 
-		objectOutput.writeLong(fileEntryTypeId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+        objectOutput.writeLong(fileEntryTypeId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (fileEntryTypeKey == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(fileEntryTypeKey);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        if (fileEntryTypeKey == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(fileEntryTypeKey);
+        }
 
-		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(description);
-		}
-	}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-	public String uuid;
-	public long fileEntryTypeId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public String fileEntryTypeKey;
-	public String name;
-	public String description;
+        if (description == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(description);
+        }
+    }
 }

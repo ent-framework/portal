@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.documentlibrary.model;
 
 import aQute.bnd.annotation.ProviderType;
@@ -40,152 +26,153 @@ import java.io.Serializable;
  */
 @ProviderType
 public interface DLSyncEventModel extends BaseModel<DLSyncEvent> {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this interface directly. All methods that expect a d l sync event model instance should use the {@link DLSyncEvent} interface instead.
-	 */
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this interface directly. All methods that expect a d l sync event model instance should use the {@link DLSyncEvent} interface instead.
+     */
 
-	/**
-	 * Returns the primary key of this d l sync event.
-	 *
-	 * @return the primary key of this d l sync event
-	 */
-	public long getPrimaryKey();
+    /**
+     * Returns the primary key of this d l sync event.
+     *
+     * @return the primary key of this d l sync event
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this d l sync event.
-	 *
-	 * @param primaryKey the primary key of this d l sync event
-	 */
-	public void setPrimaryKey(long primaryKey);
+    /**
+     * Sets the primary key of this d l sync event.
+     *
+     * @param primaryKey the primary key of this d l sync event
+     */
+    public void setPrimaryKey(long primaryKey);
 
-	/**
-	 * Returns the sync event ID of this d l sync event.
-	 *
-	 * @return the sync event ID of this d l sync event
-	 */
-	public long getSyncEventId();
+    /**
+     * Returns the sync event ID of this d l sync event.
+     *
+     * @return the sync event ID of this d l sync event
+     */
+    public long getSyncEventId();
 
-	/**
-	 * Sets the sync event ID of this d l sync event.
-	 *
-	 * @param syncEventId the sync event ID of this d l sync event
-	 */
-	public void setSyncEventId(long syncEventId);
+    /**
+     * Sets the sync event ID of this d l sync event.
+     *
+     * @param syncEventId the sync event ID of this d l sync event
+     */
+    public void setSyncEventId(long syncEventId);
 
-	/**
-	 * Returns the modified time of this d l sync event.
-	 *
-	 * @return the modified time of this d l sync event
-	 */
-	public long getModifiedTime();
+    /**
+     * Returns the modified time of this d l sync event.
+     *
+     * @return the modified time of this d l sync event
+     */
+    public long getModifiedTime();
 
-	/**
-	 * Sets the modified time of this d l sync event.
-	 *
-	 * @param modifiedTime the modified time of this d l sync event
-	 */
-	public void setModifiedTime(long modifiedTime);
+    /**
+     * Sets the modified time of this d l sync event.
+     *
+     * @param modifiedTime the modified time of this d l sync event
+     */
+    public void setModifiedTime(long modifiedTime);
 
-	/**
-	 * Returns the event of this d l sync event.
-	 *
-	 * @return the event of this d l sync event
-	 */
-	@AutoEscape
-	public String getEvent();
+    /**
+     * Returns the event of this d l sync event.
+     *
+     * @return the event of this d l sync event
+     */
+    @AutoEscape
+    public String getEvent();
 
-	/**
-	 * Sets the event of this d l sync event.
-	 *
-	 * @param event the event of this d l sync event
-	 */
-	public void setEvent(String event);
+    /**
+     * Sets the event of this d l sync event.
+     *
+     * @param event the event of this d l sync event
+     */
+    public void setEvent(String event);
 
-	/**
-	 * Returns the type of this d l sync event.
-	 *
-	 * @return the type of this d l sync event
-	 */
-	@AutoEscape
-	public String getType();
+    /**
+     * Returns the type of this d l sync event.
+     *
+     * @return the type of this d l sync event
+     */
+    @AutoEscape
+    public String getType();
 
-	/**
-	 * Sets the type of this d l sync event.
-	 *
-	 * @param type the type of this d l sync event
-	 */
-	public void setType(String type);
+    /**
+     * Sets the type of this d l sync event.
+     *
+     * @param type the type of this d l sync event
+     */
+    public void setType(String type);
 
-	/**
-	 * Returns the type p k of this d l sync event.
-	 *
-	 * @return the type p k of this d l sync event
-	 */
-	public long getTypePK();
+    /**
+     * Returns the type p k of this d l sync event.
+     *
+     * @return the type p k of this d l sync event
+     */
+    public long getTypePK();
 
-	/**
-	 * Sets the type p k of this d l sync event.
-	 *
-	 * @param typePK the type p k of this d l sync event
-	 */
-	public void setTypePK(long typePK);
+    /**
+     * Sets the type p k of this d l sync event.
+     *
+     * @param typePK the type p k of this d l sync event
+     */
+    public void setTypePK(long typePK);
 
-	@Override
-	public boolean isNew();
+    @Override
+    public boolean isNew();
 
-	@Override
-	public void setNew(boolean n);
+    @Override
+    public void setNew(boolean n);
 
-	@Override
-	public boolean isCachedModel();
+    @Override
+    public boolean isCachedModel();
 
-	@Override
-	public void setCachedModel(boolean cachedModel);
+    @Override
+    public void setCachedModel(boolean cachedModel);
 
-	@Override
-	public boolean isEscapedModel();
+    @Override
+    public boolean isEscapedModel();
 
-	@Override
-	public Serializable getPrimaryKeyObj();
+    @Override
+    public Serializable getPrimaryKeyObj();
 
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj);
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj);
 
-	@Override
-	public ExpandoBridge getExpandoBridge();
+    @Override
+    public ExpandoBridge getExpandoBridge();
 
-	@Override
-	public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
+    @Override
+    public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
 
-	@Override
-	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
+    @Override
+    public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	@Override
-	public Object clone();
+    @Override
+    public Object clone();
 
-	@Override
-	public int compareTo(DLSyncEvent dlSyncEvent);
+    @Override
+    public int compareTo(
+        com.liferay.portlet.documentlibrary.model.DLSyncEvent dlSyncEvent);
 
-	@Override
-	public int hashCode();
+    @Override
+    public int hashCode();
 
-	@Override
-	public CacheModel<DLSyncEvent> toCacheModel();
+    @Override
+    public CacheModel<com.liferay.portlet.documentlibrary.model.DLSyncEvent> toCacheModel();
 
-	@Override
-	public DLSyncEvent toEscapedModel();
+    @Override
+    public com.liferay.portlet.documentlibrary.model.DLSyncEvent toEscapedModel();
 
-	@Override
-	public DLSyncEvent toUnescapedModel();
+    @Override
+    public com.liferay.portlet.documentlibrary.model.DLSyncEvent toUnescapedModel();
 
-	@Override
-	public String toString();
+    @Override
+    public String toString();
 
-	@Override
-	public String toXmlString();
+    @Override
+    public String toXmlString();
 }

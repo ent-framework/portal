@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -32,83 +18,79 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class ResourceActionCacheModel implements CacheModel<ResourceAction>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(9);
+    Externalizable {
+    public long resourceActionId;
+    public String name;
+    public String actionId;
+    public long bitwiseValue;
 
-		sb.append("{resourceActionId=");
-		sb.append(resourceActionId);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", actionId=");
-		sb.append(actionId);
-		sb.append(", bitwiseValue=");
-		sb.append(bitwiseValue);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(9);
 
-		return sb.toString();
-	}
+        sb.append("{resourceActionId=");
+        sb.append(resourceActionId);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", actionId=");
+        sb.append(actionId);
+        sb.append(", bitwiseValue=");
+        sb.append(bitwiseValue);
+        sb.append("}");
 
-	@Override
-	public ResourceAction toEntityModel() {
-		ResourceActionImpl resourceActionImpl = new ResourceActionImpl();
+        return sb.toString();
+    }
 
-		resourceActionImpl.setResourceActionId(resourceActionId);
+    @Override
+    public ResourceAction toEntityModel() {
+        ResourceActionImpl resourceActionImpl = new ResourceActionImpl();
 
-		if (name == null) {
-			resourceActionImpl.setName(StringPool.BLANK);
-		}
-		else {
-			resourceActionImpl.setName(name);
-		}
+        resourceActionImpl.setResourceActionId(resourceActionId);
 
-		if (actionId == null) {
-			resourceActionImpl.setActionId(StringPool.BLANK);
-		}
-		else {
-			resourceActionImpl.setActionId(actionId);
-		}
+        if (name == null) {
+            resourceActionImpl.setName(StringPool.BLANK);
+        } else {
+            resourceActionImpl.setName(name);
+        }
 
-		resourceActionImpl.setBitwiseValue(bitwiseValue);
+        if (actionId == null) {
+            resourceActionImpl.setActionId(StringPool.BLANK);
+        } else {
+            resourceActionImpl.setActionId(actionId);
+        }
 
-		resourceActionImpl.resetOriginalValues();
+        resourceActionImpl.setBitwiseValue(bitwiseValue);
 
-		return resourceActionImpl;
-	}
+        resourceActionImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		resourceActionId = objectInput.readLong();
-		name = objectInput.readUTF();
-		actionId = objectInput.readUTF();
-		bitwiseValue = objectInput.readLong();
-	}
+        return resourceActionImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(resourceActionId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        resourceActionId = objectInput.readLong();
+        name = objectInput.readUTF();
+        actionId = objectInput.readUTF();
+        bitwiseValue = objectInput.readLong();
+    }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(resourceActionId);
 
-		if (actionId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(actionId);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		objectOutput.writeLong(bitwiseValue);
-	}
+        if (actionId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(actionId);
+        }
 
-	public long resourceActionId;
-	public String name;
-	public String actionId;
-	public long bitwiseValue;
+        objectOutput.writeLong(bitwiseValue);
+    }
 }

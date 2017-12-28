@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.service.http;
 
 import com.liferay.portal.kernel.log.Log;
@@ -20,6 +6,7 @@ import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.ListTypeServiceUtil;
+import com.liferay.portal.service.http.TunnelUtil;
 
 /**
  * Provides the HTTP utility for the
@@ -50,151 +37,143 @@ import com.liferay.portal.service.ListTypeServiceUtil;
  * @generated
  */
 public class ListTypeServiceHttp {
-	public static com.liferay.portal.model.ListType getListType(
-		HttpPrincipal httpPrincipal, int listTypeId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(ListTypeServiceUtil.class,
-					"getListType", _getListTypeParameterTypes0);
+    private static Log _log = LogFactoryUtil.getLog(ListTypeServiceHttp.class);
+    private static final Class<?>[] _getListTypeParameterTypes0 = new Class[] {
+            int.class
+        };
+    private static final Class<?>[] _getListTypesParameterTypes1 = new Class[] {
+            java.lang.String.class
+        };
+    private static final Class<?>[] _validateParameterTypes2 = new Class[] {
+            int.class, long.class, java.lang.String.class
+        };
+    private static final Class<?>[] _validateParameterTypes3 = new Class[] {
+            int.class, java.lang.String.class
+        };
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					listTypeId);
+    public static com.liferay.portal.model.ListType getListType(
+        HttpPrincipal httpPrincipal, int listTypeId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(ListTypeServiceUtil.class,
+                    "getListType", _getListTypeParameterTypes0);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    listTypeId);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portal.model.ListType)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portal.model.ListType) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static java.util.List<com.liferay.portal.model.ListType> getListTypes(
-		HttpPrincipal httpPrincipal, java.lang.String type)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(ListTypeServiceUtil.class,
-					"getListTypes", _getListTypesParameterTypes1);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, type);
+    public static java.util.List<com.liferay.portal.model.ListType> getListTypes(
+        HttpPrincipal httpPrincipal, java.lang.String type)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(ListTypeServiceUtil.class,
+                    "getListTypes", _getListTypesParameterTypes1);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey, type);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            Object returnObj = null;
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (java.util.List<com.liferay.portal.model.ListType>)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (java.util.List<com.liferay.portal.model.ListType>) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static void validate(HttpPrincipal httpPrincipal, int listTypeId,
-		long classNameId, java.lang.String type)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(ListTypeServiceUtil.class,
-					"validate", _validateParameterTypes2);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					listTypeId, classNameId, type);
+    public static void validate(HttpPrincipal httpPrincipal, int listTypeId,
+        long classNameId, java.lang.String type)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(ListTypeServiceUtil.class,
+                    "validate", _validateParameterTypes2);
 
-			try {
-				TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    listTypeId, classNameId, type);
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			throw se;
-		}
-	}
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static void validate(HttpPrincipal httpPrincipal, int listTypeId,
-		java.lang.String type)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(ListTypeServiceUtil.class,
-					"validate", _validateParameterTypes3);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					listTypeId, type);
+    public static void validate(HttpPrincipal httpPrincipal, int listTypeId,
+        java.lang.String type)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(ListTypeServiceUtil.class,
+                    "validate", _validateParameterTypes3);
 
-			try {
-				TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    listTypeId, type);
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			throw se;
-		}
-	}
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	private static Log _log = LogFactoryUtil.getLog(ListTypeServiceHttp.class);
-	private static final Class<?>[] _getListTypeParameterTypes0 = new Class[] {
-			int.class
-		};
-	private static final Class<?>[] _getListTypesParameterTypes1 = new Class[] {
-			java.lang.String.class
-		};
-	private static final Class<?>[] _validateParameterTypes2 = new Class[] {
-			int.class, long.class, java.lang.String.class
-		};
-	private static final Class<?>[] _validateParameterTypes3 = new Class[] {
-			int.class, java.lang.String.class
-		};
+            throw se;
+        }
+    }
 }

@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.expando.model.impl;
 
 import com.liferay.portal.kernel.exception.SystemException;
@@ -32,19 +18,18 @@ import com.liferay.portlet.expando.service.ExpandoColumnLocalServiceUtil;
  * @generated
  */
 public abstract class ExpandoColumnBaseImpl extends ExpandoColumnModelImpl
-	implements ExpandoColumn {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this class directly. All methods that expect a expando column model instance should use the {@link ExpandoColumn} interface instead.
-	 */
-	@Override
-	public void persist() throws SystemException {
-		if (this.isNew()) {
-			ExpandoColumnLocalServiceUtil.addExpandoColumn(this);
-		}
-		else {
-			ExpandoColumnLocalServiceUtil.updateExpandoColumn(this);
-		}
-	}
+    implements ExpandoColumn {
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this class directly. All methods that expect a expando column model instance should use the {@link ExpandoColumn} interface instead.
+     */
+    @Override
+    public void persist() throws SystemException {
+        if (this.isNew()) {
+            ExpandoColumnLocalServiceUtil.addExpandoColumn(this);
+        } else {
+            ExpandoColumnLocalServiceUtil.updateExpandoColumn(this);
+        }
+    }
 }

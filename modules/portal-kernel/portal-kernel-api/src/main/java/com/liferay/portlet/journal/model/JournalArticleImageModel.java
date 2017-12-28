@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.journal.model;
 
 import aQute.bnd.annotation.ProviderType;
@@ -40,203 +26,204 @@ import java.io.Serializable;
  */
 @ProviderType
 public interface JournalArticleImageModel extends BaseModel<JournalArticleImage> {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this interface directly. All methods that expect a journal article image model instance should use the {@link JournalArticleImage} interface instead.
-	 */
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this interface directly. All methods that expect a journal article image model instance should use the {@link JournalArticleImage} interface instead.
+     */
 
-	/**
-	 * Returns the primary key of this journal article image.
-	 *
-	 * @return the primary key of this journal article image
-	 */
-	public long getPrimaryKey();
+    /**
+     * Returns the primary key of this journal article image.
+     *
+     * @return the primary key of this journal article image
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this journal article image.
-	 *
-	 * @param primaryKey the primary key of this journal article image
-	 */
-	public void setPrimaryKey(long primaryKey);
+    /**
+     * Sets the primary key of this journal article image.
+     *
+     * @param primaryKey the primary key of this journal article image
+     */
+    public void setPrimaryKey(long primaryKey);
 
-	/**
-	 * Returns the article image ID of this journal article image.
-	 *
-	 * @return the article image ID of this journal article image
-	 */
-	public long getArticleImageId();
+    /**
+     * Returns the article image ID of this journal article image.
+     *
+     * @return the article image ID of this journal article image
+     */
+    public long getArticleImageId();
 
-	/**
-	 * Sets the article image ID of this journal article image.
-	 *
-	 * @param articleImageId the article image ID of this journal article image
-	 */
-	public void setArticleImageId(long articleImageId);
+    /**
+     * Sets the article image ID of this journal article image.
+     *
+     * @param articleImageId the article image ID of this journal article image
+     */
+    public void setArticleImageId(long articleImageId);
 
-	/**
-	 * Returns the group ID of this journal article image.
-	 *
-	 * @return the group ID of this journal article image
-	 */
-	public long getGroupId();
+    /**
+     * Returns the group ID of this journal article image.
+     *
+     * @return the group ID of this journal article image
+     */
+    public long getGroupId();
 
-	/**
-	 * Sets the group ID of this journal article image.
-	 *
-	 * @param groupId the group ID of this journal article image
-	 */
-	public void setGroupId(long groupId);
+    /**
+     * Sets the group ID of this journal article image.
+     *
+     * @param groupId the group ID of this journal article image
+     */
+    public void setGroupId(long groupId);
 
-	/**
-	 * Returns the article ID of this journal article image.
-	 *
-	 * @return the article ID of this journal article image
-	 */
-	@AutoEscape
-	public String getArticleId();
+    /**
+     * Returns the article ID of this journal article image.
+     *
+     * @return the article ID of this journal article image
+     */
+    @AutoEscape
+    public String getArticleId();
 
-	/**
-	 * Sets the article ID of this journal article image.
-	 *
-	 * @param articleId the article ID of this journal article image
-	 */
-	public void setArticleId(String articleId);
+    /**
+     * Sets the article ID of this journal article image.
+     *
+     * @param articleId the article ID of this journal article image
+     */
+    public void setArticleId(String articleId);
 
-	/**
-	 * Returns the version of this journal article image.
-	 *
-	 * @return the version of this journal article image
-	 */
-	public double getVersion();
+    /**
+     * Returns the version of this journal article image.
+     *
+     * @return the version of this journal article image
+     */
+    public double getVersion();
 
-	/**
-	 * Sets the version of this journal article image.
-	 *
-	 * @param version the version of this journal article image
-	 */
-	public void setVersion(double version);
+    /**
+     * Sets the version of this journal article image.
+     *
+     * @param version the version of this journal article image
+     */
+    public void setVersion(double version);
 
-	/**
-	 * Returns the el instance ID of this journal article image.
-	 *
-	 * @return the el instance ID of this journal article image
-	 */
-	@AutoEscape
-	public String getElInstanceId();
+    /**
+     * Returns the el instance ID of this journal article image.
+     *
+     * @return the el instance ID of this journal article image
+     */
+    @AutoEscape
+    public String getElInstanceId();
 
-	/**
-	 * Sets the el instance ID of this journal article image.
-	 *
-	 * @param elInstanceId the el instance ID of this journal article image
-	 */
-	public void setElInstanceId(String elInstanceId);
+    /**
+     * Sets the el instance ID of this journal article image.
+     *
+     * @param elInstanceId the el instance ID of this journal article image
+     */
+    public void setElInstanceId(String elInstanceId);
 
-	/**
-	 * Returns the el name of this journal article image.
-	 *
-	 * @return the el name of this journal article image
-	 */
-	@AutoEscape
-	public String getElName();
+    /**
+     * Returns the el name of this journal article image.
+     *
+     * @return the el name of this journal article image
+     */
+    @AutoEscape
+    public String getElName();
 
-	/**
-	 * Sets the el name of this journal article image.
-	 *
-	 * @param elName the el name of this journal article image
-	 */
-	public void setElName(String elName);
+    /**
+     * Sets the el name of this journal article image.
+     *
+     * @param elName the el name of this journal article image
+     */
+    public void setElName(String elName);
 
-	/**
-	 * Returns the language ID of this journal article image.
-	 *
-	 * @return the language ID of this journal article image
-	 */
-	@AutoEscape
-	public String getLanguageId();
+    /**
+     * Returns the language ID of this journal article image.
+     *
+     * @return the language ID of this journal article image
+     */
+    @AutoEscape
+    public String getLanguageId();
 
-	/**
-	 * Sets the language ID of this journal article image.
-	 *
-	 * @param languageId the language ID of this journal article image
-	 */
-	public void setLanguageId(String languageId);
+    /**
+     * Sets the language ID of this journal article image.
+     *
+     * @param languageId the language ID of this journal article image
+     */
+    public void setLanguageId(String languageId);
 
-	/**
-	 * Returns the temp image of this journal article image.
-	 *
-	 * @return the temp image of this journal article image
-	 */
-	public boolean getTempImage();
+    /**
+     * Returns the temp image of this journal article image.
+     *
+     * @return the temp image of this journal article image
+     */
+    public boolean getTempImage();
 
-	/**
-	 * Returns <code>true</code> if this journal article image is temp image.
-	 *
-	 * @return <code>true</code> if this journal article image is temp image; <code>false</code> otherwise
-	 */
-	public boolean isTempImage();
+    /**
+     * Returns <code>true</code> if this journal article image is temp image.
+     *
+     * @return <code>true</code> if this journal article image is temp image; <code>false</code> otherwise
+     */
+    public boolean isTempImage();
 
-	/**
-	 * Sets whether this journal article image is temp image.
-	 *
-	 * @param tempImage the temp image of this journal article image
-	 */
-	public void setTempImage(boolean tempImage);
+    /**
+     * Sets whether this journal article image is temp image.
+     *
+     * @param tempImage the temp image of this journal article image
+     */
+    public void setTempImage(boolean tempImage);
 
-	@Override
-	public boolean isNew();
+    @Override
+    public boolean isNew();
 
-	@Override
-	public void setNew(boolean n);
+    @Override
+    public void setNew(boolean n);
 
-	@Override
-	public boolean isCachedModel();
+    @Override
+    public boolean isCachedModel();
 
-	@Override
-	public void setCachedModel(boolean cachedModel);
+    @Override
+    public void setCachedModel(boolean cachedModel);
 
-	@Override
-	public boolean isEscapedModel();
+    @Override
+    public boolean isEscapedModel();
 
-	@Override
-	public Serializable getPrimaryKeyObj();
+    @Override
+    public Serializable getPrimaryKeyObj();
 
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj);
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj);
 
-	@Override
-	public ExpandoBridge getExpandoBridge();
+    @Override
+    public ExpandoBridge getExpandoBridge();
 
-	@Override
-	public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
+    @Override
+    public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
 
-	@Override
-	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
+    @Override
+    public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	@Override
-	public Object clone();
+    @Override
+    public Object clone();
 
-	@Override
-	public int compareTo(JournalArticleImage journalArticleImage);
+    @Override
+    public int compareTo(
+        com.liferay.portlet.journal.model.JournalArticleImage journalArticleImage);
 
-	@Override
-	public int hashCode();
+    @Override
+    public int hashCode();
 
-	@Override
-	public CacheModel<JournalArticleImage> toCacheModel();
+    @Override
+    public CacheModel<com.liferay.portlet.journal.model.JournalArticleImage> toCacheModel();
 
-	@Override
-	public JournalArticleImage toEscapedModel();
+    @Override
+    public com.liferay.portlet.journal.model.JournalArticleImage toEscapedModel();
 
-	@Override
-	public JournalArticleImage toUnescapedModel();
+    @Override
+    public com.liferay.portlet.journal.model.JournalArticleImage toUnescapedModel();
 
-	@Override
-	public String toString();
+    @Override
+    public String toString();
 
-	@Override
-	public String toXmlString();
+    @Override
+    public String toXmlString();
 }

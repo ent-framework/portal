@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -32,57 +18,55 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class ClassNameCacheModel implements CacheModel<ClassName>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(5);
+    Externalizable {
+    public long classNameId;
+    public String value;
 
-		sb.append("{classNameId=");
-		sb.append(classNameId);
-		sb.append(", value=");
-		sb.append(value);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(5);
 
-		return sb.toString();
-	}
+        sb.append("{classNameId=");
+        sb.append(classNameId);
+        sb.append(", value=");
+        sb.append(value);
+        sb.append("}");
 
-	@Override
-	public ClassName toEntityModel() {
-		ClassNameImpl classNameImpl = new ClassNameImpl();
+        return sb.toString();
+    }
 
-		classNameImpl.setClassNameId(classNameId);
+    @Override
+    public ClassName toEntityModel() {
+        ClassNameImpl classNameImpl = new ClassNameImpl();
 
-		if (value == null) {
-			classNameImpl.setValue(StringPool.BLANK);
-		}
-		else {
-			classNameImpl.setValue(value);
-		}
+        classNameImpl.setClassNameId(classNameId);
 
-		classNameImpl.resetOriginalValues();
+        if (value == null) {
+            classNameImpl.setValue(StringPool.BLANK);
+        } else {
+            classNameImpl.setValue(value);
+        }
 
-		return classNameImpl;
-	}
+        classNameImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		classNameId = objectInput.readLong();
-		value = objectInput.readUTF();
-	}
+        return classNameImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(classNameId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        classNameId = objectInput.readLong();
+        value = objectInput.readUTF();
+    }
 
-		if (value == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(value);
-		}
-	}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(classNameId);
 
-	public long classNameId;
-	public String value;
+        if (value == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(value);
+        }
+    }
 }

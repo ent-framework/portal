@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.expando.service.http;
 
 import aQute.bnd.annotation.ProviderType;
@@ -65,55 +51,52 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class ExpandoValueServiceSoap {
-	public static com.liferay.portlet.expando.model.ExpandoValueSoap addValue(
-		long companyId, java.lang.String className, java.lang.String tableName,
-		java.lang.String columnName, long classPK, java.lang.Object data)
-		throws RemoteException {
-		try {
-			com.liferay.portlet.expando.model.ExpandoValue returnValue = ExpandoValueServiceUtil.addValue(companyId,
-					className, tableName, columnName, classPK, data);
+    private static Log _log = LogFactoryUtil.getLog(ExpandoValueServiceSoap.class);
 
-			return com.liferay.portlet.expando.model.ExpandoValueSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.expando.model.ExpandoValueSoap addValue(
+        long companyId, java.lang.String className, java.lang.String tableName,
+        java.lang.String columnName, long classPK, java.lang.Object data)
+        throws RemoteException {
+        try {
+            com.liferay.portlet.expando.model.ExpandoValue returnValue = ExpandoValueServiceUtil.addValue(companyId,
+                    className, tableName, columnName, classPK, data);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.expando.model.ExpandoValueSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.expando.model.ExpandoValueSoap addValue(
-		long companyId, java.lang.String className, java.lang.String tableName,
-		java.lang.String columnName, long classPK, java.lang.String data)
-		throws RemoteException {
-		try {
-			com.liferay.portlet.expando.model.ExpandoValue returnValue = ExpandoValueServiceUtil.addValue(companyId,
-					className, tableName, columnName, classPK, data);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.expando.model.ExpandoValueSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.expando.model.ExpandoValueSoap addValue(
+        long companyId, java.lang.String className, java.lang.String tableName,
+        java.lang.String columnName, long classPK, java.lang.String data)
+        throws RemoteException {
+        try {
+            com.liferay.portlet.expando.model.ExpandoValue returnValue = ExpandoValueServiceUtil.addValue(companyId,
+                    className, tableName, columnName, classPK, data);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.expando.model.ExpandoValueSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static java.lang.String getJSONData(long companyId,
-		java.lang.String className, java.lang.String tableName,
-		java.lang.String columnName, long classPK) throws RemoteException {
-		try {
-			com.liferay.portal.kernel.json.JSONObject returnValue = ExpandoValueServiceUtil.getJSONData(companyId,
-					className, tableName, columnName, classPK);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return returnValue.toString();
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static java.lang.String getJSONData(long companyId,
+        java.lang.String className, java.lang.String tableName,
+        java.lang.String columnName, long classPK) throws RemoteException {
+        try {
+            com.liferay.portal.kernel.json.JSONObject returnValue = ExpandoValueServiceUtil.getJSONData(companyId,
+                    className, tableName, columnName, classPK);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return returnValue.toString();
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	private static Log _log = LogFactoryUtil.getLog(ExpandoValueServiceSoap.class);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

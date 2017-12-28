@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -32,68 +18,66 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class ShardCacheModel implements CacheModel<Shard>, Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(9);
+    public long shardId;
+    public long classNameId;
+    public long classPK;
+    public String name;
 
-		sb.append("{shardId=");
-		sb.append(shardId);
-		sb.append(", classNameId=");
-		sb.append(classNameId);
-		sb.append(", classPK=");
-		sb.append(classPK);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(9);
 
-		return sb.toString();
-	}
+        sb.append("{shardId=");
+        sb.append(shardId);
+        sb.append(", classNameId=");
+        sb.append(classNameId);
+        sb.append(", classPK=");
+        sb.append(classPK);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append("}");
 
-	@Override
-	public Shard toEntityModel() {
-		ShardImpl shardImpl = new ShardImpl();
+        return sb.toString();
+    }
 
-		shardImpl.setShardId(shardId);
-		shardImpl.setClassNameId(classNameId);
-		shardImpl.setClassPK(classPK);
+    @Override
+    public Shard toEntityModel() {
+        ShardImpl shardImpl = new ShardImpl();
 
-		if (name == null) {
-			shardImpl.setName(StringPool.BLANK);
-		}
-		else {
-			shardImpl.setName(name);
-		}
+        shardImpl.setShardId(shardId);
+        shardImpl.setClassNameId(classNameId);
+        shardImpl.setClassPK(classPK);
 
-		shardImpl.resetOriginalValues();
+        if (name == null) {
+            shardImpl.setName(StringPool.BLANK);
+        } else {
+            shardImpl.setName(name);
+        }
 
-		return shardImpl;
-	}
+        shardImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		shardId = objectInput.readLong();
-		classNameId = objectInput.readLong();
-		classPK = objectInput.readLong();
-		name = objectInput.readUTF();
-	}
+        return shardImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(shardId);
-		objectOutput.writeLong(classNameId);
-		objectOutput.writeLong(classPK);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        shardId = objectInput.readLong();
+        classNameId = objectInput.readLong();
+        classPK = objectInput.readLong();
+        name = objectInput.readUTF();
+    }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
-	}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(shardId);
+        objectOutput.writeLong(classNameId);
+        objectOutput.writeLong(classPK);
 
-	public long shardId;
-	public long classNameId;
-	public long classPK;
-	public String name;
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
+    }
 }

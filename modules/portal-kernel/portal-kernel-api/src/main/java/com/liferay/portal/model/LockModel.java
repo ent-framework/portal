@@ -1,23 +1,11 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.model.BaseModel;
+import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.service.ServiceContext;
 
 import com.liferay.portlet.expando.model.ExpandoBridge;
@@ -41,261 +29,261 @@ import java.util.Date;
  */
 @ProviderType
 public interface LockModel extends BaseModel<Lock> {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this interface directly. All methods that expect a lock model instance should use the {@link Lock} interface instead.
-	 */
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this interface directly. All methods that expect a lock model instance should use the {@link Lock} interface instead.
+     */
 
-	/**
-	 * Returns the primary key of this lock.
-	 *
-	 * @return the primary key of this lock
-	 */
-	public long getPrimaryKey();
+    /**
+     * Returns the primary key of this lock.
+     *
+     * @return the primary key of this lock
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this lock.
-	 *
-	 * @param primaryKey the primary key of this lock
-	 */
-	public void setPrimaryKey(long primaryKey);
+    /**
+     * Sets the primary key of this lock.
+     *
+     * @param primaryKey the primary key of this lock
+     */
+    public void setPrimaryKey(long primaryKey);
 
-	/**
-	 * Returns the uuid of this lock.
-	 *
-	 * @return the uuid of this lock
-	 */
-	@AutoEscape
-	public String getUuid();
+    /**
+     * Returns the uuid of this lock.
+     *
+     * @return the uuid of this lock
+     */
+    @AutoEscape
+    public String getUuid();
 
-	/**
-	 * Sets the uuid of this lock.
-	 *
-	 * @param uuid the uuid of this lock
-	 */
-	public void setUuid(String uuid);
+    /**
+     * Sets the uuid of this lock.
+     *
+     * @param uuid the uuid of this lock
+     */
+    public void setUuid(String uuid);
 
-	/**
-	 * Returns the lock ID of this lock.
-	 *
-	 * @return the lock ID of this lock
-	 */
-	public long getLockId();
+    /**
+     * Returns the lock ID of this lock.
+     *
+     * @return the lock ID of this lock
+     */
+    public long getLockId();
 
-	/**
-	 * Sets the lock ID of this lock.
-	 *
-	 * @param lockId the lock ID of this lock
-	 */
-	public void setLockId(long lockId);
+    /**
+     * Sets the lock ID of this lock.
+     *
+     * @param lockId the lock ID of this lock
+     */
+    public void setLockId(long lockId);
 
-	/**
-	 * Returns the company ID of this lock.
-	 *
-	 * @return the company ID of this lock
-	 */
-	public long getCompanyId();
+    /**
+     * Returns the company ID of this lock.
+     *
+     * @return the company ID of this lock
+     */
+    public long getCompanyId();
 
-	/**
-	 * Sets the company ID of this lock.
-	 *
-	 * @param companyId the company ID of this lock
-	 */
-	public void setCompanyId(long companyId);
+    /**
+     * Sets the company ID of this lock.
+     *
+     * @param companyId the company ID of this lock
+     */
+    public void setCompanyId(long companyId);
 
-	/**
-	 * Returns the user ID of this lock.
-	 *
-	 * @return the user ID of this lock
-	 */
-	public long getUserId();
+    /**
+     * Returns the user ID of this lock.
+     *
+     * @return the user ID of this lock
+     */
+    public long getUserId();
 
-	/**
-	 * Sets the user ID of this lock.
-	 *
-	 * @param userId the user ID of this lock
-	 */
-	public void setUserId(long userId);
+    /**
+     * Sets the user ID of this lock.
+     *
+     * @param userId the user ID of this lock
+     */
+    public void setUserId(long userId);
 
-	/**
-	 * Returns the user uuid of this lock.
-	 *
-	 * @return the user uuid of this lock
-	 * @throws SystemException if a system exception occurred
-	 */
-	public String getUserUuid() throws SystemException;
+    /**
+     * Returns the user uuid of this lock.
+     *
+     * @return the user uuid of this lock
+     * @throws SystemException if a system exception occurred
+     */
+    public String getUserUuid() throws SystemException;
 
-	/**
-	 * Sets the user uuid of this lock.
-	 *
-	 * @param userUuid the user uuid of this lock
-	 */
-	public void setUserUuid(String userUuid);
+    /**
+     * Sets the user uuid of this lock.
+     *
+     * @param userUuid the user uuid of this lock
+     */
+    public void setUserUuid(String userUuid);
 
-	/**
-	 * Returns the user name of this lock.
-	 *
-	 * @return the user name of this lock
-	 */
-	@AutoEscape
-	public String getUserName();
+    /**
+     * Returns the user name of this lock.
+     *
+     * @return the user name of this lock
+     */
+    @AutoEscape
+    public String getUserName();
 
-	/**
-	 * Sets the user name of this lock.
-	 *
-	 * @param userName the user name of this lock
-	 */
-	public void setUserName(String userName);
+    /**
+     * Sets the user name of this lock.
+     *
+     * @param userName the user name of this lock
+     */
+    public void setUserName(String userName);
 
-	/**
-	 * Returns the create date of this lock.
-	 *
-	 * @return the create date of this lock
-	 */
-	public Date getCreateDate();
+    /**
+     * Returns the create date of this lock.
+     *
+     * @return the create date of this lock
+     */
+    public Date getCreateDate();
 
-	/**
-	 * Sets the create date of this lock.
-	 *
-	 * @param createDate the create date of this lock
-	 */
-	public void setCreateDate(Date createDate);
+    /**
+     * Sets the create date of this lock.
+     *
+     * @param createDate the create date of this lock
+     */
+    public void setCreateDate(Date createDate);
 
-	/**
-	 * Returns the class name of this lock.
-	 *
-	 * @return the class name of this lock
-	 */
-	@AutoEscape
-	public String getClassName();
+    /**
+     * Returns the class name of this lock.
+     *
+     * @return the class name of this lock
+     */
+    @AutoEscape
+    public String getClassName();
 
-	/**
-	 * Sets the class name of this lock.
-	 *
-	 * @param className the class name of this lock
-	 */
-	public void setClassName(String className);
+    /**
+     * Sets the class name of this lock.
+     *
+     * @param className the class name of this lock
+     */
+    public void setClassName(String className);
 
-	/**
-	 * Returns the key of this lock.
-	 *
-	 * @return the key of this lock
-	 */
-	@AutoEscape
-	public String getKey();
+    /**
+     * Returns the key of this lock.
+     *
+     * @return the key of this lock
+     */
+    @AutoEscape
+    public String getKey();
 
-	/**
-	 * Sets the key of this lock.
-	 *
-	 * @param key the key of this lock
-	 */
-	public void setKey(String key);
+    /**
+     * Sets the key of this lock.
+     *
+     * @param key the key of this lock
+     */
+    public void setKey(String key);
 
-	/**
-	 * Returns the owner of this lock.
-	 *
-	 * @return the owner of this lock
-	 */
-	@AutoEscape
-	public String getOwner();
+    /**
+     * Returns the owner of this lock.
+     *
+     * @return the owner of this lock
+     */
+    @AutoEscape
+    public String getOwner();
 
-	/**
-	 * Sets the owner of this lock.
-	 *
-	 * @param owner the owner of this lock
-	 */
-	public void setOwner(String owner);
+    /**
+     * Sets the owner of this lock.
+     *
+     * @param owner the owner of this lock
+     */
+    public void setOwner(String owner);
 
-	/**
-	 * Returns the inheritable of this lock.
-	 *
-	 * @return the inheritable of this lock
-	 */
-	public boolean getInheritable();
+    /**
+     * Returns the inheritable of this lock.
+     *
+     * @return the inheritable of this lock
+     */
+    public boolean getInheritable();
 
-	/**
-	 * Returns <code>true</code> if this lock is inheritable.
-	 *
-	 * @return <code>true</code> if this lock is inheritable; <code>false</code> otherwise
-	 */
-	public boolean isInheritable();
+    /**
+     * Returns <code>true</code> if this lock is inheritable.
+     *
+     * @return <code>true</code> if this lock is inheritable; <code>false</code> otherwise
+     */
+    public boolean isInheritable();
 
-	/**
-	 * Sets whether this lock is inheritable.
-	 *
-	 * @param inheritable the inheritable of this lock
-	 */
-	public void setInheritable(boolean inheritable);
+    /**
+     * Sets whether this lock is inheritable.
+     *
+     * @param inheritable the inheritable of this lock
+     */
+    public void setInheritable(boolean inheritable);
 
-	/**
-	 * Returns the expiration date of this lock.
-	 *
-	 * @return the expiration date of this lock
-	 */
-	public Date getExpirationDate();
+    /**
+     * Returns the expiration date of this lock.
+     *
+     * @return the expiration date of this lock
+     */
+    public Date getExpirationDate();
 
-	/**
-	 * Sets the expiration date of this lock.
-	 *
-	 * @param expirationDate the expiration date of this lock
-	 */
-	public void setExpirationDate(Date expirationDate);
+    /**
+     * Sets the expiration date of this lock.
+     *
+     * @param expirationDate the expiration date of this lock
+     */
+    public void setExpirationDate(Date expirationDate);
 
-	@Override
-	public boolean isNew();
+    @Override
+    public boolean isNew();
 
-	@Override
-	public void setNew(boolean n);
+    @Override
+    public void setNew(boolean n);
 
-	@Override
-	public boolean isCachedModel();
+    @Override
+    public boolean isCachedModel();
 
-	@Override
-	public void setCachedModel(boolean cachedModel);
+    @Override
+    public void setCachedModel(boolean cachedModel);
 
-	@Override
-	public boolean isEscapedModel();
+    @Override
+    public boolean isEscapedModel();
 
-	@Override
-	public Serializable getPrimaryKeyObj();
+    @Override
+    public Serializable getPrimaryKeyObj();
 
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj);
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj);
 
-	@Override
-	public ExpandoBridge getExpandoBridge();
+    @Override
+    public ExpandoBridge getExpandoBridge();
 
-	@Override
-	public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
+    @Override
+    public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
 
-	@Override
-	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
+    @Override
+    public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	@Override
-	public Object clone();
+    @Override
+    public Object clone();
 
-	@Override
-	public int compareTo(Lock lock);
+    @Override
+    public int compareTo(com.liferay.portal.model.Lock lock);
 
-	@Override
-	public int hashCode();
+    @Override
+    public int hashCode();
 
-	@Override
-	public CacheModel<Lock> toCacheModel();
+    @Override
+    public CacheModel<com.liferay.portal.model.Lock> toCacheModel();
 
-	@Override
-	public Lock toEscapedModel();
+    @Override
+    public com.liferay.portal.model.Lock toEscapedModel();
 
-	@Override
-	public Lock toUnescapedModel();
+    @Override
+    public com.liferay.portal.model.Lock toUnescapedModel();
 
-	@Override
-	public String toString();
+    @Override
+    public String toString();
 
-	@Override
-	public String toXmlString();
+    @Override
+    public String toXmlString();
 }

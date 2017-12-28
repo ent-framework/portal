@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.asset.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -35,190 +21,176 @@ import java.util.Date;
  * @generated
  */
 public class AssetVocabularyCacheModel implements CacheModel<AssetVocabulary>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(25);
+    Externalizable {
+    public String uuid;
+    public long vocabularyId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public String name;
+    public String title;
+    public String description;
+    public String settings;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", vocabularyId=");
-		sb.append(vocabularyId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", title=");
-		sb.append(title);
-		sb.append(", description=");
-		sb.append(description);
-		sb.append(", settings=");
-		sb.append(settings);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(25);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", vocabularyId=");
+        sb.append(vocabularyId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", title=");
+        sb.append(title);
+        sb.append(", description=");
+        sb.append(description);
+        sb.append(", settings=");
+        sb.append(settings);
+        sb.append("}");
 
-	@Override
-	public AssetVocabulary toEntityModel() {
-		AssetVocabularyImpl assetVocabularyImpl = new AssetVocabularyImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			assetVocabularyImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			assetVocabularyImpl.setUuid(uuid);
-		}
+    @Override
+    public AssetVocabulary toEntityModel() {
+        AssetVocabularyImpl assetVocabularyImpl = new AssetVocabularyImpl();
 
-		assetVocabularyImpl.setVocabularyId(vocabularyId);
-		assetVocabularyImpl.setGroupId(groupId);
-		assetVocabularyImpl.setCompanyId(companyId);
-		assetVocabularyImpl.setUserId(userId);
+        if (uuid == null) {
+            assetVocabularyImpl.setUuid(StringPool.BLANK);
+        } else {
+            assetVocabularyImpl.setUuid(uuid);
+        }
 
-		if (userName == null) {
-			assetVocabularyImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			assetVocabularyImpl.setUserName(userName);
-		}
+        assetVocabularyImpl.setVocabularyId(vocabularyId);
+        assetVocabularyImpl.setGroupId(groupId);
+        assetVocabularyImpl.setCompanyId(companyId);
+        assetVocabularyImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			assetVocabularyImpl.setCreateDate(null);
-		}
-		else {
-			assetVocabularyImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            assetVocabularyImpl.setUserName(StringPool.BLANK);
+        } else {
+            assetVocabularyImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			assetVocabularyImpl.setModifiedDate(null);
-		}
-		else {
-			assetVocabularyImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            assetVocabularyImpl.setCreateDate(null);
+        } else {
+            assetVocabularyImpl.setCreateDate(new Date(createDate));
+        }
 
-		if (name == null) {
-			assetVocabularyImpl.setName(StringPool.BLANK);
-		}
-		else {
-			assetVocabularyImpl.setName(name);
-		}
+        if (modifiedDate == Long.MIN_VALUE) {
+            assetVocabularyImpl.setModifiedDate(null);
+        } else {
+            assetVocabularyImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (title == null) {
-			assetVocabularyImpl.setTitle(StringPool.BLANK);
-		}
-		else {
-			assetVocabularyImpl.setTitle(title);
-		}
+        if (name == null) {
+            assetVocabularyImpl.setName(StringPool.BLANK);
+        } else {
+            assetVocabularyImpl.setName(name);
+        }
 
-		if (description == null) {
-			assetVocabularyImpl.setDescription(StringPool.BLANK);
-		}
-		else {
-			assetVocabularyImpl.setDescription(description);
-		}
+        if (title == null) {
+            assetVocabularyImpl.setTitle(StringPool.BLANK);
+        } else {
+            assetVocabularyImpl.setTitle(title);
+        }
 
-		if (settings == null) {
-			assetVocabularyImpl.setSettings(StringPool.BLANK);
-		}
-		else {
-			assetVocabularyImpl.setSettings(settings);
-		}
+        if (description == null) {
+            assetVocabularyImpl.setDescription(StringPool.BLANK);
+        } else {
+            assetVocabularyImpl.setDescription(description);
+        }
 
-		assetVocabularyImpl.resetOriginalValues();
+        if (settings == null) {
+            assetVocabularyImpl.setSettings(StringPool.BLANK);
+        } else {
+            assetVocabularyImpl.setSettings(settings);
+        }
 
-		return assetVocabularyImpl;
-	}
+        assetVocabularyImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		vocabularyId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		name = objectInput.readUTF();
-		title = objectInput.readUTF();
-		description = objectInput.readUTF();
-		settings = objectInput.readUTF();
-	}
+        return assetVocabularyImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        vocabularyId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        name = objectInput.readUTF();
+        title = objectInput.readUTF();
+        description = objectInput.readUTF();
+        settings = objectInput.readUTF();
+    }
 
-		objectOutput.writeLong(vocabularyId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+        objectOutput.writeLong(vocabularyId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
 
-		if (title == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(title);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(description);
-		}
+        if (title == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(title);
+        }
 
-		if (settings == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(settings);
-		}
-	}
+        if (description == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(description);
+        }
 
-	public String uuid;
-	public long vocabularyId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public String name;
-	public String title;
-	public String description;
-	public String settings;
+        if (settings == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(settings);
+        }
+    }
 }

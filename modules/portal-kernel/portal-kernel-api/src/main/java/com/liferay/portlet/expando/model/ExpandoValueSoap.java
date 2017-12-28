@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.expando.model;
 
 import java.io.Serializable;
@@ -27,139 +13,138 @@ import java.util.List;
  * @generated
  */
 public class ExpandoValueSoap implements Serializable {
-	public static ExpandoValueSoap toSoapModel(ExpandoValue model) {
-		ExpandoValueSoap soapModel = new ExpandoValueSoap();
+    private long _valueId;
+    private long _companyId;
+    private long _tableId;
+    private long _columnId;
+    private long _rowId;
+    private long _classNameId;
+    private long _classPK;
+    private String _data;
 
-		soapModel.setValueId(model.getValueId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setTableId(model.getTableId());
-		soapModel.setColumnId(model.getColumnId());
-		soapModel.setRowId(model.getRowId());
-		soapModel.setClassNameId(model.getClassNameId());
-		soapModel.setClassPK(model.getClassPK());
-		soapModel.setData(model.getData());
+    public ExpandoValueSoap() {
+    }
 
-		return soapModel;
-	}
+    public static ExpandoValueSoap toSoapModel(ExpandoValue model) {
+        ExpandoValueSoap soapModel = new ExpandoValueSoap();
 
-	public static ExpandoValueSoap[] toSoapModels(ExpandoValue[] models) {
-		ExpandoValueSoap[] soapModels = new ExpandoValueSoap[models.length];
+        soapModel.setValueId(model.getValueId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setTableId(model.getTableId());
+        soapModel.setColumnId(model.getColumnId());
+        soapModel.setRowId(model.getRowId());
+        soapModel.setClassNameId(model.getClassNameId());
+        soapModel.setClassPK(model.getClassPK());
+        soapModel.setData(model.getData());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static ExpandoValueSoap[] toSoapModels(ExpandoValue[] models) {
+        ExpandoValueSoap[] soapModels = new ExpandoValueSoap[models.length];
 
-	public static ExpandoValueSoap[][] toSoapModels(ExpandoValue[][] models) {
-		ExpandoValueSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new ExpandoValueSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new ExpandoValueSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static ExpandoValueSoap[][] toSoapModels(ExpandoValue[][] models) {
+        ExpandoValueSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new ExpandoValueSoap[models.length][models[0].length];
+        } else {
+            soapModels = new ExpandoValueSoap[0][0];
+        }
 
-	public static ExpandoValueSoap[] toSoapModels(List<ExpandoValue> models) {
-		List<ExpandoValueSoap> soapModels = new ArrayList<ExpandoValueSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (ExpandoValue model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new ExpandoValueSoap[soapModels.size()]);
-	}
+    public static ExpandoValueSoap[] toSoapModels(List<ExpandoValue> models) {
+        List<ExpandoValueSoap> soapModels = new ArrayList<ExpandoValueSoap>(models.size());
 
-	public ExpandoValueSoap() {
-	}
+        for (ExpandoValue model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _valueId;
-	}
+        return soapModels.toArray(new ExpandoValueSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setValueId(pk);
-	}
+    public long getPrimaryKey() {
+        return _valueId;
+    }
 
-	public long getValueId() {
-		return _valueId;
-	}
+    public void setPrimaryKey(long pk) {
+        setValueId(pk);
+    }
 
-	public void setValueId(long valueId) {
-		_valueId = valueId;
-	}
+    public long getValueId() {
+        return _valueId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setValueId(long valueId) {
+        _valueId = valueId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getTableId() {
-		return _tableId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setTableId(long tableId) {
-		_tableId = tableId;
-	}
+    public long getTableId() {
+        return _tableId;
+    }
 
-	public long getColumnId() {
-		return _columnId;
-	}
+    public void setTableId(long tableId) {
+        _tableId = tableId;
+    }
 
-	public void setColumnId(long columnId) {
-		_columnId = columnId;
-	}
+    public long getColumnId() {
+        return _columnId;
+    }
 
-	public long getRowId() {
-		return _rowId;
-	}
+    public void setColumnId(long columnId) {
+        _columnId = columnId;
+    }
 
-	public void setRowId(long rowId) {
-		_rowId = rowId;
-	}
+    public long getRowId() {
+        return _rowId;
+    }
 
-	public long getClassNameId() {
-		return _classNameId;
-	}
+    public void setRowId(long rowId) {
+        _rowId = rowId;
+    }
 
-	public void setClassNameId(long classNameId) {
-		_classNameId = classNameId;
-	}
+    public long getClassNameId() {
+        return _classNameId;
+    }
 
-	public long getClassPK() {
-		return _classPK;
-	}
+    public void setClassNameId(long classNameId) {
+        _classNameId = classNameId;
+    }
 
-	public void setClassPK(long classPK) {
-		_classPK = classPK;
-	}
+    public long getClassPK() {
+        return _classPK;
+    }
 
-	public String getData() {
-		return _data;
-	}
+    public void setClassPK(long classPK) {
+        _classPK = classPK;
+    }
 
-	public void setData(String data) {
-		_data = data;
-	}
+    public String getData() {
+        return _data;
+    }
 
-	private long _valueId;
-	private long _companyId;
-	private long _tableId;
-	private long _columnId;
-	private long _rowId;
-	private long _classNameId;
-	private long _classPK;
-	private String _data;
+    public void setData(String data) {
+        _data = data;
+    }
 }

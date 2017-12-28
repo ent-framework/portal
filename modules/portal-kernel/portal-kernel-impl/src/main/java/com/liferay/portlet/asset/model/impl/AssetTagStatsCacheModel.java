@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.asset.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -32,57 +18,57 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class AssetTagStatsCacheModel implements CacheModel<AssetTagStats>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(9);
+    Externalizable {
+    public long tagStatsId;
+    public long tagId;
+    public long classNameId;
+    public int assetCount;
 
-		sb.append("{tagStatsId=");
-		sb.append(tagStatsId);
-		sb.append(", tagId=");
-		sb.append(tagId);
-		sb.append(", classNameId=");
-		sb.append(classNameId);
-		sb.append(", assetCount=");
-		sb.append(assetCount);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(9);
 
-		return sb.toString();
-	}
+        sb.append("{tagStatsId=");
+        sb.append(tagStatsId);
+        sb.append(", tagId=");
+        sb.append(tagId);
+        sb.append(", classNameId=");
+        sb.append(classNameId);
+        sb.append(", assetCount=");
+        sb.append(assetCount);
+        sb.append("}");
 
-	@Override
-	public AssetTagStats toEntityModel() {
-		AssetTagStatsImpl assetTagStatsImpl = new AssetTagStatsImpl();
+        return sb.toString();
+    }
 
-		assetTagStatsImpl.setTagStatsId(tagStatsId);
-		assetTagStatsImpl.setTagId(tagId);
-		assetTagStatsImpl.setClassNameId(classNameId);
-		assetTagStatsImpl.setAssetCount(assetCount);
+    @Override
+    public AssetTagStats toEntityModel() {
+        AssetTagStatsImpl assetTagStatsImpl = new AssetTagStatsImpl();
 
-		assetTagStatsImpl.resetOriginalValues();
+        assetTagStatsImpl.setTagStatsId(tagStatsId);
+        assetTagStatsImpl.setTagId(tagId);
+        assetTagStatsImpl.setClassNameId(classNameId);
+        assetTagStatsImpl.setAssetCount(assetCount);
 
-		return assetTagStatsImpl;
-	}
+        assetTagStatsImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		tagStatsId = objectInput.readLong();
-		tagId = objectInput.readLong();
-		classNameId = objectInput.readLong();
-		assetCount = objectInput.readInt();
-	}
+        return assetTagStatsImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(tagStatsId);
-		objectOutput.writeLong(tagId);
-		objectOutput.writeLong(classNameId);
-		objectOutput.writeInt(assetCount);
-	}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        tagStatsId = objectInput.readLong();
+        tagId = objectInput.readLong();
+        classNameId = objectInput.readLong();
+        assetCount = objectInput.readInt();
+    }
 
-	public long tagStatsId;
-	public long tagId;
-	public long classNameId;
-	public int assetCount;
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(tagStatsId);
+        objectOutput.writeLong(tagId);
+        objectOutput.writeLong(classNameId);
+        objectOutput.writeInt(assetCount);
+    }
 }

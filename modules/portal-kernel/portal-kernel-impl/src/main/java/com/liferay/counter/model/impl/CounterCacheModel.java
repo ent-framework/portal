@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.counter.model.impl;
 
 import com.liferay.counter.model.Counter;
@@ -33,56 +19,54 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class CounterCacheModel implements CacheModel<Counter>, Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(5);
+    public String name;
+    public long currentId;
 
-		sb.append("{name=");
-		sb.append(name);
-		sb.append(", currentId=");
-		sb.append(currentId);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(5);
 
-		return sb.toString();
-	}
+        sb.append("{name=");
+        sb.append(name);
+        sb.append(", currentId=");
+        sb.append(currentId);
+        sb.append("}");
 
-	@Override
-	public Counter toEntityModel() {
-		CounterImpl counterImpl = new CounterImpl();
+        return sb.toString();
+    }
 
-		if (name == null) {
-			counterImpl.setName(StringPool.BLANK);
-		}
-		else {
-			counterImpl.setName(name);
-		}
+    @Override
+    public Counter toEntityModel() {
+        CounterImpl counterImpl = new CounterImpl();
 
-		counterImpl.setCurrentId(currentId);
+        if (name == null) {
+            counterImpl.setName(StringPool.BLANK);
+        } else {
+            counterImpl.setName(name);
+        }
 
-		counterImpl.resetOriginalValues();
+        counterImpl.setCurrentId(currentId);
 
-		return counterImpl;
-	}
+        counterImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		name = objectInput.readUTF();
-		currentId = objectInput.readLong();
-	}
+        return counterImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        name = objectInput.readUTF();
+        currentId = objectInput.readLong();
+    }
 
-		objectOutput.writeLong(currentId);
-	}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-	public String name;
-	public long currentId;
+        objectOutput.writeLong(currentId);
+    }
 }

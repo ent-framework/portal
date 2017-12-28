@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.mobiledevicerules.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -35,143 +21,137 @@ import java.util.Date;
  * @generated
  */
 public class MDRRuleGroupInstanceCacheModel implements CacheModel<MDRRuleGroupInstance>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(25);
+    Externalizable {
+    public String uuid;
+    public long ruleGroupInstanceId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public long classNameId;
+    public long classPK;
+    public long ruleGroupId;
+    public int priority;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", ruleGroupInstanceId=");
-		sb.append(ruleGroupInstanceId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", classNameId=");
-		sb.append(classNameId);
-		sb.append(", classPK=");
-		sb.append(classPK);
-		sb.append(", ruleGroupId=");
-		sb.append(ruleGroupId);
-		sb.append(", priority=");
-		sb.append(priority);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(25);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", ruleGroupInstanceId=");
+        sb.append(ruleGroupInstanceId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", classNameId=");
+        sb.append(classNameId);
+        sb.append(", classPK=");
+        sb.append(classPK);
+        sb.append(", ruleGroupId=");
+        sb.append(ruleGroupId);
+        sb.append(", priority=");
+        sb.append(priority);
+        sb.append("}");
 
-	@Override
-	public MDRRuleGroupInstance toEntityModel() {
-		MDRRuleGroupInstanceImpl mdrRuleGroupInstanceImpl = new MDRRuleGroupInstanceImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			mdrRuleGroupInstanceImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			mdrRuleGroupInstanceImpl.setUuid(uuid);
-		}
+    @Override
+    public MDRRuleGroupInstance toEntityModel() {
+        MDRRuleGroupInstanceImpl mdrRuleGroupInstanceImpl = new MDRRuleGroupInstanceImpl();
 
-		mdrRuleGroupInstanceImpl.setRuleGroupInstanceId(ruleGroupInstanceId);
-		mdrRuleGroupInstanceImpl.setGroupId(groupId);
-		mdrRuleGroupInstanceImpl.setCompanyId(companyId);
-		mdrRuleGroupInstanceImpl.setUserId(userId);
+        if (uuid == null) {
+            mdrRuleGroupInstanceImpl.setUuid(StringPool.BLANK);
+        } else {
+            mdrRuleGroupInstanceImpl.setUuid(uuid);
+        }
 
-		if (userName == null) {
-			mdrRuleGroupInstanceImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			mdrRuleGroupInstanceImpl.setUserName(userName);
-		}
+        mdrRuleGroupInstanceImpl.setRuleGroupInstanceId(ruleGroupInstanceId);
+        mdrRuleGroupInstanceImpl.setGroupId(groupId);
+        mdrRuleGroupInstanceImpl.setCompanyId(companyId);
+        mdrRuleGroupInstanceImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			mdrRuleGroupInstanceImpl.setCreateDate(null);
-		}
-		else {
-			mdrRuleGroupInstanceImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            mdrRuleGroupInstanceImpl.setUserName(StringPool.BLANK);
+        } else {
+            mdrRuleGroupInstanceImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			mdrRuleGroupInstanceImpl.setModifiedDate(null);
-		}
-		else {
-			mdrRuleGroupInstanceImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            mdrRuleGroupInstanceImpl.setCreateDate(null);
+        } else {
+            mdrRuleGroupInstanceImpl.setCreateDate(new Date(createDate));
+        }
 
-		mdrRuleGroupInstanceImpl.setClassNameId(classNameId);
-		mdrRuleGroupInstanceImpl.setClassPK(classPK);
-		mdrRuleGroupInstanceImpl.setRuleGroupId(ruleGroupId);
-		mdrRuleGroupInstanceImpl.setPriority(priority);
+        if (modifiedDate == Long.MIN_VALUE) {
+            mdrRuleGroupInstanceImpl.setModifiedDate(null);
+        } else {
+            mdrRuleGroupInstanceImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		mdrRuleGroupInstanceImpl.resetOriginalValues();
+        mdrRuleGroupInstanceImpl.setClassNameId(classNameId);
+        mdrRuleGroupInstanceImpl.setClassPK(classPK);
+        mdrRuleGroupInstanceImpl.setRuleGroupId(ruleGroupId);
+        mdrRuleGroupInstanceImpl.setPriority(priority);
 
-		return mdrRuleGroupInstanceImpl;
-	}
+        mdrRuleGroupInstanceImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		ruleGroupInstanceId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		classNameId = objectInput.readLong();
-		classPK = objectInput.readLong();
-		ruleGroupId = objectInput.readLong();
-		priority = objectInput.readInt();
-	}
+        return mdrRuleGroupInstanceImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        ruleGroupInstanceId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        classNameId = objectInput.readLong();
+        classPK = objectInput.readLong();
+        ruleGroupId = objectInput.readLong();
+        priority = objectInput.readInt();
+    }
 
-		objectOutput.writeLong(ruleGroupInstanceId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+        objectOutput.writeLong(ruleGroupInstanceId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(classNameId);
-		objectOutput.writeLong(classPK);
-		objectOutput.writeLong(ruleGroupId);
-		objectOutput.writeInt(priority);
-	}
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-	public String uuid;
-	public long ruleGroupInstanceId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public long classNameId;
-	public long classPK;
-	public long ruleGroupId;
-	public int priority;
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(classNameId);
+        objectOutput.writeLong(classPK);
+        objectOutput.writeLong(ruleGroupId);
+        objectOutput.writeInt(priority);
+    }
 }

@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.exception.PortalException;
@@ -37,54 +23,53 @@ import java.util.List;
  * @generated
  */
 public abstract class GroupBaseImpl extends GroupModelImpl implements Group {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this class directly. All methods that expect a group model instance should use the {@link Group} interface instead.
-	 */
-	@Override
-	public void persist() throws SystemException {
-		if (this.isNew()) {
-			GroupLocalServiceUtil.addGroup(this);
-		}
-		else {
-			GroupLocalServiceUtil.updateGroup(this);
-		}
-	}
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this class directly. All methods that expect a group model instance should use the {@link Group} interface instead.
+     */
+    @Override
+    public void persist() throws SystemException {
+        if (this.isNew()) {
+            GroupLocalServiceUtil.addGroup(this);
+        } else {
+            GroupLocalServiceUtil.updateGroup(this);
+        }
+    }
 
-	@Override
-	@SuppressWarnings("unused")
-	public String buildTreePath() throws PortalException, SystemException {
-		List<Group> groups = new ArrayList<Group>();
+    @Override
+    @SuppressWarnings("unused")
+    public String buildTreePath() throws PortalException, SystemException {
+        List<Group> groups = new ArrayList<Group>();
 
-		Group group = this;
+        Group group = this;
 
-		while (group != null) {
-			groups.add(group);
+        while (group != null) {
+            groups.add(group);
 
-			group = GroupLocalServiceUtil.fetchGroup(group.getParentGroupId());
-		}
+            group = GroupLocalServiceUtil.fetchGroup(group.getParentGroupId());
+        }
 
-		StringBundler sb = new StringBundler((groups.size() * 2) + 1);
+        StringBundler sb = new StringBundler((groups.size() * 2) + 1);
 
-		sb.append(StringPool.SLASH);
+        sb.append(StringPool.SLASH);
 
-		for (int i = groups.size() - 1; i >= 0; i--) {
-			group = groups.get(i);
+        for (int i = groups.size() - 1; i >= 0; i--) {
+            group = groups.get(i);
 
-			sb.append(group.getGroupId());
-			sb.append(StringPool.SLASH);
-		}
+            sb.append(group.getGroupId());
+            sb.append(StringPool.SLASH);
+        }
 
-		return sb.toString();
-	}
+        return sb.toString();
+    }
 
-	@Override
-	public void updateTreePath(String treePath) throws SystemException {
-		Group group = this;
+    @Override
+    public void updateTreePath(String treePath) throws SystemException {
+        Group group = this;
 
-		group.setTreePath(treePath);
+        group.setTreePath(treePath);
 
-		GroupLocalServiceUtil.updateGroup(group);
-	}
+        GroupLocalServiceUtil.updateGroup(group);
+    }
 }

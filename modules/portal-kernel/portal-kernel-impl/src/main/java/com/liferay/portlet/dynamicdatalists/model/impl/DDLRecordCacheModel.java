@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.dynamicdatalists.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -35,183 +21,173 @@ import java.util.Date;
  * @generated
  */
 public class DDLRecordCacheModel implements CacheModel<DDLRecord>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(29);
+    Externalizable {
+    public String uuid;
+    public long recordId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long versionUserId;
+    public String versionUserName;
+    public long createDate;
+    public long modifiedDate;
+    public long DDMStorageId;
+    public long recordSetId;
+    public String version;
+    public int displayIndex;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", recordId=");
-		sb.append(recordId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", versionUserId=");
-		sb.append(versionUserId);
-		sb.append(", versionUserName=");
-		sb.append(versionUserName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", DDMStorageId=");
-		sb.append(DDMStorageId);
-		sb.append(", recordSetId=");
-		sb.append(recordSetId);
-		sb.append(", version=");
-		sb.append(version);
-		sb.append(", displayIndex=");
-		sb.append(displayIndex);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(29);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", recordId=");
+        sb.append(recordId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", versionUserId=");
+        sb.append(versionUserId);
+        sb.append(", versionUserName=");
+        sb.append(versionUserName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", DDMStorageId=");
+        sb.append(DDMStorageId);
+        sb.append(", recordSetId=");
+        sb.append(recordSetId);
+        sb.append(", version=");
+        sb.append(version);
+        sb.append(", displayIndex=");
+        sb.append(displayIndex);
+        sb.append("}");
 
-	@Override
-	public DDLRecord toEntityModel() {
-		DDLRecordImpl ddlRecordImpl = new DDLRecordImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			ddlRecordImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			ddlRecordImpl.setUuid(uuid);
-		}
+    @Override
+    public DDLRecord toEntityModel() {
+        DDLRecordImpl ddlRecordImpl = new DDLRecordImpl();
 
-		ddlRecordImpl.setRecordId(recordId);
-		ddlRecordImpl.setGroupId(groupId);
-		ddlRecordImpl.setCompanyId(companyId);
-		ddlRecordImpl.setUserId(userId);
+        if (uuid == null) {
+            ddlRecordImpl.setUuid(StringPool.BLANK);
+        } else {
+            ddlRecordImpl.setUuid(uuid);
+        }
 
-		if (userName == null) {
-			ddlRecordImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			ddlRecordImpl.setUserName(userName);
-		}
+        ddlRecordImpl.setRecordId(recordId);
+        ddlRecordImpl.setGroupId(groupId);
+        ddlRecordImpl.setCompanyId(companyId);
+        ddlRecordImpl.setUserId(userId);
 
-		ddlRecordImpl.setVersionUserId(versionUserId);
+        if (userName == null) {
+            ddlRecordImpl.setUserName(StringPool.BLANK);
+        } else {
+            ddlRecordImpl.setUserName(userName);
+        }
 
-		if (versionUserName == null) {
-			ddlRecordImpl.setVersionUserName(StringPool.BLANK);
-		}
-		else {
-			ddlRecordImpl.setVersionUserName(versionUserName);
-		}
+        ddlRecordImpl.setVersionUserId(versionUserId);
 
-		if (createDate == Long.MIN_VALUE) {
-			ddlRecordImpl.setCreateDate(null);
-		}
-		else {
-			ddlRecordImpl.setCreateDate(new Date(createDate));
-		}
+        if (versionUserName == null) {
+            ddlRecordImpl.setVersionUserName(StringPool.BLANK);
+        } else {
+            ddlRecordImpl.setVersionUserName(versionUserName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			ddlRecordImpl.setModifiedDate(null);
-		}
-		else {
-			ddlRecordImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            ddlRecordImpl.setCreateDate(null);
+        } else {
+            ddlRecordImpl.setCreateDate(new Date(createDate));
+        }
 
-		ddlRecordImpl.setDDMStorageId(DDMStorageId);
-		ddlRecordImpl.setRecordSetId(recordSetId);
+        if (modifiedDate == Long.MIN_VALUE) {
+            ddlRecordImpl.setModifiedDate(null);
+        } else {
+            ddlRecordImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (version == null) {
-			ddlRecordImpl.setVersion(StringPool.BLANK);
-		}
-		else {
-			ddlRecordImpl.setVersion(version);
-		}
+        ddlRecordImpl.setDDMStorageId(DDMStorageId);
+        ddlRecordImpl.setRecordSetId(recordSetId);
 
-		ddlRecordImpl.setDisplayIndex(displayIndex);
+        if (version == null) {
+            ddlRecordImpl.setVersion(StringPool.BLANK);
+        } else {
+            ddlRecordImpl.setVersion(version);
+        }
 
-		ddlRecordImpl.resetOriginalValues();
+        ddlRecordImpl.setDisplayIndex(displayIndex);
 
-		return ddlRecordImpl;
-	}
+        ddlRecordImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		recordId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		versionUserId = objectInput.readLong();
-		versionUserName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		DDMStorageId = objectInput.readLong();
-		recordSetId = objectInput.readLong();
-		version = objectInput.readUTF();
-		displayIndex = objectInput.readInt();
-	}
+        return ddlRecordImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        recordId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        versionUserId = objectInput.readLong();
+        versionUserName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        DDMStorageId = objectInput.readLong();
+        recordSetId = objectInput.readLong();
+        version = objectInput.readUTF();
+        displayIndex = objectInput.readInt();
+    }
 
-		objectOutput.writeLong(recordId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+        objectOutput.writeLong(recordId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(versionUserId);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (versionUserName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(versionUserName);
-		}
+        objectOutput.writeLong(versionUserId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(DDMStorageId);
-		objectOutput.writeLong(recordSetId);
+        if (versionUserName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(versionUserName);
+        }
 
-		if (version == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(version);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(DDMStorageId);
+        objectOutput.writeLong(recordSetId);
 
-		objectOutput.writeInt(displayIndex);
-	}
+        if (version == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(version);
+        }
 
-	public String uuid;
-	public long recordId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long versionUserId;
-	public String versionUserName;
-	public long createDate;
-	public long modifiedDate;
-	public long DDMStorageId;
-	public long recordSetId;
-	public String version;
-	public int displayIndex;
+        objectOutput.writeInt(displayIndex);
+    }
 }

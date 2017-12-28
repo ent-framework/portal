@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.announcements.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -35,235 +21,219 @@ import java.util.Date;
  * @generated
  */
 public class AnnouncementsEntryCacheModel implements CacheModel<AnnouncementsEntry>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(35);
+    Externalizable {
+    public String uuid;
+    public long entryId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public long classNameId;
+    public long classPK;
+    public String title;
+    public String content;
+    public String url;
+    public String type;
+    public long displayDate;
+    public long expirationDate;
+    public int priority;
+    public boolean alert;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", entryId=");
-		sb.append(entryId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", classNameId=");
-		sb.append(classNameId);
-		sb.append(", classPK=");
-		sb.append(classPK);
-		sb.append(", title=");
-		sb.append(title);
-		sb.append(", content=");
-		sb.append(content);
-		sb.append(", url=");
-		sb.append(url);
-		sb.append(", type=");
-		sb.append(type);
-		sb.append(", displayDate=");
-		sb.append(displayDate);
-		sb.append(", expirationDate=");
-		sb.append(expirationDate);
-		sb.append(", priority=");
-		sb.append(priority);
-		sb.append(", alert=");
-		sb.append(alert);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(35);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", entryId=");
+        sb.append(entryId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", classNameId=");
+        sb.append(classNameId);
+        sb.append(", classPK=");
+        sb.append(classPK);
+        sb.append(", title=");
+        sb.append(title);
+        sb.append(", content=");
+        sb.append(content);
+        sb.append(", url=");
+        sb.append(url);
+        sb.append(", type=");
+        sb.append(type);
+        sb.append(", displayDate=");
+        sb.append(displayDate);
+        sb.append(", expirationDate=");
+        sb.append(expirationDate);
+        sb.append(", priority=");
+        sb.append(priority);
+        sb.append(", alert=");
+        sb.append(alert);
+        sb.append("}");
 
-	@Override
-	public AnnouncementsEntry toEntityModel() {
-		AnnouncementsEntryImpl announcementsEntryImpl = new AnnouncementsEntryImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			announcementsEntryImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			announcementsEntryImpl.setUuid(uuid);
-		}
+    @Override
+    public AnnouncementsEntry toEntityModel() {
+        AnnouncementsEntryImpl announcementsEntryImpl = new AnnouncementsEntryImpl();
 
-		announcementsEntryImpl.setEntryId(entryId);
-		announcementsEntryImpl.setCompanyId(companyId);
-		announcementsEntryImpl.setUserId(userId);
+        if (uuid == null) {
+            announcementsEntryImpl.setUuid(StringPool.BLANK);
+        } else {
+            announcementsEntryImpl.setUuid(uuid);
+        }
 
-		if (userName == null) {
-			announcementsEntryImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			announcementsEntryImpl.setUserName(userName);
-		}
+        announcementsEntryImpl.setEntryId(entryId);
+        announcementsEntryImpl.setCompanyId(companyId);
+        announcementsEntryImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			announcementsEntryImpl.setCreateDate(null);
-		}
-		else {
-			announcementsEntryImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            announcementsEntryImpl.setUserName(StringPool.BLANK);
+        } else {
+            announcementsEntryImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			announcementsEntryImpl.setModifiedDate(null);
-		}
-		else {
-			announcementsEntryImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            announcementsEntryImpl.setCreateDate(null);
+        } else {
+            announcementsEntryImpl.setCreateDate(new Date(createDate));
+        }
 
-		announcementsEntryImpl.setClassNameId(classNameId);
-		announcementsEntryImpl.setClassPK(classPK);
+        if (modifiedDate == Long.MIN_VALUE) {
+            announcementsEntryImpl.setModifiedDate(null);
+        } else {
+            announcementsEntryImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (title == null) {
-			announcementsEntryImpl.setTitle(StringPool.BLANK);
-		}
-		else {
-			announcementsEntryImpl.setTitle(title);
-		}
+        announcementsEntryImpl.setClassNameId(classNameId);
+        announcementsEntryImpl.setClassPK(classPK);
 
-		if (content == null) {
-			announcementsEntryImpl.setContent(StringPool.BLANK);
-		}
-		else {
-			announcementsEntryImpl.setContent(content);
-		}
+        if (title == null) {
+            announcementsEntryImpl.setTitle(StringPool.BLANK);
+        } else {
+            announcementsEntryImpl.setTitle(title);
+        }
 
-		if (url == null) {
-			announcementsEntryImpl.setUrl(StringPool.BLANK);
-		}
-		else {
-			announcementsEntryImpl.setUrl(url);
-		}
+        if (content == null) {
+            announcementsEntryImpl.setContent(StringPool.BLANK);
+        } else {
+            announcementsEntryImpl.setContent(content);
+        }
 
-		if (type == null) {
-			announcementsEntryImpl.setType(StringPool.BLANK);
-		}
-		else {
-			announcementsEntryImpl.setType(type);
-		}
+        if (url == null) {
+            announcementsEntryImpl.setUrl(StringPool.BLANK);
+        } else {
+            announcementsEntryImpl.setUrl(url);
+        }
 
-		if (displayDate == Long.MIN_VALUE) {
-			announcementsEntryImpl.setDisplayDate(null);
-		}
-		else {
-			announcementsEntryImpl.setDisplayDate(new Date(displayDate));
-		}
+        if (type == null) {
+            announcementsEntryImpl.setType(StringPool.BLANK);
+        } else {
+            announcementsEntryImpl.setType(type);
+        }
 
-		if (expirationDate == Long.MIN_VALUE) {
-			announcementsEntryImpl.setExpirationDate(null);
-		}
-		else {
-			announcementsEntryImpl.setExpirationDate(new Date(expirationDate));
-		}
+        if (displayDate == Long.MIN_VALUE) {
+            announcementsEntryImpl.setDisplayDate(null);
+        } else {
+            announcementsEntryImpl.setDisplayDate(new Date(displayDate));
+        }
 
-		announcementsEntryImpl.setPriority(priority);
-		announcementsEntryImpl.setAlert(alert);
+        if (expirationDate == Long.MIN_VALUE) {
+            announcementsEntryImpl.setExpirationDate(null);
+        } else {
+            announcementsEntryImpl.setExpirationDate(new Date(expirationDate));
+        }
 
-		announcementsEntryImpl.resetOriginalValues();
+        announcementsEntryImpl.setPriority(priority);
+        announcementsEntryImpl.setAlert(alert);
 
-		return announcementsEntryImpl;
-	}
+        announcementsEntryImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		entryId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		classNameId = objectInput.readLong();
-		classPK = objectInput.readLong();
-		title = objectInput.readUTF();
-		content = objectInput.readUTF();
-		url = objectInput.readUTF();
-		type = objectInput.readUTF();
-		displayDate = objectInput.readLong();
-		expirationDate = objectInput.readLong();
-		priority = objectInput.readInt();
-		alert = objectInput.readBoolean();
-	}
+        return announcementsEntryImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        entryId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        classNameId = objectInput.readLong();
+        classPK = objectInput.readLong();
+        title = objectInput.readUTF();
+        content = objectInput.readUTF();
+        url = objectInput.readUTF();
+        type = objectInput.readUTF();
+        displayDate = objectInput.readLong();
+        expirationDate = objectInput.readLong();
+        priority = objectInput.readInt();
+        alert = objectInput.readBoolean();
+    }
 
-		objectOutput.writeLong(entryId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+        objectOutput.writeLong(entryId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(classNameId);
-		objectOutput.writeLong(classPK);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (title == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(title);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(classNameId);
+        objectOutput.writeLong(classPK);
 
-		if (content == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(content);
-		}
+        if (title == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(title);
+        }
 
-		if (url == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(url);
-		}
+        if (content == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(content);
+        }
 
-		if (type == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(type);
-		}
+        if (url == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(url);
+        }
 
-		objectOutput.writeLong(displayDate);
-		objectOutput.writeLong(expirationDate);
-		objectOutput.writeInt(priority);
-		objectOutput.writeBoolean(alert);
-	}
+        if (type == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(type);
+        }
 
-	public String uuid;
-	public long entryId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public long classNameId;
-	public long classPK;
-	public String title;
-	public String content;
-	public String url;
-	public String type;
-	public long displayDate;
-	public long expirationDate;
-	public int priority;
-	public boolean alert;
+        objectOutput.writeLong(displayDate);
+        objectOutput.writeLong(expirationDate);
+        objectOutput.writeInt(priority);
+        objectOutput.writeBoolean(alert);
+    }
 }

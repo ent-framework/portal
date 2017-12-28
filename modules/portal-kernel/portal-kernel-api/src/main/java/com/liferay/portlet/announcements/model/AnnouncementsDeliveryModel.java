@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.announcements.model;
 
 import aQute.bnd.annotation.ProviderType;
@@ -41,215 +27,216 @@ import java.io.Serializable;
  */
 @ProviderType
 public interface AnnouncementsDeliveryModel extends BaseModel<AnnouncementsDelivery> {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this interface directly. All methods that expect a announcements delivery model instance should use the {@link AnnouncementsDelivery} interface instead.
-	 */
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this interface directly. All methods that expect a announcements delivery model instance should use the {@link AnnouncementsDelivery} interface instead.
+     */
 
-	/**
-	 * Returns the primary key of this announcements delivery.
-	 *
-	 * @return the primary key of this announcements delivery
-	 */
-	public long getPrimaryKey();
+    /**
+     * Returns the primary key of this announcements delivery.
+     *
+     * @return the primary key of this announcements delivery
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this announcements delivery.
-	 *
-	 * @param primaryKey the primary key of this announcements delivery
-	 */
-	public void setPrimaryKey(long primaryKey);
+    /**
+     * Sets the primary key of this announcements delivery.
+     *
+     * @param primaryKey the primary key of this announcements delivery
+     */
+    public void setPrimaryKey(long primaryKey);
 
-	/**
-	 * Returns the delivery ID of this announcements delivery.
-	 *
-	 * @return the delivery ID of this announcements delivery
-	 */
-	public long getDeliveryId();
+    /**
+     * Returns the delivery ID of this announcements delivery.
+     *
+     * @return the delivery ID of this announcements delivery
+     */
+    public long getDeliveryId();
 
-	/**
-	 * Sets the delivery ID of this announcements delivery.
-	 *
-	 * @param deliveryId the delivery ID of this announcements delivery
-	 */
-	public void setDeliveryId(long deliveryId);
+    /**
+     * Sets the delivery ID of this announcements delivery.
+     *
+     * @param deliveryId the delivery ID of this announcements delivery
+     */
+    public void setDeliveryId(long deliveryId);
 
-	/**
-	 * Returns the company ID of this announcements delivery.
-	 *
-	 * @return the company ID of this announcements delivery
-	 */
-	public long getCompanyId();
+    /**
+     * Returns the company ID of this announcements delivery.
+     *
+     * @return the company ID of this announcements delivery
+     */
+    public long getCompanyId();
 
-	/**
-	 * Sets the company ID of this announcements delivery.
-	 *
-	 * @param companyId the company ID of this announcements delivery
-	 */
-	public void setCompanyId(long companyId);
+    /**
+     * Sets the company ID of this announcements delivery.
+     *
+     * @param companyId the company ID of this announcements delivery
+     */
+    public void setCompanyId(long companyId);
 
-	/**
-	 * Returns the user ID of this announcements delivery.
-	 *
-	 * @return the user ID of this announcements delivery
-	 */
-	public long getUserId();
+    /**
+     * Returns the user ID of this announcements delivery.
+     *
+     * @return the user ID of this announcements delivery
+     */
+    public long getUserId();
 
-	/**
-	 * Sets the user ID of this announcements delivery.
-	 *
-	 * @param userId the user ID of this announcements delivery
-	 */
-	public void setUserId(long userId);
+    /**
+     * Sets the user ID of this announcements delivery.
+     *
+     * @param userId the user ID of this announcements delivery
+     */
+    public void setUserId(long userId);
 
-	/**
-	 * Returns the user uuid of this announcements delivery.
-	 *
-	 * @return the user uuid of this announcements delivery
-	 * @throws SystemException if a system exception occurred
-	 */
-	public String getUserUuid() throws SystemException;
+    /**
+     * Returns the user uuid of this announcements delivery.
+     *
+     * @return the user uuid of this announcements delivery
+     * @throws SystemException if a system exception occurred
+     */
+    public String getUserUuid() throws SystemException;
 
-	/**
-	 * Sets the user uuid of this announcements delivery.
-	 *
-	 * @param userUuid the user uuid of this announcements delivery
-	 */
-	public void setUserUuid(String userUuid);
+    /**
+     * Sets the user uuid of this announcements delivery.
+     *
+     * @param userUuid the user uuid of this announcements delivery
+     */
+    public void setUserUuid(String userUuid);
 
-	/**
-	 * Returns the type of this announcements delivery.
-	 *
-	 * @return the type of this announcements delivery
-	 */
-	@AutoEscape
-	public String getType();
+    /**
+     * Returns the type of this announcements delivery.
+     *
+     * @return the type of this announcements delivery
+     */
+    @AutoEscape
+    public String getType();
 
-	/**
-	 * Sets the type of this announcements delivery.
-	 *
-	 * @param type the type of this announcements delivery
-	 */
-	public void setType(String type);
+    /**
+     * Sets the type of this announcements delivery.
+     *
+     * @param type the type of this announcements delivery
+     */
+    public void setType(String type);
 
-	/**
-	 * Returns the email of this announcements delivery.
-	 *
-	 * @return the email of this announcements delivery
-	 */
-	public boolean getEmail();
+    /**
+     * Returns the email of this announcements delivery.
+     *
+     * @return the email of this announcements delivery
+     */
+    public boolean getEmail();
 
-	/**
-	 * Returns <code>true</code> if this announcements delivery is email.
-	 *
-	 * @return <code>true</code> if this announcements delivery is email; <code>false</code> otherwise
-	 */
-	public boolean isEmail();
+    /**
+     * Returns <code>true</code> if this announcements delivery is email.
+     *
+     * @return <code>true</code> if this announcements delivery is email; <code>false</code> otherwise
+     */
+    public boolean isEmail();
 
-	/**
-	 * Sets whether this announcements delivery is email.
-	 *
-	 * @param email the email of this announcements delivery
-	 */
-	public void setEmail(boolean email);
+    /**
+     * Sets whether this announcements delivery is email.
+     *
+     * @param email the email of this announcements delivery
+     */
+    public void setEmail(boolean email);
 
-	/**
-	 * Returns the sms of this announcements delivery.
-	 *
-	 * @return the sms of this announcements delivery
-	 */
-	public boolean getSms();
+    /**
+     * Returns the sms of this announcements delivery.
+     *
+     * @return the sms of this announcements delivery
+     */
+    public boolean getSms();
 
-	/**
-	 * Returns <code>true</code> if this announcements delivery is sms.
-	 *
-	 * @return <code>true</code> if this announcements delivery is sms; <code>false</code> otherwise
-	 */
-	public boolean isSms();
+    /**
+     * Returns <code>true</code> if this announcements delivery is sms.
+     *
+     * @return <code>true</code> if this announcements delivery is sms; <code>false</code> otherwise
+     */
+    public boolean isSms();
 
-	/**
-	 * Sets whether this announcements delivery is sms.
-	 *
-	 * @param sms the sms of this announcements delivery
-	 */
-	public void setSms(boolean sms);
+    /**
+     * Sets whether this announcements delivery is sms.
+     *
+     * @param sms the sms of this announcements delivery
+     */
+    public void setSms(boolean sms);
 
-	/**
-	 * Returns the website of this announcements delivery.
-	 *
-	 * @return the website of this announcements delivery
-	 */
-	public boolean getWebsite();
+    /**
+     * Returns the website of this announcements delivery.
+     *
+     * @return the website of this announcements delivery
+     */
+    public boolean getWebsite();
 
-	/**
-	 * Returns <code>true</code> if this announcements delivery is website.
-	 *
-	 * @return <code>true</code> if this announcements delivery is website; <code>false</code> otherwise
-	 */
-	public boolean isWebsite();
+    /**
+     * Returns <code>true</code> if this announcements delivery is website.
+     *
+     * @return <code>true</code> if this announcements delivery is website; <code>false</code> otherwise
+     */
+    public boolean isWebsite();
 
-	/**
-	 * Sets whether this announcements delivery is website.
-	 *
-	 * @param website the website of this announcements delivery
-	 */
-	public void setWebsite(boolean website);
+    /**
+     * Sets whether this announcements delivery is website.
+     *
+     * @param website the website of this announcements delivery
+     */
+    public void setWebsite(boolean website);
 
-	@Override
-	public boolean isNew();
+    @Override
+    public boolean isNew();
 
-	@Override
-	public void setNew(boolean n);
+    @Override
+    public void setNew(boolean n);
 
-	@Override
-	public boolean isCachedModel();
+    @Override
+    public boolean isCachedModel();
 
-	@Override
-	public void setCachedModel(boolean cachedModel);
+    @Override
+    public void setCachedModel(boolean cachedModel);
 
-	@Override
-	public boolean isEscapedModel();
+    @Override
+    public boolean isEscapedModel();
 
-	@Override
-	public Serializable getPrimaryKeyObj();
+    @Override
+    public Serializable getPrimaryKeyObj();
 
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj);
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj);
 
-	@Override
-	public ExpandoBridge getExpandoBridge();
+    @Override
+    public ExpandoBridge getExpandoBridge();
 
-	@Override
-	public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
+    @Override
+    public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
 
-	@Override
-	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
+    @Override
+    public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	@Override
-	public Object clone();
+    @Override
+    public Object clone();
 
-	@Override
-	public int compareTo(AnnouncementsDelivery announcementsDelivery);
+    @Override
+    public int compareTo(
+        com.liferay.portlet.announcements.model.AnnouncementsDelivery announcementsDelivery);
 
-	@Override
-	public int hashCode();
+    @Override
+    public int hashCode();
 
-	@Override
-	public CacheModel<AnnouncementsDelivery> toCacheModel();
+    @Override
+    public CacheModel<com.liferay.portlet.announcements.model.AnnouncementsDelivery> toCacheModel();
 
-	@Override
-	public AnnouncementsDelivery toEscapedModel();
+    @Override
+    public com.liferay.portlet.announcements.model.AnnouncementsDelivery toEscapedModel();
 
-	@Override
-	public AnnouncementsDelivery toUnescapedModel();
+    @Override
+    public com.liferay.portlet.announcements.model.AnnouncementsDelivery toUnescapedModel();
 
-	@Override
-	public String toString();
+    @Override
+    public String toString();
 
-	@Override
-	public String toXmlString();
+    @Override
+    public String toXmlString();
 }

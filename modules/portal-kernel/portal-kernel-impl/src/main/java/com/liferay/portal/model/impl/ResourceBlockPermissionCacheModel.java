@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -31,57 +17,57 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class ResourceBlockPermissionCacheModel implements CacheModel<ResourceBlockPermission>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(9);
+    Externalizable {
+    public long resourceBlockPermissionId;
+    public long resourceBlockId;
+    public long roleId;
+    public long actionIds;
 
-		sb.append("{resourceBlockPermissionId=");
-		sb.append(resourceBlockPermissionId);
-		sb.append(", resourceBlockId=");
-		sb.append(resourceBlockId);
-		sb.append(", roleId=");
-		sb.append(roleId);
-		sb.append(", actionIds=");
-		sb.append(actionIds);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(9);
 
-		return sb.toString();
-	}
+        sb.append("{resourceBlockPermissionId=");
+        sb.append(resourceBlockPermissionId);
+        sb.append(", resourceBlockId=");
+        sb.append(resourceBlockId);
+        sb.append(", roleId=");
+        sb.append(roleId);
+        sb.append(", actionIds=");
+        sb.append(actionIds);
+        sb.append("}");
 
-	@Override
-	public ResourceBlockPermission toEntityModel() {
-		ResourceBlockPermissionImpl resourceBlockPermissionImpl = new ResourceBlockPermissionImpl();
+        return sb.toString();
+    }
 
-		resourceBlockPermissionImpl.setResourceBlockPermissionId(resourceBlockPermissionId);
-		resourceBlockPermissionImpl.setResourceBlockId(resourceBlockId);
-		resourceBlockPermissionImpl.setRoleId(roleId);
-		resourceBlockPermissionImpl.setActionIds(actionIds);
+    @Override
+    public ResourceBlockPermission toEntityModel() {
+        ResourceBlockPermissionImpl resourceBlockPermissionImpl = new ResourceBlockPermissionImpl();
 
-		resourceBlockPermissionImpl.resetOriginalValues();
+        resourceBlockPermissionImpl.setResourceBlockPermissionId(resourceBlockPermissionId);
+        resourceBlockPermissionImpl.setResourceBlockId(resourceBlockId);
+        resourceBlockPermissionImpl.setRoleId(roleId);
+        resourceBlockPermissionImpl.setActionIds(actionIds);
 
-		return resourceBlockPermissionImpl;
-	}
+        resourceBlockPermissionImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		resourceBlockPermissionId = objectInput.readLong();
-		resourceBlockId = objectInput.readLong();
-		roleId = objectInput.readLong();
-		actionIds = objectInput.readLong();
-	}
+        return resourceBlockPermissionImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(resourceBlockPermissionId);
-		objectOutput.writeLong(resourceBlockId);
-		objectOutput.writeLong(roleId);
-		objectOutput.writeLong(actionIds);
-	}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        resourceBlockPermissionId = objectInput.readLong();
+        resourceBlockId = objectInput.readLong();
+        roleId = objectInput.readLong();
+        actionIds = objectInput.readLong();
+    }
 
-	public long resourceBlockPermissionId;
-	public long resourceBlockId;
-	public long roleId;
-	public long actionIds;
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(resourceBlockPermissionId);
+        objectOutput.writeLong(resourceBlockId);
+        objectOutput.writeLong(roleId);
+        objectOutput.writeLong(actionIds);
+    }
 }

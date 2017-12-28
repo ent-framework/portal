@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
@@ -64,134 +50,125 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class TeamServiceSoap {
-	public static com.liferay.portal.model.TeamSoap addTeam(long groupId,
-		java.lang.String name, java.lang.String description)
-		throws RemoteException {
-		try {
-			com.liferay.portal.model.Team returnValue = TeamServiceUtil.addTeam(groupId,
-					name, description);
+    private static Log _log = LogFactoryUtil.getLog(TeamServiceSoap.class);
 
-			return com.liferay.portal.model.TeamSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.TeamSoap addTeam(long groupId,
+        java.lang.String name, java.lang.String description)
+        throws RemoteException {
+        try {
+            com.liferay.portal.model.Team returnValue = TeamServiceUtil.addTeam(groupId,
+                    name, description);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.TeamSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void deleteTeam(long teamId) throws RemoteException {
-		try {
-			TeamServiceUtil.deleteTeam(teamId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void deleteTeam(long teamId) throws RemoteException {
+        try {
+            TeamServiceUtil.deleteTeam(teamId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portal.model.TeamSoap[] getGroupTeams(
-		long groupId) throws RemoteException {
-		try {
-			java.util.List<com.liferay.portal.model.Team> returnValue = TeamServiceUtil.getGroupTeams(groupId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portal.model.TeamSoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.TeamSoap[] getGroupTeams(
+        long groupId) throws RemoteException {
+        try {
+            java.util.List<com.liferay.portal.model.Team> returnValue = TeamServiceUtil.getGroupTeams(groupId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.TeamSoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portal.model.TeamSoap getTeam(long teamId)
-		throws RemoteException {
-		try {
-			com.liferay.portal.model.Team returnValue = TeamServiceUtil.getTeam(teamId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portal.model.TeamSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.TeamSoap getTeam(long teamId)
+        throws RemoteException {
+        try {
+            com.liferay.portal.model.Team returnValue = TeamServiceUtil.getTeam(teamId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.TeamSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portal.model.TeamSoap getTeam(long groupId,
-		java.lang.String name) throws RemoteException {
-		try {
-			com.liferay.portal.model.Team returnValue = TeamServiceUtil.getTeam(groupId,
-					name);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portal.model.TeamSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.TeamSoap getTeam(long groupId,
+        java.lang.String name) throws RemoteException {
+        try {
+            com.liferay.portal.model.Team returnValue = TeamServiceUtil.getTeam(groupId,
+                    name);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.TeamSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portal.model.TeamSoap[] getUserTeams(long userId)
-		throws RemoteException {
-		try {
-			java.util.List<com.liferay.portal.model.Team> returnValue = TeamServiceUtil.getUserTeams(userId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portal.model.TeamSoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.TeamSoap[] getUserTeams(long userId)
+        throws RemoteException {
+        try {
+            java.util.List<com.liferay.portal.model.Team> returnValue = TeamServiceUtil.getUserTeams(userId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.TeamSoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portal.model.TeamSoap[] getUserTeams(
-		long userId, long groupId) throws RemoteException {
-		try {
-			java.util.List<com.liferay.portal.model.Team> returnValue = TeamServiceUtil.getUserTeams(userId,
-					groupId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portal.model.TeamSoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.TeamSoap[] getUserTeams(
+        long userId, long groupId) throws RemoteException {
+        try {
+            java.util.List<com.liferay.portal.model.Team> returnValue = TeamServiceUtil.getUserTeams(userId,
+                    groupId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.TeamSoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static boolean hasUserTeam(long userId, long teamId)
-		throws RemoteException {
-		try {
-			boolean returnValue = TeamServiceUtil.hasUserTeam(userId, teamId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return returnValue;
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static boolean hasUserTeam(long userId, long teamId)
+        throws RemoteException {
+        try {
+            boolean returnValue = TeamServiceUtil.hasUserTeam(userId, teamId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return returnValue;
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portal.model.TeamSoap updateTeam(long teamId,
-		java.lang.String name, java.lang.String description)
-		throws RemoteException {
-		try {
-			com.liferay.portal.model.Team returnValue = TeamServiceUtil.updateTeam(teamId,
-					name, description);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portal.model.TeamSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.TeamSoap updateTeam(long teamId,
+        java.lang.String name, java.lang.String description)
+        throws RemoteException {
+        try {
+            com.liferay.portal.model.Team returnValue = TeamServiceUtil.updateTeam(teamId,
+                    name, description);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.TeamSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	private static Log _log = LogFactoryUtil.getLog(TeamServiceSoap.class);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

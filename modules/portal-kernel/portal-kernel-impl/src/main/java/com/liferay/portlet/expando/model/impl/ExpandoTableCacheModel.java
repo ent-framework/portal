@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.expando.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -33,69 +19,67 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class ExpandoTableCacheModel implements CacheModel<ExpandoTable>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(9);
+    Externalizable {
+    public long tableId;
+    public long companyId;
+    public long classNameId;
+    public String name;
 
-		sb.append("{tableId=");
-		sb.append(tableId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", classNameId=");
-		sb.append(classNameId);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(9);
 
-		return sb.toString();
-	}
+        sb.append("{tableId=");
+        sb.append(tableId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", classNameId=");
+        sb.append(classNameId);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append("}");
 
-	@Override
-	public ExpandoTable toEntityModel() {
-		ExpandoTableImpl expandoTableImpl = new ExpandoTableImpl();
+        return sb.toString();
+    }
 
-		expandoTableImpl.setTableId(tableId);
-		expandoTableImpl.setCompanyId(companyId);
-		expandoTableImpl.setClassNameId(classNameId);
+    @Override
+    public ExpandoTable toEntityModel() {
+        ExpandoTableImpl expandoTableImpl = new ExpandoTableImpl();
 
-		if (name == null) {
-			expandoTableImpl.setName(StringPool.BLANK);
-		}
-		else {
-			expandoTableImpl.setName(name);
-		}
+        expandoTableImpl.setTableId(tableId);
+        expandoTableImpl.setCompanyId(companyId);
+        expandoTableImpl.setClassNameId(classNameId);
 
-		expandoTableImpl.resetOriginalValues();
+        if (name == null) {
+            expandoTableImpl.setName(StringPool.BLANK);
+        } else {
+            expandoTableImpl.setName(name);
+        }
 
-		return expandoTableImpl;
-	}
+        expandoTableImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		tableId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		classNameId = objectInput.readLong();
-		name = objectInput.readUTF();
-	}
+        return expandoTableImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(tableId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(classNameId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        tableId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        classNameId = objectInput.readLong();
+        name = objectInput.readUTF();
+    }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
-	}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(tableId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(classNameId);
 
-	public long tableId;
-	public long companyId;
-	public long classNameId;
-	public String name;
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
+    }
 }

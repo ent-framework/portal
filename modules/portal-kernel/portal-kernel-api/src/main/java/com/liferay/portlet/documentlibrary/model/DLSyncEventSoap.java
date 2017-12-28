@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.documentlibrary.model;
 
 import java.io.Serializable;
@@ -26,109 +12,108 @@ import java.util.List;
  * @generated
  */
 public class DLSyncEventSoap implements Serializable {
-	public static DLSyncEventSoap toSoapModel(DLSyncEvent model) {
-		DLSyncEventSoap soapModel = new DLSyncEventSoap();
+    private long _syncEventId;
+    private long _modifiedTime;
+    private String _event;
+    private String _type;
+    private long _typePK;
 
-		soapModel.setSyncEventId(model.getSyncEventId());
-		soapModel.setModifiedTime(model.getModifiedTime());
-		soapModel.setEvent(model.getEvent());
-		soapModel.setType(model.getType());
-		soapModel.setTypePK(model.getTypePK());
+    public DLSyncEventSoap() {
+    }
 
-		return soapModel;
-	}
+    public static DLSyncEventSoap toSoapModel(DLSyncEvent model) {
+        DLSyncEventSoap soapModel = new DLSyncEventSoap();
 
-	public static DLSyncEventSoap[] toSoapModels(DLSyncEvent[] models) {
-		DLSyncEventSoap[] soapModels = new DLSyncEventSoap[models.length];
+        soapModel.setSyncEventId(model.getSyncEventId());
+        soapModel.setModifiedTime(model.getModifiedTime());
+        soapModel.setEvent(model.getEvent());
+        soapModel.setType(model.getType());
+        soapModel.setTypePK(model.getTypePK());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static DLSyncEventSoap[] toSoapModels(DLSyncEvent[] models) {
+        DLSyncEventSoap[] soapModels = new DLSyncEventSoap[models.length];
 
-	public static DLSyncEventSoap[][] toSoapModels(DLSyncEvent[][] models) {
-		DLSyncEventSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new DLSyncEventSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new DLSyncEventSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static DLSyncEventSoap[][] toSoapModels(DLSyncEvent[][] models) {
+        DLSyncEventSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new DLSyncEventSoap[models.length][models[0].length];
+        } else {
+            soapModels = new DLSyncEventSoap[0][0];
+        }
 
-	public static DLSyncEventSoap[] toSoapModels(List<DLSyncEvent> models) {
-		List<DLSyncEventSoap> soapModels = new ArrayList<DLSyncEventSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (DLSyncEvent model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new DLSyncEventSoap[soapModels.size()]);
-	}
+    public static DLSyncEventSoap[] toSoapModels(List<DLSyncEvent> models) {
+        List<DLSyncEventSoap> soapModels = new ArrayList<DLSyncEventSoap>(models.size());
 
-	public DLSyncEventSoap() {
-	}
+        for (DLSyncEvent model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _syncEventId;
-	}
+        return soapModels.toArray(new DLSyncEventSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setSyncEventId(pk);
-	}
+    public long getPrimaryKey() {
+        return _syncEventId;
+    }
 
-	public long getSyncEventId() {
-		return _syncEventId;
-	}
+    public void setPrimaryKey(long pk) {
+        setSyncEventId(pk);
+    }
 
-	public void setSyncEventId(long syncEventId) {
-		_syncEventId = syncEventId;
-	}
+    public long getSyncEventId() {
+        return _syncEventId;
+    }
 
-	public long getModifiedTime() {
-		return _modifiedTime;
-	}
+    public void setSyncEventId(long syncEventId) {
+        _syncEventId = syncEventId;
+    }
 
-	public void setModifiedTime(long modifiedTime) {
-		_modifiedTime = modifiedTime;
-	}
+    public long getModifiedTime() {
+        return _modifiedTime;
+    }
 
-	public String getEvent() {
-		return _event;
-	}
+    public void setModifiedTime(long modifiedTime) {
+        _modifiedTime = modifiedTime;
+    }
 
-	public void setEvent(String event) {
-		_event = event;
-	}
+    public String getEvent() {
+        return _event;
+    }
 
-	public String getType() {
-		return _type;
-	}
+    public void setEvent(String event) {
+        _event = event;
+    }
 
-	public void setType(String type) {
-		_type = type;
-	}
+    public String getType() {
+        return _type;
+    }
 
-	public long getTypePK() {
-		return _typePK;
-	}
+    public void setType(String type) {
+        _type = type;
+    }
 
-	public void setTypePK(long typePK) {
-		_typePK = typePK;
-	}
+    public long getTypePK() {
+        return _typePK;
+    }
 
-	private long _syncEventId;
-	private long _modifiedTime;
-	private String _event;
-	private String _type;
-	private long _typePK;
+    public void setTypePK(long typePK) {
+        _typePK = typePK;
+    }
 }

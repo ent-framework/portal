@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -32,99 +18,93 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class UserIdMapperCacheModel implements CacheModel<UserIdMapper>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(11);
+    Externalizable {
+    public long userIdMapperId;
+    public long userId;
+    public String type;
+    public String description;
+    public String externalUserId;
 
-		sb.append("{userIdMapperId=");
-		sb.append(userIdMapperId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", type=");
-		sb.append(type);
-		sb.append(", description=");
-		sb.append(description);
-		sb.append(", externalUserId=");
-		sb.append(externalUserId);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(11);
 
-		return sb.toString();
-	}
+        sb.append("{userIdMapperId=");
+        sb.append(userIdMapperId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", type=");
+        sb.append(type);
+        sb.append(", description=");
+        sb.append(description);
+        sb.append(", externalUserId=");
+        sb.append(externalUserId);
+        sb.append("}");
 
-	@Override
-	public UserIdMapper toEntityModel() {
-		UserIdMapperImpl userIdMapperImpl = new UserIdMapperImpl();
+        return sb.toString();
+    }
 
-		userIdMapperImpl.setUserIdMapperId(userIdMapperId);
-		userIdMapperImpl.setUserId(userId);
+    @Override
+    public UserIdMapper toEntityModel() {
+        UserIdMapperImpl userIdMapperImpl = new UserIdMapperImpl();
 
-		if (type == null) {
-			userIdMapperImpl.setType(StringPool.BLANK);
-		}
-		else {
-			userIdMapperImpl.setType(type);
-		}
+        userIdMapperImpl.setUserIdMapperId(userIdMapperId);
+        userIdMapperImpl.setUserId(userId);
 
-		if (description == null) {
-			userIdMapperImpl.setDescription(StringPool.BLANK);
-		}
-		else {
-			userIdMapperImpl.setDescription(description);
-		}
+        if (type == null) {
+            userIdMapperImpl.setType(StringPool.BLANK);
+        } else {
+            userIdMapperImpl.setType(type);
+        }
 
-		if (externalUserId == null) {
-			userIdMapperImpl.setExternalUserId(StringPool.BLANK);
-		}
-		else {
-			userIdMapperImpl.setExternalUserId(externalUserId);
-		}
+        if (description == null) {
+            userIdMapperImpl.setDescription(StringPool.BLANK);
+        } else {
+            userIdMapperImpl.setDescription(description);
+        }
 
-		userIdMapperImpl.resetOriginalValues();
+        if (externalUserId == null) {
+            userIdMapperImpl.setExternalUserId(StringPool.BLANK);
+        } else {
+            userIdMapperImpl.setExternalUserId(externalUserId);
+        }
 
-		return userIdMapperImpl;
-	}
+        userIdMapperImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		userIdMapperId = objectInput.readLong();
-		userId = objectInput.readLong();
-		type = objectInput.readUTF();
-		description = objectInput.readUTF();
-		externalUserId = objectInput.readUTF();
-	}
+        return userIdMapperImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(userIdMapperId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        userIdMapperId = objectInput.readLong();
+        userId = objectInput.readLong();
+        type = objectInput.readUTF();
+        description = objectInput.readUTF();
+        externalUserId = objectInput.readUTF();
+    }
 
-		if (type == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(type);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(userIdMapperId);
+        objectOutput.writeLong(userId);
 
-		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(description);
-		}
+        if (type == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(type);
+        }
 
-		if (externalUserId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(externalUserId);
-		}
-	}
+        if (description == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(description);
+        }
 
-	public long userIdMapperId;
-	public long userId;
-	public String type;
-	public String description;
-	public String externalUserId;
+        if (externalUserId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(externalUserId);
+        }
+    }
 }

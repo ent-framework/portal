@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.asset.model;
 
 import aQute.bnd.annotation.ProviderType;
@@ -40,148 +26,149 @@ import java.io.Serializable;
  */
 @ProviderType
 public interface AssetTagStatsModel extends BaseModel<AssetTagStats>, TypedModel {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this interface directly. All methods that expect a asset tag stats model instance should use the {@link AssetTagStats} interface instead.
-	 */
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this interface directly. All methods that expect a asset tag stats model instance should use the {@link AssetTagStats} interface instead.
+     */
 
-	/**
-	 * Returns the primary key of this asset tag stats.
-	 *
-	 * @return the primary key of this asset tag stats
-	 */
-	public long getPrimaryKey();
+    /**
+     * Returns the primary key of this asset tag stats.
+     *
+     * @return the primary key of this asset tag stats
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this asset tag stats.
-	 *
-	 * @param primaryKey the primary key of this asset tag stats
-	 */
-	public void setPrimaryKey(long primaryKey);
+    /**
+     * Sets the primary key of this asset tag stats.
+     *
+     * @param primaryKey the primary key of this asset tag stats
+     */
+    public void setPrimaryKey(long primaryKey);
 
-	/**
-	 * Returns the tag stats ID of this asset tag stats.
-	 *
-	 * @return the tag stats ID of this asset tag stats
-	 */
-	public long getTagStatsId();
+    /**
+     * Returns the tag stats ID of this asset tag stats.
+     *
+     * @return the tag stats ID of this asset tag stats
+     */
+    public long getTagStatsId();
 
-	/**
-	 * Sets the tag stats ID of this asset tag stats.
-	 *
-	 * @param tagStatsId the tag stats ID of this asset tag stats
-	 */
-	public void setTagStatsId(long tagStatsId);
+    /**
+     * Sets the tag stats ID of this asset tag stats.
+     *
+     * @param tagStatsId the tag stats ID of this asset tag stats
+     */
+    public void setTagStatsId(long tagStatsId);
 
-	/**
-	 * Returns the tag ID of this asset tag stats.
-	 *
-	 * @return the tag ID of this asset tag stats
-	 */
-	public long getTagId();
+    /**
+     * Returns the tag ID of this asset tag stats.
+     *
+     * @return the tag ID of this asset tag stats
+     */
+    public long getTagId();
 
-	/**
-	 * Sets the tag ID of this asset tag stats.
-	 *
-	 * @param tagId the tag ID of this asset tag stats
-	 */
-	public void setTagId(long tagId);
+    /**
+     * Sets the tag ID of this asset tag stats.
+     *
+     * @param tagId the tag ID of this asset tag stats
+     */
+    public void setTagId(long tagId);
 
-	/**
-	 * Returns the fully qualified class name of this asset tag stats.
-	 *
-	 * @return the fully qualified class name of this asset tag stats
-	 */
-	@Override
-	public String getClassName();
+    /**
+     * Returns the fully qualified class name of this asset tag stats.
+     *
+     * @return the fully qualified class name of this asset tag stats
+     */
+    @Override
+    public String getClassName();
 
-	public void setClassName(String className);
+    public void setClassName(String className);
 
-	/**
-	 * Returns the class name ID of this asset tag stats.
-	 *
-	 * @return the class name ID of this asset tag stats
-	 */
-	@Override
-	public long getClassNameId();
+    /**
+     * Returns the class name ID of this asset tag stats.
+     *
+     * @return the class name ID of this asset tag stats
+     */
+    @Override
+    public long getClassNameId();
 
-	/**
-	 * Sets the class name ID of this asset tag stats.
-	 *
-	 * @param classNameId the class name ID of this asset tag stats
-	 */
-	@Override
-	public void setClassNameId(long classNameId);
+    /**
+     * Sets the class name ID of this asset tag stats.
+     *
+     * @param classNameId the class name ID of this asset tag stats
+     */
+    @Override
+    public void setClassNameId(long classNameId);
 
-	/**
-	 * Returns the asset count of this asset tag stats.
-	 *
-	 * @return the asset count of this asset tag stats
-	 */
-	public int getAssetCount();
+    /**
+     * Returns the asset count of this asset tag stats.
+     *
+     * @return the asset count of this asset tag stats
+     */
+    public int getAssetCount();
 
-	/**
-	 * Sets the asset count of this asset tag stats.
-	 *
-	 * @param assetCount the asset count of this asset tag stats
-	 */
-	public void setAssetCount(int assetCount);
+    /**
+     * Sets the asset count of this asset tag stats.
+     *
+     * @param assetCount the asset count of this asset tag stats
+     */
+    public void setAssetCount(int assetCount);
 
-	@Override
-	public boolean isNew();
+    @Override
+    public boolean isNew();
 
-	@Override
-	public void setNew(boolean n);
+    @Override
+    public void setNew(boolean n);
 
-	@Override
-	public boolean isCachedModel();
+    @Override
+    public boolean isCachedModel();
 
-	@Override
-	public void setCachedModel(boolean cachedModel);
+    @Override
+    public void setCachedModel(boolean cachedModel);
 
-	@Override
-	public boolean isEscapedModel();
+    @Override
+    public boolean isEscapedModel();
 
-	@Override
-	public Serializable getPrimaryKeyObj();
+    @Override
+    public Serializable getPrimaryKeyObj();
 
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj);
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj);
 
-	@Override
-	public ExpandoBridge getExpandoBridge();
+    @Override
+    public ExpandoBridge getExpandoBridge();
 
-	@Override
-	public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
+    @Override
+    public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
 
-	@Override
-	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
+    @Override
+    public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	@Override
-	public Object clone();
+    @Override
+    public Object clone();
 
-	@Override
-	public int compareTo(AssetTagStats assetTagStats);
+    @Override
+    public int compareTo(
+        com.liferay.portlet.asset.model.AssetTagStats assetTagStats);
 
-	@Override
-	public int hashCode();
+    @Override
+    public int hashCode();
 
-	@Override
-	public CacheModel<AssetTagStats> toCacheModel();
+    @Override
+    public CacheModel<com.liferay.portlet.asset.model.AssetTagStats> toCacheModel();
 
-	@Override
-	public AssetTagStats toEscapedModel();
+    @Override
+    public com.liferay.portlet.asset.model.AssetTagStats toEscapedModel();
 
-	@Override
-	public AssetTagStats toUnescapedModel();
+    @Override
+    public com.liferay.portlet.asset.model.AssetTagStats toUnescapedModel();
 
-	@Override
-	public String toString();
+    @Override
+    public String toString();
 
-	@Override
-	public String toXmlString();
+    @Override
+    public String toXmlString();
 }

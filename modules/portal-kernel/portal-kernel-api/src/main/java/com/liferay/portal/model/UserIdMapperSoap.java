@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -26,109 +12,108 @@ import java.util.List;
  * @generated
  */
 public class UserIdMapperSoap implements Serializable {
-	public static UserIdMapperSoap toSoapModel(UserIdMapper model) {
-		UserIdMapperSoap soapModel = new UserIdMapperSoap();
+    private long _userIdMapperId;
+    private long _userId;
+    private String _type;
+    private String _description;
+    private String _externalUserId;
 
-		soapModel.setUserIdMapperId(model.getUserIdMapperId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setType(model.getType());
-		soapModel.setDescription(model.getDescription());
-		soapModel.setExternalUserId(model.getExternalUserId());
+    public UserIdMapperSoap() {
+    }
 
-		return soapModel;
-	}
+    public static UserIdMapperSoap toSoapModel(UserIdMapper model) {
+        UserIdMapperSoap soapModel = new UserIdMapperSoap();
 
-	public static UserIdMapperSoap[] toSoapModels(UserIdMapper[] models) {
-		UserIdMapperSoap[] soapModels = new UserIdMapperSoap[models.length];
+        soapModel.setUserIdMapperId(model.getUserIdMapperId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setType(model.getType());
+        soapModel.setDescription(model.getDescription());
+        soapModel.setExternalUserId(model.getExternalUserId());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static UserIdMapperSoap[] toSoapModels(UserIdMapper[] models) {
+        UserIdMapperSoap[] soapModels = new UserIdMapperSoap[models.length];
 
-	public static UserIdMapperSoap[][] toSoapModels(UserIdMapper[][] models) {
-		UserIdMapperSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new UserIdMapperSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new UserIdMapperSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static UserIdMapperSoap[][] toSoapModels(UserIdMapper[][] models) {
+        UserIdMapperSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new UserIdMapperSoap[models.length][models[0].length];
+        } else {
+            soapModels = new UserIdMapperSoap[0][0];
+        }
 
-	public static UserIdMapperSoap[] toSoapModels(List<UserIdMapper> models) {
-		List<UserIdMapperSoap> soapModels = new ArrayList<UserIdMapperSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (UserIdMapper model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new UserIdMapperSoap[soapModels.size()]);
-	}
+    public static UserIdMapperSoap[] toSoapModels(List<UserIdMapper> models) {
+        List<UserIdMapperSoap> soapModels = new ArrayList<UserIdMapperSoap>(models.size());
 
-	public UserIdMapperSoap() {
-	}
+        for (UserIdMapper model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _userIdMapperId;
-	}
+        return soapModels.toArray(new UserIdMapperSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setUserIdMapperId(pk);
-	}
+    public long getPrimaryKey() {
+        return _userIdMapperId;
+    }
 
-	public long getUserIdMapperId() {
-		return _userIdMapperId;
-	}
+    public void setPrimaryKey(long pk) {
+        setUserIdMapperId(pk);
+    }
 
-	public void setUserIdMapperId(long userIdMapperId) {
-		_userIdMapperId = userIdMapperId;
-	}
+    public long getUserIdMapperId() {
+        return _userIdMapperId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setUserIdMapperId(long userIdMapperId) {
+        _userIdMapperId = userIdMapperId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public String getType() {
-		return _type;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setType(String type) {
-		_type = type;
-	}
+    public String getType() {
+        return _type;
+    }
 
-	public String getDescription() {
-		return _description;
-	}
+    public void setType(String type) {
+        _type = type;
+    }
 
-	public void setDescription(String description) {
-		_description = description;
-	}
+    public String getDescription() {
+        return _description;
+    }
 
-	public String getExternalUserId() {
-		return _externalUserId;
-	}
+    public void setDescription(String description) {
+        _description = description;
+    }
 
-	public void setExternalUserId(String externalUserId) {
-		_externalUserId = externalUserId;
-	}
+    public String getExternalUserId() {
+        return _externalUserId;
+    }
 
-	private long _userIdMapperId;
-	private long _userId;
-	private String _type;
-	private String _description;
-	private String _externalUserId;
+    public void setExternalUserId(String externalUserId) {
+        _externalUserId = externalUserId;
+    }
 }

@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -27,149 +13,148 @@ import java.util.List;
  * @generated
  */
 public class TicketSoap implements Serializable {
-	public static TicketSoap toSoapModel(Ticket model) {
-		TicketSoap soapModel = new TicketSoap();
+    private long _ticketId;
+    private long _companyId;
+    private Date _createDate;
+    private long _classNameId;
+    private long _classPK;
+    private String _key;
+    private int _type;
+    private String _extraInfo;
+    private Date _expirationDate;
 
-		soapModel.setTicketId(model.getTicketId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setCreateDate(model.getCreateDate());
-		soapModel.setClassNameId(model.getClassNameId());
-		soapModel.setClassPK(model.getClassPK());
-		soapModel.setKey(model.getKey());
-		soapModel.setType(model.getType());
-		soapModel.setExtraInfo(model.getExtraInfo());
-		soapModel.setExpirationDate(model.getExpirationDate());
+    public TicketSoap() {
+    }
 
-		return soapModel;
-	}
+    public static TicketSoap toSoapModel(Ticket model) {
+        TicketSoap soapModel = new TicketSoap();
 
-	public static TicketSoap[] toSoapModels(Ticket[] models) {
-		TicketSoap[] soapModels = new TicketSoap[models.length];
+        soapModel.setTicketId(model.getTicketId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setCreateDate(model.getCreateDate());
+        soapModel.setClassNameId(model.getClassNameId());
+        soapModel.setClassPK(model.getClassPK());
+        soapModel.setKey(model.getKey());
+        soapModel.setType(model.getType());
+        soapModel.setExtraInfo(model.getExtraInfo());
+        soapModel.setExpirationDate(model.getExpirationDate());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static TicketSoap[] toSoapModels(Ticket[] models) {
+        TicketSoap[] soapModels = new TicketSoap[models.length];
 
-	public static TicketSoap[][] toSoapModels(Ticket[][] models) {
-		TicketSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new TicketSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new TicketSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static TicketSoap[][] toSoapModels(Ticket[][] models) {
+        TicketSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new TicketSoap[models.length][models[0].length];
+        } else {
+            soapModels = new TicketSoap[0][0];
+        }
 
-	public static TicketSoap[] toSoapModels(List<Ticket> models) {
-		List<TicketSoap> soapModels = new ArrayList<TicketSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (Ticket model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new TicketSoap[soapModels.size()]);
-	}
+    public static TicketSoap[] toSoapModels(List<Ticket> models) {
+        List<TicketSoap> soapModels = new ArrayList<TicketSoap>(models.size());
 
-	public TicketSoap() {
-	}
+        for (Ticket model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _ticketId;
-	}
+        return soapModels.toArray(new TicketSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setTicketId(pk);
-	}
+    public long getPrimaryKey() {
+        return _ticketId;
+    }
 
-	public long getTicketId() {
-		return _ticketId;
-	}
+    public void setPrimaryKey(long pk) {
+        setTicketId(pk);
+    }
 
-	public void setTicketId(long ticketId) {
-		_ticketId = ticketId;
-	}
+    public long getTicketId() {
+        return _ticketId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setTicketId(long ticketId) {
+        _ticketId = ticketId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public Date getCreateDate() {
-		return _createDate;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setCreateDate(Date createDate) {
-		_createDate = createDate;
-	}
+    public Date getCreateDate() {
+        return _createDate;
+    }
 
-	public long getClassNameId() {
-		return _classNameId;
-	}
+    public void setCreateDate(Date createDate) {
+        _createDate = createDate;
+    }
 
-	public void setClassNameId(long classNameId) {
-		_classNameId = classNameId;
-	}
+    public long getClassNameId() {
+        return _classNameId;
+    }
 
-	public long getClassPK() {
-		return _classPK;
-	}
+    public void setClassNameId(long classNameId) {
+        _classNameId = classNameId;
+    }
 
-	public void setClassPK(long classPK) {
-		_classPK = classPK;
-	}
+    public long getClassPK() {
+        return _classPK;
+    }
 
-	public String getKey() {
-		return _key;
-	}
+    public void setClassPK(long classPK) {
+        _classPK = classPK;
+    }
 
-	public void setKey(String key) {
-		_key = key;
-	}
+    public String getKey() {
+        return _key;
+    }
 
-	public int getType() {
-		return _type;
-	}
+    public void setKey(String key) {
+        _key = key;
+    }
 
-	public void setType(int type) {
-		_type = type;
-	}
+    public int getType() {
+        return _type;
+    }
 
-	public String getExtraInfo() {
-		return _extraInfo;
-	}
+    public void setType(int type) {
+        _type = type;
+    }
 
-	public void setExtraInfo(String extraInfo) {
-		_extraInfo = extraInfo;
-	}
+    public String getExtraInfo() {
+        return _extraInfo;
+    }
 
-	public Date getExpirationDate() {
-		return _expirationDate;
-	}
+    public void setExtraInfo(String extraInfo) {
+        _extraInfo = extraInfo;
+    }
 
-	public void setExpirationDate(Date expirationDate) {
-		_expirationDate = expirationDate;
-	}
+    public Date getExpirationDate() {
+        return _expirationDate;
+    }
 
-	private long _ticketId;
-	private long _companyId;
-	private Date _createDate;
-	private long _classNameId;
-	private long _classPK;
-	private String _key;
-	private int _type;
-	private String _extraInfo;
-	private Date _expirationDate;
+    public void setExpirationDate(Date expirationDate) {
+        _expirationDate = expirationDate;
+    }
 }

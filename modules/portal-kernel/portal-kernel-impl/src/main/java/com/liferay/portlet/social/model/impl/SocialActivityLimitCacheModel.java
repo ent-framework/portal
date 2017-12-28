@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.social.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -33,111 +19,107 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class SocialActivityLimitCacheModel implements CacheModel<SocialActivityLimit>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(19);
+    Externalizable {
+    public long activityLimitId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public long classNameId;
+    public long classPK;
+    public int activityType;
+    public String activityCounterName;
+    public String value;
 
-		sb.append("{activityLimitId=");
-		sb.append(activityLimitId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", classNameId=");
-		sb.append(classNameId);
-		sb.append(", classPK=");
-		sb.append(classPK);
-		sb.append(", activityType=");
-		sb.append(activityType);
-		sb.append(", activityCounterName=");
-		sb.append(activityCounterName);
-		sb.append(", value=");
-		sb.append(value);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(19);
 
-		return sb.toString();
-	}
+        sb.append("{activityLimitId=");
+        sb.append(activityLimitId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", classNameId=");
+        sb.append(classNameId);
+        sb.append(", classPK=");
+        sb.append(classPK);
+        sb.append(", activityType=");
+        sb.append(activityType);
+        sb.append(", activityCounterName=");
+        sb.append(activityCounterName);
+        sb.append(", value=");
+        sb.append(value);
+        sb.append("}");
 
-	@Override
-	public SocialActivityLimit toEntityModel() {
-		SocialActivityLimitImpl socialActivityLimitImpl = new SocialActivityLimitImpl();
+        return sb.toString();
+    }
 
-		socialActivityLimitImpl.setActivityLimitId(activityLimitId);
-		socialActivityLimitImpl.setGroupId(groupId);
-		socialActivityLimitImpl.setCompanyId(companyId);
-		socialActivityLimitImpl.setUserId(userId);
-		socialActivityLimitImpl.setClassNameId(classNameId);
-		socialActivityLimitImpl.setClassPK(classPK);
-		socialActivityLimitImpl.setActivityType(activityType);
+    @Override
+    public SocialActivityLimit toEntityModel() {
+        SocialActivityLimitImpl socialActivityLimitImpl = new SocialActivityLimitImpl();
 
-		if (activityCounterName == null) {
-			socialActivityLimitImpl.setActivityCounterName(StringPool.BLANK);
-		}
-		else {
-			socialActivityLimitImpl.setActivityCounterName(activityCounterName);
-		}
+        socialActivityLimitImpl.setActivityLimitId(activityLimitId);
+        socialActivityLimitImpl.setGroupId(groupId);
+        socialActivityLimitImpl.setCompanyId(companyId);
+        socialActivityLimitImpl.setUserId(userId);
+        socialActivityLimitImpl.setClassNameId(classNameId);
+        socialActivityLimitImpl.setClassPK(classPK);
+        socialActivityLimitImpl.setActivityType(activityType);
 
-		if (value == null) {
-			socialActivityLimitImpl.setValue(StringPool.BLANK);
-		}
-		else {
-			socialActivityLimitImpl.setValue(value);
-		}
+        if (activityCounterName == null) {
+            socialActivityLimitImpl.setActivityCounterName(StringPool.BLANK);
+        } else {
+            socialActivityLimitImpl.setActivityCounterName(activityCounterName);
+        }
 
-		socialActivityLimitImpl.resetOriginalValues();
+        if (value == null) {
+            socialActivityLimitImpl.setValue(StringPool.BLANK);
+        } else {
+            socialActivityLimitImpl.setValue(value);
+        }
 
-		return socialActivityLimitImpl;
-	}
+        socialActivityLimitImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		activityLimitId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		classNameId = objectInput.readLong();
-		classPK = objectInput.readLong();
-		activityType = objectInput.readInt();
-		activityCounterName = objectInput.readUTF();
-		value = objectInput.readUTF();
-	}
+        return socialActivityLimitImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(activityLimitId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
-		objectOutput.writeLong(classNameId);
-		objectOutput.writeLong(classPK);
-		objectOutput.writeInt(activityType);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        activityLimitId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        classNameId = objectInput.readLong();
+        classPK = objectInput.readLong();
+        activityType = objectInput.readInt();
+        activityCounterName = objectInput.readUTF();
+        value = objectInput.readUTF();
+    }
 
-		if (activityCounterName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(activityCounterName);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(activityLimitId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
+        objectOutput.writeLong(classNameId);
+        objectOutput.writeLong(classPK);
+        objectOutput.writeInt(activityType);
 
-		if (value == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(value);
-		}
-	}
+        if (activityCounterName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(activityCounterName);
+        }
 
-	public long activityLimitId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public long classNameId;
-	public long classPK;
-	public int activityType;
-	public String activityCounterName;
-	public String value;
+        if (value == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(value);
+        }
+    }
 }

@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.service.http;
 
 import com.liferay.portal.kernel.log.Log;
@@ -20,6 +6,7 @@ import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.ImageServiceUtil;
+import com.liferay.portal.service.http.TunnelUtil;
 
 /**
  * Provides the HTTP utility for the
@@ -50,44 +37,42 @@ import com.liferay.portal.service.ImageServiceUtil;
  * @generated
  */
 public class ImageServiceHttp {
-	public static com.liferay.portal.model.Image getImage(
-		HttpPrincipal httpPrincipal, long imageId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(ImageServiceUtil.class,
-					"getImage", _getImageParameterTypes0);
+    private static Log _log = LogFactoryUtil.getLog(ImageServiceHttp.class);
+    private static final Class<?>[] _getImageParameterTypes0 = new Class[] {
+            long.class
+        };
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, imageId);
+    public static com.liferay.portal.model.Image getImage(
+        HttpPrincipal httpPrincipal, long imageId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(ImageServiceUtil.class,
+                    "getImage", _getImageParameterTypes0);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey, imageId);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portal.model.Image)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portal.model.Image) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	private static Log _log = LogFactoryUtil.getLog(ImageServiceHttp.class);
-	private static final Class<?>[] _getImageParameterTypes0 = new Class[] {
-			long.class
-		};
+            throw se;
+        }
+    }
 }

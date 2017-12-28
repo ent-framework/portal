@@ -1,22 +1,10 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.bean.AutoEscape;
+import com.liferay.portal.model.BaseModel;
+import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.service.ServiceContext;
 
 import com.liferay.portlet.expando.model.ExpandoBridge;
@@ -38,174 +26,174 @@ import java.io.Serializable;
  */
 @ProviderType
 public interface PluginSettingModel extends BaseModel<PluginSetting> {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this interface directly. All methods that expect a plugin setting model instance should use the {@link PluginSetting} interface instead.
-	 */
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this interface directly. All methods that expect a plugin setting model instance should use the {@link PluginSetting} interface instead.
+     */
 
-	/**
-	 * Returns the primary key of this plugin setting.
-	 *
-	 * @return the primary key of this plugin setting
-	 */
-	public long getPrimaryKey();
+    /**
+     * Returns the primary key of this plugin setting.
+     *
+     * @return the primary key of this plugin setting
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this plugin setting.
-	 *
-	 * @param primaryKey the primary key of this plugin setting
-	 */
-	public void setPrimaryKey(long primaryKey);
+    /**
+     * Sets the primary key of this plugin setting.
+     *
+     * @param primaryKey the primary key of this plugin setting
+     */
+    public void setPrimaryKey(long primaryKey);
 
-	/**
-	 * Returns the plugin setting ID of this plugin setting.
-	 *
-	 * @return the plugin setting ID of this plugin setting
-	 */
-	public long getPluginSettingId();
+    /**
+     * Returns the plugin setting ID of this plugin setting.
+     *
+     * @return the plugin setting ID of this plugin setting
+     */
+    public long getPluginSettingId();
 
-	/**
-	 * Sets the plugin setting ID of this plugin setting.
-	 *
-	 * @param pluginSettingId the plugin setting ID of this plugin setting
-	 */
-	public void setPluginSettingId(long pluginSettingId);
+    /**
+     * Sets the plugin setting ID of this plugin setting.
+     *
+     * @param pluginSettingId the plugin setting ID of this plugin setting
+     */
+    public void setPluginSettingId(long pluginSettingId);
 
-	/**
-	 * Returns the company ID of this plugin setting.
-	 *
-	 * @return the company ID of this plugin setting
-	 */
-	public long getCompanyId();
+    /**
+     * Returns the company ID of this plugin setting.
+     *
+     * @return the company ID of this plugin setting
+     */
+    public long getCompanyId();
 
-	/**
-	 * Sets the company ID of this plugin setting.
-	 *
-	 * @param companyId the company ID of this plugin setting
-	 */
-	public void setCompanyId(long companyId);
+    /**
+     * Sets the company ID of this plugin setting.
+     *
+     * @param companyId the company ID of this plugin setting
+     */
+    public void setCompanyId(long companyId);
 
-	/**
-	 * Returns the plugin ID of this plugin setting.
-	 *
-	 * @return the plugin ID of this plugin setting
-	 */
-	@AutoEscape
-	public String getPluginId();
+    /**
+     * Returns the plugin ID of this plugin setting.
+     *
+     * @return the plugin ID of this plugin setting
+     */
+    @AutoEscape
+    public String getPluginId();
 
-	/**
-	 * Sets the plugin ID of this plugin setting.
-	 *
-	 * @param pluginId the plugin ID of this plugin setting
-	 */
-	public void setPluginId(String pluginId);
+    /**
+     * Sets the plugin ID of this plugin setting.
+     *
+     * @param pluginId the plugin ID of this plugin setting
+     */
+    public void setPluginId(String pluginId);
 
-	/**
-	 * Returns the plugin type of this plugin setting.
-	 *
-	 * @return the plugin type of this plugin setting
-	 */
-	@AutoEscape
-	public String getPluginType();
+    /**
+     * Returns the plugin type of this plugin setting.
+     *
+     * @return the plugin type of this plugin setting
+     */
+    @AutoEscape
+    public String getPluginType();
 
-	/**
-	 * Sets the plugin type of this plugin setting.
-	 *
-	 * @param pluginType the plugin type of this plugin setting
-	 */
-	public void setPluginType(String pluginType);
+    /**
+     * Sets the plugin type of this plugin setting.
+     *
+     * @param pluginType the plugin type of this plugin setting
+     */
+    public void setPluginType(String pluginType);
 
-	/**
-	 * Returns the roles of this plugin setting.
-	 *
-	 * @return the roles of this plugin setting
-	 */
-	@AutoEscape
-	public String getRoles();
+    /**
+     * Returns the roles of this plugin setting.
+     *
+     * @return the roles of this plugin setting
+     */
+    @AutoEscape
+    public String getRoles();
 
-	/**
-	 * Sets the roles of this plugin setting.
-	 *
-	 * @param roles the roles of this plugin setting
-	 */
-	public void setRoles(String roles);
+    /**
+     * Sets the roles of this plugin setting.
+     *
+     * @param roles the roles of this plugin setting
+     */
+    public void setRoles(String roles);
 
-	/**
-	 * Returns the active of this plugin setting.
-	 *
-	 * @return the active of this plugin setting
-	 */
-	public boolean getActive();
+    /**
+     * Returns the active of this plugin setting.
+     *
+     * @return the active of this plugin setting
+     */
+    public boolean getActive();
 
-	/**
-	 * Returns <code>true</code> if this plugin setting is active.
-	 *
-	 * @return <code>true</code> if this plugin setting is active; <code>false</code> otherwise
-	 */
-	public boolean isActive();
+    /**
+     * Returns <code>true</code> if this plugin setting is active.
+     *
+     * @return <code>true</code> if this plugin setting is active; <code>false</code> otherwise
+     */
+    public boolean isActive();
 
-	/**
-	 * Sets whether this plugin setting is active.
-	 *
-	 * @param active the active of this plugin setting
-	 */
-	public void setActive(boolean active);
+    /**
+     * Sets whether this plugin setting is active.
+     *
+     * @param active the active of this plugin setting
+     */
+    public void setActive(boolean active);
 
-	@Override
-	public boolean isNew();
+    @Override
+    public boolean isNew();
 
-	@Override
-	public void setNew(boolean n);
+    @Override
+    public void setNew(boolean n);
 
-	@Override
-	public boolean isCachedModel();
+    @Override
+    public boolean isCachedModel();
 
-	@Override
-	public void setCachedModel(boolean cachedModel);
+    @Override
+    public void setCachedModel(boolean cachedModel);
 
-	@Override
-	public boolean isEscapedModel();
+    @Override
+    public boolean isEscapedModel();
 
-	@Override
-	public Serializable getPrimaryKeyObj();
+    @Override
+    public Serializable getPrimaryKeyObj();
 
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj);
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj);
 
-	@Override
-	public ExpandoBridge getExpandoBridge();
+    @Override
+    public ExpandoBridge getExpandoBridge();
 
-	@Override
-	public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
+    @Override
+    public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
 
-	@Override
-	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
+    @Override
+    public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	@Override
-	public Object clone();
+    @Override
+    public Object clone();
 
-	@Override
-	public int compareTo(PluginSetting pluginSetting);
+    @Override
+    public int compareTo(com.liferay.portal.model.PluginSetting pluginSetting);
 
-	@Override
-	public int hashCode();
+    @Override
+    public int hashCode();
 
-	@Override
-	public CacheModel<PluginSetting> toCacheModel();
+    @Override
+    public CacheModel<com.liferay.portal.model.PluginSetting> toCacheModel();
 
-	@Override
-	public PluginSetting toEscapedModel();
+    @Override
+    public com.liferay.portal.model.PluginSetting toEscapedModel();
 
-	@Override
-	public PluginSetting toUnescapedModel();
+    @Override
+    public com.liferay.portal.model.PluginSetting toUnescapedModel();
 
-	@Override
-	public String toString();
+    @Override
+    public String toString();
 
-	@Override
-	public String toXmlString();
+    @Override
+    public String toXmlString();
 }

@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.asset.service;
 
 import aQute.bnd.annotation.ProviderType;
@@ -35,79 +21,79 @@ import com.liferay.portal.kernel.util.ReferenceRegistry;
  */
 @ProviderType
 public class AssetCategoryPropertyServiceUtil {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify this class directly. Add custom service methods to {@link com.liferay.portlet.asset.service.impl.AssetCategoryPropertyServiceImpl} and rerun ServiceBuilder to regenerate this class.
-	 */
+    private static AssetCategoryPropertyService _service;
 
-	/**
-	* Returns the Spring bean ID for this bean.
-	*
-	* @return the Spring bean ID for this bean
-	*/
-	public static java.lang.String getBeanIdentifier() {
-		return getService().getBeanIdentifier();
-	}
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify this class directly. Add custom service methods to {@link com.liferay.portlet.asset.service.impl.AssetCategoryPropertyServiceImpl} and rerun ServiceBuilder to regenerate this class.
+     */
 
-	/**
-	* Sets the Spring bean ID for this bean.
-	*
-	* @param beanIdentifier the Spring bean ID for this bean
-	*/
-	public static void setBeanIdentifier(java.lang.String beanIdentifier) {
-		getService().setBeanIdentifier(beanIdentifier);
-	}
+    /**
+    * Returns the Spring bean ID for this bean.
+    *
+    * @return the Spring bean ID for this bean
+    */
+    public static java.lang.String getBeanIdentifier() {
+        return getService().getBeanIdentifier();
+    }
 
-	public static com.liferay.portlet.asset.model.AssetCategoryProperty addCategoryProperty(
-		long entryId, java.lang.String key, java.lang.String value)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return getService().addCategoryProperty(entryId, key, value);
-	}
+    /**
+    * Sets the Spring bean ID for this bean.
+    *
+    * @param beanIdentifier the Spring bean ID for this bean
+    */
+    public static void setBeanIdentifier(java.lang.String beanIdentifier) {
+        getService().setBeanIdentifier(beanIdentifier);
+    }
 
-	public static void deleteCategoryProperty(long categoryPropertyId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		getService().deleteCategoryProperty(categoryPropertyId);
-	}
+    public static com.liferay.portlet.asset.model.AssetCategoryProperty addCategoryProperty(
+        long entryId, java.lang.String key, java.lang.String value)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        return getService().addCategoryProperty(entryId, key, value);
+    }
 
-	public static java.util.List<com.liferay.portlet.asset.model.AssetCategoryProperty> getCategoryProperties(
-		long entryId)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getCategoryProperties(entryId);
-	}
+    public static void deleteCategoryProperty(long categoryPropertyId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        getService().deleteCategoryProperty(categoryPropertyId);
+    }
 
-	public static java.util.List<com.liferay.portlet.asset.model.AssetCategoryProperty> getCategoryPropertyValues(
-		long companyId, java.lang.String key)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getCategoryPropertyValues(companyId, key);
-	}
+    public static java.util.List<com.liferay.portlet.asset.model.AssetCategoryProperty> getCategoryProperties(
+        long entryId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getService().getCategoryProperties(entryId);
+    }
 
-	public static com.liferay.portlet.asset.model.AssetCategoryProperty updateCategoryProperty(
-		long categoryPropertyId, java.lang.String key, java.lang.String value)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return getService()
-				   .updateCategoryProperty(categoryPropertyId, key, value);
-	}
+    public static java.util.List<com.liferay.portlet.asset.model.AssetCategoryProperty> getCategoryPropertyValues(
+        long companyId, java.lang.String key)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getService().getCategoryPropertyValues(companyId, key);
+    }
 
-	public static AssetCategoryPropertyService getService() {
-		if (_service == null) {
-			_service = (AssetCategoryPropertyService)PortalBeanLocatorUtil.locate(AssetCategoryPropertyService.class.getName());
+    public static com.liferay.portlet.asset.model.AssetCategoryProperty updateCategoryProperty(
+        long categoryPropertyId, java.lang.String key, java.lang.String value)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        return getService()
+                   .updateCategoryProperty(categoryPropertyId, key, value);
+    }
 
-			ReferenceRegistry.registerReference(AssetCategoryPropertyServiceUtil.class,
-				"_service");
-		}
+    public static AssetCategoryPropertyService getService() {
+        if (_service == null) {
+            _service = (AssetCategoryPropertyService) PortalBeanLocatorUtil.locate(AssetCategoryPropertyService.class.getName());
 
-		return _service;
-	}
+            ReferenceRegistry.registerReference(AssetCategoryPropertyServiceUtil.class,
+                "_service");
+        }
 
-	/**
-	 * @deprecated As of 6.2.0
-	 */
-	public void setService(AssetCategoryPropertyService service) {
-	}
+        return _service;
+    }
 
-	private static AssetCategoryPropertyService _service;
+    /**
+     * @deprecated As of 6.2.0
+     */
+    public void setService(AssetCategoryPropertyService service) {
+    }
 }

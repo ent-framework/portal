@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -28,162 +14,161 @@ import java.util.List;
  * @generated
  */
 public class MembershipRequestSoap implements Serializable {
-	public static MembershipRequestSoap toSoapModel(MembershipRequest model) {
-		MembershipRequestSoap soapModel = new MembershipRequestSoap();
+    private long _membershipRequestId;
+    private long _groupId;
+    private long _companyId;
+    private long _userId;
+    private Date _createDate;
+    private String _comments;
+    private String _replyComments;
+    private Date _replyDate;
+    private long _replierUserId;
+    private int _statusId;
 
-		soapModel.setMembershipRequestId(model.getMembershipRequestId());
-		soapModel.setGroupId(model.getGroupId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setCreateDate(model.getCreateDate());
-		soapModel.setComments(model.getComments());
-		soapModel.setReplyComments(model.getReplyComments());
-		soapModel.setReplyDate(model.getReplyDate());
-		soapModel.setReplierUserId(model.getReplierUserId());
-		soapModel.setStatusId(model.getStatusId());
+    public MembershipRequestSoap() {
+    }
 
-		return soapModel;
-	}
+    public static MembershipRequestSoap toSoapModel(MembershipRequest model) {
+        MembershipRequestSoap soapModel = new MembershipRequestSoap();
 
-	public static MembershipRequestSoap[] toSoapModels(
-		MembershipRequest[] models) {
-		MembershipRequestSoap[] soapModels = new MembershipRequestSoap[models.length];
+        soapModel.setMembershipRequestId(model.getMembershipRequestId());
+        soapModel.setGroupId(model.getGroupId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setCreateDate(model.getCreateDate());
+        soapModel.setComments(model.getComments());
+        soapModel.setReplyComments(model.getReplyComments());
+        soapModel.setReplyDate(model.getReplyDate());
+        soapModel.setReplierUserId(model.getReplierUserId());
+        soapModel.setStatusId(model.getStatusId());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static MembershipRequestSoap[] toSoapModels(
+        MembershipRequest[] models) {
+        MembershipRequestSoap[] soapModels = new MembershipRequestSoap[models.length];
 
-	public static MembershipRequestSoap[][] toSoapModels(
-		MembershipRequest[][] models) {
-		MembershipRequestSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new MembershipRequestSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new MembershipRequestSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static MembershipRequestSoap[][] toSoapModels(
+        MembershipRequest[][] models) {
+        MembershipRequestSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new MembershipRequestSoap[models.length][models[0].length];
+        } else {
+            soapModels = new MembershipRequestSoap[0][0];
+        }
 
-	public static MembershipRequestSoap[] toSoapModels(
-		List<MembershipRequest> models) {
-		List<MembershipRequestSoap> soapModels = new ArrayList<MembershipRequestSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (MembershipRequest model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new MembershipRequestSoap[soapModels.size()]);
-	}
+    public static MembershipRequestSoap[] toSoapModels(
+        List<MembershipRequest> models) {
+        List<MembershipRequestSoap> soapModels = new ArrayList<MembershipRequestSoap>(models.size());
 
-	public MembershipRequestSoap() {
-	}
+        for (MembershipRequest model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _membershipRequestId;
-	}
+        return soapModels.toArray(new MembershipRequestSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setMembershipRequestId(pk);
-	}
+    public long getPrimaryKey() {
+        return _membershipRequestId;
+    }
 
-	public long getMembershipRequestId() {
-		return _membershipRequestId;
-	}
+    public void setPrimaryKey(long pk) {
+        setMembershipRequestId(pk);
+    }
 
-	public void setMembershipRequestId(long membershipRequestId) {
-		_membershipRequestId = membershipRequestId;
-	}
+    public long getMembershipRequestId() {
+        return _membershipRequestId;
+    }
 
-	public long getGroupId() {
-		return _groupId;
-	}
+    public void setMembershipRequestId(long membershipRequestId) {
+        _membershipRequestId = membershipRequestId;
+    }
 
-	public void setGroupId(long groupId) {
-		_groupId = groupId;
-	}
+    public long getGroupId() {
+        return _groupId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setGroupId(long groupId) {
+        _groupId = groupId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public Date getCreateDate() {
-		return _createDate;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setCreateDate(Date createDate) {
-		_createDate = createDate;
-	}
+    public Date getCreateDate() {
+        return _createDate;
+    }
 
-	public String getComments() {
-		return _comments;
-	}
+    public void setCreateDate(Date createDate) {
+        _createDate = createDate;
+    }
 
-	public void setComments(String comments) {
-		_comments = comments;
-	}
+    public String getComments() {
+        return _comments;
+    }
 
-	public String getReplyComments() {
-		return _replyComments;
-	}
+    public void setComments(String comments) {
+        _comments = comments;
+    }
 
-	public void setReplyComments(String replyComments) {
-		_replyComments = replyComments;
-	}
+    public String getReplyComments() {
+        return _replyComments;
+    }
 
-	public Date getReplyDate() {
-		return _replyDate;
-	}
+    public void setReplyComments(String replyComments) {
+        _replyComments = replyComments;
+    }
 
-	public void setReplyDate(Date replyDate) {
-		_replyDate = replyDate;
-	}
+    public Date getReplyDate() {
+        return _replyDate;
+    }
 
-	public long getReplierUserId() {
-		return _replierUserId;
-	}
+    public void setReplyDate(Date replyDate) {
+        _replyDate = replyDate;
+    }
 
-	public void setReplierUserId(long replierUserId) {
-		_replierUserId = replierUserId;
-	}
+    public long getReplierUserId() {
+        return _replierUserId;
+    }
 
-	public int getStatusId() {
-		return _statusId;
-	}
+    public void setReplierUserId(long replierUserId) {
+        _replierUserId = replierUserId;
+    }
 
-	public void setStatusId(int statusId) {
-		_statusId = statusId;
-	}
+    public int getStatusId() {
+        return _statusId;
+    }
 
-	private long _membershipRequestId;
-	private long _groupId;
-	private long _companyId;
-	private long _userId;
-	private Date _createDate;
-	private String _comments;
-	private String _replyComments;
-	private Date _replyDate;
-	private long _replierUserId;
-	private int _statusId;
+    public void setStatusId(int statusId) {
+        _statusId = statusId;
+    }
 }

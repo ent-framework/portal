@@ -1,23 +1,12 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.model.BaseModel;
+import com.liferay.portal.model.CacheModel;
+import com.liferay.portal.model.GroupedModel;
 import com.liferay.portal.service.ServiceContext;
 
 import com.liferay.portlet.expando.model.ExpandoBridge;
@@ -41,238 +30,238 @@ import java.util.Date;
  */
 @ProviderType
 public interface TeamModel extends BaseModel<Team>, GroupedModel {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this interface directly. All methods that expect a team model instance should use the {@link Team} interface instead.
-	 */
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this interface directly. All methods that expect a team model instance should use the {@link Team} interface instead.
+     */
 
-	/**
-	 * Returns the primary key of this team.
-	 *
-	 * @return the primary key of this team
-	 */
-	public long getPrimaryKey();
+    /**
+     * Returns the primary key of this team.
+     *
+     * @return the primary key of this team
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this team.
-	 *
-	 * @param primaryKey the primary key of this team
-	 */
-	public void setPrimaryKey(long primaryKey);
+    /**
+     * Sets the primary key of this team.
+     *
+     * @param primaryKey the primary key of this team
+     */
+    public void setPrimaryKey(long primaryKey);
 
-	/**
-	 * Returns the team ID of this team.
-	 *
-	 * @return the team ID of this team
-	 */
-	public long getTeamId();
+    /**
+     * Returns the team ID of this team.
+     *
+     * @return the team ID of this team
+     */
+    public long getTeamId();
 
-	/**
-	 * Sets the team ID of this team.
-	 *
-	 * @param teamId the team ID of this team
-	 */
-	public void setTeamId(long teamId);
+    /**
+     * Sets the team ID of this team.
+     *
+     * @param teamId the team ID of this team
+     */
+    public void setTeamId(long teamId);
 
-	/**
-	 * Returns the company ID of this team.
-	 *
-	 * @return the company ID of this team
-	 */
-	@Override
-	public long getCompanyId();
+    /**
+     * Returns the company ID of this team.
+     *
+     * @return the company ID of this team
+     */
+    @Override
+    public long getCompanyId();
 
-	/**
-	 * Sets the company ID of this team.
-	 *
-	 * @param companyId the company ID of this team
-	 */
-	@Override
-	public void setCompanyId(long companyId);
+    /**
+     * Sets the company ID of this team.
+     *
+     * @param companyId the company ID of this team
+     */
+    @Override
+    public void setCompanyId(long companyId);
 
-	/**
-	 * Returns the user ID of this team.
-	 *
-	 * @return the user ID of this team
-	 */
-	@Override
-	public long getUserId();
+    /**
+     * Returns the user ID of this team.
+     *
+     * @return the user ID of this team
+     */
+    @Override
+    public long getUserId();
 
-	/**
-	 * Sets the user ID of this team.
-	 *
-	 * @param userId the user ID of this team
-	 */
-	@Override
-	public void setUserId(long userId);
+    /**
+     * Sets the user ID of this team.
+     *
+     * @param userId the user ID of this team
+     */
+    @Override
+    public void setUserId(long userId);
 
-	/**
-	 * Returns the user uuid of this team.
-	 *
-	 * @return the user uuid of this team
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Override
-	public String getUserUuid() throws SystemException;
+    /**
+     * Returns the user uuid of this team.
+     *
+     * @return the user uuid of this team
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    public String getUserUuid() throws SystemException;
 
-	/**
-	 * Sets the user uuid of this team.
-	 *
-	 * @param userUuid the user uuid of this team
-	 */
-	@Override
-	public void setUserUuid(String userUuid);
+    /**
+     * Sets the user uuid of this team.
+     *
+     * @param userUuid the user uuid of this team
+     */
+    @Override
+    public void setUserUuid(String userUuid);
 
-	/**
-	 * Returns the user name of this team.
-	 *
-	 * @return the user name of this team
-	 */
-	@AutoEscape
-	@Override
-	public String getUserName();
+    /**
+     * Returns the user name of this team.
+     *
+     * @return the user name of this team
+     */
+    @AutoEscape
+    @Override
+    public String getUserName();
 
-	/**
-	 * Sets the user name of this team.
-	 *
-	 * @param userName the user name of this team
-	 */
-	@Override
-	public void setUserName(String userName);
+    /**
+     * Sets the user name of this team.
+     *
+     * @param userName the user name of this team
+     */
+    @Override
+    public void setUserName(String userName);
 
-	/**
-	 * Returns the create date of this team.
-	 *
-	 * @return the create date of this team
-	 */
-	@Override
-	public Date getCreateDate();
+    /**
+     * Returns the create date of this team.
+     *
+     * @return the create date of this team
+     */
+    @Override
+    public Date getCreateDate();
 
-	/**
-	 * Sets the create date of this team.
-	 *
-	 * @param createDate the create date of this team
-	 */
-	@Override
-	public void setCreateDate(Date createDate);
+    /**
+     * Sets the create date of this team.
+     *
+     * @param createDate the create date of this team
+     */
+    @Override
+    public void setCreateDate(Date createDate);
 
-	/**
-	 * Returns the modified date of this team.
-	 *
-	 * @return the modified date of this team
-	 */
-	@Override
-	public Date getModifiedDate();
+    /**
+     * Returns the modified date of this team.
+     *
+     * @return the modified date of this team
+     */
+    @Override
+    public Date getModifiedDate();
 
-	/**
-	 * Sets the modified date of this team.
-	 *
-	 * @param modifiedDate the modified date of this team
-	 */
-	@Override
-	public void setModifiedDate(Date modifiedDate);
+    /**
+     * Sets the modified date of this team.
+     *
+     * @param modifiedDate the modified date of this team
+     */
+    @Override
+    public void setModifiedDate(Date modifiedDate);
 
-	/**
-	 * Returns the group ID of this team.
-	 *
-	 * @return the group ID of this team
-	 */
-	@Override
-	public long getGroupId();
+    /**
+     * Returns the group ID of this team.
+     *
+     * @return the group ID of this team
+     */
+    @Override
+    public long getGroupId();
 
-	/**
-	 * Sets the group ID of this team.
-	 *
-	 * @param groupId the group ID of this team
-	 */
-	@Override
-	public void setGroupId(long groupId);
+    /**
+     * Sets the group ID of this team.
+     *
+     * @param groupId the group ID of this team
+     */
+    @Override
+    public void setGroupId(long groupId);
 
-	/**
-	 * Returns the name of this team.
-	 *
-	 * @return the name of this team
-	 */
-	@AutoEscape
-	public String getName();
+    /**
+     * Returns the name of this team.
+     *
+     * @return the name of this team
+     */
+    @AutoEscape
+    public String getName();
 
-	/**
-	 * Sets the name of this team.
-	 *
-	 * @param name the name of this team
-	 */
-	public void setName(String name);
+    /**
+     * Sets the name of this team.
+     *
+     * @param name the name of this team
+     */
+    public void setName(String name);
 
-	/**
-	 * Returns the description of this team.
-	 *
-	 * @return the description of this team
-	 */
-	@AutoEscape
-	public String getDescription();
+    /**
+     * Returns the description of this team.
+     *
+     * @return the description of this team
+     */
+    @AutoEscape
+    public String getDescription();
 
-	/**
-	 * Sets the description of this team.
-	 *
-	 * @param description the description of this team
-	 */
-	public void setDescription(String description);
+    /**
+     * Sets the description of this team.
+     *
+     * @param description the description of this team
+     */
+    public void setDescription(String description);
 
-	@Override
-	public boolean isNew();
+    @Override
+    public boolean isNew();
 
-	@Override
-	public void setNew(boolean n);
+    @Override
+    public void setNew(boolean n);
 
-	@Override
-	public boolean isCachedModel();
+    @Override
+    public boolean isCachedModel();
 
-	@Override
-	public void setCachedModel(boolean cachedModel);
+    @Override
+    public void setCachedModel(boolean cachedModel);
 
-	@Override
-	public boolean isEscapedModel();
+    @Override
+    public boolean isEscapedModel();
 
-	@Override
-	public Serializable getPrimaryKeyObj();
+    @Override
+    public Serializable getPrimaryKeyObj();
 
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj);
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj);
 
-	@Override
-	public ExpandoBridge getExpandoBridge();
+    @Override
+    public ExpandoBridge getExpandoBridge();
 
-	@Override
-	public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
+    @Override
+    public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
 
-	@Override
-	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
+    @Override
+    public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	@Override
-	public Object clone();
+    @Override
+    public Object clone();
 
-	@Override
-	public int compareTo(Team team);
+    @Override
+    public int compareTo(com.liferay.portal.model.Team team);
 
-	@Override
-	public int hashCode();
+    @Override
+    public int hashCode();
 
-	@Override
-	public CacheModel<Team> toCacheModel();
+    @Override
+    public CacheModel<com.liferay.portal.model.Team> toCacheModel();
 
-	@Override
-	public Team toEscapedModel();
+    @Override
+    public com.liferay.portal.model.Team toEscapedModel();
 
-	@Override
-	public Team toUnescapedModel();
+    @Override
+    public com.liferay.portal.model.Team toUnescapedModel();
 
-	@Override
-	public String toString();
+    @Override
+    public String toString();
 
-	@Override
-	public String toXmlString();
+    @Override
+    public String toXmlString();
 }

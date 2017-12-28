@@ -61,12 +61,22 @@
                 <groupId>javax.portlet</groupId>
                 <artifactId>portlet-api</artifactId>
                 <version>${portlet-api.version}</version>
-                <scope>provided</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
     <build>
+	    <resources>
+		     <resource>
+		       <directory>src/main/java</directory>
+		       <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+		     </resource>
+		     <resource>
+		       <directory>src/main/resources</directory>
+		     </resource>
+	    </resources>
         <pluginManagement>
             <plugins>
                 <plugin>

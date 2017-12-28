@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.documentlibrary.service.persistence;
 
 import com.liferay.portal.kernel.dao.orm.Criterion;
@@ -39,80 +25,79 @@ import com.liferay.portlet.documentlibrary.model.DLFolder;
  * @generated
  */
 public class DLFolderExportActionableDynamicQuery
-	extends DLFolderActionableDynamicQuery {
-	public DLFolderExportActionableDynamicQuery(
-		PortletDataContext portletDataContext) throws SystemException {
-		_portletDataContext = portletDataContext;
+    extends DLFolderActionableDynamicQuery {
+    private PortletDataContext _portletDataContext;
 
-		setCompanyId(_portletDataContext.getCompanyId());
+    public DLFolderExportActionableDynamicQuery(
+        PortletDataContext portletDataContext) throws SystemException {
+        _portletDataContext = portletDataContext;
 
-		setGroupId(_portletDataContext.getScopeGroupId());
-	}
+        setCompanyId(_portletDataContext.getCompanyId());
 
-	@Override
-	public long performCount() throws PortalException, SystemException {
-		ManifestSummary manifestSummary = _portletDataContext.getManifestSummary();
+        setGroupId(_portletDataContext.getScopeGroupId());
+    }
 
-		StagedModelType stagedModelType = getStagedModelType();
+    @Override
+    public long performCount() throws PortalException, SystemException {
+        ManifestSummary manifestSummary = _portletDataContext.getManifestSummary();
 
-		long modelAdditionCount = super.performCount();
+        StagedModelType stagedModelType = getStagedModelType();
 
-		manifestSummary.addModelAdditionCount(stagedModelType.toString(),
-			modelAdditionCount);
+        long modelAdditionCount = super.performCount();
 
-		long modelDeletionCount = ExportImportHelperUtil.getModelDeletionCount(_portletDataContext,
-				stagedModelType);
+        manifestSummary.addModelAdditionCount(stagedModelType.toString(),
+            modelAdditionCount);
 
-		manifestSummary.addModelDeletionCount(stagedModelType.toString(),
-			modelDeletionCount);
+        long modelDeletionCount = ExportImportHelperUtil.getModelDeletionCount(_portletDataContext,
+                stagedModelType);
 
-		return modelAdditionCount;
-	}
+        manifestSummary.addModelDeletionCount(stagedModelType.toString(),
+            modelDeletionCount);
 
-	@Override
-	protected void addCriteria(DynamicQuery dynamicQuery) {
-		Criterion modifiedDateCriterion = _portletDataContext.getDateRangeCriteria(
-				"modifiedDate");
-		Criterion statusDateCriterion = _portletDataContext.getDateRangeCriteria(
-				"statusDate");
+        return modelAdditionCount;
+    }
 
-		if ((modifiedDateCriterion != null) && (statusDateCriterion != null)) {
-			Disjunction disjunction = RestrictionsFactoryUtil.disjunction();
+    @Override
+    protected void addCriteria(DynamicQuery dynamicQuery) {
+        Criterion modifiedDateCriterion = _portletDataContext.getDateRangeCriteria(
+                "modifiedDate");
+        Criterion statusDateCriterion = _portletDataContext.getDateRangeCriteria(
+                "statusDate");
 
-			disjunction.add(modifiedDateCriterion);
-			disjunction.add(statusDateCriterion);
+        if ((modifiedDateCriterion != null) && (statusDateCriterion != null)) {
+            Disjunction disjunction = RestrictionsFactoryUtil.disjunction();
 
-			dynamicQuery.add(disjunction);
-		}
+            disjunction.add(modifiedDateCriterion);
+            disjunction.add(statusDateCriterion);
 
-		Property workflowStatusProperty = PropertyFactoryUtil.forName("status");
+            dynamicQuery.add(disjunction);
+        }
 
-		if (_portletDataContext.isInitialPublication()) {
-			dynamicQuery.add(workflowStatusProperty.ne(
-					WorkflowConstants.STATUS_IN_TRASH));
-		}
-		else {
-			StagedModelDataHandler<?> stagedModelDataHandler = StagedModelDataHandlerRegistryUtil.getStagedModelDataHandler(DLFolder.class.getName());
+        Property workflowStatusProperty = PropertyFactoryUtil.forName("status");
 
-			dynamicQuery.add(workflowStatusProperty.in(
-					stagedModelDataHandler.getExportableStatuses()));
-		}
-	}
+        if (_portletDataContext.isInitialPublication()) {
+            dynamicQuery.add(workflowStatusProperty.ne(
+                    WorkflowConstants.STATUS_IN_TRASH));
+        } else {
+            StagedModelDataHandler<?> stagedModelDataHandler = StagedModelDataHandlerRegistryUtil.getStagedModelDataHandler(DLFolder.class.getName());
 
-	protected StagedModelType getStagedModelType() {
-		return new StagedModelType(PortalUtil.getClassNameId(
-				DLFolder.class.getName()));
-	}
+            dynamicQuery.add(workflowStatusProperty.in(
+                    stagedModelDataHandler.getExportableStatuses()));
+        }
+    }
 
-	@Override
-	@SuppressWarnings("unused")
-	protected void performAction(Object object)
-		throws PortalException, SystemException {
-		DLFolder stagedModel = (DLFolder)object;
+    protected StagedModelType getStagedModelType() {
+        return new StagedModelType(PortalUtil.getClassNameId(
+                DLFolder.class.getName()));
+    }
 
-		StagedModelDataHandlerUtil.exportStagedModel(_portletDataContext,
-			stagedModel);
-	}
+    @Override
+    @SuppressWarnings("unused")
+    protected void performAction(Object object)
+        throws PortalException, SystemException {
+        DLFolder stagedModel = (DLFolder) object;
 
-	private PortletDataContext _portletDataContext;
+        StagedModelDataHandlerUtil.exportStagedModel(_portletDataContext,
+            stagedModel);
+    }
 }

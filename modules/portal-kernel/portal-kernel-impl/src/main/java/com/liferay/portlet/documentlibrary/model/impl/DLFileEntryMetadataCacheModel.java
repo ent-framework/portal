@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.documentlibrary.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -33,87 +19,85 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class DLFileEntryMetadataCacheModel implements CacheModel<DLFileEntryMetadata>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(15);
+    Externalizable {
+    public String uuid;
+    public long fileEntryMetadataId;
+    public long DDMStorageId;
+    public long DDMStructureId;
+    public long fileEntryTypeId;
+    public long fileEntryId;
+    public long fileVersionId;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", fileEntryMetadataId=");
-		sb.append(fileEntryMetadataId);
-		sb.append(", DDMStorageId=");
-		sb.append(DDMStorageId);
-		sb.append(", DDMStructureId=");
-		sb.append(DDMStructureId);
-		sb.append(", fileEntryTypeId=");
-		sb.append(fileEntryTypeId);
-		sb.append(", fileEntryId=");
-		sb.append(fileEntryId);
-		sb.append(", fileVersionId=");
-		sb.append(fileVersionId);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(15);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", fileEntryMetadataId=");
+        sb.append(fileEntryMetadataId);
+        sb.append(", DDMStorageId=");
+        sb.append(DDMStorageId);
+        sb.append(", DDMStructureId=");
+        sb.append(DDMStructureId);
+        sb.append(", fileEntryTypeId=");
+        sb.append(fileEntryTypeId);
+        sb.append(", fileEntryId=");
+        sb.append(fileEntryId);
+        sb.append(", fileVersionId=");
+        sb.append(fileVersionId);
+        sb.append("}");
 
-	@Override
-	public DLFileEntryMetadata toEntityModel() {
-		DLFileEntryMetadataImpl dlFileEntryMetadataImpl = new DLFileEntryMetadataImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			dlFileEntryMetadataImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			dlFileEntryMetadataImpl.setUuid(uuid);
-		}
+    @Override
+    public DLFileEntryMetadata toEntityModel() {
+        DLFileEntryMetadataImpl dlFileEntryMetadataImpl = new DLFileEntryMetadataImpl();
 
-		dlFileEntryMetadataImpl.setFileEntryMetadataId(fileEntryMetadataId);
-		dlFileEntryMetadataImpl.setDDMStorageId(DDMStorageId);
-		dlFileEntryMetadataImpl.setDDMStructureId(DDMStructureId);
-		dlFileEntryMetadataImpl.setFileEntryTypeId(fileEntryTypeId);
-		dlFileEntryMetadataImpl.setFileEntryId(fileEntryId);
-		dlFileEntryMetadataImpl.setFileVersionId(fileVersionId);
+        if (uuid == null) {
+            dlFileEntryMetadataImpl.setUuid(StringPool.BLANK);
+        } else {
+            dlFileEntryMetadataImpl.setUuid(uuid);
+        }
 
-		dlFileEntryMetadataImpl.resetOriginalValues();
+        dlFileEntryMetadataImpl.setFileEntryMetadataId(fileEntryMetadataId);
+        dlFileEntryMetadataImpl.setDDMStorageId(DDMStorageId);
+        dlFileEntryMetadataImpl.setDDMStructureId(DDMStructureId);
+        dlFileEntryMetadataImpl.setFileEntryTypeId(fileEntryTypeId);
+        dlFileEntryMetadataImpl.setFileEntryId(fileEntryId);
+        dlFileEntryMetadataImpl.setFileVersionId(fileVersionId);
 
-		return dlFileEntryMetadataImpl;
-	}
+        dlFileEntryMetadataImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		fileEntryMetadataId = objectInput.readLong();
-		DDMStorageId = objectInput.readLong();
-		DDMStructureId = objectInput.readLong();
-		fileEntryTypeId = objectInput.readLong();
-		fileEntryId = objectInput.readLong();
-		fileVersionId = objectInput.readLong();
-	}
+        return dlFileEntryMetadataImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        fileEntryMetadataId = objectInput.readLong();
+        DDMStorageId = objectInput.readLong();
+        DDMStructureId = objectInput.readLong();
+        fileEntryTypeId = objectInput.readLong();
+        fileEntryId = objectInput.readLong();
+        fileVersionId = objectInput.readLong();
+    }
 
-		objectOutput.writeLong(fileEntryMetadataId);
-		objectOutput.writeLong(DDMStorageId);
-		objectOutput.writeLong(DDMStructureId);
-		objectOutput.writeLong(fileEntryTypeId);
-		objectOutput.writeLong(fileEntryId);
-		objectOutput.writeLong(fileVersionId);
-	}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-	public String uuid;
-	public long fileEntryMetadataId;
-	public long DDMStorageId;
-	public long DDMStructureId;
-	public long fileEntryTypeId;
-	public long fileEntryId;
-	public long fileVersionId;
+        objectOutput.writeLong(fileEntryMetadataId);
+        objectOutput.writeLong(DDMStorageId);
+        objectOutput.writeLong(DDMStructureId);
+        objectOutput.writeLong(fileEntryTypeId);
+        objectOutput.writeLong(fileEntryId);
+        objectOutput.writeLong(fileVersionId);
+    }
 }

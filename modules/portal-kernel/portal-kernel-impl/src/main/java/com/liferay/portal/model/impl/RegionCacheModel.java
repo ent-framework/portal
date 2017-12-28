@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -32,88 +18,84 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class RegionCacheModel implements CacheModel<Region>, Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(11);
+    public long regionId;
+    public long countryId;
+    public String regionCode;
+    public String name;
+    public boolean active;
 
-		sb.append("{regionId=");
-		sb.append(regionId);
-		sb.append(", countryId=");
-		sb.append(countryId);
-		sb.append(", regionCode=");
-		sb.append(regionCode);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", active=");
-		sb.append(active);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(11);
 
-		return sb.toString();
-	}
+        sb.append("{regionId=");
+        sb.append(regionId);
+        sb.append(", countryId=");
+        sb.append(countryId);
+        sb.append(", regionCode=");
+        sb.append(regionCode);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", active=");
+        sb.append(active);
+        sb.append("}");
 
-	@Override
-	public Region toEntityModel() {
-		RegionImpl regionImpl = new RegionImpl();
+        return sb.toString();
+    }
 
-		regionImpl.setRegionId(regionId);
-		regionImpl.setCountryId(countryId);
+    @Override
+    public Region toEntityModel() {
+        RegionImpl regionImpl = new RegionImpl();
 
-		if (regionCode == null) {
-			regionImpl.setRegionCode(StringPool.BLANK);
-		}
-		else {
-			regionImpl.setRegionCode(regionCode);
-		}
+        regionImpl.setRegionId(regionId);
+        regionImpl.setCountryId(countryId);
 
-		if (name == null) {
-			regionImpl.setName(StringPool.BLANK);
-		}
-		else {
-			regionImpl.setName(name);
-		}
+        if (regionCode == null) {
+            regionImpl.setRegionCode(StringPool.BLANK);
+        } else {
+            regionImpl.setRegionCode(regionCode);
+        }
 
-		regionImpl.setActive(active);
+        if (name == null) {
+            regionImpl.setName(StringPool.BLANK);
+        } else {
+            regionImpl.setName(name);
+        }
 
-		regionImpl.resetOriginalValues();
+        regionImpl.setActive(active);
 
-		return regionImpl;
-	}
+        regionImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		regionId = objectInput.readLong();
-		countryId = objectInput.readLong();
-		regionCode = objectInput.readUTF();
-		name = objectInput.readUTF();
-		active = objectInput.readBoolean();
-	}
+        return regionImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(regionId);
-		objectOutput.writeLong(countryId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        regionId = objectInput.readLong();
+        countryId = objectInput.readLong();
+        regionCode = objectInput.readUTF();
+        name = objectInput.readUTF();
+        active = objectInput.readBoolean();
+    }
 
-		if (regionCode == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(regionCode);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(regionId);
+        objectOutput.writeLong(countryId);
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        if (regionCode == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(regionCode);
+        }
 
-		objectOutput.writeBoolean(active);
-	}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-	public long regionId;
-	public long countryId;
-	public String regionCode;
-	public String name;
-	public boolean active;
+        objectOutput.writeBoolean(active);
+    }
 }

@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -27,149 +13,148 @@ import java.util.List;
  * @generated
  */
 public class SubscriptionSoap implements Serializable {
-	public static SubscriptionSoap toSoapModel(Subscription model) {
-		SubscriptionSoap soapModel = new SubscriptionSoap();
+    private long _subscriptionId;
+    private long _companyId;
+    private long _userId;
+    private String _userName;
+    private Date _createDate;
+    private Date _modifiedDate;
+    private long _classNameId;
+    private long _classPK;
+    private String _frequency;
 
-		soapModel.setSubscriptionId(model.getSubscriptionId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setUserName(model.getUserName());
-		soapModel.setCreateDate(model.getCreateDate());
-		soapModel.setModifiedDate(model.getModifiedDate());
-		soapModel.setClassNameId(model.getClassNameId());
-		soapModel.setClassPK(model.getClassPK());
-		soapModel.setFrequency(model.getFrequency());
+    public SubscriptionSoap() {
+    }
 
-		return soapModel;
-	}
+    public static SubscriptionSoap toSoapModel(Subscription model) {
+        SubscriptionSoap soapModel = new SubscriptionSoap();
 
-	public static SubscriptionSoap[] toSoapModels(Subscription[] models) {
-		SubscriptionSoap[] soapModels = new SubscriptionSoap[models.length];
+        soapModel.setSubscriptionId(model.getSubscriptionId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setUserName(model.getUserName());
+        soapModel.setCreateDate(model.getCreateDate());
+        soapModel.setModifiedDate(model.getModifiedDate());
+        soapModel.setClassNameId(model.getClassNameId());
+        soapModel.setClassPK(model.getClassPK());
+        soapModel.setFrequency(model.getFrequency());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static SubscriptionSoap[] toSoapModels(Subscription[] models) {
+        SubscriptionSoap[] soapModels = new SubscriptionSoap[models.length];
 
-	public static SubscriptionSoap[][] toSoapModels(Subscription[][] models) {
-		SubscriptionSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new SubscriptionSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new SubscriptionSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static SubscriptionSoap[][] toSoapModels(Subscription[][] models) {
+        SubscriptionSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new SubscriptionSoap[models.length][models[0].length];
+        } else {
+            soapModels = new SubscriptionSoap[0][0];
+        }
 
-	public static SubscriptionSoap[] toSoapModels(List<Subscription> models) {
-		List<SubscriptionSoap> soapModels = new ArrayList<SubscriptionSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (Subscription model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new SubscriptionSoap[soapModels.size()]);
-	}
+    public static SubscriptionSoap[] toSoapModels(List<Subscription> models) {
+        List<SubscriptionSoap> soapModels = new ArrayList<SubscriptionSoap>(models.size());
 
-	public SubscriptionSoap() {
-	}
+        for (Subscription model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _subscriptionId;
-	}
+        return soapModels.toArray(new SubscriptionSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setSubscriptionId(pk);
-	}
+    public long getPrimaryKey() {
+        return _subscriptionId;
+    }
 
-	public long getSubscriptionId() {
-		return _subscriptionId;
-	}
+    public void setPrimaryKey(long pk) {
+        setSubscriptionId(pk);
+    }
 
-	public void setSubscriptionId(long subscriptionId) {
-		_subscriptionId = subscriptionId;
-	}
+    public long getSubscriptionId() {
+        return _subscriptionId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setSubscriptionId(long subscriptionId) {
+        _subscriptionId = subscriptionId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public String getUserName() {
-		return _userName;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setUserName(String userName) {
-		_userName = userName;
-	}
+    public String getUserName() {
+        return _userName;
+    }
 
-	public Date getCreateDate() {
-		return _createDate;
-	}
+    public void setUserName(String userName) {
+        _userName = userName;
+    }
 
-	public void setCreateDate(Date createDate) {
-		_createDate = createDate;
-	}
+    public Date getCreateDate() {
+        return _createDate;
+    }
 
-	public Date getModifiedDate() {
-		return _modifiedDate;
-	}
+    public void setCreateDate(Date createDate) {
+        _createDate = createDate;
+    }
 
-	public void setModifiedDate(Date modifiedDate) {
-		_modifiedDate = modifiedDate;
-	}
+    public Date getModifiedDate() {
+        return _modifiedDate;
+    }
 
-	public long getClassNameId() {
-		return _classNameId;
-	}
+    public void setModifiedDate(Date modifiedDate) {
+        _modifiedDate = modifiedDate;
+    }
 
-	public void setClassNameId(long classNameId) {
-		_classNameId = classNameId;
-	}
+    public long getClassNameId() {
+        return _classNameId;
+    }
 
-	public long getClassPK() {
-		return _classPK;
-	}
+    public void setClassNameId(long classNameId) {
+        _classNameId = classNameId;
+    }
 
-	public void setClassPK(long classPK) {
-		_classPK = classPK;
-	}
+    public long getClassPK() {
+        return _classPK;
+    }
 
-	public String getFrequency() {
-		return _frequency;
-	}
+    public void setClassPK(long classPK) {
+        _classPK = classPK;
+    }
 
-	public void setFrequency(String frequency) {
-		_frequency = frequency;
-	}
+    public String getFrequency() {
+        return _frequency;
+    }
 
-	private long _subscriptionId;
-	private long _companyId;
-	private long _userId;
-	private String _userName;
-	private Date _createDate;
-	private Date _modifiedDate;
-	private long _classNameId;
-	private long _classPK;
-	private String _frequency;
+    public void setFrequency(String frequency) {
+        _frequency = frequency;
+    }
 }

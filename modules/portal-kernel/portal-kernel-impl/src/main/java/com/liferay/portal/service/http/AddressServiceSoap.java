@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
@@ -64,110 +50,104 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class AddressServiceSoap {
-	/**
-	* @deprecated As of 6.2.0, replaced by {@link #addAddress( String, long,
-	String, String, String, String, String, long, long, int,
-	boolean, boolean, ServiceContext)}
-	*/
-	public static com.liferay.portal.model.AddressSoap addAddress(
-		java.lang.String className, long classPK, java.lang.String street1,
-		java.lang.String street2, java.lang.String street3,
-		java.lang.String city, java.lang.String zip, long regionId,
-		long countryId, int typeId, boolean mailing, boolean primary)
-		throws RemoteException {
-		try {
-			com.liferay.portal.model.Address returnValue = AddressServiceUtil.addAddress(className,
-					classPK, street1, street2, street3, city, zip, regionId,
-					countryId, typeId, mailing, primary);
+    private static Log _log = LogFactoryUtil.getLog(AddressServiceSoap.class);
 
-			return com.liferay.portal.model.AddressSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    /**
+    * @deprecated As of 6.2.0, replaced by {@link #addAddress( String, long,
+    String, String, String, String, String, long, long, int,
+    boolean, boolean, ServiceContext)}
+    */
+    public static com.liferay.portal.model.AddressSoap addAddress(
+        java.lang.String className, long classPK, java.lang.String street1,
+        java.lang.String street2, java.lang.String street3,
+        java.lang.String city, java.lang.String zip, long regionId,
+        long countryId, int typeId, boolean mailing, boolean primary)
+        throws RemoteException {
+        try {
+            com.liferay.portal.model.Address returnValue = AddressServiceUtil.addAddress(className,
+                    classPK, street1, street2, street3, city, zip, regionId,
+                    countryId, typeId, mailing, primary);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.AddressSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portal.model.AddressSoap addAddress(
-		java.lang.String className, long classPK, java.lang.String street1,
-		java.lang.String street2, java.lang.String street3,
-		java.lang.String city, java.lang.String zip, long regionId,
-		long countryId, int typeId, boolean mailing, boolean primary,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			com.liferay.portal.model.Address returnValue = AddressServiceUtil.addAddress(className,
-					classPK, street1, street2, street3, city, zip, regionId,
-					countryId, typeId, mailing, primary, serviceContext);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portal.model.AddressSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.AddressSoap addAddress(
+        java.lang.String className, long classPK, java.lang.String street1,
+        java.lang.String street2, java.lang.String street3,
+        java.lang.String city, java.lang.String zip, long regionId,
+        long countryId, int typeId, boolean mailing, boolean primary,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            com.liferay.portal.model.Address returnValue = AddressServiceUtil.addAddress(className,
+                    classPK, street1, street2, street3, city, zip, regionId,
+                    countryId, typeId, mailing, primary, serviceContext);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.AddressSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void deleteAddress(long addressId) throws RemoteException {
-		try {
-			AddressServiceUtil.deleteAddress(addressId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void deleteAddress(long addressId) throws RemoteException {
+        try {
+            AddressServiceUtil.deleteAddress(addressId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portal.model.AddressSoap getAddress(
-		long addressId) throws RemoteException {
-		try {
-			com.liferay.portal.model.Address returnValue = AddressServiceUtil.getAddress(addressId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portal.model.AddressSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.AddressSoap getAddress(
+        long addressId) throws RemoteException {
+        try {
+            com.liferay.portal.model.Address returnValue = AddressServiceUtil.getAddress(addressId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.AddressSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portal.model.AddressSoap[] getAddresses(
-		java.lang.String className, long classPK) throws RemoteException {
-		try {
-			java.util.List<com.liferay.portal.model.Address> returnValue = AddressServiceUtil.getAddresses(className,
-					classPK);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portal.model.AddressSoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.AddressSoap[] getAddresses(
+        java.lang.String className, long classPK) throws RemoteException {
+        try {
+            java.util.List<com.liferay.portal.model.Address> returnValue = AddressServiceUtil.getAddresses(className,
+                    classPK);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.AddressSoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portal.model.AddressSoap updateAddress(
-		long addressId, java.lang.String street1, java.lang.String street2,
-		java.lang.String street3, java.lang.String city, java.lang.String zip,
-		long regionId, long countryId, int typeId, boolean mailing,
-		boolean primary) throws RemoteException {
-		try {
-			com.liferay.portal.model.Address returnValue = AddressServiceUtil.updateAddress(addressId,
-					street1, street2, street3, city, zip, regionId, countryId,
-					typeId, mailing, primary);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portal.model.AddressSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.AddressSoap updateAddress(
+        long addressId, java.lang.String street1, java.lang.String street2,
+        java.lang.String street3, java.lang.String city, java.lang.String zip,
+        long regionId, long countryId, int typeId, boolean mailing,
+        boolean primary) throws RemoteException {
+        try {
+            com.liferay.portal.model.Address returnValue = AddressServiceUtil.updateAddress(addressId,
+                    street1, street2, street3, city, zip, regionId, countryId,
+                    typeId, mailing, primary);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.AddressSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	private static Log _log = LogFactoryUtil.getLog(AddressServiceSoap.class);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

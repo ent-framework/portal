@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.bookmarks.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -35,230 +21,215 @@ import java.util.Date;
  * @generated
  */
 public class BookmarksFolderCacheModel implements CacheModel<BookmarksFolder>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(35);
+    Externalizable {
+    public String uuid;
+    public long folderId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public long resourceBlockId;
+    public long parentFolderId;
+    public String treePath;
+    public String name;
+    public String description;
+    public int status;
+    public long statusByUserId;
+    public String statusByUserName;
+    public long statusDate;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", folderId=");
-		sb.append(folderId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", resourceBlockId=");
-		sb.append(resourceBlockId);
-		sb.append(", parentFolderId=");
-		sb.append(parentFolderId);
-		sb.append(", treePath=");
-		sb.append(treePath);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", description=");
-		sb.append(description);
-		sb.append(", status=");
-		sb.append(status);
-		sb.append(", statusByUserId=");
-		sb.append(statusByUserId);
-		sb.append(", statusByUserName=");
-		sb.append(statusByUserName);
-		sb.append(", statusDate=");
-		sb.append(statusDate);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(35);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", folderId=");
+        sb.append(folderId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", resourceBlockId=");
+        sb.append(resourceBlockId);
+        sb.append(", parentFolderId=");
+        sb.append(parentFolderId);
+        sb.append(", treePath=");
+        sb.append(treePath);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", description=");
+        sb.append(description);
+        sb.append(", status=");
+        sb.append(status);
+        sb.append(", statusByUserId=");
+        sb.append(statusByUserId);
+        sb.append(", statusByUserName=");
+        sb.append(statusByUserName);
+        sb.append(", statusDate=");
+        sb.append(statusDate);
+        sb.append("}");
 
-	@Override
-	public BookmarksFolder toEntityModel() {
-		BookmarksFolderImpl bookmarksFolderImpl = new BookmarksFolderImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			bookmarksFolderImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			bookmarksFolderImpl.setUuid(uuid);
-		}
+    @Override
+    public BookmarksFolder toEntityModel() {
+        BookmarksFolderImpl bookmarksFolderImpl = new BookmarksFolderImpl();
 
-		bookmarksFolderImpl.setFolderId(folderId);
-		bookmarksFolderImpl.setGroupId(groupId);
-		bookmarksFolderImpl.setCompanyId(companyId);
-		bookmarksFolderImpl.setUserId(userId);
+        if (uuid == null) {
+            bookmarksFolderImpl.setUuid(StringPool.BLANK);
+        } else {
+            bookmarksFolderImpl.setUuid(uuid);
+        }
 
-		if (userName == null) {
-			bookmarksFolderImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			bookmarksFolderImpl.setUserName(userName);
-		}
+        bookmarksFolderImpl.setFolderId(folderId);
+        bookmarksFolderImpl.setGroupId(groupId);
+        bookmarksFolderImpl.setCompanyId(companyId);
+        bookmarksFolderImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			bookmarksFolderImpl.setCreateDate(null);
-		}
-		else {
-			bookmarksFolderImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            bookmarksFolderImpl.setUserName(StringPool.BLANK);
+        } else {
+            bookmarksFolderImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			bookmarksFolderImpl.setModifiedDate(null);
-		}
-		else {
-			bookmarksFolderImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            bookmarksFolderImpl.setCreateDate(null);
+        } else {
+            bookmarksFolderImpl.setCreateDate(new Date(createDate));
+        }
 
-		bookmarksFolderImpl.setResourceBlockId(resourceBlockId);
-		bookmarksFolderImpl.setParentFolderId(parentFolderId);
+        if (modifiedDate == Long.MIN_VALUE) {
+            bookmarksFolderImpl.setModifiedDate(null);
+        } else {
+            bookmarksFolderImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (treePath == null) {
-			bookmarksFolderImpl.setTreePath(StringPool.BLANK);
-		}
-		else {
-			bookmarksFolderImpl.setTreePath(treePath);
-		}
+        bookmarksFolderImpl.setResourceBlockId(resourceBlockId);
+        bookmarksFolderImpl.setParentFolderId(parentFolderId);
 
-		if (name == null) {
-			bookmarksFolderImpl.setName(StringPool.BLANK);
-		}
-		else {
-			bookmarksFolderImpl.setName(name);
-		}
+        if (treePath == null) {
+            bookmarksFolderImpl.setTreePath(StringPool.BLANK);
+        } else {
+            bookmarksFolderImpl.setTreePath(treePath);
+        }
 
-		if (description == null) {
-			bookmarksFolderImpl.setDescription(StringPool.BLANK);
-		}
-		else {
-			bookmarksFolderImpl.setDescription(description);
-		}
+        if (name == null) {
+            bookmarksFolderImpl.setName(StringPool.BLANK);
+        } else {
+            bookmarksFolderImpl.setName(name);
+        }
 
-		bookmarksFolderImpl.setStatus(status);
-		bookmarksFolderImpl.setStatusByUserId(statusByUserId);
+        if (description == null) {
+            bookmarksFolderImpl.setDescription(StringPool.BLANK);
+        } else {
+            bookmarksFolderImpl.setDescription(description);
+        }
 
-		if (statusByUserName == null) {
-			bookmarksFolderImpl.setStatusByUserName(StringPool.BLANK);
-		}
-		else {
-			bookmarksFolderImpl.setStatusByUserName(statusByUserName);
-		}
+        bookmarksFolderImpl.setStatus(status);
+        bookmarksFolderImpl.setStatusByUserId(statusByUserId);
 
-		if (statusDate == Long.MIN_VALUE) {
-			bookmarksFolderImpl.setStatusDate(null);
-		}
-		else {
-			bookmarksFolderImpl.setStatusDate(new Date(statusDate));
-		}
+        if (statusByUserName == null) {
+            bookmarksFolderImpl.setStatusByUserName(StringPool.BLANK);
+        } else {
+            bookmarksFolderImpl.setStatusByUserName(statusByUserName);
+        }
 
-		bookmarksFolderImpl.resetOriginalValues();
+        if (statusDate == Long.MIN_VALUE) {
+            bookmarksFolderImpl.setStatusDate(null);
+        } else {
+            bookmarksFolderImpl.setStatusDate(new Date(statusDate));
+        }
 
-		return bookmarksFolderImpl;
-	}
+        bookmarksFolderImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		folderId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		resourceBlockId = objectInput.readLong();
-		parentFolderId = objectInput.readLong();
-		treePath = objectInput.readUTF();
-		name = objectInput.readUTF();
-		description = objectInput.readUTF();
-		status = objectInput.readInt();
-		statusByUserId = objectInput.readLong();
-		statusByUserName = objectInput.readUTF();
-		statusDate = objectInput.readLong();
-	}
+        return bookmarksFolderImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        folderId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        resourceBlockId = objectInput.readLong();
+        parentFolderId = objectInput.readLong();
+        treePath = objectInput.readUTF();
+        name = objectInput.readUTF();
+        description = objectInput.readUTF();
+        status = objectInput.readInt();
+        statusByUserId = objectInput.readLong();
+        statusByUserName = objectInput.readUTF();
+        statusDate = objectInput.readLong();
+    }
 
-		objectOutput.writeLong(folderId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+        objectOutput.writeLong(folderId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(resourceBlockId);
-		objectOutput.writeLong(parentFolderId);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (treePath == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(treePath);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(resourceBlockId);
+        objectOutput.writeLong(parentFolderId);
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        if (treePath == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(treePath);
+        }
 
-		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(description);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		objectOutput.writeInt(status);
-		objectOutput.writeLong(statusByUserId);
+        if (description == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(description);
+        }
 
-		if (statusByUserName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(statusByUserName);
-		}
+        objectOutput.writeInt(status);
+        objectOutput.writeLong(statusByUserId);
 
-		objectOutput.writeLong(statusDate);
-	}
+        if (statusByUserName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(statusByUserName);
+        }
 
-	public String uuid;
-	public long folderId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public long resourceBlockId;
-	public long parentFolderId;
-	public String treePath;
-	public String name;
-	public String description;
-	public int status;
-	public long statusByUserId;
-	public String statusByUserName;
-	public long statusDate;
+        objectOutput.writeLong(statusDate);
+    }
 }

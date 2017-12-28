@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,174 +20,162 @@ import java.util.Date;
  * @generated
  */
 public class LayoutSetPrototypeCacheModel implements CacheModel<LayoutSetPrototype>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(23);
+    Externalizable {
+    public String uuid;
+    public long layoutSetPrototypeId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public String name;
+    public String description;
+    public String settings;
+    public boolean active;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", layoutSetPrototypeId=");
-		sb.append(layoutSetPrototypeId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", description=");
-		sb.append(description);
-		sb.append(", settings=");
-		sb.append(settings);
-		sb.append(", active=");
-		sb.append(active);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(23);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", layoutSetPrototypeId=");
+        sb.append(layoutSetPrototypeId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", description=");
+        sb.append(description);
+        sb.append(", settings=");
+        sb.append(settings);
+        sb.append(", active=");
+        sb.append(active);
+        sb.append("}");
 
-	@Override
-	public LayoutSetPrototype toEntityModel() {
-		LayoutSetPrototypeImpl layoutSetPrototypeImpl = new LayoutSetPrototypeImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			layoutSetPrototypeImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			layoutSetPrototypeImpl.setUuid(uuid);
-		}
+    @Override
+    public LayoutSetPrototype toEntityModel() {
+        LayoutSetPrototypeImpl layoutSetPrototypeImpl = new LayoutSetPrototypeImpl();
 
-		layoutSetPrototypeImpl.setLayoutSetPrototypeId(layoutSetPrototypeId);
-		layoutSetPrototypeImpl.setCompanyId(companyId);
-		layoutSetPrototypeImpl.setUserId(userId);
+        if (uuid == null) {
+            layoutSetPrototypeImpl.setUuid(StringPool.BLANK);
+        } else {
+            layoutSetPrototypeImpl.setUuid(uuid);
+        }
 
-		if (userName == null) {
-			layoutSetPrototypeImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			layoutSetPrototypeImpl.setUserName(userName);
-		}
+        layoutSetPrototypeImpl.setLayoutSetPrototypeId(layoutSetPrototypeId);
+        layoutSetPrototypeImpl.setCompanyId(companyId);
+        layoutSetPrototypeImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			layoutSetPrototypeImpl.setCreateDate(null);
-		}
-		else {
-			layoutSetPrototypeImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            layoutSetPrototypeImpl.setUserName(StringPool.BLANK);
+        } else {
+            layoutSetPrototypeImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			layoutSetPrototypeImpl.setModifiedDate(null);
-		}
-		else {
-			layoutSetPrototypeImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            layoutSetPrototypeImpl.setCreateDate(null);
+        } else {
+            layoutSetPrototypeImpl.setCreateDate(new Date(createDate));
+        }
 
-		if (name == null) {
-			layoutSetPrototypeImpl.setName(StringPool.BLANK);
-		}
-		else {
-			layoutSetPrototypeImpl.setName(name);
-		}
+        if (modifiedDate == Long.MIN_VALUE) {
+            layoutSetPrototypeImpl.setModifiedDate(null);
+        } else {
+            layoutSetPrototypeImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (description == null) {
-			layoutSetPrototypeImpl.setDescription(StringPool.BLANK);
-		}
-		else {
-			layoutSetPrototypeImpl.setDescription(description);
-		}
+        if (name == null) {
+            layoutSetPrototypeImpl.setName(StringPool.BLANK);
+        } else {
+            layoutSetPrototypeImpl.setName(name);
+        }
 
-		if (settings == null) {
-			layoutSetPrototypeImpl.setSettings(StringPool.BLANK);
-		}
-		else {
-			layoutSetPrototypeImpl.setSettings(settings);
-		}
+        if (description == null) {
+            layoutSetPrototypeImpl.setDescription(StringPool.BLANK);
+        } else {
+            layoutSetPrototypeImpl.setDescription(description);
+        }
 
-		layoutSetPrototypeImpl.setActive(active);
+        if (settings == null) {
+            layoutSetPrototypeImpl.setSettings(StringPool.BLANK);
+        } else {
+            layoutSetPrototypeImpl.setSettings(settings);
+        }
 
-		layoutSetPrototypeImpl.resetOriginalValues();
+        layoutSetPrototypeImpl.setActive(active);
 
-		return layoutSetPrototypeImpl;
-	}
+        layoutSetPrototypeImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		layoutSetPrototypeId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		name = objectInput.readUTF();
-		description = objectInput.readUTF();
-		settings = objectInput.readUTF();
-		active = objectInput.readBoolean();
-	}
+        return layoutSetPrototypeImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        layoutSetPrototypeId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        name = objectInput.readUTF();
+        description = objectInput.readUTF();
+        settings = objectInput.readUTF();
+        active = objectInput.readBoolean();
+    }
 
-		objectOutput.writeLong(layoutSetPrototypeId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+        objectOutput.writeLong(layoutSetPrototypeId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
 
-		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(description);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		if (settings == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(settings);
-		}
+        if (description == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(description);
+        }
 
-		objectOutput.writeBoolean(active);
-	}
+        if (settings == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(settings);
+        }
 
-	public String uuid;
-	public long layoutSetPrototypeId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public String name;
-	public String description;
-	public String settings;
-	public boolean active;
+        objectOutput.writeBoolean(active);
+    }
 }

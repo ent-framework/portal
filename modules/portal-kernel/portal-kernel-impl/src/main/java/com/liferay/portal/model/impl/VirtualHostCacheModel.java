@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -32,69 +18,67 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class VirtualHostCacheModel implements CacheModel<VirtualHost>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(9);
+    Externalizable {
+    public long virtualHostId;
+    public long companyId;
+    public long layoutSetId;
+    public String hostname;
 
-		sb.append("{virtualHostId=");
-		sb.append(virtualHostId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", layoutSetId=");
-		sb.append(layoutSetId);
-		sb.append(", hostname=");
-		sb.append(hostname);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(9);
 
-		return sb.toString();
-	}
+        sb.append("{virtualHostId=");
+        sb.append(virtualHostId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", layoutSetId=");
+        sb.append(layoutSetId);
+        sb.append(", hostname=");
+        sb.append(hostname);
+        sb.append("}");
 
-	@Override
-	public VirtualHost toEntityModel() {
-		VirtualHostImpl virtualHostImpl = new VirtualHostImpl();
+        return sb.toString();
+    }
 
-		virtualHostImpl.setVirtualHostId(virtualHostId);
-		virtualHostImpl.setCompanyId(companyId);
-		virtualHostImpl.setLayoutSetId(layoutSetId);
+    @Override
+    public VirtualHost toEntityModel() {
+        VirtualHostImpl virtualHostImpl = new VirtualHostImpl();
 
-		if (hostname == null) {
-			virtualHostImpl.setHostname(StringPool.BLANK);
-		}
-		else {
-			virtualHostImpl.setHostname(hostname);
-		}
+        virtualHostImpl.setVirtualHostId(virtualHostId);
+        virtualHostImpl.setCompanyId(companyId);
+        virtualHostImpl.setLayoutSetId(layoutSetId);
 
-		virtualHostImpl.resetOriginalValues();
+        if (hostname == null) {
+            virtualHostImpl.setHostname(StringPool.BLANK);
+        } else {
+            virtualHostImpl.setHostname(hostname);
+        }
 
-		return virtualHostImpl;
-	}
+        virtualHostImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		virtualHostId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		layoutSetId = objectInput.readLong();
-		hostname = objectInput.readUTF();
-	}
+        return virtualHostImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(virtualHostId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(layoutSetId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        virtualHostId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        layoutSetId = objectInput.readLong();
+        hostname = objectInput.readUTF();
+    }
 
-		if (hostname == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(hostname);
-		}
-	}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(virtualHostId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(layoutSetId);
 
-	public long virtualHostId;
-	public long companyId;
-	public long layoutSetId;
-	public String hostname;
+        if (hostname == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(hostname);
+        }
+    }
 }

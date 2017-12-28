@@ -1,22 +1,10 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.bean.AutoEscape;
+import com.liferay.portal.model.BaseModel;
+import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.service.ServiceContext;
 
 import com.liferay.portlet.expando.model.ExpandoBridge;
@@ -40,137 +28,138 @@ import java.util.Date;
  */
 @ProviderType
 public interface UserTrackerPathModel extends BaseModel<UserTrackerPath> {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this interface directly. All methods that expect a user tracker path model instance should use the {@link UserTrackerPath} interface instead.
-	 */
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this interface directly. All methods that expect a user tracker path model instance should use the {@link UserTrackerPath} interface instead.
+     */
 
-	/**
-	 * Returns the primary key of this user tracker path.
-	 *
-	 * @return the primary key of this user tracker path
-	 */
-	public long getPrimaryKey();
+    /**
+     * Returns the primary key of this user tracker path.
+     *
+     * @return the primary key of this user tracker path
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this user tracker path.
-	 *
-	 * @param primaryKey the primary key of this user tracker path
-	 */
-	public void setPrimaryKey(long primaryKey);
+    /**
+     * Sets the primary key of this user tracker path.
+     *
+     * @param primaryKey the primary key of this user tracker path
+     */
+    public void setPrimaryKey(long primaryKey);
 
-	/**
-	 * Returns the user tracker path ID of this user tracker path.
-	 *
-	 * @return the user tracker path ID of this user tracker path
-	 */
-	public long getUserTrackerPathId();
+    /**
+     * Returns the user tracker path ID of this user tracker path.
+     *
+     * @return the user tracker path ID of this user tracker path
+     */
+    public long getUserTrackerPathId();
 
-	/**
-	 * Sets the user tracker path ID of this user tracker path.
-	 *
-	 * @param userTrackerPathId the user tracker path ID of this user tracker path
-	 */
-	public void setUserTrackerPathId(long userTrackerPathId);
+    /**
+     * Sets the user tracker path ID of this user tracker path.
+     *
+     * @param userTrackerPathId the user tracker path ID of this user tracker path
+     */
+    public void setUserTrackerPathId(long userTrackerPathId);
 
-	/**
-	 * Returns the user tracker ID of this user tracker path.
-	 *
-	 * @return the user tracker ID of this user tracker path
-	 */
-	public long getUserTrackerId();
+    /**
+     * Returns the user tracker ID of this user tracker path.
+     *
+     * @return the user tracker ID of this user tracker path
+     */
+    public long getUserTrackerId();
 
-	/**
-	 * Sets the user tracker ID of this user tracker path.
-	 *
-	 * @param userTrackerId the user tracker ID of this user tracker path
-	 */
-	public void setUserTrackerId(long userTrackerId);
+    /**
+     * Sets the user tracker ID of this user tracker path.
+     *
+     * @param userTrackerId the user tracker ID of this user tracker path
+     */
+    public void setUserTrackerId(long userTrackerId);
 
-	/**
-	 * Returns the path of this user tracker path.
-	 *
-	 * @return the path of this user tracker path
-	 */
-	@AutoEscape
-	public String getPath();
+    /**
+     * Returns the path of this user tracker path.
+     *
+     * @return the path of this user tracker path
+     */
+    @AutoEscape
+    public String getPath();
 
-	/**
-	 * Sets the path of this user tracker path.
-	 *
-	 * @param path the path of this user tracker path
-	 */
-	public void setPath(String path);
+    /**
+     * Sets the path of this user tracker path.
+     *
+     * @param path the path of this user tracker path
+     */
+    public void setPath(String path);
 
-	/**
-	 * Returns the path date of this user tracker path.
-	 *
-	 * @return the path date of this user tracker path
-	 */
-	public Date getPathDate();
+    /**
+     * Returns the path date of this user tracker path.
+     *
+     * @return the path date of this user tracker path
+     */
+    public Date getPathDate();
 
-	/**
-	 * Sets the path date of this user tracker path.
-	 *
-	 * @param pathDate the path date of this user tracker path
-	 */
-	public void setPathDate(Date pathDate);
+    /**
+     * Sets the path date of this user tracker path.
+     *
+     * @param pathDate the path date of this user tracker path
+     */
+    public void setPathDate(Date pathDate);
 
-	@Override
-	public boolean isNew();
+    @Override
+    public boolean isNew();
 
-	@Override
-	public void setNew(boolean n);
+    @Override
+    public void setNew(boolean n);
 
-	@Override
-	public boolean isCachedModel();
+    @Override
+    public boolean isCachedModel();
 
-	@Override
-	public void setCachedModel(boolean cachedModel);
+    @Override
+    public void setCachedModel(boolean cachedModel);
 
-	@Override
-	public boolean isEscapedModel();
+    @Override
+    public boolean isEscapedModel();
 
-	@Override
-	public Serializable getPrimaryKeyObj();
+    @Override
+    public Serializable getPrimaryKeyObj();
 
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj);
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj);
 
-	@Override
-	public ExpandoBridge getExpandoBridge();
+    @Override
+    public ExpandoBridge getExpandoBridge();
 
-	@Override
-	public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
+    @Override
+    public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
 
-	@Override
-	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
+    @Override
+    public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	@Override
-	public Object clone();
+    @Override
+    public Object clone();
 
-	@Override
-	public int compareTo(UserTrackerPath userTrackerPath);
+    @Override
+    public int compareTo(
+        com.liferay.portal.model.UserTrackerPath userTrackerPath);
 
-	@Override
-	public int hashCode();
+    @Override
+    public int hashCode();
 
-	@Override
-	public CacheModel<UserTrackerPath> toCacheModel();
+    @Override
+    public CacheModel<com.liferay.portal.model.UserTrackerPath> toCacheModel();
 
-	@Override
-	public UserTrackerPath toEscapedModel();
+    @Override
+    public com.liferay.portal.model.UserTrackerPath toEscapedModel();
 
-	@Override
-	public UserTrackerPath toUnescapedModel();
+    @Override
+    public com.liferay.portal.model.UserTrackerPath toUnescapedModel();
 
-	@Override
-	public String toString();
+    @Override
+    public String toString();
 
-	@Override
-	public String toXmlString();
+    @Override
+    public String toXmlString();
 }

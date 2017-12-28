@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.softwarecatalog.service.http;
 
 import com.liferay.portal.kernel.log.Log;
@@ -52,260 +38,248 @@ import com.liferay.portlet.softwarecatalog.service.SCProductVersionServiceUtil;
  * @generated
  */
 public class SCProductVersionServiceHttp {
-	public static com.liferay.portlet.softwarecatalog.model.SCProductVersion addProductVersion(
-		HttpPrincipal httpPrincipal, long productEntryId,
-		java.lang.String version, java.lang.String changeLog,
-		java.lang.String downloadPageURL, java.lang.String directDownloadURL,
-		boolean testDirectDownloadURL, boolean repoStoreArtifact,
-		long[] frameworkVersionIds,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(SCProductVersionServiceUtil.class,
-					"addProductVersion", _addProductVersionParameterTypes0);
+    private static Log _log = LogFactoryUtil.getLog(SCProductVersionServiceHttp.class);
+    private static final Class<?>[] _addProductVersionParameterTypes0 = new Class[] {
+            long.class, java.lang.String.class, java.lang.String.class,
+            java.lang.String.class, java.lang.String.class, boolean.class,
+            boolean.class, long[].class,
+            com.liferay.portal.service.ServiceContext.class
+        };
+    private static final Class<?>[] _deleteProductVersionParameterTypes1 = new Class[] {
+            long.class
+        };
+    private static final Class<?>[] _getProductVersionParameterTypes2 = new Class[] {
+            long.class
+        };
+    private static final Class<?>[] _getProductVersionsParameterTypes3 = new Class[] {
+            long.class, int.class, int.class
+        };
+    private static final Class<?>[] _getProductVersionsCountParameterTypes4 = new Class[] {
+            long.class
+        };
+    private static final Class<?>[] _updateProductVersionParameterTypes5 = new Class[] {
+            long.class, java.lang.String.class, java.lang.String.class,
+            java.lang.String.class, java.lang.String.class, boolean.class,
+            boolean.class, long[].class
+        };
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					productEntryId, version, changeLog, downloadPageURL,
-					directDownloadURL, testDirectDownloadURL,
-					repoStoreArtifact, frameworkVersionIds, serviceContext);
+    public static com.liferay.portlet.softwarecatalog.model.SCProductVersion addProductVersion(
+        HttpPrincipal httpPrincipal, long productEntryId,
+        java.lang.String version, java.lang.String changeLog,
+        java.lang.String downloadPageURL, java.lang.String directDownloadURL,
+        boolean testDirectDownloadURL, boolean repoStoreArtifact,
+        long[] frameworkVersionIds,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(SCProductVersionServiceUtil.class,
+                    "addProductVersion", _addProductVersionParameterTypes0);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    productEntryId, version, changeLog, downloadPageURL,
+                    directDownloadURL, testDirectDownloadURL,
+                    repoStoreArtifact, frameworkVersionIds, serviceContext);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portlet.softwarecatalog.model.SCProductVersion)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portlet.softwarecatalog.model.SCProductVersion) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static void deleteProductVersion(HttpPrincipal httpPrincipal,
-		long productVersionId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(SCProductVersionServiceUtil.class,
-					"deleteProductVersion", _deleteProductVersionParameterTypes1);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					productVersionId);
+    public static void deleteProductVersion(HttpPrincipal httpPrincipal,
+        long productVersionId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(SCProductVersionServiceUtil.class,
+                    "deleteProductVersion", _deleteProductVersionParameterTypes1);
 
-			try {
-				TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    productVersionId);
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			throw se;
-		}
-	}
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static com.liferay.portlet.softwarecatalog.model.SCProductVersion getProductVersion(
-		HttpPrincipal httpPrincipal, long productVersionId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(SCProductVersionServiceUtil.class,
-					"getProductVersion", _getProductVersionParameterTypes2);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					productVersionId);
+    public static com.liferay.portlet.softwarecatalog.model.SCProductVersion getProductVersion(
+        HttpPrincipal httpPrincipal, long productVersionId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(SCProductVersionServiceUtil.class,
+                    "getProductVersion", _getProductVersionParameterTypes2);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    productVersionId);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portlet.softwarecatalog.model.SCProductVersion)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portlet.softwarecatalog.model.SCProductVersion) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static java.util.List<com.liferay.portlet.softwarecatalog.model.SCProductVersion> getProductVersions(
-		HttpPrincipal httpPrincipal, long productEntryId, int start, int end)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(SCProductVersionServiceUtil.class,
-					"getProductVersions", _getProductVersionsParameterTypes3);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					productEntryId, start, end);
+    public static java.util.List<com.liferay.portlet.softwarecatalog.model.SCProductVersion> getProductVersions(
+        HttpPrincipal httpPrincipal, long productEntryId, int start, int end)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(SCProductVersionServiceUtil.class,
+                    "getProductVersions", _getProductVersionsParameterTypes3);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    productEntryId, start, end);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (java.util.List<com.liferay.portlet.softwarecatalog.model.SCProductVersion>)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (java.util.List<com.liferay.portlet.softwarecatalog.model.SCProductVersion>) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static int getProductVersionsCount(HttpPrincipal httpPrincipal,
-		long productEntryId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(SCProductVersionServiceUtil.class,
-					"getProductVersionsCount",
-					_getProductVersionsCountParameterTypes4);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					productEntryId);
+    public static int getProductVersionsCount(HttpPrincipal httpPrincipal,
+        long productEntryId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(SCProductVersionServiceUtil.class,
+                    "getProductVersionsCount",
+                    _getProductVersionsCountParameterTypes4);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    productEntryId);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return ((Integer)returnObj).intValue();
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return ((Integer) returnObj).intValue();
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static com.liferay.portlet.softwarecatalog.model.SCProductVersion updateProductVersion(
-		HttpPrincipal httpPrincipal, long productVersionId,
-		java.lang.String version, java.lang.String changeLog,
-		java.lang.String downloadPageURL, java.lang.String directDownloadURL,
-		boolean testDirectDownloadURL, boolean repoStoreArtifact,
-		long[] frameworkVersionIds)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(SCProductVersionServiceUtil.class,
-					"updateProductVersion", _updateProductVersionParameterTypes5);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					productVersionId, version, changeLog, downloadPageURL,
-					directDownloadURL, testDirectDownloadURL,
-					repoStoreArtifact, frameworkVersionIds);
+    public static com.liferay.portlet.softwarecatalog.model.SCProductVersion updateProductVersion(
+        HttpPrincipal httpPrincipal, long productVersionId,
+        java.lang.String version, java.lang.String changeLog,
+        java.lang.String downloadPageURL, java.lang.String directDownloadURL,
+        boolean testDirectDownloadURL, boolean repoStoreArtifact,
+        long[] frameworkVersionIds)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(SCProductVersionServiceUtil.class,
+                    "updateProductVersion", _updateProductVersionParameterTypes5);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    productVersionId, version, changeLog, downloadPageURL,
+                    directDownloadURL, testDirectDownloadURL,
+                    repoStoreArtifact, frameworkVersionIds);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portlet.softwarecatalog.model.SCProductVersion)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portlet.softwarecatalog.model.SCProductVersion) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	private static Log _log = LogFactoryUtil.getLog(SCProductVersionServiceHttp.class);
-	private static final Class<?>[] _addProductVersionParameterTypes0 = new Class[] {
-			long.class, java.lang.String.class, java.lang.String.class,
-			java.lang.String.class, java.lang.String.class, boolean.class,
-			boolean.class, long[].class,
-			com.liferay.portal.service.ServiceContext.class
-		};
-	private static final Class<?>[] _deleteProductVersionParameterTypes1 = new Class[] {
-			long.class
-		};
-	private static final Class<?>[] _getProductVersionParameterTypes2 = new Class[] {
-			long.class
-		};
-	private static final Class<?>[] _getProductVersionsParameterTypes3 = new Class[] {
-			long.class, int.class, int.class
-		};
-	private static final Class<?>[] _getProductVersionsCountParameterTypes4 = new Class[] {
-			long.class
-		};
-	private static final Class<?>[] _updateProductVersionParameterTypes5 = new Class[] {
-			long.class, java.lang.String.class, java.lang.String.class,
-			java.lang.String.class, java.lang.String.class, boolean.class,
-			boolean.class, long[].class
-		};
+            throw se;
+        }
+    }
 }

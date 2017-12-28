@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.shopping.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -35,150 +21,142 @@ import java.util.Date;
  * @generated
  */
 public class ShoppingCartCacheModel implements CacheModel<ShoppingCart>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(23);
+    Externalizable {
+    public long cartId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public String itemIds;
+    public String couponCodes;
+    public int altShipping;
+    public boolean insure;
 
-		sb.append("{cartId=");
-		sb.append(cartId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", itemIds=");
-		sb.append(itemIds);
-		sb.append(", couponCodes=");
-		sb.append(couponCodes);
-		sb.append(", altShipping=");
-		sb.append(altShipping);
-		sb.append(", insure=");
-		sb.append(insure);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(23);
 
-		return sb.toString();
-	}
+        sb.append("{cartId=");
+        sb.append(cartId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", itemIds=");
+        sb.append(itemIds);
+        sb.append(", couponCodes=");
+        sb.append(couponCodes);
+        sb.append(", altShipping=");
+        sb.append(altShipping);
+        sb.append(", insure=");
+        sb.append(insure);
+        sb.append("}");
 
-	@Override
-	public ShoppingCart toEntityModel() {
-		ShoppingCartImpl shoppingCartImpl = new ShoppingCartImpl();
+        return sb.toString();
+    }
 
-		shoppingCartImpl.setCartId(cartId);
-		shoppingCartImpl.setGroupId(groupId);
-		shoppingCartImpl.setCompanyId(companyId);
-		shoppingCartImpl.setUserId(userId);
+    @Override
+    public ShoppingCart toEntityModel() {
+        ShoppingCartImpl shoppingCartImpl = new ShoppingCartImpl();
 
-		if (userName == null) {
-			shoppingCartImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			shoppingCartImpl.setUserName(userName);
-		}
+        shoppingCartImpl.setCartId(cartId);
+        shoppingCartImpl.setGroupId(groupId);
+        shoppingCartImpl.setCompanyId(companyId);
+        shoppingCartImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			shoppingCartImpl.setCreateDate(null);
-		}
-		else {
-			shoppingCartImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            shoppingCartImpl.setUserName(StringPool.BLANK);
+        } else {
+            shoppingCartImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			shoppingCartImpl.setModifiedDate(null);
-		}
-		else {
-			shoppingCartImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            shoppingCartImpl.setCreateDate(null);
+        } else {
+            shoppingCartImpl.setCreateDate(new Date(createDate));
+        }
 
-		if (itemIds == null) {
-			shoppingCartImpl.setItemIds(StringPool.BLANK);
-		}
-		else {
-			shoppingCartImpl.setItemIds(itemIds);
-		}
+        if (modifiedDate == Long.MIN_VALUE) {
+            shoppingCartImpl.setModifiedDate(null);
+        } else {
+            shoppingCartImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (couponCodes == null) {
-			shoppingCartImpl.setCouponCodes(StringPool.BLANK);
-		}
-		else {
-			shoppingCartImpl.setCouponCodes(couponCodes);
-		}
+        if (itemIds == null) {
+            shoppingCartImpl.setItemIds(StringPool.BLANK);
+        } else {
+            shoppingCartImpl.setItemIds(itemIds);
+        }
 
-		shoppingCartImpl.setAltShipping(altShipping);
-		shoppingCartImpl.setInsure(insure);
+        if (couponCodes == null) {
+            shoppingCartImpl.setCouponCodes(StringPool.BLANK);
+        } else {
+            shoppingCartImpl.setCouponCodes(couponCodes);
+        }
 
-		shoppingCartImpl.resetOriginalValues();
+        shoppingCartImpl.setAltShipping(altShipping);
+        shoppingCartImpl.setInsure(insure);
 
-		return shoppingCartImpl;
-	}
+        shoppingCartImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		cartId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		itemIds = objectInput.readUTF();
-		couponCodes = objectInput.readUTF();
-		altShipping = objectInput.readInt();
-		insure = objectInput.readBoolean();
-	}
+        return shoppingCartImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(cartId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        cartId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        itemIds = objectInput.readUTF();
+        couponCodes = objectInput.readUTF();
+        altShipping = objectInput.readInt();
+        insure = objectInput.readBoolean();
+    }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(cartId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (itemIds == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(itemIds);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
 
-		if (couponCodes == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(couponCodes);
-		}
+        if (itemIds == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(itemIds);
+        }
 
-		objectOutput.writeInt(altShipping);
-		objectOutput.writeBoolean(insure);
-	}
+        if (couponCodes == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(couponCodes);
+        }
 
-	public long cartId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public String itemIds;
-	public String couponCodes;
-	public int altShipping;
-	public boolean insure;
+        objectOutput.writeInt(altShipping);
+        objectOutput.writeBoolean(insure);
+    }
 }

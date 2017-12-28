@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,205 +20,191 @@ import java.util.Date;
  * @generated
  */
 public class RepositoryCacheModel implements CacheModel<Repository>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(29);
+    Externalizable {
+    public String uuid;
+    public long repositoryId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public long classNameId;
+    public String name;
+    public String description;
+    public String portletId;
+    public String typeSettings;
+    public long dlFolderId;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", repositoryId=");
-		sb.append(repositoryId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", classNameId=");
-		sb.append(classNameId);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", description=");
-		sb.append(description);
-		sb.append(", portletId=");
-		sb.append(portletId);
-		sb.append(", typeSettings=");
-		sb.append(typeSettings);
-		sb.append(", dlFolderId=");
-		sb.append(dlFolderId);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(29);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", repositoryId=");
+        sb.append(repositoryId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", classNameId=");
+        sb.append(classNameId);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", description=");
+        sb.append(description);
+        sb.append(", portletId=");
+        sb.append(portletId);
+        sb.append(", typeSettings=");
+        sb.append(typeSettings);
+        sb.append(", dlFolderId=");
+        sb.append(dlFolderId);
+        sb.append("}");
 
-	@Override
-	public Repository toEntityModel() {
-		RepositoryImpl repositoryImpl = new RepositoryImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			repositoryImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			repositoryImpl.setUuid(uuid);
-		}
+    @Override
+    public Repository toEntityModel() {
+        RepositoryImpl repositoryImpl = new RepositoryImpl();
 
-		repositoryImpl.setRepositoryId(repositoryId);
-		repositoryImpl.setGroupId(groupId);
-		repositoryImpl.setCompanyId(companyId);
-		repositoryImpl.setUserId(userId);
+        if (uuid == null) {
+            repositoryImpl.setUuid(StringPool.BLANK);
+        } else {
+            repositoryImpl.setUuid(uuid);
+        }
 
-		if (userName == null) {
-			repositoryImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			repositoryImpl.setUserName(userName);
-		}
+        repositoryImpl.setRepositoryId(repositoryId);
+        repositoryImpl.setGroupId(groupId);
+        repositoryImpl.setCompanyId(companyId);
+        repositoryImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			repositoryImpl.setCreateDate(null);
-		}
-		else {
-			repositoryImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            repositoryImpl.setUserName(StringPool.BLANK);
+        } else {
+            repositoryImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			repositoryImpl.setModifiedDate(null);
-		}
-		else {
-			repositoryImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            repositoryImpl.setCreateDate(null);
+        } else {
+            repositoryImpl.setCreateDate(new Date(createDate));
+        }
 
-		repositoryImpl.setClassNameId(classNameId);
+        if (modifiedDate == Long.MIN_VALUE) {
+            repositoryImpl.setModifiedDate(null);
+        } else {
+            repositoryImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (name == null) {
-			repositoryImpl.setName(StringPool.BLANK);
-		}
-		else {
-			repositoryImpl.setName(name);
-		}
+        repositoryImpl.setClassNameId(classNameId);
 
-		if (description == null) {
-			repositoryImpl.setDescription(StringPool.BLANK);
-		}
-		else {
-			repositoryImpl.setDescription(description);
-		}
+        if (name == null) {
+            repositoryImpl.setName(StringPool.BLANK);
+        } else {
+            repositoryImpl.setName(name);
+        }
 
-		if (portletId == null) {
-			repositoryImpl.setPortletId(StringPool.BLANK);
-		}
-		else {
-			repositoryImpl.setPortletId(portletId);
-		}
+        if (description == null) {
+            repositoryImpl.setDescription(StringPool.BLANK);
+        } else {
+            repositoryImpl.setDescription(description);
+        }
 
-		if (typeSettings == null) {
-			repositoryImpl.setTypeSettings(StringPool.BLANK);
-		}
-		else {
-			repositoryImpl.setTypeSettings(typeSettings);
-		}
+        if (portletId == null) {
+            repositoryImpl.setPortletId(StringPool.BLANK);
+        } else {
+            repositoryImpl.setPortletId(portletId);
+        }
 
-		repositoryImpl.setDlFolderId(dlFolderId);
+        if (typeSettings == null) {
+            repositoryImpl.setTypeSettings(StringPool.BLANK);
+        } else {
+            repositoryImpl.setTypeSettings(typeSettings);
+        }
 
-		repositoryImpl.resetOriginalValues();
+        repositoryImpl.setDlFolderId(dlFolderId);
 
-		return repositoryImpl;
-	}
+        repositoryImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		repositoryId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		classNameId = objectInput.readLong();
-		name = objectInput.readUTF();
-		description = objectInput.readUTF();
-		portletId = objectInput.readUTF();
-		typeSettings = objectInput.readUTF();
-		dlFolderId = objectInput.readLong();
-	}
+        return repositoryImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        repositoryId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        classNameId = objectInput.readLong();
+        name = objectInput.readUTF();
+        description = objectInput.readUTF();
+        portletId = objectInput.readUTF();
+        typeSettings = objectInput.readUTF();
+        dlFolderId = objectInput.readLong();
+    }
 
-		objectOutput.writeLong(repositoryId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+        objectOutput.writeLong(repositoryId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(classNameId);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(classNameId);
 
-		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(description);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		if (portletId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(portletId);
-		}
+        if (description == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(description);
+        }
 
-		if (typeSettings == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(typeSettings);
-		}
+        if (portletId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(portletId);
+        }
 
-		objectOutput.writeLong(dlFolderId);
-	}
+        if (typeSettings == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(typeSettings);
+        }
 
-	public String uuid;
-	public long repositoryId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public long classNameId;
-	public String name;
-	public String description;
-	public String portletId;
-	public String typeSettings;
-	public long dlFolderId;
+        objectOutput.writeLong(dlFolderId);
+    }
 }

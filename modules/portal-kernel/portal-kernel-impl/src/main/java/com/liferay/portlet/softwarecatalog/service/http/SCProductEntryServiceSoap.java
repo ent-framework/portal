@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.softwarecatalog.service.http;
 
 import aQute.bnd.annotation.ProviderType;
@@ -65,81 +51,77 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class SCProductEntryServiceSoap {
-	public static com.liferay.portlet.softwarecatalog.model.SCProductEntrySoap addProductEntry(
-		java.lang.String name, java.lang.String type, java.lang.String tags,
-		java.lang.String shortDescription, java.lang.String longDescription,
-		java.lang.String pageURL, java.lang.String author,
-		java.lang.String repoGroupId, java.lang.String repoArtifactId,
-		long[] licenseIds, java.util.List<byte[]> thumbnails,
-		java.util.List<byte[]> fullImages,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			com.liferay.portlet.softwarecatalog.model.SCProductEntry returnValue =
-				SCProductEntryServiceUtil.addProductEntry(name, type, tags,
-					shortDescription, longDescription, pageURL, author,
-					repoGroupId, repoArtifactId, licenseIds, thumbnails,
-					fullImages, serviceContext);
+    private static Log _log = LogFactoryUtil.getLog(SCProductEntryServiceSoap.class);
 
-			return com.liferay.portlet.softwarecatalog.model.SCProductEntrySoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.softwarecatalog.model.SCProductEntrySoap addProductEntry(
+        java.lang.String name, java.lang.String type, java.lang.String tags,
+        java.lang.String shortDescription, java.lang.String longDescription,
+        java.lang.String pageURL, java.lang.String author,
+        java.lang.String repoGroupId, java.lang.String repoArtifactId,
+        long[] licenseIds, java.util.List<byte[]> thumbnails,
+        java.util.List<byte[]> fullImages,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            com.liferay.portlet.softwarecatalog.model.SCProductEntry returnValue =
+                SCProductEntryServiceUtil.addProductEntry(name, type, tags,
+                    shortDescription, longDescription, pageURL, author,
+                    repoGroupId, repoArtifactId, licenseIds, thumbnails,
+                    fullImages, serviceContext);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.softwarecatalog.model.SCProductEntrySoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void deleteProductEntry(long productEntryId)
-		throws RemoteException {
-		try {
-			SCProductEntryServiceUtil.deleteProductEntry(productEntryId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void deleteProductEntry(long productEntryId)
+        throws RemoteException {
+        try {
+            SCProductEntryServiceUtil.deleteProductEntry(productEntryId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.softwarecatalog.model.SCProductEntrySoap getProductEntry(
-		long productEntryId) throws RemoteException {
-		try {
-			com.liferay.portlet.softwarecatalog.model.SCProductEntry returnValue =
-				SCProductEntryServiceUtil.getProductEntry(productEntryId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.softwarecatalog.model.SCProductEntrySoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.softwarecatalog.model.SCProductEntrySoap getProductEntry(
+        long productEntryId) throws RemoteException {
+        try {
+            com.liferay.portlet.softwarecatalog.model.SCProductEntry returnValue =
+                SCProductEntryServiceUtil.getProductEntry(productEntryId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.softwarecatalog.model.SCProductEntrySoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.softwarecatalog.model.SCProductEntrySoap updateProductEntry(
-		long productEntryId, java.lang.String name, java.lang.String type,
-		java.lang.String tags, java.lang.String shortDescription,
-		java.lang.String longDescription, java.lang.String pageURL,
-		java.lang.String author, java.lang.String repoGroupId,
-		java.lang.String repoArtifactId, long[] licenseIds,
-		java.util.List<byte[]> thumbnails, java.util.List<byte[]> fullImages)
-		throws RemoteException {
-		try {
-			com.liferay.portlet.softwarecatalog.model.SCProductEntry returnValue =
-				SCProductEntryServiceUtil.updateProductEntry(productEntryId,
-					name, type, tags, shortDescription, longDescription,
-					pageURL, author, repoGroupId, repoArtifactId, licenseIds,
-					thumbnails, fullImages);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.softwarecatalog.model.SCProductEntrySoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.softwarecatalog.model.SCProductEntrySoap updateProductEntry(
+        long productEntryId, java.lang.String name, java.lang.String type,
+        java.lang.String tags, java.lang.String shortDescription,
+        java.lang.String longDescription, java.lang.String pageURL,
+        java.lang.String author, java.lang.String repoGroupId,
+        java.lang.String repoArtifactId, long[] licenseIds,
+        java.util.List<byte[]> thumbnails, java.util.List<byte[]> fullImages)
+        throws RemoteException {
+        try {
+            com.liferay.portlet.softwarecatalog.model.SCProductEntry returnValue =
+                SCProductEntryServiceUtil.updateProductEntry(productEntryId,
+                    name, type, tags, shortDescription, longDescription,
+                    pageURL, author, repoGroupId, repoArtifactId, licenseIds,
+                    thumbnails, fullImages);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.softwarecatalog.model.SCProductEntrySoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	private static Log _log = LogFactoryUtil.getLog(SCProductEntryServiceSoap.class);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

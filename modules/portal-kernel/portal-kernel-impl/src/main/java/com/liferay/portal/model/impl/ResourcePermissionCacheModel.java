@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -32,109 +18,105 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class ResourcePermissionCacheModel implements CacheModel<ResourcePermission>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(17);
+    Externalizable {
+    public long resourcePermissionId;
+    public long companyId;
+    public String name;
+    public int scope;
+    public String primKey;
+    public long roleId;
+    public long ownerId;
+    public long actionIds;
 
-		sb.append("{resourcePermissionId=");
-		sb.append(resourcePermissionId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", scope=");
-		sb.append(scope);
-		sb.append(", primKey=");
-		sb.append(primKey);
-		sb.append(", roleId=");
-		sb.append(roleId);
-		sb.append(", ownerId=");
-		sb.append(ownerId);
-		sb.append(", actionIds=");
-		sb.append(actionIds);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(17);
 
-		return sb.toString();
-	}
+        sb.append("{resourcePermissionId=");
+        sb.append(resourcePermissionId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", scope=");
+        sb.append(scope);
+        sb.append(", primKey=");
+        sb.append(primKey);
+        sb.append(", roleId=");
+        sb.append(roleId);
+        sb.append(", ownerId=");
+        sb.append(ownerId);
+        sb.append(", actionIds=");
+        sb.append(actionIds);
+        sb.append("}");
 
-	@Override
-	public ResourcePermission toEntityModel() {
-		ResourcePermissionImpl resourcePermissionImpl = new ResourcePermissionImpl();
+        return sb.toString();
+    }
 
-		resourcePermissionImpl.setResourcePermissionId(resourcePermissionId);
-		resourcePermissionImpl.setCompanyId(companyId);
+    @Override
+    public ResourcePermission toEntityModel() {
+        ResourcePermissionImpl resourcePermissionImpl = new ResourcePermissionImpl();
 
-		if (name == null) {
-			resourcePermissionImpl.setName(StringPool.BLANK);
-		}
-		else {
-			resourcePermissionImpl.setName(name);
-		}
+        resourcePermissionImpl.setResourcePermissionId(resourcePermissionId);
+        resourcePermissionImpl.setCompanyId(companyId);
 
-		resourcePermissionImpl.setScope(scope);
+        if (name == null) {
+            resourcePermissionImpl.setName(StringPool.BLANK);
+        } else {
+            resourcePermissionImpl.setName(name);
+        }
 
-		if (primKey == null) {
-			resourcePermissionImpl.setPrimKey(StringPool.BLANK);
-		}
-		else {
-			resourcePermissionImpl.setPrimKey(primKey);
-		}
+        resourcePermissionImpl.setScope(scope);
 
-		resourcePermissionImpl.setRoleId(roleId);
-		resourcePermissionImpl.setOwnerId(ownerId);
-		resourcePermissionImpl.setActionIds(actionIds);
+        if (primKey == null) {
+            resourcePermissionImpl.setPrimKey(StringPool.BLANK);
+        } else {
+            resourcePermissionImpl.setPrimKey(primKey);
+        }
 
-		resourcePermissionImpl.resetOriginalValues();
+        resourcePermissionImpl.setRoleId(roleId);
+        resourcePermissionImpl.setOwnerId(ownerId);
+        resourcePermissionImpl.setActionIds(actionIds);
 
-		return resourcePermissionImpl;
-	}
+        resourcePermissionImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		resourcePermissionId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		name = objectInput.readUTF();
-		scope = objectInput.readInt();
-		primKey = objectInput.readUTF();
-		roleId = objectInput.readLong();
-		ownerId = objectInput.readLong();
-		actionIds = objectInput.readLong();
-	}
+        return resourcePermissionImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(resourcePermissionId);
-		objectOutput.writeLong(companyId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        resourcePermissionId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        name = objectInput.readUTF();
+        scope = objectInput.readInt();
+        primKey = objectInput.readUTF();
+        roleId = objectInput.readLong();
+        ownerId = objectInput.readLong();
+        actionIds = objectInput.readLong();
+    }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(resourcePermissionId);
+        objectOutput.writeLong(companyId);
 
-		objectOutput.writeInt(scope);
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		if (primKey == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(primKey);
-		}
+        objectOutput.writeInt(scope);
 
-		objectOutput.writeLong(roleId);
-		objectOutput.writeLong(ownerId);
-		objectOutput.writeLong(actionIds);
-	}
+        if (primKey == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(primKey);
+        }
 
-	public long resourcePermissionId;
-	public long companyId;
-	public String name;
-	public int scope;
-	public String primKey;
-	public long roleId;
-	public long ownerId;
-	public long actionIds;
+        objectOutput.writeLong(roleId);
+        objectOutput.writeLong(ownerId);
+        objectOutput.writeLong(actionIds);
+    }
 }

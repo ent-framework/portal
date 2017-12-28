@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -28,193 +14,192 @@ import java.util.List;
  * @generated
  */
 public class PhoneSoap implements Serializable {
-	public static PhoneSoap toSoapModel(Phone model) {
-		PhoneSoap soapModel = new PhoneSoap();
+    private String _uuid;
+    private long _phoneId;
+    private long _companyId;
+    private long _userId;
+    private String _userName;
+    private Date _createDate;
+    private Date _modifiedDate;
+    private long _classNameId;
+    private long _classPK;
+    private String _number;
+    private String _extension;
+    private int _typeId;
+    private boolean _primary;
 
-		soapModel.setUuid(model.getUuid());
-		soapModel.setPhoneId(model.getPhoneId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setUserName(model.getUserName());
-		soapModel.setCreateDate(model.getCreateDate());
-		soapModel.setModifiedDate(model.getModifiedDate());
-		soapModel.setClassNameId(model.getClassNameId());
-		soapModel.setClassPK(model.getClassPK());
-		soapModel.setNumber(model.getNumber());
-		soapModel.setExtension(model.getExtension());
-		soapModel.setTypeId(model.getTypeId());
-		soapModel.setPrimary(model.getPrimary());
+    public PhoneSoap() {
+    }
 
-		return soapModel;
-	}
+    public static PhoneSoap toSoapModel(Phone model) {
+        PhoneSoap soapModel = new PhoneSoap();
 
-	public static PhoneSoap[] toSoapModels(Phone[] models) {
-		PhoneSoap[] soapModels = new PhoneSoap[models.length];
+        soapModel.setUuid(model.getUuid());
+        soapModel.setPhoneId(model.getPhoneId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setUserName(model.getUserName());
+        soapModel.setCreateDate(model.getCreateDate());
+        soapModel.setModifiedDate(model.getModifiedDate());
+        soapModel.setClassNameId(model.getClassNameId());
+        soapModel.setClassPK(model.getClassPK());
+        soapModel.setNumber(model.getNumber());
+        soapModel.setExtension(model.getExtension());
+        soapModel.setTypeId(model.getTypeId());
+        soapModel.setPrimary(model.getPrimary());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static PhoneSoap[] toSoapModels(Phone[] models) {
+        PhoneSoap[] soapModels = new PhoneSoap[models.length];
 
-	public static PhoneSoap[][] toSoapModels(Phone[][] models) {
-		PhoneSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new PhoneSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new PhoneSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static PhoneSoap[][] toSoapModels(Phone[][] models) {
+        PhoneSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new PhoneSoap[models.length][models[0].length];
+        } else {
+            soapModels = new PhoneSoap[0][0];
+        }
 
-	public static PhoneSoap[] toSoapModels(List<Phone> models) {
-		List<PhoneSoap> soapModels = new ArrayList<PhoneSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (Phone model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new PhoneSoap[soapModels.size()]);
-	}
+    public static PhoneSoap[] toSoapModels(List<Phone> models) {
+        List<PhoneSoap> soapModels = new ArrayList<PhoneSoap>(models.size());
 
-	public PhoneSoap() {
-	}
+        for (Phone model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _phoneId;
-	}
+        return soapModels.toArray(new PhoneSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setPhoneId(pk);
-	}
+    public long getPrimaryKey() {
+        return _phoneId;
+    }
 
-	public String getUuid() {
-		return _uuid;
-	}
+    public void setPrimaryKey(long pk) {
+        setPhoneId(pk);
+    }
 
-	public void setUuid(String uuid) {
-		_uuid = uuid;
-	}
+    public String getUuid() {
+        return _uuid;
+    }
 
-	public long getPhoneId() {
-		return _phoneId;
-	}
+    public void setUuid(String uuid) {
+        _uuid = uuid;
+    }
 
-	public void setPhoneId(long phoneId) {
-		_phoneId = phoneId;
-	}
+    public long getPhoneId() {
+        return _phoneId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setPhoneId(long phoneId) {
+        _phoneId = phoneId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public String getUserName() {
-		return _userName;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setUserName(String userName) {
-		_userName = userName;
-	}
+    public String getUserName() {
+        return _userName;
+    }
 
-	public Date getCreateDate() {
-		return _createDate;
-	}
+    public void setUserName(String userName) {
+        _userName = userName;
+    }
 
-	public void setCreateDate(Date createDate) {
-		_createDate = createDate;
-	}
+    public Date getCreateDate() {
+        return _createDate;
+    }
 
-	public Date getModifiedDate() {
-		return _modifiedDate;
-	}
+    public void setCreateDate(Date createDate) {
+        _createDate = createDate;
+    }
 
-	public void setModifiedDate(Date modifiedDate) {
-		_modifiedDate = modifiedDate;
-	}
+    public Date getModifiedDate() {
+        return _modifiedDate;
+    }
 
-	public long getClassNameId() {
-		return _classNameId;
-	}
+    public void setModifiedDate(Date modifiedDate) {
+        _modifiedDate = modifiedDate;
+    }
 
-	public void setClassNameId(long classNameId) {
-		_classNameId = classNameId;
-	}
+    public long getClassNameId() {
+        return _classNameId;
+    }
 
-	public long getClassPK() {
-		return _classPK;
-	}
+    public void setClassNameId(long classNameId) {
+        _classNameId = classNameId;
+    }
 
-	public void setClassPK(long classPK) {
-		_classPK = classPK;
-	}
+    public long getClassPK() {
+        return _classPK;
+    }
 
-	public String getNumber() {
-		return _number;
-	}
+    public void setClassPK(long classPK) {
+        _classPK = classPK;
+    }
 
-	public void setNumber(String number) {
-		_number = number;
-	}
+    public String getNumber() {
+        return _number;
+    }
 
-	public String getExtension() {
-		return _extension;
-	}
+    public void setNumber(String number) {
+        _number = number;
+    }
 
-	public void setExtension(String extension) {
-		_extension = extension;
-	}
+    public String getExtension() {
+        return _extension;
+    }
 
-	public int getTypeId() {
-		return _typeId;
-	}
+    public void setExtension(String extension) {
+        _extension = extension;
+    }
 
-	public void setTypeId(int typeId) {
-		_typeId = typeId;
-	}
+    public int getTypeId() {
+        return _typeId;
+    }
 
-	public boolean getPrimary() {
-		return _primary;
-	}
+    public void setTypeId(int typeId) {
+        _typeId = typeId;
+    }
 
-	public boolean isPrimary() {
-		return _primary;
-	}
+    public boolean getPrimary() {
+        return _primary;
+    }
 
-	public void setPrimary(boolean primary) {
-		_primary = primary;
-	}
+    public boolean isPrimary() {
+        return _primary;
+    }
 
-	private String _uuid;
-	private long _phoneId;
-	private long _companyId;
-	private long _userId;
-	private String _userName;
-	private Date _createDate;
-	private Date _modifiedDate;
-	private long _classNameId;
-	private long _classPK;
-	private String _number;
-	private String _extension;
-	private int _typeId;
-	private boolean _primary;
+    public void setPrimary(boolean primary) {
+        _primary = primary;
+    }
 }

@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,163 +20,156 @@ import java.util.Date;
  * @generated
  */
 public class SystemEventCacheModel implements CacheModel<SystemEvent>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(29);
+    Externalizable {
+    public long systemEventId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long classNameId;
+    public long classPK;
+    public String classUuid;
+    public long referrerClassNameId;
+    public long parentSystemEventId;
+    public long systemEventSetKey;
+    public int type;
+    public String extraData;
 
-		sb.append("{systemEventId=");
-		sb.append(systemEventId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", classNameId=");
-		sb.append(classNameId);
-		sb.append(", classPK=");
-		sb.append(classPK);
-		sb.append(", classUuid=");
-		sb.append(classUuid);
-		sb.append(", referrerClassNameId=");
-		sb.append(referrerClassNameId);
-		sb.append(", parentSystemEventId=");
-		sb.append(parentSystemEventId);
-		sb.append(", systemEventSetKey=");
-		sb.append(systemEventSetKey);
-		sb.append(", type=");
-		sb.append(type);
-		sb.append(", extraData=");
-		sb.append(extraData);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(29);
 
-		return sb.toString();
-	}
+        sb.append("{systemEventId=");
+        sb.append(systemEventId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", classNameId=");
+        sb.append(classNameId);
+        sb.append(", classPK=");
+        sb.append(classPK);
+        sb.append(", classUuid=");
+        sb.append(classUuid);
+        sb.append(", referrerClassNameId=");
+        sb.append(referrerClassNameId);
+        sb.append(", parentSystemEventId=");
+        sb.append(parentSystemEventId);
+        sb.append(", systemEventSetKey=");
+        sb.append(systemEventSetKey);
+        sb.append(", type=");
+        sb.append(type);
+        sb.append(", extraData=");
+        sb.append(extraData);
+        sb.append("}");
 
-	@Override
-	public SystemEvent toEntityModel() {
-		SystemEventImpl systemEventImpl = new SystemEventImpl();
+        return sb.toString();
+    }
 
-		systemEventImpl.setSystemEventId(systemEventId);
-		systemEventImpl.setGroupId(groupId);
-		systemEventImpl.setCompanyId(companyId);
-		systemEventImpl.setUserId(userId);
+    @Override
+    public SystemEvent toEntityModel() {
+        SystemEventImpl systemEventImpl = new SystemEventImpl();
 
-		if (userName == null) {
-			systemEventImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			systemEventImpl.setUserName(userName);
-		}
+        systemEventImpl.setSystemEventId(systemEventId);
+        systemEventImpl.setGroupId(groupId);
+        systemEventImpl.setCompanyId(companyId);
+        systemEventImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			systemEventImpl.setCreateDate(null);
-		}
-		else {
-			systemEventImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            systemEventImpl.setUserName(StringPool.BLANK);
+        } else {
+            systemEventImpl.setUserName(userName);
+        }
 
-		systemEventImpl.setClassNameId(classNameId);
-		systemEventImpl.setClassPK(classPK);
+        if (createDate == Long.MIN_VALUE) {
+            systemEventImpl.setCreateDate(null);
+        } else {
+            systemEventImpl.setCreateDate(new Date(createDate));
+        }
 
-		if (classUuid == null) {
-			systemEventImpl.setClassUuid(StringPool.BLANK);
-		}
-		else {
-			systemEventImpl.setClassUuid(classUuid);
-		}
+        systemEventImpl.setClassNameId(classNameId);
+        systemEventImpl.setClassPK(classPK);
 
-		systemEventImpl.setReferrerClassNameId(referrerClassNameId);
-		systemEventImpl.setParentSystemEventId(parentSystemEventId);
-		systemEventImpl.setSystemEventSetKey(systemEventSetKey);
-		systemEventImpl.setType(type);
+        if (classUuid == null) {
+            systemEventImpl.setClassUuid(StringPool.BLANK);
+        } else {
+            systemEventImpl.setClassUuid(classUuid);
+        }
 
-		if (extraData == null) {
-			systemEventImpl.setExtraData(StringPool.BLANK);
-		}
-		else {
-			systemEventImpl.setExtraData(extraData);
-		}
+        systemEventImpl.setReferrerClassNameId(referrerClassNameId);
+        systemEventImpl.setParentSystemEventId(parentSystemEventId);
+        systemEventImpl.setSystemEventSetKey(systemEventSetKey);
+        systemEventImpl.setType(type);
 
-		systemEventImpl.resetOriginalValues();
+        if (extraData == null) {
+            systemEventImpl.setExtraData(StringPool.BLANK);
+        } else {
+            systemEventImpl.setExtraData(extraData);
+        }
 
-		return systemEventImpl;
-	}
+        systemEventImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		systemEventId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		classNameId = objectInput.readLong();
-		classPK = objectInput.readLong();
-		classUuid = objectInput.readUTF();
-		referrerClassNameId = objectInput.readLong();
-		parentSystemEventId = objectInput.readLong();
-		systemEventSetKey = objectInput.readLong();
-		type = objectInput.readInt();
-		extraData = objectInput.readUTF();
-	}
+        return systemEventImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(systemEventId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        systemEventId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        classNameId = objectInput.readLong();
+        classPK = objectInput.readLong();
+        classUuid = objectInput.readUTF();
+        referrerClassNameId = objectInput.readLong();
+        parentSystemEventId = objectInput.readLong();
+        systemEventSetKey = objectInput.readLong();
+        type = objectInput.readInt();
+        extraData = objectInput.readUTF();
+    }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(systemEventId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(classNameId);
-		objectOutput.writeLong(classPK);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (classUuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(classUuid);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(classNameId);
+        objectOutput.writeLong(classPK);
 
-		objectOutput.writeLong(referrerClassNameId);
-		objectOutput.writeLong(parentSystemEventId);
-		objectOutput.writeLong(systemEventSetKey);
-		objectOutput.writeInt(type);
+        if (classUuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(classUuid);
+        }
 
-		if (extraData == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(extraData);
-		}
-	}
+        objectOutput.writeLong(referrerClassNameId);
+        objectOutput.writeLong(parentSystemEventId);
+        objectOutput.writeLong(systemEventSetKey);
+        objectOutput.writeInt(type);
 
-	public long systemEventId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long classNameId;
-	public long classPK;
-	public String classUuid;
-	public long referrerClassNameId;
-	public long parentSystemEventId;
-	public long systemEventSetKey;
-	public int type;
-	public String extraData;
+        if (extraData == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(extraData);
+        }
+    }
 }

@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -28,119 +14,118 @@ import java.util.List;
  * @generated
  */
 public class ImageSoap implements Serializable {
-	public static ImageSoap toSoapModel(Image model) {
-		ImageSoap soapModel = new ImageSoap();
+    private long _imageId;
+    private Date _modifiedDate;
+    private String _type;
+    private int _height;
+    private int _width;
+    private int _size;
 
-		soapModel.setImageId(model.getImageId());
-		soapModel.setModifiedDate(model.getModifiedDate());
-		soapModel.setType(model.getType());
-		soapModel.setHeight(model.getHeight());
-		soapModel.setWidth(model.getWidth());
-		soapModel.setSize(model.getSize());
+    public ImageSoap() {
+    }
 
-		return soapModel;
-	}
+    public static ImageSoap toSoapModel(Image model) {
+        ImageSoap soapModel = new ImageSoap();
 
-	public static ImageSoap[] toSoapModels(Image[] models) {
-		ImageSoap[] soapModels = new ImageSoap[models.length];
+        soapModel.setImageId(model.getImageId());
+        soapModel.setModifiedDate(model.getModifiedDate());
+        soapModel.setType(model.getType());
+        soapModel.setHeight(model.getHeight());
+        soapModel.setWidth(model.getWidth());
+        soapModel.setSize(model.getSize());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static ImageSoap[] toSoapModels(Image[] models) {
+        ImageSoap[] soapModels = new ImageSoap[models.length];
 
-	public static ImageSoap[][] toSoapModels(Image[][] models) {
-		ImageSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new ImageSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new ImageSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static ImageSoap[][] toSoapModels(Image[][] models) {
+        ImageSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new ImageSoap[models.length][models[0].length];
+        } else {
+            soapModels = new ImageSoap[0][0];
+        }
 
-	public static ImageSoap[] toSoapModels(List<Image> models) {
-		List<ImageSoap> soapModels = new ArrayList<ImageSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (Image model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new ImageSoap[soapModels.size()]);
-	}
+    public static ImageSoap[] toSoapModels(List<Image> models) {
+        List<ImageSoap> soapModels = new ArrayList<ImageSoap>(models.size());
 
-	public ImageSoap() {
-	}
+        for (Image model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _imageId;
-	}
+        return soapModels.toArray(new ImageSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setImageId(pk);
-	}
+    public long getPrimaryKey() {
+        return _imageId;
+    }
 
-	public long getImageId() {
-		return _imageId;
-	}
+    public void setPrimaryKey(long pk) {
+        setImageId(pk);
+    }
 
-	public void setImageId(long imageId) {
-		_imageId = imageId;
-	}
+    public long getImageId() {
+        return _imageId;
+    }
 
-	public Date getModifiedDate() {
-		return _modifiedDate;
-	}
+    public void setImageId(long imageId) {
+        _imageId = imageId;
+    }
 
-	public void setModifiedDate(Date modifiedDate) {
-		_modifiedDate = modifiedDate;
-	}
+    public Date getModifiedDate() {
+        return _modifiedDate;
+    }
 
-	public String getType() {
-		return _type;
-	}
+    public void setModifiedDate(Date modifiedDate) {
+        _modifiedDate = modifiedDate;
+    }
 
-	public void setType(String type) {
-		_type = type;
-	}
+    public String getType() {
+        return _type;
+    }
 
-	public int getHeight() {
-		return _height;
-	}
+    public void setType(String type) {
+        _type = type;
+    }
 
-	public void setHeight(int height) {
-		_height = height;
-	}
+    public int getHeight() {
+        return _height;
+    }
 
-	public int getWidth() {
-		return _width;
-	}
+    public void setHeight(int height) {
+        _height = height;
+    }
 
-	public void setWidth(int width) {
-		_width = width;
-	}
+    public int getWidth() {
+        return _width;
+    }
 
-	public int getSize() {
-		return _size;
-	}
+    public void setWidth(int width) {
+        _width = width;
+    }
 
-	public void setSize(int size) {
-		_size = size;
-	}
+    public int getSize() {
+        return _size;
+    }
 
-	private long _imageId;
-	private Date _modifiedDate;
-	private String _type;
-	private int _height;
-	private int _width;
-	private int _size;
+    public void setSize(int size) {
+        _size = size;
+    }
 }

@@ -39,8 +39,8 @@ import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portal.util.WebKeys;
 import com.liferay.portlet.StrictPortletPreferencesImpl;
-import com.liferay.portlet.blogs.model.BlogsEntry;
-import com.liferay.portlet.blogs.service.BlogsEntryLocalServiceUtil;
+//import com.liferay.portlet.blogs.model.BlogsEntry;
+//import com.liferay.portlet.blogs.service.BlogsEntryLocalServiceUtil;
 import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 import com.liferay.portlet.documentlibrary.model.DLFileVersion;
 import com.liferay.portlet.documentlibrary.service.DLFileVersionLocalServiceUtil;
@@ -245,13 +245,13 @@ public class EditPermissionsAction extends PortletAction {
 
 			DLFileVersionLocalServiceUtil.updateDLFileVersion(dlFileVersion);
 		}
-		else if (persistedModel instanceof BlogsEntry) {
+/*		else if (persistedModel instanceof BlogsEntry) {
 			BlogsEntry blogsEntry = (BlogsEntry)persistedModel;
 
 			blogsEntry.setModifiedDate(new Date());
 
 			BlogsEntryLocalServiceUtil.updateBlogsEntry(blogsEntry);
-		}
+		}*/
 	}
 
 	protected void updateRolePermissions(ActionRequest actionRequest)

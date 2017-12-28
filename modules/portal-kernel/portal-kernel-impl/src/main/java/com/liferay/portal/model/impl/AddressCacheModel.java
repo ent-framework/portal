@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,246 +20,230 @@ import java.util.Date;
  * @generated
  */
 public class AddressCacheModel implements CacheModel<Address>, Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(39);
+    public String uuid;
+    public long addressId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public long classNameId;
+    public long classPK;
+    public String street1;
+    public String street2;
+    public String street3;
+    public String city;
+    public String zip;
+    public long regionId;
+    public long countryId;
+    public int typeId;
+    public boolean mailing;
+    public boolean primary;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", addressId=");
-		sb.append(addressId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", classNameId=");
-		sb.append(classNameId);
-		sb.append(", classPK=");
-		sb.append(classPK);
-		sb.append(", street1=");
-		sb.append(street1);
-		sb.append(", street2=");
-		sb.append(street2);
-		sb.append(", street3=");
-		sb.append(street3);
-		sb.append(", city=");
-		sb.append(city);
-		sb.append(", zip=");
-		sb.append(zip);
-		sb.append(", regionId=");
-		sb.append(regionId);
-		sb.append(", countryId=");
-		sb.append(countryId);
-		sb.append(", typeId=");
-		sb.append(typeId);
-		sb.append(", mailing=");
-		sb.append(mailing);
-		sb.append(", primary=");
-		sb.append(primary);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(39);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", addressId=");
+        sb.append(addressId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", classNameId=");
+        sb.append(classNameId);
+        sb.append(", classPK=");
+        sb.append(classPK);
+        sb.append(", street1=");
+        sb.append(street1);
+        sb.append(", street2=");
+        sb.append(street2);
+        sb.append(", street3=");
+        sb.append(street3);
+        sb.append(", city=");
+        sb.append(city);
+        sb.append(", zip=");
+        sb.append(zip);
+        sb.append(", regionId=");
+        sb.append(regionId);
+        sb.append(", countryId=");
+        sb.append(countryId);
+        sb.append(", typeId=");
+        sb.append(typeId);
+        sb.append(", mailing=");
+        sb.append(mailing);
+        sb.append(", primary=");
+        sb.append(primary);
+        sb.append("}");
 
-	@Override
-	public Address toEntityModel() {
-		AddressImpl addressImpl = new AddressImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			addressImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			addressImpl.setUuid(uuid);
-		}
+    @Override
+    public Address toEntityModel() {
+        AddressImpl addressImpl = new AddressImpl();
 
-		addressImpl.setAddressId(addressId);
-		addressImpl.setCompanyId(companyId);
-		addressImpl.setUserId(userId);
+        if (uuid == null) {
+            addressImpl.setUuid(StringPool.BLANK);
+        } else {
+            addressImpl.setUuid(uuid);
+        }
 
-		if (userName == null) {
-			addressImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			addressImpl.setUserName(userName);
-		}
+        addressImpl.setAddressId(addressId);
+        addressImpl.setCompanyId(companyId);
+        addressImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			addressImpl.setCreateDate(null);
-		}
-		else {
-			addressImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            addressImpl.setUserName(StringPool.BLANK);
+        } else {
+            addressImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			addressImpl.setModifiedDate(null);
-		}
-		else {
-			addressImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            addressImpl.setCreateDate(null);
+        } else {
+            addressImpl.setCreateDate(new Date(createDate));
+        }
 
-		addressImpl.setClassNameId(classNameId);
-		addressImpl.setClassPK(classPK);
+        if (modifiedDate == Long.MIN_VALUE) {
+            addressImpl.setModifiedDate(null);
+        } else {
+            addressImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (street1 == null) {
-			addressImpl.setStreet1(StringPool.BLANK);
-		}
-		else {
-			addressImpl.setStreet1(street1);
-		}
+        addressImpl.setClassNameId(classNameId);
+        addressImpl.setClassPK(classPK);
 
-		if (street2 == null) {
-			addressImpl.setStreet2(StringPool.BLANK);
-		}
-		else {
-			addressImpl.setStreet2(street2);
-		}
+        if (street1 == null) {
+            addressImpl.setStreet1(StringPool.BLANK);
+        } else {
+            addressImpl.setStreet1(street1);
+        }
 
-		if (street3 == null) {
-			addressImpl.setStreet3(StringPool.BLANK);
-		}
-		else {
-			addressImpl.setStreet3(street3);
-		}
+        if (street2 == null) {
+            addressImpl.setStreet2(StringPool.BLANK);
+        } else {
+            addressImpl.setStreet2(street2);
+        }
 
-		if (city == null) {
-			addressImpl.setCity(StringPool.BLANK);
-		}
-		else {
-			addressImpl.setCity(city);
-		}
+        if (street3 == null) {
+            addressImpl.setStreet3(StringPool.BLANK);
+        } else {
+            addressImpl.setStreet3(street3);
+        }
 
-		if (zip == null) {
-			addressImpl.setZip(StringPool.BLANK);
-		}
-		else {
-			addressImpl.setZip(zip);
-		}
+        if (city == null) {
+            addressImpl.setCity(StringPool.BLANK);
+        } else {
+            addressImpl.setCity(city);
+        }
 
-		addressImpl.setRegionId(regionId);
-		addressImpl.setCountryId(countryId);
-		addressImpl.setTypeId(typeId);
-		addressImpl.setMailing(mailing);
-		addressImpl.setPrimary(primary);
+        if (zip == null) {
+            addressImpl.setZip(StringPool.BLANK);
+        } else {
+            addressImpl.setZip(zip);
+        }
 
-		addressImpl.resetOriginalValues();
+        addressImpl.setRegionId(regionId);
+        addressImpl.setCountryId(countryId);
+        addressImpl.setTypeId(typeId);
+        addressImpl.setMailing(mailing);
+        addressImpl.setPrimary(primary);
 
-		return addressImpl;
-	}
+        addressImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		addressId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		classNameId = objectInput.readLong();
-		classPK = objectInput.readLong();
-		street1 = objectInput.readUTF();
-		street2 = objectInput.readUTF();
-		street3 = objectInput.readUTF();
-		city = objectInput.readUTF();
-		zip = objectInput.readUTF();
-		regionId = objectInput.readLong();
-		countryId = objectInput.readLong();
-		typeId = objectInput.readInt();
-		mailing = objectInput.readBoolean();
-		primary = objectInput.readBoolean();
-	}
+        return addressImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        addressId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        classNameId = objectInput.readLong();
+        classPK = objectInput.readLong();
+        street1 = objectInput.readUTF();
+        street2 = objectInput.readUTF();
+        street3 = objectInput.readUTF();
+        city = objectInput.readUTF();
+        zip = objectInput.readUTF();
+        regionId = objectInput.readLong();
+        countryId = objectInput.readLong();
+        typeId = objectInput.readInt();
+        mailing = objectInput.readBoolean();
+        primary = objectInput.readBoolean();
+    }
 
-		objectOutput.writeLong(addressId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+        objectOutput.writeLong(addressId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(classNameId);
-		objectOutput.writeLong(classPK);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (street1 == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(street1);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(classNameId);
+        objectOutput.writeLong(classPK);
 
-		if (street2 == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(street2);
-		}
+        if (street1 == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(street1);
+        }
 
-		if (street3 == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(street3);
-		}
+        if (street2 == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(street2);
+        }
 
-		if (city == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(city);
-		}
+        if (street3 == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(street3);
+        }
 
-		if (zip == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(zip);
-		}
+        if (city == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(city);
+        }
 
-		objectOutput.writeLong(regionId);
-		objectOutput.writeLong(countryId);
-		objectOutput.writeInt(typeId);
-		objectOutput.writeBoolean(mailing);
-		objectOutput.writeBoolean(primary);
-	}
+        if (zip == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(zip);
+        }
 
-	public String uuid;
-	public long addressId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public long classNameId;
-	public long classPK;
-	public String street1;
-	public String street2;
-	public String street3;
-	public String city;
-	public String zip;
-	public long regionId;
-	public long countryId;
-	public int typeId;
-	public boolean mailing;
-	public boolean primary;
+        objectOutput.writeLong(regionId);
+        objectOutput.writeLong(countryId);
+        objectOutput.writeInt(typeId);
+        objectOutput.writeBoolean(mailing);
+        objectOutput.writeBoolean(primary);
+    }
 }

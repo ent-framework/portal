@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -27,101 +13,100 @@ import java.util.List;
  * @generated
  */
 public class PasswordTrackerSoap implements Serializable {
-	public static PasswordTrackerSoap toSoapModel(PasswordTracker model) {
-		PasswordTrackerSoap soapModel = new PasswordTrackerSoap();
+    private long _passwordTrackerId;
+    private long _userId;
+    private Date _createDate;
+    private String _password;
 
-		soapModel.setPasswordTrackerId(model.getPasswordTrackerId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setCreateDate(model.getCreateDate());
-		soapModel.setPassword(model.getPassword());
+    public PasswordTrackerSoap() {
+    }
 
-		return soapModel;
-	}
+    public static PasswordTrackerSoap toSoapModel(PasswordTracker model) {
+        PasswordTrackerSoap soapModel = new PasswordTrackerSoap();
 
-	public static PasswordTrackerSoap[] toSoapModels(PasswordTracker[] models) {
-		PasswordTrackerSoap[] soapModels = new PasswordTrackerSoap[models.length];
+        soapModel.setPasswordTrackerId(model.getPasswordTrackerId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setCreateDate(model.getCreateDate());
+        soapModel.setPassword(model.getPassword());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static PasswordTrackerSoap[] toSoapModels(PasswordTracker[] models) {
+        PasswordTrackerSoap[] soapModels = new PasswordTrackerSoap[models.length];
 
-	public static PasswordTrackerSoap[][] toSoapModels(
-		PasswordTracker[][] models) {
-		PasswordTrackerSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new PasswordTrackerSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new PasswordTrackerSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static PasswordTrackerSoap[][] toSoapModels(
+        PasswordTracker[][] models) {
+        PasswordTrackerSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new PasswordTrackerSoap[models.length][models[0].length];
+        } else {
+            soapModels = new PasswordTrackerSoap[0][0];
+        }
 
-	public static PasswordTrackerSoap[] toSoapModels(
-		List<PasswordTracker> models) {
-		List<PasswordTrackerSoap> soapModels = new ArrayList<PasswordTrackerSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (PasswordTracker model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new PasswordTrackerSoap[soapModels.size()]);
-	}
+    public static PasswordTrackerSoap[] toSoapModels(
+        List<PasswordTracker> models) {
+        List<PasswordTrackerSoap> soapModels = new ArrayList<PasswordTrackerSoap>(models.size());
 
-	public PasswordTrackerSoap() {
-	}
+        for (PasswordTracker model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _passwordTrackerId;
-	}
+        return soapModels.toArray(new PasswordTrackerSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setPasswordTrackerId(pk);
-	}
+    public long getPrimaryKey() {
+        return _passwordTrackerId;
+    }
 
-	public long getPasswordTrackerId() {
-		return _passwordTrackerId;
-	}
+    public void setPrimaryKey(long pk) {
+        setPasswordTrackerId(pk);
+    }
 
-	public void setPasswordTrackerId(long passwordTrackerId) {
-		_passwordTrackerId = passwordTrackerId;
-	}
+    public long getPasswordTrackerId() {
+        return _passwordTrackerId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setPasswordTrackerId(long passwordTrackerId) {
+        _passwordTrackerId = passwordTrackerId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public Date getCreateDate() {
-		return _createDate;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setCreateDate(Date createDate) {
-		_createDate = createDate;
-	}
+    public Date getCreateDate() {
+        return _createDate;
+    }
 
-	public String getPassword() {
-		return _password;
-	}
+    public void setCreateDate(Date createDate) {
+        _createDate = createDate;
+    }
 
-	public void setPassword(String password) {
-		_password = password;
-	}
+    public String getPassword() {
+        return _password;
+    }
 
-	private long _passwordTrackerId;
-	private long _userId;
-	private Date _createDate;
-	private String _password;
+    public void setPassword(String password) {
+        _password = password;
+    }
 }

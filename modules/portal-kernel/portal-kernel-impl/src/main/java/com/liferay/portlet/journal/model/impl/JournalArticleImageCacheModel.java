@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.journal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -33,133 +19,125 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class JournalArticleImageCacheModel implements CacheModel<JournalArticleImage>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(17);
+    Externalizable {
+    public long articleImageId;
+    public long groupId;
+    public String articleId;
+    public double version;
+    public String elInstanceId;
+    public String elName;
+    public String languageId;
+    public boolean tempImage;
 
-		sb.append("{articleImageId=");
-		sb.append(articleImageId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", articleId=");
-		sb.append(articleId);
-		sb.append(", version=");
-		sb.append(version);
-		sb.append(", elInstanceId=");
-		sb.append(elInstanceId);
-		sb.append(", elName=");
-		sb.append(elName);
-		sb.append(", languageId=");
-		sb.append(languageId);
-		sb.append(", tempImage=");
-		sb.append(tempImage);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(17);
 
-		return sb.toString();
-	}
+        sb.append("{articleImageId=");
+        sb.append(articleImageId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", articleId=");
+        sb.append(articleId);
+        sb.append(", version=");
+        sb.append(version);
+        sb.append(", elInstanceId=");
+        sb.append(elInstanceId);
+        sb.append(", elName=");
+        sb.append(elName);
+        sb.append(", languageId=");
+        sb.append(languageId);
+        sb.append(", tempImage=");
+        sb.append(tempImage);
+        sb.append("}");
 
-	@Override
-	public JournalArticleImage toEntityModel() {
-		JournalArticleImageImpl journalArticleImageImpl = new JournalArticleImageImpl();
+        return sb.toString();
+    }
 
-		journalArticleImageImpl.setArticleImageId(articleImageId);
-		journalArticleImageImpl.setGroupId(groupId);
+    @Override
+    public JournalArticleImage toEntityModel() {
+        JournalArticleImageImpl journalArticleImageImpl = new JournalArticleImageImpl();
 
-		if (articleId == null) {
-			journalArticleImageImpl.setArticleId(StringPool.BLANK);
-		}
-		else {
-			journalArticleImageImpl.setArticleId(articleId);
-		}
+        journalArticleImageImpl.setArticleImageId(articleImageId);
+        journalArticleImageImpl.setGroupId(groupId);
 
-		journalArticleImageImpl.setVersion(version);
+        if (articleId == null) {
+            journalArticleImageImpl.setArticleId(StringPool.BLANK);
+        } else {
+            journalArticleImageImpl.setArticleId(articleId);
+        }
 
-		if (elInstanceId == null) {
-			journalArticleImageImpl.setElInstanceId(StringPool.BLANK);
-		}
-		else {
-			journalArticleImageImpl.setElInstanceId(elInstanceId);
-		}
+        journalArticleImageImpl.setVersion(version);
 
-		if (elName == null) {
-			journalArticleImageImpl.setElName(StringPool.BLANK);
-		}
-		else {
-			journalArticleImageImpl.setElName(elName);
-		}
+        if (elInstanceId == null) {
+            journalArticleImageImpl.setElInstanceId(StringPool.BLANK);
+        } else {
+            journalArticleImageImpl.setElInstanceId(elInstanceId);
+        }
 
-		if (languageId == null) {
-			journalArticleImageImpl.setLanguageId(StringPool.BLANK);
-		}
-		else {
-			journalArticleImageImpl.setLanguageId(languageId);
-		}
+        if (elName == null) {
+            journalArticleImageImpl.setElName(StringPool.BLANK);
+        } else {
+            journalArticleImageImpl.setElName(elName);
+        }
 
-		journalArticleImageImpl.setTempImage(tempImage);
+        if (languageId == null) {
+            journalArticleImageImpl.setLanguageId(StringPool.BLANK);
+        } else {
+            journalArticleImageImpl.setLanguageId(languageId);
+        }
 
-		journalArticleImageImpl.resetOriginalValues();
+        journalArticleImageImpl.setTempImage(tempImage);
 
-		return journalArticleImageImpl;
-	}
+        journalArticleImageImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		articleImageId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		articleId = objectInput.readUTF();
-		version = objectInput.readDouble();
-		elInstanceId = objectInput.readUTF();
-		elName = objectInput.readUTF();
-		languageId = objectInput.readUTF();
-		tempImage = objectInput.readBoolean();
-	}
+        return journalArticleImageImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(articleImageId);
-		objectOutput.writeLong(groupId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        articleImageId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        articleId = objectInput.readUTF();
+        version = objectInput.readDouble();
+        elInstanceId = objectInput.readUTF();
+        elName = objectInput.readUTF();
+        languageId = objectInput.readUTF();
+        tempImage = objectInput.readBoolean();
+    }
 
-		if (articleId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(articleId);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(articleImageId);
+        objectOutput.writeLong(groupId);
 
-		objectOutput.writeDouble(version);
+        if (articleId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(articleId);
+        }
 
-		if (elInstanceId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(elInstanceId);
-		}
+        objectOutput.writeDouble(version);
 
-		if (elName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(elName);
-		}
+        if (elInstanceId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(elInstanceId);
+        }
 
-		if (languageId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(languageId);
-		}
+        if (elName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(elName);
+        }
 
-		objectOutput.writeBoolean(tempImage);
-	}
+        if (languageId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(languageId);
+        }
 
-	public long articleImageId;
-	public long groupId;
-	public String articleId;
-	public double version;
-	public String elInstanceId;
-	public String elName;
-	public String languageId;
-	public boolean tempImage;
+        objectOutput.writeBoolean(tempImage);
+    }
 }

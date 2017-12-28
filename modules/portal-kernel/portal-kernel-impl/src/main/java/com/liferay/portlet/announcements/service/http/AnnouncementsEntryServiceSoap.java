@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.announcements.service.http;
 
 import aQute.bnd.annotation.ProviderType;
@@ -65,114 +51,109 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class AnnouncementsEntryServiceSoap {
-	public static com.liferay.portlet.announcements.model.AnnouncementsEntrySoap addEntry(
-		long plid, long classNameId, long classPK, java.lang.String title,
-		java.lang.String content, java.lang.String url, java.lang.String type,
-		int displayDateMonth, int displayDateDay, int displayDateYear,
-		int displayDateHour, int displayDateMinute, boolean displayImmediately,
-		int expirationDateMonth, int expirationDateDay, int expirationDateYear,
-		int expirationDateHour, int expirationDateMinute, int priority,
-		boolean alert) throws RemoteException {
-		try {
-			com.liferay.portlet.announcements.model.AnnouncementsEntry returnValue =
-				AnnouncementsEntryServiceUtil.addEntry(plid, classNameId,
-					classPK, title, content, url, type, displayDateMonth,
-					displayDateDay, displayDateYear, displayDateHour,
-					displayDateMinute, displayImmediately, expirationDateMonth,
-					expirationDateDay, expirationDateYear, expirationDateHour,
-					expirationDateMinute, priority, alert);
+    private static Log _log = LogFactoryUtil.getLog(AnnouncementsEntryServiceSoap.class);
 
-			return com.liferay.portlet.announcements.model.AnnouncementsEntrySoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.announcements.model.AnnouncementsEntrySoap addEntry(
+        long plid, long classNameId, long classPK, java.lang.String title,
+        java.lang.String content, java.lang.String url, java.lang.String type,
+        int displayDateMonth, int displayDateDay, int displayDateYear,
+        int displayDateHour, int displayDateMinute, boolean displayImmediately,
+        int expirationDateMonth, int expirationDateDay, int expirationDateYear,
+        int expirationDateHour, int expirationDateMinute, int priority,
+        boolean alert) throws RemoteException {
+        try {
+            com.liferay.portlet.announcements.model.AnnouncementsEntry returnValue =
+                AnnouncementsEntryServiceUtil.addEntry(plid, classNameId,
+                    classPK, title, content, url, type, displayDateMonth,
+                    displayDateDay, displayDateYear, displayDateHour,
+                    displayDateMinute, displayImmediately, expirationDateMonth,
+                    expirationDateDay, expirationDateYear, expirationDateHour,
+                    expirationDateMinute, priority, alert);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.announcements.model.AnnouncementsEntrySoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	/**
-	* @deprecated As of 6.2.0, replaced by {@link #addEntry(long, long, long,
-	String, String, String, String, int, int, int, int, int,
-	boolean, int, int, int, int, int, int, boolean)}
-	*/
-	public static com.liferay.portlet.announcements.model.AnnouncementsEntrySoap addEntry(
-		long plid, long classNameId, long classPK, java.lang.String title,
-		java.lang.String content, java.lang.String url, java.lang.String type,
-		int displayDateMonth, int displayDateDay, int displayDateYear,
-		int displayDateHour, int displayDateMinute, int expirationDateMonth,
-		int expirationDateDay, int expirationDateYear, int expirationDateHour,
-		int expirationDateMinute, int priority, boolean alert)
-		throws RemoteException {
-		try {
-			com.liferay.portlet.announcements.model.AnnouncementsEntry returnValue =
-				AnnouncementsEntryServiceUtil.addEntry(plid, classNameId,
-					classPK, title, content, url, type, displayDateMonth,
-					displayDateDay, displayDateYear, displayDateHour,
-					displayDateMinute, expirationDateMonth, expirationDateDay,
-					expirationDateYear, expirationDateHour,
-					expirationDateMinute, priority, alert);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.announcements.model.AnnouncementsEntrySoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    /**
+    * @deprecated As of 6.2.0, replaced by {@link #addEntry(long, long, long,
+    String, String, String, String, int, int, int, int, int,
+    boolean, int, int, int, int, int, int, boolean)}
+    */
+    public static com.liferay.portlet.announcements.model.AnnouncementsEntrySoap addEntry(
+        long plid, long classNameId, long classPK, java.lang.String title,
+        java.lang.String content, java.lang.String url, java.lang.String type,
+        int displayDateMonth, int displayDateDay, int displayDateYear,
+        int displayDateHour, int displayDateMinute, int expirationDateMonth,
+        int expirationDateDay, int expirationDateYear, int expirationDateHour,
+        int expirationDateMinute, int priority, boolean alert)
+        throws RemoteException {
+        try {
+            com.liferay.portlet.announcements.model.AnnouncementsEntry returnValue =
+                AnnouncementsEntryServiceUtil.addEntry(plid, classNameId,
+                    classPK, title, content, url, type, displayDateMonth,
+                    displayDateDay, displayDateYear, displayDateHour,
+                    displayDateMinute, expirationDateMonth, expirationDateDay,
+                    expirationDateYear, expirationDateHour,
+                    expirationDateMinute, priority, alert);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.announcements.model.AnnouncementsEntrySoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void deleteEntry(long entryId) throws RemoteException {
-		try {
-			AnnouncementsEntryServiceUtil.deleteEntry(entryId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void deleteEntry(long entryId) throws RemoteException {
+        try {
+            AnnouncementsEntryServiceUtil.deleteEntry(entryId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.announcements.model.AnnouncementsEntrySoap getEntry(
-		long entryId) throws RemoteException {
-		try {
-			com.liferay.portlet.announcements.model.AnnouncementsEntry returnValue =
-				AnnouncementsEntryServiceUtil.getEntry(entryId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.announcements.model.AnnouncementsEntrySoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.announcements.model.AnnouncementsEntrySoap getEntry(
+        long entryId) throws RemoteException {
+        try {
+            com.liferay.portlet.announcements.model.AnnouncementsEntry returnValue =
+                AnnouncementsEntryServiceUtil.getEntry(entryId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.announcements.model.AnnouncementsEntrySoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.announcements.model.AnnouncementsEntrySoap updateEntry(
-		long entryId, java.lang.String title, java.lang.String content,
-		java.lang.String url, java.lang.String type, int displayDateMonth,
-		int displayDateDay, int displayDateYear, int displayDateHour,
-		int displayDateMinute, boolean displayImmediately,
-		int expirationDateMonth, int expirationDateDay, int expirationDateYear,
-		int expirationDateHour, int expirationDateMinute, int priority)
-		throws RemoteException {
-		try {
-			com.liferay.portlet.announcements.model.AnnouncementsEntry returnValue =
-				AnnouncementsEntryServiceUtil.updateEntry(entryId, title,
-					content, url, type, displayDateMonth, displayDateDay,
-					displayDateYear, displayDateHour, displayDateMinute,
-					displayImmediately, expirationDateMonth, expirationDateDay,
-					expirationDateYear, expirationDateHour,
-					expirationDateMinute, priority);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.announcements.model.AnnouncementsEntrySoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.announcements.model.AnnouncementsEntrySoap updateEntry(
+        long entryId, java.lang.String title, java.lang.String content,
+        java.lang.String url, java.lang.String type, int displayDateMonth,
+        int displayDateDay, int displayDateYear, int displayDateHour,
+        int displayDateMinute, boolean displayImmediately,
+        int expirationDateMonth, int expirationDateDay, int expirationDateYear,
+        int expirationDateHour, int expirationDateMinute, int priority)
+        throws RemoteException {
+        try {
+            com.liferay.portlet.announcements.model.AnnouncementsEntry returnValue =
+                AnnouncementsEntryServiceUtil.updateEntry(entryId, title,
+                    content, url, type, displayDateMonth, displayDateDay,
+                    displayDateYear, displayDateHour, displayDateMinute,
+                    displayImmediately, expirationDateMonth, expirationDateDay,
+                    expirationDateYear, expirationDateHour,
+                    expirationDateMinute, priority);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.announcements.model.AnnouncementsEntrySoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	private static Log _log = LogFactoryUtil.getLog(AnnouncementsEntryServiceSoap.class);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

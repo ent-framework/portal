@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -26,103 +12,102 @@ import java.util.List;
  * @generated
  */
 public class ClusterGroupSoap implements Serializable {
-	public static ClusterGroupSoap toSoapModel(ClusterGroup model) {
-		ClusterGroupSoap soapModel = new ClusterGroupSoap();
+    private long _clusterGroupId;
+    private String _name;
+    private String _clusterNodeIds;
+    private boolean _wholeCluster;
 
-		soapModel.setClusterGroupId(model.getClusterGroupId());
-		soapModel.setName(model.getName());
-		soapModel.setClusterNodeIds(model.getClusterNodeIds());
-		soapModel.setWholeCluster(model.getWholeCluster());
+    public ClusterGroupSoap() {
+    }
 
-		return soapModel;
-	}
+    public static ClusterGroupSoap toSoapModel(ClusterGroup model) {
+        ClusterGroupSoap soapModel = new ClusterGroupSoap();
 
-	public static ClusterGroupSoap[] toSoapModels(ClusterGroup[] models) {
-		ClusterGroupSoap[] soapModels = new ClusterGroupSoap[models.length];
+        soapModel.setClusterGroupId(model.getClusterGroupId());
+        soapModel.setName(model.getName());
+        soapModel.setClusterNodeIds(model.getClusterNodeIds());
+        soapModel.setWholeCluster(model.getWholeCluster());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static ClusterGroupSoap[] toSoapModels(ClusterGroup[] models) {
+        ClusterGroupSoap[] soapModels = new ClusterGroupSoap[models.length];
 
-	public static ClusterGroupSoap[][] toSoapModels(ClusterGroup[][] models) {
-		ClusterGroupSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new ClusterGroupSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new ClusterGroupSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static ClusterGroupSoap[][] toSoapModels(ClusterGroup[][] models) {
+        ClusterGroupSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new ClusterGroupSoap[models.length][models[0].length];
+        } else {
+            soapModels = new ClusterGroupSoap[0][0];
+        }
 
-	public static ClusterGroupSoap[] toSoapModels(List<ClusterGroup> models) {
-		List<ClusterGroupSoap> soapModels = new ArrayList<ClusterGroupSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (ClusterGroup model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new ClusterGroupSoap[soapModels.size()]);
-	}
+    public static ClusterGroupSoap[] toSoapModels(List<ClusterGroup> models) {
+        List<ClusterGroupSoap> soapModels = new ArrayList<ClusterGroupSoap>(models.size());
 
-	public ClusterGroupSoap() {
-	}
+        for (ClusterGroup model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _clusterGroupId;
-	}
+        return soapModels.toArray(new ClusterGroupSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setClusterGroupId(pk);
-	}
+    public long getPrimaryKey() {
+        return _clusterGroupId;
+    }
 
-	public long getClusterGroupId() {
-		return _clusterGroupId;
-	}
+    public void setPrimaryKey(long pk) {
+        setClusterGroupId(pk);
+    }
 
-	public void setClusterGroupId(long clusterGroupId) {
-		_clusterGroupId = clusterGroupId;
-	}
+    public long getClusterGroupId() {
+        return _clusterGroupId;
+    }
 
-	public String getName() {
-		return _name;
-	}
+    public void setClusterGroupId(long clusterGroupId) {
+        _clusterGroupId = clusterGroupId;
+    }
 
-	public void setName(String name) {
-		_name = name;
-	}
+    public String getName() {
+        return _name;
+    }
 
-	public String getClusterNodeIds() {
-		return _clusterNodeIds;
-	}
+    public void setName(String name) {
+        _name = name;
+    }
 
-	public void setClusterNodeIds(String clusterNodeIds) {
-		_clusterNodeIds = clusterNodeIds;
-	}
+    public String getClusterNodeIds() {
+        return _clusterNodeIds;
+    }
 
-	public boolean getWholeCluster() {
-		return _wholeCluster;
-	}
+    public void setClusterNodeIds(String clusterNodeIds) {
+        _clusterNodeIds = clusterNodeIds;
+    }
 
-	public boolean isWholeCluster() {
-		return _wholeCluster;
-	}
+    public boolean getWholeCluster() {
+        return _wholeCluster;
+    }
 
-	public void setWholeCluster(boolean wholeCluster) {
-		_wholeCluster = wholeCluster;
-	}
+    public boolean isWholeCluster() {
+        return _wholeCluster;
+    }
 
-	private long _clusterGroupId;
-	private String _name;
-	private String _clusterNodeIds;
-	private boolean _wholeCluster;
+    public void setWholeCluster(boolean wholeCluster) {
+        _wholeCluster = wholeCluster;
+    }
 }

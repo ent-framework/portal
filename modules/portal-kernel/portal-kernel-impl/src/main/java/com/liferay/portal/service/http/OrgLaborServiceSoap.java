@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
@@ -64,85 +50,80 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class OrgLaborServiceSoap {
-	public static com.liferay.portal.model.OrgLaborSoap addOrgLabor(
-		long organizationId, int typeId, int sunOpen, int sunClose,
-		int monOpen, int monClose, int tueOpen, int tueClose, int wedOpen,
-		int wedClose, int thuOpen, int thuClose, int friOpen, int friClose,
-		int satOpen, int satClose) throws RemoteException {
-		try {
-			com.liferay.portal.model.OrgLabor returnValue = OrgLaborServiceUtil.addOrgLabor(organizationId,
-					typeId, sunOpen, sunClose, monOpen, monClose, tueOpen,
-					tueClose, wedOpen, wedClose, thuOpen, thuClose, friOpen,
-					friClose, satOpen, satClose);
+    private static Log _log = LogFactoryUtil.getLog(OrgLaborServiceSoap.class);
 
-			return com.liferay.portal.model.OrgLaborSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.OrgLaborSoap addOrgLabor(
+        long organizationId, int typeId, int sunOpen, int sunClose,
+        int monOpen, int monClose, int tueOpen, int tueClose, int wedOpen,
+        int wedClose, int thuOpen, int thuClose, int friOpen, int friClose,
+        int satOpen, int satClose) throws RemoteException {
+        try {
+            com.liferay.portal.model.OrgLabor returnValue = OrgLaborServiceUtil.addOrgLabor(organizationId,
+                    typeId, sunOpen, sunClose, monOpen, monClose, tueOpen,
+                    tueClose, wedOpen, wedClose, thuOpen, thuClose, friOpen,
+                    friClose, satOpen, satClose);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.OrgLaborSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void deleteOrgLabor(long orgLaborId)
-		throws RemoteException {
-		try {
-			OrgLaborServiceUtil.deleteOrgLabor(orgLaborId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void deleteOrgLabor(long orgLaborId)
+        throws RemoteException {
+        try {
+            OrgLaborServiceUtil.deleteOrgLabor(orgLaborId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portal.model.OrgLaborSoap getOrgLabor(
-		long orgLaborId) throws RemoteException {
-		try {
-			com.liferay.portal.model.OrgLabor returnValue = OrgLaborServiceUtil.getOrgLabor(orgLaborId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portal.model.OrgLaborSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.OrgLaborSoap getOrgLabor(
+        long orgLaborId) throws RemoteException {
+        try {
+            com.liferay.portal.model.OrgLabor returnValue = OrgLaborServiceUtil.getOrgLabor(orgLaborId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.OrgLaborSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portal.model.OrgLaborSoap[] getOrgLabors(
-		long organizationId) throws RemoteException {
-		try {
-			java.util.List<com.liferay.portal.model.OrgLabor> returnValue = OrgLaborServiceUtil.getOrgLabors(organizationId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portal.model.OrgLaborSoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.OrgLaborSoap[] getOrgLabors(
+        long organizationId) throws RemoteException {
+        try {
+            java.util.List<com.liferay.portal.model.OrgLabor> returnValue = OrgLaborServiceUtil.getOrgLabors(organizationId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.OrgLaborSoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portal.model.OrgLaborSoap updateOrgLabor(
-		long orgLaborId, int typeId, int sunOpen, int sunClose, int monOpen,
-		int monClose, int tueOpen, int tueClose, int wedOpen, int wedClose,
-		int thuOpen, int thuClose, int friOpen, int friClose, int satOpen,
-		int satClose) throws RemoteException {
-		try {
-			com.liferay.portal.model.OrgLabor returnValue = OrgLaborServiceUtil.updateOrgLabor(orgLaborId,
-					typeId, sunOpen, sunClose, monOpen, monClose, tueOpen,
-					tueClose, wedOpen, wedClose, thuOpen, thuClose, friOpen,
-					friClose, satOpen, satClose);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portal.model.OrgLaborSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.OrgLaborSoap updateOrgLabor(
+        long orgLaborId, int typeId, int sunOpen, int sunClose, int monOpen,
+        int monClose, int tueOpen, int tueClose, int wedOpen, int wedClose,
+        int thuOpen, int thuClose, int friOpen, int friClose, int satOpen,
+        int satClose) throws RemoteException {
+        try {
+            com.liferay.portal.model.OrgLabor returnValue = OrgLaborServiceUtil.updateOrgLabor(orgLaborId,
+                    typeId, sunOpen, sunClose, monOpen, monClose, tueOpen,
+                    tueClose, wedOpen, wedClose, thuOpen, thuClose, friOpen,
+                    friClose, satOpen, satClose);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.OrgLaborSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	private static Log _log = LogFactoryUtil.getLog(OrgLaborServiceSoap.class);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

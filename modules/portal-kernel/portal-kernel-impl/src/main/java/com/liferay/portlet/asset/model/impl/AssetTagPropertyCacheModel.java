@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.asset.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -35,137 +21,129 @@ import java.util.Date;
  * @generated
  */
 public class AssetTagPropertyCacheModel implements CacheModel<AssetTagProperty>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(19);
+    Externalizable {
+    public long tagPropertyId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public long tagId;
+    public String key;
+    public String value;
 
-		sb.append("{tagPropertyId=");
-		sb.append(tagPropertyId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", tagId=");
-		sb.append(tagId);
-		sb.append(", key=");
-		sb.append(key);
-		sb.append(", value=");
-		sb.append(value);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(19);
 
-		return sb.toString();
-	}
+        sb.append("{tagPropertyId=");
+        sb.append(tagPropertyId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", tagId=");
+        sb.append(tagId);
+        sb.append(", key=");
+        sb.append(key);
+        sb.append(", value=");
+        sb.append(value);
+        sb.append("}");
 
-	@Override
-	public AssetTagProperty toEntityModel() {
-		AssetTagPropertyImpl assetTagPropertyImpl = new AssetTagPropertyImpl();
+        return sb.toString();
+    }
 
-		assetTagPropertyImpl.setTagPropertyId(tagPropertyId);
-		assetTagPropertyImpl.setCompanyId(companyId);
-		assetTagPropertyImpl.setUserId(userId);
+    @Override
+    public AssetTagProperty toEntityModel() {
+        AssetTagPropertyImpl assetTagPropertyImpl = new AssetTagPropertyImpl();
 
-		if (userName == null) {
-			assetTagPropertyImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			assetTagPropertyImpl.setUserName(userName);
-		}
+        assetTagPropertyImpl.setTagPropertyId(tagPropertyId);
+        assetTagPropertyImpl.setCompanyId(companyId);
+        assetTagPropertyImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			assetTagPropertyImpl.setCreateDate(null);
-		}
-		else {
-			assetTagPropertyImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            assetTagPropertyImpl.setUserName(StringPool.BLANK);
+        } else {
+            assetTagPropertyImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			assetTagPropertyImpl.setModifiedDate(null);
-		}
-		else {
-			assetTagPropertyImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            assetTagPropertyImpl.setCreateDate(null);
+        } else {
+            assetTagPropertyImpl.setCreateDate(new Date(createDate));
+        }
 
-		assetTagPropertyImpl.setTagId(tagId);
+        if (modifiedDate == Long.MIN_VALUE) {
+            assetTagPropertyImpl.setModifiedDate(null);
+        } else {
+            assetTagPropertyImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (key == null) {
-			assetTagPropertyImpl.setKey(StringPool.BLANK);
-		}
-		else {
-			assetTagPropertyImpl.setKey(key);
-		}
+        assetTagPropertyImpl.setTagId(tagId);
 
-		if (value == null) {
-			assetTagPropertyImpl.setValue(StringPool.BLANK);
-		}
-		else {
-			assetTagPropertyImpl.setValue(value);
-		}
+        if (key == null) {
+            assetTagPropertyImpl.setKey(StringPool.BLANK);
+        } else {
+            assetTagPropertyImpl.setKey(key);
+        }
 
-		assetTagPropertyImpl.resetOriginalValues();
+        if (value == null) {
+            assetTagPropertyImpl.setValue(StringPool.BLANK);
+        } else {
+            assetTagPropertyImpl.setValue(value);
+        }
 
-		return assetTagPropertyImpl;
-	}
+        assetTagPropertyImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		tagPropertyId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		tagId = objectInput.readLong();
-		key = objectInput.readUTF();
-		value = objectInput.readUTF();
-	}
+        return assetTagPropertyImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(tagPropertyId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        tagPropertyId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        tagId = objectInput.readLong();
+        key = objectInput.readUTF();
+        value = objectInput.readUTF();
+    }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(tagPropertyId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(tagId);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (key == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(key);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(tagId);
 
-		if (value == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(value);
-		}
-	}
+        if (key == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(key);
+        }
 
-	public long tagPropertyId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public long tagId;
-	public String key;
-	public String value;
+        if (value == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(value);
+        }
+    }
 }

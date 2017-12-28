@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -32,95 +18,93 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class UserNotificationDeliveryCacheModel implements CacheModel<UserNotificationDelivery>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(17);
+    Externalizable {
+    public long userNotificationDeliveryId;
+    public long companyId;
+    public long userId;
+    public String portletId;
+    public long classNameId;
+    public int notificationType;
+    public int deliveryType;
+    public boolean deliver;
 
-		sb.append("{userNotificationDeliveryId=");
-		sb.append(userNotificationDeliveryId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", portletId=");
-		sb.append(portletId);
-		sb.append(", classNameId=");
-		sb.append(classNameId);
-		sb.append(", notificationType=");
-		sb.append(notificationType);
-		sb.append(", deliveryType=");
-		sb.append(deliveryType);
-		sb.append(", deliver=");
-		sb.append(deliver);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(17);
 
-		return sb.toString();
-	}
+        sb.append("{userNotificationDeliveryId=");
+        sb.append(userNotificationDeliveryId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", portletId=");
+        sb.append(portletId);
+        sb.append(", classNameId=");
+        sb.append(classNameId);
+        sb.append(", notificationType=");
+        sb.append(notificationType);
+        sb.append(", deliveryType=");
+        sb.append(deliveryType);
+        sb.append(", deliver=");
+        sb.append(deliver);
+        sb.append("}");
 
-	@Override
-	public UserNotificationDelivery toEntityModel() {
-		UserNotificationDeliveryImpl userNotificationDeliveryImpl = new UserNotificationDeliveryImpl();
+        return sb.toString();
+    }
 
-		userNotificationDeliveryImpl.setUserNotificationDeliveryId(userNotificationDeliveryId);
-		userNotificationDeliveryImpl.setCompanyId(companyId);
-		userNotificationDeliveryImpl.setUserId(userId);
+    @Override
+    public UserNotificationDelivery toEntityModel() {
+        UserNotificationDeliveryImpl userNotificationDeliveryImpl = new UserNotificationDeliveryImpl();
 
-		if (portletId == null) {
-			userNotificationDeliveryImpl.setPortletId(StringPool.BLANK);
-		}
-		else {
-			userNotificationDeliveryImpl.setPortletId(portletId);
-		}
+        userNotificationDeliveryImpl.setUserNotificationDeliveryId(userNotificationDeliveryId);
+        userNotificationDeliveryImpl.setCompanyId(companyId);
+        userNotificationDeliveryImpl.setUserId(userId);
 
-		userNotificationDeliveryImpl.setClassNameId(classNameId);
-		userNotificationDeliveryImpl.setNotificationType(notificationType);
-		userNotificationDeliveryImpl.setDeliveryType(deliveryType);
-		userNotificationDeliveryImpl.setDeliver(deliver);
+        if (portletId == null) {
+            userNotificationDeliveryImpl.setPortletId(StringPool.BLANK);
+        } else {
+            userNotificationDeliveryImpl.setPortletId(portletId);
+        }
 
-		userNotificationDeliveryImpl.resetOriginalValues();
+        userNotificationDeliveryImpl.setClassNameId(classNameId);
+        userNotificationDeliveryImpl.setNotificationType(notificationType);
+        userNotificationDeliveryImpl.setDeliveryType(deliveryType);
+        userNotificationDeliveryImpl.setDeliver(deliver);
 
-		return userNotificationDeliveryImpl;
-	}
+        userNotificationDeliveryImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		userNotificationDeliveryId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		portletId = objectInput.readUTF();
-		classNameId = objectInput.readLong();
-		notificationType = objectInput.readInt();
-		deliveryType = objectInput.readInt();
-		deliver = objectInput.readBoolean();
-	}
+        return userNotificationDeliveryImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(userNotificationDeliveryId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        userNotificationDeliveryId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        portletId = objectInput.readUTF();
+        classNameId = objectInput.readLong();
+        notificationType = objectInput.readInt();
+        deliveryType = objectInput.readInt();
+        deliver = objectInput.readBoolean();
+    }
 
-		if (portletId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(portletId);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(userNotificationDeliveryId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(classNameId);
-		objectOutput.writeInt(notificationType);
-		objectOutput.writeInt(deliveryType);
-		objectOutput.writeBoolean(deliver);
-	}
+        if (portletId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(portletId);
+        }
 
-	public long userNotificationDeliveryId;
-	public long companyId;
-	public long userId;
-	public String portletId;
-	public long classNameId;
-	public int notificationType;
-	public int deliveryType;
-	public boolean deliver;
+        objectOutput.writeLong(classNameId);
+        objectOutput.writeInt(notificationType);
+        objectOutput.writeInt(deliveryType);
+        objectOutput.writeBoolean(deliver);
+    }
 }

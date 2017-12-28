@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -32,224 +18,212 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class GroupCacheModel implements CacheModel<Group>, Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(39);
+    public String uuid;
+    public long groupId;
+    public long companyId;
+    public long creatorUserId;
+    public long classNameId;
+    public long classPK;
+    public long parentGroupId;
+    public long liveGroupId;
+    public String treePath;
+    public String name;
+    public String description;
+    public int type;
+    public String typeSettings;
+    public boolean manualMembership;
+    public int membershipRestriction;
+    public String friendlyURL;
+    public boolean site;
+    public int remoteStagingGroupCount;
+    public boolean active;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", creatorUserId=");
-		sb.append(creatorUserId);
-		sb.append(", classNameId=");
-		sb.append(classNameId);
-		sb.append(", classPK=");
-		sb.append(classPK);
-		sb.append(", parentGroupId=");
-		sb.append(parentGroupId);
-		sb.append(", liveGroupId=");
-		sb.append(liveGroupId);
-		sb.append(", treePath=");
-		sb.append(treePath);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", description=");
-		sb.append(description);
-		sb.append(", type=");
-		sb.append(type);
-		sb.append(", typeSettings=");
-		sb.append(typeSettings);
-		sb.append(", manualMembership=");
-		sb.append(manualMembership);
-		sb.append(", membershipRestriction=");
-		sb.append(membershipRestriction);
-		sb.append(", friendlyURL=");
-		sb.append(friendlyURL);
-		sb.append(", site=");
-		sb.append(site);
-		sb.append(", remoteStagingGroupCount=");
-		sb.append(remoteStagingGroupCount);
-		sb.append(", active=");
-		sb.append(active);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(39);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", creatorUserId=");
+        sb.append(creatorUserId);
+        sb.append(", classNameId=");
+        sb.append(classNameId);
+        sb.append(", classPK=");
+        sb.append(classPK);
+        sb.append(", parentGroupId=");
+        sb.append(parentGroupId);
+        sb.append(", liveGroupId=");
+        sb.append(liveGroupId);
+        sb.append(", treePath=");
+        sb.append(treePath);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", description=");
+        sb.append(description);
+        sb.append(", type=");
+        sb.append(type);
+        sb.append(", typeSettings=");
+        sb.append(typeSettings);
+        sb.append(", manualMembership=");
+        sb.append(manualMembership);
+        sb.append(", membershipRestriction=");
+        sb.append(membershipRestriction);
+        sb.append(", friendlyURL=");
+        sb.append(friendlyURL);
+        sb.append(", site=");
+        sb.append(site);
+        sb.append(", remoteStagingGroupCount=");
+        sb.append(remoteStagingGroupCount);
+        sb.append(", active=");
+        sb.append(active);
+        sb.append("}");
 
-	@Override
-	public Group toEntityModel() {
-		GroupImpl groupImpl = new GroupImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			groupImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			groupImpl.setUuid(uuid);
-		}
+    @Override
+    public Group toEntityModel() {
+        GroupImpl groupImpl = new GroupImpl();
 
-		groupImpl.setGroupId(groupId);
-		groupImpl.setCompanyId(companyId);
-		groupImpl.setCreatorUserId(creatorUserId);
-		groupImpl.setClassNameId(classNameId);
-		groupImpl.setClassPK(classPK);
-		groupImpl.setParentGroupId(parentGroupId);
-		groupImpl.setLiveGroupId(liveGroupId);
+        if (uuid == null) {
+            groupImpl.setUuid(StringPool.BLANK);
+        } else {
+            groupImpl.setUuid(uuid);
+        }
 
-		if (treePath == null) {
-			groupImpl.setTreePath(StringPool.BLANK);
-		}
-		else {
-			groupImpl.setTreePath(treePath);
-		}
+        groupImpl.setGroupId(groupId);
+        groupImpl.setCompanyId(companyId);
+        groupImpl.setCreatorUserId(creatorUserId);
+        groupImpl.setClassNameId(classNameId);
+        groupImpl.setClassPK(classPK);
+        groupImpl.setParentGroupId(parentGroupId);
+        groupImpl.setLiveGroupId(liveGroupId);
 
-		if (name == null) {
-			groupImpl.setName(StringPool.BLANK);
-		}
-		else {
-			groupImpl.setName(name);
-		}
+        if (treePath == null) {
+            groupImpl.setTreePath(StringPool.BLANK);
+        } else {
+            groupImpl.setTreePath(treePath);
+        }
 
-		if (description == null) {
-			groupImpl.setDescription(StringPool.BLANK);
-		}
-		else {
-			groupImpl.setDescription(description);
-		}
+        if (name == null) {
+            groupImpl.setName(StringPool.BLANK);
+        } else {
+            groupImpl.setName(name);
+        }
 
-		groupImpl.setType(type);
+        if (description == null) {
+            groupImpl.setDescription(StringPool.BLANK);
+        } else {
+            groupImpl.setDescription(description);
+        }
 
-		if (typeSettings == null) {
-			groupImpl.setTypeSettings(StringPool.BLANK);
-		}
-		else {
-			groupImpl.setTypeSettings(typeSettings);
-		}
+        groupImpl.setType(type);
 
-		groupImpl.setManualMembership(manualMembership);
-		groupImpl.setMembershipRestriction(membershipRestriction);
+        if (typeSettings == null) {
+            groupImpl.setTypeSettings(StringPool.BLANK);
+        } else {
+            groupImpl.setTypeSettings(typeSettings);
+        }
 
-		if (friendlyURL == null) {
-			groupImpl.setFriendlyURL(StringPool.BLANK);
-		}
-		else {
-			groupImpl.setFriendlyURL(friendlyURL);
-		}
+        groupImpl.setManualMembership(manualMembership);
+        groupImpl.setMembershipRestriction(membershipRestriction);
 
-		groupImpl.setSite(site);
-		groupImpl.setRemoteStagingGroupCount(remoteStagingGroupCount);
-		groupImpl.setActive(active);
+        if (friendlyURL == null) {
+            groupImpl.setFriendlyURL(StringPool.BLANK);
+        } else {
+            groupImpl.setFriendlyURL(friendlyURL);
+        }
 
-		groupImpl.resetOriginalValues();
+        groupImpl.setSite(site);
+        groupImpl.setRemoteStagingGroupCount(remoteStagingGroupCount);
+        groupImpl.setActive(active);
 
-		return groupImpl;
-	}
+        groupImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		creatorUserId = objectInput.readLong();
-		classNameId = objectInput.readLong();
-		classPK = objectInput.readLong();
-		parentGroupId = objectInput.readLong();
-		liveGroupId = objectInput.readLong();
-		treePath = objectInput.readUTF();
-		name = objectInput.readUTF();
-		description = objectInput.readUTF();
-		type = objectInput.readInt();
-		typeSettings = objectInput.readUTF();
-		manualMembership = objectInput.readBoolean();
-		membershipRestriction = objectInput.readInt();
-		friendlyURL = objectInput.readUTF();
-		site = objectInput.readBoolean();
-		remoteStagingGroupCount = objectInput.readInt();
-		active = objectInput.readBoolean();
-	}
+        return groupImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        creatorUserId = objectInput.readLong();
+        classNameId = objectInput.readLong();
+        classPK = objectInput.readLong();
+        parentGroupId = objectInput.readLong();
+        liveGroupId = objectInput.readLong();
+        treePath = objectInput.readUTF();
+        name = objectInput.readUTF();
+        description = objectInput.readUTF();
+        type = objectInput.readInt();
+        typeSettings = objectInput.readUTF();
+        manualMembership = objectInput.readBoolean();
+        membershipRestriction = objectInput.readInt();
+        friendlyURL = objectInput.readUTF();
+        site = objectInput.readBoolean();
+        remoteStagingGroupCount = objectInput.readInt();
+        active = objectInput.readBoolean();
+    }
 
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(creatorUserId);
-		objectOutput.writeLong(classNameId);
-		objectOutput.writeLong(classPK);
-		objectOutput.writeLong(parentGroupId);
-		objectOutput.writeLong(liveGroupId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (treePath == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(treePath);
-		}
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(creatorUserId);
+        objectOutput.writeLong(classNameId);
+        objectOutput.writeLong(classPK);
+        objectOutput.writeLong(parentGroupId);
+        objectOutput.writeLong(liveGroupId);
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        if (treePath == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(treePath);
+        }
 
-		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(description);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		objectOutput.writeInt(type);
+        if (description == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(description);
+        }
 
-		if (typeSettings == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(typeSettings);
-		}
+        objectOutput.writeInt(type);
 
-		objectOutput.writeBoolean(manualMembership);
-		objectOutput.writeInt(membershipRestriction);
+        if (typeSettings == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(typeSettings);
+        }
 
-		if (friendlyURL == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(friendlyURL);
-		}
+        objectOutput.writeBoolean(manualMembership);
+        objectOutput.writeInt(membershipRestriction);
 
-		objectOutput.writeBoolean(site);
-		objectOutput.writeInt(remoteStagingGroupCount);
-		objectOutput.writeBoolean(active);
-	}
+        if (friendlyURL == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(friendlyURL);
+        }
 
-	public String uuid;
-	public long groupId;
-	public long companyId;
-	public long creatorUserId;
-	public long classNameId;
-	public long classPK;
-	public long parentGroupId;
-	public long liveGroupId;
-	public String treePath;
-	public String name;
-	public String description;
-	public int type;
-	public String typeSettings;
-	public boolean manualMembership;
-	public int membershipRestriction;
-	public String friendlyURL;
-	public boolean site;
-	public int remoteStagingGroupCount;
-	public boolean active;
+        objectOutput.writeBoolean(site);
+        objectOutput.writeInt(remoteStagingGroupCount);
+        objectOutput.writeBoolean(active);
+    }
 }

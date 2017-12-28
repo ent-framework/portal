@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.social.model;
 
 import java.io.Serializable;
@@ -27,133 +13,132 @@ import java.util.List;
  * @generated
  */
 public class SocialActivitySettingSoap implements Serializable {
-	public static SocialActivitySettingSoap toSoapModel(
-		SocialActivitySetting model) {
-		SocialActivitySettingSoap soapModel = new SocialActivitySettingSoap();
+    private long _activitySettingId;
+    private long _groupId;
+    private long _companyId;
+    private long _classNameId;
+    private int _activityType;
+    private String _name;
+    private String _value;
 
-		soapModel.setActivitySettingId(model.getActivitySettingId());
-		soapModel.setGroupId(model.getGroupId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setClassNameId(model.getClassNameId());
-		soapModel.setActivityType(model.getActivityType());
-		soapModel.setName(model.getName());
-		soapModel.setValue(model.getValue());
+    public SocialActivitySettingSoap() {
+    }
 
-		return soapModel;
-	}
+    public static SocialActivitySettingSoap toSoapModel(
+        SocialActivitySetting model) {
+        SocialActivitySettingSoap soapModel = new SocialActivitySettingSoap();
 
-	public static SocialActivitySettingSoap[] toSoapModels(
-		SocialActivitySetting[] models) {
-		SocialActivitySettingSoap[] soapModels = new SocialActivitySettingSoap[models.length];
+        soapModel.setActivitySettingId(model.getActivitySettingId());
+        soapModel.setGroupId(model.getGroupId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setClassNameId(model.getClassNameId());
+        soapModel.setActivityType(model.getActivityType());
+        soapModel.setName(model.getName());
+        soapModel.setValue(model.getValue());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static SocialActivitySettingSoap[] toSoapModels(
+        SocialActivitySetting[] models) {
+        SocialActivitySettingSoap[] soapModels = new SocialActivitySettingSoap[models.length];
 
-	public static SocialActivitySettingSoap[][] toSoapModels(
-		SocialActivitySetting[][] models) {
-		SocialActivitySettingSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new SocialActivitySettingSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new SocialActivitySettingSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static SocialActivitySettingSoap[][] toSoapModels(
+        SocialActivitySetting[][] models) {
+        SocialActivitySettingSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new SocialActivitySettingSoap[models.length][models[0].length];
+        } else {
+            soapModels = new SocialActivitySettingSoap[0][0];
+        }
 
-	public static SocialActivitySettingSoap[] toSoapModels(
-		List<SocialActivitySetting> models) {
-		List<SocialActivitySettingSoap> soapModels = new ArrayList<SocialActivitySettingSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (SocialActivitySetting model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new SocialActivitySettingSoap[soapModels.size()]);
-	}
+    public static SocialActivitySettingSoap[] toSoapModels(
+        List<SocialActivitySetting> models) {
+        List<SocialActivitySettingSoap> soapModels = new ArrayList<SocialActivitySettingSoap>(models.size());
 
-	public SocialActivitySettingSoap() {
-	}
+        for (SocialActivitySetting model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _activitySettingId;
-	}
+        return soapModels.toArray(new SocialActivitySettingSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setActivitySettingId(pk);
-	}
+    public long getPrimaryKey() {
+        return _activitySettingId;
+    }
 
-	public long getActivitySettingId() {
-		return _activitySettingId;
-	}
+    public void setPrimaryKey(long pk) {
+        setActivitySettingId(pk);
+    }
 
-	public void setActivitySettingId(long activitySettingId) {
-		_activitySettingId = activitySettingId;
-	}
+    public long getActivitySettingId() {
+        return _activitySettingId;
+    }
 
-	public long getGroupId() {
-		return _groupId;
-	}
+    public void setActivitySettingId(long activitySettingId) {
+        _activitySettingId = activitySettingId;
+    }
 
-	public void setGroupId(long groupId) {
-		_groupId = groupId;
-	}
+    public long getGroupId() {
+        return _groupId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setGroupId(long groupId) {
+        _groupId = groupId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getClassNameId() {
-		return _classNameId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setClassNameId(long classNameId) {
-		_classNameId = classNameId;
-	}
+    public long getClassNameId() {
+        return _classNameId;
+    }
 
-	public int getActivityType() {
-		return _activityType;
-	}
+    public void setClassNameId(long classNameId) {
+        _classNameId = classNameId;
+    }
 
-	public void setActivityType(int activityType) {
-		_activityType = activityType;
-	}
+    public int getActivityType() {
+        return _activityType;
+    }
 
-	public String getName() {
-		return _name;
-	}
+    public void setActivityType(int activityType) {
+        _activityType = activityType;
+    }
 
-	public void setName(String name) {
-		_name = name;
-	}
+    public String getName() {
+        return _name;
+    }
 
-	public String getValue() {
-		return _value;
-	}
+    public void setName(String name) {
+        _name = name;
+    }
 
-	public void setValue(String value) {
-		_value = value;
-	}
+    public String getValue() {
+        return _value;
+    }
 
-	private long _activitySettingId;
-	private long _groupId;
-	private long _companyId;
-	private long _classNameId;
-	private int _activityType;
-	private String _name;
-	private String _value;
+    public void setValue(String value) {
+        _value = value;
+    }
 }

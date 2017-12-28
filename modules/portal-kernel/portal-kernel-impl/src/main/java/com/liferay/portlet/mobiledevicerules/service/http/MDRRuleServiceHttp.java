@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.mobiledevicerules.service.http;
 
 import com.liferay.portal.kernel.log.Log;
@@ -52,308 +38,294 @@ import com.liferay.portlet.mobiledevicerules.service.MDRRuleServiceUtil;
  * @generated
  */
 public class MDRRuleServiceHttp {
-	public static com.liferay.portlet.mobiledevicerules.model.MDRRule addRule(
-		HttpPrincipal httpPrincipal, long ruleGroupId,
-		java.util.Map<java.util.Locale, java.lang.String> nameMap,
-		java.util.Map<java.util.Locale, java.lang.String> descriptionMap,
-		java.lang.String type, java.lang.String typeSettings,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(MDRRuleServiceUtil.class,
-					"addRule", _addRuleParameterTypes0);
+    private static Log _log = LogFactoryUtil.getLog(MDRRuleServiceHttp.class);
+    private static final Class<?>[] _addRuleParameterTypes0 = new Class[] {
+            long.class, java.util.Map.class, java.util.Map.class,
+            java.lang.String.class, java.lang.String.class,
+            com.liferay.portal.service.ServiceContext.class
+        };
+    private static final Class<?>[] _addRuleParameterTypes1 = new Class[] {
+            long.class, java.util.Map.class, java.util.Map.class,
+            java.lang.String.class,
+            com.liferay.portal.kernel.util.UnicodeProperties.class,
+            com.liferay.portal.service.ServiceContext.class
+        };
+    private static final Class<?>[] _deleteRuleParameterTypes2 = new Class[] {
+            long.class
+        };
+    private static final Class<?>[] _fetchRuleParameterTypes3 = new Class[] {
+            long.class
+        };
+    private static final Class<?>[] _getRuleParameterTypes4 = new Class[] {
+            long.class
+        };
+    private static final Class<?>[] _updateRuleParameterTypes5 = new Class[] {
+            long.class, java.util.Map.class, java.util.Map.class,
+            java.lang.String.class, java.lang.String.class,
+            com.liferay.portal.service.ServiceContext.class
+        };
+    private static final Class<?>[] _updateRuleParameterTypes6 = new Class[] {
+            long.class, java.util.Map.class, java.util.Map.class,
+            java.lang.String.class,
+            com.liferay.portal.kernel.util.UnicodeProperties.class,
+            com.liferay.portal.service.ServiceContext.class
+        };
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					ruleGroupId, nameMap, descriptionMap, type, typeSettings,
-					serviceContext);
+    public static com.liferay.portlet.mobiledevicerules.model.MDRRule addRule(
+        HttpPrincipal httpPrincipal, long ruleGroupId,
+        java.util.Map<java.util.Locale, java.lang.String> nameMap,
+        java.util.Map<java.util.Locale, java.lang.String> descriptionMap,
+        java.lang.String type, java.lang.String typeSettings,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(MDRRuleServiceUtil.class,
+                    "addRule", _addRuleParameterTypes0);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    ruleGroupId, nameMap, descriptionMap, type, typeSettings,
+                    serviceContext);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portlet.mobiledevicerules.model.MDRRule)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portlet.mobiledevicerules.model.MDRRule) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static com.liferay.portlet.mobiledevicerules.model.MDRRule addRule(
-		HttpPrincipal httpPrincipal, long ruleGroupId,
-		java.util.Map<java.util.Locale, java.lang.String> nameMap,
-		java.util.Map<java.util.Locale, java.lang.String> descriptionMap,
-		java.lang.String type,
-		com.liferay.portal.kernel.util.UnicodeProperties typeSettings,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(MDRRuleServiceUtil.class,
-					"addRule", _addRuleParameterTypes1);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					ruleGroupId, nameMap, descriptionMap, type, typeSettings,
-					serviceContext);
+    public static com.liferay.portlet.mobiledevicerules.model.MDRRule addRule(
+        HttpPrincipal httpPrincipal, long ruleGroupId,
+        java.util.Map<java.util.Locale, java.lang.String> nameMap,
+        java.util.Map<java.util.Locale, java.lang.String> descriptionMap,
+        java.lang.String type,
+        com.liferay.portal.kernel.util.UnicodeProperties typeSettings,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(MDRRuleServiceUtil.class,
+                    "addRule", _addRuleParameterTypes1);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    ruleGroupId, nameMap, descriptionMap, type, typeSettings,
+                    serviceContext);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portlet.mobiledevicerules.model.MDRRule)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portlet.mobiledevicerules.model.MDRRule) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static void deleteRule(HttpPrincipal httpPrincipal, long ruleId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(MDRRuleServiceUtil.class,
-					"deleteRule", _deleteRuleParameterTypes2);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, ruleId);
+    public static void deleteRule(HttpPrincipal httpPrincipal, long ruleId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(MDRRuleServiceUtil.class,
+                    "deleteRule", _deleteRuleParameterTypes2);
 
-			try {
-				TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            MethodHandler methodHandler = new MethodHandler(methodKey, ruleId);
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			throw se;
-		}
-	}
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static com.liferay.portlet.mobiledevicerules.model.MDRRule fetchRule(
-		HttpPrincipal httpPrincipal, long ruleId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(MDRRuleServiceUtil.class,
-					"fetchRule", _fetchRuleParameterTypes3);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, ruleId);
+    public static com.liferay.portlet.mobiledevicerules.model.MDRRule fetchRule(
+        HttpPrincipal httpPrincipal, long ruleId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(MDRRuleServiceUtil.class,
+                    "fetchRule", _fetchRuleParameterTypes3);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey, ruleId);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portlet.mobiledevicerules.model.MDRRule)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portlet.mobiledevicerules.model.MDRRule) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static com.liferay.portlet.mobiledevicerules.model.MDRRule getRule(
-		HttpPrincipal httpPrincipal, long ruleId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(MDRRuleServiceUtil.class,
-					"getRule", _getRuleParameterTypes4);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, ruleId);
+    public static com.liferay.portlet.mobiledevicerules.model.MDRRule getRule(
+        HttpPrincipal httpPrincipal, long ruleId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(MDRRuleServiceUtil.class,
+                    "getRule", _getRuleParameterTypes4);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey, ruleId);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portlet.mobiledevicerules.model.MDRRule)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portlet.mobiledevicerules.model.MDRRule) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static com.liferay.portlet.mobiledevicerules.model.MDRRule updateRule(
-		HttpPrincipal httpPrincipal, long ruleId,
-		java.util.Map<java.util.Locale, java.lang.String> nameMap,
-		java.util.Map<java.util.Locale, java.lang.String> descriptionMap,
-		java.lang.String type, java.lang.String typeSettings,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(MDRRuleServiceUtil.class,
-					"updateRule", _updateRuleParameterTypes5);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, ruleId,
-					nameMap, descriptionMap, type, typeSettings, serviceContext);
+    public static com.liferay.portlet.mobiledevicerules.model.MDRRule updateRule(
+        HttpPrincipal httpPrincipal, long ruleId,
+        java.util.Map<java.util.Locale, java.lang.String> nameMap,
+        java.util.Map<java.util.Locale, java.lang.String> descriptionMap,
+        java.lang.String type, java.lang.String typeSettings,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(MDRRuleServiceUtil.class,
+                    "updateRule", _updateRuleParameterTypes5);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey, ruleId,
+                    nameMap, descriptionMap, type, typeSettings, serviceContext);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portlet.mobiledevicerules.model.MDRRule)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portlet.mobiledevicerules.model.MDRRule) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static com.liferay.portlet.mobiledevicerules.model.MDRRule updateRule(
-		HttpPrincipal httpPrincipal, long ruleId,
-		java.util.Map<java.util.Locale, java.lang.String> nameMap,
-		java.util.Map<java.util.Locale, java.lang.String> descriptionMap,
-		java.lang.String type,
-		com.liferay.portal.kernel.util.UnicodeProperties typeSettingsProperties,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(MDRRuleServiceUtil.class,
-					"updateRule", _updateRuleParameterTypes6);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, ruleId,
-					nameMap, descriptionMap, type, typeSettingsProperties,
-					serviceContext);
+    public static com.liferay.portlet.mobiledevicerules.model.MDRRule updateRule(
+        HttpPrincipal httpPrincipal, long ruleId,
+        java.util.Map<java.util.Locale, java.lang.String> nameMap,
+        java.util.Map<java.util.Locale, java.lang.String> descriptionMap,
+        java.lang.String type,
+        com.liferay.portal.kernel.util.UnicodeProperties typeSettingsProperties,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(MDRRuleServiceUtil.class,
+                    "updateRule", _updateRuleParameterTypes6);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey, ruleId,
+                    nameMap, descriptionMap, type, typeSettingsProperties,
+                    serviceContext);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portlet.mobiledevicerules.model.MDRRule)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portlet.mobiledevicerules.model.MDRRule) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	private static Log _log = LogFactoryUtil.getLog(MDRRuleServiceHttp.class);
-	private static final Class<?>[] _addRuleParameterTypes0 = new Class[] {
-			long.class, java.util.Map.class, java.util.Map.class,
-			java.lang.String.class, java.lang.String.class,
-			com.liferay.portal.service.ServiceContext.class
-		};
-	private static final Class<?>[] _addRuleParameterTypes1 = new Class[] {
-			long.class, java.util.Map.class, java.util.Map.class,
-			java.lang.String.class,
-			com.liferay.portal.kernel.util.UnicodeProperties.class,
-			com.liferay.portal.service.ServiceContext.class
-		};
-	private static final Class<?>[] _deleteRuleParameterTypes2 = new Class[] {
-			long.class
-		};
-	private static final Class<?>[] _fetchRuleParameterTypes3 = new Class[] {
-			long.class
-		};
-	private static final Class<?>[] _getRuleParameterTypes4 = new Class[] {
-			long.class
-		};
-	private static final Class<?>[] _updateRuleParameterTypes5 = new Class[] {
-			long.class, java.util.Map.class, java.util.Map.class,
-			java.lang.String.class, java.lang.String.class,
-			com.liferay.portal.service.ServiceContext.class
-		};
-	private static final Class<?>[] _updateRuleParameterTypes6 = new Class[] {
-			long.class, java.util.Map.class, java.util.Map.class,
-			java.lang.String.class,
-			com.liferay.portal.kernel.util.UnicodeProperties.class,
-			com.liferay.portal.service.ServiceContext.class
-		};
+            throw se;
+        }
+    }
 }

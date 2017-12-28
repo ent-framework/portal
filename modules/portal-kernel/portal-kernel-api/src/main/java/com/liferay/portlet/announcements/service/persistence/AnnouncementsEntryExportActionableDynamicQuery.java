@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.announcements.service.persistence;
 
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
@@ -33,61 +19,61 @@ import com.liferay.portlet.announcements.model.AnnouncementsEntry;
  * @generated
  */
 public class AnnouncementsEntryExportActionableDynamicQuery
-	extends AnnouncementsEntryActionableDynamicQuery {
-	public AnnouncementsEntryExportActionableDynamicQuery(
-		PortletDataContext portletDataContext) throws SystemException {
-		_portletDataContext = portletDataContext;
+    extends AnnouncementsEntryActionableDynamicQuery {
+    private PortletDataContext _portletDataContext;
 
-		setCompanyId(_portletDataContext.getCompanyId());
-	}
+    public AnnouncementsEntryExportActionableDynamicQuery(
+        PortletDataContext portletDataContext) throws SystemException {
+        _portletDataContext = portletDataContext;
 
-	@Override
-	public long performCount() throws PortalException, SystemException {
-		ManifestSummary manifestSummary = _portletDataContext.getManifestSummary();
+        setCompanyId(_portletDataContext.getCompanyId());
+    }
 
-		StagedModelType stagedModelType = getStagedModelType();
+    @Override
+    public long performCount() throws PortalException, SystemException {
+        ManifestSummary manifestSummary = _portletDataContext.getManifestSummary();
 
-		long modelAdditionCount = super.performCount();
+        StagedModelType stagedModelType = getStagedModelType();
 
-		manifestSummary.addModelAdditionCount(stagedModelType.toString(),
-			modelAdditionCount);
+        long modelAdditionCount = super.performCount();
 
-		long modelDeletionCount = ExportImportHelperUtil.getModelDeletionCount(_portletDataContext,
-				stagedModelType);
+        manifestSummary.addModelAdditionCount(stagedModelType.toString(),
+            modelAdditionCount);
 
-		manifestSummary.addModelDeletionCount(stagedModelType.toString(),
-			modelDeletionCount);
+        long modelDeletionCount = ExportImportHelperUtil.getModelDeletionCount(_portletDataContext,
+                stagedModelType);
 
-		return modelAdditionCount;
-	}
+        manifestSummary.addModelDeletionCount(stagedModelType.toString(),
+            modelDeletionCount);
 
-	@Override
-	protected void addCriteria(DynamicQuery dynamicQuery) {
-		_portletDataContext.addDateRangeCriteria(dynamicQuery, "modifiedDate");
+        return modelAdditionCount;
+    }
 
-		if (getStagedModelType().getReferrerClassNameId() >= 0) {
-			Property classNameIdProperty = PropertyFactoryUtil.forName(
-					"classNameId");
+    @Override
+    protected void addCriteria(DynamicQuery dynamicQuery) {
+        _portletDataContext.addDateRangeCriteria(dynamicQuery, "modifiedDate");
 
-			dynamicQuery.add(classNameIdProperty.eq(getStagedModelType()
-														.getReferrerClassNameId()));
-		}
-	}
+        if (getStagedModelType().getReferrerClassNameId() >= 0) {
+            Property classNameIdProperty = PropertyFactoryUtil.forName(
+                    "classNameId");
 
-	protected StagedModelType getStagedModelType() {
-		return new StagedModelType(PortalUtil.getClassNameId(
-				AnnouncementsEntry.class.getName()));
-	}
+            dynamicQuery.add(classNameIdProperty.eq(getStagedModelType()
+                                                        .getReferrerClassNameId()));
+        }
+    }
 
-	@Override
-	@SuppressWarnings("unused")
-	protected void performAction(Object object)
-		throws PortalException, SystemException {
-		AnnouncementsEntry stagedModel = (AnnouncementsEntry)object;
+    protected StagedModelType getStagedModelType() {
+        return new StagedModelType(PortalUtil.getClassNameId(
+                AnnouncementsEntry.class.getName()));
+    }
 
-		StagedModelDataHandlerUtil.exportStagedModel(_portletDataContext,
-			stagedModel);
-	}
+    @Override
+    @SuppressWarnings("unused")
+    protected void performAction(Object object)
+        throws PortalException, SystemException {
+        AnnouncementsEntry stagedModel = (AnnouncementsEntry) object;
 
-	private PortletDataContext _portletDataContext;
+        StagedModelDataHandlerUtil.exportStagedModel(_portletDataContext,
+            stagedModel);
+    }
 }

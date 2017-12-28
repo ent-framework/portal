@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.documentlibrary.model;
 
 import java.io.Serializable;
@@ -28,291 +14,290 @@ import java.util.List;
  * @generated
  */
 public class DLFolderSoap implements Serializable {
-	public static DLFolderSoap toSoapModel(DLFolder model) {
-		DLFolderSoap soapModel = new DLFolderSoap();
+    private String _uuid;
+    private long _folderId;
+    private long _groupId;
+    private long _companyId;
+    private long _userId;
+    private String _userName;
+    private Date _createDate;
+    private Date _modifiedDate;
+    private long _repositoryId;
+    private boolean _mountPoint;
+    private long _parentFolderId;
+    private String _treePath;
+    private String _name;
+    private String _description;
+    private Date _lastPostDate;
+    private long _defaultFileEntryTypeId;
+    private boolean _hidden;
+    private boolean _overrideFileEntryTypes;
+    private int _status;
+    private long _statusByUserId;
+    private String _statusByUserName;
+    private Date _statusDate;
 
-		soapModel.setUuid(model.getUuid());
-		soapModel.setFolderId(model.getFolderId());
-		soapModel.setGroupId(model.getGroupId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setUserName(model.getUserName());
-		soapModel.setCreateDate(model.getCreateDate());
-		soapModel.setModifiedDate(model.getModifiedDate());
-		soapModel.setRepositoryId(model.getRepositoryId());
-		soapModel.setMountPoint(model.getMountPoint());
-		soapModel.setParentFolderId(model.getParentFolderId());
-		soapModel.setTreePath(model.getTreePath());
-		soapModel.setName(model.getName());
-		soapModel.setDescription(model.getDescription());
-		soapModel.setLastPostDate(model.getLastPostDate());
-		soapModel.setDefaultFileEntryTypeId(model.getDefaultFileEntryTypeId());
-		soapModel.setHidden(model.getHidden());
-		soapModel.setOverrideFileEntryTypes(model.getOverrideFileEntryTypes());
-		soapModel.setStatus(model.getStatus());
-		soapModel.setStatusByUserId(model.getStatusByUserId());
-		soapModel.setStatusByUserName(model.getStatusByUserName());
-		soapModel.setStatusDate(model.getStatusDate());
+    public DLFolderSoap() {
+    }
 
-		return soapModel;
-	}
+    public static DLFolderSoap toSoapModel(DLFolder model) {
+        DLFolderSoap soapModel = new DLFolderSoap();
 
-	public static DLFolderSoap[] toSoapModels(DLFolder[] models) {
-		DLFolderSoap[] soapModels = new DLFolderSoap[models.length];
+        soapModel.setUuid(model.getUuid());
+        soapModel.setFolderId(model.getFolderId());
+        soapModel.setGroupId(model.getGroupId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setUserName(model.getUserName());
+        soapModel.setCreateDate(model.getCreateDate());
+        soapModel.setModifiedDate(model.getModifiedDate());
+        soapModel.setRepositoryId(model.getRepositoryId());
+        soapModel.setMountPoint(model.getMountPoint());
+        soapModel.setParentFolderId(model.getParentFolderId());
+        soapModel.setTreePath(model.getTreePath());
+        soapModel.setName(model.getName());
+        soapModel.setDescription(model.getDescription());
+        soapModel.setLastPostDate(model.getLastPostDate());
+        soapModel.setDefaultFileEntryTypeId(model.getDefaultFileEntryTypeId());
+        soapModel.setHidden(model.getHidden());
+        soapModel.setOverrideFileEntryTypes(model.getOverrideFileEntryTypes());
+        soapModel.setStatus(model.getStatus());
+        soapModel.setStatusByUserId(model.getStatusByUserId());
+        soapModel.setStatusByUserName(model.getStatusByUserName());
+        soapModel.setStatusDate(model.getStatusDate());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static DLFolderSoap[] toSoapModels(DLFolder[] models) {
+        DLFolderSoap[] soapModels = new DLFolderSoap[models.length];
 
-	public static DLFolderSoap[][] toSoapModels(DLFolder[][] models) {
-		DLFolderSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new DLFolderSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new DLFolderSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static DLFolderSoap[][] toSoapModels(DLFolder[][] models) {
+        DLFolderSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new DLFolderSoap[models.length][models[0].length];
+        } else {
+            soapModels = new DLFolderSoap[0][0];
+        }
 
-	public static DLFolderSoap[] toSoapModels(List<DLFolder> models) {
-		List<DLFolderSoap> soapModels = new ArrayList<DLFolderSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (DLFolder model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new DLFolderSoap[soapModels.size()]);
-	}
+    public static DLFolderSoap[] toSoapModels(List<DLFolder> models) {
+        List<DLFolderSoap> soapModels = new ArrayList<DLFolderSoap>(models.size());
 
-	public DLFolderSoap() {
-	}
+        for (DLFolder model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _folderId;
-	}
+        return soapModels.toArray(new DLFolderSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setFolderId(pk);
-	}
+    public long getPrimaryKey() {
+        return _folderId;
+    }
 
-	public String getUuid() {
-		return _uuid;
-	}
+    public void setPrimaryKey(long pk) {
+        setFolderId(pk);
+    }
 
-	public void setUuid(String uuid) {
-		_uuid = uuid;
-	}
+    public String getUuid() {
+        return _uuid;
+    }
 
-	public long getFolderId() {
-		return _folderId;
-	}
+    public void setUuid(String uuid) {
+        _uuid = uuid;
+    }
 
-	public void setFolderId(long folderId) {
-		_folderId = folderId;
-	}
+    public long getFolderId() {
+        return _folderId;
+    }
 
-	public long getGroupId() {
-		return _groupId;
-	}
+    public void setFolderId(long folderId) {
+        _folderId = folderId;
+    }
 
-	public void setGroupId(long groupId) {
-		_groupId = groupId;
-	}
+    public long getGroupId() {
+        return _groupId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setGroupId(long groupId) {
+        _groupId = groupId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public String getUserName() {
-		return _userName;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setUserName(String userName) {
-		_userName = userName;
-	}
+    public String getUserName() {
+        return _userName;
+    }
 
-	public Date getCreateDate() {
-		return _createDate;
-	}
+    public void setUserName(String userName) {
+        _userName = userName;
+    }
 
-	public void setCreateDate(Date createDate) {
-		_createDate = createDate;
-	}
+    public Date getCreateDate() {
+        return _createDate;
+    }
 
-	public Date getModifiedDate() {
-		return _modifiedDate;
-	}
+    public void setCreateDate(Date createDate) {
+        _createDate = createDate;
+    }
 
-	public void setModifiedDate(Date modifiedDate) {
-		_modifiedDate = modifiedDate;
-	}
+    public Date getModifiedDate() {
+        return _modifiedDate;
+    }
 
-	public long getRepositoryId() {
-		return _repositoryId;
-	}
+    public void setModifiedDate(Date modifiedDate) {
+        _modifiedDate = modifiedDate;
+    }
 
-	public void setRepositoryId(long repositoryId) {
-		_repositoryId = repositoryId;
-	}
+    public long getRepositoryId() {
+        return _repositoryId;
+    }
 
-	public boolean getMountPoint() {
-		return _mountPoint;
-	}
+    public void setRepositoryId(long repositoryId) {
+        _repositoryId = repositoryId;
+    }
 
-	public boolean isMountPoint() {
-		return _mountPoint;
-	}
+    public boolean getMountPoint() {
+        return _mountPoint;
+    }
 
-	public void setMountPoint(boolean mountPoint) {
-		_mountPoint = mountPoint;
-	}
+    public boolean isMountPoint() {
+        return _mountPoint;
+    }
 
-	public long getParentFolderId() {
-		return _parentFolderId;
-	}
+    public void setMountPoint(boolean mountPoint) {
+        _mountPoint = mountPoint;
+    }
 
-	public void setParentFolderId(long parentFolderId) {
-		_parentFolderId = parentFolderId;
-	}
+    public long getParentFolderId() {
+        return _parentFolderId;
+    }
 
-	public String getTreePath() {
-		return _treePath;
-	}
+    public void setParentFolderId(long parentFolderId) {
+        _parentFolderId = parentFolderId;
+    }
 
-	public void setTreePath(String treePath) {
-		_treePath = treePath;
-	}
+    public String getTreePath() {
+        return _treePath;
+    }
 
-	public String getName() {
-		return _name;
-	}
+    public void setTreePath(String treePath) {
+        _treePath = treePath;
+    }
 
-	public void setName(String name) {
-		_name = name;
-	}
+    public String getName() {
+        return _name;
+    }
 
-	public String getDescription() {
-		return _description;
-	}
+    public void setName(String name) {
+        _name = name;
+    }
 
-	public void setDescription(String description) {
-		_description = description;
-	}
+    public String getDescription() {
+        return _description;
+    }
 
-	public Date getLastPostDate() {
-		return _lastPostDate;
-	}
+    public void setDescription(String description) {
+        _description = description;
+    }
 
-	public void setLastPostDate(Date lastPostDate) {
-		_lastPostDate = lastPostDate;
-	}
+    public Date getLastPostDate() {
+        return _lastPostDate;
+    }
 
-	public long getDefaultFileEntryTypeId() {
-		return _defaultFileEntryTypeId;
-	}
+    public void setLastPostDate(Date lastPostDate) {
+        _lastPostDate = lastPostDate;
+    }
 
-	public void setDefaultFileEntryTypeId(long defaultFileEntryTypeId) {
-		_defaultFileEntryTypeId = defaultFileEntryTypeId;
-	}
+    public long getDefaultFileEntryTypeId() {
+        return _defaultFileEntryTypeId;
+    }
 
-	public boolean getHidden() {
-		return _hidden;
-	}
+    public void setDefaultFileEntryTypeId(long defaultFileEntryTypeId) {
+        _defaultFileEntryTypeId = defaultFileEntryTypeId;
+    }
 
-	public boolean isHidden() {
-		return _hidden;
-	}
+    public boolean getHidden() {
+        return _hidden;
+    }
 
-	public void setHidden(boolean hidden) {
-		_hidden = hidden;
-	}
+    public boolean isHidden() {
+        return _hidden;
+    }
 
-	public boolean getOverrideFileEntryTypes() {
-		return _overrideFileEntryTypes;
-	}
+    public void setHidden(boolean hidden) {
+        _hidden = hidden;
+    }
 
-	public boolean isOverrideFileEntryTypes() {
-		return _overrideFileEntryTypes;
-	}
+    public boolean getOverrideFileEntryTypes() {
+        return _overrideFileEntryTypes;
+    }
 
-	public void setOverrideFileEntryTypes(boolean overrideFileEntryTypes) {
-		_overrideFileEntryTypes = overrideFileEntryTypes;
-	}
+    public boolean isOverrideFileEntryTypes() {
+        return _overrideFileEntryTypes;
+    }
 
-	public int getStatus() {
-		return _status;
-	}
+    public void setOverrideFileEntryTypes(boolean overrideFileEntryTypes) {
+        _overrideFileEntryTypes = overrideFileEntryTypes;
+    }
 
-	public void setStatus(int status) {
-		_status = status;
-	}
+    public int getStatus() {
+        return _status;
+    }
 
-	public long getStatusByUserId() {
-		return _statusByUserId;
-	}
+    public void setStatus(int status) {
+        _status = status;
+    }
 
-	public void setStatusByUserId(long statusByUserId) {
-		_statusByUserId = statusByUserId;
-	}
+    public long getStatusByUserId() {
+        return _statusByUserId;
+    }
 
-	public String getStatusByUserName() {
-		return _statusByUserName;
-	}
+    public void setStatusByUserId(long statusByUserId) {
+        _statusByUserId = statusByUserId;
+    }
 
-	public void setStatusByUserName(String statusByUserName) {
-		_statusByUserName = statusByUserName;
-	}
+    public String getStatusByUserName() {
+        return _statusByUserName;
+    }
 
-	public Date getStatusDate() {
-		return _statusDate;
-	}
+    public void setStatusByUserName(String statusByUserName) {
+        _statusByUserName = statusByUserName;
+    }
 
-	public void setStatusDate(Date statusDate) {
-		_statusDate = statusDate;
-	}
+    public Date getStatusDate() {
+        return _statusDate;
+    }
 
-	private String _uuid;
-	private long _folderId;
-	private long _groupId;
-	private long _companyId;
-	private long _userId;
-	private String _userName;
-	private Date _createDate;
-	private Date _modifiedDate;
-	private long _repositoryId;
-	private boolean _mountPoint;
-	private long _parentFolderId;
-	private String _treePath;
-	private String _name;
-	private String _description;
-	private Date _lastPostDate;
-	private long _defaultFileEntryTypeId;
-	private boolean _hidden;
-	private boolean _overrideFileEntryTypes;
-	private int _status;
-	private long _statusByUserId;
-	private String _statusByUserName;
-	private Date _statusDate;
+    public void setStatusDate(Date statusDate) {
+        _statusDate = statusDate;
+    }
 }

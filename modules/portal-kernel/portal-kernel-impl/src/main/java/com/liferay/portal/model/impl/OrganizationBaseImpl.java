@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.exception.PortalException;
@@ -37,55 +23,54 @@ import java.util.List;
  * @generated
  */
 public abstract class OrganizationBaseImpl extends OrganizationModelImpl
-	implements Organization {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this class directly. All methods that expect a organization model instance should use the {@link Organization} interface instead.
-	 */
-	@Override
-	public void persist() throws SystemException {
-		if (this.isNew()) {
-			OrganizationLocalServiceUtil.addOrganization(this);
-		}
-		else {
-			OrganizationLocalServiceUtil.updateOrganization(this);
-		}
-	}
+    implements Organization {
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this class directly. All methods that expect a organization model instance should use the {@link Organization} interface instead.
+     */
+    @Override
+    public void persist() throws SystemException {
+        if (this.isNew()) {
+            OrganizationLocalServiceUtil.addOrganization(this);
+        } else {
+            OrganizationLocalServiceUtil.updateOrganization(this);
+        }
+    }
 
-	@Override
-	@SuppressWarnings("unused")
-	public String buildTreePath() throws PortalException, SystemException {
-		List<Organization> organizations = new ArrayList<Organization>();
+    @Override
+    @SuppressWarnings("unused")
+    public String buildTreePath() throws PortalException, SystemException {
+        List<Organization> organizations = new ArrayList<Organization>();
 
-		Organization organization = this;
+        Organization organization = this;
 
-		while (organization != null) {
-			organizations.add(organization);
+        while (organization != null) {
+            organizations.add(organization);
 
-			organization = OrganizationLocalServiceUtil.fetchOrganization(organization.getParentOrganizationId());
-		}
+            organization = OrganizationLocalServiceUtil.fetchOrganization(organization.getParentOrganizationId());
+        }
 
-		StringBundler sb = new StringBundler((organizations.size() * 2) + 1);
+        StringBundler sb = new StringBundler((organizations.size() * 2) + 1);
 
-		sb.append(StringPool.SLASH);
+        sb.append(StringPool.SLASH);
 
-		for (int i = organizations.size() - 1; i >= 0; i--) {
-			organization = organizations.get(i);
+        for (int i = organizations.size() - 1; i >= 0; i--) {
+            organization = organizations.get(i);
 
-			sb.append(organization.getOrganizationId());
-			sb.append(StringPool.SLASH);
-		}
+            sb.append(organization.getOrganizationId());
+            sb.append(StringPool.SLASH);
+        }
 
-		return sb.toString();
-	}
+        return sb.toString();
+    }
 
-	@Override
-	public void updateTreePath(String treePath) throws SystemException {
-		Organization organization = this;
+    @Override
+    public void updateTreePath(String treePath) throws SystemException {
+        Organization organization = this;
 
-		organization.setTreePath(treePath);
+        organization.setTreePath(treePath);
 
-		OrganizationLocalServiceUtil.updateOrganization(organization);
-	}
+        OrganizationLocalServiceUtil.updateOrganization(organization);
+    }
 }

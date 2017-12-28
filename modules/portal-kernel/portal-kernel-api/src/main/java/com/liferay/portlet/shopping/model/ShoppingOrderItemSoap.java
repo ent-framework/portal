@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.shopping.model;
 
 import java.io.Serializable;
@@ -27,162 +13,161 @@ import java.util.List;
  * @generated
  */
 public class ShoppingOrderItemSoap implements Serializable {
-	public static ShoppingOrderItemSoap toSoapModel(ShoppingOrderItem model) {
-		ShoppingOrderItemSoap soapModel = new ShoppingOrderItemSoap();
+    private long _orderItemId;
+    private long _orderId;
+    private String _itemId;
+    private String _sku;
+    private String _name;
+    private String _description;
+    private String _properties;
+    private double _price;
+    private int _quantity;
+    private Date _shippedDate;
 
-		soapModel.setOrderItemId(model.getOrderItemId());
-		soapModel.setOrderId(model.getOrderId());
-		soapModel.setItemId(model.getItemId());
-		soapModel.setSku(model.getSku());
-		soapModel.setName(model.getName());
-		soapModel.setDescription(model.getDescription());
-		soapModel.setProperties(model.getProperties());
-		soapModel.setPrice(model.getPrice());
-		soapModel.setQuantity(model.getQuantity());
-		soapModel.setShippedDate(model.getShippedDate());
+    public ShoppingOrderItemSoap() {
+    }
 
-		return soapModel;
-	}
+    public static ShoppingOrderItemSoap toSoapModel(ShoppingOrderItem model) {
+        ShoppingOrderItemSoap soapModel = new ShoppingOrderItemSoap();
 
-	public static ShoppingOrderItemSoap[] toSoapModels(
-		ShoppingOrderItem[] models) {
-		ShoppingOrderItemSoap[] soapModels = new ShoppingOrderItemSoap[models.length];
+        soapModel.setOrderItemId(model.getOrderItemId());
+        soapModel.setOrderId(model.getOrderId());
+        soapModel.setItemId(model.getItemId());
+        soapModel.setSku(model.getSku());
+        soapModel.setName(model.getName());
+        soapModel.setDescription(model.getDescription());
+        soapModel.setProperties(model.getProperties());
+        soapModel.setPrice(model.getPrice());
+        soapModel.setQuantity(model.getQuantity());
+        soapModel.setShippedDate(model.getShippedDate());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static ShoppingOrderItemSoap[] toSoapModels(
+        ShoppingOrderItem[] models) {
+        ShoppingOrderItemSoap[] soapModels = new ShoppingOrderItemSoap[models.length];
 
-	public static ShoppingOrderItemSoap[][] toSoapModels(
-		ShoppingOrderItem[][] models) {
-		ShoppingOrderItemSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new ShoppingOrderItemSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new ShoppingOrderItemSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static ShoppingOrderItemSoap[][] toSoapModels(
+        ShoppingOrderItem[][] models) {
+        ShoppingOrderItemSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new ShoppingOrderItemSoap[models.length][models[0].length];
+        } else {
+            soapModels = new ShoppingOrderItemSoap[0][0];
+        }
 
-	public static ShoppingOrderItemSoap[] toSoapModels(
-		List<ShoppingOrderItem> models) {
-		List<ShoppingOrderItemSoap> soapModels = new ArrayList<ShoppingOrderItemSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (ShoppingOrderItem model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new ShoppingOrderItemSoap[soapModels.size()]);
-	}
+    public static ShoppingOrderItemSoap[] toSoapModels(
+        List<ShoppingOrderItem> models) {
+        List<ShoppingOrderItemSoap> soapModels = new ArrayList<ShoppingOrderItemSoap>(models.size());
 
-	public ShoppingOrderItemSoap() {
-	}
+        for (ShoppingOrderItem model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _orderItemId;
-	}
+        return soapModels.toArray(new ShoppingOrderItemSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setOrderItemId(pk);
-	}
+    public long getPrimaryKey() {
+        return _orderItemId;
+    }
 
-	public long getOrderItemId() {
-		return _orderItemId;
-	}
+    public void setPrimaryKey(long pk) {
+        setOrderItemId(pk);
+    }
 
-	public void setOrderItemId(long orderItemId) {
-		_orderItemId = orderItemId;
-	}
+    public long getOrderItemId() {
+        return _orderItemId;
+    }
 
-	public long getOrderId() {
-		return _orderId;
-	}
+    public void setOrderItemId(long orderItemId) {
+        _orderItemId = orderItemId;
+    }
 
-	public void setOrderId(long orderId) {
-		_orderId = orderId;
-	}
+    public long getOrderId() {
+        return _orderId;
+    }
 
-	public String getItemId() {
-		return _itemId;
-	}
+    public void setOrderId(long orderId) {
+        _orderId = orderId;
+    }
 
-	public void setItemId(String itemId) {
-		_itemId = itemId;
-	}
+    public String getItemId() {
+        return _itemId;
+    }
 
-	public String getSku() {
-		return _sku;
-	}
+    public void setItemId(String itemId) {
+        _itemId = itemId;
+    }
 
-	public void setSku(String sku) {
-		_sku = sku;
-	}
+    public String getSku() {
+        return _sku;
+    }
 
-	public String getName() {
-		return _name;
-	}
+    public void setSku(String sku) {
+        _sku = sku;
+    }
 
-	public void setName(String name) {
-		_name = name;
-	}
+    public String getName() {
+        return _name;
+    }
 
-	public String getDescription() {
-		return _description;
-	}
+    public void setName(String name) {
+        _name = name;
+    }
 
-	public void setDescription(String description) {
-		_description = description;
-	}
+    public String getDescription() {
+        return _description;
+    }
 
-	public String getProperties() {
-		return _properties;
-	}
+    public void setDescription(String description) {
+        _description = description;
+    }
 
-	public void setProperties(String properties) {
-		_properties = properties;
-	}
+    public String getProperties() {
+        return _properties;
+    }
 
-	public double getPrice() {
-		return _price;
-	}
+    public void setProperties(String properties) {
+        _properties = properties;
+    }
 
-	public void setPrice(double price) {
-		_price = price;
-	}
+    public double getPrice() {
+        return _price;
+    }
 
-	public int getQuantity() {
-		return _quantity;
-	}
+    public void setPrice(double price) {
+        _price = price;
+    }
 
-	public void setQuantity(int quantity) {
-		_quantity = quantity;
-	}
+    public int getQuantity() {
+        return _quantity;
+    }
 
-	public Date getShippedDate() {
-		return _shippedDate;
-	}
+    public void setQuantity(int quantity) {
+        _quantity = quantity;
+    }
 
-	public void setShippedDate(Date shippedDate) {
-		_shippedDate = shippedDate;
-	}
+    public Date getShippedDate() {
+        return _shippedDate;
+    }
 
-	private long _orderItemId;
-	private long _orderId;
-	private String _itemId;
-	private String _sku;
-	private String _name;
-	private String _description;
-	private String _properties;
-	private double _price;
-	private int _quantity;
-	private Date _shippedDate;
+    public void setShippedDate(Date shippedDate) {
+        _shippedDate = shippedDate;
+    }
 }

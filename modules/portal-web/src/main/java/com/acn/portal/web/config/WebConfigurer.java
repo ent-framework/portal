@@ -79,9 +79,6 @@ public class WebConfigurer implements ServletContextInitializer, EmbeddedServlet
         if (env.acceptsProfiles(JHipsterConstants.SPRING_PROFILE_PRODUCTION)) {
             initCachingHttpHeadersFilter(servletContext, disps);
         }
-        initPortalListeners(servletContext);
-        initInvokerFilters(servletContext);
-
         log.info("Web application fully configured");
     }
 
@@ -127,25 +124,6 @@ public class WebConfigurer implements ServletContextInitializer, EmbeddedServlet
         hazelcastWebFilter.addMappingForUrlPatterns(disps, true, "/*");
         hazelcastWebFilter.setAsyncSupported(true);
     }
-
-    private void initPortalListeners(ServletContext servletContext) {
-    		servletContext.addListener(new PortalContextLoaderListener());
-    		servletContext.addListener(new PortalSessionListener());
-    		servletContext.addListener(new PortletSessionListenerManager());
-    		servletContext.addListener(new SerializableSessionAttributeListener());
-    		servletContext.addListener(new SharedSessionAttributeListener());
-    }
-
-    private void initInvokerFilters(ServletContext servletContext) {
-    		FilterRegistration.Dynamic invokerFilterError = servletContext.addFilter("InvokerFilter-ERROR", new InvokerFilter());
-    		EnumSet<DispatcherType> disps = EnumSet.of(DispatcherType.ERROR, DispatcherType.FORWARD, DispatcherType.INCLUDE, DispatcherType.REQUEST,  DispatcherType.ASYNC);
-    		Map<String, String> parameters = new HashMap<>();
-    		parameters.put("register-portal-lifecycle","false");
-    		invokerFilterError.setInitParameters(parameters);
-    		invokerFilterError.addMappingForUrlPatterns(disps, true, "/*");
-    		invokerFilterError.setAsyncSupported(true);
-    }
-
     /**
      * Customize the Servlet engine: Mime types, the document root, the cache.
      */

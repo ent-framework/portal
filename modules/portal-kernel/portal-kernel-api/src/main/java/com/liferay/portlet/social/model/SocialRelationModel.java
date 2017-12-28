@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.social.model;
 
 import aQute.bnd.annotation.ProviderType;
@@ -40,179 +26,180 @@ import java.io.Serializable;
  */
 @ProviderType
 public interface SocialRelationModel extends BaseModel<SocialRelation> {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this interface directly. All methods that expect a social relation model instance should use the {@link SocialRelation} interface instead.
-	 */
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this interface directly. All methods that expect a social relation model instance should use the {@link SocialRelation} interface instead.
+     */
 
-	/**
-	 * Returns the primary key of this social relation.
-	 *
-	 * @return the primary key of this social relation
-	 */
-	public long getPrimaryKey();
+    /**
+     * Returns the primary key of this social relation.
+     *
+     * @return the primary key of this social relation
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this social relation.
-	 *
-	 * @param primaryKey the primary key of this social relation
-	 */
-	public void setPrimaryKey(long primaryKey);
+    /**
+     * Sets the primary key of this social relation.
+     *
+     * @param primaryKey the primary key of this social relation
+     */
+    public void setPrimaryKey(long primaryKey);
 
-	/**
-	 * Returns the uuid of this social relation.
-	 *
-	 * @return the uuid of this social relation
-	 */
-	@AutoEscape
-	public String getUuid();
+    /**
+     * Returns the uuid of this social relation.
+     *
+     * @return the uuid of this social relation
+     */
+    @AutoEscape
+    public String getUuid();
 
-	/**
-	 * Sets the uuid of this social relation.
-	 *
-	 * @param uuid the uuid of this social relation
-	 */
-	public void setUuid(String uuid);
+    /**
+     * Sets the uuid of this social relation.
+     *
+     * @param uuid the uuid of this social relation
+     */
+    public void setUuid(String uuid);
 
-	/**
-	 * Returns the relation ID of this social relation.
-	 *
-	 * @return the relation ID of this social relation
-	 */
-	public long getRelationId();
+    /**
+     * Returns the relation ID of this social relation.
+     *
+     * @return the relation ID of this social relation
+     */
+    public long getRelationId();
 
-	/**
-	 * Sets the relation ID of this social relation.
-	 *
-	 * @param relationId the relation ID of this social relation
-	 */
-	public void setRelationId(long relationId);
+    /**
+     * Sets the relation ID of this social relation.
+     *
+     * @param relationId the relation ID of this social relation
+     */
+    public void setRelationId(long relationId);
 
-	/**
-	 * Returns the company ID of this social relation.
-	 *
-	 * @return the company ID of this social relation
-	 */
-	public long getCompanyId();
+    /**
+     * Returns the company ID of this social relation.
+     *
+     * @return the company ID of this social relation
+     */
+    public long getCompanyId();
 
-	/**
-	 * Sets the company ID of this social relation.
-	 *
-	 * @param companyId the company ID of this social relation
-	 */
-	public void setCompanyId(long companyId);
+    /**
+     * Sets the company ID of this social relation.
+     *
+     * @param companyId the company ID of this social relation
+     */
+    public void setCompanyId(long companyId);
 
-	/**
-	 * Returns the create date of this social relation.
-	 *
-	 * @return the create date of this social relation
-	 */
-	public long getCreateDate();
+    /**
+     * Returns the create date of this social relation.
+     *
+     * @return the create date of this social relation
+     */
+    public long getCreateDate();
 
-	/**
-	 * Sets the create date of this social relation.
-	 *
-	 * @param createDate the create date of this social relation
-	 */
-	public void setCreateDate(long createDate);
+    /**
+     * Sets the create date of this social relation.
+     *
+     * @param createDate the create date of this social relation
+     */
+    public void setCreateDate(long createDate);
 
-	/**
-	 * Returns the user id1 of this social relation.
-	 *
-	 * @return the user id1 of this social relation
-	 */
-	public long getUserId1();
+    /**
+     * Returns the user id1 of this social relation.
+     *
+     * @return the user id1 of this social relation
+     */
+    public long getUserId1();
 
-	/**
-	 * Sets the user id1 of this social relation.
-	 *
-	 * @param userId1 the user id1 of this social relation
-	 */
-	public void setUserId1(long userId1);
+    /**
+     * Sets the user id1 of this social relation.
+     *
+     * @param userId1 the user id1 of this social relation
+     */
+    public void setUserId1(long userId1);
 
-	/**
-	 * Returns the user id2 of this social relation.
-	 *
-	 * @return the user id2 of this social relation
-	 */
-	public long getUserId2();
+    /**
+     * Returns the user id2 of this social relation.
+     *
+     * @return the user id2 of this social relation
+     */
+    public long getUserId2();
 
-	/**
-	 * Sets the user id2 of this social relation.
-	 *
-	 * @param userId2 the user id2 of this social relation
-	 */
-	public void setUserId2(long userId2);
+    /**
+     * Sets the user id2 of this social relation.
+     *
+     * @param userId2 the user id2 of this social relation
+     */
+    public void setUserId2(long userId2);
 
-	/**
-	 * Returns the type of this social relation.
-	 *
-	 * @return the type of this social relation
-	 */
-	public int getType();
+    /**
+     * Returns the type of this social relation.
+     *
+     * @return the type of this social relation
+     */
+    public int getType();
 
-	/**
-	 * Sets the type of this social relation.
-	 *
-	 * @param type the type of this social relation
-	 */
-	public void setType(int type);
+    /**
+     * Sets the type of this social relation.
+     *
+     * @param type the type of this social relation
+     */
+    public void setType(int type);
 
-	@Override
-	public boolean isNew();
+    @Override
+    public boolean isNew();
 
-	@Override
-	public void setNew(boolean n);
+    @Override
+    public void setNew(boolean n);
 
-	@Override
-	public boolean isCachedModel();
+    @Override
+    public boolean isCachedModel();
 
-	@Override
-	public void setCachedModel(boolean cachedModel);
+    @Override
+    public void setCachedModel(boolean cachedModel);
 
-	@Override
-	public boolean isEscapedModel();
+    @Override
+    public boolean isEscapedModel();
 
-	@Override
-	public Serializable getPrimaryKeyObj();
+    @Override
+    public Serializable getPrimaryKeyObj();
 
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj);
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj);
 
-	@Override
-	public ExpandoBridge getExpandoBridge();
+    @Override
+    public ExpandoBridge getExpandoBridge();
 
-	@Override
-	public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
+    @Override
+    public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
 
-	@Override
-	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
+    @Override
+    public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	@Override
-	public Object clone();
+    @Override
+    public Object clone();
 
-	@Override
-	public int compareTo(SocialRelation socialRelation);
+    @Override
+    public int compareTo(
+        com.liferay.portlet.social.model.SocialRelation socialRelation);
 
-	@Override
-	public int hashCode();
+    @Override
+    public int hashCode();
 
-	@Override
-	public CacheModel<SocialRelation> toCacheModel();
+    @Override
+    public CacheModel<com.liferay.portlet.social.model.SocialRelation> toCacheModel();
 
-	@Override
-	public SocialRelation toEscapedModel();
+    @Override
+    public com.liferay.portlet.social.model.SocialRelation toEscapedModel();
 
-	@Override
-	public SocialRelation toUnescapedModel();
+    @Override
+    public com.liferay.portlet.social.model.SocialRelation toUnescapedModel();
 
-	@Override
-	public String toString();
+    @Override
+    public String toString();
 
-	@Override
-	public String toXmlString();
+    @Override
+    public String toXmlString();
 }

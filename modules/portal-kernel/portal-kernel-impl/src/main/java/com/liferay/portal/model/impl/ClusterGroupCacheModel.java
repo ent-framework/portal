@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -32,83 +18,79 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class ClusterGroupCacheModel implements CacheModel<ClusterGroup>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(9);
+    Externalizable {
+    public long clusterGroupId;
+    public String name;
+    public String clusterNodeIds;
+    public boolean wholeCluster;
 
-		sb.append("{clusterGroupId=");
-		sb.append(clusterGroupId);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", clusterNodeIds=");
-		sb.append(clusterNodeIds);
-		sb.append(", wholeCluster=");
-		sb.append(wholeCluster);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(9);
 
-		return sb.toString();
-	}
+        sb.append("{clusterGroupId=");
+        sb.append(clusterGroupId);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", clusterNodeIds=");
+        sb.append(clusterNodeIds);
+        sb.append(", wholeCluster=");
+        sb.append(wholeCluster);
+        sb.append("}");
 
-	@Override
-	public ClusterGroup toEntityModel() {
-		ClusterGroupImpl clusterGroupImpl = new ClusterGroupImpl();
+        return sb.toString();
+    }
 
-		clusterGroupImpl.setClusterGroupId(clusterGroupId);
+    @Override
+    public ClusterGroup toEntityModel() {
+        ClusterGroupImpl clusterGroupImpl = new ClusterGroupImpl();
 
-		if (name == null) {
-			clusterGroupImpl.setName(StringPool.BLANK);
-		}
-		else {
-			clusterGroupImpl.setName(name);
-		}
+        clusterGroupImpl.setClusterGroupId(clusterGroupId);
 
-		if (clusterNodeIds == null) {
-			clusterGroupImpl.setClusterNodeIds(StringPool.BLANK);
-		}
-		else {
-			clusterGroupImpl.setClusterNodeIds(clusterNodeIds);
-		}
+        if (name == null) {
+            clusterGroupImpl.setName(StringPool.BLANK);
+        } else {
+            clusterGroupImpl.setName(name);
+        }
 
-		clusterGroupImpl.setWholeCluster(wholeCluster);
+        if (clusterNodeIds == null) {
+            clusterGroupImpl.setClusterNodeIds(StringPool.BLANK);
+        } else {
+            clusterGroupImpl.setClusterNodeIds(clusterNodeIds);
+        }
 
-		clusterGroupImpl.resetOriginalValues();
+        clusterGroupImpl.setWholeCluster(wholeCluster);
 
-		return clusterGroupImpl;
-	}
+        clusterGroupImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		clusterGroupId = objectInput.readLong();
-		name = objectInput.readUTF();
-		clusterNodeIds = objectInput.readUTF();
-		wholeCluster = objectInput.readBoolean();
-	}
+        return clusterGroupImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(clusterGroupId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        clusterGroupId = objectInput.readLong();
+        name = objectInput.readUTF();
+        clusterNodeIds = objectInput.readUTF();
+        wholeCluster = objectInput.readBoolean();
+    }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(clusterGroupId);
 
-		if (clusterNodeIds == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(clusterNodeIds);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		objectOutput.writeBoolean(wholeCluster);
-	}
+        if (clusterNodeIds == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(clusterNodeIds);
+        }
 
-	public long clusterGroupId;
-	public String name;
-	public String clusterNodeIds;
-	public boolean wholeCluster;
+        objectOutput.writeBoolean(wholeCluster);
+    }
 }

@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.softwarecatalog.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -35,181 +21,169 @@ import java.util.Date;
  * @generated
  */
 public class SCProductVersionCacheModel implements CacheModel<SCProductVersion>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(25);
+    Externalizable {
+    public long productVersionId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public long productEntryId;
+    public String version;
+    public String changeLog;
+    public String downloadPageURL;
+    public String directDownloadURL;
+    public boolean repoStoreArtifact;
 
-		sb.append("{productVersionId=");
-		sb.append(productVersionId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", productEntryId=");
-		sb.append(productEntryId);
-		sb.append(", version=");
-		sb.append(version);
-		sb.append(", changeLog=");
-		sb.append(changeLog);
-		sb.append(", downloadPageURL=");
-		sb.append(downloadPageURL);
-		sb.append(", directDownloadURL=");
-		sb.append(directDownloadURL);
-		sb.append(", repoStoreArtifact=");
-		sb.append(repoStoreArtifact);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(25);
 
-		return sb.toString();
-	}
+        sb.append("{productVersionId=");
+        sb.append(productVersionId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", productEntryId=");
+        sb.append(productEntryId);
+        sb.append(", version=");
+        sb.append(version);
+        sb.append(", changeLog=");
+        sb.append(changeLog);
+        sb.append(", downloadPageURL=");
+        sb.append(downloadPageURL);
+        sb.append(", directDownloadURL=");
+        sb.append(directDownloadURL);
+        sb.append(", repoStoreArtifact=");
+        sb.append(repoStoreArtifact);
+        sb.append("}");
 
-	@Override
-	public SCProductVersion toEntityModel() {
-		SCProductVersionImpl scProductVersionImpl = new SCProductVersionImpl();
+        return sb.toString();
+    }
 
-		scProductVersionImpl.setProductVersionId(productVersionId);
-		scProductVersionImpl.setCompanyId(companyId);
-		scProductVersionImpl.setUserId(userId);
+    @Override
+    public SCProductVersion toEntityModel() {
+        SCProductVersionImpl scProductVersionImpl = new SCProductVersionImpl();
 
-		if (userName == null) {
-			scProductVersionImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			scProductVersionImpl.setUserName(userName);
-		}
+        scProductVersionImpl.setProductVersionId(productVersionId);
+        scProductVersionImpl.setCompanyId(companyId);
+        scProductVersionImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			scProductVersionImpl.setCreateDate(null);
-		}
-		else {
-			scProductVersionImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            scProductVersionImpl.setUserName(StringPool.BLANK);
+        } else {
+            scProductVersionImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			scProductVersionImpl.setModifiedDate(null);
-		}
-		else {
-			scProductVersionImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            scProductVersionImpl.setCreateDate(null);
+        } else {
+            scProductVersionImpl.setCreateDate(new Date(createDate));
+        }
 
-		scProductVersionImpl.setProductEntryId(productEntryId);
+        if (modifiedDate == Long.MIN_VALUE) {
+            scProductVersionImpl.setModifiedDate(null);
+        } else {
+            scProductVersionImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (version == null) {
-			scProductVersionImpl.setVersion(StringPool.BLANK);
-		}
-		else {
-			scProductVersionImpl.setVersion(version);
-		}
+        scProductVersionImpl.setProductEntryId(productEntryId);
 
-		if (changeLog == null) {
-			scProductVersionImpl.setChangeLog(StringPool.BLANK);
-		}
-		else {
-			scProductVersionImpl.setChangeLog(changeLog);
-		}
+        if (version == null) {
+            scProductVersionImpl.setVersion(StringPool.BLANK);
+        } else {
+            scProductVersionImpl.setVersion(version);
+        }
 
-		if (downloadPageURL == null) {
-			scProductVersionImpl.setDownloadPageURL(StringPool.BLANK);
-		}
-		else {
-			scProductVersionImpl.setDownloadPageURL(downloadPageURL);
-		}
+        if (changeLog == null) {
+            scProductVersionImpl.setChangeLog(StringPool.BLANK);
+        } else {
+            scProductVersionImpl.setChangeLog(changeLog);
+        }
 
-		if (directDownloadURL == null) {
-			scProductVersionImpl.setDirectDownloadURL(StringPool.BLANK);
-		}
-		else {
-			scProductVersionImpl.setDirectDownloadURL(directDownloadURL);
-		}
+        if (downloadPageURL == null) {
+            scProductVersionImpl.setDownloadPageURL(StringPool.BLANK);
+        } else {
+            scProductVersionImpl.setDownloadPageURL(downloadPageURL);
+        }
 
-		scProductVersionImpl.setRepoStoreArtifact(repoStoreArtifact);
+        if (directDownloadURL == null) {
+            scProductVersionImpl.setDirectDownloadURL(StringPool.BLANK);
+        } else {
+            scProductVersionImpl.setDirectDownloadURL(directDownloadURL);
+        }
 
-		scProductVersionImpl.resetOriginalValues();
+        scProductVersionImpl.setRepoStoreArtifact(repoStoreArtifact);
 
-		return scProductVersionImpl;
-	}
+        scProductVersionImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		productVersionId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		productEntryId = objectInput.readLong();
-		version = objectInput.readUTF();
-		changeLog = objectInput.readUTF();
-		downloadPageURL = objectInput.readUTF();
-		directDownloadURL = objectInput.readUTF();
-		repoStoreArtifact = objectInput.readBoolean();
-	}
+        return scProductVersionImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(productVersionId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        productVersionId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        productEntryId = objectInput.readLong();
+        version = objectInput.readUTF();
+        changeLog = objectInput.readUTF();
+        downloadPageURL = objectInput.readUTF();
+        directDownloadURL = objectInput.readUTF();
+        repoStoreArtifact = objectInput.readBoolean();
+    }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(productVersionId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(productEntryId);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (version == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(version);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(productEntryId);
 
-		if (changeLog == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(changeLog);
-		}
+        if (version == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(version);
+        }
 
-		if (downloadPageURL == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(downloadPageURL);
-		}
+        if (changeLog == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(changeLog);
+        }
 
-		if (directDownloadURL == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(directDownloadURL);
-		}
+        if (downloadPageURL == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(downloadPageURL);
+        }
 
-		objectOutput.writeBoolean(repoStoreArtifact);
-	}
+        if (directDownloadURL == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(directDownloadURL);
+        }
 
-	public long productVersionId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public long productEntryId;
-	public String version;
-	public String changeLog;
-	public String downloadPageURL;
-	public String directDownloadURL;
-	public boolean repoStoreArtifact;
+        objectOutput.writeBoolean(repoStoreArtifact);
+    }
 }

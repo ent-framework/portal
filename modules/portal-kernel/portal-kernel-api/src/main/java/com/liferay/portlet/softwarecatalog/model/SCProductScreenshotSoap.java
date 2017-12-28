@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.softwarecatalog.model;
 
 import java.io.Serializable;
@@ -26,132 +12,131 @@ import java.util.List;
  * @generated
  */
 public class SCProductScreenshotSoap implements Serializable {
-	public static SCProductScreenshotSoap toSoapModel(SCProductScreenshot model) {
-		SCProductScreenshotSoap soapModel = new SCProductScreenshotSoap();
+    private long _productScreenshotId;
+    private long _companyId;
+    private long _groupId;
+    private long _productEntryId;
+    private long _thumbnailId;
+    private long _fullImageId;
+    private int _priority;
 
-		soapModel.setProductScreenshotId(model.getProductScreenshotId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setGroupId(model.getGroupId());
-		soapModel.setProductEntryId(model.getProductEntryId());
-		soapModel.setThumbnailId(model.getThumbnailId());
-		soapModel.setFullImageId(model.getFullImageId());
-		soapModel.setPriority(model.getPriority());
+    public SCProductScreenshotSoap() {
+    }
 
-		return soapModel;
-	}
+    public static SCProductScreenshotSoap toSoapModel(SCProductScreenshot model) {
+        SCProductScreenshotSoap soapModel = new SCProductScreenshotSoap();
 
-	public static SCProductScreenshotSoap[] toSoapModels(
-		SCProductScreenshot[] models) {
-		SCProductScreenshotSoap[] soapModels = new SCProductScreenshotSoap[models.length];
+        soapModel.setProductScreenshotId(model.getProductScreenshotId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setGroupId(model.getGroupId());
+        soapModel.setProductEntryId(model.getProductEntryId());
+        soapModel.setThumbnailId(model.getThumbnailId());
+        soapModel.setFullImageId(model.getFullImageId());
+        soapModel.setPriority(model.getPriority());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static SCProductScreenshotSoap[] toSoapModels(
+        SCProductScreenshot[] models) {
+        SCProductScreenshotSoap[] soapModels = new SCProductScreenshotSoap[models.length];
 
-	public static SCProductScreenshotSoap[][] toSoapModels(
-		SCProductScreenshot[][] models) {
-		SCProductScreenshotSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new SCProductScreenshotSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new SCProductScreenshotSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static SCProductScreenshotSoap[][] toSoapModels(
+        SCProductScreenshot[][] models) {
+        SCProductScreenshotSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new SCProductScreenshotSoap[models.length][models[0].length];
+        } else {
+            soapModels = new SCProductScreenshotSoap[0][0];
+        }
 
-	public static SCProductScreenshotSoap[] toSoapModels(
-		List<SCProductScreenshot> models) {
-		List<SCProductScreenshotSoap> soapModels = new ArrayList<SCProductScreenshotSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (SCProductScreenshot model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new SCProductScreenshotSoap[soapModels.size()]);
-	}
+    public static SCProductScreenshotSoap[] toSoapModels(
+        List<SCProductScreenshot> models) {
+        List<SCProductScreenshotSoap> soapModels = new ArrayList<SCProductScreenshotSoap>(models.size());
 
-	public SCProductScreenshotSoap() {
-	}
+        for (SCProductScreenshot model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _productScreenshotId;
-	}
+        return soapModels.toArray(new SCProductScreenshotSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setProductScreenshotId(pk);
-	}
+    public long getPrimaryKey() {
+        return _productScreenshotId;
+    }
 
-	public long getProductScreenshotId() {
-		return _productScreenshotId;
-	}
+    public void setPrimaryKey(long pk) {
+        setProductScreenshotId(pk);
+    }
 
-	public void setProductScreenshotId(long productScreenshotId) {
-		_productScreenshotId = productScreenshotId;
-	}
+    public long getProductScreenshotId() {
+        return _productScreenshotId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setProductScreenshotId(long productScreenshotId) {
+        _productScreenshotId = productScreenshotId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getGroupId() {
-		return _groupId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setGroupId(long groupId) {
-		_groupId = groupId;
-	}
+    public long getGroupId() {
+        return _groupId;
+    }
 
-	public long getProductEntryId() {
-		return _productEntryId;
-	}
+    public void setGroupId(long groupId) {
+        _groupId = groupId;
+    }
 
-	public void setProductEntryId(long productEntryId) {
-		_productEntryId = productEntryId;
-	}
+    public long getProductEntryId() {
+        return _productEntryId;
+    }
 
-	public long getThumbnailId() {
-		return _thumbnailId;
-	}
+    public void setProductEntryId(long productEntryId) {
+        _productEntryId = productEntryId;
+    }
 
-	public void setThumbnailId(long thumbnailId) {
-		_thumbnailId = thumbnailId;
-	}
+    public long getThumbnailId() {
+        return _thumbnailId;
+    }
 
-	public long getFullImageId() {
-		return _fullImageId;
-	}
+    public void setThumbnailId(long thumbnailId) {
+        _thumbnailId = thumbnailId;
+    }
 
-	public void setFullImageId(long fullImageId) {
-		_fullImageId = fullImageId;
-	}
+    public long getFullImageId() {
+        return _fullImageId;
+    }
 
-	public int getPriority() {
-		return _priority;
-	}
+    public void setFullImageId(long fullImageId) {
+        _fullImageId = fullImageId;
+    }
 
-	public void setPriority(int priority) {
-		_priority = priority;
-	}
+    public int getPriority() {
+        return _priority;
+    }
 
-	private long _productScreenshotId;
-	private long _companyId;
-	private long _groupId;
-	private long _productEntryId;
-	private long _thumbnailId;
-	private long _fullImageId;
-	private int _priority;
+    public void setPriority(int priority) {
+        _priority = priority;
+    }
 }

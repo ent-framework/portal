@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.documentlibrary.service.http;
 
 import aQute.bnd.annotation.ProviderType;
@@ -69,216 +55,204 @@ import java.util.Map;
  */
 @ProviderType
 public class DLFileEntryTypeServiceSoap {
-	public static com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap addFileEntryType(
-		long groupId, java.lang.String fileEntryTypeKey,
-		java.lang.String[] nameMapLanguageIds,
-		java.lang.String[] nameMapValues,
-		java.lang.String[] descriptionMapLanguageIds,
-		java.lang.String[] descriptionMapValues, long[] ddmStructureIds,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			Map<Locale, String> nameMap = LocalizationUtil.getLocalizationMap(nameMapLanguageIds,
-					nameMapValues);
-			Map<Locale, String> descriptionMap = LocalizationUtil.getLocalizationMap(descriptionMapLanguageIds,
-					descriptionMapValues);
+    private static Log _log = LogFactoryUtil.getLog(DLFileEntryTypeServiceSoap.class);
 
-			com.liferay.portlet.documentlibrary.model.DLFileEntryType returnValue =
-				DLFileEntryTypeServiceUtil.addFileEntryType(groupId,
-					fileEntryTypeKey, nameMap, descriptionMap, ddmStructureIds,
-					serviceContext);
+    public static com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap addFileEntryType(
+        long groupId, java.lang.String fileEntryTypeKey,
+        java.lang.String[] nameMapLanguageIds,
+        java.lang.String[] nameMapValues,
+        java.lang.String[] descriptionMapLanguageIds,
+        java.lang.String[] descriptionMapValues, long[] ddmStructureIds,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            Map<Locale, String> nameMap = LocalizationUtil.getLocalizationMap(nameMapLanguageIds,
+                    nameMapValues);
+            Map<Locale, String> descriptionMap = LocalizationUtil.getLocalizationMap(descriptionMapLanguageIds,
+                    descriptionMapValues);
 
-			return com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            com.liferay.portlet.documentlibrary.model.DLFileEntryType returnValue =
+                DLFileEntryTypeServiceUtil.addFileEntryType(groupId,
+                    fileEntryTypeKey, nameMap, descriptionMap, ddmStructureIds,
+                    serviceContext);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap addFileEntryType(
-		long groupId, java.lang.String name, java.lang.String description,
-		long[] ddmStructureIds,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			com.liferay.portlet.documentlibrary.model.DLFileEntryType returnValue =
-				DLFileEntryTypeServiceUtil.addFileEntryType(groupId, name,
-					description, ddmStructureIds, serviceContext);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap addFileEntryType(
+        long groupId, java.lang.String name, java.lang.String description,
+        long[] ddmStructureIds,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            com.liferay.portlet.documentlibrary.model.DLFileEntryType returnValue =
+                DLFileEntryTypeServiceUtil.addFileEntryType(groupId, name,
+                    description, ddmStructureIds, serviceContext);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void deleteFileEntryType(long fileEntryTypeId)
-		throws RemoteException {
-		try {
-			DLFileEntryTypeServiceUtil.deleteFileEntryType(fileEntryTypeId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void deleteFileEntryType(long fileEntryTypeId)
+        throws RemoteException {
+        try {
+            DLFileEntryTypeServiceUtil.deleteFileEntryType(fileEntryTypeId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap getFileEntryType(
-		long fileEntryTypeId) throws RemoteException {
-		try {
-			com.liferay.portlet.documentlibrary.model.DLFileEntryType returnValue =
-				DLFileEntryTypeServiceUtil.getFileEntryType(fileEntryTypeId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap getFileEntryType(
+        long fileEntryTypeId) throws RemoteException {
+        try {
+            com.liferay.portlet.documentlibrary.model.DLFileEntryType returnValue =
+                DLFileEntryTypeServiceUtil.getFileEntryType(fileEntryTypeId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap[] getFileEntryTypes(
-		long[] groupIds) throws RemoteException {
-		try {
-			java.util.List<com.liferay.portlet.documentlibrary.model.DLFileEntryType> returnValue =
-				DLFileEntryTypeServiceUtil.getFileEntryTypes(groupIds);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap[] getFileEntryTypes(
+        long[] groupIds) throws RemoteException {
+        try {
+            java.util.List<com.liferay.portlet.documentlibrary.model.DLFileEntryType> returnValue =
+                DLFileEntryTypeServiceUtil.getFileEntryTypes(groupIds);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap[] getFileEntryTypes(
-		long[] groupIds, int start, int end) throws RemoteException {
-		try {
-			java.util.List<com.liferay.portlet.documentlibrary.model.DLFileEntryType> returnValue =
-				DLFileEntryTypeServiceUtil.getFileEntryTypes(groupIds, start,
-					end);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap[] getFileEntryTypes(
+        long[] groupIds, int start, int end) throws RemoteException {
+        try {
+            java.util.List<com.liferay.portlet.documentlibrary.model.DLFileEntryType> returnValue =
+                DLFileEntryTypeServiceUtil.getFileEntryTypes(groupIds, start,
+                    end);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static int getFileEntryTypesCount(long[] groupIds)
-		throws RemoteException {
-		try {
-			int returnValue = DLFileEntryTypeServiceUtil.getFileEntryTypesCount(groupIds);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return returnValue;
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static int getFileEntryTypesCount(long[] groupIds)
+        throws RemoteException {
+        try {
+            int returnValue = DLFileEntryTypeServiceUtil.getFileEntryTypesCount(groupIds);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return returnValue;
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap[] getFolderFileEntryTypes(
-		long[] groupIds, long folderId, boolean inherited)
-		throws RemoteException {
-		try {
-			java.util.List<com.liferay.portlet.documentlibrary.model.DLFileEntryType> returnValue =
-				DLFileEntryTypeServiceUtil.getFolderFileEntryTypes(groupIds,
-					folderId, inherited);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap[] getFolderFileEntryTypes(
+        long[] groupIds, long folderId, boolean inherited)
+        throws RemoteException {
+        try {
+            java.util.List<com.liferay.portlet.documentlibrary.model.DLFileEntryType> returnValue =
+                DLFileEntryTypeServiceUtil.getFolderFileEntryTypes(groupIds,
+                    folderId, inherited);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap[] search(
-		long companyId, long[] groupIds, java.lang.String keywords,
-		boolean includeBasicFileEntryType, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws RemoteException {
-		try {
-			java.util.List<com.liferay.portlet.documentlibrary.model.DLFileEntryType> returnValue =
-				DLFileEntryTypeServiceUtil.search(companyId, groupIds,
-					keywords, includeBasicFileEntryType, start, end,
-					orderByComparator);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap[] search(
+        long companyId, long[] groupIds, java.lang.String keywords,
+        boolean includeBasicFileEntryType, int start, int end,
+        com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+        throws RemoteException {
+        try {
+            java.util.List<com.liferay.portlet.documentlibrary.model.DLFileEntryType> returnValue =
+                DLFileEntryTypeServiceUtil.search(companyId, groupIds,
+                    keywords, includeBasicFileEntryType, start, end,
+                    orderByComparator);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static int searchCount(long companyId, long[] groupIds,
-		java.lang.String keywords, boolean includeBasicFileEntryType)
-		throws RemoteException {
-		try {
-			int returnValue = DLFileEntryTypeServiceUtil.searchCount(companyId,
-					groupIds, keywords, includeBasicFileEntryType);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return returnValue;
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static int searchCount(long companyId, long[] groupIds,
+        java.lang.String keywords, boolean includeBasicFileEntryType)
+        throws RemoteException {
+        try {
+            int returnValue = DLFileEntryTypeServiceUtil.searchCount(companyId,
+                    groupIds, keywords, includeBasicFileEntryType);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return returnValue;
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void updateFileEntryType(long fileEntryTypeId,
-		java.lang.String[] nameMapLanguageIds,
-		java.lang.String[] nameMapValues,
-		java.lang.String[] descriptionMapLanguageIds,
-		java.lang.String[] descriptionMapValues, long[] ddmStructureIds,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			Map<Locale, String> nameMap = LocalizationUtil.getLocalizationMap(nameMapLanguageIds,
-					nameMapValues);
-			Map<Locale, String> descriptionMap = LocalizationUtil.getLocalizationMap(descriptionMapLanguageIds,
-					descriptionMapValues);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			DLFileEntryTypeServiceUtil.updateFileEntryType(fileEntryTypeId,
-				nameMap, descriptionMap, ddmStructureIds, serviceContext);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static void updateFileEntryType(long fileEntryTypeId,
+        java.lang.String[] nameMapLanguageIds,
+        java.lang.String[] nameMapValues,
+        java.lang.String[] descriptionMapLanguageIds,
+        java.lang.String[] descriptionMapValues, long[] ddmStructureIds,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            Map<Locale, String> nameMap = LocalizationUtil.getLocalizationMap(nameMapLanguageIds,
+                    nameMapValues);
+            Map<Locale, String> descriptionMap = LocalizationUtil.getLocalizationMap(descriptionMapLanguageIds,
+                    descriptionMapValues);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            DLFileEntryTypeServiceUtil.updateFileEntryType(fileEntryTypeId,
+                nameMap, descriptionMap, ddmStructureIds, serviceContext);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void updateFileEntryType(long fileEntryTypeId,
-		java.lang.String name, java.lang.String description,
-		long[] ddmStructureIds,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			DLFileEntryTypeServiceUtil.updateFileEntryType(fileEntryTypeId,
-				name, description, ddmStructureIds, serviceContext);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void updateFileEntryType(long fileEntryTypeId,
+        java.lang.String name, java.lang.String description,
+        long[] ddmStructureIds,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            DLFileEntryTypeServiceUtil.updateFileEntryType(fileEntryTypeId,
+                name, description, ddmStructureIds, serviceContext);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	private static Log _log = LogFactoryUtil.getLog(DLFileEntryTypeServiceSoap.class);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

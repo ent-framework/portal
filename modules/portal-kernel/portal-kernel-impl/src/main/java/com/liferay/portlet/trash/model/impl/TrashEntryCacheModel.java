@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.trash.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -35,133 +21,128 @@ import java.util.Date;
  * @generated
  */
 public class TrashEntryCacheModel implements CacheModel<TrashEntry>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(23);
+    Externalizable {
+    public long entryId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long classNameId;
+    public long classPK;
+    public long systemEventSetKey;
+    public String typeSettings;
+    public int status;
 
-		sb.append("{entryId=");
-		sb.append(entryId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", classNameId=");
-		sb.append(classNameId);
-		sb.append(", classPK=");
-		sb.append(classPK);
-		sb.append(", systemEventSetKey=");
-		sb.append(systemEventSetKey);
-		sb.append(", typeSettings=");
-		sb.append(typeSettings);
-		sb.append(", status=");
-		sb.append(status);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(23);
 
-		return sb.toString();
-	}
+        sb.append("{entryId=");
+        sb.append(entryId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", classNameId=");
+        sb.append(classNameId);
+        sb.append(", classPK=");
+        sb.append(classPK);
+        sb.append(", systemEventSetKey=");
+        sb.append(systemEventSetKey);
+        sb.append(", typeSettings=");
+        sb.append(typeSettings);
+        sb.append(", status=");
+        sb.append(status);
+        sb.append("}");
 
-	@Override
-	public TrashEntry toEntityModel() {
-		TrashEntryImpl trashEntryImpl = new TrashEntryImpl();
+        return sb.toString();
+    }
 
-		trashEntryImpl.setEntryId(entryId);
-		trashEntryImpl.setGroupId(groupId);
-		trashEntryImpl.setCompanyId(companyId);
-		trashEntryImpl.setUserId(userId);
+    @Override
+    public TrashEntry toEntityModel() {
+        TrashEntryImpl trashEntryImpl = new TrashEntryImpl();
 
-		if (userName == null) {
-			trashEntryImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			trashEntryImpl.setUserName(userName);
-		}
+        trashEntryImpl.setEntryId(entryId);
+        trashEntryImpl.setGroupId(groupId);
+        trashEntryImpl.setCompanyId(companyId);
+        trashEntryImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			trashEntryImpl.setCreateDate(null);
-		}
-		else {
-			trashEntryImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            trashEntryImpl.setUserName(StringPool.BLANK);
+        } else {
+            trashEntryImpl.setUserName(userName);
+        }
 
-		trashEntryImpl.setClassNameId(classNameId);
-		trashEntryImpl.setClassPK(classPK);
-		trashEntryImpl.setSystemEventSetKey(systemEventSetKey);
+        if (createDate == Long.MIN_VALUE) {
+            trashEntryImpl.setCreateDate(null);
+        } else {
+            trashEntryImpl.setCreateDate(new Date(createDate));
+        }
 
-		if (typeSettings == null) {
-			trashEntryImpl.setTypeSettings(StringPool.BLANK);
-		}
-		else {
-			trashEntryImpl.setTypeSettings(typeSettings);
-		}
+        trashEntryImpl.setClassNameId(classNameId);
+        trashEntryImpl.setClassPK(classPK);
+        trashEntryImpl.setSystemEventSetKey(systemEventSetKey);
 
-		trashEntryImpl.setStatus(status);
+        if (typeSettings == null) {
+            trashEntryImpl.setTypeSettings(StringPool.BLANK);
+        } else {
+            trashEntryImpl.setTypeSettings(typeSettings);
+        }
 
-		trashEntryImpl.resetOriginalValues();
+        trashEntryImpl.setStatus(status);
 
-		return trashEntryImpl;
-	}
+        trashEntryImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		entryId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		classNameId = objectInput.readLong();
-		classPK = objectInput.readLong();
-		systemEventSetKey = objectInput.readLong();
-		typeSettings = objectInput.readUTF();
-		status = objectInput.readInt();
-	}
+        return trashEntryImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(entryId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        entryId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        classNameId = objectInput.readLong();
+        classPK = objectInput.readLong();
+        systemEventSetKey = objectInput.readLong();
+        typeSettings = objectInput.readUTF();
+        status = objectInput.readInt();
+    }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(entryId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(classNameId);
-		objectOutput.writeLong(classPK);
-		objectOutput.writeLong(systemEventSetKey);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (typeSettings == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(typeSettings);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(classNameId);
+        objectOutput.writeLong(classPK);
+        objectOutput.writeLong(systemEventSetKey);
 
-		objectOutput.writeInt(status);
-	}
+        if (typeSettings == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(typeSettings);
+        }
 
-	public long entryId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long classNameId;
-	public long classPK;
-	public long systemEventSetKey;
-	public String typeSettings;
-	public int status;
+        objectOutput.writeInt(status);
+    }
 }

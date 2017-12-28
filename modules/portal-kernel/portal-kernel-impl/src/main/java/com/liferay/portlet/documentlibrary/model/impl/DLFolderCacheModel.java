@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.documentlibrary.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -35,265 +21,249 @@ import java.util.Date;
  * @generated
  */
 public class DLFolderCacheModel implements CacheModel<DLFolder>, Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(45);
+    public String uuid;
+    public long folderId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public long repositoryId;
+    public boolean mountPoint;
+    public long parentFolderId;
+    public String treePath;
+    public String name;
+    public String description;
+    public long lastPostDate;
+    public long defaultFileEntryTypeId;
+    public boolean hidden;
+    public boolean overrideFileEntryTypes;
+    public int status;
+    public long statusByUserId;
+    public String statusByUserName;
+    public long statusDate;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", folderId=");
-		sb.append(folderId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", repositoryId=");
-		sb.append(repositoryId);
-		sb.append(", mountPoint=");
-		sb.append(mountPoint);
-		sb.append(", parentFolderId=");
-		sb.append(parentFolderId);
-		sb.append(", treePath=");
-		sb.append(treePath);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", description=");
-		sb.append(description);
-		sb.append(", lastPostDate=");
-		sb.append(lastPostDate);
-		sb.append(", defaultFileEntryTypeId=");
-		sb.append(defaultFileEntryTypeId);
-		sb.append(", hidden=");
-		sb.append(hidden);
-		sb.append(", overrideFileEntryTypes=");
-		sb.append(overrideFileEntryTypes);
-		sb.append(", status=");
-		sb.append(status);
-		sb.append(", statusByUserId=");
-		sb.append(statusByUserId);
-		sb.append(", statusByUserName=");
-		sb.append(statusByUserName);
-		sb.append(", statusDate=");
-		sb.append(statusDate);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(45);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", folderId=");
+        sb.append(folderId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", repositoryId=");
+        sb.append(repositoryId);
+        sb.append(", mountPoint=");
+        sb.append(mountPoint);
+        sb.append(", parentFolderId=");
+        sb.append(parentFolderId);
+        sb.append(", treePath=");
+        sb.append(treePath);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", description=");
+        sb.append(description);
+        sb.append(", lastPostDate=");
+        sb.append(lastPostDate);
+        sb.append(", defaultFileEntryTypeId=");
+        sb.append(defaultFileEntryTypeId);
+        sb.append(", hidden=");
+        sb.append(hidden);
+        sb.append(", overrideFileEntryTypes=");
+        sb.append(overrideFileEntryTypes);
+        sb.append(", status=");
+        sb.append(status);
+        sb.append(", statusByUserId=");
+        sb.append(statusByUserId);
+        sb.append(", statusByUserName=");
+        sb.append(statusByUserName);
+        sb.append(", statusDate=");
+        sb.append(statusDate);
+        sb.append("}");
 
-	@Override
-	public DLFolder toEntityModel() {
-		DLFolderImpl dlFolderImpl = new DLFolderImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			dlFolderImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			dlFolderImpl.setUuid(uuid);
-		}
+    @Override
+    public DLFolder toEntityModel() {
+        DLFolderImpl dlFolderImpl = new DLFolderImpl();
 
-		dlFolderImpl.setFolderId(folderId);
-		dlFolderImpl.setGroupId(groupId);
-		dlFolderImpl.setCompanyId(companyId);
-		dlFolderImpl.setUserId(userId);
+        if (uuid == null) {
+            dlFolderImpl.setUuid(StringPool.BLANK);
+        } else {
+            dlFolderImpl.setUuid(uuid);
+        }
 
-		if (userName == null) {
-			dlFolderImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			dlFolderImpl.setUserName(userName);
-		}
+        dlFolderImpl.setFolderId(folderId);
+        dlFolderImpl.setGroupId(groupId);
+        dlFolderImpl.setCompanyId(companyId);
+        dlFolderImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			dlFolderImpl.setCreateDate(null);
-		}
-		else {
-			dlFolderImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            dlFolderImpl.setUserName(StringPool.BLANK);
+        } else {
+            dlFolderImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			dlFolderImpl.setModifiedDate(null);
-		}
-		else {
-			dlFolderImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            dlFolderImpl.setCreateDate(null);
+        } else {
+            dlFolderImpl.setCreateDate(new Date(createDate));
+        }
 
-		dlFolderImpl.setRepositoryId(repositoryId);
-		dlFolderImpl.setMountPoint(mountPoint);
-		dlFolderImpl.setParentFolderId(parentFolderId);
+        if (modifiedDate == Long.MIN_VALUE) {
+            dlFolderImpl.setModifiedDate(null);
+        } else {
+            dlFolderImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (treePath == null) {
-			dlFolderImpl.setTreePath(StringPool.BLANK);
-		}
-		else {
-			dlFolderImpl.setTreePath(treePath);
-		}
+        dlFolderImpl.setRepositoryId(repositoryId);
+        dlFolderImpl.setMountPoint(mountPoint);
+        dlFolderImpl.setParentFolderId(parentFolderId);
 
-		if (name == null) {
-			dlFolderImpl.setName(StringPool.BLANK);
-		}
-		else {
-			dlFolderImpl.setName(name);
-		}
+        if (treePath == null) {
+            dlFolderImpl.setTreePath(StringPool.BLANK);
+        } else {
+            dlFolderImpl.setTreePath(treePath);
+        }
 
-		if (description == null) {
-			dlFolderImpl.setDescription(StringPool.BLANK);
-		}
-		else {
-			dlFolderImpl.setDescription(description);
-		}
+        if (name == null) {
+            dlFolderImpl.setName(StringPool.BLANK);
+        } else {
+            dlFolderImpl.setName(name);
+        }
 
-		if (lastPostDate == Long.MIN_VALUE) {
-			dlFolderImpl.setLastPostDate(null);
-		}
-		else {
-			dlFolderImpl.setLastPostDate(new Date(lastPostDate));
-		}
+        if (description == null) {
+            dlFolderImpl.setDescription(StringPool.BLANK);
+        } else {
+            dlFolderImpl.setDescription(description);
+        }
 
-		dlFolderImpl.setDefaultFileEntryTypeId(defaultFileEntryTypeId);
-		dlFolderImpl.setHidden(hidden);
-		dlFolderImpl.setOverrideFileEntryTypes(overrideFileEntryTypes);
-		dlFolderImpl.setStatus(status);
-		dlFolderImpl.setStatusByUserId(statusByUserId);
+        if (lastPostDate == Long.MIN_VALUE) {
+            dlFolderImpl.setLastPostDate(null);
+        } else {
+            dlFolderImpl.setLastPostDate(new Date(lastPostDate));
+        }
 
-		if (statusByUserName == null) {
-			dlFolderImpl.setStatusByUserName(StringPool.BLANK);
-		}
-		else {
-			dlFolderImpl.setStatusByUserName(statusByUserName);
-		}
+        dlFolderImpl.setDefaultFileEntryTypeId(defaultFileEntryTypeId);
+        dlFolderImpl.setHidden(hidden);
+        dlFolderImpl.setOverrideFileEntryTypes(overrideFileEntryTypes);
+        dlFolderImpl.setStatus(status);
+        dlFolderImpl.setStatusByUserId(statusByUserId);
 
-		if (statusDate == Long.MIN_VALUE) {
-			dlFolderImpl.setStatusDate(null);
-		}
-		else {
-			dlFolderImpl.setStatusDate(new Date(statusDate));
-		}
+        if (statusByUserName == null) {
+            dlFolderImpl.setStatusByUserName(StringPool.BLANK);
+        } else {
+            dlFolderImpl.setStatusByUserName(statusByUserName);
+        }
 
-		dlFolderImpl.resetOriginalValues();
+        if (statusDate == Long.MIN_VALUE) {
+            dlFolderImpl.setStatusDate(null);
+        } else {
+            dlFolderImpl.setStatusDate(new Date(statusDate));
+        }
 
-		return dlFolderImpl;
-	}
+        dlFolderImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		folderId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		repositoryId = objectInput.readLong();
-		mountPoint = objectInput.readBoolean();
-		parentFolderId = objectInput.readLong();
-		treePath = objectInput.readUTF();
-		name = objectInput.readUTF();
-		description = objectInput.readUTF();
-		lastPostDate = objectInput.readLong();
-		defaultFileEntryTypeId = objectInput.readLong();
-		hidden = objectInput.readBoolean();
-		overrideFileEntryTypes = objectInput.readBoolean();
-		status = objectInput.readInt();
-		statusByUserId = objectInput.readLong();
-		statusByUserName = objectInput.readUTF();
-		statusDate = objectInput.readLong();
-	}
+        return dlFolderImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        folderId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        repositoryId = objectInput.readLong();
+        mountPoint = objectInput.readBoolean();
+        parentFolderId = objectInput.readLong();
+        treePath = objectInput.readUTF();
+        name = objectInput.readUTF();
+        description = objectInput.readUTF();
+        lastPostDate = objectInput.readLong();
+        defaultFileEntryTypeId = objectInput.readLong();
+        hidden = objectInput.readBoolean();
+        overrideFileEntryTypes = objectInput.readBoolean();
+        status = objectInput.readInt();
+        statusByUserId = objectInput.readLong();
+        statusByUserName = objectInput.readUTF();
+        statusDate = objectInput.readLong();
+    }
 
-		objectOutput.writeLong(folderId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+        objectOutput.writeLong(folderId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(repositoryId);
-		objectOutput.writeBoolean(mountPoint);
-		objectOutput.writeLong(parentFolderId);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (treePath == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(treePath);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(repositoryId);
+        objectOutput.writeBoolean(mountPoint);
+        objectOutput.writeLong(parentFolderId);
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        if (treePath == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(treePath);
+        }
 
-		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(description);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		objectOutput.writeLong(lastPostDate);
-		objectOutput.writeLong(defaultFileEntryTypeId);
-		objectOutput.writeBoolean(hidden);
-		objectOutput.writeBoolean(overrideFileEntryTypes);
-		objectOutput.writeInt(status);
-		objectOutput.writeLong(statusByUserId);
+        if (description == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(description);
+        }
 
-		if (statusByUserName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(statusByUserName);
-		}
+        objectOutput.writeLong(lastPostDate);
+        objectOutput.writeLong(defaultFileEntryTypeId);
+        objectOutput.writeBoolean(hidden);
+        objectOutput.writeBoolean(overrideFileEntryTypes);
+        objectOutput.writeInt(status);
+        objectOutput.writeLong(statusByUserId);
 
-		objectOutput.writeLong(statusDate);
-	}
+        if (statusByUserName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(statusByUserName);
+        }
 
-	public String uuid;
-	public long folderId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public long repositoryId;
-	public boolean mountPoint;
-	public long parentFolderId;
-	public String treePath;
-	public String name;
-	public String description;
-	public long lastPostDate;
-	public long defaultFileEntryTypeId;
-	public boolean hidden;
-	public boolean overrideFileEntryTypes;
-	public int status;
-	public long statusByUserId;
-	public String statusByUserName;
-	public long statusDate;
+        objectOutput.writeLong(statusDate);
+    }
 }

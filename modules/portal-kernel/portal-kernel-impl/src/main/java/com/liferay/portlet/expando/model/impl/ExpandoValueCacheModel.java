@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.expando.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -33,93 +19,91 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class ExpandoValueCacheModel implements CacheModel<ExpandoValue>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(17);
+    Externalizable {
+    public long valueId;
+    public long companyId;
+    public long tableId;
+    public long columnId;
+    public long rowId;
+    public long classNameId;
+    public long classPK;
+    public String data;
 
-		sb.append("{valueId=");
-		sb.append(valueId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", tableId=");
-		sb.append(tableId);
-		sb.append(", columnId=");
-		sb.append(columnId);
-		sb.append(", rowId=");
-		sb.append(rowId);
-		sb.append(", classNameId=");
-		sb.append(classNameId);
-		sb.append(", classPK=");
-		sb.append(classPK);
-		sb.append(", data=");
-		sb.append(data);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(17);
 
-		return sb.toString();
-	}
+        sb.append("{valueId=");
+        sb.append(valueId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", tableId=");
+        sb.append(tableId);
+        sb.append(", columnId=");
+        sb.append(columnId);
+        sb.append(", rowId=");
+        sb.append(rowId);
+        sb.append(", classNameId=");
+        sb.append(classNameId);
+        sb.append(", classPK=");
+        sb.append(classPK);
+        sb.append(", data=");
+        sb.append(data);
+        sb.append("}");
 
-	@Override
-	public ExpandoValue toEntityModel() {
-		ExpandoValueImpl expandoValueImpl = new ExpandoValueImpl();
+        return sb.toString();
+    }
 
-		expandoValueImpl.setValueId(valueId);
-		expandoValueImpl.setCompanyId(companyId);
-		expandoValueImpl.setTableId(tableId);
-		expandoValueImpl.setColumnId(columnId);
-		expandoValueImpl.setRowId(rowId);
-		expandoValueImpl.setClassNameId(classNameId);
-		expandoValueImpl.setClassPK(classPK);
+    @Override
+    public ExpandoValue toEntityModel() {
+        ExpandoValueImpl expandoValueImpl = new ExpandoValueImpl();
 
-		if (data == null) {
-			expandoValueImpl.setData(StringPool.BLANK);
-		}
-		else {
-			expandoValueImpl.setData(data);
-		}
+        expandoValueImpl.setValueId(valueId);
+        expandoValueImpl.setCompanyId(companyId);
+        expandoValueImpl.setTableId(tableId);
+        expandoValueImpl.setColumnId(columnId);
+        expandoValueImpl.setRowId(rowId);
+        expandoValueImpl.setClassNameId(classNameId);
+        expandoValueImpl.setClassPK(classPK);
 
-		expandoValueImpl.resetOriginalValues();
+        if (data == null) {
+            expandoValueImpl.setData(StringPool.BLANK);
+        } else {
+            expandoValueImpl.setData(data);
+        }
 
-		return expandoValueImpl;
-	}
+        expandoValueImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		valueId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		tableId = objectInput.readLong();
-		columnId = objectInput.readLong();
-		rowId = objectInput.readLong();
-		classNameId = objectInput.readLong();
-		classPK = objectInput.readLong();
-		data = objectInput.readUTF();
-	}
+        return expandoValueImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(valueId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(tableId);
-		objectOutput.writeLong(columnId);
-		objectOutput.writeLong(rowId);
-		objectOutput.writeLong(classNameId);
-		objectOutput.writeLong(classPK);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        valueId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        tableId = objectInput.readLong();
+        columnId = objectInput.readLong();
+        rowId = objectInput.readLong();
+        classNameId = objectInput.readLong();
+        classPK = objectInput.readLong();
+        data = objectInput.readUTF();
+    }
 
-		if (data == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(data);
-		}
-	}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(valueId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(tableId);
+        objectOutput.writeLong(columnId);
+        objectOutput.writeLong(rowId);
+        objectOutput.writeLong(classNameId);
+        objectOutput.writeLong(classPK);
 
-	public long valueId;
-	public long companyId;
-	public long tableId;
-	public long columnId;
-	public long rowId;
-	public long classNameId;
-	public long classPK;
-	public String data;
+        if (data == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(data);
+        }
+    }
 }

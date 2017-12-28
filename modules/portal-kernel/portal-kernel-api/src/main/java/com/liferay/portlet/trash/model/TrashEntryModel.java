@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.trash.model;
 
 import aQute.bnd.annotation.ProviderType;
@@ -24,6 +10,7 @@ import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.service.ServiceContext;
 
 import com.liferay.portlet.expando.model.ExpandoBridge;
+import com.liferay.portlet.trash.model.TrashEntry;
 
 import java.io.Serializable;
 
@@ -44,265 +31,265 @@ import java.util.Date;
  */
 @ProviderType
 public interface TrashEntryModel extends AttachedModel, BaseModel<TrashEntry> {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this interface directly. All methods that expect a trash entry model instance should use the {@link TrashEntry} interface instead.
-	 */
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this interface directly. All methods that expect a trash entry model instance should use the {@link TrashEntry} interface instead.
+     */
 
-	/**
-	 * Returns the primary key of this trash entry.
-	 *
-	 * @return the primary key of this trash entry
-	 */
-	public long getPrimaryKey();
+    /**
+     * Returns the primary key of this trash entry.
+     *
+     * @return the primary key of this trash entry
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this trash entry.
-	 *
-	 * @param primaryKey the primary key of this trash entry
-	 */
-	public void setPrimaryKey(long primaryKey);
+    /**
+     * Sets the primary key of this trash entry.
+     *
+     * @param primaryKey the primary key of this trash entry
+     */
+    public void setPrimaryKey(long primaryKey);
 
-	/**
-	 * Returns the entry ID of this trash entry.
-	 *
-	 * @return the entry ID of this trash entry
-	 */
-	public long getEntryId();
+    /**
+     * Returns the entry ID of this trash entry.
+     *
+     * @return the entry ID of this trash entry
+     */
+    public long getEntryId();
 
-	/**
-	 * Sets the entry ID of this trash entry.
-	 *
-	 * @param entryId the entry ID of this trash entry
-	 */
-	public void setEntryId(long entryId);
+    /**
+     * Sets the entry ID of this trash entry.
+     *
+     * @param entryId the entry ID of this trash entry
+     */
+    public void setEntryId(long entryId);
 
-	/**
-	 * Returns the group ID of this trash entry.
-	 *
-	 * @return the group ID of this trash entry
-	 */
-	public long getGroupId();
+    /**
+     * Returns the group ID of this trash entry.
+     *
+     * @return the group ID of this trash entry
+     */
+    public long getGroupId();
 
-	/**
-	 * Sets the group ID of this trash entry.
-	 *
-	 * @param groupId the group ID of this trash entry
-	 */
-	public void setGroupId(long groupId);
+    /**
+     * Sets the group ID of this trash entry.
+     *
+     * @param groupId the group ID of this trash entry
+     */
+    public void setGroupId(long groupId);
 
-	/**
-	 * Returns the company ID of this trash entry.
-	 *
-	 * @return the company ID of this trash entry
-	 */
-	public long getCompanyId();
+    /**
+     * Returns the company ID of this trash entry.
+     *
+     * @return the company ID of this trash entry
+     */
+    public long getCompanyId();
 
-	/**
-	 * Sets the company ID of this trash entry.
-	 *
-	 * @param companyId the company ID of this trash entry
-	 */
-	public void setCompanyId(long companyId);
+    /**
+     * Sets the company ID of this trash entry.
+     *
+     * @param companyId the company ID of this trash entry
+     */
+    public void setCompanyId(long companyId);
 
-	/**
-	 * Returns the user ID of this trash entry.
-	 *
-	 * @return the user ID of this trash entry
-	 */
-	public long getUserId();
+    /**
+     * Returns the user ID of this trash entry.
+     *
+     * @return the user ID of this trash entry
+     */
+    public long getUserId();
 
-	/**
-	 * Sets the user ID of this trash entry.
-	 *
-	 * @param userId the user ID of this trash entry
-	 */
-	public void setUserId(long userId);
+    /**
+     * Sets the user ID of this trash entry.
+     *
+     * @param userId the user ID of this trash entry
+     */
+    public void setUserId(long userId);
 
-	/**
-	 * Returns the user uuid of this trash entry.
-	 *
-	 * @return the user uuid of this trash entry
-	 * @throws SystemException if a system exception occurred
-	 */
-	public String getUserUuid() throws SystemException;
+    /**
+     * Returns the user uuid of this trash entry.
+     *
+     * @return the user uuid of this trash entry
+     * @throws SystemException if a system exception occurred
+     */
+    public String getUserUuid() throws SystemException;
 
-	/**
-	 * Sets the user uuid of this trash entry.
-	 *
-	 * @param userUuid the user uuid of this trash entry
-	 */
-	public void setUserUuid(String userUuid);
+    /**
+     * Sets the user uuid of this trash entry.
+     *
+     * @param userUuid the user uuid of this trash entry
+     */
+    public void setUserUuid(String userUuid);
 
-	/**
-	 * Returns the user name of this trash entry.
-	 *
-	 * @return the user name of this trash entry
-	 */
-	@AutoEscape
-	public String getUserName();
+    /**
+     * Returns the user name of this trash entry.
+     *
+     * @return the user name of this trash entry
+     */
+    @AutoEscape
+    public String getUserName();
 
-	/**
-	 * Sets the user name of this trash entry.
-	 *
-	 * @param userName the user name of this trash entry
-	 */
-	public void setUserName(String userName);
+    /**
+     * Sets the user name of this trash entry.
+     *
+     * @param userName the user name of this trash entry
+     */
+    public void setUserName(String userName);
 
-	/**
-	 * Returns the create date of this trash entry.
-	 *
-	 * @return the create date of this trash entry
-	 */
-	public Date getCreateDate();
+    /**
+     * Returns the create date of this trash entry.
+     *
+     * @return the create date of this trash entry
+     */
+    public Date getCreateDate();
 
-	/**
-	 * Sets the create date of this trash entry.
-	 *
-	 * @param createDate the create date of this trash entry
-	 */
-	public void setCreateDate(Date createDate);
+    /**
+     * Sets the create date of this trash entry.
+     *
+     * @param createDate the create date of this trash entry
+     */
+    public void setCreateDate(Date createDate);
 
-	/**
-	 * Returns the fully qualified class name of this trash entry.
-	 *
-	 * @return the fully qualified class name of this trash entry
-	 */
-	@Override
-	public String getClassName();
+    /**
+     * Returns the fully qualified class name of this trash entry.
+     *
+     * @return the fully qualified class name of this trash entry
+     */
+    @Override
+    public String getClassName();
 
-	public void setClassName(String className);
+    public void setClassName(String className);
 
-	/**
-	 * Returns the class name ID of this trash entry.
-	 *
-	 * @return the class name ID of this trash entry
-	 */
-	@Override
-	public long getClassNameId();
+    /**
+     * Returns the class name ID of this trash entry.
+     *
+     * @return the class name ID of this trash entry
+     */
+    @Override
+    public long getClassNameId();
 
-	/**
-	 * Sets the class name ID of this trash entry.
-	 *
-	 * @param classNameId the class name ID of this trash entry
-	 */
-	@Override
-	public void setClassNameId(long classNameId);
+    /**
+     * Sets the class name ID of this trash entry.
+     *
+     * @param classNameId the class name ID of this trash entry
+     */
+    @Override
+    public void setClassNameId(long classNameId);
 
-	/**
-	 * Returns the class p k of this trash entry.
-	 *
-	 * @return the class p k of this trash entry
-	 */
-	@Override
-	public long getClassPK();
+    /**
+     * Returns the class p k of this trash entry.
+     *
+     * @return the class p k of this trash entry
+     */
+    @Override
+    public long getClassPK();
 
-	/**
-	 * Sets the class p k of this trash entry.
-	 *
-	 * @param classPK the class p k of this trash entry
-	 */
-	@Override
-	public void setClassPK(long classPK);
+    /**
+     * Sets the class p k of this trash entry.
+     *
+     * @param classPK the class p k of this trash entry
+     */
+    @Override
+    public void setClassPK(long classPK);
 
-	/**
-	 * Returns the system event set key of this trash entry.
-	 *
-	 * @return the system event set key of this trash entry
-	 */
-	public long getSystemEventSetKey();
+    /**
+     * Returns the system event set key of this trash entry.
+     *
+     * @return the system event set key of this trash entry
+     */
+    public long getSystemEventSetKey();
 
-	/**
-	 * Sets the system event set key of this trash entry.
-	 *
-	 * @param systemEventSetKey the system event set key of this trash entry
-	 */
-	public void setSystemEventSetKey(long systemEventSetKey);
+    /**
+     * Sets the system event set key of this trash entry.
+     *
+     * @param systemEventSetKey the system event set key of this trash entry
+     */
+    public void setSystemEventSetKey(long systemEventSetKey);
 
-	/**
-	 * Returns the type settings of this trash entry.
-	 *
-	 * @return the type settings of this trash entry
-	 */
-	@AutoEscape
-	public String getTypeSettings();
+    /**
+     * Returns the type settings of this trash entry.
+     *
+     * @return the type settings of this trash entry
+     */
+    @AutoEscape
+    public String getTypeSettings();
 
-	/**
-	 * Sets the type settings of this trash entry.
-	 *
-	 * @param typeSettings the type settings of this trash entry
-	 */
-	public void setTypeSettings(String typeSettings);
+    /**
+     * Sets the type settings of this trash entry.
+     *
+     * @param typeSettings the type settings of this trash entry
+     */
+    public void setTypeSettings(String typeSettings);
 
-	/**
-	 * Returns the status of this trash entry.
-	 *
-	 * @return the status of this trash entry
-	 */
-	public int getStatus();
+    /**
+     * Returns the status of this trash entry.
+     *
+     * @return the status of this trash entry
+     */
+    public int getStatus();
 
-	/**
-	 * Sets the status of this trash entry.
-	 *
-	 * @param status the status of this trash entry
-	 */
-	public void setStatus(int status);
+    /**
+     * Sets the status of this trash entry.
+     *
+     * @param status the status of this trash entry
+     */
+    public void setStatus(int status);
 
-	@Override
-	public boolean isNew();
+    @Override
+    public boolean isNew();
 
-	@Override
-	public void setNew(boolean n);
+    @Override
+    public void setNew(boolean n);
 
-	@Override
-	public boolean isCachedModel();
+    @Override
+    public boolean isCachedModel();
 
-	@Override
-	public void setCachedModel(boolean cachedModel);
+    @Override
+    public void setCachedModel(boolean cachedModel);
 
-	@Override
-	public boolean isEscapedModel();
+    @Override
+    public boolean isEscapedModel();
 
-	@Override
-	public Serializable getPrimaryKeyObj();
+    @Override
+    public Serializable getPrimaryKeyObj();
 
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj);
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj);
 
-	@Override
-	public ExpandoBridge getExpandoBridge();
+    @Override
+    public ExpandoBridge getExpandoBridge();
 
-	@Override
-	public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
+    @Override
+    public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
 
-	@Override
-	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
+    @Override
+    public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	@Override
-	public Object clone();
+    @Override
+    public Object clone();
 
-	@Override
-	public int compareTo(TrashEntry trashEntry);
+    @Override
+    public int compareTo(com.liferay.portlet.trash.model.TrashEntry trashEntry);
 
-	@Override
-	public int hashCode();
+    @Override
+    public int hashCode();
 
-	@Override
-	public CacheModel<TrashEntry> toCacheModel();
+    @Override
+    public CacheModel<com.liferay.portlet.trash.model.TrashEntry> toCacheModel();
 
-	@Override
-	public TrashEntry toEscapedModel();
+    @Override
+    public com.liferay.portlet.trash.model.TrashEntry toEscapedModel();
 
-	@Override
-	public TrashEntry toUnescapedModel();
+    @Override
+    public com.liferay.portlet.trash.model.TrashEntry toUnescapedModel();
 
-	@Override
-	public String toString();
+    @Override
+    public String toString();
 
-	@Override
-	public String toXmlString();
+    @Override
+    public String toXmlString();
 }

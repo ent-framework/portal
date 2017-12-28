@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
@@ -53,152 +39,140 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class PortalServiceSoap {
-	public static java.lang.String getAutoDeployDirectory()
-		throws RemoteException {
-		try {
-			java.lang.String returnValue = PortalServiceUtil.getAutoDeployDirectory();
+    private static Log _log = LogFactoryUtil.getLog(PortalServiceSoap.class);
 
-			return returnValue;
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static java.lang.String getAutoDeployDirectory()
+        throws RemoteException {
+        try {
+            java.lang.String returnValue = PortalServiceUtil.getAutoDeployDirectory();
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return returnValue;
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static int getBuildNumber() throws RemoteException {
-		try {
-			int returnValue = PortalServiceUtil.getBuildNumber();
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return returnValue;
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static int getBuildNumber() throws RemoteException {
+        try {
+            int returnValue = PortalServiceUtil.getBuildNumber();
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return returnValue;
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void testAddClassName_Rollback(
-		java.lang.String classNameValue) throws RemoteException {
-		try {
-			PortalServiceUtil.testAddClassName_Rollback(classNameValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void testAddClassName_Rollback(
+        java.lang.String classNameValue) throws RemoteException {
+        try {
+            PortalServiceUtil.testAddClassName_Rollback(classNameValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void testAddClassName_Success(java.lang.String classNameValue)
-		throws RemoteException {
-		try {
-			PortalServiceUtil.testAddClassName_Success(classNameValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void testAddClassName_Success(java.lang.String classNameValue)
+        throws RemoteException {
+        try {
+            PortalServiceUtil.testAddClassName_Success(classNameValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void testAddClassNameAndTestTransactionPortletBar_PortalRollback(
-		java.lang.String transactionPortletBarText) throws RemoteException {
-		try {
-			PortalServiceUtil.testAddClassNameAndTestTransactionPortletBar_PortalRollback(transactionPortletBarText);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void testAddClassNameAndTestTransactionPortletBar_PortalRollback(
+        java.lang.String transactionPortletBarText) throws RemoteException {
+        try {
+            PortalServiceUtil.testAddClassNameAndTestTransactionPortletBar_PortalRollback(transactionPortletBarText);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void testAddClassNameAndTestTransactionPortletBar_PortletRollback(
-		java.lang.String transactionPortletBarText) throws RemoteException {
-		try {
-			PortalServiceUtil.testAddClassNameAndTestTransactionPortletBar_PortletRollback(transactionPortletBarText);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void testAddClassNameAndTestTransactionPortletBar_PortletRollback(
+        java.lang.String transactionPortletBarText) throws RemoteException {
+        try {
+            PortalServiceUtil.testAddClassNameAndTestTransactionPortletBar_PortletRollback(transactionPortletBarText);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void testAddClassNameAndTestTransactionPortletBar_Success(
-		java.lang.String transactionPortletBarText) throws RemoteException {
-		try {
-			PortalServiceUtil.testAddClassNameAndTestTransactionPortletBar_Success(transactionPortletBarText);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void testAddClassNameAndTestTransactionPortletBar_Success(
+        java.lang.String transactionPortletBarText) throws RemoteException {
+        try {
+            PortalServiceUtil.testAddClassNameAndTestTransactionPortletBar_Success(transactionPortletBarText);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void testAutoSyncHibernateSessionStateOnTxCreation()
-		throws RemoteException {
-		try {
-			PortalServiceUtil.testAutoSyncHibernateSessionStateOnTxCreation();
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void testAutoSyncHibernateSessionStateOnTxCreation()
+        throws RemoteException {
+        try {
+            PortalServiceUtil.testAutoSyncHibernateSessionStateOnTxCreation();
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void testDeleteClassName() throws RemoteException {
-		try {
-			PortalServiceUtil.testDeleteClassName();
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void testDeleteClassName() throws RemoteException {
+        try {
+            PortalServiceUtil.testDeleteClassName();
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static int testGetBuildNumber() throws RemoteException {
-		try {
-			int returnValue = PortalServiceUtil.testGetBuildNumber();
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return returnValue;
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static int testGetBuildNumber() throws RemoteException {
+        try {
+            int returnValue = PortalServiceUtil.testGetBuildNumber();
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return returnValue;
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void testGetUserId() throws RemoteException {
-		try {
-			PortalServiceUtil.testGetUserId();
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void testGetUserId() throws RemoteException {
+        try {
+            PortalServiceUtil.testGetUserId();
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static boolean testHasClassName() throws RemoteException {
-		try {
-			boolean returnValue = PortalServiceUtil.testHasClassName();
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return returnValue;
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static boolean testHasClassName() throws RemoteException {
+        try {
+            boolean returnValue = PortalServiceUtil.testHasClassName();
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return returnValue;
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	private static Log _log = LogFactoryUtil.getLog(PortalServiceSoap.class);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

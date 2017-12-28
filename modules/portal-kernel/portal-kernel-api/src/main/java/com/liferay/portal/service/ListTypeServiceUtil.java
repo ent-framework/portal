@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.service;
 
 import aQute.bnd.annotation.ProviderType;
@@ -35,71 +21,71 @@ import com.liferay.portal.kernel.util.ReferenceRegistry;
  */
 @ProviderType
 public class ListTypeServiceUtil {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify this class directly. Add custom service methods to {@link com.liferay.portal.service.impl.ListTypeServiceImpl} and rerun ServiceBuilder to regenerate this class.
-	 */
+    private static ListTypeService _service;
 
-	/**
-	* Returns the Spring bean ID for this bean.
-	*
-	* @return the Spring bean ID for this bean
-	*/
-	public static java.lang.String getBeanIdentifier() {
-		return getService().getBeanIdentifier();
-	}
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify this class directly. Add custom service methods to {@link com.liferay.portal.service.impl.ListTypeServiceImpl} and rerun ServiceBuilder to regenerate this class.
+     */
 
-	/**
-	* Sets the Spring bean ID for this bean.
-	*
-	* @param beanIdentifier the Spring bean ID for this bean
-	*/
-	public static void setBeanIdentifier(java.lang.String beanIdentifier) {
-		getService().setBeanIdentifier(beanIdentifier);
-	}
+    /**
+    * Returns the Spring bean ID for this bean.
+    *
+    * @return the Spring bean ID for this bean
+    */
+    public static java.lang.String getBeanIdentifier() {
+        return getService().getBeanIdentifier();
+    }
 
-	public static com.liferay.portal.model.ListType getListType(int listTypeId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return getService().getListType(listTypeId);
-	}
+    /**
+    * Sets the Spring bean ID for this bean.
+    *
+    * @param beanIdentifier the Spring bean ID for this bean
+    */
+    public static void setBeanIdentifier(java.lang.String beanIdentifier) {
+        getService().setBeanIdentifier(beanIdentifier);
+    }
 
-	public static java.util.List<com.liferay.portal.model.ListType> getListTypes(
-		java.lang.String type)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getListTypes(type);
-	}
+    public static com.liferay.portal.model.ListType getListType(int listTypeId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        return getService().getListType(listTypeId);
+    }
 
-	public static void validate(int listTypeId, long classNameId,
-		java.lang.String type)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		getService().validate(listTypeId, classNameId, type);
-	}
+    public static java.util.List<com.liferay.portal.model.ListType> getListTypes(
+        java.lang.String type)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getService().getListTypes(type);
+    }
 
-	public static void validate(int listTypeId, java.lang.String type)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		getService().validate(listTypeId, type);
-	}
+    public static void validate(int listTypeId, long classNameId,
+        java.lang.String type)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        getService().validate(listTypeId, classNameId, type);
+    }
 
-	public static ListTypeService getService() {
-		if (_service == null) {
-			_service = (ListTypeService)PortalBeanLocatorUtil.locate(ListTypeService.class.getName());
+    public static void validate(int listTypeId, java.lang.String type)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        getService().validate(listTypeId, type);
+    }
 
-			ReferenceRegistry.registerReference(ListTypeServiceUtil.class,
-				"_service");
-		}
+    public static ListTypeService getService() {
+        if (_service == null) {
+            _service = (ListTypeService) PortalBeanLocatorUtil.locate(ListTypeService.class.getName());
 
-		return _service;
-	}
+            ReferenceRegistry.registerReference(ListTypeServiceUtil.class,
+                "_service");
+        }
 
-	/**
-	 * @deprecated As of 6.2.0
-	 */
-	public void setService(ListTypeService service) {
-	}
+        return _service;
+    }
 
-	private static ListTypeService _service;
+    /**
+     * @deprecated As of 6.2.0
+     */
+    public void setService(ListTypeService service) {
+    }
 }

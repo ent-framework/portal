@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.dynamicdatamapping.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -32,57 +18,57 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class DDMStructureLinkCacheModel implements CacheModel<DDMStructureLink>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(9);
+    Externalizable {
+    public long structureLinkId;
+    public long classNameId;
+    public long classPK;
+    public long structureId;
 
-		sb.append("{structureLinkId=");
-		sb.append(structureLinkId);
-		sb.append(", classNameId=");
-		sb.append(classNameId);
-		sb.append(", classPK=");
-		sb.append(classPK);
-		sb.append(", structureId=");
-		sb.append(structureId);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(9);
 
-		return sb.toString();
-	}
+        sb.append("{structureLinkId=");
+        sb.append(structureLinkId);
+        sb.append(", classNameId=");
+        sb.append(classNameId);
+        sb.append(", classPK=");
+        sb.append(classPK);
+        sb.append(", structureId=");
+        sb.append(structureId);
+        sb.append("}");
 
-	@Override
-	public DDMStructureLink toEntityModel() {
-		DDMStructureLinkImpl ddmStructureLinkImpl = new DDMStructureLinkImpl();
+        return sb.toString();
+    }
 
-		ddmStructureLinkImpl.setStructureLinkId(structureLinkId);
-		ddmStructureLinkImpl.setClassNameId(classNameId);
-		ddmStructureLinkImpl.setClassPK(classPK);
-		ddmStructureLinkImpl.setStructureId(structureId);
+    @Override
+    public DDMStructureLink toEntityModel() {
+        DDMStructureLinkImpl ddmStructureLinkImpl = new DDMStructureLinkImpl();
 
-		ddmStructureLinkImpl.resetOriginalValues();
+        ddmStructureLinkImpl.setStructureLinkId(structureLinkId);
+        ddmStructureLinkImpl.setClassNameId(classNameId);
+        ddmStructureLinkImpl.setClassPK(classPK);
+        ddmStructureLinkImpl.setStructureId(structureId);
 
-		return ddmStructureLinkImpl;
-	}
+        ddmStructureLinkImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		structureLinkId = objectInput.readLong();
-		classNameId = objectInput.readLong();
-		classPK = objectInput.readLong();
-		structureId = objectInput.readLong();
-	}
+        return ddmStructureLinkImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(structureLinkId);
-		objectOutput.writeLong(classNameId);
-		objectOutput.writeLong(classPK);
-		objectOutput.writeLong(structureId);
-	}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        structureLinkId = objectInput.readLong();
+        classNameId = objectInput.readLong();
+        classPK = objectInput.readLong();
+        structureId = objectInput.readLong();
+    }
 
-	public long structureLinkId;
-	public long classNameId;
-	public long classPK;
-	public long structureId;
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(structureLinkId);
+        objectOutput.writeLong(classNameId);
+        objectOutput.writeLong(classPK);
+        objectOutput.writeLong(structureId);
+    }
 }

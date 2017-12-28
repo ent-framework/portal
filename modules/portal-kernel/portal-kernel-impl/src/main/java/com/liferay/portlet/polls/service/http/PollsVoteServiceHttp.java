@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.polls.service.http;
 
 import com.liferay.portal.kernel.log.Log;
@@ -52,47 +38,45 @@ import com.liferay.portlet.polls.service.PollsVoteServiceUtil;
  * @generated
  */
 public class PollsVoteServiceHttp {
-	public static com.liferay.portlet.polls.model.PollsVote addVote(
-		HttpPrincipal httpPrincipal, long questionId, long choiceId,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(PollsVoteServiceUtil.class,
-					"addVote", _addVoteParameterTypes0);
+    private static Log _log = LogFactoryUtil.getLog(PollsVoteServiceHttp.class);
+    private static final Class<?>[] _addVoteParameterTypes0 = new Class[] {
+            long.class, long.class,
+            com.liferay.portal.service.ServiceContext.class
+        };
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					questionId, choiceId, serviceContext);
+    public static com.liferay.portlet.polls.model.PollsVote addVote(
+        HttpPrincipal httpPrincipal, long questionId, long choiceId,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(PollsVoteServiceUtil.class,
+                    "addVote", _addVoteParameterTypes0);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    questionId, choiceId, serviceContext);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portlet.polls.model.PollsVote)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portlet.polls.model.PollsVote) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	private static Log _log = LogFactoryUtil.getLog(PollsVoteServiceHttp.class);
-	private static final Class<?>[] _addVoteParameterTypes0 = new Class[] {
-			long.class, long.class,
-			com.liferay.portal.service.ServiceContext.class
-		};
+            throw se;
+        }
+    }
 }

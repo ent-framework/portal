@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.documentlibrary.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -33,89 +19,85 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class DLSyncEventCacheModel implements CacheModel<DLSyncEvent>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(11);
+    Externalizable {
+    public long syncEventId;
+    public long modifiedTime;
+    public String event;
+    public String type;
+    public long typePK;
 
-		sb.append("{syncEventId=");
-		sb.append(syncEventId);
-		sb.append(", modifiedTime=");
-		sb.append(modifiedTime);
-		sb.append(", event=");
-		sb.append(event);
-		sb.append(", type=");
-		sb.append(type);
-		sb.append(", typePK=");
-		sb.append(typePK);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(11);
 
-		return sb.toString();
-	}
+        sb.append("{syncEventId=");
+        sb.append(syncEventId);
+        sb.append(", modifiedTime=");
+        sb.append(modifiedTime);
+        sb.append(", event=");
+        sb.append(event);
+        sb.append(", type=");
+        sb.append(type);
+        sb.append(", typePK=");
+        sb.append(typePK);
+        sb.append("}");
 
-	@Override
-	public DLSyncEvent toEntityModel() {
-		DLSyncEventImpl dlSyncEventImpl = new DLSyncEventImpl();
+        return sb.toString();
+    }
 
-		dlSyncEventImpl.setSyncEventId(syncEventId);
-		dlSyncEventImpl.setModifiedTime(modifiedTime);
+    @Override
+    public DLSyncEvent toEntityModel() {
+        DLSyncEventImpl dlSyncEventImpl = new DLSyncEventImpl();
 
-		if (event == null) {
-			dlSyncEventImpl.setEvent(StringPool.BLANK);
-		}
-		else {
-			dlSyncEventImpl.setEvent(event);
-		}
+        dlSyncEventImpl.setSyncEventId(syncEventId);
+        dlSyncEventImpl.setModifiedTime(modifiedTime);
 
-		if (type == null) {
-			dlSyncEventImpl.setType(StringPool.BLANK);
-		}
-		else {
-			dlSyncEventImpl.setType(type);
-		}
+        if (event == null) {
+            dlSyncEventImpl.setEvent(StringPool.BLANK);
+        } else {
+            dlSyncEventImpl.setEvent(event);
+        }
 
-		dlSyncEventImpl.setTypePK(typePK);
+        if (type == null) {
+            dlSyncEventImpl.setType(StringPool.BLANK);
+        } else {
+            dlSyncEventImpl.setType(type);
+        }
 
-		dlSyncEventImpl.resetOriginalValues();
+        dlSyncEventImpl.setTypePK(typePK);
 
-		return dlSyncEventImpl;
-	}
+        dlSyncEventImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		syncEventId = objectInput.readLong();
-		modifiedTime = objectInput.readLong();
-		event = objectInput.readUTF();
-		type = objectInput.readUTF();
-		typePK = objectInput.readLong();
-	}
+        return dlSyncEventImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(syncEventId);
-		objectOutput.writeLong(modifiedTime);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        syncEventId = objectInput.readLong();
+        modifiedTime = objectInput.readLong();
+        event = objectInput.readUTF();
+        type = objectInput.readUTF();
+        typePK = objectInput.readLong();
+    }
 
-		if (event == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(event);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(syncEventId);
+        objectOutput.writeLong(modifiedTime);
 
-		if (type == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(type);
-		}
+        if (event == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(event);
+        }
 
-		objectOutput.writeLong(typePK);
-	}
+        if (type == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(type);
+        }
 
-	public long syncEventId;
-	public long modifiedTime;
-	public String event;
-	public String type;
-	public long typePK;
+        objectOutput.writeLong(typePK);
+    }
 }

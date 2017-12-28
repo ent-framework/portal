@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,173 +20,161 @@ import java.util.Date;
  * @generated
  */
 public class LockCacheModel implements CacheModel<Lock>, Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(23);
+    public String uuid;
+    public long lockId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public String className;
+    public String key;
+    public String owner;
+    public boolean inheritable;
+    public long expirationDate;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", lockId=");
-		sb.append(lockId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", className=");
-		sb.append(className);
-		sb.append(", key=");
-		sb.append(key);
-		sb.append(", owner=");
-		sb.append(owner);
-		sb.append(", inheritable=");
-		sb.append(inheritable);
-		sb.append(", expirationDate=");
-		sb.append(expirationDate);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(23);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", lockId=");
+        sb.append(lockId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", className=");
+        sb.append(className);
+        sb.append(", key=");
+        sb.append(key);
+        sb.append(", owner=");
+        sb.append(owner);
+        sb.append(", inheritable=");
+        sb.append(inheritable);
+        sb.append(", expirationDate=");
+        sb.append(expirationDate);
+        sb.append("}");
 
-	@Override
-	public Lock toEntityModel() {
-		LockImpl lockImpl = new LockImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			lockImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			lockImpl.setUuid(uuid);
-		}
+    @Override
+    public Lock toEntityModel() {
+        LockImpl lockImpl = new LockImpl();
 
-		lockImpl.setLockId(lockId);
-		lockImpl.setCompanyId(companyId);
-		lockImpl.setUserId(userId);
+        if (uuid == null) {
+            lockImpl.setUuid(StringPool.BLANK);
+        } else {
+            lockImpl.setUuid(uuid);
+        }
 
-		if (userName == null) {
-			lockImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			lockImpl.setUserName(userName);
-		}
+        lockImpl.setLockId(lockId);
+        lockImpl.setCompanyId(companyId);
+        lockImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			lockImpl.setCreateDate(null);
-		}
-		else {
-			lockImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            lockImpl.setUserName(StringPool.BLANK);
+        } else {
+            lockImpl.setUserName(userName);
+        }
 
-		if (className == null) {
-			lockImpl.setClassName(StringPool.BLANK);
-		}
-		else {
-			lockImpl.setClassName(className);
-		}
+        if (createDate == Long.MIN_VALUE) {
+            lockImpl.setCreateDate(null);
+        } else {
+            lockImpl.setCreateDate(new Date(createDate));
+        }
 
-		if (key == null) {
-			lockImpl.setKey(StringPool.BLANK);
-		}
-		else {
-			lockImpl.setKey(key);
-		}
+        if (className == null) {
+            lockImpl.setClassName(StringPool.BLANK);
+        } else {
+            lockImpl.setClassName(className);
+        }
 
-		if (owner == null) {
-			lockImpl.setOwner(StringPool.BLANK);
-		}
-		else {
-			lockImpl.setOwner(owner);
-		}
+        if (key == null) {
+            lockImpl.setKey(StringPool.BLANK);
+        } else {
+            lockImpl.setKey(key);
+        }
 
-		lockImpl.setInheritable(inheritable);
+        if (owner == null) {
+            lockImpl.setOwner(StringPool.BLANK);
+        } else {
+            lockImpl.setOwner(owner);
+        }
 
-		if (expirationDate == Long.MIN_VALUE) {
-			lockImpl.setExpirationDate(null);
-		}
-		else {
-			lockImpl.setExpirationDate(new Date(expirationDate));
-		}
+        lockImpl.setInheritable(inheritable);
 
-		lockImpl.resetOriginalValues();
+        if (expirationDate == Long.MIN_VALUE) {
+            lockImpl.setExpirationDate(null);
+        } else {
+            lockImpl.setExpirationDate(new Date(expirationDate));
+        }
 
-		return lockImpl;
-	}
+        lockImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		lockId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		className = objectInput.readUTF();
-		key = objectInput.readUTF();
-		owner = objectInput.readUTF();
-		inheritable = objectInput.readBoolean();
-		expirationDate = objectInput.readLong();
-	}
+        return lockImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        lockId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        className = objectInput.readUTF();
+        key = objectInput.readUTF();
+        owner = objectInput.readUTF();
+        inheritable = objectInput.readBoolean();
+        expirationDate = objectInput.readLong();
+    }
 
-		objectOutput.writeLong(lockId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+        objectOutput.writeLong(lockId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (className == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(className);
-		}
+        objectOutput.writeLong(createDate);
 
-		if (key == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(key);
-		}
+        if (className == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(className);
+        }
 
-		if (owner == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(owner);
-		}
+        if (key == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(key);
+        }
 
-		objectOutput.writeBoolean(inheritable);
-		objectOutput.writeLong(expirationDate);
-	}
+        if (owner == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(owner);
+        }
 
-	public String uuid;
-	public long lockId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public String className;
-	public String key;
-	public String owner;
-	public boolean inheritable;
-	public long expirationDate;
+        objectOutput.writeBoolean(inheritable);
+        objectOutput.writeLong(expirationDate);
+    }
 }

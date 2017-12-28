@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,262 +20,240 @@ import java.util.Date;
  * @generated
  */
 public class AccountCacheModel implements CacheModel<Account>, Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(33);
+    public long accountId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public long parentAccountId;
+    public String name;
+    public String legalName;
+    public String legalId;
+    public String legalType;
+    public String sicCode;
+    public String tickerSymbol;
+    public String industry;
+    public String type;
+    public String size;
 
-		sb.append("{accountId=");
-		sb.append(accountId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", parentAccountId=");
-		sb.append(parentAccountId);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", legalName=");
-		sb.append(legalName);
-		sb.append(", legalId=");
-		sb.append(legalId);
-		sb.append(", legalType=");
-		sb.append(legalType);
-		sb.append(", sicCode=");
-		sb.append(sicCode);
-		sb.append(", tickerSymbol=");
-		sb.append(tickerSymbol);
-		sb.append(", industry=");
-		sb.append(industry);
-		sb.append(", type=");
-		sb.append(type);
-		sb.append(", size=");
-		sb.append(size);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(33);
 
-		return sb.toString();
-	}
+        sb.append("{accountId=");
+        sb.append(accountId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", parentAccountId=");
+        sb.append(parentAccountId);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", legalName=");
+        sb.append(legalName);
+        sb.append(", legalId=");
+        sb.append(legalId);
+        sb.append(", legalType=");
+        sb.append(legalType);
+        sb.append(", sicCode=");
+        sb.append(sicCode);
+        sb.append(", tickerSymbol=");
+        sb.append(tickerSymbol);
+        sb.append(", industry=");
+        sb.append(industry);
+        sb.append(", type=");
+        sb.append(type);
+        sb.append(", size=");
+        sb.append(size);
+        sb.append("}");
 
-	@Override
-	public Account toEntityModel() {
-		AccountImpl accountImpl = new AccountImpl();
+        return sb.toString();
+    }
 
-		accountImpl.setAccountId(accountId);
-		accountImpl.setCompanyId(companyId);
-		accountImpl.setUserId(userId);
+    @Override
+    public Account toEntityModel() {
+        AccountImpl accountImpl = new AccountImpl();
 
-		if (userName == null) {
-			accountImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			accountImpl.setUserName(userName);
-		}
+        accountImpl.setAccountId(accountId);
+        accountImpl.setCompanyId(companyId);
+        accountImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			accountImpl.setCreateDate(null);
-		}
-		else {
-			accountImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            accountImpl.setUserName(StringPool.BLANK);
+        } else {
+            accountImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			accountImpl.setModifiedDate(null);
-		}
-		else {
-			accountImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            accountImpl.setCreateDate(null);
+        } else {
+            accountImpl.setCreateDate(new Date(createDate));
+        }
 
-		accountImpl.setParentAccountId(parentAccountId);
+        if (modifiedDate == Long.MIN_VALUE) {
+            accountImpl.setModifiedDate(null);
+        } else {
+            accountImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (name == null) {
-			accountImpl.setName(StringPool.BLANK);
-		}
-		else {
-			accountImpl.setName(name);
-		}
+        accountImpl.setParentAccountId(parentAccountId);
 
-		if (legalName == null) {
-			accountImpl.setLegalName(StringPool.BLANK);
-		}
-		else {
-			accountImpl.setLegalName(legalName);
-		}
+        if (name == null) {
+            accountImpl.setName(StringPool.BLANK);
+        } else {
+            accountImpl.setName(name);
+        }
 
-		if (legalId == null) {
-			accountImpl.setLegalId(StringPool.BLANK);
-		}
-		else {
-			accountImpl.setLegalId(legalId);
-		}
+        if (legalName == null) {
+            accountImpl.setLegalName(StringPool.BLANK);
+        } else {
+            accountImpl.setLegalName(legalName);
+        }
 
-		if (legalType == null) {
-			accountImpl.setLegalType(StringPool.BLANK);
-		}
-		else {
-			accountImpl.setLegalType(legalType);
-		}
+        if (legalId == null) {
+            accountImpl.setLegalId(StringPool.BLANK);
+        } else {
+            accountImpl.setLegalId(legalId);
+        }
 
-		if (sicCode == null) {
-			accountImpl.setSicCode(StringPool.BLANK);
-		}
-		else {
-			accountImpl.setSicCode(sicCode);
-		}
+        if (legalType == null) {
+            accountImpl.setLegalType(StringPool.BLANK);
+        } else {
+            accountImpl.setLegalType(legalType);
+        }
 
-		if (tickerSymbol == null) {
-			accountImpl.setTickerSymbol(StringPool.BLANK);
-		}
-		else {
-			accountImpl.setTickerSymbol(tickerSymbol);
-		}
+        if (sicCode == null) {
+            accountImpl.setSicCode(StringPool.BLANK);
+        } else {
+            accountImpl.setSicCode(sicCode);
+        }
 
-		if (industry == null) {
-			accountImpl.setIndustry(StringPool.BLANK);
-		}
-		else {
-			accountImpl.setIndustry(industry);
-		}
+        if (tickerSymbol == null) {
+            accountImpl.setTickerSymbol(StringPool.BLANK);
+        } else {
+            accountImpl.setTickerSymbol(tickerSymbol);
+        }
 
-		if (type == null) {
-			accountImpl.setType(StringPool.BLANK);
-		}
-		else {
-			accountImpl.setType(type);
-		}
+        if (industry == null) {
+            accountImpl.setIndustry(StringPool.BLANK);
+        } else {
+            accountImpl.setIndustry(industry);
+        }
 
-		if (size == null) {
-			accountImpl.setSize(StringPool.BLANK);
-		}
-		else {
-			accountImpl.setSize(size);
-		}
+        if (type == null) {
+            accountImpl.setType(StringPool.BLANK);
+        } else {
+            accountImpl.setType(type);
+        }
 
-		accountImpl.resetOriginalValues();
+        if (size == null) {
+            accountImpl.setSize(StringPool.BLANK);
+        } else {
+            accountImpl.setSize(size);
+        }
 
-		return accountImpl;
-	}
+        accountImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		accountId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		parentAccountId = objectInput.readLong();
-		name = objectInput.readUTF();
-		legalName = objectInput.readUTF();
-		legalId = objectInput.readUTF();
-		legalType = objectInput.readUTF();
-		sicCode = objectInput.readUTF();
-		tickerSymbol = objectInput.readUTF();
-		industry = objectInput.readUTF();
-		type = objectInput.readUTF();
-		size = objectInput.readUTF();
-	}
+        return accountImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(accountId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        accountId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        parentAccountId = objectInput.readLong();
+        name = objectInput.readUTF();
+        legalName = objectInput.readUTF();
+        legalId = objectInput.readUTF();
+        legalType = objectInput.readUTF();
+        sicCode = objectInput.readUTF();
+        tickerSymbol = objectInput.readUTF();
+        industry = objectInput.readUTF();
+        type = objectInput.readUTF();
+        size = objectInput.readUTF();
+    }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(accountId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(parentAccountId);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(parentAccountId);
 
-		if (legalName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(legalName);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		if (legalId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(legalId);
-		}
+        if (legalName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(legalName);
+        }
 
-		if (legalType == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(legalType);
-		}
+        if (legalId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(legalId);
+        }
 
-		if (sicCode == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(sicCode);
-		}
+        if (legalType == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(legalType);
+        }
 
-		if (tickerSymbol == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(tickerSymbol);
-		}
+        if (sicCode == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(sicCode);
+        }
 
-		if (industry == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(industry);
-		}
+        if (tickerSymbol == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(tickerSymbol);
+        }
 
-		if (type == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(type);
-		}
+        if (industry == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(industry);
+        }
 
-		if (size == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(size);
-		}
-	}
+        if (type == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(type);
+        }
 
-	public long accountId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public long parentAccountId;
-	public String name;
-	public String legalName;
-	public String legalId;
-	public String legalType;
-	public String sicCode;
-	public String tickerSymbol;
-	public String industry;
-	public String type;
-	public String size;
+        if (size == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(size);
+        }
+    }
 }

@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -26,171 +12,170 @@ import java.util.List;
  * @generated
  */
 public class UserNotificationEventSoap implements Serializable {
-	public static UserNotificationEventSoap toSoapModel(
-		UserNotificationEvent model) {
-		UserNotificationEventSoap soapModel = new UserNotificationEventSoap();
+    private String _uuid;
+    private long _userNotificationEventId;
+    private long _companyId;
+    private long _userId;
+    private String _type;
+    private long _timestamp;
+    private long _deliverBy;
+    private boolean _delivered;
+    private String _payload;
+    private boolean _archived;
 
-		soapModel.setUuid(model.getUuid());
-		soapModel.setUserNotificationEventId(model.getUserNotificationEventId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setType(model.getType());
-		soapModel.setTimestamp(model.getTimestamp());
-		soapModel.setDeliverBy(model.getDeliverBy());
-		soapModel.setDelivered(model.getDelivered());
-		soapModel.setPayload(model.getPayload());
-		soapModel.setArchived(model.getArchived());
+    public UserNotificationEventSoap() {
+    }
 
-		return soapModel;
-	}
+    public static UserNotificationEventSoap toSoapModel(
+        UserNotificationEvent model) {
+        UserNotificationEventSoap soapModel = new UserNotificationEventSoap();
 
-	public static UserNotificationEventSoap[] toSoapModels(
-		UserNotificationEvent[] models) {
-		UserNotificationEventSoap[] soapModels = new UserNotificationEventSoap[models.length];
+        soapModel.setUuid(model.getUuid());
+        soapModel.setUserNotificationEventId(model.getUserNotificationEventId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setType(model.getType());
+        soapModel.setTimestamp(model.getTimestamp());
+        soapModel.setDeliverBy(model.getDeliverBy());
+        soapModel.setDelivered(model.getDelivered());
+        soapModel.setPayload(model.getPayload());
+        soapModel.setArchived(model.getArchived());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static UserNotificationEventSoap[] toSoapModels(
+        UserNotificationEvent[] models) {
+        UserNotificationEventSoap[] soapModels = new UserNotificationEventSoap[models.length];
 
-	public static UserNotificationEventSoap[][] toSoapModels(
-		UserNotificationEvent[][] models) {
-		UserNotificationEventSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new UserNotificationEventSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new UserNotificationEventSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static UserNotificationEventSoap[][] toSoapModels(
+        UserNotificationEvent[][] models) {
+        UserNotificationEventSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new UserNotificationEventSoap[models.length][models[0].length];
+        } else {
+            soapModels = new UserNotificationEventSoap[0][0];
+        }
 
-	public static UserNotificationEventSoap[] toSoapModels(
-		List<UserNotificationEvent> models) {
-		List<UserNotificationEventSoap> soapModels = new ArrayList<UserNotificationEventSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (UserNotificationEvent model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new UserNotificationEventSoap[soapModels.size()]);
-	}
+    public static UserNotificationEventSoap[] toSoapModels(
+        List<UserNotificationEvent> models) {
+        List<UserNotificationEventSoap> soapModels = new ArrayList<UserNotificationEventSoap>(models.size());
 
-	public UserNotificationEventSoap() {
-	}
+        for (UserNotificationEvent model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _userNotificationEventId;
-	}
+        return soapModels.toArray(new UserNotificationEventSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setUserNotificationEventId(pk);
-	}
+    public long getPrimaryKey() {
+        return _userNotificationEventId;
+    }
 
-	public String getUuid() {
-		return _uuid;
-	}
+    public void setPrimaryKey(long pk) {
+        setUserNotificationEventId(pk);
+    }
 
-	public void setUuid(String uuid) {
-		_uuid = uuid;
-	}
+    public String getUuid() {
+        return _uuid;
+    }
 
-	public long getUserNotificationEventId() {
-		return _userNotificationEventId;
-	}
+    public void setUuid(String uuid) {
+        _uuid = uuid;
+    }
 
-	public void setUserNotificationEventId(long userNotificationEventId) {
-		_userNotificationEventId = userNotificationEventId;
-	}
+    public long getUserNotificationEventId() {
+        return _userNotificationEventId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setUserNotificationEventId(long userNotificationEventId) {
+        _userNotificationEventId = userNotificationEventId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public String getType() {
-		return _type;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setType(String type) {
-		_type = type;
-	}
+    public String getType() {
+        return _type;
+    }
 
-	public long getTimestamp() {
-		return _timestamp;
-	}
+    public void setType(String type) {
+        _type = type;
+    }
 
-	public void setTimestamp(long timestamp) {
-		_timestamp = timestamp;
-	}
+    public long getTimestamp() {
+        return _timestamp;
+    }
 
-	public long getDeliverBy() {
-		return _deliverBy;
-	}
+    public void setTimestamp(long timestamp) {
+        _timestamp = timestamp;
+    }
 
-	public void setDeliverBy(long deliverBy) {
-		_deliverBy = deliverBy;
-	}
+    public long getDeliverBy() {
+        return _deliverBy;
+    }
 
-	public boolean getDelivered() {
-		return _delivered;
-	}
+    public void setDeliverBy(long deliverBy) {
+        _deliverBy = deliverBy;
+    }
 
-	public boolean isDelivered() {
-		return _delivered;
-	}
+    public boolean getDelivered() {
+        return _delivered;
+    }
 
-	public void setDelivered(boolean delivered) {
-		_delivered = delivered;
-	}
+    public boolean isDelivered() {
+        return _delivered;
+    }
 
-	public String getPayload() {
-		return _payload;
-	}
+    public void setDelivered(boolean delivered) {
+        _delivered = delivered;
+    }
 
-	public void setPayload(String payload) {
-		_payload = payload;
-	}
+    public String getPayload() {
+        return _payload;
+    }
 
-	public boolean getArchived() {
-		return _archived;
-	}
+    public void setPayload(String payload) {
+        _payload = payload;
+    }
 
-	public boolean isArchived() {
-		return _archived;
-	}
+    public boolean getArchived() {
+        return _archived;
+    }
 
-	public void setArchived(boolean archived) {
-		_archived = archived;
-	}
+    public boolean isArchived() {
+        return _archived;
+    }
 
-	private String _uuid;
-	private long _userNotificationEventId;
-	private long _companyId;
-	private long _userId;
-	private String _type;
-	private long _timestamp;
-	private long _deliverBy;
-	private boolean _delivered;
-	private String _payload;
-	private boolean _archived;
+    public void setArchived(boolean archived) {
+        _archived = archived;
+    }
 }

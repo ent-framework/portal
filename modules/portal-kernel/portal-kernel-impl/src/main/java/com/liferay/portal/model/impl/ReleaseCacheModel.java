@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,131 +20,124 @@ import java.util.Date;
  * @generated
  */
 public class ReleaseCacheModel implements CacheModel<Release>, Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(19);
+    public long releaseId;
+    public long createDate;
+    public long modifiedDate;
+    public String servletContextName;
+    public int buildNumber;
+    public long buildDate;
+    public boolean verified;
+    public int state;
+    public String testString;
 
-		sb.append("{releaseId=");
-		sb.append(releaseId);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", servletContextName=");
-		sb.append(servletContextName);
-		sb.append(", buildNumber=");
-		sb.append(buildNumber);
-		sb.append(", buildDate=");
-		sb.append(buildDate);
-		sb.append(", verified=");
-		sb.append(verified);
-		sb.append(", state=");
-		sb.append(state);
-		sb.append(", testString=");
-		sb.append(testString);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(19);
 
-		return sb.toString();
-	}
+        sb.append("{releaseId=");
+        sb.append(releaseId);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", servletContextName=");
+        sb.append(servletContextName);
+        sb.append(", buildNumber=");
+        sb.append(buildNumber);
+        sb.append(", buildDate=");
+        sb.append(buildDate);
+        sb.append(", verified=");
+        sb.append(verified);
+        sb.append(", state=");
+        sb.append(state);
+        sb.append(", testString=");
+        sb.append(testString);
+        sb.append("}");
 
-	@Override
-	public Release toEntityModel() {
-		ReleaseImpl releaseImpl = new ReleaseImpl();
+        return sb.toString();
+    }
 
-		releaseImpl.setReleaseId(releaseId);
+    @Override
+    public Release toEntityModel() {
+        ReleaseImpl releaseImpl = new ReleaseImpl();
 
-		if (createDate == Long.MIN_VALUE) {
-			releaseImpl.setCreateDate(null);
-		}
-		else {
-			releaseImpl.setCreateDate(new Date(createDate));
-		}
+        releaseImpl.setReleaseId(releaseId);
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			releaseImpl.setModifiedDate(null);
-		}
-		else {
-			releaseImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            releaseImpl.setCreateDate(null);
+        } else {
+            releaseImpl.setCreateDate(new Date(createDate));
+        }
 
-		if (servletContextName == null) {
-			releaseImpl.setServletContextName(StringPool.BLANK);
-		}
-		else {
-			releaseImpl.setServletContextName(servletContextName);
-		}
+        if (modifiedDate == Long.MIN_VALUE) {
+            releaseImpl.setModifiedDate(null);
+        } else {
+            releaseImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		releaseImpl.setBuildNumber(buildNumber);
+        if (servletContextName == null) {
+            releaseImpl.setServletContextName(StringPool.BLANK);
+        } else {
+            releaseImpl.setServletContextName(servletContextName);
+        }
 
-		if (buildDate == Long.MIN_VALUE) {
-			releaseImpl.setBuildDate(null);
-		}
-		else {
-			releaseImpl.setBuildDate(new Date(buildDate));
-		}
+        releaseImpl.setBuildNumber(buildNumber);
 
-		releaseImpl.setVerified(verified);
-		releaseImpl.setState(state);
+        if (buildDate == Long.MIN_VALUE) {
+            releaseImpl.setBuildDate(null);
+        } else {
+            releaseImpl.setBuildDate(new Date(buildDate));
+        }
 
-		if (testString == null) {
-			releaseImpl.setTestString(StringPool.BLANK);
-		}
-		else {
-			releaseImpl.setTestString(testString);
-		}
+        releaseImpl.setVerified(verified);
+        releaseImpl.setState(state);
 
-		releaseImpl.resetOriginalValues();
+        if (testString == null) {
+            releaseImpl.setTestString(StringPool.BLANK);
+        } else {
+            releaseImpl.setTestString(testString);
+        }
 
-		return releaseImpl;
-	}
+        releaseImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		releaseId = objectInput.readLong();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		servletContextName = objectInput.readUTF();
-		buildNumber = objectInput.readInt();
-		buildDate = objectInput.readLong();
-		verified = objectInput.readBoolean();
-		state = objectInput.readInt();
-		testString = objectInput.readUTF();
-	}
+        return releaseImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(releaseId);
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        releaseId = objectInput.readLong();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        servletContextName = objectInput.readUTF();
+        buildNumber = objectInput.readInt();
+        buildDate = objectInput.readLong();
+        verified = objectInput.readBoolean();
+        state = objectInput.readInt();
+        testString = objectInput.readUTF();
+    }
 
-		if (servletContextName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(servletContextName);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(releaseId);
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
 
-		objectOutput.writeInt(buildNumber);
-		objectOutput.writeLong(buildDate);
-		objectOutput.writeBoolean(verified);
-		objectOutput.writeInt(state);
+        if (servletContextName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(servletContextName);
+        }
 
-		if (testString == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(testString);
-		}
-	}
+        objectOutput.writeInt(buildNumber);
+        objectOutput.writeLong(buildDate);
+        objectOutput.writeBoolean(verified);
+        objectOutput.writeInt(state);
 
-	public long releaseId;
-	public long createDate;
-	public long modifiedDate;
-	public String servletContextName;
-	public int buildNumber;
-	public long buildDate;
-	public boolean verified;
-	public int state;
-	public String testString;
+        if (testString == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(testString);
+        }
+    }
 }

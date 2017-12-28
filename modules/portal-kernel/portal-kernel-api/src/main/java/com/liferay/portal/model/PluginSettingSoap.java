@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -27,123 +13,122 @@ import java.util.List;
  * @generated
  */
 public class PluginSettingSoap implements Serializable {
-	public static PluginSettingSoap toSoapModel(PluginSetting model) {
-		PluginSettingSoap soapModel = new PluginSettingSoap();
+    private long _pluginSettingId;
+    private long _companyId;
+    private String _pluginId;
+    private String _pluginType;
+    private String _roles;
+    private boolean _active;
 
-		soapModel.setPluginSettingId(model.getPluginSettingId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setPluginId(model.getPluginId());
-		soapModel.setPluginType(model.getPluginType());
-		soapModel.setRoles(model.getRoles());
-		soapModel.setActive(model.getActive());
+    public PluginSettingSoap() {
+    }
 
-		return soapModel;
-	}
+    public static PluginSettingSoap toSoapModel(PluginSetting model) {
+        PluginSettingSoap soapModel = new PluginSettingSoap();
 
-	public static PluginSettingSoap[] toSoapModels(PluginSetting[] models) {
-		PluginSettingSoap[] soapModels = new PluginSettingSoap[models.length];
+        soapModel.setPluginSettingId(model.getPluginSettingId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setPluginId(model.getPluginId());
+        soapModel.setPluginType(model.getPluginType());
+        soapModel.setRoles(model.getRoles());
+        soapModel.setActive(model.getActive());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static PluginSettingSoap[] toSoapModels(PluginSetting[] models) {
+        PluginSettingSoap[] soapModels = new PluginSettingSoap[models.length];
 
-	public static PluginSettingSoap[][] toSoapModels(PluginSetting[][] models) {
-		PluginSettingSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new PluginSettingSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new PluginSettingSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static PluginSettingSoap[][] toSoapModels(PluginSetting[][] models) {
+        PluginSettingSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new PluginSettingSoap[models.length][models[0].length];
+        } else {
+            soapModels = new PluginSettingSoap[0][0];
+        }
 
-	public static PluginSettingSoap[] toSoapModels(List<PluginSetting> models) {
-		List<PluginSettingSoap> soapModels = new ArrayList<PluginSettingSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (PluginSetting model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new PluginSettingSoap[soapModels.size()]);
-	}
+    public static PluginSettingSoap[] toSoapModels(List<PluginSetting> models) {
+        List<PluginSettingSoap> soapModels = new ArrayList<PluginSettingSoap>(models.size());
 
-	public PluginSettingSoap() {
-	}
+        for (PluginSetting model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _pluginSettingId;
-	}
+        return soapModels.toArray(new PluginSettingSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setPluginSettingId(pk);
-	}
+    public long getPrimaryKey() {
+        return _pluginSettingId;
+    }
 
-	public long getPluginSettingId() {
-		return _pluginSettingId;
-	}
+    public void setPrimaryKey(long pk) {
+        setPluginSettingId(pk);
+    }
 
-	public void setPluginSettingId(long pluginSettingId) {
-		_pluginSettingId = pluginSettingId;
-	}
+    public long getPluginSettingId() {
+        return _pluginSettingId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setPluginSettingId(long pluginSettingId) {
+        _pluginSettingId = pluginSettingId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public String getPluginId() {
-		return _pluginId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setPluginId(String pluginId) {
-		_pluginId = pluginId;
-	}
+    public String getPluginId() {
+        return _pluginId;
+    }
 
-	public String getPluginType() {
-		return _pluginType;
-	}
+    public void setPluginId(String pluginId) {
+        _pluginId = pluginId;
+    }
 
-	public void setPluginType(String pluginType) {
-		_pluginType = pluginType;
-	}
+    public String getPluginType() {
+        return _pluginType;
+    }
 
-	public String getRoles() {
-		return _roles;
-	}
+    public void setPluginType(String pluginType) {
+        _pluginType = pluginType;
+    }
 
-	public void setRoles(String roles) {
-		_roles = roles;
-	}
+    public String getRoles() {
+        return _roles;
+    }
 
-	public boolean getActive() {
-		return _active;
-	}
+    public void setRoles(String roles) {
+        _roles = roles;
+    }
 
-	public boolean isActive() {
-		return _active;
-	}
+    public boolean getActive() {
+        return _active;
+    }
 
-	public void setActive(boolean active) {
-		_active = active;
-	}
+    public boolean isActive() {
+        return _active;
+    }
 
-	private long _pluginSettingId;
-	private long _companyId;
-	private String _pluginId;
-	private String _pluginType;
-	private String _roles;
-	private boolean _active;
+    public void setActive(boolean active) {
+        _active = active;
+    }
 }

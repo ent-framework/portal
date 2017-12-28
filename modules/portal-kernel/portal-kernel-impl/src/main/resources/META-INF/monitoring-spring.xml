@@ -104,6 +104,23 @@
 		<property name="serverStatistics" ref="serviceStatistics" />
 		<property name="serviceMonitorAdvice" ref="serviceMonitorAdvice" />
 	</bean>
+	
+	<bean id="keyNamingStrategy" class="org.springframework.jmx.export.naming.KeyNamingStrategy">
+		<property name="mappings">
+			<props>
+				<prop key="com.liferay.portal.servlet.filters.monitoring.jmx.MonitoringFilterManager">MonitoringFilterManager</prop>
+				<prop key="com.liferay.portlet.MonitoringPortletManager">MonitoringPortletManager</prop>
+				<prop key="com.liferay.portal.monitoring.jmx.MonitoringProcessorManager">MonitoringProcessorManager</prop>
+				<prop key="com.liferay.portal.monitoring.jmx.PortalRequestManager">PortalRequestManager</prop>
+				<prop key="com.liferay.portal.monitoring.jmx.ActionRequestPortletContainerManager">ActionRequestPortletContainerManager</prop>
+				<prop key="com.liferay.portal.monitoring.jmx.RenderRequestPortletContainerManager">RenderRequestPortletContainerManager</prop>
+				<prop key="com.liferay.portal.monitoring.jmx.EventRequestPortletContainerManager">EventRequestPortletContainerManager</prop>
+				<prop key="com.liferay.portal.monitoring.jmx.ResourceRequestPortletContainerManager">ResourceRequestPortletContainerManager</prop>
+				<prop key="com.liferay.portal.monitoring.jmx.ServiceManager">ServiceManager</prop>
+			</props>
+		</property>
+	</bean>
+	
 	<bean id="monitoringMBeanExporter" class="org.springframework.jmx.export.MBeanExporter">
 		<property name="beans">
 			<map>
@@ -122,7 +139,11 @@
 			<util:constant static-field="org.springframework.jmx.support.MBeanRegistrationSupport.REGISTRATION_IGNORE_EXISTING" />
 		</property>
 		<property name="server" ref="mBeanServer" />
+		<property name="namingStrategy" ref="keyNamingStrategy" />
+		<property name="autodetect" value="false"/>
 	</bean>
+	
+
 
 	<!-- Messaging -->
 

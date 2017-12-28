@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -26,99 +12,98 @@ import java.util.List;
  * @generated
  */
 public class ShardSoap implements Serializable {
-	public static ShardSoap toSoapModel(Shard model) {
-		ShardSoap soapModel = new ShardSoap();
+    private long _shardId;
+    private long _classNameId;
+    private long _classPK;
+    private String _name;
 
-		soapModel.setShardId(model.getShardId());
-		soapModel.setClassNameId(model.getClassNameId());
-		soapModel.setClassPK(model.getClassPK());
-		soapModel.setName(model.getName());
+    public ShardSoap() {
+    }
 
-		return soapModel;
-	}
+    public static ShardSoap toSoapModel(Shard model) {
+        ShardSoap soapModel = new ShardSoap();
 
-	public static ShardSoap[] toSoapModels(Shard[] models) {
-		ShardSoap[] soapModels = new ShardSoap[models.length];
+        soapModel.setShardId(model.getShardId());
+        soapModel.setClassNameId(model.getClassNameId());
+        soapModel.setClassPK(model.getClassPK());
+        soapModel.setName(model.getName());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static ShardSoap[] toSoapModels(Shard[] models) {
+        ShardSoap[] soapModels = new ShardSoap[models.length];
 
-	public static ShardSoap[][] toSoapModels(Shard[][] models) {
-		ShardSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new ShardSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new ShardSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static ShardSoap[][] toSoapModels(Shard[][] models) {
+        ShardSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new ShardSoap[models.length][models[0].length];
+        } else {
+            soapModels = new ShardSoap[0][0];
+        }
 
-	public static ShardSoap[] toSoapModels(List<Shard> models) {
-		List<ShardSoap> soapModels = new ArrayList<ShardSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (Shard model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new ShardSoap[soapModels.size()]);
-	}
+    public static ShardSoap[] toSoapModels(List<Shard> models) {
+        List<ShardSoap> soapModels = new ArrayList<ShardSoap>(models.size());
 
-	public ShardSoap() {
-	}
+        for (Shard model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _shardId;
-	}
+        return soapModels.toArray(new ShardSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setShardId(pk);
-	}
+    public long getPrimaryKey() {
+        return _shardId;
+    }
 
-	public long getShardId() {
-		return _shardId;
-	}
+    public void setPrimaryKey(long pk) {
+        setShardId(pk);
+    }
 
-	public void setShardId(long shardId) {
-		_shardId = shardId;
-	}
+    public long getShardId() {
+        return _shardId;
+    }
 
-	public long getClassNameId() {
-		return _classNameId;
-	}
+    public void setShardId(long shardId) {
+        _shardId = shardId;
+    }
 
-	public void setClassNameId(long classNameId) {
-		_classNameId = classNameId;
-	}
+    public long getClassNameId() {
+        return _classNameId;
+    }
 
-	public long getClassPK() {
-		return _classPK;
-	}
+    public void setClassNameId(long classNameId) {
+        _classNameId = classNameId;
+    }
 
-	public void setClassPK(long classPK) {
-		_classPK = classPK;
-	}
+    public long getClassPK() {
+        return _classPK;
+    }
 
-	public String getName() {
-		return _name;
-	}
+    public void setClassPK(long classPK) {
+        _classPK = classPK;
+    }
 
-	public void setName(String name) {
-		_name = name;
-	}
+    public String getName() {
+        return _name;
+    }
 
-	private long _shardId;
-	private long _classNameId;
-	private long _classPK;
-	private String _name;
+    public void setName(String name) {
+        _name = name;
+    }
 }

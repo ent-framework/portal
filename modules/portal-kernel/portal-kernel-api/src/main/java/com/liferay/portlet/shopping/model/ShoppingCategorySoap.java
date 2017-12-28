@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.shopping.model;
 
 import java.io.Serializable;
@@ -28,161 +14,160 @@ import java.util.List;
  * @generated
  */
 public class ShoppingCategorySoap implements Serializable {
-	public static ShoppingCategorySoap toSoapModel(ShoppingCategory model) {
-		ShoppingCategorySoap soapModel = new ShoppingCategorySoap();
+    private long _categoryId;
+    private long _groupId;
+    private long _companyId;
+    private long _userId;
+    private String _userName;
+    private Date _createDate;
+    private Date _modifiedDate;
+    private long _parentCategoryId;
+    private String _name;
+    private String _description;
 
-		soapModel.setCategoryId(model.getCategoryId());
-		soapModel.setGroupId(model.getGroupId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setUserName(model.getUserName());
-		soapModel.setCreateDate(model.getCreateDate());
-		soapModel.setModifiedDate(model.getModifiedDate());
-		soapModel.setParentCategoryId(model.getParentCategoryId());
-		soapModel.setName(model.getName());
-		soapModel.setDescription(model.getDescription());
+    public ShoppingCategorySoap() {
+    }
 
-		return soapModel;
-	}
+    public static ShoppingCategorySoap toSoapModel(ShoppingCategory model) {
+        ShoppingCategorySoap soapModel = new ShoppingCategorySoap();
 
-	public static ShoppingCategorySoap[] toSoapModels(ShoppingCategory[] models) {
-		ShoppingCategorySoap[] soapModels = new ShoppingCategorySoap[models.length];
+        soapModel.setCategoryId(model.getCategoryId());
+        soapModel.setGroupId(model.getGroupId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setUserName(model.getUserName());
+        soapModel.setCreateDate(model.getCreateDate());
+        soapModel.setModifiedDate(model.getModifiedDate());
+        soapModel.setParentCategoryId(model.getParentCategoryId());
+        soapModel.setName(model.getName());
+        soapModel.setDescription(model.getDescription());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static ShoppingCategorySoap[] toSoapModels(ShoppingCategory[] models) {
+        ShoppingCategorySoap[] soapModels = new ShoppingCategorySoap[models.length];
 
-	public static ShoppingCategorySoap[][] toSoapModels(
-		ShoppingCategory[][] models) {
-		ShoppingCategorySoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new ShoppingCategorySoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new ShoppingCategorySoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static ShoppingCategorySoap[][] toSoapModels(
+        ShoppingCategory[][] models) {
+        ShoppingCategorySoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new ShoppingCategorySoap[models.length][models[0].length];
+        } else {
+            soapModels = new ShoppingCategorySoap[0][0];
+        }
 
-	public static ShoppingCategorySoap[] toSoapModels(
-		List<ShoppingCategory> models) {
-		List<ShoppingCategorySoap> soapModels = new ArrayList<ShoppingCategorySoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (ShoppingCategory model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new ShoppingCategorySoap[soapModels.size()]);
-	}
+    public static ShoppingCategorySoap[] toSoapModels(
+        List<ShoppingCategory> models) {
+        List<ShoppingCategorySoap> soapModels = new ArrayList<ShoppingCategorySoap>(models.size());
 
-	public ShoppingCategorySoap() {
-	}
+        for (ShoppingCategory model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _categoryId;
-	}
+        return soapModels.toArray(new ShoppingCategorySoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setCategoryId(pk);
-	}
+    public long getPrimaryKey() {
+        return _categoryId;
+    }
 
-	public long getCategoryId() {
-		return _categoryId;
-	}
+    public void setPrimaryKey(long pk) {
+        setCategoryId(pk);
+    }
 
-	public void setCategoryId(long categoryId) {
-		_categoryId = categoryId;
-	}
+    public long getCategoryId() {
+        return _categoryId;
+    }
 
-	public long getGroupId() {
-		return _groupId;
-	}
+    public void setCategoryId(long categoryId) {
+        _categoryId = categoryId;
+    }
 
-	public void setGroupId(long groupId) {
-		_groupId = groupId;
-	}
+    public long getGroupId() {
+        return _groupId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setGroupId(long groupId) {
+        _groupId = groupId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public String getUserName() {
-		return _userName;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setUserName(String userName) {
-		_userName = userName;
-	}
+    public String getUserName() {
+        return _userName;
+    }
 
-	public Date getCreateDate() {
-		return _createDate;
-	}
+    public void setUserName(String userName) {
+        _userName = userName;
+    }
 
-	public void setCreateDate(Date createDate) {
-		_createDate = createDate;
-	}
+    public Date getCreateDate() {
+        return _createDate;
+    }
 
-	public Date getModifiedDate() {
-		return _modifiedDate;
-	}
+    public void setCreateDate(Date createDate) {
+        _createDate = createDate;
+    }
 
-	public void setModifiedDate(Date modifiedDate) {
-		_modifiedDate = modifiedDate;
-	}
+    public Date getModifiedDate() {
+        return _modifiedDate;
+    }
 
-	public long getParentCategoryId() {
-		return _parentCategoryId;
-	}
+    public void setModifiedDate(Date modifiedDate) {
+        _modifiedDate = modifiedDate;
+    }
 
-	public void setParentCategoryId(long parentCategoryId) {
-		_parentCategoryId = parentCategoryId;
-	}
+    public long getParentCategoryId() {
+        return _parentCategoryId;
+    }
 
-	public String getName() {
-		return _name;
-	}
+    public void setParentCategoryId(long parentCategoryId) {
+        _parentCategoryId = parentCategoryId;
+    }
 
-	public void setName(String name) {
-		_name = name;
-	}
+    public String getName() {
+        return _name;
+    }
 
-	public String getDescription() {
-		return _description;
-	}
+    public void setName(String name) {
+        _name = name;
+    }
 
-	public void setDescription(String description) {
-		_description = description;
-	}
+    public String getDescription() {
+        return _description;
+    }
 
-	private long _categoryId;
-	private long _groupId;
-	private long _companyId;
-	private long _userId;
-	private String _userName;
-	private Date _createDate;
-	private Date _modifiedDate;
-	private long _parentCategoryId;
-	private String _name;
-	private String _description;
+    public void setDescription(String description) {
+        _description = description;
+    }
 }

@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
@@ -22,6 +8,7 @@ import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.model.ResourceTypePermission;
 import com.liferay.portal.model.ResourceTypePermissionModel;
+import com.liferay.portal.model.impl.BaseModelImpl;
 import com.liferay.portal.service.ServiceContext;
 
 import com.liferay.portlet.expando.model.ExpandoBridge;
@@ -48,450 +35,445 @@ import java.util.Map;
  * @generated
  */
 public class ResourceTypePermissionModelImpl extends BaseModelImpl<ResourceTypePermission>
-	implements ResourceTypePermissionModel {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this class directly. All methods that expect a resource type permission model instance should use the {@link com.liferay.portal.model.ResourceTypePermission} interface instead.
-	 */
-	public static final String TABLE_NAME = "ResourceTypePermission";
-	public static final Object[][] TABLE_COLUMNS = {
-			{ "resourceTypePermissionId", Types.BIGINT },
-			{ "companyId", Types.BIGINT },
-			{ "groupId", Types.BIGINT },
-			{ "name", Types.VARCHAR },
-			{ "roleId", Types.BIGINT },
-			{ "actionIds", Types.BIGINT }
-		};
-	public static final String TABLE_SQL_CREATE = "create table ResourceTypePermission (resourceTypePermissionId LONG not null primary key,companyId LONG,groupId LONG,name VARCHAR(75) null,roleId LONG,actionIds LONG)";
-	public static final String TABLE_SQL_DROP = "drop table ResourceTypePermission";
-	public static final String ORDER_BY_JPQL = " ORDER BY resourceTypePermission.resourceTypePermissionId ASC";
-	public static final String ORDER_BY_SQL = " ORDER BY ResourceTypePermission.resourceTypePermissionId ASC";
-	public static final String DATA_SOURCE = "liferayDataSource";
-	public static final String SESSION_FACTORY = "liferaySessionFactory";
-	public static final String TX_MANAGER = "liferayTransactionManager";
-	public static final boolean ENTITY_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
-				"value.object.entity.cache.enabled.com.liferay.portal.model.ResourceTypePermission"),
-			true);
-	public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
-				"value.object.finder.cache.enabled.com.liferay.portal.model.ResourceTypePermission"),
-			true);
-	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
-				"value.object.column.bitmask.enabled.com.liferay.portal.model.ResourceTypePermission"),
-			true);
-	public static long COMPANYID_COLUMN_BITMASK = 1L;
-	public static long GROUPID_COLUMN_BITMASK = 2L;
-	public static long NAME_COLUMN_BITMASK = 4L;
-	public static long ROLEID_COLUMN_BITMASK = 8L;
-	public static long RESOURCETYPEPERMISSIONID_COLUMN_BITMASK = 16L;
-	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.portal.util.PropsUtil.get(
-				"lock.expiration.time.com.liferay.portal.model.ResourceTypePermission"));
-
-	public ResourceTypePermissionModelImpl() {
-	}
-
-	@Override
-	public long getPrimaryKey() {
-		return _resourceTypePermissionId;
-	}
-
-	@Override
-	public void setPrimaryKey(long primaryKey) {
-		setResourceTypePermissionId(primaryKey);
-	}
-
-	@Override
-	public Serializable getPrimaryKeyObj() {
-		return _resourceTypePermissionId;
-	}
-
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj) {
-		setPrimaryKey(((Long)primaryKeyObj).longValue());
-	}
-
-	@Override
-	public Class<?> getModelClass() {
-		return ResourceTypePermission.class;
-	}
-
-	@Override
-	public String getModelClassName() {
-		return ResourceTypePermission.class.getName();
-	}
-
-	@Override
-	public Map<String, Object> getModelAttributes() {
-		Map<String, Object> attributes = new HashMap<String, Object>();
-
-		attributes.put("resourceTypePermissionId", getResourceTypePermissionId());
-		attributes.put("companyId", getCompanyId());
-		attributes.put("groupId", getGroupId());
-		attributes.put("name", getName());
-		attributes.put("roleId", getRoleId());
-		attributes.put("actionIds", getActionIds());
-
-		return attributes;
-	}
-
-	@Override
-	public void setModelAttributes(Map<String, Object> attributes) {
-		Long resourceTypePermissionId = (Long)attributes.get(
-				"resourceTypePermissionId");
-
-		if (resourceTypePermissionId != null) {
-			setResourceTypePermissionId(resourceTypePermissionId);
-		}
-
-		Long companyId = (Long)attributes.get("companyId");
-
-		if (companyId != null) {
-			setCompanyId(companyId);
-		}
-
-		Long groupId = (Long)attributes.get("groupId");
+    implements ResourceTypePermissionModel {
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this class directly. All methods that expect a resource type permission model instance should use the {@link com.liferay.portal.model.ResourceTypePermission} interface instead.
+     */
+    public static final String TABLE_NAME = "ResourceTypePermission";
+    public static final Object[][] TABLE_COLUMNS = {
+            { "resourceTypePermissionId", Types.BIGINT },
+            { "companyId", Types.BIGINT },
+            { "groupId", Types.BIGINT },
+            { "name", Types.VARCHAR },
+            { "roleId", Types.BIGINT },
+            { "actionIds", Types.BIGINT }
+        };
+    public static final String TABLE_SQL_CREATE = "create table ResourceTypePermission (resourceTypePermissionId LONG not null primary key,companyId LONG,groupId LONG,name VARCHAR(75) null,roleId LONG,actionIds LONG)";
+    public static final String TABLE_SQL_DROP = "drop table ResourceTypePermission";
+    public static final String ORDER_BY_JPQL = " ORDER BY resourceTypePermission.resourceTypePermissionId ASC";
+    public static final String ORDER_BY_SQL = " ORDER BY ResourceTypePermission.resourceTypePermissionId ASC";
+    public static final String DATA_SOURCE = "liferayDataSource";
+    public static final String SESSION_FACTORY = "liferaySessionFactory";
+    public static final String TX_MANAGER = "liferayTransactionManager";
+    public static final boolean ENTITY_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
+                "value.object.entity.cache.enabled.com.liferay.portal.model.ResourceTypePermission"),
+            true);
+    public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
+                "value.object.finder.cache.enabled.com.liferay.portal.model.ResourceTypePermission"),
+            true);
+    public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
+                "value.object.column.bitmask.enabled.com.liferay.portal.model.ResourceTypePermission"),
+            true);
+    public static long COMPANYID_COLUMN_BITMASK = 1L;
+    public static long GROUPID_COLUMN_BITMASK = 2L;
+    public static long NAME_COLUMN_BITMASK = 4L;
+    public static long ROLEID_COLUMN_BITMASK = 8L;
+    public static long RESOURCETYPEPERMISSIONID_COLUMN_BITMASK = 16L;
+    public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.portal.util.PropsUtil.get(
+                "lock.expiration.time.com.liferay.portal.model.ResourceTypePermission"));
+    private static ClassLoader _classLoader = ResourceTypePermission.class.getClassLoader();
+    private static Class<?>[] _escapedModelInterfaces = new Class[] {
+            ResourceTypePermission.class
+        };
+    private long _resourceTypePermissionId;
+    private long _companyId;
+    private long _originalCompanyId;
+    private boolean _setOriginalCompanyId;
+    private long _groupId;
+    private long _originalGroupId;
+    private boolean _setOriginalGroupId;
+    private String _name;
+    private String _originalName;
+    private long _roleId;
+    private long _originalRoleId;
+    private boolean _setOriginalRoleId;
+    private long _actionIds;
+    private long _columnBitmask;
+    private ResourceTypePermission _escapedModel;
+
+    public ResourceTypePermissionModelImpl() {
+    }
+
+    @Override
+    public long getPrimaryKey() {
+        return _resourceTypePermissionId;
+    }
+
+    @Override
+    public void setPrimaryKey(long primaryKey) {
+        setResourceTypePermissionId(primaryKey);
+    }
+
+    @Override
+    public Serializable getPrimaryKeyObj() {
+        return _resourceTypePermissionId;
+    }
+
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj) {
+        setPrimaryKey(((Long) primaryKeyObj).longValue());
+    }
+
+    @Override
+    public Class<?> getModelClass() {
+        return ResourceTypePermission.class;
+    }
+
+    @Override
+    public String getModelClassName() {
+        return ResourceTypePermission.class.getName();
+    }
+
+    @Override
+    public Map<String, Object> getModelAttributes() {
+        Map<String, Object> attributes = new HashMap<String, Object>();
+
+        attributes.put("resourceTypePermissionId", getResourceTypePermissionId());
+        attributes.put("companyId", getCompanyId());
+        attributes.put("groupId", getGroupId());
+        attributes.put("name", getName());
+        attributes.put("roleId", getRoleId());
+        attributes.put("actionIds", getActionIds());
 
-		if (groupId != null) {
-			setGroupId(groupId);
-		}
+        return attributes;
+    }
 
-		String name = (String)attributes.get("name");
+    @Override
+    public void setModelAttributes(Map<String, Object> attributes) {
+        Long resourceTypePermissionId = (Long) attributes.get(
+                "resourceTypePermissionId");
 
-		if (name != null) {
-			setName(name);
-		}
+        if (resourceTypePermissionId != null) {
+            setResourceTypePermissionId(resourceTypePermissionId);
+        }
 
-		Long roleId = (Long)attributes.get("roleId");
+        Long companyId = (Long) attributes.get("companyId");
 
-		if (roleId != null) {
-			setRoleId(roleId);
-		}
+        if (companyId != null) {
+            setCompanyId(companyId);
+        }
 
-		Long actionIds = (Long)attributes.get("actionIds");
+        Long groupId = (Long) attributes.get("groupId");
 
-		if (actionIds != null) {
-			setActionIds(actionIds);
-		}
-	}
+        if (groupId != null) {
+            setGroupId(groupId);
+        }
 
-	@Override
-	public long getResourceTypePermissionId() {
-		return _resourceTypePermissionId;
-	}
+        String name = (String) attributes.get("name");
 
-	@Override
-	public void setResourceTypePermissionId(long resourceTypePermissionId) {
-		_resourceTypePermissionId = resourceTypePermissionId;
-	}
+        if (name != null) {
+            setName(name);
+        }
 
-	@Override
-	public long getCompanyId() {
-		return _companyId;
-	}
+        Long roleId = (Long) attributes.get("roleId");
 
-	@Override
-	public void setCompanyId(long companyId) {
-		_columnBitmask |= COMPANYID_COLUMN_BITMASK;
+        if (roleId != null) {
+            setRoleId(roleId);
+        }
 
-		if (!_setOriginalCompanyId) {
-			_setOriginalCompanyId = true;
+        Long actionIds = (Long) attributes.get("actionIds");
 
-			_originalCompanyId = _companyId;
-		}
+        if (actionIds != null) {
+            setActionIds(actionIds);
+        }
+    }
 
-		_companyId = companyId;
-	}
+    @Override
+    public long getResourceTypePermissionId() {
+        return _resourceTypePermissionId;
+    }
 
-	public long getOriginalCompanyId() {
-		return _originalCompanyId;
-	}
+    @Override
+    public void setResourceTypePermissionId(long resourceTypePermissionId) {
+        _resourceTypePermissionId = resourceTypePermissionId;
+    }
 
-	@Override
-	public long getGroupId() {
-		return _groupId;
-	}
+    @Override
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	@Override
-	public void setGroupId(long groupId) {
-		_columnBitmask |= GROUPID_COLUMN_BITMASK;
+    @Override
+    public void setCompanyId(long companyId) {
+        _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
-		if (!_setOriginalGroupId) {
-			_setOriginalGroupId = true;
+        if (!_setOriginalCompanyId) {
+            _setOriginalCompanyId = true;
 
-			_originalGroupId = _groupId;
-		}
+            _originalCompanyId = _companyId;
+        }
 
-		_groupId = groupId;
-	}
+        _companyId = companyId;
+    }
 
-	public long getOriginalGroupId() {
-		return _originalGroupId;
-	}
+    public long getOriginalCompanyId() {
+        return _originalCompanyId;
+    }
 
-	@Override
-	public String getName() {
-		if (_name == null) {
-			return StringPool.BLANK;
-		}
-		else {
-			return _name;
-		}
-	}
-
-	@Override
-	public void setName(String name) {
-		_columnBitmask |= NAME_COLUMN_BITMASK;
-
-		if (_originalName == null) {
-			_originalName = _name;
-		}
-
-		_name = name;
-	}
-
-	public String getOriginalName() {
-		return GetterUtil.getString(_originalName);
-	}
-
-	@Override
-	public long getRoleId() {
-		return _roleId;
-	}
-
-	@Override
-	public void setRoleId(long roleId) {
-		_columnBitmask |= ROLEID_COLUMN_BITMASK;
-
-		if (!_setOriginalRoleId) {
-			_setOriginalRoleId = true;
-
-			_originalRoleId = _roleId;
-		}
-
-		_roleId = roleId;
-	}
-
-	public long getOriginalRoleId() {
-		return _originalRoleId;
-	}
-
-	@Override
-	public long getActionIds() {
-		return _actionIds;
-	}
-
-	@Override
-	public void setActionIds(long actionIds) {
-		_actionIds = actionIds;
-	}
+    @Override
+    public long getGroupId() {
+        return _groupId;
+    }
 
-	public long getColumnBitmask() {
-		return _columnBitmask;
-	}
+    @Override
+    public void setGroupId(long groupId) {
+        _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
-	@Override
-	public ExpandoBridge getExpandoBridge() {
-		return ExpandoBridgeFactoryUtil.getExpandoBridge(getCompanyId(),
-			ResourceTypePermission.class.getName(), getPrimaryKey());
-	}
+        if (!_setOriginalGroupId) {
+            _setOriginalGroupId = true;
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext) {
-		ExpandoBridge expandoBridge = getExpandoBridge();
+            _originalGroupId = _groupId;
+        }
 
-		expandoBridge.setAttributes(serviceContext);
-	}
+        _groupId = groupId;
+    }
 
-	@Override
-	public ResourceTypePermission toEscapedModel() {
-		if (_escapedModel == null) {
-			_escapedModel = (ResourceTypePermission)ProxyUtil.newProxyInstance(_classLoader,
-					_escapedModelInterfaces, new AutoEscapeBeanHandler(this));
-		}
+    public long getOriginalGroupId() {
+        return _originalGroupId;
+    }
 
-		return _escapedModel;
-	}
+    @Override
+    public String getName() {
+        if (_name == null) {
+            return StringPool.BLANK;
+        } else {
+            return _name;
+        }
+    }
 
-	@Override
-	public Object clone() {
-		ResourceTypePermissionImpl resourceTypePermissionImpl = new ResourceTypePermissionImpl();
+    @Override
+    public void setName(String name) {
+        _columnBitmask |= NAME_COLUMN_BITMASK;
 
-		resourceTypePermissionImpl.setResourceTypePermissionId(getResourceTypePermissionId());
-		resourceTypePermissionImpl.setCompanyId(getCompanyId());
-		resourceTypePermissionImpl.setGroupId(getGroupId());
-		resourceTypePermissionImpl.setName(getName());
-		resourceTypePermissionImpl.setRoleId(getRoleId());
-		resourceTypePermissionImpl.setActionIds(getActionIds());
+        if (_originalName == null) {
+            _originalName = _name;
+        }
+
+        _name = name;
+    }
+
+    public String getOriginalName() {
+        return GetterUtil.getString(_originalName);
+    }
+
+    @Override
+    public long getRoleId() {
+        return _roleId;
+    }
 
-		resourceTypePermissionImpl.resetOriginalValues();
+    @Override
+    public void setRoleId(long roleId) {
+        _columnBitmask |= ROLEID_COLUMN_BITMASK;
+
+        if (!_setOriginalRoleId) {
+            _setOriginalRoleId = true;
+
+            _originalRoleId = _roleId;
+        }
+
+        _roleId = roleId;
+    }
+
+    public long getOriginalRoleId() {
+        return _originalRoleId;
+    }
 
-		return resourceTypePermissionImpl;
-	}
+    @Override
+    public long getActionIds() {
+        return _actionIds;
+    }
 
-	@Override
-	public int compareTo(ResourceTypePermission resourceTypePermission) {
-		long primaryKey = resourceTypePermission.getPrimaryKey();
+    @Override
+    public void setActionIds(long actionIds) {
+        _actionIds = actionIds;
+    }
 
-		if (getPrimaryKey() < primaryKey) {
-			return -1;
-		}
-		else if (getPrimaryKey() > primaryKey) {
-			return 1;
-		}
-		else {
-			return 0;
-		}
-	}
+    public long getColumnBitmask() {
+        return _columnBitmask;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
+    @Override
+    public ExpandoBridge getExpandoBridge() {
+        return ExpandoBridgeFactoryUtil.getExpandoBridge(getCompanyId(),
+            ResourceTypePermission.class.getName(), getPrimaryKey());
+    }
 
-		if (!(obj instanceof ResourceTypePermission)) {
-			return false;
-		}
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext) {
+        ExpandoBridge expandoBridge = getExpandoBridge();
 
-		ResourceTypePermission resourceTypePermission = (ResourceTypePermission)obj;
+        expandoBridge.setAttributes(serviceContext);
+    }
 
-		long primaryKey = resourceTypePermission.getPrimaryKey();
+    @Override
+    public ResourceTypePermission toEscapedModel() {
+        if (_escapedModel == null) {
+            _escapedModel = (ResourceTypePermission) ProxyUtil.newProxyInstance(_classLoader,
+                    _escapedModelInterfaces, new AutoEscapeBeanHandler(this));
+        }
 
-		if (getPrimaryKey() == primaryKey) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-
-	@Override
-	public int hashCode() {
-		return (int)getPrimaryKey();
-	}
-
-	@Override
-	public void resetOriginalValues() {
-		ResourceTypePermissionModelImpl resourceTypePermissionModelImpl = this;
-
-		resourceTypePermissionModelImpl._originalCompanyId = resourceTypePermissionModelImpl._companyId;
-
-		resourceTypePermissionModelImpl._setOriginalCompanyId = false;
-
-		resourceTypePermissionModelImpl._originalGroupId = resourceTypePermissionModelImpl._groupId;
-
-		resourceTypePermissionModelImpl._setOriginalGroupId = false;
-
-		resourceTypePermissionModelImpl._originalName = resourceTypePermissionModelImpl._name;
-
-		resourceTypePermissionModelImpl._originalRoleId = resourceTypePermissionModelImpl._roleId;
-
-		resourceTypePermissionModelImpl._setOriginalRoleId = false;
-
-		resourceTypePermissionModelImpl._columnBitmask = 0;
-	}
-
-	@Override
-	public CacheModel<ResourceTypePermission> toCacheModel() {
-		ResourceTypePermissionCacheModel resourceTypePermissionCacheModel = new ResourceTypePermissionCacheModel();
-
-		resourceTypePermissionCacheModel.resourceTypePermissionId = getResourceTypePermissionId();
-
-		resourceTypePermissionCacheModel.companyId = getCompanyId();
-
-		resourceTypePermissionCacheModel.groupId = getGroupId();
-
-		resourceTypePermissionCacheModel.name = getName();
-
-		String name = resourceTypePermissionCacheModel.name;
-
-		if ((name != null) && (name.length() == 0)) {
-			resourceTypePermissionCacheModel.name = null;
-		}
-
-		resourceTypePermissionCacheModel.roleId = getRoleId();
-
-		resourceTypePermissionCacheModel.actionIds = getActionIds();
-
-		return resourceTypePermissionCacheModel;
-	}
-
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(13);
-
-		sb.append("{resourceTypePermissionId=");
-		sb.append(getResourceTypePermissionId());
-		sb.append(", companyId=");
-		sb.append(getCompanyId());
-		sb.append(", groupId=");
-		sb.append(getGroupId());
-		sb.append(", name=");
-		sb.append(getName());
-		sb.append(", roleId=");
-		sb.append(getRoleId());
-		sb.append(", actionIds=");
-		sb.append(getActionIds());
-		sb.append("}");
-
-		return sb.toString();
-	}
-
-	@Override
-	public String toXmlString() {
-		StringBundler sb = new StringBundler(22);
-
-		sb.append("<model><model-name>");
-		sb.append("com.liferay.portal.model.ResourceTypePermission");
-		sb.append("</model-name>");
-
-		sb.append(
-			"<column><column-name>resourceTypePermissionId</column-name><column-value><![CDATA[");
-		sb.append(getResourceTypePermissionId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>companyId</column-name><column-value><![CDATA[");
-		sb.append(getCompanyId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>groupId</column-name><column-value><![CDATA[");
-		sb.append(getGroupId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>name</column-name><column-value><![CDATA[");
-		sb.append(getName());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>roleId</column-name><column-value><![CDATA[");
-		sb.append(getRoleId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>actionIds</column-name><column-value><![CDATA[");
-		sb.append(getActionIds());
-		sb.append("]]></column-value></column>");
-
-		sb.append("</model>");
-
-		return sb.toString();
-	}
-
-	private static ClassLoader _classLoader = ResourceTypePermission.class.getClassLoader();
-	private static Class<?>[] _escapedModelInterfaces = new Class[] {
-			ResourceTypePermission.class
-		};
-	private long _resourceTypePermissionId;
-	private long _companyId;
-	private long _originalCompanyId;
-	private boolean _setOriginalCompanyId;
-	private long _groupId;
-	private long _originalGroupId;
-	private boolean _setOriginalGroupId;
-	private String _name;
-	private String _originalName;
-	private long _roleId;
-	private long _originalRoleId;
-	private boolean _setOriginalRoleId;
-	private long _actionIds;
-	private long _columnBitmask;
-	private ResourceTypePermission _escapedModel;
+        return _escapedModel;
+    }
+
+    @Override
+    public Object clone() {
+        ResourceTypePermissionImpl resourceTypePermissionImpl = new ResourceTypePermissionImpl();
+
+        resourceTypePermissionImpl.setResourceTypePermissionId(getResourceTypePermissionId());
+        resourceTypePermissionImpl.setCompanyId(getCompanyId());
+        resourceTypePermissionImpl.setGroupId(getGroupId());
+        resourceTypePermissionImpl.setName(getName());
+        resourceTypePermissionImpl.setRoleId(getRoleId());
+        resourceTypePermissionImpl.setActionIds(getActionIds());
+
+        resourceTypePermissionImpl.resetOriginalValues();
+
+        return resourceTypePermissionImpl;
+    }
+
+    @Override
+    public int compareTo(ResourceTypePermission resourceTypePermission) {
+        long primaryKey = resourceTypePermission.getPrimaryKey();
+
+        if (getPrimaryKey() < primaryKey) {
+            return -1;
+        } else if (getPrimaryKey() > primaryKey) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof ResourceTypePermission)) {
+            return false;
+        }
+
+        ResourceTypePermission resourceTypePermission = (ResourceTypePermission) obj;
+
+        long primaryKey = resourceTypePermission.getPrimaryKey();
+
+        if (getPrimaryKey() == primaryKey) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) getPrimaryKey();
+    }
+
+    @Override
+    public void resetOriginalValues() {
+        ResourceTypePermissionModelImpl resourceTypePermissionModelImpl = this;
+
+        resourceTypePermissionModelImpl._originalCompanyId = resourceTypePermissionModelImpl._companyId;
+
+        resourceTypePermissionModelImpl._setOriginalCompanyId = false;
+
+        resourceTypePermissionModelImpl._originalGroupId = resourceTypePermissionModelImpl._groupId;
+
+        resourceTypePermissionModelImpl._setOriginalGroupId = false;
+
+        resourceTypePermissionModelImpl._originalName = resourceTypePermissionModelImpl._name;
+
+        resourceTypePermissionModelImpl._originalRoleId = resourceTypePermissionModelImpl._roleId;
+
+        resourceTypePermissionModelImpl._setOriginalRoleId = false;
+
+        resourceTypePermissionModelImpl._columnBitmask = 0;
+    }
+
+    @Override
+    public CacheModel<ResourceTypePermission> toCacheModel() {
+        ResourceTypePermissionCacheModel resourceTypePermissionCacheModel = new ResourceTypePermissionCacheModel();
+
+        resourceTypePermissionCacheModel.resourceTypePermissionId = getResourceTypePermissionId();
+
+        resourceTypePermissionCacheModel.companyId = getCompanyId();
+
+        resourceTypePermissionCacheModel.groupId = getGroupId();
+
+        resourceTypePermissionCacheModel.name = getName();
+
+        String name = resourceTypePermissionCacheModel.name;
+
+        if ((name != null) && (name.length() == 0)) {
+            resourceTypePermissionCacheModel.name = null;
+        }
+
+        resourceTypePermissionCacheModel.roleId = getRoleId();
+
+        resourceTypePermissionCacheModel.actionIds = getActionIds();
+
+        return resourceTypePermissionCacheModel;
+    }
+
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(13);
+
+        sb.append("{resourceTypePermissionId=");
+        sb.append(getResourceTypePermissionId());
+        sb.append(", companyId=");
+        sb.append(getCompanyId());
+        sb.append(", groupId=");
+        sb.append(getGroupId());
+        sb.append(", name=");
+        sb.append(getName());
+        sb.append(", roleId=");
+        sb.append(getRoleId());
+        sb.append(", actionIds=");
+        sb.append(getActionIds());
+        sb.append("}");
+
+        return sb.toString();
+    }
+
+    @Override
+    public String toXmlString() {
+        StringBundler sb = new StringBundler(22);
+
+        sb.append("<model><model-name>");
+        sb.append("com.liferay.portal.model.ResourceTypePermission");
+        sb.append("</model-name>");
+
+        sb.append(
+            "<column><column-name>resourceTypePermissionId</column-name><column-value><![CDATA[");
+        sb.append(getResourceTypePermissionId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>companyId</column-name><column-value><![CDATA[");
+        sb.append(getCompanyId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>groupId</column-name><column-value><![CDATA[");
+        sb.append(getGroupId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>name</column-name><column-value><![CDATA[");
+        sb.append(getName());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>roleId</column-name><column-value><![CDATA[");
+        sb.append(getRoleId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>actionIds</column-name><column-value><![CDATA[");
+        sb.append(getActionIds());
+        sb.append("]]></column-value></column>");
+
+        sb.append("</model>");
+
+        return sb.toString();
+    }
 }

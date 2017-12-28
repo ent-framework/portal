@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.ratings.service.http;
 
 import aQute.bnd.annotation.ProviderType;
@@ -65,33 +51,31 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class RatingsEntryServiceSoap {
-	public static void deleteEntry(java.lang.String className, long classPK)
-		throws RemoteException {
-		try {
-			RatingsEntryServiceUtil.deleteEntry(className, classPK);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    private static Log _log = LogFactoryUtil.getLog(RatingsEntryServiceSoap.class);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void deleteEntry(java.lang.String className, long classPK)
+        throws RemoteException {
+        try {
+            RatingsEntryServiceUtil.deleteEntry(className, classPK);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.ratings.model.RatingsEntrySoap updateEntry(
-		java.lang.String className, long classPK, double score)
-		throws RemoteException {
-		try {
-			com.liferay.portlet.ratings.model.RatingsEntry returnValue = RatingsEntryServiceUtil.updateEntry(className,
-					classPK, score);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.ratings.model.RatingsEntrySoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.ratings.model.RatingsEntrySoap updateEntry(
+        java.lang.String className, long classPK, double score)
+        throws RemoteException {
+        try {
+            com.liferay.portlet.ratings.model.RatingsEntry returnValue = RatingsEntryServiceUtil.updateEntry(className,
+                    classPK, score);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.ratings.model.RatingsEntrySoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	private static Log _log = LogFactoryUtil.getLog(RatingsEntryServiceSoap.class);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

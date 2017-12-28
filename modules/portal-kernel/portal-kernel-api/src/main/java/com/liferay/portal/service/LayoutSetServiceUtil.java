@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.service;
 
 import aQute.bnd.annotation.ProviderType;
@@ -35,130 +21,130 @@ import com.liferay.portal.kernel.util.ReferenceRegistry;
  */
 @ProviderType
 public class LayoutSetServiceUtil {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify this class directly. Add custom service methods to {@link com.liferay.portal.service.impl.LayoutSetServiceImpl} and rerun ServiceBuilder to regenerate this class.
-	 */
+    private static LayoutSetService _service;
 
-	/**
-	* Returns the Spring bean ID for this bean.
-	*
-	* @return the Spring bean ID for this bean
-	*/
-	public static java.lang.String getBeanIdentifier() {
-		return getService().getBeanIdentifier();
-	}
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify this class directly. Add custom service methods to {@link com.liferay.portal.service.impl.LayoutSetServiceImpl} and rerun ServiceBuilder to regenerate this class.
+     */
 
-	/**
-	* Sets the Spring bean ID for this bean.
-	*
-	* @param beanIdentifier the Spring bean ID for this bean
-	*/
-	public static void setBeanIdentifier(java.lang.String beanIdentifier) {
-		getService().setBeanIdentifier(beanIdentifier);
-	}
+    /**
+    * Returns the Spring bean ID for this bean.
+    *
+    * @return the Spring bean ID for this bean
+    */
+    public static java.lang.String getBeanIdentifier() {
+        return getService().getBeanIdentifier();
+    }
 
-	/**
-	* Updates the state of the layout set prototype link.
-	*
-	* <p>
-	* <strong>Important:</strong> Setting
-	* <code>layoutSetPrototypeLinkEnabled</code> to <code>true</code> and
-	* <code>layoutSetPrototypeUuid</code> to <code>null</code> when the layout
-	* set prototype's current uuid is <code>null</code> will result in an
-	* <code>IllegalStateException</code>.
-	* </p>
-	*
-	* @param groupId the primary key of the group
-	* @param privateLayout whether the layout set is private to the group
-	* @param layoutSetPrototypeLinkEnabled whether the layout set prototype is
-	link enabled
-	* @param layoutSetPrototypeUuid the uuid of the layout set prototype to
-	link with
-	* @throws PortalException if a portal exception occurred
-	* @throws SystemException if a system exception occurred
-	*/
-	public static void updateLayoutSetPrototypeLinkEnabled(long groupId,
-		boolean privateLayout, boolean layoutSetPrototypeLinkEnabled,
-		java.lang.String layoutSetPrototypeUuid)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		getService()
-			.updateLayoutSetPrototypeLinkEnabled(groupId, privateLayout,
-			layoutSetPrototypeLinkEnabled, layoutSetPrototypeUuid);
-	}
+    /**
+    * Sets the Spring bean ID for this bean.
+    *
+    * @param beanIdentifier the Spring bean ID for this bean
+    */
+    public static void setBeanIdentifier(java.lang.String beanIdentifier) {
+        getService().setBeanIdentifier(beanIdentifier);
+    }
 
-	public static void updateLogo(long groupId, boolean privateLayout,
-		boolean logo, byte[] bytes)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		getService().updateLogo(groupId, privateLayout, logo, bytes);
-	}
+    /**
+    * Updates the state of the layout set prototype link.
+    *
+    * <p>
+    * <strong>Important:</strong> Setting
+    * <code>layoutSetPrototypeLinkEnabled</code> to <code>true</code> and
+    * <code>layoutSetPrototypeUuid</code> to <code>null</code> when the layout
+    * set prototype's current uuid is <code>null</code> will result in an
+    * <code>IllegalStateException</code>.
+    * </p>
+    *
+    * @param groupId the primary key of the group
+    * @param privateLayout whether the layout set is private to the group
+    * @param layoutSetPrototypeLinkEnabled whether the layout set prototype is
+    link enabled
+    * @param layoutSetPrototypeUuid the uuid of the layout set prototype to
+    link with
+    * @throws PortalException if a portal exception occurred
+    * @throws SystemException if a system exception occurred
+    */
+    public static void updateLayoutSetPrototypeLinkEnabled(long groupId,
+        boolean privateLayout, boolean layoutSetPrototypeLinkEnabled,
+        java.lang.String layoutSetPrototypeUuid)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        getService()
+            .updateLayoutSetPrototypeLinkEnabled(groupId, privateLayout,
+            layoutSetPrototypeLinkEnabled, layoutSetPrototypeUuid);
+    }
 
-	public static void updateLogo(long groupId, boolean privateLayout,
-		boolean logo, java.io.File file)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		getService().updateLogo(groupId, privateLayout, logo, file);
-	}
+    public static void updateLogo(long groupId, boolean privateLayout,
+        boolean logo, byte[] bytes)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        getService().updateLogo(groupId, privateLayout, logo, bytes);
+    }
 
-	public static void updateLogo(long groupId, boolean privateLayout,
-		boolean logo, java.io.InputStream inputStream)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		getService().updateLogo(groupId, privateLayout, logo, inputStream);
-	}
+    public static void updateLogo(long groupId, boolean privateLayout,
+        boolean logo, java.io.File file)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        getService().updateLogo(groupId, privateLayout, logo, file);
+    }
 
-	public static void updateLogo(long groupId, boolean privateLayout,
-		boolean logo, java.io.InputStream inputStream, boolean cleanUpStream)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		getService()
-			.updateLogo(groupId, privateLayout, logo, inputStream, cleanUpStream);
-	}
+    public static void updateLogo(long groupId, boolean privateLayout,
+        boolean logo, java.io.InputStream inputStream)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        getService().updateLogo(groupId, privateLayout, logo, inputStream);
+    }
 
-	public static com.liferay.portal.model.LayoutSet updateLookAndFeel(
-		long groupId, boolean privateLayout, java.lang.String themeId,
-		java.lang.String colorSchemeId, java.lang.String css, boolean wapTheme)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return getService()
-				   .updateLookAndFeel(groupId, privateLayout, themeId,
-			colorSchemeId, css, wapTheme);
-	}
+    public static void updateLogo(long groupId, boolean privateLayout,
+        boolean logo, java.io.InputStream inputStream, boolean cleanUpStream)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        getService()
+            .updateLogo(groupId, privateLayout, logo, inputStream, cleanUpStream);
+    }
 
-	public static com.liferay.portal.model.LayoutSet updateSettings(
-		long groupId, boolean privateLayout, java.lang.String settings)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return getService().updateSettings(groupId, privateLayout, settings);
-	}
+    public static com.liferay.portal.model.LayoutSet updateLookAndFeel(
+        long groupId, boolean privateLayout, java.lang.String themeId,
+        java.lang.String colorSchemeId, java.lang.String css, boolean wapTheme)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        return getService()
+                   .updateLookAndFeel(groupId, privateLayout, themeId,
+            colorSchemeId, css, wapTheme);
+    }
 
-	public static com.liferay.portal.model.LayoutSet updateVirtualHost(
-		long groupId, boolean privateLayout, java.lang.String virtualHost)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return getService()
-				   .updateVirtualHost(groupId, privateLayout, virtualHost);
-	}
+    public static com.liferay.portal.model.LayoutSet updateSettings(
+        long groupId, boolean privateLayout, java.lang.String settings)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        return getService().updateSettings(groupId, privateLayout, settings);
+    }
 
-	public static LayoutSetService getService() {
-		if (_service == null) {
-			_service = (LayoutSetService)PortalBeanLocatorUtil.locate(LayoutSetService.class.getName());
+    public static com.liferay.portal.model.LayoutSet updateVirtualHost(
+        long groupId, boolean privateLayout, java.lang.String virtualHost)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        return getService()
+                   .updateVirtualHost(groupId, privateLayout, virtualHost);
+    }
 
-			ReferenceRegistry.registerReference(LayoutSetServiceUtil.class,
-				"_service");
-		}
+    public static LayoutSetService getService() {
+        if (_service == null) {
+            _service = (LayoutSetService) PortalBeanLocatorUtil.locate(LayoutSetService.class.getName());
 
-		return _service;
-	}
+            ReferenceRegistry.registerReference(LayoutSetServiceUtil.class,
+                "_service");
+        }
 
-	/**
-	 * @deprecated As of 6.2.0
-	 */
-	public void setService(LayoutSetService service) {
-	}
+        return _service;
+    }
 
-	private static LayoutSetService _service;
+    /**
+     * @deprecated As of 6.2.0
+     */
+    public void setService(LayoutSetService service) {
+    }
 }

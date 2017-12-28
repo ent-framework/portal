@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.polls.service.http;
 
 import aQute.bnd.annotation.ProviderType;
@@ -69,95 +55,91 @@ import java.util.Map;
  */
 @ProviderType
 public class PollsQuestionServiceSoap {
-	public static com.liferay.portlet.polls.model.PollsQuestionSoap addQuestion(
-		java.lang.String[] titleMapLanguageIds,
-		java.lang.String[] titleMapValues,
-		java.lang.String[] descriptionMapLanguageIds,
-		java.lang.String[] descriptionMapValues, int expirationDateMonth,
-		int expirationDateDay, int expirationDateYear, int expirationDateHour,
-		int expirationDateMinute, boolean neverExpire,
-		com.liferay.portlet.polls.model.PollsChoiceSoap[] choices,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			Map<Locale, String> titleMap = LocalizationUtil.getLocalizationMap(titleMapLanguageIds,
-					titleMapValues);
-			Map<Locale, String> descriptionMap = LocalizationUtil.getLocalizationMap(descriptionMapLanguageIds,
-					descriptionMapValues);
+    private static Log _log = LogFactoryUtil.getLog(PollsQuestionServiceSoap.class);
 
-			com.liferay.portlet.polls.model.PollsQuestion returnValue = PollsQuestionServiceUtil.addQuestion(titleMap,
-					descriptionMap, expirationDateMonth, expirationDateDay,
-					expirationDateYear, expirationDateHour,
-					expirationDateMinute, neverExpire,
-					com.liferay.portlet.polls.model.impl.PollsChoiceModelImpl.toModels(
-						choices), serviceContext);
+    public static com.liferay.portlet.polls.model.PollsQuestionSoap addQuestion(
+        java.lang.String[] titleMapLanguageIds,
+        java.lang.String[] titleMapValues,
+        java.lang.String[] descriptionMapLanguageIds,
+        java.lang.String[] descriptionMapValues, int expirationDateMonth,
+        int expirationDateDay, int expirationDateYear, int expirationDateHour,
+        int expirationDateMinute, boolean neverExpire,
+        com.liferay.portlet.polls.model.PollsChoiceSoap[] choices,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            Map<Locale, String> titleMap = LocalizationUtil.getLocalizationMap(titleMapLanguageIds,
+                    titleMapValues);
+            Map<Locale, String> descriptionMap = LocalizationUtil.getLocalizationMap(descriptionMapLanguageIds,
+                    descriptionMapValues);
 
-			return com.liferay.portlet.polls.model.PollsQuestionSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            com.liferay.portlet.polls.model.PollsQuestion returnValue = PollsQuestionServiceUtil.addQuestion(titleMap,
+                    descriptionMap, expirationDateMonth, expirationDateDay,
+                    expirationDateYear, expirationDateHour,
+                    expirationDateMinute, neverExpire,
+                    com.liferay.portlet.polls.model.impl.PollsChoiceModelImpl.toModels(
+                        choices), serviceContext);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.polls.model.PollsQuestionSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void deleteQuestion(long questionId)
-		throws RemoteException {
-		try {
-			PollsQuestionServiceUtil.deleteQuestion(questionId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void deleteQuestion(long questionId)
+        throws RemoteException {
+        try {
+            PollsQuestionServiceUtil.deleteQuestion(questionId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.polls.model.PollsQuestionSoap getQuestion(
-		long questionId) throws RemoteException {
-		try {
-			com.liferay.portlet.polls.model.PollsQuestion returnValue = PollsQuestionServiceUtil.getQuestion(questionId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.polls.model.PollsQuestionSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.polls.model.PollsQuestionSoap getQuestion(
+        long questionId) throws RemoteException {
+        try {
+            com.liferay.portlet.polls.model.PollsQuestion returnValue = PollsQuestionServiceUtil.getQuestion(questionId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.polls.model.PollsQuestionSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.polls.model.PollsQuestionSoap updateQuestion(
-		long questionId, java.lang.String[] titleMapLanguageIds,
-		java.lang.String[] titleMapValues,
-		java.lang.String[] descriptionMapLanguageIds,
-		java.lang.String[] descriptionMapValues, int expirationDateMonth,
-		int expirationDateDay, int expirationDateYear, int expirationDateHour,
-		int expirationDateMinute, boolean neverExpire,
-		com.liferay.portlet.polls.model.PollsChoiceSoap[] choices,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			Map<Locale, String> titleMap = LocalizationUtil.getLocalizationMap(titleMapLanguageIds,
-					titleMapValues);
-			Map<Locale, String> descriptionMap = LocalizationUtil.getLocalizationMap(descriptionMapLanguageIds,
-					descriptionMapValues);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			com.liferay.portlet.polls.model.PollsQuestion returnValue = PollsQuestionServiceUtil.updateQuestion(questionId,
-					titleMap, descriptionMap, expirationDateMonth,
-					expirationDateDay, expirationDateYear, expirationDateHour,
-					expirationDateMinute, neverExpire,
-					com.liferay.portlet.polls.model.impl.PollsChoiceModelImpl.toModels(
-						choices), serviceContext);
+    public static com.liferay.portlet.polls.model.PollsQuestionSoap updateQuestion(
+        long questionId, java.lang.String[] titleMapLanguageIds,
+        java.lang.String[] titleMapValues,
+        java.lang.String[] descriptionMapLanguageIds,
+        java.lang.String[] descriptionMapValues, int expirationDateMonth,
+        int expirationDateDay, int expirationDateYear, int expirationDateHour,
+        int expirationDateMinute, boolean neverExpire,
+        com.liferay.portlet.polls.model.PollsChoiceSoap[] choices,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            Map<Locale, String> titleMap = LocalizationUtil.getLocalizationMap(titleMapLanguageIds,
+                    titleMapValues);
+            Map<Locale, String> descriptionMap = LocalizationUtil.getLocalizationMap(descriptionMapLanguageIds,
+                    descriptionMapValues);
 
-			return com.liferay.portlet.polls.model.PollsQuestionSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            com.liferay.portlet.polls.model.PollsQuestion returnValue = PollsQuestionServiceUtil.updateQuestion(questionId,
+                    titleMap, descriptionMap, expirationDateMonth,
+                    expirationDateDay, expirationDateYear, expirationDateHour,
+                    expirationDateMinute, neverExpire,
+                    com.liferay.portlet.polls.model.impl.PollsChoiceModelImpl.toModels(
+                        choices), serviceContext);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.polls.model.PollsQuestionSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	private static Log _log = LogFactoryUtil.getLog(PollsQuestionServiceSoap.class);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

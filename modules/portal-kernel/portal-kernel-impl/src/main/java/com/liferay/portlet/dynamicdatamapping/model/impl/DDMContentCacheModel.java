@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.dynamicdatamapping.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -35,172 +21,160 @@ import java.util.Date;
  * @generated
  */
 public class DDMContentCacheModel implements CacheModel<DDMContent>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(23);
+    Externalizable {
+    public String uuid;
+    public long contentId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public String name;
+    public String description;
+    public String xml;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", contentId=");
-		sb.append(contentId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", description=");
-		sb.append(description);
-		sb.append(", xml=");
-		sb.append(xml);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(23);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", contentId=");
+        sb.append(contentId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", description=");
+        sb.append(description);
+        sb.append(", xml=");
+        sb.append(xml);
+        sb.append("}");
 
-	@Override
-	public DDMContent toEntityModel() {
-		DDMContentImpl ddmContentImpl = new DDMContentImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			ddmContentImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			ddmContentImpl.setUuid(uuid);
-		}
+    @Override
+    public DDMContent toEntityModel() {
+        DDMContentImpl ddmContentImpl = new DDMContentImpl();
 
-		ddmContentImpl.setContentId(contentId);
-		ddmContentImpl.setGroupId(groupId);
-		ddmContentImpl.setCompanyId(companyId);
-		ddmContentImpl.setUserId(userId);
+        if (uuid == null) {
+            ddmContentImpl.setUuid(StringPool.BLANK);
+        } else {
+            ddmContentImpl.setUuid(uuid);
+        }
 
-		if (userName == null) {
-			ddmContentImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			ddmContentImpl.setUserName(userName);
-		}
+        ddmContentImpl.setContentId(contentId);
+        ddmContentImpl.setGroupId(groupId);
+        ddmContentImpl.setCompanyId(companyId);
+        ddmContentImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			ddmContentImpl.setCreateDate(null);
-		}
-		else {
-			ddmContentImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            ddmContentImpl.setUserName(StringPool.BLANK);
+        } else {
+            ddmContentImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			ddmContentImpl.setModifiedDate(null);
-		}
-		else {
-			ddmContentImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            ddmContentImpl.setCreateDate(null);
+        } else {
+            ddmContentImpl.setCreateDate(new Date(createDate));
+        }
 
-		if (name == null) {
-			ddmContentImpl.setName(StringPool.BLANK);
-		}
-		else {
-			ddmContentImpl.setName(name);
-		}
+        if (modifiedDate == Long.MIN_VALUE) {
+            ddmContentImpl.setModifiedDate(null);
+        } else {
+            ddmContentImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (description == null) {
-			ddmContentImpl.setDescription(StringPool.BLANK);
-		}
-		else {
-			ddmContentImpl.setDescription(description);
-		}
+        if (name == null) {
+            ddmContentImpl.setName(StringPool.BLANK);
+        } else {
+            ddmContentImpl.setName(name);
+        }
 
-		if (xml == null) {
-			ddmContentImpl.setXml(StringPool.BLANK);
-		}
-		else {
-			ddmContentImpl.setXml(xml);
-		}
+        if (description == null) {
+            ddmContentImpl.setDescription(StringPool.BLANK);
+        } else {
+            ddmContentImpl.setDescription(description);
+        }
 
-		ddmContentImpl.resetOriginalValues();
+        if (xml == null) {
+            ddmContentImpl.setXml(StringPool.BLANK);
+        } else {
+            ddmContentImpl.setXml(xml);
+        }
 
-		return ddmContentImpl;
-	}
+        ddmContentImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		contentId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		name = objectInput.readUTF();
-		description = objectInput.readUTF();
-		xml = objectInput.readUTF();
-	}
+        return ddmContentImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        contentId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        name = objectInput.readUTF();
+        description = objectInput.readUTF();
+        xml = objectInput.readUTF();
+    }
 
-		objectOutput.writeLong(contentId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+        objectOutput.writeLong(contentId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
 
-		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(description);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		if (xml == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(xml);
-		}
-	}
+        if (description == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(description);
+        }
 
-	public String uuid;
-	public long contentId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public String name;
-	public String description;
-	public String xml;
+        if (xml == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(xml);
+        }
+    }
 }

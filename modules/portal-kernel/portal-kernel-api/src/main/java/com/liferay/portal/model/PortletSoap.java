@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -27,113 +13,112 @@ import java.util.List;
  * @generated
  */
 public class PortletSoap implements Serializable {
-	public static PortletSoap toSoapModel(Portlet model) {
-		PortletSoap soapModel = new PortletSoap();
+    private long _id;
+    private long _companyId;
+    private String _portletId;
+    private String _roles;
+    private boolean _active;
 
-		soapModel.setId(model.getId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setPortletId(model.getPortletId());
-		soapModel.setRoles(model.getRoles());
-		soapModel.setActive(model.getActive());
+    public PortletSoap() {
+    }
 
-		return soapModel;
-	}
+    public static PortletSoap toSoapModel(Portlet model) {
+        PortletSoap soapModel = new PortletSoap();
 
-	public static PortletSoap[] toSoapModels(Portlet[] models) {
-		PortletSoap[] soapModels = new PortletSoap[models.length];
+        soapModel.setId(model.getId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setPortletId(model.getPortletId());
+        soapModel.setRoles(model.getRoles());
+        soapModel.setActive(model.getActive());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static PortletSoap[] toSoapModels(Portlet[] models) {
+        PortletSoap[] soapModels = new PortletSoap[models.length];
 
-	public static PortletSoap[][] toSoapModels(Portlet[][] models) {
-		PortletSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new PortletSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new PortletSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static PortletSoap[][] toSoapModels(Portlet[][] models) {
+        PortletSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new PortletSoap[models.length][models[0].length];
+        } else {
+            soapModels = new PortletSoap[0][0];
+        }
 
-	public static PortletSoap[] toSoapModels(List<Portlet> models) {
-		List<PortletSoap> soapModels = new ArrayList<PortletSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (Portlet model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new PortletSoap[soapModels.size()]);
-	}
+    public static PortletSoap[] toSoapModels(List<Portlet> models) {
+        List<PortletSoap> soapModels = new ArrayList<PortletSoap>(models.size());
 
-	public PortletSoap() {
-	}
+        for (Portlet model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _id;
-	}
+        return soapModels.toArray(new PortletSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setId(pk);
-	}
+    public long getPrimaryKey() {
+        return _id;
+    }
 
-	public long getId() {
-		return _id;
-	}
+    public void setPrimaryKey(long pk) {
+        setId(pk);
+    }
 
-	public void setId(long id) {
-		_id = id;
-	}
+    public long getId() {
+        return _id;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setId(long id) {
+        _id = id;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public String getPortletId() {
-		return _portletId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setPortletId(String portletId) {
-		_portletId = portletId;
-	}
+    public String getPortletId() {
+        return _portletId;
+    }
 
-	public String getRoles() {
-		return _roles;
-	}
+    public void setPortletId(String portletId) {
+        _portletId = portletId;
+    }
 
-	public void setRoles(String roles) {
-		_roles = roles;
-	}
+    public String getRoles() {
+        return _roles;
+    }
 
-	public boolean getActive() {
-		return _active;
-	}
+    public void setRoles(String roles) {
+        _roles = roles;
+    }
 
-	public boolean isActive() {
-		return _active;
-	}
+    public boolean getActive() {
+        return _active;
+    }
 
-	public void setActive(boolean active) {
-		_active = active;
-	}
+    public boolean isActive() {
+        return _active;
+    }
 
-	private long _id;
-	private long _companyId;
-	private String _portletId;
-	private String _roles;
-	private boolean _active;
+    public void setActive(boolean active) {
+        _active = active;
+    }
 }

@@ -86,7 +86,7 @@ public class InvokerFilterHelper {
 		try {
 			ServletContext servletContext = filterConfig.getServletContext();
 
-			readLiferayFilterWebXML(servletContext, "/WEB-INF/liferay-web.xml");
+			readLiferayFilterWebXML(servletContext, "/portal-config/liferay-web.xml");
 		}
 		catch (Exception e) {
 			_log.error(e, e);
@@ -353,8 +353,8 @@ public class InvokerFilterHelper {
 			ServletContext servletContext, String path)
 		throws Exception {
 
-		InputStream inputStream = servletContext.getResourceAsStream(path);
-
+		//InputStream inputStream = servletContext.getResourceAsStream(path);
+		InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(path);
 		if (inputStream == null) {
 			return;
 		}

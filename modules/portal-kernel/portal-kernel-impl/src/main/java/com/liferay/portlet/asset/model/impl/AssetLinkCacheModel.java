@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.asset.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -35,107 +21,104 @@ import java.util.Date;
  * @generated
  */
 public class AssetLinkCacheModel implements CacheModel<AssetLink>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(19);
+    Externalizable {
+    public long linkId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long entryId1;
+    public long entryId2;
+    public int type;
+    public int weight;
 
-		sb.append("{linkId=");
-		sb.append(linkId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", entryId1=");
-		sb.append(entryId1);
-		sb.append(", entryId2=");
-		sb.append(entryId2);
-		sb.append(", type=");
-		sb.append(type);
-		sb.append(", weight=");
-		sb.append(weight);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(19);
 
-		return sb.toString();
-	}
+        sb.append("{linkId=");
+        sb.append(linkId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", entryId1=");
+        sb.append(entryId1);
+        sb.append(", entryId2=");
+        sb.append(entryId2);
+        sb.append(", type=");
+        sb.append(type);
+        sb.append(", weight=");
+        sb.append(weight);
+        sb.append("}");
 
-	@Override
-	public AssetLink toEntityModel() {
-		AssetLinkImpl assetLinkImpl = new AssetLinkImpl();
+        return sb.toString();
+    }
 
-		assetLinkImpl.setLinkId(linkId);
-		assetLinkImpl.setCompanyId(companyId);
-		assetLinkImpl.setUserId(userId);
+    @Override
+    public AssetLink toEntityModel() {
+        AssetLinkImpl assetLinkImpl = new AssetLinkImpl();
 
-		if (userName == null) {
-			assetLinkImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			assetLinkImpl.setUserName(userName);
-		}
+        assetLinkImpl.setLinkId(linkId);
+        assetLinkImpl.setCompanyId(companyId);
+        assetLinkImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			assetLinkImpl.setCreateDate(null);
-		}
-		else {
-			assetLinkImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            assetLinkImpl.setUserName(StringPool.BLANK);
+        } else {
+            assetLinkImpl.setUserName(userName);
+        }
 
-		assetLinkImpl.setEntryId1(entryId1);
-		assetLinkImpl.setEntryId2(entryId2);
-		assetLinkImpl.setType(type);
-		assetLinkImpl.setWeight(weight);
+        if (createDate == Long.MIN_VALUE) {
+            assetLinkImpl.setCreateDate(null);
+        } else {
+            assetLinkImpl.setCreateDate(new Date(createDate));
+        }
 
-		assetLinkImpl.resetOriginalValues();
+        assetLinkImpl.setEntryId1(entryId1);
+        assetLinkImpl.setEntryId2(entryId2);
+        assetLinkImpl.setType(type);
+        assetLinkImpl.setWeight(weight);
 
-		return assetLinkImpl;
-	}
+        assetLinkImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		linkId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		entryId1 = objectInput.readLong();
-		entryId2 = objectInput.readLong();
-		type = objectInput.readInt();
-		weight = objectInput.readInt();
-	}
+        return assetLinkImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(linkId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        linkId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        entryId1 = objectInput.readLong();
+        entryId2 = objectInput.readLong();
+        type = objectInput.readInt();
+        weight = objectInput.readInt();
+    }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(linkId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(entryId1);
-		objectOutput.writeLong(entryId2);
-		objectOutput.writeInt(type);
-		objectOutput.writeInt(weight);
-	}
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-	public long linkId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long entryId1;
-	public long entryId2;
-	public int type;
-	public int weight;
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(entryId1);
+        objectOutput.writeLong(entryId2);
+        objectOutput.writeInt(type);
+        objectOutput.writeInt(weight);
+    }
 }

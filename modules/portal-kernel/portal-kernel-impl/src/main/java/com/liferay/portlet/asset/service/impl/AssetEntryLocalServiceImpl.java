@@ -49,7 +49,7 @@ import com.liferay.portlet.asset.service.base.AssetEntryLocalServiceBaseImpl;
 import com.liferay.portlet.asset.service.persistence.AssetEntryQuery;
 import com.liferay.portlet.asset.util.AssetEntryValidator;
 import com.liferay.portlet.assetpublisher.util.AssetSearcher;
-import com.liferay.portlet.blogs.model.BlogsEntry;
+//import com.liferay.portlet.blogs.model.BlogsEntry;
 import com.liferay.portlet.bookmarks.model.BookmarksEntry;
 import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 import com.liferay.portlet.journal.model.JournalArticle;
@@ -667,15 +667,16 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 		// Synchronize
 
 		if (sync) {
-			if (className.equals(BlogsEntry.class.getName())) {
-				BlogsEntry blogsEntry = blogsEntryPersistence.findByPrimaryKey(
-					classPK);
-
-				blogsEntry.setTitle(title);
-
-				blogsEntryPersistence.update(blogsEntry);
-			}
-			else if (className.equals(BookmarksEntry.class.getName())) {
+//			if (className.equals(BlogsEntry.class.getName())) {
+//				BlogsEntry blogsEntry = blogsEntryPersistence.findByPrimaryKey(
+//					classPK);
+//
+//				blogsEntry.setTitle(title);
+//
+//				blogsEntryPersistence.update(blogsEntry);
+//			}
+//			else
+			if (className.equals(BookmarksEntry.class.getName())) {
 				BookmarksEntry bookmarksEntry =
 					bookmarksEntryPersistence.findByPrimaryKey(classPK);
 
@@ -876,7 +877,7 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 
 		String portletId = GetterUtil.getString(document.get(Field.PORTLET_ID));
 
-		if (portletId.equals(PortletKeys.BLOGS)) {
+/*		if (portletId.equals(PortletKeys.BLOGS)) {
 			long entryId = GetterUtil.getLong(
 				document.get(Field.ENTRY_CLASS_PK));
 
@@ -886,7 +887,7 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 
 			return assetEntryPersistence.findByC_C(classNameId, classPK);
 		}
-		else if (portletId.equals(PortletKeys.BOOKMARKS)) {
+		else*/ if (portletId.equals(PortletKeys.BOOKMARKS)) {
 			long entryId = GetterUtil.getLong(
 				document.get(Field.ENTRY_CLASS_PK));
 

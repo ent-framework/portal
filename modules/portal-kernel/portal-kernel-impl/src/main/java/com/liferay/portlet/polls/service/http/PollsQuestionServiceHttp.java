@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.polls.service.http;
 
 import com.liferay.portal.kernel.log.Log;
@@ -52,182 +38,174 @@ import com.liferay.portlet.polls.service.PollsQuestionServiceUtil;
  * @generated
  */
 public class PollsQuestionServiceHttp {
-	public static com.liferay.portlet.polls.model.PollsQuestion addQuestion(
-		HttpPrincipal httpPrincipal,
-		java.util.Map<java.util.Locale, java.lang.String> titleMap,
-		java.util.Map<java.util.Locale, java.lang.String> descriptionMap,
-		int expirationDateMonth, int expirationDateDay, int expirationDateYear,
-		int expirationDateHour, int expirationDateMinute, boolean neverExpire,
-		java.util.List<com.liferay.portlet.polls.model.PollsChoice> choices,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(PollsQuestionServiceUtil.class,
-					"addQuestion", _addQuestionParameterTypes0);
+    private static Log _log = LogFactoryUtil.getLog(PollsQuestionServiceHttp.class);
+    private static final Class<?>[] _addQuestionParameterTypes0 = new Class[] {
+            java.util.Map.class, java.util.Map.class, int.class, int.class,
+            int.class, int.class, int.class, boolean.class, java.util.List.class,
+            com.liferay.portal.service.ServiceContext.class
+        };
+    private static final Class<?>[] _deleteQuestionParameterTypes1 = new Class[] {
+            long.class
+        };
+    private static final Class<?>[] _getQuestionParameterTypes2 = new Class[] {
+            long.class
+        };
+    private static final Class<?>[] _updateQuestionParameterTypes3 = new Class[] {
+            long.class, java.util.Map.class, java.util.Map.class, int.class,
+            int.class, int.class, int.class, int.class, boolean.class,
+            java.util.List.class,
+            com.liferay.portal.service.ServiceContext.class
+        };
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					titleMap, descriptionMap, expirationDateMonth,
-					expirationDateDay, expirationDateYear, expirationDateHour,
-					expirationDateMinute, neverExpire, choices, serviceContext);
+    public static com.liferay.portlet.polls.model.PollsQuestion addQuestion(
+        HttpPrincipal httpPrincipal,
+        java.util.Map<java.util.Locale, java.lang.String> titleMap,
+        java.util.Map<java.util.Locale, java.lang.String> descriptionMap,
+        int expirationDateMonth, int expirationDateDay, int expirationDateYear,
+        int expirationDateHour, int expirationDateMinute, boolean neverExpire,
+        java.util.List<com.liferay.portlet.polls.model.PollsChoice> choices,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(PollsQuestionServiceUtil.class,
+                    "addQuestion", _addQuestionParameterTypes0);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    titleMap, descriptionMap, expirationDateMonth,
+                    expirationDateDay, expirationDateYear, expirationDateHour,
+                    expirationDateMinute, neverExpire, choices, serviceContext);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portlet.polls.model.PollsQuestion)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portlet.polls.model.PollsQuestion) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static void deleteQuestion(HttpPrincipal httpPrincipal,
-		long questionId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(PollsQuestionServiceUtil.class,
-					"deleteQuestion", _deleteQuestionParameterTypes1);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					questionId);
+    public static void deleteQuestion(HttpPrincipal httpPrincipal,
+        long questionId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(PollsQuestionServiceUtil.class,
+                    "deleteQuestion", _deleteQuestionParameterTypes1);
 
-			try {
-				TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    questionId);
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			throw se;
-		}
-	}
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static com.liferay.portlet.polls.model.PollsQuestion getQuestion(
-		HttpPrincipal httpPrincipal, long questionId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(PollsQuestionServiceUtil.class,
-					"getQuestion", _getQuestionParameterTypes2);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					questionId);
+    public static com.liferay.portlet.polls.model.PollsQuestion getQuestion(
+        HttpPrincipal httpPrincipal, long questionId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(PollsQuestionServiceUtil.class,
+                    "getQuestion", _getQuestionParameterTypes2);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    questionId);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portlet.polls.model.PollsQuestion)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portlet.polls.model.PollsQuestion) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static com.liferay.portlet.polls.model.PollsQuestion updateQuestion(
-		HttpPrincipal httpPrincipal, long questionId,
-		java.util.Map<java.util.Locale, java.lang.String> titleMap,
-		java.util.Map<java.util.Locale, java.lang.String> descriptionMap,
-		int expirationDateMonth, int expirationDateDay, int expirationDateYear,
-		int expirationDateHour, int expirationDateMinute, boolean neverExpire,
-		java.util.List<com.liferay.portlet.polls.model.PollsChoice> choices,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(PollsQuestionServiceUtil.class,
-					"updateQuestion", _updateQuestionParameterTypes3);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					questionId, titleMap, descriptionMap, expirationDateMonth,
-					expirationDateDay, expirationDateYear, expirationDateHour,
-					expirationDateMinute, neverExpire, choices, serviceContext);
+    public static com.liferay.portlet.polls.model.PollsQuestion updateQuestion(
+        HttpPrincipal httpPrincipal, long questionId,
+        java.util.Map<java.util.Locale, java.lang.String> titleMap,
+        java.util.Map<java.util.Locale, java.lang.String> descriptionMap,
+        int expirationDateMonth, int expirationDateDay, int expirationDateYear,
+        int expirationDateHour, int expirationDateMinute, boolean neverExpire,
+        java.util.List<com.liferay.portlet.polls.model.PollsChoice> choices,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(PollsQuestionServiceUtil.class,
+                    "updateQuestion", _updateQuestionParameterTypes3);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    questionId, titleMap, descriptionMap, expirationDateMonth,
+                    expirationDateDay, expirationDateYear, expirationDateHour,
+                    expirationDateMinute, neverExpire, choices, serviceContext);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portlet.polls.model.PollsQuestion)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portlet.polls.model.PollsQuestion) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	private static Log _log = LogFactoryUtil.getLog(PollsQuestionServiceHttp.class);
-	private static final Class<?>[] _addQuestionParameterTypes0 = new Class[] {
-			java.util.Map.class, java.util.Map.class, int.class, int.class,
-			int.class, int.class, int.class, boolean.class, java.util.List.class,
-			com.liferay.portal.service.ServiceContext.class
-		};
-	private static final Class<?>[] _deleteQuestionParameterTypes1 = new Class[] {
-			long.class
-		};
-	private static final Class<?>[] _getQuestionParameterTypes2 = new Class[] {
-			long.class
-		};
-	private static final Class<?>[] _updateQuestionParameterTypes3 = new Class[] {
-			long.class, java.util.Map.class, java.util.Map.class, int.class,
-			int.class, int.class, int.class, int.class, boolean.class,
-			java.util.List.class,
-			com.liferay.portal.service.ServiceContext.class
-		};
+            throw se;
+        }
+    }
 }

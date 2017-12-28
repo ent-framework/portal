@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -27,229 +13,228 @@ import java.util.List;
  * @generated
  */
 public class OrgLaborSoap implements Serializable {
-	public static OrgLaborSoap toSoapModel(OrgLabor model) {
-		OrgLaborSoap soapModel = new OrgLaborSoap();
+    private long _orgLaborId;
+    private long _organizationId;
+    private int _typeId;
+    private int _sunOpen;
+    private int _sunClose;
+    private int _monOpen;
+    private int _monClose;
+    private int _tueOpen;
+    private int _tueClose;
+    private int _wedOpen;
+    private int _wedClose;
+    private int _thuOpen;
+    private int _thuClose;
+    private int _friOpen;
+    private int _friClose;
+    private int _satOpen;
+    private int _satClose;
 
-		soapModel.setOrgLaborId(model.getOrgLaborId());
-		soapModel.setOrganizationId(model.getOrganizationId());
-		soapModel.setTypeId(model.getTypeId());
-		soapModel.setSunOpen(model.getSunOpen());
-		soapModel.setSunClose(model.getSunClose());
-		soapModel.setMonOpen(model.getMonOpen());
-		soapModel.setMonClose(model.getMonClose());
-		soapModel.setTueOpen(model.getTueOpen());
-		soapModel.setTueClose(model.getTueClose());
-		soapModel.setWedOpen(model.getWedOpen());
-		soapModel.setWedClose(model.getWedClose());
-		soapModel.setThuOpen(model.getThuOpen());
-		soapModel.setThuClose(model.getThuClose());
-		soapModel.setFriOpen(model.getFriOpen());
-		soapModel.setFriClose(model.getFriClose());
-		soapModel.setSatOpen(model.getSatOpen());
-		soapModel.setSatClose(model.getSatClose());
+    public OrgLaborSoap() {
+    }
 
-		return soapModel;
-	}
+    public static OrgLaborSoap toSoapModel(OrgLabor model) {
+        OrgLaborSoap soapModel = new OrgLaborSoap();
 
-	public static OrgLaborSoap[] toSoapModels(OrgLabor[] models) {
-		OrgLaborSoap[] soapModels = new OrgLaborSoap[models.length];
+        soapModel.setOrgLaborId(model.getOrgLaborId());
+        soapModel.setOrganizationId(model.getOrganizationId());
+        soapModel.setTypeId(model.getTypeId());
+        soapModel.setSunOpen(model.getSunOpen());
+        soapModel.setSunClose(model.getSunClose());
+        soapModel.setMonOpen(model.getMonOpen());
+        soapModel.setMonClose(model.getMonClose());
+        soapModel.setTueOpen(model.getTueOpen());
+        soapModel.setTueClose(model.getTueClose());
+        soapModel.setWedOpen(model.getWedOpen());
+        soapModel.setWedClose(model.getWedClose());
+        soapModel.setThuOpen(model.getThuOpen());
+        soapModel.setThuClose(model.getThuClose());
+        soapModel.setFriOpen(model.getFriOpen());
+        soapModel.setFriClose(model.getFriClose());
+        soapModel.setSatOpen(model.getSatOpen());
+        soapModel.setSatClose(model.getSatClose());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static OrgLaborSoap[] toSoapModels(OrgLabor[] models) {
+        OrgLaborSoap[] soapModels = new OrgLaborSoap[models.length];
 
-	public static OrgLaborSoap[][] toSoapModels(OrgLabor[][] models) {
-		OrgLaborSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new OrgLaborSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new OrgLaborSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static OrgLaborSoap[][] toSoapModels(OrgLabor[][] models) {
+        OrgLaborSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new OrgLaborSoap[models.length][models[0].length];
+        } else {
+            soapModels = new OrgLaborSoap[0][0];
+        }
 
-	public static OrgLaborSoap[] toSoapModels(List<OrgLabor> models) {
-		List<OrgLaborSoap> soapModels = new ArrayList<OrgLaborSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (OrgLabor model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new OrgLaborSoap[soapModels.size()]);
-	}
+    public static OrgLaborSoap[] toSoapModels(List<OrgLabor> models) {
+        List<OrgLaborSoap> soapModels = new ArrayList<OrgLaborSoap>(models.size());
 
-	public OrgLaborSoap() {
-	}
+        for (OrgLabor model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _orgLaborId;
-	}
+        return soapModels.toArray(new OrgLaborSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setOrgLaborId(pk);
-	}
+    public long getPrimaryKey() {
+        return _orgLaborId;
+    }
 
-	public long getOrgLaborId() {
-		return _orgLaborId;
-	}
+    public void setPrimaryKey(long pk) {
+        setOrgLaborId(pk);
+    }
 
-	public void setOrgLaborId(long orgLaborId) {
-		_orgLaborId = orgLaborId;
-	}
+    public long getOrgLaborId() {
+        return _orgLaborId;
+    }
 
-	public long getOrganizationId() {
-		return _organizationId;
-	}
+    public void setOrgLaborId(long orgLaborId) {
+        _orgLaborId = orgLaborId;
+    }
 
-	public void setOrganizationId(long organizationId) {
-		_organizationId = organizationId;
-	}
+    public long getOrganizationId() {
+        return _organizationId;
+    }
 
-	public int getTypeId() {
-		return _typeId;
-	}
+    public void setOrganizationId(long organizationId) {
+        _organizationId = organizationId;
+    }
 
-	public void setTypeId(int typeId) {
-		_typeId = typeId;
-	}
+    public int getTypeId() {
+        return _typeId;
+    }
 
-	public int getSunOpen() {
-		return _sunOpen;
-	}
+    public void setTypeId(int typeId) {
+        _typeId = typeId;
+    }
 
-	public void setSunOpen(int sunOpen) {
-		_sunOpen = sunOpen;
-	}
+    public int getSunOpen() {
+        return _sunOpen;
+    }
 
-	public int getSunClose() {
-		return _sunClose;
-	}
+    public void setSunOpen(int sunOpen) {
+        _sunOpen = sunOpen;
+    }
 
-	public void setSunClose(int sunClose) {
-		_sunClose = sunClose;
-	}
+    public int getSunClose() {
+        return _sunClose;
+    }
 
-	public int getMonOpen() {
-		return _monOpen;
-	}
+    public void setSunClose(int sunClose) {
+        _sunClose = sunClose;
+    }
 
-	public void setMonOpen(int monOpen) {
-		_monOpen = monOpen;
-	}
+    public int getMonOpen() {
+        return _monOpen;
+    }
 
-	public int getMonClose() {
-		return _monClose;
-	}
+    public void setMonOpen(int monOpen) {
+        _monOpen = monOpen;
+    }
 
-	public void setMonClose(int monClose) {
-		_monClose = monClose;
-	}
+    public int getMonClose() {
+        return _monClose;
+    }
 
-	public int getTueOpen() {
-		return _tueOpen;
-	}
+    public void setMonClose(int monClose) {
+        _monClose = monClose;
+    }
 
-	public void setTueOpen(int tueOpen) {
-		_tueOpen = tueOpen;
-	}
+    public int getTueOpen() {
+        return _tueOpen;
+    }
 
-	public int getTueClose() {
-		return _tueClose;
-	}
+    public void setTueOpen(int tueOpen) {
+        _tueOpen = tueOpen;
+    }
 
-	public void setTueClose(int tueClose) {
-		_tueClose = tueClose;
-	}
+    public int getTueClose() {
+        return _tueClose;
+    }
 
-	public int getWedOpen() {
-		return _wedOpen;
-	}
+    public void setTueClose(int tueClose) {
+        _tueClose = tueClose;
+    }
 
-	public void setWedOpen(int wedOpen) {
-		_wedOpen = wedOpen;
-	}
+    public int getWedOpen() {
+        return _wedOpen;
+    }
 
-	public int getWedClose() {
-		return _wedClose;
-	}
+    public void setWedOpen(int wedOpen) {
+        _wedOpen = wedOpen;
+    }
 
-	public void setWedClose(int wedClose) {
-		_wedClose = wedClose;
-	}
+    public int getWedClose() {
+        return _wedClose;
+    }
 
-	public int getThuOpen() {
-		return _thuOpen;
-	}
+    public void setWedClose(int wedClose) {
+        _wedClose = wedClose;
+    }
 
-	public void setThuOpen(int thuOpen) {
-		_thuOpen = thuOpen;
-	}
+    public int getThuOpen() {
+        return _thuOpen;
+    }
 
-	public int getThuClose() {
-		return _thuClose;
-	}
+    public void setThuOpen(int thuOpen) {
+        _thuOpen = thuOpen;
+    }
 
-	public void setThuClose(int thuClose) {
-		_thuClose = thuClose;
-	}
+    public int getThuClose() {
+        return _thuClose;
+    }
 
-	public int getFriOpen() {
-		return _friOpen;
-	}
+    public void setThuClose(int thuClose) {
+        _thuClose = thuClose;
+    }
 
-	public void setFriOpen(int friOpen) {
-		_friOpen = friOpen;
-	}
+    public int getFriOpen() {
+        return _friOpen;
+    }
 
-	public int getFriClose() {
-		return _friClose;
-	}
+    public void setFriOpen(int friOpen) {
+        _friOpen = friOpen;
+    }
 
-	public void setFriClose(int friClose) {
-		_friClose = friClose;
-	}
+    public int getFriClose() {
+        return _friClose;
+    }
 
-	public int getSatOpen() {
-		return _satOpen;
-	}
+    public void setFriClose(int friClose) {
+        _friClose = friClose;
+    }
 
-	public void setSatOpen(int satOpen) {
-		_satOpen = satOpen;
-	}
+    public int getSatOpen() {
+        return _satOpen;
+    }
 
-	public int getSatClose() {
-		return _satClose;
-	}
+    public void setSatOpen(int satOpen) {
+        _satOpen = satOpen;
+    }
 
-	public void setSatClose(int satClose) {
-		_satClose = satClose;
-	}
+    public int getSatClose() {
+        return _satClose;
+    }
 
-	private long _orgLaborId;
-	private long _organizationId;
-	private int _typeId;
-	private int _sunOpen;
-	private int _sunClose;
-	private int _monOpen;
-	private int _monClose;
-	private int _tueOpen;
-	private int _tueClose;
-	private int _wedOpen;
-	private int _wedClose;
-	private int _thuOpen;
-	private int _thuClose;
-	private int _friOpen;
-	private int _friClose;
-	private int _satOpen;
-	private int _satClose;
+    public void setSatClose(int satClose) {
+        _satClose = satClose;
+    }
 }

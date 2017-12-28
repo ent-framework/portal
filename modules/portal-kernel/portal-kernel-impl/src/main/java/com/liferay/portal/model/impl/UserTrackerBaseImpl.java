@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.exception.SystemException;
@@ -31,19 +17,18 @@ import com.liferay.portal.service.UserTrackerLocalServiceUtil;
  * @generated
  */
 public abstract class UserTrackerBaseImpl extends UserTrackerModelImpl
-	implements UserTracker {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this class directly. All methods that expect a user tracker model instance should use the {@link UserTracker} interface instead.
-	 */
-	@Override
-	public void persist() throws SystemException {
-		if (this.isNew()) {
-			UserTrackerLocalServiceUtil.addUserTracker(this);
-		}
-		else {
-			UserTrackerLocalServiceUtil.updateUserTracker(this);
-		}
-	}
+    implements UserTracker {
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this class directly. All methods that expect a user tracker model instance should use the {@link UserTracker} interface instead.
+     */
+    @Override
+    public void persist() throws SystemException {
+        if (this.isNew()) {
+            UserTrackerLocalServiceUtil.addUserTracker(this);
+        } else {
+            UserTrackerLocalServiceUtil.updateUserTracker(this);
+        }
+    }
 }

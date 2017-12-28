@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.documentlibrary.model;
 
 import aQute.bnd.annotation.ProviderType;
@@ -33,327 +19,327 @@ import java.util.Map;
  */
 @ProviderType
 public class DLSyncEventWrapper implements DLSyncEvent,
-	ModelWrapper<DLSyncEvent> {
-	public DLSyncEventWrapper(DLSyncEvent dlSyncEvent) {
-		_dlSyncEvent = dlSyncEvent;
-	}
+    ModelWrapper<DLSyncEvent> {
+    private DLSyncEvent _dlSyncEvent;
 
-	@Override
-	public Class<?> getModelClass() {
-		return DLSyncEvent.class;
-	}
+    public DLSyncEventWrapper(DLSyncEvent dlSyncEvent) {
+        _dlSyncEvent = dlSyncEvent;
+    }
 
-	@Override
-	public String getModelClassName() {
-		return DLSyncEvent.class.getName();
-	}
+    @Override
+    public Class<?> getModelClass() {
+        return DLSyncEvent.class;
+    }
 
-	@Override
-	public Map<String, Object> getModelAttributes() {
-		Map<String, Object> attributes = new HashMap<String, Object>();
+    @Override
+    public String getModelClassName() {
+        return DLSyncEvent.class.getName();
+    }
 
-		attributes.put("syncEventId", getSyncEventId());
-		attributes.put("modifiedTime", getModifiedTime());
-		attributes.put("event", getEvent());
-		attributes.put("type", getType());
-		attributes.put("typePK", getTypePK());
+    @Override
+    public Map<String, Object> getModelAttributes() {
+        Map<String, Object> attributes = new HashMap<String, Object>();
 
-		return attributes;
-	}
+        attributes.put("syncEventId", getSyncEventId());
+        attributes.put("modifiedTime", getModifiedTime());
+        attributes.put("event", getEvent());
+        attributes.put("type", getType());
+        attributes.put("typePK", getTypePK());
 
-	@Override
-	public void setModelAttributes(Map<String, Object> attributes) {
-		Long syncEventId = (Long)attributes.get("syncEventId");
+        return attributes;
+    }
 
-		if (syncEventId != null) {
-			setSyncEventId(syncEventId);
-		}
+    @Override
+    public void setModelAttributes(Map<String, Object> attributes) {
+        Long syncEventId = (Long) attributes.get("syncEventId");
 
-		Long modifiedTime = (Long)attributes.get("modifiedTime");
+        if (syncEventId != null) {
+            setSyncEventId(syncEventId);
+        }
 
-		if (modifiedTime != null) {
-			setModifiedTime(modifiedTime);
-		}
+        Long modifiedTime = (Long) attributes.get("modifiedTime");
 
-		String event = (String)attributes.get("event");
+        if (modifiedTime != null) {
+            setModifiedTime(modifiedTime);
+        }
 
-		if (event != null) {
-			setEvent(event);
-		}
+        String event = (String) attributes.get("event");
 
-		String type = (String)attributes.get("type");
+        if (event != null) {
+            setEvent(event);
+        }
 
-		if (type != null) {
-			setType(type);
-		}
+        String type = (String) attributes.get("type");
 
-		Long typePK = (Long)attributes.get("typePK");
+        if (type != null) {
+            setType(type);
+        }
 
-		if (typePK != null) {
-			setTypePK(typePK);
-		}
-	}
+        Long typePK = (Long) attributes.get("typePK");
 
-	/**
-	* Returns the primary key of this d l sync event.
-	*
-	* @return the primary key of this d l sync event
-	*/
-	@Override
-	public long getPrimaryKey() {
-		return _dlSyncEvent.getPrimaryKey();
-	}
+        if (typePK != null) {
+            setTypePK(typePK);
+        }
+    }
 
-	/**
-	* Sets the primary key of this d l sync event.
-	*
-	* @param primaryKey the primary key of this d l sync event
-	*/
-	@Override
-	public void setPrimaryKey(long primaryKey) {
-		_dlSyncEvent.setPrimaryKey(primaryKey);
-	}
+    /**
+    * Returns the primary key of this d l sync event.
+    *
+    * @return the primary key of this d l sync event
+    */
+    @Override
+    public long getPrimaryKey() {
+        return _dlSyncEvent.getPrimaryKey();
+    }
 
-	/**
-	* Returns the sync event ID of this d l sync event.
-	*
-	* @return the sync event ID of this d l sync event
-	*/
-	@Override
-	public long getSyncEventId() {
-		return _dlSyncEvent.getSyncEventId();
-	}
+    /**
+    * Sets the primary key of this d l sync event.
+    *
+    * @param primaryKey the primary key of this d l sync event
+    */
+    @Override
+    public void setPrimaryKey(long primaryKey) {
+        _dlSyncEvent.setPrimaryKey(primaryKey);
+    }
 
-	/**
-	* Sets the sync event ID of this d l sync event.
-	*
-	* @param syncEventId the sync event ID of this d l sync event
-	*/
-	@Override
-	public void setSyncEventId(long syncEventId) {
-		_dlSyncEvent.setSyncEventId(syncEventId);
-	}
+    /**
+    * Returns the sync event ID of this d l sync event.
+    *
+    * @return the sync event ID of this d l sync event
+    */
+    @Override
+    public long getSyncEventId() {
+        return _dlSyncEvent.getSyncEventId();
+    }
 
-	/**
-	* Returns the modified time of this d l sync event.
-	*
-	* @return the modified time of this d l sync event
-	*/
-	@Override
-	public long getModifiedTime() {
-		return _dlSyncEvent.getModifiedTime();
-	}
+    /**
+    * Sets the sync event ID of this d l sync event.
+    *
+    * @param syncEventId the sync event ID of this d l sync event
+    */
+    @Override
+    public void setSyncEventId(long syncEventId) {
+        _dlSyncEvent.setSyncEventId(syncEventId);
+    }
 
-	/**
-	* Sets the modified time of this d l sync event.
-	*
-	* @param modifiedTime the modified time of this d l sync event
-	*/
-	@Override
-	public void setModifiedTime(long modifiedTime) {
-		_dlSyncEvent.setModifiedTime(modifiedTime);
-	}
+    /**
+    * Returns the modified time of this d l sync event.
+    *
+    * @return the modified time of this d l sync event
+    */
+    @Override
+    public long getModifiedTime() {
+        return _dlSyncEvent.getModifiedTime();
+    }
 
-	/**
-	* Returns the event of this d l sync event.
-	*
-	* @return the event of this d l sync event
-	*/
-	@Override
-	public java.lang.String getEvent() {
-		return _dlSyncEvent.getEvent();
-	}
+    /**
+    * Sets the modified time of this d l sync event.
+    *
+    * @param modifiedTime the modified time of this d l sync event
+    */
+    @Override
+    public void setModifiedTime(long modifiedTime) {
+        _dlSyncEvent.setModifiedTime(modifiedTime);
+    }
 
-	/**
-	* Sets the event of this d l sync event.
-	*
-	* @param event the event of this d l sync event
-	*/
-	@Override
-	public void setEvent(java.lang.String event) {
-		_dlSyncEvent.setEvent(event);
-	}
+    /**
+    * Returns the event of this d l sync event.
+    *
+    * @return the event of this d l sync event
+    */
+    @Override
+    public java.lang.String getEvent() {
+        return _dlSyncEvent.getEvent();
+    }
 
-	/**
-	* Returns the type of this d l sync event.
-	*
-	* @return the type of this d l sync event
-	*/
-	@Override
-	public java.lang.String getType() {
-		return _dlSyncEvent.getType();
-	}
+    /**
+    * Sets the event of this d l sync event.
+    *
+    * @param event the event of this d l sync event
+    */
+    @Override
+    public void setEvent(java.lang.String event) {
+        _dlSyncEvent.setEvent(event);
+    }
 
-	/**
-	* Sets the type of this d l sync event.
-	*
-	* @param type the type of this d l sync event
-	*/
-	@Override
-	public void setType(java.lang.String type) {
-		_dlSyncEvent.setType(type);
-	}
+    /**
+    * Returns the type of this d l sync event.
+    *
+    * @return the type of this d l sync event
+    */
+    @Override
+    public java.lang.String getType() {
+        return _dlSyncEvent.getType();
+    }
 
-	/**
-	* Returns the type p k of this d l sync event.
-	*
-	* @return the type p k of this d l sync event
-	*/
-	@Override
-	public long getTypePK() {
-		return _dlSyncEvent.getTypePK();
-	}
+    /**
+    * Sets the type of this d l sync event.
+    *
+    * @param type the type of this d l sync event
+    */
+    @Override
+    public void setType(java.lang.String type) {
+        _dlSyncEvent.setType(type);
+    }
 
-	/**
-	* Sets the type p k of this d l sync event.
-	*
-	* @param typePK the type p k of this d l sync event
-	*/
-	@Override
-	public void setTypePK(long typePK) {
-		_dlSyncEvent.setTypePK(typePK);
-	}
+    /**
+    * Returns the type p k of this d l sync event.
+    *
+    * @return the type p k of this d l sync event
+    */
+    @Override
+    public long getTypePK() {
+        return _dlSyncEvent.getTypePK();
+    }
 
-	@Override
-	public boolean isNew() {
-		return _dlSyncEvent.isNew();
-	}
+    /**
+    * Sets the type p k of this d l sync event.
+    *
+    * @param typePK the type p k of this d l sync event
+    */
+    @Override
+    public void setTypePK(long typePK) {
+        _dlSyncEvent.setTypePK(typePK);
+    }
 
-	@Override
-	public void setNew(boolean n) {
-		_dlSyncEvent.setNew(n);
-	}
+    @Override
+    public boolean isNew() {
+        return _dlSyncEvent.isNew();
+    }
 
-	@Override
-	public boolean isCachedModel() {
-		return _dlSyncEvent.isCachedModel();
-	}
+    @Override
+    public void setNew(boolean n) {
+        _dlSyncEvent.setNew(n);
+    }
 
-	@Override
-	public void setCachedModel(boolean cachedModel) {
-		_dlSyncEvent.setCachedModel(cachedModel);
-	}
+    @Override
+    public boolean isCachedModel() {
+        return _dlSyncEvent.isCachedModel();
+    }
 
-	@Override
-	public boolean isEscapedModel() {
-		return _dlSyncEvent.isEscapedModel();
-	}
+    @Override
+    public void setCachedModel(boolean cachedModel) {
+        _dlSyncEvent.setCachedModel(cachedModel);
+    }
 
-	@Override
-	public java.io.Serializable getPrimaryKeyObj() {
-		return _dlSyncEvent.getPrimaryKeyObj();
-	}
+    @Override
+    public boolean isEscapedModel() {
+        return _dlSyncEvent.isEscapedModel();
+    }
 
-	@Override
-	public void setPrimaryKeyObj(java.io.Serializable primaryKeyObj) {
-		_dlSyncEvent.setPrimaryKeyObj(primaryKeyObj);
-	}
+    @Override
+    public java.io.Serializable getPrimaryKeyObj() {
+        return _dlSyncEvent.getPrimaryKeyObj();
+    }
 
-	@Override
-	public com.liferay.portlet.expando.model.ExpandoBridge getExpandoBridge() {
-		return _dlSyncEvent.getExpandoBridge();
-	}
+    @Override
+    public void setPrimaryKeyObj(java.io.Serializable primaryKeyObj) {
+        _dlSyncEvent.setPrimaryKeyObj(primaryKeyObj);
+    }
 
-	@Override
-	public void setExpandoBridgeAttributes(
-		com.liferay.portal.model.BaseModel<?> baseModel) {
-		_dlSyncEvent.setExpandoBridgeAttributes(baseModel);
-	}
+    @Override
+    public com.liferay.portlet.expando.model.ExpandoBridge getExpandoBridge() {
+        return _dlSyncEvent.getExpandoBridge();
+    }
 
-	@Override
-	public void setExpandoBridgeAttributes(
-		com.liferay.portlet.expando.model.ExpandoBridge expandoBridge) {
-		_dlSyncEvent.setExpandoBridgeAttributes(expandoBridge);
-	}
+    @Override
+    public void setExpandoBridgeAttributes(
+        com.liferay.portal.model.BaseModel<?> baseModel) {
+        _dlSyncEvent.setExpandoBridgeAttributes(baseModel);
+    }
 
-	@Override
-	public void setExpandoBridgeAttributes(
-		com.liferay.portal.service.ServiceContext serviceContext) {
-		_dlSyncEvent.setExpandoBridgeAttributes(serviceContext);
-	}
+    @Override
+    public void setExpandoBridgeAttributes(
+        com.liferay.portlet.expando.model.ExpandoBridge expandoBridge) {
+        _dlSyncEvent.setExpandoBridgeAttributes(expandoBridge);
+    }
 
-	@Override
-	public java.lang.Object clone() {
-		return new DLSyncEventWrapper((DLSyncEvent)_dlSyncEvent.clone());
-	}
+    @Override
+    public void setExpandoBridgeAttributes(
+        com.liferay.portal.service.ServiceContext serviceContext) {
+        _dlSyncEvent.setExpandoBridgeAttributes(serviceContext);
+    }
 
-	@Override
-	public int compareTo(
-		com.liferay.portlet.documentlibrary.model.DLSyncEvent dlSyncEvent) {
-		return _dlSyncEvent.compareTo(dlSyncEvent);
-	}
+    @Override
+    public java.lang.Object clone() {
+        return new DLSyncEventWrapper((DLSyncEvent) _dlSyncEvent.clone());
+    }
 
-	@Override
-	public int hashCode() {
-		return _dlSyncEvent.hashCode();
-	}
+    @Override
+    public int compareTo(
+        com.liferay.portlet.documentlibrary.model.DLSyncEvent dlSyncEvent) {
+        return _dlSyncEvent.compareTo(dlSyncEvent);
+    }
 
-	@Override
-	public com.liferay.portal.model.CacheModel<com.liferay.portlet.documentlibrary.model.DLSyncEvent> toCacheModel() {
-		return _dlSyncEvent.toCacheModel();
-	}
+    @Override
+    public int hashCode() {
+        return _dlSyncEvent.hashCode();
+    }
 
-	@Override
-	public com.liferay.portlet.documentlibrary.model.DLSyncEvent toEscapedModel() {
-		return new DLSyncEventWrapper(_dlSyncEvent.toEscapedModel());
-	}
+    @Override
+    public com.liferay.portal.model.CacheModel<com.liferay.portlet.documentlibrary.model.DLSyncEvent> toCacheModel() {
+        return _dlSyncEvent.toCacheModel();
+    }
 
-	@Override
-	public com.liferay.portlet.documentlibrary.model.DLSyncEvent toUnescapedModel() {
-		return new DLSyncEventWrapper(_dlSyncEvent.toUnescapedModel());
-	}
+    @Override
+    public com.liferay.portlet.documentlibrary.model.DLSyncEvent toEscapedModel() {
+        return new DLSyncEventWrapper(_dlSyncEvent.toEscapedModel());
+    }
 
-	@Override
-	public java.lang.String toString() {
-		return _dlSyncEvent.toString();
-	}
+    @Override
+    public com.liferay.portlet.documentlibrary.model.DLSyncEvent toUnescapedModel() {
+        return new DLSyncEventWrapper(_dlSyncEvent.toUnescapedModel());
+    }
 
-	@Override
-	public java.lang.String toXmlString() {
-		return _dlSyncEvent.toXmlString();
-	}
+    @Override
+    public java.lang.String toString() {
+        return _dlSyncEvent.toString();
+    }
 
-	@Override
-	public void persist()
-		throws com.liferay.portal.kernel.exception.SystemException {
-		_dlSyncEvent.persist();
-	}
+    @Override
+    public java.lang.String toXmlString() {
+        return _dlSyncEvent.toXmlString();
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
+    @Override
+    public void persist()
+        throws com.liferay.portal.kernel.exception.SystemException {
+        _dlSyncEvent.persist();
+    }
 
-		if (!(obj instanceof DLSyncEventWrapper)) {
-			return false;
-		}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
 
-		DLSyncEventWrapper dlSyncEventWrapper = (DLSyncEventWrapper)obj;
+        if (!(obj instanceof DLSyncEventWrapper)) {
+            return false;
+        }
 
-		if (Validator.equals(_dlSyncEvent, dlSyncEventWrapper._dlSyncEvent)) {
-			return true;
-		}
+        DLSyncEventWrapper dlSyncEventWrapper = (DLSyncEventWrapper) obj;
 
-		return false;
-	}
+        if (Validator.equals(_dlSyncEvent, dlSyncEventWrapper._dlSyncEvent)) {
+            return true;
+        }
 
-	/**
-	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedModel}
-	 */
-	public DLSyncEvent getWrappedDLSyncEvent() {
-		return _dlSyncEvent;
-	}
+        return false;
+    }
 
-	@Override
-	public DLSyncEvent getWrappedModel() {
-		return _dlSyncEvent;
-	}
+    /**
+     * @deprecated As of 6.1.0, replaced by {@link #getWrappedModel}
+     */
+    public DLSyncEvent getWrappedDLSyncEvent() {
+        return _dlSyncEvent;
+    }
 
-	@Override
-	public void resetOriginalValues() {
-		_dlSyncEvent.resetOriginalValues();
-	}
+    @Override
+    public DLSyncEvent getWrappedModel() {
+        return _dlSyncEvent;
+    }
 
-	private DLSyncEvent _dlSyncEvent;
+    @Override
+    public void resetOriginalValues() {
+        _dlSyncEvent.resetOriginalValues();
+    }
 }

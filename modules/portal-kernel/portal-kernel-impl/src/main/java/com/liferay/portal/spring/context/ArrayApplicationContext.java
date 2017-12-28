@@ -33,7 +33,7 @@ public class ArrayApplicationContext extends ClassPathXmlApplicationContext {
 	}
 
 	public ArrayApplicationContext(String[] configLocations, ApplicationContext parent) {
-		super(configLocations, parent);
+		super(configLocations,  parent);
 	}
 	
 	@Override

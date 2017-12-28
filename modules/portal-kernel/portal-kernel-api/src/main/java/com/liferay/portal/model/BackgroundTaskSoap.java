@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -28,213 +14,212 @@ import java.util.List;
  * @generated
  */
 public class BackgroundTaskSoap implements Serializable {
-	public static BackgroundTaskSoap toSoapModel(BackgroundTask model) {
-		BackgroundTaskSoap soapModel = new BackgroundTaskSoap();
+    private long _backgroundTaskId;
+    private long _groupId;
+    private long _companyId;
+    private long _userId;
+    private String _userName;
+    private Date _createDate;
+    private Date _modifiedDate;
+    private String _name;
+    private String _servletContextNames;
+    private String _taskExecutorClassName;
+    private String _taskContext;
+    private boolean _completed;
+    private Date _completionDate;
+    private int _status;
+    private String _statusMessage;
 
-		soapModel.setBackgroundTaskId(model.getBackgroundTaskId());
-		soapModel.setGroupId(model.getGroupId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setUserName(model.getUserName());
-		soapModel.setCreateDate(model.getCreateDate());
-		soapModel.setModifiedDate(model.getModifiedDate());
-		soapModel.setName(model.getName());
-		soapModel.setServletContextNames(model.getServletContextNames());
-		soapModel.setTaskExecutorClassName(model.getTaskExecutorClassName());
-		soapModel.setTaskContext(model.getTaskContext());
-		soapModel.setCompleted(model.getCompleted());
-		soapModel.setCompletionDate(model.getCompletionDate());
-		soapModel.setStatus(model.getStatus());
-		soapModel.setStatusMessage(model.getStatusMessage());
+    public BackgroundTaskSoap() {
+    }
 
-		return soapModel;
-	}
+    public static BackgroundTaskSoap toSoapModel(BackgroundTask model) {
+        BackgroundTaskSoap soapModel = new BackgroundTaskSoap();
 
-	public static BackgroundTaskSoap[] toSoapModels(BackgroundTask[] models) {
-		BackgroundTaskSoap[] soapModels = new BackgroundTaskSoap[models.length];
+        soapModel.setBackgroundTaskId(model.getBackgroundTaskId());
+        soapModel.setGroupId(model.getGroupId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setUserName(model.getUserName());
+        soapModel.setCreateDate(model.getCreateDate());
+        soapModel.setModifiedDate(model.getModifiedDate());
+        soapModel.setName(model.getName());
+        soapModel.setServletContextNames(model.getServletContextNames());
+        soapModel.setTaskExecutorClassName(model.getTaskExecutorClassName());
+        soapModel.setTaskContext(model.getTaskContext());
+        soapModel.setCompleted(model.getCompleted());
+        soapModel.setCompletionDate(model.getCompletionDate());
+        soapModel.setStatus(model.getStatus());
+        soapModel.setStatusMessage(model.getStatusMessage());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static BackgroundTaskSoap[] toSoapModels(BackgroundTask[] models) {
+        BackgroundTaskSoap[] soapModels = new BackgroundTaskSoap[models.length];
 
-	public static BackgroundTaskSoap[][] toSoapModels(BackgroundTask[][] models) {
-		BackgroundTaskSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new BackgroundTaskSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new BackgroundTaskSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static BackgroundTaskSoap[][] toSoapModels(BackgroundTask[][] models) {
+        BackgroundTaskSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new BackgroundTaskSoap[models.length][models[0].length];
+        } else {
+            soapModels = new BackgroundTaskSoap[0][0];
+        }
 
-	public static BackgroundTaskSoap[] toSoapModels(List<BackgroundTask> models) {
-		List<BackgroundTaskSoap> soapModels = new ArrayList<BackgroundTaskSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (BackgroundTask model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new BackgroundTaskSoap[soapModels.size()]);
-	}
+    public static BackgroundTaskSoap[] toSoapModels(List<BackgroundTask> models) {
+        List<BackgroundTaskSoap> soapModels = new ArrayList<BackgroundTaskSoap>(models.size());
 
-	public BackgroundTaskSoap() {
-	}
+        for (BackgroundTask model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _backgroundTaskId;
-	}
+        return soapModels.toArray(new BackgroundTaskSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setBackgroundTaskId(pk);
-	}
+    public long getPrimaryKey() {
+        return _backgroundTaskId;
+    }
 
-	public long getBackgroundTaskId() {
-		return _backgroundTaskId;
-	}
+    public void setPrimaryKey(long pk) {
+        setBackgroundTaskId(pk);
+    }
 
-	public void setBackgroundTaskId(long backgroundTaskId) {
-		_backgroundTaskId = backgroundTaskId;
-	}
+    public long getBackgroundTaskId() {
+        return _backgroundTaskId;
+    }
 
-	public long getGroupId() {
-		return _groupId;
-	}
+    public void setBackgroundTaskId(long backgroundTaskId) {
+        _backgroundTaskId = backgroundTaskId;
+    }
 
-	public void setGroupId(long groupId) {
-		_groupId = groupId;
-	}
+    public long getGroupId() {
+        return _groupId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setGroupId(long groupId) {
+        _groupId = groupId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public String getUserName() {
-		return _userName;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setUserName(String userName) {
-		_userName = userName;
-	}
+    public String getUserName() {
+        return _userName;
+    }
 
-	public Date getCreateDate() {
-		return _createDate;
-	}
+    public void setUserName(String userName) {
+        _userName = userName;
+    }
 
-	public void setCreateDate(Date createDate) {
-		_createDate = createDate;
-	}
+    public Date getCreateDate() {
+        return _createDate;
+    }
 
-	public Date getModifiedDate() {
-		return _modifiedDate;
-	}
+    public void setCreateDate(Date createDate) {
+        _createDate = createDate;
+    }
 
-	public void setModifiedDate(Date modifiedDate) {
-		_modifiedDate = modifiedDate;
-	}
+    public Date getModifiedDate() {
+        return _modifiedDate;
+    }
 
-	public String getName() {
-		return _name;
-	}
+    public void setModifiedDate(Date modifiedDate) {
+        _modifiedDate = modifiedDate;
+    }
 
-	public void setName(String name) {
-		_name = name;
-	}
+    public String getName() {
+        return _name;
+    }
 
-	public String getServletContextNames() {
-		return _servletContextNames;
-	}
+    public void setName(String name) {
+        _name = name;
+    }
 
-	public void setServletContextNames(String servletContextNames) {
-		_servletContextNames = servletContextNames;
-	}
+    public String getServletContextNames() {
+        return _servletContextNames;
+    }
 
-	public String getTaskExecutorClassName() {
-		return _taskExecutorClassName;
-	}
+    public void setServletContextNames(String servletContextNames) {
+        _servletContextNames = servletContextNames;
+    }
 
-	public void setTaskExecutorClassName(String taskExecutorClassName) {
-		_taskExecutorClassName = taskExecutorClassName;
-	}
+    public String getTaskExecutorClassName() {
+        return _taskExecutorClassName;
+    }
 
-	public String getTaskContext() {
-		return _taskContext;
-	}
+    public void setTaskExecutorClassName(String taskExecutorClassName) {
+        _taskExecutorClassName = taskExecutorClassName;
+    }
 
-	public void setTaskContext(String taskContext) {
-		_taskContext = taskContext;
-	}
+    public String getTaskContext() {
+        return _taskContext;
+    }
 
-	public boolean getCompleted() {
-		return _completed;
-	}
+    public void setTaskContext(String taskContext) {
+        _taskContext = taskContext;
+    }
 
-	public boolean isCompleted() {
-		return _completed;
-	}
+    public boolean getCompleted() {
+        return _completed;
+    }
 
-	public void setCompleted(boolean completed) {
-		_completed = completed;
-	}
+    public boolean isCompleted() {
+        return _completed;
+    }
 
-	public Date getCompletionDate() {
-		return _completionDate;
-	}
+    public void setCompleted(boolean completed) {
+        _completed = completed;
+    }
 
-	public void setCompletionDate(Date completionDate) {
-		_completionDate = completionDate;
-	}
+    public Date getCompletionDate() {
+        return _completionDate;
+    }
 
-	public int getStatus() {
-		return _status;
-	}
+    public void setCompletionDate(Date completionDate) {
+        _completionDate = completionDate;
+    }
 
-	public void setStatus(int status) {
-		_status = status;
-	}
+    public int getStatus() {
+        return _status;
+    }
 
-	public String getStatusMessage() {
-		return _statusMessage;
-	}
+    public void setStatus(int status) {
+        _status = status;
+    }
 
-	public void setStatusMessage(String statusMessage) {
-		_statusMessage = statusMessage;
-	}
+    public String getStatusMessage() {
+        return _statusMessage;
+    }
 
-	private long _backgroundTaskId;
-	private long _groupId;
-	private long _companyId;
-	private long _userId;
-	private String _userName;
-	private Date _createDate;
-	private Date _modifiedDate;
-	private String _name;
-	private String _servletContextNames;
-	private String _taskExecutorClassName;
-	private String _taskContext;
-	private boolean _completed;
-	private Date _completionDate;
-	private int _status;
-	private String _statusMessage;
+    public void setStatusMessage(String statusMessage) {
+        _statusMessage = statusMessage;
+    }
 }

@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.announcements.model;
 
 import java.io.Serializable;
@@ -27,145 +13,144 @@ import java.util.List;
  * @generated
  */
 public class AnnouncementsDeliverySoap implements Serializable {
-	public static AnnouncementsDeliverySoap toSoapModel(
-		AnnouncementsDelivery model) {
-		AnnouncementsDeliverySoap soapModel = new AnnouncementsDeliverySoap();
+    private long _deliveryId;
+    private long _companyId;
+    private long _userId;
+    private String _type;
+    private boolean _email;
+    private boolean _sms;
+    private boolean _website;
 
-		soapModel.setDeliveryId(model.getDeliveryId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setType(model.getType());
-		soapModel.setEmail(model.getEmail());
-		soapModel.setSms(model.getSms());
-		soapModel.setWebsite(model.getWebsite());
+    public AnnouncementsDeliverySoap() {
+    }
 
-		return soapModel;
-	}
+    public static AnnouncementsDeliverySoap toSoapModel(
+        AnnouncementsDelivery model) {
+        AnnouncementsDeliverySoap soapModel = new AnnouncementsDeliverySoap();
 
-	public static AnnouncementsDeliverySoap[] toSoapModels(
-		AnnouncementsDelivery[] models) {
-		AnnouncementsDeliverySoap[] soapModels = new AnnouncementsDeliverySoap[models.length];
+        soapModel.setDeliveryId(model.getDeliveryId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setType(model.getType());
+        soapModel.setEmail(model.getEmail());
+        soapModel.setSms(model.getSms());
+        soapModel.setWebsite(model.getWebsite());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static AnnouncementsDeliverySoap[] toSoapModels(
+        AnnouncementsDelivery[] models) {
+        AnnouncementsDeliverySoap[] soapModels = new AnnouncementsDeliverySoap[models.length];
 
-	public static AnnouncementsDeliverySoap[][] toSoapModels(
-		AnnouncementsDelivery[][] models) {
-		AnnouncementsDeliverySoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new AnnouncementsDeliverySoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new AnnouncementsDeliverySoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static AnnouncementsDeliverySoap[][] toSoapModels(
+        AnnouncementsDelivery[][] models) {
+        AnnouncementsDeliverySoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new AnnouncementsDeliverySoap[models.length][models[0].length];
+        } else {
+            soapModels = new AnnouncementsDeliverySoap[0][0];
+        }
 
-	public static AnnouncementsDeliverySoap[] toSoapModels(
-		List<AnnouncementsDelivery> models) {
-		List<AnnouncementsDeliverySoap> soapModels = new ArrayList<AnnouncementsDeliverySoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (AnnouncementsDelivery model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new AnnouncementsDeliverySoap[soapModels.size()]);
-	}
+    public static AnnouncementsDeliverySoap[] toSoapModels(
+        List<AnnouncementsDelivery> models) {
+        List<AnnouncementsDeliverySoap> soapModels = new ArrayList<AnnouncementsDeliverySoap>(models.size());
 
-	public AnnouncementsDeliverySoap() {
-	}
+        for (AnnouncementsDelivery model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _deliveryId;
-	}
+        return soapModels.toArray(new AnnouncementsDeliverySoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setDeliveryId(pk);
-	}
+    public long getPrimaryKey() {
+        return _deliveryId;
+    }
 
-	public long getDeliveryId() {
-		return _deliveryId;
-	}
+    public void setPrimaryKey(long pk) {
+        setDeliveryId(pk);
+    }
 
-	public void setDeliveryId(long deliveryId) {
-		_deliveryId = deliveryId;
-	}
+    public long getDeliveryId() {
+        return _deliveryId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setDeliveryId(long deliveryId) {
+        _deliveryId = deliveryId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public String getType() {
-		return _type;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setType(String type) {
-		_type = type;
-	}
+    public String getType() {
+        return _type;
+    }
 
-	public boolean getEmail() {
-		return _email;
-	}
+    public void setType(String type) {
+        _type = type;
+    }
 
-	public boolean isEmail() {
-		return _email;
-	}
+    public boolean getEmail() {
+        return _email;
+    }
 
-	public void setEmail(boolean email) {
-		_email = email;
-	}
+    public boolean isEmail() {
+        return _email;
+    }
 
-	public boolean getSms() {
-		return _sms;
-	}
+    public void setEmail(boolean email) {
+        _email = email;
+    }
 
-	public boolean isSms() {
-		return _sms;
-	}
+    public boolean getSms() {
+        return _sms;
+    }
 
-	public void setSms(boolean sms) {
-		_sms = sms;
-	}
+    public boolean isSms() {
+        return _sms;
+    }
 
-	public boolean getWebsite() {
-		return _website;
-	}
+    public void setSms(boolean sms) {
+        _sms = sms;
+    }
 
-	public boolean isWebsite() {
-		return _website;
-	}
+    public boolean getWebsite() {
+        return _website;
+    }
 
-	public void setWebsite(boolean website) {
-		_website = website;
-	}
+    public boolean isWebsite() {
+        return _website;
+    }
 
-	private long _deliveryId;
-	private long _companyId;
-	private long _userId;
-	private String _type;
-	private boolean _email;
-	private boolean _sms;
-	private boolean _website;
+    public void setWebsite(boolean website) {
+        _website = website;
+    }
 }

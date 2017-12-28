@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,217 +20,202 @@ import java.util.Date;
  * @generated
  */
 public class BackgroundTaskCacheModel implements CacheModel<BackgroundTask>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(31);
+    Externalizable {
+    public long backgroundTaskId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public String name;
+    public String servletContextNames;
+    public String taskExecutorClassName;
+    public String taskContext;
+    public boolean completed;
+    public long completionDate;
+    public int status;
+    public String statusMessage;
 
-		sb.append("{backgroundTaskId=");
-		sb.append(backgroundTaskId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", servletContextNames=");
-		sb.append(servletContextNames);
-		sb.append(", taskExecutorClassName=");
-		sb.append(taskExecutorClassName);
-		sb.append(", taskContext=");
-		sb.append(taskContext);
-		sb.append(", completed=");
-		sb.append(completed);
-		sb.append(", completionDate=");
-		sb.append(completionDate);
-		sb.append(", status=");
-		sb.append(status);
-		sb.append(", statusMessage=");
-		sb.append(statusMessage);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(31);
 
-		return sb.toString();
-	}
+        sb.append("{backgroundTaskId=");
+        sb.append(backgroundTaskId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", servletContextNames=");
+        sb.append(servletContextNames);
+        sb.append(", taskExecutorClassName=");
+        sb.append(taskExecutorClassName);
+        sb.append(", taskContext=");
+        sb.append(taskContext);
+        sb.append(", completed=");
+        sb.append(completed);
+        sb.append(", completionDate=");
+        sb.append(completionDate);
+        sb.append(", status=");
+        sb.append(status);
+        sb.append(", statusMessage=");
+        sb.append(statusMessage);
+        sb.append("}");
 
-	@Override
-	public BackgroundTask toEntityModel() {
-		BackgroundTaskImpl backgroundTaskImpl = new BackgroundTaskImpl();
+        return sb.toString();
+    }
 
-		backgroundTaskImpl.setBackgroundTaskId(backgroundTaskId);
-		backgroundTaskImpl.setGroupId(groupId);
-		backgroundTaskImpl.setCompanyId(companyId);
-		backgroundTaskImpl.setUserId(userId);
+    @Override
+    public BackgroundTask toEntityModel() {
+        BackgroundTaskImpl backgroundTaskImpl = new BackgroundTaskImpl();
 
-		if (userName == null) {
-			backgroundTaskImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			backgroundTaskImpl.setUserName(userName);
-		}
+        backgroundTaskImpl.setBackgroundTaskId(backgroundTaskId);
+        backgroundTaskImpl.setGroupId(groupId);
+        backgroundTaskImpl.setCompanyId(companyId);
+        backgroundTaskImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			backgroundTaskImpl.setCreateDate(null);
-		}
-		else {
-			backgroundTaskImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            backgroundTaskImpl.setUserName(StringPool.BLANK);
+        } else {
+            backgroundTaskImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			backgroundTaskImpl.setModifiedDate(null);
-		}
-		else {
-			backgroundTaskImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            backgroundTaskImpl.setCreateDate(null);
+        } else {
+            backgroundTaskImpl.setCreateDate(new Date(createDate));
+        }
 
-		if (name == null) {
-			backgroundTaskImpl.setName(StringPool.BLANK);
-		}
-		else {
-			backgroundTaskImpl.setName(name);
-		}
+        if (modifiedDate == Long.MIN_VALUE) {
+            backgroundTaskImpl.setModifiedDate(null);
+        } else {
+            backgroundTaskImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (servletContextNames == null) {
-			backgroundTaskImpl.setServletContextNames(StringPool.BLANK);
-		}
-		else {
-			backgroundTaskImpl.setServletContextNames(servletContextNames);
-		}
+        if (name == null) {
+            backgroundTaskImpl.setName(StringPool.BLANK);
+        } else {
+            backgroundTaskImpl.setName(name);
+        }
 
-		if (taskExecutorClassName == null) {
-			backgroundTaskImpl.setTaskExecutorClassName(StringPool.BLANK);
-		}
-		else {
-			backgroundTaskImpl.setTaskExecutorClassName(taskExecutorClassName);
-		}
+        if (servletContextNames == null) {
+            backgroundTaskImpl.setServletContextNames(StringPool.BLANK);
+        } else {
+            backgroundTaskImpl.setServletContextNames(servletContextNames);
+        }
 
-		if (taskContext == null) {
-			backgroundTaskImpl.setTaskContext(StringPool.BLANK);
-		}
-		else {
-			backgroundTaskImpl.setTaskContext(taskContext);
-		}
+        if (taskExecutorClassName == null) {
+            backgroundTaskImpl.setTaskExecutorClassName(StringPool.BLANK);
+        } else {
+            backgroundTaskImpl.setTaskExecutorClassName(taskExecutorClassName);
+        }
 
-		backgroundTaskImpl.setCompleted(completed);
+        if (taskContext == null) {
+            backgroundTaskImpl.setTaskContext(StringPool.BLANK);
+        } else {
+            backgroundTaskImpl.setTaskContext(taskContext);
+        }
 
-		if (completionDate == Long.MIN_VALUE) {
-			backgroundTaskImpl.setCompletionDate(null);
-		}
-		else {
-			backgroundTaskImpl.setCompletionDate(new Date(completionDate));
-		}
+        backgroundTaskImpl.setCompleted(completed);
 
-		backgroundTaskImpl.setStatus(status);
+        if (completionDate == Long.MIN_VALUE) {
+            backgroundTaskImpl.setCompletionDate(null);
+        } else {
+            backgroundTaskImpl.setCompletionDate(new Date(completionDate));
+        }
 
-		if (statusMessage == null) {
-			backgroundTaskImpl.setStatusMessage(StringPool.BLANK);
-		}
-		else {
-			backgroundTaskImpl.setStatusMessage(statusMessage);
-		}
+        backgroundTaskImpl.setStatus(status);
 
-		backgroundTaskImpl.resetOriginalValues();
+        if (statusMessage == null) {
+            backgroundTaskImpl.setStatusMessage(StringPool.BLANK);
+        } else {
+            backgroundTaskImpl.setStatusMessage(statusMessage);
+        }
 
-		return backgroundTaskImpl;
-	}
+        backgroundTaskImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		backgroundTaskId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		name = objectInput.readUTF();
-		servletContextNames = objectInput.readUTF();
-		taskExecutorClassName = objectInput.readUTF();
-		taskContext = objectInput.readUTF();
-		completed = objectInput.readBoolean();
-		completionDate = objectInput.readLong();
-		status = objectInput.readInt();
-		statusMessage = objectInput.readUTF();
-	}
+        return backgroundTaskImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(backgroundTaskId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        backgroundTaskId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        name = objectInput.readUTF();
+        servletContextNames = objectInput.readUTF();
+        taskExecutorClassName = objectInput.readUTF();
+        taskContext = objectInput.readUTF();
+        completed = objectInput.readBoolean();
+        completionDate = objectInput.readLong();
+        status = objectInput.readInt();
+        statusMessage = objectInput.readUTF();
+    }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(backgroundTaskId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
 
-		if (servletContextNames == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(servletContextNames);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		if (taskExecutorClassName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(taskExecutorClassName);
-		}
+        if (servletContextNames == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(servletContextNames);
+        }
 
-		if (taskContext == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(taskContext);
-		}
+        if (taskExecutorClassName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(taskExecutorClassName);
+        }
 
-		objectOutput.writeBoolean(completed);
-		objectOutput.writeLong(completionDate);
-		objectOutput.writeInt(status);
+        if (taskContext == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(taskContext);
+        }
 
-		if (statusMessage == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(statusMessage);
-		}
-	}
+        objectOutput.writeBoolean(completed);
+        objectOutput.writeLong(completionDate);
+        objectOutput.writeInt(status);
 
-	public long backgroundTaskId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public String name;
-	public String servletContextNames;
-	public String taskExecutorClassName;
-	public String taskContext;
-	public boolean completed;
-	public long completionDate;
-	public int status;
-	public String statusMessage;
+        if (statusMessage == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(statusMessage);
+        }
+    }
 }

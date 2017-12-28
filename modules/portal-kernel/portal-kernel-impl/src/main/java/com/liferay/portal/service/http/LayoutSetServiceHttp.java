@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.service.http;
 
 import com.liferay.portal.kernel.log.Log;
@@ -20,6 +6,7 @@ import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.LayoutSetServiceUtil;
+import com.liferay.portal.service.http.TunnelUtil;
 
 /**
  * Provides the HTTP utility for the
@@ -50,317 +37,301 @@ import com.liferay.portal.service.LayoutSetServiceUtil;
  * @generated
  */
 public class LayoutSetServiceHttp {
-	public static void updateLayoutSetPrototypeLinkEnabled(
-		HttpPrincipal httpPrincipal, long groupId, boolean privateLayout,
-		boolean layoutSetPrototypeLinkEnabled,
-		java.lang.String layoutSetPrototypeUuid)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(LayoutSetServiceUtil.class,
-					"updateLayoutSetPrototypeLinkEnabled",
-					_updateLayoutSetPrototypeLinkEnabledParameterTypes0);
+    private static Log _log = LogFactoryUtil.getLog(LayoutSetServiceHttp.class);
+    private static final Class<?>[] _updateLayoutSetPrototypeLinkEnabledParameterTypes0 =
+        new Class[] {
+            long.class, boolean.class, boolean.class, java.lang.String.class
+        };
+    private static final Class<?>[] _updateLogoParameterTypes1 = new Class[] {
+            long.class, boolean.class, boolean.class, byte[].class
+        };
+    private static final Class<?>[] _updateLogoParameterTypes2 = new Class[] {
+            long.class, boolean.class, boolean.class, java.io.File.class
+        };
+    private static final Class<?>[] _updateLogoParameterTypes3 = new Class[] {
+            long.class, boolean.class, boolean.class, java.io.InputStream.class
+        };
+    private static final Class<?>[] _updateLogoParameterTypes4 = new Class[] {
+            long.class, boolean.class, boolean.class, java.io.InputStream.class,
+            boolean.class
+        };
+    private static final Class<?>[] _updateLookAndFeelParameterTypes5 = new Class[] {
+            long.class, boolean.class, java.lang.String.class,
+            java.lang.String.class, java.lang.String.class, boolean.class
+        };
+    private static final Class<?>[] _updateSettingsParameterTypes6 = new Class[] {
+            long.class, boolean.class, java.lang.String.class
+        };
+    private static final Class<?>[] _updateVirtualHostParameterTypes7 = new Class[] {
+            long.class, boolean.class, java.lang.String.class
+        };
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
-					privateLayout, layoutSetPrototypeLinkEnabled,
-					layoutSetPrototypeUuid);
+    public static void updateLayoutSetPrototypeLinkEnabled(
+        HttpPrincipal httpPrincipal, long groupId, boolean privateLayout,
+        boolean layoutSetPrototypeLinkEnabled,
+        java.lang.String layoutSetPrototypeUuid)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(LayoutSetServiceUtil.class,
+                    "updateLayoutSetPrototypeLinkEnabled",
+                    _updateLayoutSetPrototypeLinkEnabledParameterTypes0);
 
-			try {
-				TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
+                    privateLayout, layoutSetPrototypeLinkEnabled,
+                    layoutSetPrototypeUuid);
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			throw se;
-		}
-	}
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static void updateLogo(HttpPrincipal httpPrincipal, long groupId,
-		boolean privateLayout, boolean logo, byte[] bytes)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(LayoutSetServiceUtil.class,
-					"updateLogo", _updateLogoParameterTypes1);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
-					privateLayout, logo, bytes);
+    public static void updateLogo(HttpPrincipal httpPrincipal, long groupId,
+        boolean privateLayout, boolean logo, byte[] bytes)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(LayoutSetServiceUtil.class,
+                    "updateLogo", _updateLogoParameterTypes1);
 
-			try {
-				TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
+                    privateLayout, logo, bytes);
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			throw se;
-		}
-	}
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static void updateLogo(HttpPrincipal httpPrincipal, long groupId,
-		boolean privateLayout, boolean logo, java.io.File file)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(LayoutSetServiceUtil.class,
-					"updateLogo", _updateLogoParameterTypes2);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
-					privateLayout, logo, file);
+    public static void updateLogo(HttpPrincipal httpPrincipal, long groupId,
+        boolean privateLayout, boolean logo, java.io.File file)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(LayoutSetServiceUtil.class,
+                    "updateLogo", _updateLogoParameterTypes2);
 
-			try {
-				TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
+                    privateLayout, logo, file);
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			throw se;
-		}
-	}
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static void updateLogo(HttpPrincipal httpPrincipal, long groupId,
-		boolean privateLayout, boolean logo, java.io.InputStream inputStream)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(LayoutSetServiceUtil.class,
-					"updateLogo", _updateLogoParameterTypes3);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
-					privateLayout, logo, inputStream);
+    public static void updateLogo(HttpPrincipal httpPrincipal, long groupId,
+        boolean privateLayout, boolean logo, java.io.InputStream inputStream)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(LayoutSetServiceUtil.class,
+                    "updateLogo", _updateLogoParameterTypes3);
 
-			try {
-				TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
+                    privateLayout, logo, inputStream);
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			throw se;
-		}
-	}
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static void updateLogo(HttpPrincipal httpPrincipal, long groupId,
-		boolean privateLayout, boolean logo, java.io.InputStream inputStream,
-		boolean cleanUpStream)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(LayoutSetServiceUtil.class,
-					"updateLogo", _updateLogoParameterTypes4);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
-					privateLayout, logo, inputStream, cleanUpStream);
+    public static void updateLogo(HttpPrincipal httpPrincipal, long groupId,
+        boolean privateLayout, boolean logo, java.io.InputStream inputStream,
+        boolean cleanUpStream)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(LayoutSetServiceUtil.class,
+                    "updateLogo", _updateLogoParameterTypes4);
 
-			try {
-				TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
+                    privateLayout, logo, inputStream, cleanUpStream);
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			throw se;
-		}
-	}
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static com.liferay.portal.model.LayoutSet updateLookAndFeel(
-		HttpPrincipal httpPrincipal, long groupId, boolean privateLayout,
-		java.lang.String themeId, java.lang.String colorSchemeId,
-		java.lang.String css, boolean wapTheme)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(LayoutSetServiceUtil.class,
-					"updateLookAndFeel", _updateLookAndFeelParameterTypes5);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
-					privateLayout, themeId, colorSchemeId, css, wapTheme);
+    public static com.liferay.portal.model.LayoutSet updateLookAndFeel(
+        HttpPrincipal httpPrincipal, long groupId, boolean privateLayout,
+        java.lang.String themeId, java.lang.String colorSchemeId,
+        java.lang.String css, boolean wapTheme)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(LayoutSetServiceUtil.class,
+                    "updateLookAndFeel", _updateLookAndFeelParameterTypes5);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
+                    privateLayout, themeId, colorSchemeId, css, wapTheme);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portal.model.LayoutSet)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portal.model.LayoutSet) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static com.liferay.portal.model.LayoutSet updateSettings(
-		HttpPrincipal httpPrincipal, long groupId, boolean privateLayout,
-		java.lang.String settings)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(LayoutSetServiceUtil.class,
-					"updateSettings", _updateSettingsParameterTypes6);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
-					privateLayout, settings);
+    public static com.liferay.portal.model.LayoutSet updateSettings(
+        HttpPrincipal httpPrincipal, long groupId, boolean privateLayout,
+        java.lang.String settings)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(LayoutSetServiceUtil.class,
+                    "updateSettings", _updateSettingsParameterTypes6);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
+                    privateLayout, settings);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portal.model.LayoutSet)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portal.model.LayoutSet) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static com.liferay.portal.model.LayoutSet updateVirtualHost(
-		HttpPrincipal httpPrincipal, long groupId, boolean privateLayout,
-		java.lang.String virtualHost)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(LayoutSetServiceUtil.class,
-					"updateVirtualHost", _updateVirtualHostParameterTypes7);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
-					privateLayout, virtualHost);
+    public static com.liferay.portal.model.LayoutSet updateVirtualHost(
+        HttpPrincipal httpPrincipal, long groupId, boolean privateLayout,
+        java.lang.String virtualHost)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(LayoutSetServiceUtil.class,
+                    "updateVirtualHost", _updateVirtualHostParameterTypes7);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
+                    privateLayout, virtualHost);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portal.model.LayoutSet)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portal.model.LayoutSet) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	private static Log _log = LogFactoryUtil.getLog(LayoutSetServiceHttp.class);
-	private static final Class<?>[] _updateLayoutSetPrototypeLinkEnabledParameterTypes0 =
-		new Class[] {
-			long.class, boolean.class, boolean.class, java.lang.String.class
-		};
-	private static final Class<?>[] _updateLogoParameterTypes1 = new Class[] {
-			long.class, boolean.class, boolean.class, byte[].class
-		};
-	private static final Class<?>[] _updateLogoParameterTypes2 = new Class[] {
-			long.class, boolean.class, boolean.class, java.io.File.class
-		};
-	private static final Class<?>[] _updateLogoParameterTypes3 = new Class[] {
-			long.class, boolean.class, boolean.class, java.io.InputStream.class
-		};
-	private static final Class<?>[] _updateLogoParameterTypes4 = new Class[] {
-			long.class, boolean.class, boolean.class, java.io.InputStream.class,
-			boolean.class
-		};
-	private static final Class<?>[] _updateLookAndFeelParameterTypes5 = new Class[] {
-			long.class, boolean.class, java.lang.String.class,
-			java.lang.String.class, java.lang.String.class, boolean.class
-		};
-	private static final Class<?>[] _updateSettingsParameterTypes6 = new Class[] {
-			long.class, boolean.class, java.lang.String.class
-		};
-	private static final Class<?>[] _updateVirtualHostParameterTypes7 = new Class[] {
-			long.class, boolean.class, java.lang.String.class
-		};
+            throw se;
+        }
+    }
 }

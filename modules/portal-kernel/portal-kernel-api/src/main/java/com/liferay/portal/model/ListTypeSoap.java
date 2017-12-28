@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -27,89 +13,88 @@ import java.util.List;
  * @generated
  */
 public class ListTypeSoap implements Serializable {
-	public static ListTypeSoap toSoapModel(ListType model) {
-		ListTypeSoap soapModel = new ListTypeSoap();
+    private int _listTypeId;
+    private String _name;
+    private String _type;
 
-		soapModel.setListTypeId(model.getListTypeId());
-		soapModel.setName(model.getName());
-		soapModel.setType(model.getType());
+    public ListTypeSoap() {
+    }
 
-		return soapModel;
-	}
+    public static ListTypeSoap toSoapModel(ListType model) {
+        ListTypeSoap soapModel = new ListTypeSoap();
 
-	public static ListTypeSoap[] toSoapModels(ListType[] models) {
-		ListTypeSoap[] soapModels = new ListTypeSoap[models.length];
+        soapModel.setListTypeId(model.getListTypeId());
+        soapModel.setName(model.getName());
+        soapModel.setType(model.getType());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static ListTypeSoap[] toSoapModels(ListType[] models) {
+        ListTypeSoap[] soapModels = new ListTypeSoap[models.length];
 
-	public static ListTypeSoap[][] toSoapModels(ListType[][] models) {
-		ListTypeSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new ListTypeSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new ListTypeSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static ListTypeSoap[][] toSoapModels(ListType[][] models) {
+        ListTypeSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new ListTypeSoap[models.length][models[0].length];
+        } else {
+            soapModels = new ListTypeSoap[0][0];
+        }
 
-	public static ListTypeSoap[] toSoapModels(List<ListType> models) {
-		List<ListTypeSoap> soapModels = new ArrayList<ListTypeSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (ListType model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new ListTypeSoap[soapModels.size()]);
-	}
+    public static ListTypeSoap[] toSoapModels(List<ListType> models) {
+        List<ListTypeSoap> soapModels = new ArrayList<ListTypeSoap>(models.size());
 
-	public ListTypeSoap() {
-	}
+        for (ListType model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public int getPrimaryKey() {
-		return _listTypeId;
-	}
+        return soapModels.toArray(new ListTypeSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(int pk) {
-		setListTypeId(pk);
-	}
+    public int getPrimaryKey() {
+        return _listTypeId;
+    }
 
-	public int getListTypeId() {
-		return _listTypeId;
-	}
+    public void setPrimaryKey(int pk) {
+        setListTypeId(pk);
+    }
 
-	public void setListTypeId(int listTypeId) {
-		_listTypeId = listTypeId;
-	}
+    public int getListTypeId() {
+        return _listTypeId;
+    }
 
-	public String getName() {
-		return _name;
-	}
+    public void setListTypeId(int listTypeId) {
+        _listTypeId = listTypeId;
+    }
 
-	public void setName(String name) {
-		_name = name;
-	}
+    public String getName() {
+        return _name;
+    }
 
-	public String getType() {
-		return _type;
-	}
+    public void setName(String name) {
+        _name = name;
+    }
 
-	public void setType(String type) {
-		_type = type;
-	}
+    public String getType() {
+        return _type;
+    }
 
-	private int _listTypeId;
-	private String _name;
-	private String _type;
+    public void setType(String type) {
+        _type = type;
+    }
 }

@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -32,74 +18,70 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class ListTypeCacheModel implements CacheModel<ListType>, Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(7);
+    public int listTypeId;
+    public String name;
+    public String type;
 
-		sb.append("{listTypeId=");
-		sb.append(listTypeId);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", type=");
-		sb.append(type);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(7);
 
-		return sb.toString();
-	}
+        sb.append("{listTypeId=");
+        sb.append(listTypeId);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", type=");
+        sb.append(type);
+        sb.append("}");
 
-	@Override
-	public ListType toEntityModel() {
-		ListTypeImpl listTypeImpl = new ListTypeImpl();
+        return sb.toString();
+    }
 
-		listTypeImpl.setListTypeId(listTypeId);
+    @Override
+    public ListType toEntityModel() {
+        ListTypeImpl listTypeImpl = new ListTypeImpl();
 
-		if (name == null) {
-			listTypeImpl.setName(StringPool.BLANK);
-		}
-		else {
-			listTypeImpl.setName(name);
-		}
+        listTypeImpl.setListTypeId(listTypeId);
 
-		if (type == null) {
-			listTypeImpl.setType(StringPool.BLANK);
-		}
-		else {
-			listTypeImpl.setType(type);
-		}
+        if (name == null) {
+            listTypeImpl.setName(StringPool.BLANK);
+        } else {
+            listTypeImpl.setName(name);
+        }
 
-		listTypeImpl.resetOriginalValues();
+        if (type == null) {
+            listTypeImpl.setType(StringPool.BLANK);
+        } else {
+            listTypeImpl.setType(type);
+        }
 
-		return listTypeImpl;
-	}
+        listTypeImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		listTypeId = objectInput.readInt();
-		name = objectInput.readUTF();
-		type = objectInput.readUTF();
-	}
+        return listTypeImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeInt(listTypeId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        listTypeId = objectInput.readInt();
+        name = objectInput.readUTF();
+        type = objectInput.readUTF();
+    }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeInt(listTypeId);
 
-		if (type == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(type);
-		}
-	}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-	public int listTypeId;
-	public String name;
-	public String type;
+        if (type == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(type);
+        }
+    }
 }

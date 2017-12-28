@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -32,107 +18,101 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class PluginSettingCacheModel implements CacheModel<PluginSetting>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(13);
+    Externalizable {
+    public long pluginSettingId;
+    public long companyId;
+    public String pluginId;
+    public String pluginType;
+    public String roles;
+    public boolean active;
 
-		sb.append("{pluginSettingId=");
-		sb.append(pluginSettingId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", pluginId=");
-		sb.append(pluginId);
-		sb.append(", pluginType=");
-		sb.append(pluginType);
-		sb.append(", roles=");
-		sb.append(roles);
-		sb.append(", active=");
-		sb.append(active);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(13);
 
-		return sb.toString();
-	}
+        sb.append("{pluginSettingId=");
+        sb.append(pluginSettingId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", pluginId=");
+        sb.append(pluginId);
+        sb.append(", pluginType=");
+        sb.append(pluginType);
+        sb.append(", roles=");
+        sb.append(roles);
+        sb.append(", active=");
+        sb.append(active);
+        sb.append("}");
 
-	@Override
-	public PluginSetting toEntityModel() {
-		PluginSettingImpl pluginSettingImpl = new PluginSettingImpl();
+        return sb.toString();
+    }
 
-		pluginSettingImpl.setPluginSettingId(pluginSettingId);
-		pluginSettingImpl.setCompanyId(companyId);
+    @Override
+    public PluginSetting toEntityModel() {
+        PluginSettingImpl pluginSettingImpl = new PluginSettingImpl();
 
-		if (pluginId == null) {
-			pluginSettingImpl.setPluginId(StringPool.BLANK);
-		}
-		else {
-			pluginSettingImpl.setPluginId(pluginId);
-		}
+        pluginSettingImpl.setPluginSettingId(pluginSettingId);
+        pluginSettingImpl.setCompanyId(companyId);
 
-		if (pluginType == null) {
-			pluginSettingImpl.setPluginType(StringPool.BLANK);
-		}
-		else {
-			pluginSettingImpl.setPluginType(pluginType);
-		}
+        if (pluginId == null) {
+            pluginSettingImpl.setPluginId(StringPool.BLANK);
+        } else {
+            pluginSettingImpl.setPluginId(pluginId);
+        }
 
-		if (roles == null) {
-			pluginSettingImpl.setRoles(StringPool.BLANK);
-		}
-		else {
-			pluginSettingImpl.setRoles(roles);
-		}
+        if (pluginType == null) {
+            pluginSettingImpl.setPluginType(StringPool.BLANK);
+        } else {
+            pluginSettingImpl.setPluginType(pluginType);
+        }
 
-		pluginSettingImpl.setActive(active);
+        if (roles == null) {
+            pluginSettingImpl.setRoles(StringPool.BLANK);
+        } else {
+            pluginSettingImpl.setRoles(roles);
+        }
 
-		pluginSettingImpl.resetOriginalValues();
+        pluginSettingImpl.setActive(active);
 
-		return pluginSettingImpl;
-	}
+        pluginSettingImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		pluginSettingId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		pluginId = objectInput.readUTF();
-		pluginType = objectInput.readUTF();
-		roles = objectInput.readUTF();
-		active = objectInput.readBoolean();
-	}
+        return pluginSettingImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(pluginSettingId);
-		objectOutput.writeLong(companyId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        pluginSettingId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        pluginId = objectInput.readUTF();
+        pluginType = objectInput.readUTF();
+        roles = objectInput.readUTF();
+        active = objectInput.readBoolean();
+    }
 
-		if (pluginId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(pluginId);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(pluginSettingId);
+        objectOutput.writeLong(companyId);
 
-		if (pluginType == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(pluginType);
-		}
+        if (pluginId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(pluginId);
+        }
 
-		if (roles == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(roles);
-		}
+        if (pluginType == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(pluginType);
+        }
 
-		objectOutput.writeBoolean(active);
-	}
+        if (roles == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(roles);
+        }
 
-	public long pluginSettingId;
-	public long companyId;
-	public String pluginId;
-	public String pluginType;
-	public String roles;
-	public boolean active;
+        objectOutput.writeBoolean(active);
+    }
 }

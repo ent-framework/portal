@@ -330,7 +330,7 @@ public abstract class BaseDB implements DB {
 		ClassLoader classLoader = ClassLoaderUtil.getContextClassLoader();
 
 		InputStream is = classLoader.getResourceAsStream(
-			"com/liferay/portal/tools/sql/dependencies/" + path);
+			"sql_dependencies/" + path);
 
 		if (is == null) {
 			is = classLoader.getResourceAsStream(path);
@@ -386,7 +386,7 @@ public abstract class BaseDB implements DB {
 						ClassLoaderUtil.getContextClassLoader();
 
 					InputStream is = classLoader.getResourceAsStream(
-						"com/liferay/portal/tools/sql/dependencies/" +
+						"sql_dependencies/" +
 							includeFileName);
 
 					if (is == null) {

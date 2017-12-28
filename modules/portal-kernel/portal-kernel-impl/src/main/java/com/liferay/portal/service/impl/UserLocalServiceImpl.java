@@ -1909,7 +1909,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		// Blogs
 
-		blogsStatsUserLocalService.deleteStatsUserByUserId(user.getUserId());
+		//blogsStatsUserLocalService.deleteStatsUserByUserId(user.getUserId());
 
 		// Document library
 

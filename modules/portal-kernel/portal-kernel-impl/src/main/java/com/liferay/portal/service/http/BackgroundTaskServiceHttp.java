@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.service.http;
 
 import com.liferay.portal.kernel.log.Log;
@@ -20,6 +6,7 @@ import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.BackgroundTaskServiceUtil;
+import com.liferay.portal.service.http.TunnelUtil;
 
 /**
  * Provides the HTTP utility for the
@@ -50,74 +37,70 @@ import com.liferay.portal.service.BackgroundTaskServiceUtil;
  * @generated
  */
 public class BackgroundTaskServiceHttp {
-	public static int getBackgroundTasksCount(HttpPrincipal httpPrincipal,
-		long groupId, java.lang.String taskExecutorClassName,
-		java.lang.String completed)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(BackgroundTaskServiceUtil.class,
-					"getBackgroundTasksCount",
-					_getBackgroundTasksCountParameterTypes0);
+    private static Log _log = LogFactoryUtil.getLog(BackgroundTaskServiceHttp.class);
+    private static final Class<?>[] _getBackgroundTasksCountParameterTypes0 = new Class[] {
+            long.class, java.lang.String.class, java.lang.String.class
+        };
+    private static final Class<?>[] _getBackgroundTaskStatusJSONParameterTypes1 = new Class[] {
+            long.class
+        };
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
-					taskExecutorClassName, completed);
+    public static int getBackgroundTasksCount(HttpPrincipal httpPrincipal,
+        long groupId, java.lang.String taskExecutorClassName,
+        java.lang.String completed)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(BackgroundTaskServiceUtil.class,
+                    "getBackgroundTasksCount",
+                    _getBackgroundTasksCountParameterTypes0);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
+                    taskExecutorClassName, completed);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            Object returnObj = null;
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return ((Integer)returnObj).intValue();
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return ((Integer) returnObj).intValue();
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static java.lang.String getBackgroundTaskStatusJSON(
-		HttpPrincipal httpPrincipal, long backgroundTaskId)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(BackgroundTaskServiceUtil.class,
-					"getBackgroundTaskStatusJSON",
-					_getBackgroundTaskStatusJSONParameterTypes1);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					backgroundTaskId);
+    public static java.lang.String getBackgroundTaskStatusJSON(
+        HttpPrincipal httpPrincipal, long backgroundTaskId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(BackgroundTaskServiceUtil.class,
+                    "getBackgroundTaskStatusJSON",
+                    _getBackgroundTaskStatusJSONParameterTypes1);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    backgroundTaskId);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+            Object returnObj = null;
 
-			return (java.lang.String)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (java.lang.String) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	private static Log _log = LogFactoryUtil.getLog(BackgroundTaskServiceHttp.class);
-	private static final Class<?>[] _getBackgroundTasksCountParameterTypes0 = new Class[] {
-			long.class, java.lang.String.class, java.lang.String.class
-		};
-	private static final Class<?>[] _getBackgroundTaskStatusJSONParameterTypes1 = new Class[] {
-			long.class
-		};
+            throw se;
+        }
+    }
 }

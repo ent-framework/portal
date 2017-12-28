@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
@@ -53,45 +39,42 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class StagingServiceSoap {
-	public static void cleanUpStagingRequest(long stagingRequestId)
-		throws RemoteException {
-		try {
-			StagingServiceUtil.cleanUpStagingRequest(stagingRequestId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    private static Log _log = LogFactoryUtil.getLog(StagingServiceSoap.class);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void cleanUpStagingRequest(long stagingRequestId)
+        throws RemoteException {
+        try {
+            StagingServiceUtil.cleanUpStagingRequest(stagingRequestId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static long createStagingRequest(long groupId,
-		java.lang.String checksum) throws RemoteException {
-		try {
-			long returnValue = StagingServiceUtil.createStagingRequest(groupId,
-					checksum);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return returnValue;
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static long createStagingRequest(long groupId,
+        java.lang.String checksum) throws RemoteException {
+        try {
+            long returnValue = StagingServiceUtil.createStagingRequest(groupId,
+                    checksum);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return returnValue;
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void updateStagingRequest(long stagingRequestId,
-		java.lang.String fileName, byte[] bytes) throws RemoteException {
-		try {
-			StagingServiceUtil.updateStagingRequest(stagingRequestId, fileName,
-				bytes);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void updateStagingRequest(long stagingRequestId,
+        java.lang.String fileName, byte[] bytes) throws RemoteException {
+        try {
+            StagingServiceUtil.updateStagingRequest(stagingRequestId, fileName,
+                bytes);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	private static Log _log = LogFactoryUtil.getLog(StagingServiceSoap.class);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.dynamicdatamapping.model;
 
 import aQute.bnd.annotation.ProviderType;
@@ -40,152 +26,152 @@ import java.io.Serializable;
  */
 @ProviderType
 public interface DDMStructureLinkModel extends AttachedModel,
-	BaseModel<DDMStructureLink> {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this interface directly. All methods that expect a d d m structure link model instance should use the {@link DDMStructureLink} interface instead.
-	 */
+    BaseModel<DDMStructureLink> {
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this interface directly. All methods that expect a d d m structure link model instance should use the {@link DDMStructureLink} interface instead.
+     */
 
-	/**
-	 * Returns the primary key of this d d m structure link.
-	 *
-	 * @return the primary key of this d d m structure link
-	 */
-	public long getPrimaryKey();
+    /**
+     * Returns the primary key of this d d m structure link.
+     *
+     * @return the primary key of this d d m structure link
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this d d m structure link.
-	 *
-	 * @param primaryKey the primary key of this d d m structure link
-	 */
-	public void setPrimaryKey(long primaryKey);
+    /**
+     * Sets the primary key of this d d m structure link.
+     *
+     * @param primaryKey the primary key of this d d m structure link
+     */
+    public void setPrimaryKey(long primaryKey);
 
-	/**
-	 * Returns the structure link ID of this d d m structure link.
-	 *
-	 * @return the structure link ID of this d d m structure link
-	 */
-	public long getStructureLinkId();
+    /**
+     * Returns the structure link ID of this d d m structure link.
+     *
+     * @return the structure link ID of this d d m structure link
+     */
+    public long getStructureLinkId();
 
-	/**
-	 * Sets the structure link ID of this d d m structure link.
-	 *
-	 * @param structureLinkId the structure link ID of this d d m structure link
-	 */
-	public void setStructureLinkId(long structureLinkId);
+    /**
+     * Sets the structure link ID of this d d m structure link.
+     *
+     * @param structureLinkId the structure link ID of this d d m structure link
+     */
+    public void setStructureLinkId(long structureLinkId);
 
-	/**
-	 * Returns the fully qualified class name of this d d m structure link.
-	 *
-	 * @return the fully qualified class name of this d d m structure link
-	 */
-	@Override
-	public String getClassName();
+    /**
+     * Returns the fully qualified class name of this d d m structure link.
+     *
+     * @return the fully qualified class name of this d d m structure link
+     */
+    @Override
+    public String getClassName();
 
-	public void setClassName(String className);
+    public void setClassName(String className);
 
-	/**
-	 * Returns the class name ID of this d d m structure link.
-	 *
-	 * @return the class name ID of this d d m structure link
-	 */
-	@Override
-	public long getClassNameId();
+    /**
+     * Returns the class name ID of this d d m structure link.
+     *
+     * @return the class name ID of this d d m structure link
+     */
+    @Override
+    public long getClassNameId();
 
-	/**
-	 * Sets the class name ID of this d d m structure link.
-	 *
-	 * @param classNameId the class name ID of this d d m structure link
-	 */
-	@Override
-	public void setClassNameId(long classNameId);
+    /**
+     * Sets the class name ID of this d d m structure link.
+     *
+     * @param classNameId the class name ID of this d d m structure link
+     */
+    @Override
+    public void setClassNameId(long classNameId);
 
-	/**
-	 * Returns the class p k of this d d m structure link.
-	 *
-	 * @return the class p k of this d d m structure link
-	 */
-	@Override
-	public long getClassPK();
+    /**
+     * Returns the class p k of this d d m structure link.
+     *
+     * @return the class p k of this d d m structure link
+     */
+    @Override
+    public long getClassPK();
 
-	/**
-	 * Sets the class p k of this d d m structure link.
-	 *
-	 * @param classPK the class p k of this d d m structure link
-	 */
-	@Override
-	public void setClassPK(long classPK);
+    /**
+     * Sets the class p k of this d d m structure link.
+     *
+     * @param classPK the class p k of this d d m structure link
+     */
+    @Override
+    public void setClassPK(long classPK);
 
-	/**
-	 * Returns the structure ID of this d d m structure link.
-	 *
-	 * @return the structure ID of this d d m structure link
-	 */
-	public long getStructureId();
+    /**
+     * Returns the structure ID of this d d m structure link.
+     *
+     * @return the structure ID of this d d m structure link
+     */
+    public long getStructureId();
 
-	/**
-	 * Sets the structure ID of this d d m structure link.
-	 *
-	 * @param structureId the structure ID of this d d m structure link
-	 */
-	public void setStructureId(long structureId);
+    /**
+     * Sets the structure ID of this d d m structure link.
+     *
+     * @param structureId the structure ID of this d d m structure link
+     */
+    public void setStructureId(long structureId);
 
-	@Override
-	public boolean isNew();
+    @Override
+    public boolean isNew();
 
-	@Override
-	public void setNew(boolean n);
+    @Override
+    public void setNew(boolean n);
 
-	@Override
-	public boolean isCachedModel();
+    @Override
+    public boolean isCachedModel();
 
-	@Override
-	public void setCachedModel(boolean cachedModel);
+    @Override
+    public void setCachedModel(boolean cachedModel);
 
-	@Override
-	public boolean isEscapedModel();
+    @Override
+    public boolean isEscapedModel();
 
-	@Override
-	public Serializable getPrimaryKeyObj();
+    @Override
+    public Serializable getPrimaryKeyObj();
 
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj);
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj);
 
-	@Override
-	public ExpandoBridge getExpandoBridge();
+    @Override
+    public ExpandoBridge getExpandoBridge();
 
-	@Override
-	public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
+    @Override
+    public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
 
-	@Override
-	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
+    @Override
+    public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	@Override
-	public Object clone();
+    @Override
+    public Object clone();
 
-	@Override
-	public int compareTo(
-		com.liferay.portlet.dynamicdatamapping.model.DDMStructureLink ddmStructureLink);
+    @Override
+    public int compareTo(
+        com.liferay.portlet.dynamicdatamapping.model.DDMStructureLink ddmStructureLink);
 
-	@Override
-	public int hashCode();
+    @Override
+    public int hashCode();
 
-	@Override
-	public CacheModel<com.liferay.portlet.dynamicdatamapping.model.DDMStructureLink> toCacheModel();
+    @Override
+    public CacheModel<com.liferay.portlet.dynamicdatamapping.model.DDMStructureLink> toCacheModel();
 
-	@Override
-	public com.liferay.portlet.dynamicdatamapping.model.DDMStructureLink toEscapedModel();
+    @Override
+    public com.liferay.portlet.dynamicdatamapping.model.DDMStructureLink toEscapedModel();
 
-	@Override
-	public com.liferay.portlet.dynamicdatamapping.model.DDMStructureLink toUnescapedModel();
+    @Override
+    public com.liferay.portlet.dynamicdatamapping.model.DDMStructureLink toUnescapedModel();
 
-	@Override
-	public String toString();
+    @Override
+    public String toString();
 
-	@Override
-	public String toXmlString();
+    @Override
+    public String toXmlString();
 }

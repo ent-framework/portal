@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.documentlibrary.model.impl;
 
 import com.liferay.portal.kernel.exception.PortalException;
@@ -38,55 +24,54 @@ import java.util.List;
  * @generated
  */
 public abstract class DLFolderBaseImpl extends DLFolderModelImpl
-	implements DLFolder {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this class directly. All methods that expect a document library folder model instance should use the {@link DLFolder} interface instead.
-	 */
-	@Override
-	public void persist() throws SystemException {
-		if (this.isNew()) {
-			DLFolderLocalServiceUtil.addDLFolder(this);
-		}
-		else {
-			DLFolderLocalServiceUtil.updateDLFolder(this);
-		}
-	}
+    implements DLFolder {
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this class directly. All methods that expect a document library folder model instance should use the {@link DLFolder} interface instead.
+     */
+    @Override
+    public void persist() throws SystemException {
+        if (this.isNew()) {
+            DLFolderLocalServiceUtil.addDLFolder(this);
+        } else {
+            DLFolderLocalServiceUtil.updateDLFolder(this);
+        }
+    }
 
-	@Override
-	@SuppressWarnings("unused")
-	public String buildTreePath() throws PortalException, SystemException {
-		List<DLFolder> dlFolders = new ArrayList<DLFolder>();
+    @Override
+    @SuppressWarnings("unused")
+    public String buildTreePath() throws PortalException, SystemException {
+        List<DLFolder> dlFolders = new ArrayList<DLFolder>();
 
-		DLFolder dlFolder = this;
+        DLFolder dlFolder = this;
 
-		while (dlFolder != null) {
-			dlFolders.add(dlFolder);
+        while (dlFolder != null) {
+            dlFolders.add(dlFolder);
 
-			dlFolder = DLFolderLocalServiceUtil.fetchDLFolder(dlFolder.getParentFolderId());
-		}
+            dlFolder = DLFolderLocalServiceUtil.fetchDLFolder(dlFolder.getParentFolderId());
+        }
 
-		StringBundler sb = new StringBundler((dlFolders.size() * 2) + 1);
+        StringBundler sb = new StringBundler((dlFolders.size() * 2) + 1);
 
-		sb.append(StringPool.SLASH);
+        sb.append(StringPool.SLASH);
 
-		for (int i = dlFolders.size() - 1; i >= 0; i--) {
-			dlFolder = dlFolders.get(i);
+        for (int i = dlFolders.size() - 1; i >= 0; i--) {
+            dlFolder = dlFolders.get(i);
 
-			sb.append(dlFolder.getFolderId());
-			sb.append(StringPool.SLASH);
-		}
+            sb.append(dlFolder.getFolderId());
+            sb.append(StringPool.SLASH);
+        }
 
-		return sb.toString();
-	}
+        return sb.toString();
+    }
 
-	@Override
-	public void updateTreePath(String treePath) throws SystemException {
-		DLFolder dlFolder = this;
+    @Override
+    public void updateTreePath(String treePath) throws SystemException {
+        DLFolder dlFolder = this;
 
-		dlFolder.setTreePath(treePath);
+        dlFolder.setTreePath(treePath);
 
-		DLFolderLocalServiceUtil.updateDLFolder(dlFolder);
-	}
+        DLFolderLocalServiceUtil.updateDLFolder(dlFolder);
+    }
 }

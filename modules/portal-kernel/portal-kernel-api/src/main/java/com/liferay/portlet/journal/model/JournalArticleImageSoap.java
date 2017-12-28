@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.journal.model;
 
 import java.io.Serializable;
@@ -26,146 +12,145 @@ import java.util.List;
  * @generated
  */
 public class JournalArticleImageSoap implements Serializable {
-	public static JournalArticleImageSoap toSoapModel(JournalArticleImage model) {
-		JournalArticleImageSoap soapModel = new JournalArticleImageSoap();
+    private long _articleImageId;
+    private long _groupId;
+    private String _articleId;
+    private double _version;
+    private String _elInstanceId;
+    private String _elName;
+    private String _languageId;
+    private boolean _tempImage;
 
-		soapModel.setArticleImageId(model.getArticleImageId());
-		soapModel.setGroupId(model.getGroupId());
-		soapModel.setArticleId(model.getArticleId());
-		soapModel.setVersion(model.getVersion());
-		soapModel.setElInstanceId(model.getElInstanceId());
-		soapModel.setElName(model.getElName());
-		soapModel.setLanguageId(model.getLanguageId());
-		soapModel.setTempImage(model.getTempImage());
+    public JournalArticleImageSoap() {
+    }
 
-		return soapModel;
-	}
+    public static JournalArticleImageSoap toSoapModel(JournalArticleImage model) {
+        JournalArticleImageSoap soapModel = new JournalArticleImageSoap();
 
-	public static JournalArticleImageSoap[] toSoapModels(
-		JournalArticleImage[] models) {
-		JournalArticleImageSoap[] soapModels = new JournalArticleImageSoap[models.length];
+        soapModel.setArticleImageId(model.getArticleImageId());
+        soapModel.setGroupId(model.getGroupId());
+        soapModel.setArticleId(model.getArticleId());
+        soapModel.setVersion(model.getVersion());
+        soapModel.setElInstanceId(model.getElInstanceId());
+        soapModel.setElName(model.getElName());
+        soapModel.setLanguageId(model.getLanguageId());
+        soapModel.setTempImage(model.getTempImage());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static JournalArticleImageSoap[] toSoapModels(
+        JournalArticleImage[] models) {
+        JournalArticleImageSoap[] soapModels = new JournalArticleImageSoap[models.length];
 
-	public static JournalArticleImageSoap[][] toSoapModels(
-		JournalArticleImage[][] models) {
-		JournalArticleImageSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new JournalArticleImageSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new JournalArticleImageSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static JournalArticleImageSoap[][] toSoapModels(
+        JournalArticleImage[][] models) {
+        JournalArticleImageSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new JournalArticleImageSoap[models.length][models[0].length];
+        } else {
+            soapModels = new JournalArticleImageSoap[0][0];
+        }
 
-	public static JournalArticleImageSoap[] toSoapModels(
-		List<JournalArticleImage> models) {
-		List<JournalArticleImageSoap> soapModels = new ArrayList<JournalArticleImageSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (JournalArticleImage model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new JournalArticleImageSoap[soapModels.size()]);
-	}
+    public static JournalArticleImageSoap[] toSoapModels(
+        List<JournalArticleImage> models) {
+        List<JournalArticleImageSoap> soapModels = new ArrayList<JournalArticleImageSoap>(models.size());
 
-	public JournalArticleImageSoap() {
-	}
+        for (JournalArticleImage model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _articleImageId;
-	}
+        return soapModels.toArray(new JournalArticleImageSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setArticleImageId(pk);
-	}
+    public long getPrimaryKey() {
+        return _articleImageId;
+    }
 
-	public long getArticleImageId() {
-		return _articleImageId;
-	}
+    public void setPrimaryKey(long pk) {
+        setArticleImageId(pk);
+    }
 
-	public void setArticleImageId(long articleImageId) {
-		_articleImageId = articleImageId;
-	}
+    public long getArticleImageId() {
+        return _articleImageId;
+    }
 
-	public long getGroupId() {
-		return _groupId;
-	}
+    public void setArticleImageId(long articleImageId) {
+        _articleImageId = articleImageId;
+    }
 
-	public void setGroupId(long groupId) {
-		_groupId = groupId;
-	}
+    public long getGroupId() {
+        return _groupId;
+    }
 
-	public String getArticleId() {
-		return _articleId;
-	}
+    public void setGroupId(long groupId) {
+        _groupId = groupId;
+    }
 
-	public void setArticleId(String articleId) {
-		_articleId = articleId;
-	}
+    public String getArticleId() {
+        return _articleId;
+    }
 
-	public double getVersion() {
-		return _version;
-	}
+    public void setArticleId(String articleId) {
+        _articleId = articleId;
+    }
 
-	public void setVersion(double version) {
-		_version = version;
-	}
+    public double getVersion() {
+        return _version;
+    }
 
-	public String getElInstanceId() {
-		return _elInstanceId;
-	}
+    public void setVersion(double version) {
+        _version = version;
+    }
 
-	public void setElInstanceId(String elInstanceId) {
-		_elInstanceId = elInstanceId;
-	}
+    public String getElInstanceId() {
+        return _elInstanceId;
+    }
 
-	public String getElName() {
-		return _elName;
-	}
+    public void setElInstanceId(String elInstanceId) {
+        _elInstanceId = elInstanceId;
+    }
 
-	public void setElName(String elName) {
-		_elName = elName;
-	}
+    public String getElName() {
+        return _elName;
+    }
 
-	public String getLanguageId() {
-		return _languageId;
-	}
+    public void setElName(String elName) {
+        _elName = elName;
+    }
 
-	public void setLanguageId(String languageId) {
-		_languageId = languageId;
-	}
+    public String getLanguageId() {
+        return _languageId;
+    }
 
-	public boolean getTempImage() {
-		return _tempImage;
-	}
+    public void setLanguageId(String languageId) {
+        _languageId = languageId;
+    }
 
-	public boolean isTempImage() {
-		return _tempImage;
-	}
+    public boolean getTempImage() {
+        return _tempImage;
+    }
 
-	public void setTempImage(boolean tempImage) {
-		_tempImage = tempImage;
-	}
+    public boolean isTempImage() {
+        return _tempImage;
+    }
 
-	private long _articleImageId;
-	private long _groupId;
-	private String _articleId;
-	private double _version;
-	private String _elInstanceId;
-	private String _elName;
-	private String _languageId;
-	private boolean _tempImage;
+    public void setTempImage(boolean tempImage) {
+        _tempImage = tempImage;
+    }
 }

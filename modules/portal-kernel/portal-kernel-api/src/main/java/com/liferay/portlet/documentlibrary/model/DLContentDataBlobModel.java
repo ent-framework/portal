@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.documentlibrary.model;
 
 import java.sql.Blob;
@@ -24,34 +10,34 @@ import java.sql.Blob;
  * @generated
  */
 public class DLContentDataBlobModel {
-	public DLContentDataBlobModel() {
-	}
+    private long _contentId;
+    private Blob _dataBlob;
 
-	public DLContentDataBlobModel(long contentId) {
-		_contentId = contentId;
-	}
+    public DLContentDataBlobModel() {
+    }
 
-	public DLContentDataBlobModel(long contentId, Blob dataBlob) {
-		_contentId = contentId;
-		_dataBlob = dataBlob;
-	}
+    public DLContentDataBlobModel(long contentId) {
+        _contentId = contentId;
+    }
 
-	public long getContentId() {
-		return _contentId;
-	}
+    public DLContentDataBlobModel(long contentId, Blob dataBlob) {
+        _contentId = contentId;
+        _dataBlob = dataBlob;
+    }
 
-	public void setContentId(long contentId) {
-		_contentId = contentId;
-	}
+    public long getContentId() {
+        return _contentId;
+    }
 
-	public Blob getDataBlob() {
-		return _dataBlob;
-	}
+    public void setContentId(long contentId) {
+        _contentId = contentId;
+    }
 
-	public void setDataBlob(Blob dataBlob) {
-		_dataBlob = dataBlob;
-	}
+    public Blob getDataBlob() {
+        return _dataBlob;
+    }
 
-	private long _contentId;
-	private Blob _dataBlob;
+    public void setDataBlob(Blob dataBlob) {
+        _dataBlob = dataBlob;
+    }
 }

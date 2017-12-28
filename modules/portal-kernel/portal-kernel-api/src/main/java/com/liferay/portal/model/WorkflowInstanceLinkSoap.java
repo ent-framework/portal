@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -27,163 +13,162 @@ import java.util.List;
  * @generated
  */
 public class WorkflowInstanceLinkSoap implements Serializable {
-	public static WorkflowInstanceLinkSoap toSoapModel(
-		WorkflowInstanceLink model) {
-		WorkflowInstanceLinkSoap soapModel = new WorkflowInstanceLinkSoap();
+    private long _workflowInstanceLinkId;
+    private long _groupId;
+    private long _companyId;
+    private long _userId;
+    private String _userName;
+    private Date _createDate;
+    private Date _modifiedDate;
+    private long _classNameId;
+    private long _classPK;
+    private long _workflowInstanceId;
 
-		soapModel.setWorkflowInstanceLinkId(model.getWorkflowInstanceLinkId());
-		soapModel.setGroupId(model.getGroupId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setUserName(model.getUserName());
-		soapModel.setCreateDate(model.getCreateDate());
-		soapModel.setModifiedDate(model.getModifiedDate());
-		soapModel.setClassNameId(model.getClassNameId());
-		soapModel.setClassPK(model.getClassPK());
-		soapModel.setWorkflowInstanceId(model.getWorkflowInstanceId());
+    public WorkflowInstanceLinkSoap() {
+    }
 
-		return soapModel;
-	}
+    public static WorkflowInstanceLinkSoap toSoapModel(
+        WorkflowInstanceLink model) {
+        WorkflowInstanceLinkSoap soapModel = new WorkflowInstanceLinkSoap();
 
-	public static WorkflowInstanceLinkSoap[] toSoapModels(
-		WorkflowInstanceLink[] models) {
-		WorkflowInstanceLinkSoap[] soapModels = new WorkflowInstanceLinkSoap[models.length];
+        soapModel.setWorkflowInstanceLinkId(model.getWorkflowInstanceLinkId());
+        soapModel.setGroupId(model.getGroupId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setUserName(model.getUserName());
+        soapModel.setCreateDate(model.getCreateDate());
+        soapModel.setModifiedDate(model.getModifiedDate());
+        soapModel.setClassNameId(model.getClassNameId());
+        soapModel.setClassPK(model.getClassPK());
+        soapModel.setWorkflowInstanceId(model.getWorkflowInstanceId());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static WorkflowInstanceLinkSoap[] toSoapModels(
+        WorkflowInstanceLink[] models) {
+        WorkflowInstanceLinkSoap[] soapModels = new WorkflowInstanceLinkSoap[models.length];
 
-	public static WorkflowInstanceLinkSoap[][] toSoapModels(
-		WorkflowInstanceLink[][] models) {
-		WorkflowInstanceLinkSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new WorkflowInstanceLinkSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new WorkflowInstanceLinkSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static WorkflowInstanceLinkSoap[][] toSoapModels(
+        WorkflowInstanceLink[][] models) {
+        WorkflowInstanceLinkSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new WorkflowInstanceLinkSoap[models.length][models[0].length];
+        } else {
+            soapModels = new WorkflowInstanceLinkSoap[0][0];
+        }
 
-	public static WorkflowInstanceLinkSoap[] toSoapModels(
-		List<WorkflowInstanceLink> models) {
-		List<WorkflowInstanceLinkSoap> soapModels = new ArrayList<WorkflowInstanceLinkSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (WorkflowInstanceLink model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new WorkflowInstanceLinkSoap[soapModels.size()]);
-	}
+    public static WorkflowInstanceLinkSoap[] toSoapModels(
+        List<WorkflowInstanceLink> models) {
+        List<WorkflowInstanceLinkSoap> soapModels = new ArrayList<WorkflowInstanceLinkSoap>(models.size());
 
-	public WorkflowInstanceLinkSoap() {
-	}
+        for (WorkflowInstanceLink model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _workflowInstanceLinkId;
-	}
+        return soapModels.toArray(new WorkflowInstanceLinkSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setWorkflowInstanceLinkId(pk);
-	}
+    public long getPrimaryKey() {
+        return _workflowInstanceLinkId;
+    }
 
-	public long getWorkflowInstanceLinkId() {
-		return _workflowInstanceLinkId;
-	}
+    public void setPrimaryKey(long pk) {
+        setWorkflowInstanceLinkId(pk);
+    }
 
-	public void setWorkflowInstanceLinkId(long workflowInstanceLinkId) {
-		_workflowInstanceLinkId = workflowInstanceLinkId;
-	}
+    public long getWorkflowInstanceLinkId() {
+        return _workflowInstanceLinkId;
+    }
 
-	public long getGroupId() {
-		return _groupId;
-	}
+    public void setWorkflowInstanceLinkId(long workflowInstanceLinkId) {
+        _workflowInstanceLinkId = workflowInstanceLinkId;
+    }
 
-	public void setGroupId(long groupId) {
-		_groupId = groupId;
-	}
+    public long getGroupId() {
+        return _groupId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setGroupId(long groupId) {
+        _groupId = groupId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public String getUserName() {
-		return _userName;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setUserName(String userName) {
-		_userName = userName;
-	}
+    public String getUserName() {
+        return _userName;
+    }
 
-	public Date getCreateDate() {
-		return _createDate;
-	}
+    public void setUserName(String userName) {
+        _userName = userName;
+    }
 
-	public void setCreateDate(Date createDate) {
-		_createDate = createDate;
-	}
+    public Date getCreateDate() {
+        return _createDate;
+    }
 
-	public Date getModifiedDate() {
-		return _modifiedDate;
-	}
+    public void setCreateDate(Date createDate) {
+        _createDate = createDate;
+    }
 
-	public void setModifiedDate(Date modifiedDate) {
-		_modifiedDate = modifiedDate;
-	}
+    public Date getModifiedDate() {
+        return _modifiedDate;
+    }
 
-	public long getClassNameId() {
-		return _classNameId;
-	}
+    public void setModifiedDate(Date modifiedDate) {
+        _modifiedDate = modifiedDate;
+    }
 
-	public void setClassNameId(long classNameId) {
-		_classNameId = classNameId;
-	}
+    public long getClassNameId() {
+        return _classNameId;
+    }
 
-	public long getClassPK() {
-		return _classPK;
-	}
+    public void setClassNameId(long classNameId) {
+        _classNameId = classNameId;
+    }
 
-	public void setClassPK(long classPK) {
-		_classPK = classPK;
-	}
+    public long getClassPK() {
+        return _classPK;
+    }
 
-	public long getWorkflowInstanceId() {
-		return _workflowInstanceId;
-	}
+    public void setClassPK(long classPK) {
+        _classPK = classPK;
+    }
 
-	public void setWorkflowInstanceId(long workflowInstanceId) {
-		_workflowInstanceId = workflowInstanceId;
-	}
+    public long getWorkflowInstanceId() {
+        return _workflowInstanceId;
+    }
 
-	private long _workflowInstanceLinkId;
-	private long _groupId;
-	private long _companyId;
-	private long _userId;
-	private String _userName;
-	private Date _createDate;
-	private Date _modifiedDate;
-	private long _classNameId;
-	private long _classPK;
-	private long _workflowInstanceId;
+    public void setWorkflowInstanceId(long workflowInstanceId) {
+        _workflowInstanceId = workflowInstanceId;
+    }
 }

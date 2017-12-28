@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.shopping.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -32,93 +18,93 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class ShoppingItemPriceCacheModel implements CacheModel<ShoppingItemPrice>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(21);
+    Externalizable {
+    public long itemPriceId;
+    public long itemId;
+    public int minQuantity;
+    public int maxQuantity;
+    public double price;
+    public double discount;
+    public boolean taxable;
+    public double shipping;
+    public boolean useShippingFormula;
+    public int status;
 
-		sb.append("{itemPriceId=");
-		sb.append(itemPriceId);
-		sb.append(", itemId=");
-		sb.append(itemId);
-		sb.append(", minQuantity=");
-		sb.append(minQuantity);
-		sb.append(", maxQuantity=");
-		sb.append(maxQuantity);
-		sb.append(", price=");
-		sb.append(price);
-		sb.append(", discount=");
-		sb.append(discount);
-		sb.append(", taxable=");
-		sb.append(taxable);
-		sb.append(", shipping=");
-		sb.append(shipping);
-		sb.append(", useShippingFormula=");
-		sb.append(useShippingFormula);
-		sb.append(", status=");
-		sb.append(status);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(21);
 
-		return sb.toString();
-	}
+        sb.append("{itemPriceId=");
+        sb.append(itemPriceId);
+        sb.append(", itemId=");
+        sb.append(itemId);
+        sb.append(", minQuantity=");
+        sb.append(minQuantity);
+        sb.append(", maxQuantity=");
+        sb.append(maxQuantity);
+        sb.append(", price=");
+        sb.append(price);
+        sb.append(", discount=");
+        sb.append(discount);
+        sb.append(", taxable=");
+        sb.append(taxable);
+        sb.append(", shipping=");
+        sb.append(shipping);
+        sb.append(", useShippingFormula=");
+        sb.append(useShippingFormula);
+        sb.append(", status=");
+        sb.append(status);
+        sb.append("}");
 
-	@Override
-	public ShoppingItemPrice toEntityModel() {
-		ShoppingItemPriceImpl shoppingItemPriceImpl = new ShoppingItemPriceImpl();
+        return sb.toString();
+    }
 
-		shoppingItemPriceImpl.setItemPriceId(itemPriceId);
-		shoppingItemPriceImpl.setItemId(itemId);
-		shoppingItemPriceImpl.setMinQuantity(minQuantity);
-		shoppingItemPriceImpl.setMaxQuantity(maxQuantity);
-		shoppingItemPriceImpl.setPrice(price);
-		shoppingItemPriceImpl.setDiscount(discount);
-		shoppingItemPriceImpl.setTaxable(taxable);
-		shoppingItemPriceImpl.setShipping(shipping);
-		shoppingItemPriceImpl.setUseShippingFormula(useShippingFormula);
-		shoppingItemPriceImpl.setStatus(status);
+    @Override
+    public ShoppingItemPrice toEntityModel() {
+        ShoppingItemPriceImpl shoppingItemPriceImpl = new ShoppingItemPriceImpl();
 
-		shoppingItemPriceImpl.resetOriginalValues();
+        shoppingItemPriceImpl.setItemPriceId(itemPriceId);
+        shoppingItemPriceImpl.setItemId(itemId);
+        shoppingItemPriceImpl.setMinQuantity(minQuantity);
+        shoppingItemPriceImpl.setMaxQuantity(maxQuantity);
+        shoppingItemPriceImpl.setPrice(price);
+        shoppingItemPriceImpl.setDiscount(discount);
+        shoppingItemPriceImpl.setTaxable(taxable);
+        shoppingItemPriceImpl.setShipping(shipping);
+        shoppingItemPriceImpl.setUseShippingFormula(useShippingFormula);
+        shoppingItemPriceImpl.setStatus(status);
 
-		return shoppingItemPriceImpl;
-	}
+        shoppingItemPriceImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		itemPriceId = objectInput.readLong();
-		itemId = objectInput.readLong();
-		minQuantity = objectInput.readInt();
-		maxQuantity = objectInput.readInt();
-		price = objectInput.readDouble();
-		discount = objectInput.readDouble();
-		taxable = objectInput.readBoolean();
-		shipping = objectInput.readDouble();
-		useShippingFormula = objectInput.readBoolean();
-		status = objectInput.readInt();
-	}
+        return shoppingItemPriceImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(itemPriceId);
-		objectOutput.writeLong(itemId);
-		objectOutput.writeInt(minQuantity);
-		objectOutput.writeInt(maxQuantity);
-		objectOutput.writeDouble(price);
-		objectOutput.writeDouble(discount);
-		objectOutput.writeBoolean(taxable);
-		objectOutput.writeDouble(shipping);
-		objectOutput.writeBoolean(useShippingFormula);
-		objectOutput.writeInt(status);
-	}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        itemPriceId = objectInput.readLong();
+        itemId = objectInput.readLong();
+        minQuantity = objectInput.readInt();
+        maxQuantity = objectInput.readInt();
+        price = objectInput.readDouble();
+        discount = objectInput.readDouble();
+        taxable = objectInput.readBoolean();
+        shipping = objectInput.readDouble();
+        useShippingFormula = objectInput.readBoolean();
+        status = objectInput.readInt();
+    }
 
-	public long itemPriceId;
-	public long itemId;
-	public int minQuantity;
-	public int maxQuantity;
-	public double price;
-	public double discount;
-	public boolean taxable;
-	public double shipping;
-	public boolean useShippingFormula;
-	public int status;
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(itemPriceId);
+        objectOutput.writeLong(itemId);
+        objectOutput.writeInt(minQuantity);
+        objectOutput.writeInt(maxQuantity);
+        objectOutput.writeDouble(price);
+        objectOutput.writeDouble(discount);
+        objectOutput.writeBoolean(taxable);
+        objectOutput.writeDouble(shipping);
+        objectOutput.writeBoolean(useShippingFormula);
+        objectOutput.writeInt(status);
+    }
 }

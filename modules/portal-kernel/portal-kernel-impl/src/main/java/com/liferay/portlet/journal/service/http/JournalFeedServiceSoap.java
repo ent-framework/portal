@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.journal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
@@ -65,144 +51,136 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class JournalFeedServiceSoap {
-	public static com.liferay.portlet.journal.model.JournalFeedSoap addFeed(
-		long groupId, java.lang.String feedId, boolean autoFeedId,
-		java.lang.String name, java.lang.String description,
-		java.lang.String type, java.lang.String structureId,
-		java.lang.String templateId, java.lang.String rendererTemplateId,
-		int delta, java.lang.String orderByCol, java.lang.String orderByType,
-		java.lang.String targetLayoutFriendlyUrl,
-		java.lang.String targetPortletId, java.lang.String contentField,
-		java.lang.String feedType, double feedVersion,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			com.liferay.portlet.journal.model.JournalFeed returnValue = JournalFeedServiceUtil.addFeed(groupId,
-					feedId, autoFeedId, name, description, type, structureId,
-					templateId, rendererTemplateId, delta, orderByCol,
-					orderByType, targetLayoutFriendlyUrl, targetPortletId,
-					contentField, feedType, feedVersion, serviceContext);
+    private static Log _log = LogFactoryUtil.getLog(JournalFeedServiceSoap.class);
 
-			return com.liferay.portlet.journal.model.JournalFeedSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.journal.model.JournalFeedSoap addFeed(
+        long groupId, java.lang.String feedId, boolean autoFeedId,
+        java.lang.String name, java.lang.String description,
+        java.lang.String type, java.lang.String structureId,
+        java.lang.String templateId, java.lang.String rendererTemplateId,
+        int delta, java.lang.String orderByCol, java.lang.String orderByType,
+        java.lang.String targetLayoutFriendlyUrl,
+        java.lang.String targetPortletId, java.lang.String contentField,
+        java.lang.String feedType, double feedVersion,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            com.liferay.portlet.journal.model.JournalFeed returnValue = JournalFeedServiceUtil.addFeed(groupId,
+                    feedId, autoFeedId, name, description, type, structureId,
+                    templateId, rendererTemplateId, delta, orderByCol,
+                    orderByType, targetLayoutFriendlyUrl, targetPortletId,
+                    contentField, feedType, feedVersion, serviceContext);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.journal.model.JournalFeedSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void deleteFeed(long feedId) throws RemoteException {
-		try {
-			JournalFeedServiceUtil.deleteFeed(feedId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void deleteFeed(long feedId) throws RemoteException {
+        try {
+            JournalFeedServiceUtil.deleteFeed(feedId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	/**
-	* @deprecated As of 6.2.0, replaced by {@link #deleteFeed(long, String)}
-	*/
-	public static void deleteFeed(long groupId, long feedId)
-		throws RemoteException {
-		try {
-			JournalFeedServiceUtil.deleteFeed(groupId, feedId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    /**
+    * @deprecated As of 6.2.0, replaced by {@link #deleteFeed(long, String)}
+    */
+    public static void deleteFeed(long groupId, long feedId)
+        throws RemoteException {
+        try {
+            JournalFeedServiceUtil.deleteFeed(groupId, feedId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void deleteFeed(long groupId, java.lang.String feedId)
-		throws RemoteException {
-		try {
-			JournalFeedServiceUtil.deleteFeed(groupId, feedId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void deleteFeed(long groupId, java.lang.String feedId)
+        throws RemoteException {
+        try {
+            JournalFeedServiceUtil.deleteFeed(groupId, feedId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.journal.model.JournalFeedSoap getFeed(
-		long feedId) throws RemoteException {
-		try {
-			com.liferay.portlet.journal.model.JournalFeed returnValue = JournalFeedServiceUtil.getFeed(feedId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.journal.model.JournalFeedSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.journal.model.JournalFeedSoap getFeed(
+        long feedId) throws RemoteException {
+        try {
+            com.liferay.portlet.journal.model.JournalFeed returnValue = JournalFeedServiceUtil.getFeed(feedId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.journal.model.JournalFeedSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	/**
-	* @deprecated As of 6.2.0, replaced by {@link #getFeed(long, String)}
-	*/
-	public static com.liferay.portlet.journal.model.JournalFeedSoap getFeed(
-		long groupId, long feedId) throws RemoteException {
-		try {
-			com.liferay.portlet.journal.model.JournalFeed returnValue = JournalFeedServiceUtil.getFeed(groupId,
-					feedId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.journal.model.JournalFeedSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    /**
+    * @deprecated As of 6.2.0, replaced by {@link #getFeed(long, String)}
+    */
+    public static com.liferay.portlet.journal.model.JournalFeedSoap getFeed(
+        long groupId, long feedId) throws RemoteException {
+        try {
+            com.liferay.portlet.journal.model.JournalFeed returnValue = JournalFeedServiceUtil.getFeed(groupId,
+                    feedId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.journal.model.JournalFeedSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.journal.model.JournalFeedSoap getFeed(
-		long groupId, java.lang.String feedId) throws RemoteException {
-		try {
-			com.liferay.portlet.journal.model.JournalFeed returnValue = JournalFeedServiceUtil.getFeed(groupId,
-					feedId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.journal.model.JournalFeedSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.journal.model.JournalFeedSoap getFeed(
+        long groupId, java.lang.String feedId) throws RemoteException {
+        try {
+            com.liferay.portlet.journal.model.JournalFeed returnValue = JournalFeedServiceUtil.getFeed(groupId,
+                    feedId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.journal.model.JournalFeedSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.journal.model.JournalFeedSoap updateFeed(
-		long groupId, java.lang.String feedId, java.lang.String name,
-		java.lang.String description, java.lang.String type,
-		java.lang.String structureId, java.lang.String templateId,
-		java.lang.String rendererTemplateId, int delta,
-		java.lang.String orderByCol, java.lang.String orderByType,
-		java.lang.String targetLayoutFriendlyUrl,
-		java.lang.String targetPortletId, java.lang.String contentField,
-		java.lang.String feedType, double feedVersion,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			com.liferay.portlet.journal.model.JournalFeed returnValue = JournalFeedServiceUtil.updateFeed(groupId,
-					feedId, name, description, type, structureId, templateId,
-					rendererTemplateId, delta, orderByCol, orderByType,
-					targetLayoutFriendlyUrl, targetPortletId, contentField,
-					feedType, feedVersion, serviceContext);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.journal.model.JournalFeedSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.journal.model.JournalFeedSoap updateFeed(
+        long groupId, java.lang.String feedId, java.lang.String name,
+        java.lang.String description, java.lang.String type,
+        java.lang.String structureId, java.lang.String templateId,
+        java.lang.String rendererTemplateId, int delta,
+        java.lang.String orderByCol, java.lang.String orderByType,
+        java.lang.String targetLayoutFriendlyUrl,
+        java.lang.String targetPortletId, java.lang.String contentField,
+        java.lang.String feedType, double feedVersion,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            com.liferay.portlet.journal.model.JournalFeed returnValue = JournalFeedServiceUtil.updateFeed(groupId,
+                    feedId, name, description, type, structureId, templateId,
+                    rendererTemplateId, delta, orderByCol, orderByType,
+                    targetLayoutFriendlyUrl, targetPortletId, contentField,
+                    feedType, feedVersion, serviceContext);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.journal.model.JournalFeedSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	private static Log _log = LogFactoryUtil.getLog(JournalFeedServiceSoap.class);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.journal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -33,81 +19,77 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class JournalArticleResourceCacheModel implements CacheModel<JournalArticleResource>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(9);
+    Externalizable {
+    public String uuid;
+    public long resourcePrimKey;
+    public long groupId;
+    public String articleId;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", resourcePrimKey=");
-		sb.append(resourcePrimKey);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", articleId=");
-		sb.append(articleId);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(9);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", resourcePrimKey=");
+        sb.append(resourcePrimKey);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", articleId=");
+        sb.append(articleId);
+        sb.append("}");
 
-	@Override
-	public JournalArticleResource toEntityModel() {
-		JournalArticleResourceImpl journalArticleResourceImpl = new JournalArticleResourceImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			journalArticleResourceImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			journalArticleResourceImpl.setUuid(uuid);
-		}
+    @Override
+    public JournalArticleResource toEntityModel() {
+        JournalArticleResourceImpl journalArticleResourceImpl = new JournalArticleResourceImpl();
 
-		journalArticleResourceImpl.setResourcePrimKey(resourcePrimKey);
-		journalArticleResourceImpl.setGroupId(groupId);
+        if (uuid == null) {
+            journalArticleResourceImpl.setUuid(StringPool.BLANK);
+        } else {
+            journalArticleResourceImpl.setUuid(uuid);
+        }
 
-		if (articleId == null) {
-			journalArticleResourceImpl.setArticleId(StringPool.BLANK);
-		}
-		else {
-			journalArticleResourceImpl.setArticleId(articleId);
-		}
+        journalArticleResourceImpl.setResourcePrimKey(resourcePrimKey);
+        journalArticleResourceImpl.setGroupId(groupId);
 
-		journalArticleResourceImpl.resetOriginalValues();
+        if (articleId == null) {
+            journalArticleResourceImpl.setArticleId(StringPool.BLANK);
+        } else {
+            journalArticleResourceImpl.setArticleId(articleId);
+        }
 
-		return journalArticleResourceImpl;
-	}
+        journalArticleResourceImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		resourcePrimKey = objectInput.readLong();
-		groupId = objectInput.readLong();
-		articleId = objectInput.readUTF();
-	}
+        return journalArticleResourceImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        resourcePrimKey = objectInput.readLong();
+        groupId = objectInput.readLong();
+        articleId = objectInput.readUTF();
+    }
 
-		objectOutput.writeLong(resourcePrimKey);
-		objectOutput.writeLong(groupId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (articleId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(articleId);
-		}
-	}
+        objectOutput.writeLong(resourcePrimKey);
+        objectOutput.writeLong(groupId);
 
-	public String uuid;
-	public long resourcePrimKey;
-	public long groupId;
-	public String articleId;
+        if (articleId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(articleId);
+        }
+    }
 }

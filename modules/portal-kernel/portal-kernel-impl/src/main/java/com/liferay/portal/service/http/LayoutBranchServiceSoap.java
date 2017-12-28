@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
@@ -64,53 +50,50 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class LayoutBranchServiceSoap {
-	public static com.liferay.portal.model.LayoutBranchSoap addLayoutBranch(
-		long layoutRevisionId, java.lang.String name,
-		java.lang.String description, boolean master,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			com.liferay.portal.model.LayoutBranch returnValue = LayoutBranchServiceUtil.addLayoutBranch(layoutRevisionId,
-					name, description, master, serviceContext);
+    private static Log _log = LogFactoryUtil.getLog(LayoutBranchServiceSoap.class);
 
-			return com.liferay.portal.model.LayoutBranchSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.LayoutBranchSoap addLayoutBranch(
+        long layoutRevisionId, java.lang.String name,
+        java.lang.String description, boolean master,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            com.liferay.portal.model.LayoutBranch returnValue = LayoutBranchServiceUtil.addLayoutBranch(layoutRevisionId,
+                    name, description, master, serviceContext);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.LayoutBranchSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void deleteLayoutBranch(long layoutBranchId)
-		throws RemoteException {
-		try {
-			LayoutBranchServiceUtil.deleteLayoutBranch(layoutBranchId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void deleteLayoutBranch(long layoutBranchId)
+        throws RemoteException {
+        try {
+            LayoutBranchServiceUtil.deleteLayoutBranch(layoutBranchId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portal.model.LayoutBranchSoap updateLayoutBranch(
-		long layoutBranchId, java.lang.String name,
-		java.lang.String description,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			com.liferay.portal.model.LayoutBranch returnValue = LayoutBranchServiceUtil.updateLayoutBranch(layoutBranchId,
-					name, description, serviceContext);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portal.model.LayoutBranchSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.LayoutBranchSoap updateLayoutBranch(
+        long layoutBranchId, java.lang.String name,
+        java.lang.String description,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            com.liferay.portal.model.LayoutBranch returnValue = LayoutBranchServiceUtil.updateLayoutBranch(layoutBranchId,
+                    name, description, serviceContext);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.LayoutBranchSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	private static Log _log = LogFactoryUtil.getLog(LayoutBranchServiceSoap.class);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

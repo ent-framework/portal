@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.social.model;
 
 import java.io.Serializable;
@@ -26,197 +12,196 @@ import java.util.List;
  * @generated
  */
 public class SocialActivityCounterSoap implements Serializable {
-	public static SocialActivityCounterSoap toSoapModel(
-		SocialActivityCounter model) {
-		SocialActivityCounterSoap soapModel = new SocialActivityCounterSoap();
+    private long _activityCounterId;
+    private long _groupId;
+    private long _companyId;
+    private long _classNameId;
+    private long _classPK;
+    private String _name;
+    private int _ownerType;
+    private int _currentValue;
+    private int _totalValue;
+    private int _graceValue;
+    private int _startPeriod;
+    private int _endPeriod;
+    private boolean _active;
 
-		soapModel.setActivityCounterId(model.getActivityCounterId());
-		soapModel.setGroupId(model.getGroupId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setClassNameId(model.getClassNameId());
-		soapModel.setClassPK(model.getClassPK());
-		soapModel.setName(model.getName());
-		soapModel.setOwnerType(model.getOwnerType());
-		soapModel.setCurrentValue(model.getCurrentValue());
-		soapModel.setTotalValue(model.getTotalValue());
-		soapModel.setGraceValue(model.getGraceValue());
-		soapModel.setStartPeriod(model.getStartPeriod());
-		soapModel.setEndPeriod(model.getEndPeriod());
-		soapModel.setActive(model.getActive());
+    public SocialActivityCounterSoap() {
+    }
 
-		return soapModel;
-	}
+    public static SocialActivityCounterSoap toSoapModel(
+        SocialActivityCounter model) {
+        SocialActivityCounterSoap soapModel = new SocialActivityCounterSoap();
 
-	public static SocialActivityCounterSoap[] toSoapModels(
-		SocialActivityCounter[] models) {
-		SocialActivityCounterSoap[] soapModels = new SocialActivityCounterSoap[models.length];
+        soapModel.setActivityCounterId(model.getActivityCounterId());
+        soapModel.setGroupId(model.getGroupId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setClassNameId(model.getClassNameId());
+        soapModel.setClassPK(model.getClassPK());
+        soapModel.setName(model.getName());
+        soapModel.setOwnerType(model.getOwnerType());
+        soapModel.setCurrentValue(model.getCurrentValue());
+        soapModel.setTotalValue(model.getTotalValue());
+        soapModel.setGraceValue(model.getGraceValue());
+        soapModel.setStartPeriod(model.getStartPeriod());
+        soapModel.setEndPeriod(model.getEndPeriod());
+        soapModel.setActive(model.getActive());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static SocialActivityCounterSoap[] toSoapModels(
+        SocialActivityCounter[] models) {
+        SocialActivityCounterSoap[] soapModels = new SocialActivityCounterSoap[models.length];
 
-	public static SocialActivityCounterSoap[][] toSoapModels(
-		SocialActivityCounter[][] models) {
-		SocialActivityCounterSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new SocialActivityCounterSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new SocialActivityCounterSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static SocialActivityCounterSoap[][] toSoapModels(
+        SocialActivityCounter[][] models) {
+        SocialActivityCounterSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new SocialActivityCounterSoap[models.length][models[0].length];
+        } else {
+            soapModels = new SocialActivityCounterSoap[0][0];
+        }
 
-	public static SocialActivityCounterSoap[] toSoapModels(
-		List<SocialActivityCounter> models) {
-		List<SocialActivityCounterSoap> soapModels = new ArrayList<SocialActivityCounterSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (SocialActivityCounter model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new SocialActivityCounterSoap[soapModels.size()]);
-	}
+    public static SocialActivityCounterSoap[] toSoapModels(
+        List<SocialActivityCounter> models) {
+        List<SocialActivityCounterSoap> soapModels = new ArrayList<SocialActivityCounterSoap>(models.size());
 
-	public SocialActivityCounterSoap() {
-	}
+        for (SocialActivityCounter model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _activityCounterId;
-	}
+        return soapModels.toArray(new SocialActivityCounterSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setActivityCounterId(pk);
-	}
+    public long getPrimaryKey() {
+        return _activityCounterId;
+    }
 
-	public long getActivityCounterId() {
-		return _activityCounterId;
-	}
+    public void setPrimaryKey(long pk) {
+        setActivityCounterId(pk);
+    }
 
-	public void setActivityCounterId(long activityCounterId) {
-		_activityCounterId = activityCounterId;
-	}
+    public long getActivityCounterId() {
+        return _activityCounterId;
+    }
 
-	public long getGroupId() {
-		return _groupId;
-	}
+    public void setActivityCounterId(long activityCounterId) {
+        _activityCounterId = activityCounterId;
+    }
 
-	public void setGroupId(long groupId) {
-		_groupId = groupId;
-	}
+    public long getGroupId() {
+        return _groupId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setGroupId(long groupId) {
+        _groupId = groupId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getClassNameId() {
-		return _classNameId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setClassNameId(long classNameId) {
-		_classNameId = classNameId;
-	}
+    public long getClassNameId() {
+        return _classNameId;
+    }
 
-	public long getClassPK() {
-		return _classPK;
-	}
+    public void setClassNameId(long classNameId) {
+        _classNameId = classNameId;
+    }
 
-	public void setClassPK(long classPK) {
-		_classPK = classPK;
-	}
+    public long getClassPK() {
+        return _classPK;
+    }
 
-	public String getName() {
-		return _name;
-	}
+    public void setClassPK(long classPK) {
+        _classPK = classPK;
+    }
 
-	public void setName(String name) {
-		_name = name;
-	}
+    public String getName() {
+        return _name;
+    }
 
-	public int getOwnerType() {
-		return _ownerType;
-	}
+    public void setName(String name) {
+        _name = name;
+    }
 
-	public void setOwnerType(int ownerType) {
-		_ownerType = ownerType;
-	}
+    public int getOwnerType() {
+        return _ownerType;
+    }
 
-	public int getCurrentValue() {
-		return _currentValue;
-	}
+    public void setOwnerType(int ownerType) {
+        _ownerType = ownerType;
+    }
 
-	public void setCurrentValue(int currentValue) {
-		_currentValue = currentValue;
-	}
+    public int getCurrentValue() {
+        return _currentValue;
+    }
 
-	public int getTotalValue() {
-		return _totalValue;
-	}
+    public void setCurrentValue(int currentValue) {
+        _currentValue = currentValue;
+    }
 
-	public void setTotalValue(int totalValue) {
-		_totalValue = totalValue;
-	}
+    public int getTotalValue() {
+        return _totalValue;
+    }
 
-	public int getGraceValue() {
-		return _graceValue;
-	}
+    public void setTotalValue(int totalValue) {
+        _totalValue = totalValue;
+    }
 
-	public void setGraceValue(int graceValue) {
-		_graceValue = graceValue;
-	}
+    public int getGraceValue() {
+        return _graceValue;
+    }
 
-	public int getStartPeriod() {
-		return _startPeriod;
-	}
+    public void setGraceValue(int graceValue) {
+        _graceValue = graceValue;
+    }
 
-	public void setStartPeriod(int startPeriod) {
-		_startPeriod = startPeriod;
-	}
+    public int getStartPeriod() {
+        return _startPeriod;
+    }
 
-	public int getEndPeriod() {
-		return _endPeriod;
-	}
+    public void setStartPeriod(int startPeriod) {
+        _startPeriod = startPeriod;
+    }
 
-	public void setEndPeriod(int endPeriod) {
-		_endPeriod = endPeriod;
-	}
+    public int getEndPeriod() {
+        return _endPeriod;
+    }
 
-	public boolean getActive() {
-		return _active;
-	}
+    public void setEndPeriod(int endPeriod) {
+        _endPeriod = endPeriod;
+    }
 
-	public boolean isActive() {
-		return _active;
-	}
+    public boolean getActive() {
+        return _active;
+    }
 
-	public void setActive(boolean active) {
-		_active = active;
-	}
+    public boolean isActive() {
+        return _active;
+    }
 
-	private long _activityCounterId;
-	private long _groupId;
-	private long _companyId;
-	private long _classNameId;
-	private long _classPK;
-	private String _name;
-	private int _ownerType;
-	private int _currentValue;
-	private int _totalValue;
-	private int _graceValue;
-	private int _startPeriod;
-	private int _endPeriod;
-	private boolean _active;
+    public void setActive(boolean active) {
+        _active = active;
+    }
 }

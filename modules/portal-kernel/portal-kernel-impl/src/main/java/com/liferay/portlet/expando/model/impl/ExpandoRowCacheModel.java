@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.expando.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,70 +20,69 @@ import java.util.Date;
  * @generated
  */
 public class ExpandoRowCacheModel implements CacheModel<ExpandoRow>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(11);
+    Externalizable {
+    public long rowId;
+    public long companyId;
+    public long modifiedDate;
+    public long tableId;
+    public long classPK;
 
-		sb.append("{rowId=");
-		sb.append(rowId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", tableId=");
-		sb.append(tableId);
-		sb.append(", classPK=");
-		sb.append(classPK);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(11);
 
-		return sb.toString();
-	}
+        sb.append("{rowId=");
+        sb.append(rowId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", tableId=");
+        sb.append(tableId);
+        sb.append(", classPK=");
+        sb.append(classPK);
+        sb.append("}");
 
-	@Override
-	public ExpandoRow toEntityModel() {
-		ExpandoRowImpl expandoRowImpl = new ExpandoRowImpl();
+        return sb.toString();
+    }
 
-		expandoRowImpl.setRowId(rowId);
-		expandoRowImpl.setCompanyId(companyId);
+    @Override
+    public ExpandoRow toEntityModel() {
+        ExpandoRowImpl expandoRowImpl = new ExpandoRowImpl();
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			expandoRowImpl.setModifiedDate(null);
-		}
-		else {
-			expandoRowImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        expandoRowImpl.setRowId(rowId);
+        expandoRowImpl.setCompanyId(companyId);
 
-		expandoRowImpl.setTableId(tableId);
-		expandoRowImpl.setClassPK(classPK);
+        if (modifiedDate == Long.MIN_VALUE) {
+            expandoRowImpl.setModifiedDate(null);
+        } else {
+            expandoRowImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		expandoRowImpl.resetOriginalValues();
+        expandoRowImpl.setTableId(tableId);
+        expandoRowImpl.setClassPK(classPK);
 
-		return expandoRowImpl;
-	}
+        expandoRowImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		rowId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		tableId = objectInput.readLong();
-		classPK = objectInput.readLong();
-	}
+        return expandoRowImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(rowId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(tableId);
-		objectOutput.writeLong(classPK);
-	}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        rowId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        tableId = objectInput.readLong();
+        classPK = objectInput.readLong();
+    }
 
-	public long rowId;
-	public long companyId;
-	public long modifiedDate;
-	public long tableId;
-	public long classPK;
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(rowId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(tableId);
+        objectOutput.writeLong(classPK);
+    }
 }

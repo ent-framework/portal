@@ -1,22 +1,11 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.bean.AutoEscape;
+import com.liferay.portal.model.BaseModel;
+import com.liferay.portal.model.CacheModel;
+import com.liferay.portal.model.TypedModel;
 import com.liferay.portal.service.ServiceContext;
 
 import com.liferay.portlet.expando.model.ExpandoBridge;
@@ -38,121 +27,121 @@ import java.io.Serializable;
  */
 @ProviderType
 public interface ClassNameModel extends BaseModel<ClassName>, TypedModel {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this interface directly. All methods that expect a class name model instance should use the {@link ClassName} interface instead.
-	 */
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this interface directly. All methods that expect a class name model instance should use the {@link ClassName} interface instead.
+     */
 
-	/**
-	 * Returns the primary key of this class name.
-	 *
-	 * @return the primary key of this class name
-	 */
-	public long getPrimaryKey();
+    /**
+     * Returns the primary key of this class name.
+     *
+     * @return the primary key of this class name
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this class name.
-	 *
-	 * @param primaryKey the primary key of this class name
-	 */
-	public void setPrimaryKey(long primaryKey);
+    /**
+     * Sets the primary key of this class name.
+     *
+     * @param primaryKey the primary key of this class name
+     */
+    public void setPrimaryKey(long primaryKey);
 
-	/**
-	 * Returns the fully qualified class name of this class name.
-	 *
-	 * @return the fully qualified class name of this class name
-	 */
-	@Override
-	public String getClassName();
+    /**
+     * Returns the fully qualified class name of this class name.
+     *
+     * @return the fully qualified class name of this class name
+     */
+    @Override
+    public String getClassName();
 
-	public void setClassName(String className);
+    public void setClassName(String className);
 
-	/**
-	 * Returns the class name ID of this class name.
-	 *
-	 * @return the class name ID of this class name
-	 */
-	@Override
-	public long getClassNameId();
+    /**
+     * Returns the class name ID of this class name.
+     *
+     * @return the class name ID of this class name
+     */
+    @Override
+    public long getClassNameId();
 
-	/**
-	 * Sets the class name ID of this class name.
-	 *
-	 * @param classNameId the class name ID of this class name
-	 */
-	@Override
-	public void setClassNameId(long classNameId);
+    /**
+     * Sets the class name ID of this class name.
+     *
+     * @param classNameId the class name ID of this class name
+     */
+    @Override
+    public void setClassNameId(long classNameId);
 
-	/**
-	 * Returns the value of this class name.
-	 *
-	 * @return the value of this class name
-	 */
-	@AutoEscape
-	public String getValue();
+    /**
+     * Returns the value of this class name.
+     *
+     * @return the value of this class name
+     */
+    @AutoEscape
+    public String getValue();
 
-	/**
-	 * Sets the value of this class name.
-	 *
-	 * @param value the value of this class name
-	 */
-	public void setValue(String value);
+    /**
+     * Sets the value of this class name.
+     *
+     * @param value the value of this class name
+     */
+    public void setValue(String value);
 
-	@Override
-	public boolean isNew();
+    @Override
+    public boolean isNew();
 
-	@Override
-	public void setNew(boolean n);
+    @Override
+    public void setNew(boolean n);
 
-	@Override
-	public boolean isCachedModel();
+    @Override
+    public boolean isCachedModel();
 
-	@Override
-	public void setCachedModel(boolean cachedModel);
+    @Override
+    public void setCachedModel(boolean cachedModel);
 
-	@Override
-	public boolean isEscapedModel();
+    @Override
+    public boolean isEscapedModel();
 
-	@Override
-	public Serializable getPrimaryKeyObj();
+    @Override
+    public Serializable getPrimaryKeyObj();
 
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj);
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj);
 
-	@Override
-	public ExpandoBridge getExpandoBridge();
+    @Override
+    public ExpandoBridge getExpandoBridge();
 
-	@Override
-	public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
+    @Override
+    public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
 
-	@Override
-	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
+    @Override
+    public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	@Override
-	public Object clone();
+    @Override
+    public Object clone();
 
-	@Override
-	public int compareTo(ClassName className);
+    @Override
+    public int compareTo(com.liferay.portal.model.ClassName className);
 
-	@Override
-	public int hashCode();
+    @Override
+    public int hashCode();
 
-	@Override
-	public CacheModel<ClassName> toCacheModel();
+    @Override
+    public CacheModel<com.liferay.portal.model.ClassName> toCacheModel();
 
-	@Override
-	public ClassName toEscapedModel();
+    @Override
+    public com.liferay.portal.model.ClassName toEscapedModel();
 
-	@Override
-	public ClassName toUnescapedModel();
+    @Override
+    public com.liferay.portal.model.ClassName toUnescapedModel();
 
-	@Override
-	public String toString();
+    @Override
+    public String toString();
 
-	@Override
-	public String toXmlString();
+    @Override
+    public String toXmlString();
 }

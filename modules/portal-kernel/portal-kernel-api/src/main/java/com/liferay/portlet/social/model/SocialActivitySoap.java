@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.social.model;
 
 import java.io.Serializable;
@@ -27,199 +13,198 @@ import java.util.List;
  * @generated
  */
 public class SocialActivitySoap implements Serializable {
-	public static SocialActivitySoap toSoapModel(SocialActivity model) {
-		SocialActivitySoap soapModel = new SocialActivitySoap();
+    private long _activityId;
+    private long _groupId;
+    private long _companyId;
+    private long _userId;
+    private long _createDate;
+    private long _activitySetId;
+    private long _mirrorActivityId;
+    private long _classNameId;
+    private long _classPK;
+    private long _parentClassNameId;
+    private long _parentClassPK;
+    private int _type;
+    private String _extraData;
+    private long _receiverUserId;
 
-		soapModel.setActivityId(model.getActivityId());
-		soapModel.setGroupId(model.getGroupId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setCreateDate(model.getCreateDate());
-		soapModel.setActivitySetId(model.getActivitySetId());
-		soapModel.setMirrorActivityId(model.getMirrorActivityId());
-		soapModel.setClassNameId(model.getClassNameId());
-		soapModel.setClassPK(model.getClassPK());
-		soapModel.setParentClassNameId(model.getParentClassNameId());
-		soapModel.setParentClassPK(model.getParentClassPK());
-		soapModel.setType(model.getType());
-		soapModel.setExtraData(model.getExtraData());
-		soapModel.setReceiverUserId(model.getReceiverUserId());
+    public SocialActivitySoap() {
+    }
 
-		return soapModel;
-	}
+    public static SocialActivitySoap toSoapModel(SocialActivity model) {
+        SocialActivitySoap soapModel = new SocialActivitySoap();
 
-	public static SocialActivitySoap[] toSoapModels(SocialActivity[] models) {
-		SocialActivitySoap[] soapModels = new SocialActivitySoap[models.length];
+        soapModel.setActivityId(model.getActivityId());
+        soapModel.setGroupId(model.getGroupId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setCreateDate(model.getCreateDate());
+        soapModel.setActivitySetId(model.getActivitySetId());
+        soapModel.setMirrorActivityId(model.getMirrorActivityId());
+        soapModel.setClassNameId(model.getClassNameId());
+        soapModel.setClassPK(model.getClassPK());
+        soapModel.setParentClassNameId(model.getParentClassNameId());
+        soapModel.setParentClassPK(model.getParentClassPK());
+        soapModel.setType(model.getType());
+        soapModel.setExtraData(model.getExtraData());
+        soapModel.setReceiverUserId(model.getReceiverUserId());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static SocialActivitySoap[] toSoapModels(SocialActivity[] models) {
+        SocialActivitySoap[] soapModels = new SocialActivitySoap[models.length];
 
-	public static SocialActivitySoap[][] toSoapModels(SocialActivity[][] models) {
-		SocialActivitySoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new SocialActivitySoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new SocialActivitySoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static SocialActivitySoap[][] toSoapModels(SocialActivity[][] models) {
+        SocialActivitySoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new SocialActivitySoap[models.length][models[0].length];
+        } else {
+            soapModels = new SocialActivitySoap[0][0];
+        }
 
-	public static SocialActivitySoap[] toSoapModels(List<SocialActivity> models) {
-		List<SocialActivitySoap> soapModels = new ArrayList<SocialActivitySoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (SocialActivity model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new SocialActivitySoap[soapModels.size()]);
-	}
+    public static SocialActivitySoap[] toSoapModels(List<SocialActivity> models) {
+        List<SocialActivitySoap> soapModels = new ArrayList<SocialActivitySoap>(models.size());
 
-	public SocialActivitySoap() {
-	}
+        for (SocialActivity model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _activityId;
-	}
+        return soapModels.toArray(new SocialActivitySoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setActivityId(pk);
-	}
+    public long getPrimaryKey() {
+        return _activityId;
+    }
 
-	public long getActivityId() {
-		return _activityId;
-	}
+    public void setPrimaryKey(long pk) {
+        setActivityId(pk);
+    }
 
-	public void setActivityId(long activityId) {
-		_activityId = activityId;
-	}
+    public long getActivityId() {
+        return _activityId;
+    }
 
-	public long getGroupId() {
-		return _groupId;
-	}
+    public void setActivityId(long activityId) {
+        _activityId = activityId;
+    }
 
-	public void setGroupId(long groupId) {
-		_groupId = groupId;
-	}
+    public long getGroupId() {
+        return _groupId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setGroupId(long groupId) {
+        _groupId = groupId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public long getCreateDate() {
-		return _createDate;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setCreateDate(long createDate) {
-		_createDate = createDate;
-	}
+    public long getCreateDate() {
+        return _createDate;
+    }
 
-	public long getActivitySetId() {
-		return _activitySetId;
-	}
+    public void setCreateDate(long createDate) {
+        _createDate = createDate;
+    }
 
-	public void setActivitySetId(long activitySetId) {
-		_activitySetId = activitySetId;
-	}
+    public long getActivitySetId() {
+        return _activitySetId;
+    }
 
-	public long getMirrorActivityId() {
-		return _mirrorActivityId;
-	}
+    public void setActivitySetId(long activitySetId) {
+        _activitySetId = activitySetId;
+    }
 
-	public void setMirrorActivityId(long mirrorActivityId) {
-		_mirrorActivityId = mirrorActivityId;
-	}
+    public long getMirrorActivityId() {
+        return _mirrorActivityId;
+    }
 
-	public long getClassNameId() {
-		return _classNameId;
-	}
+    public void setMirrorActivityId(long mirrorActivityId) {
+        _mirrorActivityId = mirrorActivityId;
+    }
 
-	public void setClassNameId(long classNameId) {
-		_classNameId = classNameId;
-	}
+    public long getClassNameId() {
+        return _classNameId;
+    }
 
-	public long getClassPK() {
-		return _classPK;
-	}
+    public void setClassNameId(long classNameId) {
+        _classNameId = classNameId;
+    }
 
-	public void setClassPK(long classPK) {
-		_classPK = classPK;
-	}
+    public long getClassPK() {
+        return _classPK;
+    }
 
-	public long getParentClassNameId() {
-		return _parentClassNameId;
-	}
+    public void setClassPK(long classPK) {
+        _classPK = classPK;
+    }
 
-	public void setParentClassNameId(long parentClassNameId) {
-		_parentClassNameId = parentClassNameId;
-	}
+    public long getParentClassNameId() {
+        return _parentClassNameId;
+    }
 
-	public long getParentClassPK() {
-		return _parentClassPK;
-	}
+    public void setParentClassNameId(long parentClassNameId) {
+        _parentClassNameId = parentClassNameId;
+    }
 
-	public void setParentClassPK(long parentClassPK) {
-		_parentClassPK = parentClassPK;
-	}
+    public long getParentClassPK() {
+        return _parentClassPK;
+    }
 
-	public int getType() {
-		return _type;
-	}
+    public void setParentClassPK(long parentClassPK) {
+        _parentClassPK = parentClassPK;
+    }
 
-	public void setType(int type) {
-		_type = type;
-	}
+    public int getType() {
+        return _type;
+    }
 
-	public String getExtraData() {
-		return _extraData;
-	}
+    public void setType(int type) {
+        _type = type;
+    }
 
-	public void setExtraData(String extraData) {
-		_extraData = extraData;
-	}
+    public String getExtraData() {
+        return _extraData;
+    }
 
-	public long getReceiverUserId() {
-		return _receiverUserId;
-	}
+    public void setExtraData(String extraData) {
+        _extraData = extraData;
+    }
 
-	public void setReceiverUserId(long receiverUserId) {
-		_receiverUserId = receiverUserId;
-	}
+    public long getReceiverUserId() {
+        return _receiverUserId;
+    }
 
-	private long _activityId;
-	private long _groupId;
-	private long _companyId;
-	private long _userId;
-	private long _createDate;
-	private long _activitySetId;
-	private long _mirrorActivityId;
-	private long _classNameId;
-	private long _classPK;
-	private long _parentClassNameId;
-	private long _parentClassPK;
-	private int _type;
-	private String _extraData;
-	private long _receiverUserId;
+    public void setReceiverUserId(long receiverUserId) {
+        _receiverUserId = receiverUserId;
+    }
 }

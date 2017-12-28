@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.shopping.service.http;
 
 import aQute.bnd.annotation.ProviderType;
@@ -66,121 +52,113 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class ShoppingItemServiceSoap {
-	public static void addBookItems(long groupId, long categoryId,
-		java.lang.String[] isbns) throws RemoteException {
-		try {
-			ShoppingItemServiceUtil.addBookItems(groupId, categoryId, isbns);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    private static Log _log = LogFactoryUtil.getLog(ShoppingItemServiceSoap.class);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void addBookItems(long groupId, long categoryId,
+        java.lang.String[] isbns) throws RemoteException {
+        try {
+            ShoppingItemServiceUtil.addBookItems(groupId, categoryId, isbns);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void deleteItem(long itemId) throws RemoteException {
-		try {
-			ShoppingItemServiceUtil.deleteItem(itemId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void deleteItem(long itemId) throws RemoteException {
+        try {
+            ShoppingItemServiceUtil.deleteItem(itemId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static int getCategoriesItemsCount(long groupId, Long[] categoryIds)
-		throws RemoteException {
-		try {
-			int returnValue = ShoppingItemServiceUtil.getCategoriesItemsCount(groupId,
-					ListUtil.toList(categoryIds));
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return returnValue;
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static int getCategoriesItemsCount(long groupId, Long[] categoryIds)
+        throws RemoteException {
+        try {
+            int returnValue = ShoppingItemServiceUtil.getCategoriesItemsCount(groupId,
+                    ListUtil.toList(categoryIds));
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return returnValue;
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.shopping.model.ShoppingItemSoap getItem(
-		long itemId) throws RemoteException {
-		try {
-			com.liferay.portlet.shopping.model.ShoppingItem returnValue = ShoppingItemServiceUtil.getItem(itemId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.shopping.model.ShoppingItemSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.shopping.model.ShoppingItemSoap getItem(
+        long itemId) throws RemoteException {
+        try {
+            com.liferay.portlet.shopping.model.ShoppingItem returnValue = ShoppingItemServiceUtil.getItem(itemId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.shopping.model.ShoppingItemSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.shopping.model.ShoppingItemSoap[] getItems(
-		long groupId, long categoryId) throws RemoteException {
-		try {
-			java.util.List<com.liferay.portlet.shopping.model.ShoppingItem> returnValue =
-				ShoppingItemServiceUtil.getItems(groupId, categoryId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.shopping.model.ShoppingItemSoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.shopping.model.ShoppingItemSoap[] getItems(
+        long groupId, long categoryId) throws RemoteException {
+        try {
+            java.util.List<com.liferay.portlet.shopping.model.ShoppingItem> returnValue =
+                ShoppingItemServiceUtil.getItems(groupId, categoryId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.shopping.model.ShoppingItemSoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.shopping.model.ShoppingItemSoap[] getItems(
-		long groupId, long categoryId, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator obc)
-		throws RemoteException {
-		try {
-			java.util.List<com.liferay.portlet.shopping.model.ShoppingItem> returnValue =
-				ShoppingItemServiceUtil.getItems(groupId, categoryId, start,
-					end, obc);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.shopping.model.ShoppingItemSoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.shopping.model.ShoppingItemSoap[] getItems(
+        long groupId, long categoryId, int start, int end,
+        com.liferay.portal.kernel.util.OrderByComparator obc)
+        throws RemoteException {
+        try {
+            java.util.List<com.liferay.portlet.shopping.model.ShoppingItem> returnValue =
+                ShoppingItemServiceUtil.getItems(groupId, categoryId, start,
+                    end, obc);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.shopping.model.ShoppingItemSoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static int getItemsCount(long groupId, long categoryId)
-		throws RemoteException {
-		try {
-			int returnValue = ShoppingItemServiceUtil.getItemsCount(groupId,
-					categoryId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return returnValue;
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static int getItemsCount(long groupId, long categoryId)
+        throws RemoteException {
+        try {
+            int returnValue = ShoppingItemServiceUtil.getItemsCount(groupId,
+                    categoryId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return returnValue;
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.shopping.model.ShoppingItemSoap[] getItemsPrevAndNext(
-		long itemId, com.liferay.portal.kernel.util.OrderByComparator obc)
-		throws RemoteException {
-		try {
-			com.liferay.portlet.shopping.model.ShoppingItem[] returnValue = ShoppingItemServiceUtil.getItemsPrevAndNext(itemId,
-					obc);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.shopping.model.ShoppingItemSoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.shopping.model.ShoppingItemSoap[] getItemsPrevAndNext(
+        long itemId, com.liferay.portal.kernel.util.OrderByComparator obc)
+        throws RemoteException {
+        try {
+            com.liferay.portlet.shopping.model.ShoppingItem[] returnValue = ShoppingItemServiceUtil.getItemsPrevAndNext(itemId,
+                    obc);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.shopping.model.ShoppingItemSoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	private static Log _log = LogFactoryUtil.getLog(ShoppingItemServiceSoap.class);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

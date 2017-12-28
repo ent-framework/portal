@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,136 +20,128 @@ import java.util.Date;
  * @generated
  */
 public class TeamCacheModel implements CacheModel<Team>, Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(19);
+    public long teamId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public long groupId;
+    public String name;
+    public String description;
 
-		sb.append("{teamId=");
-		sb.append(teamId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", description=");
-		sb.append(description);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(19);
 
-		return sb.toString();
-	}
+        sb.append("{teamId=");
+        sb.append(teamId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", description=");
+        sb.append(description);
+        sb.append("}");
 
-	@Override
-	public Team toEntityModel() {
-		TeamImpl teamImpl = new TeamImpl();
+        return sb.toString();
+    }
 
-		teamImpl.setTeamId(teamId);
-		teamImpl.setCompanyId(companyId);
-		teamImpl.setUserId(userId);
+    @Override
+    public Team toEntityModel() {
+        TeamImpl teamImpl = new TeamImpl();
 
-		if (userName == null) {
-			teamImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			teamImpl.setUserName(userName);
-		}
+        teamImpl.setTeamId(teamId);
+        teamImpl.setCompanyId(companyId);
+        teamImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			teamImpl.setCreateDate(null);
-		}
-		else {
-			teamImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            teamImpl.setUserName(StringPool.BLANK);
+        } else {
+            teamImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			teamImpl.setModifiedDate(null);
-		}
-		else {
-			teamImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            teamImpl.setCreateDate(null);
+        } else {
+            teamImpl.setCreateDate(new Date(createDate));
+        }
 
-		teamImpl.setGroupId(groupId);
+        if (modifiedDate == Long.MIN_VALUE) {
+            teamImpl.setModifiedDate(null);
+        } else {
+            teamImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (name == null) {
-			teamImpl.setName(StringPool.BLANK);
-		}
-		else {
-			teamImpl.setName(name);
-		}
+        teamImpl.setGroupId(groupId);
 
-		if (description == null) {
-			teamImpl.setDescription(StringPool.BLANK);
-		}
-		else {
-			teamImpl.setDescription(description);
-		}
+        if (name == null) {
+            teamImpl.setName(StringPool.BLANK);
+        } else {
+            teamImpl.setName(name);
+        }
 
-		teamImpl.resetOriginalValues();
+        if (description == null) {
+            teamImpl.setDescription(StringPool.BLANK);
+        } else {
+            teamImpl.setDescription(description);
+        }
 
-		return teamImpl;
-	}
+        teamImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		teamId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		groupId = objectInput.readLong();
-		name = objectInput.readUTF();
-		description = objectInput.readUTF();
-	}
+        return teamImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(teamId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        teamId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        groupId = objectInput.readLong();
+        name = objectInput.readUTF();
+        description = objectInput.readUTF();
+    }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(teamId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(groupId);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(groupId);
 
-		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(description);
-		}
-	}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-	public long teamId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public long groupId;
-	public String name;
-	public String description;
+        if (description == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(description);
+        }
+    }
 }

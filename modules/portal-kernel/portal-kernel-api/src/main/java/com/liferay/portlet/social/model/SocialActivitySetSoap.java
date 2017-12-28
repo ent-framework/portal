@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.social.model;
 
 import java.io.Serializable;
@@ -26,172 +12,171 @@ import java.util.List;
  * @generated
  */
 public class SocialActivitySetSoap implements Serializable {
-	public static SocialActivitySetSoap toSoapModel(SocialActivitySet model) {
-		SocialActivitySetSoap soapModel = new SocialActivitySetSoap();
+    private long _activitySetId;
+    private long _groupId;
+    private long _companyId;
+    private long _userId;
+    private long _createDate;
+    private long _modifiedDate;
+    private long _classNameId;
+    private long _classPK;
+    private int _type;
+    private String _extraData;
+    private int _activityCount;
 
-		soapModel.setActivitySetId(model.getActivitySetId());
-		soapModel.setGroupId(model.getGroupId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setCreateDate(model.getCreateDate());
-		soapModel.setModifiedDate(model.getModifiedDate());
-		soapModel.setClassNameId(model.getClassNameId());
-		soapModel.setClassPK(model.getClassPK());
-		soapModel.setType(model.getType());
-		soapModel.setExtraData(model.getExtraData());
-		soapModel.setActivityCount(model.getActivityCount());
+    public SocialActivitySetSoap() {
+    }
 
-		return soapModel;
-	}
+    public static SocialActivitySetSoap toSoapModel(SocialActivitySet model) {
+        SocialActivitySetSoap soapModel = new SocialActivitySetSoap();
 
-	public static SocialActivitySetSoap[] toSoapModels(
-		SocialActivitySet[] models) {
-		SocialActivitySetSoap[] soapModels = new SocialActivitySetSoap[models.length];
+        soapModel.setActivitySetId(model.getActivitySetId());
+        soapModel.setGroupId(model.getGroupId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setCreateDate(model.getCreateDate());
+        soapModel.setModifiedDate(model.getModifiedDate());
+        soapModel.setClassNameId(model.getClassNameId());
+        soapModel.setClassPK(model.getClassPK());
+        soapModel.setType(model.getType());
+        soapModel.setExtraData(model.getExtraData());
+        soapModel.setActivityCount(model.getActivityCount());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static SocialActivitySetSoap[] toSoapModels(
+        SocialActivitySet[] models) {
+        SocialActivitySetSoap[] soapModels = new SocialActivitySetSoap[models.length];
 
-	public static SocialActivitySetSoap[][] toSoapModels(
-		SocialActivitySet[][] models) {
-		SocialActivitySetSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new SocialActivitySetSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new SocialActivitySetSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static SocialActivitySetSoap[][] toSoapModels(
+        SocialActivitySet[][] models) {
+        SocialActivitySetSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new SocialActivitySetSoap[models.length][models[0].length];
+        } else {
+            soapModels = new SocialActivitySetSoap[0][0];
+        }
 
-	public static SocialActivitySetSoap[] toSoapModels(
-		List<SocialActivitySet> models) {
-		List<SocialActivitySetSoap> soapModels = new ArrayList<SocialActivitySetSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (SocialActivitySet model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new SocialActivitySetSoap[soapModels.size()]);
-	}
+    public static SocialActivitySetSoap[] toSoapModels(
+        List<SocialActivitySet> models) {
+        List<SocialActivitySetSoap> soapModels = new ArrayList<SocialActivitySetSoap>(models.size());
 
-	public SocialActivitySetSoap() {
-	}
+        for (SocialActivitySet model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _activitySetId;
-	}
+        return soapModels.toArray(new SocialActivitySetSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setActivitySetId(pk);
-	}
+    public long getPrimaryKey() {
+        return _activitySetId;
+    }
 
-	public long getActivitySetId() {
-		return _activitySetId;
-	}
+    public void setPrimaryKey(long pk) {
+        setActivitySetId(pk);
+    }
 
-	public void setActivitySetId(long activitySetId) {
-		_activitySetId = activitySetId;
-	}
+    public long getActivitySetId() {
+        return _activitySetId;
+    }
 
-	public long getGroupId() {
-		return _groupId;
-	}
+    public void setActivitySetId(long activitySetId) {
+        _activitySetId = activitySetId;
+    }
 
-	public void setGroupId(long groupId) {
-		_groupId = groupId;
-	}
+    public long getGroupId() {
+        return _groupId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setGroupId(long groupId) {
+        _groupId = groupId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public long getCreateDate() {
-		return _createDate;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setCreateDate(long createDate) {
-		_createDate = createDate;
-	}
+    public long getCreateDate() {
+        return _createDate;
+    }
 
-	public long getModifiedDate() {
-		return _modifiedDate;
-	}
+    public void setCreateDate(long createDate) {
+        _createDate = createDate;
+    }
 
-	public void setModifiedDate(long modifiedDate) {
-		_modifiedDate = modifiedDate;
-	}
+    public long getModifiedDate() {
+        return _modifiedDate;
+    }
 
-	public long getClassNameId() {
-		return _classNameId;
-	}
+    public void setModifiedDate(long modifiedDate) {
+        _modifiedDate = modifiedDate;
+    }
 
-	public void setClassNameId(long classNameId) {
-		_classNameId = classNameId;
-	}
+    public long getClassNameId() {
+        return _classNameId;
+    }
 
-	public long getClassPK() {
-		return _classPK;
-	}
+    public void setClassNameId(long classNameId) {
+        _classNameId = classNameId;
+    }
 
-	public void setClassPK(long classPK) {
-		_classPK = classPK;
-	}
+    public long getClassPK() {
+        return _classPK;
+    }
 
-	public int getType() {
-		return _type;
-	}
+    public void setClassPK(long classPK) {
+        _classPK = classPK;
+    }
 
-	public void setType(int type) {
-		_type = type;
-	}
+    public int getType() {
+        return _type;
+    }
 
-	public String getExtraData() {
-		return _extraData;
-	}
+    public void setType(int type) {
+        _type = type;
+    }
 
-	public void setExtraData(String extraData) {
-		_extraData = extraData;
-	}
+    public String getExtraData() {
+        return _extraData;
+    }
 
-	public int getActivityCount() {
-		return _activityCount;
-	}
+    public void setExtraData(String extraData) {
+        _extraData = extraData;
+    }
 
-	public void setActivityCount(int activityCount) {
-		_activityCount = activityCount;
-	}
+    public int getActivityCount() {
+        return _activityCount;
+    }
 
-	private long _activitySetId;
-	private long _groupId;
-	private long _companyId;
-	private long _userId;
-	private long _createDate;
-	private long _modifiedDate;
-	private long _classNameId;
-	private long _classPK;
-	private int _type;
-	private String _extraData;
-	private int _activityCount;
+    public void setActivityCount(int activityCount) {
+        _activityCount = activityCount;
+    }
 }

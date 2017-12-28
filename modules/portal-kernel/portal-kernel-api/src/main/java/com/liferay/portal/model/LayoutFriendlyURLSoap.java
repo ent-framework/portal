@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -27,186 +13,185 @@ import java.util.List;
  * @generated
  */
 public class LayoutFriendlyURLSoap implements Serializable {
-	public static LayoutFriendlyURLSoap toSoapModel(LayoutFriendlyURL model) {
-		LayoutFriendlyURLSoap soapModel = new LayoutFriendlyURLSoap();
+    private String _uuid;
+    private long _layoutFriendlyURLId;
+    private long _groupId;
+    private long _companyId;
+    private long _userId;
+    private String _userName;
+    private Date _createDate;
+    private Date _modifiedDate;
+    private long _plid;
+    private boolean _privateLayout;
+    private String _friendlyURL;
+    private String _languageId;
 
-		soapModel.setUuid(model.getUuid());
-		soapModel.setLayoutFriendlyURLId(model.getLayoutFriendlyURLId());
-		soapModel.setGroupId(model.getGroupId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setUserName(model.getUserName());
-		soapModel.setCreateDate(model.getCreateDate());
-		soapModel.setModifiedDate(model.getModifiedDate());
-		soapModel.setPlid(model.getPlid());
-		soapModel.setPrivateLayout(model.getPrivateLayout());
-		soapModel.setFriendlyURL(model.getFriendlyURL());
-		soapModel.setLanguageId(model.getLanguageId());
+    public LayoutFriendlyURLSoap() {
+    }
 
-		return soapModel;
-	}
+    public static LayoutFriendlyURLSoap toSoapModel(LayoutFriendlyURL model) {
+        LayoutFriendlyURLSoap soapModel = new LayoutFriendlyURLSoap();
 
-	public static LayoutFriendlyURLSoap[] toSoapModels(
-		LayoutFriendlyURL[] models) {
-		LayoutFriendlyURLSoap[] soapModels = new LayoutFriendlyURLSoap[models.length];
+        soapModel.setUuid(model.getUuid());
+        soapModel.setLayoutFriendlyURLId(model.getLayoutFriendlyURLId());
+        soapModel.setGroupId(model.getGroupId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setUserName(model.getUserName());
+        soapModel.setCreateDate(model.getCreateDate());
+        soapModel.setModifiedDate(model.getModifiedDate());
+        soapModel.setPlid(model.getPlid());
+        soapModel.setPrivateLayout(model.getPrivateLayout());
+        soapModel.setFriendlyURL(model.getFriendlyURL());
+        soapModel.setLanguageId(model.getLanguageId());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static LayoutFriendlyURLSoap[] toSoapModels(
+        LayoutFriendlyURL[] models) {
+        LayoutFriendlyURLSoap[] soapModels = new LayoutFriendlyURLSoap[models.length];
 
-	public static LayoutFriendlyURLSoap[][] toSoapModels(
-		LayoutFriendlyURL[][] models) {
-		LayoutFriendlyURLSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new LayoutFriendlyURLSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new LayoutFriendlyURLSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static LayoutFriendlyURLSoap[][] toSoapModels(
+        LayoutFriendlyURL[][] models) {
+        LayoutFriendlyURLSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new LayoutFriendlyURLSoap[models.length][models[0].length];
+        } else {
+            soapModels = new LayoutFriendlyURLSoap[0][0];
+        }
 
-	public static LayoutFriendlyURLSoap[] toSoapModels(
-		List<LayoutFriendlyURL> models) {
-		List<LayoutFriendlyURLSoap> soapModels = new ArrayList<LayoutFriendlyURLSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (LayoutFriendlyURL model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new LayoutFriendlyURLSoap[soapModels.size()]);
-	}
+    public static LayoutFriendlyURLSoap[] toSoapModels(
+        List<LayoutFriendlyURL> models) {
+        List<LayoutFriendlyURLSoap> soapModels = new ArrayList<LayoutFriendlyURLSoap>(models.size());
 
-	public LayoutFriendlyURLSoap() {
-	}
+        for (LayoutFriendlyURL model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _layoutFriendlyURLId;
-	}
+        return soapModels.toArray(new LayoutFriendlyURLSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setLayoutFriendlyURLId(pk);
-	}
+    public long getPrimaryKey() {
+        return _layoutFriendlyURLId;
+    }
 
-	public String getUuid() {
-		return _uuid;
-	}
+    public void setPrimaryKey(long pk) {
+        setLayoutFriendlyURLId(pk);
+    }
 
-	public void setUuid(String uuid) {
-		_uuid = uuid;
-	}
+    public String getUuid() {
+        return _uuid;
+    }
 
-	public long getLayoutFriendlyURLId() {
-		return _layoutFriendlyURLId;
-	}
+    public void setUuid(String uuid) {
+        _uuid = uuid;
+    }
 
-	public void setLayoutFriendlyURLId(long layoutFriendlyURLId) {
-		_layoutFriendlyURLId = layoutFriendlyURLId;
-	}
+    public long getLayoutFriendlyURLId() {
+        return _layoutFriendlyURLId;
+    }
 
-	public long getGroupId() {
-		return _groupId;
-	}
+    public void setLayoutFriendlyURLId(long layoutFriendlyURLId) {
+        _layoutFriendlyURLId = layoutFriendlyURLId;
+    }
 
-	public void setGroupId(long groupId) {
-		_groupId = groupId;
-	}
+    public long getGroupId() {
+        return _groupId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setGroupId(long groupId) {
+        _groupId = groupId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public String getUserName() {
-		return _userName;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setUserName(String userName) {
-		_userName = userName;
-	}
+    public String getUserName() {
+        return _userName;
+    }
 
-	public Date getCreateDate() {
-		return _createDate;
-	}
+    public void setUserName(String userName) {
+        _userName = userName;
+    }
 
-	public void setCreateDate(Date createDate) {
-		_createDate = createDate;
-	}
+    public Date getCreateDate() {
+        return _createDate;
+    }
 
-	public Date getModifiedDate() {
-		return _modifiedDate;
-	}
+    public void setCreateDate(Date createDate) {
+        _createDate = createDate;
+    }
 
-	public void setModifiedDate(Date modifiedDate) {
-		_modifiedDate = modifiedDate;
-	}
+    public Date getModifiedDate() {
+        return _modifiedDate;
+    }
 
-	public long getPlid() {
-		return _plid;
-	}
+    public void setModifiedDate(Date modifiedDate) {
+        _modifiedDate = modifiedDate;
+    }
 
-	public void setPlid(long plid) {
-		_plid = plid;
-	}
+    public long getPlid() {
+        return _plid;
+    }
 
-	public boolean getPrivateLayout() {
-		return _privateLayout;
-	}
+    public void setPlid(long plid) {
+        _plid = plid;
+    }
 
-	public boolean isPrivateLayout() {
-		return _privateLayout;
-	}
+    public boolean getPrivateLayout() {
+        return _privateLayout;
+    }
 
-	public void setPrivateLayout(boolean privateLayout) {
-		_privateLayout = privateLayout;
-	}
+    public boolean isPrivateLayout() {
+        return _privateLayout;
+    }
 
-	public String getFriendlyURL() {
-		return _friendlyURL;
-	}
+    public void setPrivateLayout(boolean privateLayout) {
+        _privateLayout = privateLayout;
+    }
 
-	public void setFriendlyURL(String friendlyURL) {
-		_friendlyURL = friendlyURL;
-	}
+    public String getFriendlyURL() {
+        return _friendlyURL;
+    }
 
-	public String getLanguageId() {
-		return _languageId;
-	}
+    public void setFriendlyURL(String friendlyURL) {
+        _friendlyURL = friendlyURL;
+    }
 
-	public void setLanguageId(String languageId) {
-		_languageId = languageId;
-	}
+    public String getLanguageId() {
+        return _languageId;
+    }
 
-	private String _uuid;
-	private long _layoutFriendlyURLId;
-	private long _groupId;
-	private long _companyId;
-	private long _userId;
-	private String _userName;
-	private Date _createDate;
-	private Date _modifiedDate;
-	private long _plid;
-	private boolean _privateLayout;
-	private String _friendlyURL;
-	private String _languageId;
+    public void setLanguageId(String languageId) {
+        _languageId = languageId;
+    }
 }

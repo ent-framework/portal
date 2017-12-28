@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,125 +20,119 @@ import java.util.Date;
  * @generated
  */
 public class SubscriptionCacheModel implements CacheModel<Subscription>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(19);
+    Externalizable {
+    public long subscriptionId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public long classNameId;
+    public long classPK;
+    public String frequency;
 
-		sb.append("{subscriptionId=");
-		sb.append(subscriptionId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", classNameId=");
-		sb.append(classNameId);
-		sb.append(", classPK=");
-		sb.append(classPK);
-		sb.append(", frequency=");
-		sb.append(frequency);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(19);
 
-		return sb.toString();
-	}
+        sb.append("{subscriptionId=");
+        sb.append(subscriptionId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", classNameId=");
+        sb.append(classNameId);
+        sb.append(", classPK=");
+        sb.append(classPK);
+        sb.append(", frequency=");
+        sb.append(frequency);
+        sb.append("}");
 
-	@Override
-	public Subscription toEntityModel() {
-		SubscriptionImpl subscriptionImpl = new SubscriptionImpl();
+        return sb.toString();
+    }
 
-		subscriptionImpl.setSubscriptionId(subscriptionId);
-		subscriptionImpl.setCompanyId(companyId);
-		subscriptionImpl.setUserId(userId);
+    @Override
+    public Subscription toEntityModel() {
+        SubscriptionImpl subscriptionImpl = new SubscriptionImpl();
 
-		if (userName == null) {
-			subscriptionImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			subscriptionImpl.setUserName(userName);
-		}
+        subscriptionImpl.setSubscriptionId(subscriptionId);
+        subscriptionImpl.setCompanyId(companyId);
+        subscriptionImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			subscriptionImpl.setCreateDate(null);
-		}
-		else {
-			subscriptionImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            subscriptionImpl.setUserName(StringPool.BLANK);
+        } else {
+            subscriptionImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			subscriptionImpl.setModifiedDate(null);
-		}
-		else {
-			subscriptionImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            subscriptionImpl.setCreateDate(null);
+        } else {
+            subscriptionImpl.setCreateDate(new Date(createDate));
+        }
 
-		subscriptionImpl.setClassNameId(classNameId);
-		subscriptionImpl.setClassPK(classPK);
+        if (modifiedDate == Long.MIN_VALUE) {
+            subscriptionImpl.setModifiedDate(null);
+        } else {
+            subscriptionImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (frequency == null) {
-			subscriptionImpl.setFrequency(StringPool.BLANK);
-		}
-		else {
-			subscriptionImpl.setFrequency(frequency);
-		}
+        subscriptionImpl.setClassNameId(classNameId);
+        subscriptionImpl.setClassPK(classPK);
 
-		subscriptionImpl.resetOriginalValues();
+        if (frequency == null) {
+            subscriptionImpl.setFrequency(StringPool.BLANK);
+        } else {
+            subscriptionImpl.setFrequency(frequency);
+        }
 
-		return subscriptionImpl;
-	}
+        subscriptionImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		subscriptionId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		classNameId = objectInput.readLong();
-		classPK = objectInput.readLong();
-		frequency = objectInput.readUTF();
-	}
+        return subscriptionImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(subscriptionId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        subscriptionId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        classNameId = objectInput.readLong();
+        classPK = objectInput.readLong();
+        frequency = objectInput.readUTF();
+    }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(subscriptionId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(classNameId);
-		objectOutput.writeLong(classPK);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (frequency == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(frequency);
-		}
-	}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(classNameId);
+        objectOutput.writeLong(classPK);
 
-	public long subscriptionId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public long classNameId;
-	public long classPK;
-	public String frequency;
+        if (frequency == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(frequency);
+        }
+    }
 }

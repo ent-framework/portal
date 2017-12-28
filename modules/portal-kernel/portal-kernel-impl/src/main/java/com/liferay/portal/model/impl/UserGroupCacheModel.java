@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,163 +20,153 @@ import java.util.Date;
  * @generated
  */
 public class UserGroupCacheModel implements CacheModel<UserGroup>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(23);
+    Externalizable {
+    public String uuid;
+    public long userGroupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public long parentUserGroupId;
+    public String name;
+    public String description;
+    public boolean addedByLDAPImport;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", userGroupId=");
-		sb.append(userGroupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", parentUserGroupId=");
-		sb.append(parentUserGroupId);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", description=");
-		sb.append(description);
-		sb.append(", addedByLDAPImport=");
-		sb.append(addedByLDAPImport);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(23);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", userGroupId=");
+        sb.append(userGroupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", parentUserGroupId=");
+        sb.append(parentUserGroupId);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", description=");
+        sb.append(description);
+        sb.append(", addedByLDAPImport=");
+        sb.append(addedByLDAPImport);
+        sb.append("}");
 
-	@Override
-	public UserGroup toEntityModel() {
-		UserGroupImpl userGroupImpl = new UserGroupImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			userGroupImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			userGroupImpl.setUuid(uuid);
-		}
+    @Override
+    public UserGroup toEntityModel() {
+        UserGroupImpl userGroupImpl = new UserGroupImpl();
 
-		userGroupImpl.setUserGroupId(userGroupId);
-		userGroupImpl.setCompanyId(companyId);
-		userGroupImpl.setUserId(userId);
+        if (uuid == null) {
+            userGroupImpl.setUuid(StringPool.BLANK);
+        } else {
+            userGroupImpl.setUuid(uuid);
+        }
 
-		if (userName == null) {
-			userGroupImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			userGroupImpl.setUserName(userName);
-		}
+        userGroupImpl.setUserGroupId(userGroupId);
+        userGroupImpl.setCompanyId(companyId);
+        userGroupImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			userGroupImpl.setCreateDate(null);
-		}
-		else {
-			userGroupImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            userGroupImpl.setUserName(StringPool.BLANK);
+        } else {
+            userGroupImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			userGroupImpl.setModifiedDate(null);
-		}
-		else {
-			userGroupImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            userGroupImpl.setCreateDate(null);
+        } else {
+            userGroupImpl.setCreateDate(new Date(createDate));
+        }
 
-		userGroupImpl.setParentUserGroupId(parentUserGroupId);
+        if (modifiedDate == Long.MIN_VALUE) {
+            userGroupImpl.setModifiedDate(null);
+        } else {
+            userGroupImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (name == null) {
-			userGroupImpl.setName(StringPool.BLANK);
-		}
-		else {
-			userGroupImpl.setName(name);
-		}
+        userGroupImpl.setParentUserGroupId(parentUserGroupId);
 
-		if (description == null) {
-			userGroupImpl.setDescription(StringPool.BLANK);
-		}
-		else {
-			userGroupImpl.setDescription(description);
-		}
+        if (name == null) {
+            userGroupImpl.setName(StringPool.BLANK);
+        } else {
+            userGroupImpl.setName(name);
+        }
 
-		userGroupImpl.setAddedByLDAPImport(addedByLDAPImport);
+        if (description == null) {
+            userGroupImpl.setDescription(StringPool.BLANK);
+        } else {
+            userGroupImpl.setDescription(description);
+        }
 
-		userGroupImpl.resetOriginalValues();
+        userGroupImpl.setAddedByLDAPImport(addedByLDAPImport);
 
-		return userGroupImpl;
-	}
+        userGroupImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		userGroupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		parentUserGroupId = objectInput.readLong();
-		name = objectInput.readUTF();
-		description = objectInput.readUTF();
-		addedByLDAPImport = objectInput.readBoolean();
-	}
+        return userGroupImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        userGroupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        parentUserGroupId = objectInput.readLong();
+        name = objectInput.readUTF();
+        description = objectInput.readUTF();
+        addedByLDAPImport = objectInput.readBoolean();
+    }
 
-		objectOutput.writeLong(userGroupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+        objectOutput.writeLong(userGroupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(parentUserGroupId);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(parentUserGroupId);
 
-		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(description);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		objectOutput.writeBoolean(addedByLDAPImport);
-	}
+        if (description == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(description);
+        }
 
-	public String uuid;
-	public long userGroupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public long parentUserGroupId;
-	public String name;
-	public String description;
-	public boolean addedByLDAPImport;
+        objectOutput.writeBoolean(addedByLDAPImport);
+    }
 }

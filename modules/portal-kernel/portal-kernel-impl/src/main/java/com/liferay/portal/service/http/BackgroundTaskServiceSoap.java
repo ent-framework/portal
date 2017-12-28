@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
@@ -64,35 +50,33 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class BackgroundTaskServiceSoap {
-	public static int getBackgroundTasksCount(long groupId,
-		java.lang.String taskExecutorClassName, java.lang.String completed)
-		throws RemoteException {
-		try {
-			int returnValue = BackgroundTaskServiceUtil.getBackgroundTasksCount(groupId,
-					taskExecutorClassName, completed);
+    private static Log _log = LogFactoryUtil.getLog(BackgroundTaskServiceSoap.class);
 
-			return returnValue;
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static int getBackgroundTasksCount(long groupId,
+        java.lang.String taskExecutorClassName, java.lang.String completed)
+        throws RemoteException {
+        try {
+            int returnValue = BackgroundTaskServiceUtil.getBackgroundTasksCount(groupId,
+                    taskExecutorClassName, completed);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return returnValue;
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static java.lang.String getBackgroundTaskStatusJSON(
-		long backgroundTaskId) throws RemoteException {
-		try {
-			java.lang.String returnValue = BackgroundTaskServiceUtil.getBackgroundTaskStatusJSON(backgroundTaskId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return returnValue;
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static java.lang.String getBackgroundTaskStatusJSON(
+        long backgroundTaskId) throws RemoteException {
+        try {
+            java.lang.String returnValue = BackgroundTaskServiceUtil.getBackgroundTaskStatusJSON(backgroundTaskId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return returnValue;
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	private static Log _log = LogFactoryUtil.getLog(BackgroundTaskServiceSoap.class);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

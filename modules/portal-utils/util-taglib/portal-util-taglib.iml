@@ -46,7 +46,7 @@
     <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.27-incubating" level="project" />
     <orderEntry type="library" name="Maven: dom4j:dom4j:1.6.1" level="project" />
     <orderEntry type="library" name="Maven: xml-apis:xml-apis:1.4.01" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.portlet:portlet-api:2.0" level="project" />
+    <orderEntry type="library" name="Maven: javax.portlet:portlet-api:2.0" level="project" />
     <orderEntry type="library" name="Maven: biz.aQute:annotation:1.50.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: biz.aQute.bnd:bnd:2.4.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.osgi:org.osgi.core:4.3.1" level="project" />

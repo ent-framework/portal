@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.expando.service.base;
 
 import com.liferay.portal.kernel.bean.BeanReference;
@@ -58,624 +44,623 @@ import javax.sql.DataSource;
  * @generated
  */
 public abstract class ExpandoTableLocalServiceBaseImpl
-	extends BaseLocalServiceImpl implements ExpandoTableLocalService,
-		IdentifiableBean {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this class directly. Always use {@link com.liferay.portlet.expando.service.ExpandoTableLocalServiceUtil} to access the expando table local service.
-	 */
+    extends BaseLocalServiceImpl implements ExpandoTableLocalService,
+        IdentifiableBean {
+    @BeanReference(type = com.liferay.portlet.expando.service.ExpandoColumnLocalService.class)
+    protected com.liferay.portlet.expando.service.ExpandoColumnLocalService expandoColumnLocalService;
+    @BeanReference(type = com.liferay.portlet.expando.service.ExpandoColumnService.class)
+    protected com.liferay.portlet.expando.service.ExpandoColumnService expandoColumnService;
+    @BeanReference(type = ExpandoColumnPersistence.class)
+    protected ExpandoColumnPersistence expandoColumnPersistence;
+    @BeanReference(type = com.liferay.portlet.expando.service.ExpandoRowLocalService.class)
+    protected com.liferay.portlet.expando.service.ExpandoRowLocalService expandoRowLocalService;
+    @BeanReference(type = ExpandoRowPersistence.class)
+    protected ExpandoRowPersistence expandoRowPersistence;
+    @BeanReference(type = com.liferay.portlet.expando.service.ExpandoTableLocalService.class)
+    protected com.liferay.portlet.expando.service.ExpandoTableLocalService expandoTableLocalService;
+    @BeanReference(type = ExpandoTablePersistence.class)
+    protected ExpandoTablePersistence expandoTablePersistence;
+    @BeanReference(type = com.liferay.portlet.expando.service.ExpandoValueLocalService.class)
+    protected com.liferay.portlet.expando.service.ExpandoValueLocalService expandoValueLocalService;
+    @BeanReference(type = com.liferay.portlet.expando.service.ExpandoValueService.class)
+    protected com.liferay.portlet.expando.service.ExpandoValueService expandoValueService;
+    @BeanReference(type = ExpandoValuePersistence.class)
+    protected ExpandoValuePersistence expandoValuePersistence;
+    @BeanReference(type = com.liferay.counter.service.CounterLocalService.class)
+    protected com.liferay.counter.service.CounterLocalService counterLocalService;
+    @BeanReference(type = com.liferay.portal.service.ResourceLocalService.class)
+    protected com.liferay.portal.service.ResourceLocalService resourceLocalService;
+    @BeanReference(type = com.liferay.portal.service.UserLocalService.class)
+    protected com.liferay.portal.service.UserLocalService userLocalService;
+    @BeanReference(type = com.liferay.portal.service.UserService.class)
+    protected com.liferay.portal.service.UserService userService;
+    @BeanReference(type = UserPersistence.class)
+    protected UserPersistence userPersistence;
+    @BeanReference(type = UserFinder.class)
+    protected UserFinder userFinder;
+    @BeanReference(type = PersistedModelLocalServiceRegistry.class)
+    protected PersistedModelLocalServiceRegistry persistedModelLocalServiceRegistry;
+    private String _beanIdentifier;
 
-	/**
-	 * Adds the expando table to the database. Also notifies the appropriate model listeners.
-	 *
-	 * @param expandoTable the expando table
-	 * @return the expando table that was added
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Indexable(type = IndexableType.REINDEX)
-	@Override
-	public ExpandoTable addExpandoTable(ExpandoTable expandoTable)
-		throws SystemException {
-		expandoTable.setNew(true);
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this class directly. Always use {@link com.liferay.portlet.expando.service.ExpandoTableLocalServiceUtil} to access the expando table local service.
+     */
 
-		return expandoTablePersistence.update(expandoTable);
-	}
+    /**
+     * Adds the expando table to the database. Also notifies the appropriate model listeners.
+     *
+     * @param expandoTable the expando table
+     * @return the expando table that was added
+     * @throws SystemException if a system exception occurred
+     */
+    @Indexable(type = IndexableType.REINDEX)
+    @Override
+    public ExpandoTable addExpandoTable(ExpandoTable expandoTable)
+        throws SystemException {
+        expandoTable.setNew(true);
 
-	/**
-	 * Creates a new expando table with the primary key. Does not add the expando table to the database.
-	 *
-	 * @param tableId the primary key for the new expando table
-	 * @return the new expando table
-	 */
-	@Override
-	public ExpandoTable createExpandoTable(long tableId) {
-		return expandoTablePersistence.create(tableId);
-	}
+        return expandoTablePersistence.update(expandoTable);
+    }
 
-	/**
-	 * Deletes the expando table with the primary key from the database. Also notifies the appropriate model listeners.
-	 *
-	 * @param tableId the primary key of the expando table
-	 * @return the expando table that was removed
-	 * @throws PortalException if a expando table with the primary key could not be found
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Indexable(type = IndexableType.DELETE)
-	@Override
-	public ExpandoTable deleteExpandoTable(long tableId)
-		throws PortalException, SystemException {
-		return expandoTablePersistence.remove(tableId);
-	}
+    /**
+     * Creates a new expando table with the primary key. Does not add the expando table to the database.
+     *
+     * @param tableId the primary key for the new expando table
+     * @return the new expando table
+     */
+    @Override
+    public ExpandoTable createExpandoTable(long tableId) {
+        return expandoTablePersistence.create(tableId);
+    }
 
-	/**
-	 * Deletes the expando table from the database. Also notifies the appropriate model listeners.
-	 *
-	 * @param expandoTable the expando table
-	 * @return the expando table that was removed
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Indexable(type = IndexableType.DELETE)
-	@Override
-	public ExpandoTable deleteExpandoTable(ExpandoTable expandoTable)
-		throws SystemException {
-		return expandoTablePersistence.remove(expandoTable);
-	}
+    /**
+     * Deletes the expando table with the primary key from the database. Also notifies the appropriate model listeners.
+     *
+     * @param tableId the primary key of the expando table
+     * @return the expando table that was removed
+     * @throws PortalException if a expando table with the primary key could not be found
+     * @throws SystemException if a system exception occurred
+     */
+    @Indexable(type = IndexableType.DELETE)
+    @Override
+    public ExpandoTable deleteExpandoTable(long tableId)
+        throws PortalException, SystemException {
+        return expandoTablePersistence.remove(tableId);
+    }
 
-	@Override
-	public DynamicQuery dynamicQuery() {
-		Class<?> clazz = getClass();
+    /**
+     * Deletes the expando table from the database. Also notifies the appropriate model listeners.
+     *
+     * @param expandoTable the expando table
+     * @return the expando table that was removed
+     * @throws SystemException if a system exception occurred
+     */
+    @Indexable(type = IndexableType.DELETE)
+    @Override
+    public ExpandoTable deleteExpandoTable(ExpandoTable expandoTable)
+        throws SystemException {
+        return expandoTablePersistence.remove(expandoTable);
+    }
 
-		return DynamicQueryFactoryUtil.forClass(ExpandoTable.class,
-			clazz.getClassLoader());
-	}
+    @Override
+    public DynamicQuery dynamicQuery() {
+        Class<?> clazz = getClass();
 
-	/**
-	 * Performs a dynamic query on the database and returns the matching rows.
-	 *
-	 * @param dynamicQuery the dynamic query
-	 * @return the matching rows
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Override
-	@SuppressWarnings("rawtypes")
-	public List dynamicQuery(DynamicQuery dynamicQuery)
-		throws SystemException {
-		return expandoTablePersistence.findWithDynamicQuery(dynamicQuery);
-	}
+        return DynamicQueryFactoryUtil.forClass(ExpandoTable.class,
+            clazz.getClassLoader());
+    }
 
-	/**
-	 * Performs a dynamic query on the database and returns a range of the matching rows.
-	 *
-	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.portlet.expando.model.impl.ExpandoTableModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	 * </p>
-	 *
-	 * @param dynamicQuery the dynamic query
-	 * @param start the lower bound of the range of model instances
-	 * @param end the upper bound of the range of model instances (not inclusive)
-	 * @return the range of matching rows
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Override
-	@SuppressWarnings("rawtypes")
-	public List dynamicQuery(DynamicQuery dynamicQuery, int start, int end)
-		throws SystemException {
-		return expandoTablePersistence.findWithDynamicQuery(dynamicQuery,
-			start, end);
-	}
+    /**
+     * Performs a dynamic query on the database and returns the matching rows.
+     *
+     * @param dynamicQuery the dynamic query
+     * @return the matching rows
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    @SuppressWarnings("rawtypes")
+    public List dynamicQuery(DynamicQuery dynamicQuery)
+        throws SystemException {
+        return expandoTablePersistence.findWithDynamicQuery(dynamicQuery);
+    }
 
-	/**
-	 * Performs a dynamic query on the database and returns an ordered range of the matching rows.
-	 *
-	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.portlet.expando.model.impl.ExpandoTableModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	 * </p>
-	 *
-	 * @param dynamicQuery the dynamic query
-	 * @param start the lower bound of the range of model instances
-	 * @param end the upper bound of the range of model instances (not inclusive)
-	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	 * @return the ordered range of matching rows
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Override
-	@SuppressWarnings("rawtypes")
-	public List dynamicQuery(DynamicQuery dynamicQuery, int start, int end,
-		OrderByComparator orderByComparator) throws SystemException {
-		return expandoTablePersistence.findWithDynamicQuery(dynamicQuery,
-			start, end, orderByComparator);
-	}
+    /**
+     * Performs a dynamic query on the database and returns a range of the matching rows.
+     *
+     * <p>
+     * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.portlet.expando.model.impl.ExpandoTableModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+     * </p>
+     *
+     * @param dynamicQuery the dynamic query
+     * @param start the lower bound of the range of model instances
+     * @param end the upper bound of the range of model instances (not inclusive)
+     * @return the range of matching rows
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    @SuppressWarnings("rawtypes")
+    public List dynamicQuery(DynamicQuery dynamicQuery, int start, int end)
+        throws SystemException {
+        return expandoTablePersistence.findWithDynamicQuery(dynamicQuery,
+            start, end);
+    }
 
-	/**
-	 * Returns the number of rows that match the dynamic query.
-	 *
-	 * @param dynamicQuery the dynamic query
-	 * @return the number of rows that match the dynamic query
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Override
-	public long dynamicQueryCount(DynamicQuery dynamicQuery)
-		throws SystemException {
-		return expandoTablePersistence.countWithDynamicQuery(dynamicQuery);
-	}
+    /**
+     * Performs a dynamic query on the database and returns an ordered range of the matching rows.
+     *
+     * <p>
+     * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.portlet.expando.model.impl.ExpandoTableModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+     * </p>
+     *
+     * @param dynamicQuery the dynamic query
+     * @param start the lower bound of the range of model instances
+     * @param end the upper bound of the range of model instances (not inclusive)
+     * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+     * @return the ordered range of matching rows
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    @SuppressWarnings("rawtypes")
+    public List dynamicQuery(DynamicQuery dynamicQuery, int start, int end,
+        OrderByComparator orderByComparator) throws SystemException {
+        return expandoTablePersistence.findWithDynamicQuery(dynamicQuery,
+            start, end, orderByComparator);
+    }
 
-	/**
-	 * Returns the number of rows that match the dynamic query.
-	 *
-	 * @param dynamicQuery the dynamic query
-	 * @param projection the projection to apply to the query
-	 * @return the number of rows that match the dynamic query
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Override
-	public long dynamicQueryCount(DynamicQuery dynamicQuery,
-		Projection projection) throws SystemException {
-		return expandoTablePersistence.countWithDynamicQuery(dynamicQuery,
-			projection);
-	}
+    /**
+     * Returns the number of rows that match the dynamic query.
+     *
+     * @param dynamicQuery the dynamic query
+     * @return the number of rows that match the dynamic query
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    public long dynamicQueryCount(DynamicQuery dynamicQuery)
+        throws SystemException {
+        return expandoTablePersistence.countWithDynamicQuery(dynamicQuery);
+    }
 
-	@Override
-	public ExpandoTable fetchExpandoTable(long tableId)
-		throws SystemException {
-		return expandoTablePersistence.fetchByPrimaryKey(tableId);
-	}
+    /**
+     * Returns the number of rows that match the dynamic query.
+     *
+     * @param dynamicQuery the dynamic query
+     * @param projection the projection to apply to the query
+     * @return the number of rows that match the dynamic query
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    public long dynamicQueryCount(DynamicQuery dynamicQuery,
+        Projection projection) throws SystemException {
+        return expandoTablePersistence.countWithDynamicQuery(dynamicQuery,
+            projection);
+    }
 
-	/**
-	 * Returns the expando table with the primary key.
-	 *
-	 * @param tableId the primary key of the expando table
-	 * @return the expando table
-	 * @throws PortalException if a expando table with the primary key could not be found
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Override
-	public ExpandoTable getExpandoTable(long tableId)
-		throws PortalException, SystemException {
-		return expandoTablePersistence.findByPrimaryKey(tableId);
-	}
+    @Override
+    public ExpandoTable fetchExpandoTable(long tableId)
+        throws SystemException {
+        return expandoTablePersistence.fetchByPrimaryKey(tableId);
+    }
 
-	@Override
-	public PersistedModel getPersistedModel(Serializable primaryKeyObj)
-		throws PortalException, SystemException {
-		return expandoTablePersistence.findByPrimaryKey(primaryKeyObj);
-	}
+    /**
+     * Returns the expando table with the primary key.
+     *
+     * @param tableId the primary key of the expando table
+     * @return the expando table
+     * @throws PortalException if a expando table with the primary key could not be found
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    public ExpandoTable getExpandoTable(long tableId)
+        throws PortalException, SystemException {
+        return expandoTablePersistence.findByPrimaryKey(tableId);
+    }
 
-	/**
-	 * Returns a range of all the expando tables.
-	 *
-	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.portlet.expando.model.impl.ExpandoTableModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	 * </p>
-	 *
-	 * @param start the lower bound of the range of expando tables
-	 * @param end the upper bound of the range of expando tables (not inclusive)
-	 * @return the range of expando tables
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Override
-	public List<ExpandoTable> getExpandoTables(int start, int end)
-		throws SystemException {
-		return expandoTablePersistence.findAll(start, end);
-	}
+    @Override
+    public PersistedModel getPersistedModel(Serializable primaryKeyObj)
+        throws PortalException, SystemException {
+        return expandoTablePersistence.findByPrimaryKey(primaryKeyObj);
+    }
 
-	/**
-	 * Returns the number of expando tables.
-	 *
-	 * @return the number of expando tables
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Override
-	public int getExpandoTablesCount() throws SystemException {
-		return expandoTablePersistence.countAll();
-	}
+    /**
+     * Returns a range of all the expando tables.
+     *
+     * <p>
+     * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.portlet.expando.model.impl.ExpandoTableModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+     * </p>
+     *
+     * @param start the lower bound of the range of expando tables
+     * @param end the upper bound of the range of expando tables (not inclusive)
+     * @return the range of expando tables
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    public List<ExpandoTable> getExpandoTables(int start, int end)
+        throws SystemException {
+        return expandoTablePersistence.findAll(start, end);
+    }
 
-	/**
-	 * Updates the expando table in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
-	 *
-	 * @param expandoTable the expando table
-	 * @return the expando table that was updated
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Indexable(type = IndexableType.REINDEX)
-	@Override
-	public ExpandoTable updateExpandoTable(ExpandoTable expandoTable)
-		throws SystemException {
-		return expandoTablePersistence.update(expandoTable);
-	}
+    /**
+     * Returns the number of expando tables.
+     *
+     * @return the number of expando tables
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    public int getExpandoTablesCount() throws SystemException {
+        return expandoTablePersistence.countAll();
+    }
 
-	/**
-	 * Returns the expando column local service.
-	 *
-	 * @return the expando column local service
-	 */
-	public com.liferay.portlet.expando.service.ExpandoColumnLocalService getExpandoColumnLocalService() {
-		return expandoColumnLocalService;
-	}
+    /**
+     * Updates the expando table in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
+     *
+     * @param expandoTable the expando table
+     * @return the expando table that was updated
+     * @throws SystemException if a system exception occurred
+     */
+    @Indexable(type = IndexableType.REINDEX)
+    @Override
+    public ExpandoTable updateExpandoTable(ExpandoTable expandoTable)
+        throws SystemException {
+        return expandoTablePersistence.update(expandoTable);
+    }
 
-	/**
-	 * Sets the expando column local service.
-	 *
-	 * @param expandoColumnLocalService the expando column local service
-	 */
-	public void setExpandoColumnLocalService(
-		com.liferay.portlet.expando.service.ExpandoColumnLocalService expandoColumnLocalService) {
-		this.expandoColumnLocalService = expandoColumnLocalService;
-	}
+    /**
+     * Returns the expando column local service.
+     *
+     * @return the expando column local service
+     */
+    public com.liferay.portlet.expando.service.ExpandoColumnLocalService getExpandoColumnLocalService() {
+        return expandoColumnLocalService;
+    }
 
-	/**
-	 * Returns the expando column remote service.
-	 *
-	 * @return the expando column remote service
-	 */
-	public com.liferay.portlet.expando.service.ExpandoColumnService getExpandoColumnService() {
-		return expandoColumnService;
-	}
+    /**
+     * Sets the expando column local service.
+     *
+     * @param expandoColumnLocalService the expando column local service
+     */
+    public void setExpandoColumnLocalService(
+        com.liferay.portlet.expando.service.ExpandoColumnLocalService expandoColumnLocalService) {
+        this.expandoColumnLocalService = expandoColumnLocalService;
+    }
 
-	/**
-	 * Sets the expando column remote service.
-	 *
-	 * @param expandoColumnService the expando column remote service
-	 */
-	public void setExpandoColumnService(
-		com.liferay.portlet.expando.service.ExpandoColumnService expandoColumnService) {
-		this.expandoColumnService = expandoColumnService;
-	}
+    /**
+     * Returns the expando column remote service.
+     *
+     * @return the expando column remote service
+     */
+    public com.liferay.portlet.expando.service.ExpandoColumnService getExpandoColumnService() {
+        return expandoColumnService;
+    }
 
-	/**
-	 * Returns the expando column persistence.
-	 *
-	 * @return the expando column persistence
-	 */
-	public ExpandoColumnPersistence getExpandoColumnPersistence() {
-		return expandoColumnPersistence;
-	}
+    /**
+     * Sets the expando column remote service.
+     *
+     * @param expandoColumnService the expando column remote service
+     */
+    public void setExpandoColumnService(
+        com.liferay.portlet.expando.service.ExpandoColumnService expandoColumnService) {
+        this.expandoColumnService = expandoColumnService;
+    }
 
-	/**
-	 * Sets the expando column persistence.
-	 *
-	 * @param expandoColumnPersistence the expando column persistence
-	 */
-	public void setExpandoColumnPersistence(
-		ExpandoColumnPersistence expandoColumnPersistence) {
-		this.expandoColumnPersistence = expandoColumnPersistence;
-	}
+    /**
+     * Returns the expando column persistence.
+     *
+     * @return the expando column persistence
+     */
+    public ExpandoColumnPersistence getExpandoColumnPersistence() {
+        return expandoColumnPersistence;
+    }
 
-	/**
-	 * Returns the expando row local service.
-	 *
-	 * @return the expando row local service
-	 */
-	public com.liferay.portlet.expando.service.ExpandoRowLocalService getExpandoRowLocalService() {
-		return expandoRowLocalService;
-	}
+    /**
+     * Sets the expando column persistence.
+     *
+     * @param expandoColumnPersistence the expando column persistence
+     */
+    public void setExpandoColumnPersistence(
+        ExpandoColumnPersistence expandoColumnPersistence) {
+        this.expandoColumnPersistence = expandoColumnPersistence;
+    }
 
-	/**
-	 * Sets the expando row local service.
-	 *
-	 * @param expandoRowLocalService the expando row local service
-	 */
-	public void setExpandoRowLocalService(
-		com.liferay.portlet.expando.service.ExpandoRowLocalService expandoRowLocalService) {
-		this.expandoRowLocalService = expandoRowLocalService;
-	}
+    /**
+     * Returns the expando row local service.
+     *
+     * @return the expando row local service
+     */
+    public com.liferay.portlet.expando.service.ExpandoRowLocalService getExpandoRowLocalService() {
+        return expandoRowLocalService;
+    }
 
-	/**
-	 * Returns the expando row persistence.
-	 *
-	 * @return the expando row persistence
-	 */
-	public ExpandoRowPersistence getExpandoRowPersistence() {
-		return expandoRowPersistence;
-	}
+    /**
+     * Sets the expando row local service.
+     *
+     * @param expandoRowLocalService the expando row local service
+     */
+    public void setExpandoRowLocalService(
+        com.liferay.portlet.expando.service.ExpandoRowLocalService expandoRowLocalService) {
+        this.expandoRowLocalService = expandoRowLocalService;
+    }
 
-	/**
-	 * Sets the expando row persistence.
-	 *
-	 * @param expandoRowPersistence the expando row persistence
-	 */
-	public void setExpandoRowPersistence(
-		ExpandoRowPersistence expandoRowPersistence) {
-		this.expandoRowPersistence = expandoRowPersistence;
-	}
+    /**
+     * Returns the expando row persistence.
+     *
+     * @return the expando row persistence
+     */
+    public ExpandoRowPersistence getExpandoRowPersistence() {
+        return expandoRowPersistence;
+    }
 
-	/**
-	 * Returns the expando table local service.
-	 *
-	 * @return the expando table local service
-	 */
-	public com.liferay.portlet.expando.service.ExpandoTableLocalService getExpandoTableLocalService() {
-		return expandoTableLocalService;
-	}
+    /**
+     * Sets the expando row persistence.
+     *
+     * @param expandoRowPersistence the expando row persistence
+     */
+    public void setExpandoRowPersistence(
+        ExpandoRowPersistence expandoRowPersistence) {
+        this.expandoRowPersistence = expandoRowPersistence;
+    }
 
-	/**
-	 * Sets the expando table local service.
-	 *
-	 * @param expandoTableLocalService the expando table local service
-	 */
-	public void setExpandoTableLocalService(
-		com.liferay.portlet.expando.service.ExpandoTableLocalService expandoTableLocalService) {
-		this.expandoTableLocalService = expandoTableLocalService;
-	}
+    /**
+     * Returns the expando table local service.
+     *
+     * @return the expando table local service
+     */
+    public com.liferay.portlet.expando.service.ExpandoTableLocalService getExpandoTableLocalService() {
+        return expandoTableLocalService;
+    }
 
-	/**
-	 * Returns the expando table persistence.
-	 *
-	 * @return the expando table persistence
-	 */
-	public ExpandoTablePersistence getExpandoTablePersistence() {
-		return expandoTablePersistence;
-	}
+    /**
+     * Sets the expando table local service.
+     *
+     * @param expandoTableLocalService the expando table local service
+     */
+    public void setExpandoTableLocalService(
+        com.liferay.portlet.expando.service.ExpandoTableLocalService expandoTableLocalService) {
+        this.expandoTableLocalService = expandoTableLocalService;
+    }
 
-	/**
-	 * Sets the expando table persistence.
-	 *
-	 * @param expandoTablePersistence the expando table persistence
-	 */
-	public void setExpandoTablePersistence(
-		ExpandoTablePersistence expandoTablePersistence) {
-		this.expandoTablePersistence = expandoTablePersistence;
-	}
+    /**
+     * Returns the expando table persistence.
+     *
+     * @return the expando table persistence
+     */
+    public ExpandoTablePersistence getExpandoTablePersistence() {
+        return expandoTablePersistence;
+    }
 
-	/**
-	 * Returns the expando value local service.
-	 *
-	 * @return the expando value local service
-	 */
-	public com.liferay.portlet.expando.service.ExpandoValueLocalService getExpandoValueLocalService() {
-		return expandoValueLocalService;
-	}
+    /**
+     * Sets the expando table persistence.
+     *
+     * @param expandoTablePersistence the expando table persistence
+     */
+    public void setExpandoTablePersistence(
+        ExpandoTablePersistence expandoTablePersistence) {
+        this.expandoTablePersistence = expandoTablePersistence;
+    }
 
-	/**
-	 * Sets the expando value local service.
-	 *
-	 * @param expandoValueLocalService the expando value local service
-	 */
-	public void setExpandoValueLocalService(
-		com.liferay.portlet.expando.service.ExpandoValueLocalService expandoValueLocalService) {
-		this.expandoValueLocalService = expandoValueLocalService;
-	}
+    /**
+     * Returns the expando value local service.
+     *
+     * @return the expando value local service
+     */
+    public com.liferay.portlet.expando.service.ExpandoValueLocalService getExpandoValueLocalService() {
+        return expandoValueLocalService;
+    }
 
-	/**
-	 * Returns the expando value remote service.
-	 *
-	 * @return the expando value remote service
-	 */
-	public com.liferay.portlet.expando.service.ExpandoValueService getExpandoValueService() {
-		return expandoValueService;
-	}
+    /**
+     * Sets the expando value local service.
+     *
+     * @param expandoValueLocalService the expando value local service
+     */
+    public void setExpandoValueLocalService(
+        com.liferay.portlet.expando.service.ExpandoValueLocalService expandoValueLocalService) {
+        this.expandoValueLocalService = expandoValueLocalService;
+    }
 
-	/**
-	 * Sets the expando value remote service.
-	 *
-	 * @param expandoValueService the expando value remote service
-	 */
-	public void setExpandoValueService(
-		com.liferay.portlet.expando.service.ExpandoValueService expandoValueService) {
-		this.expandoValueService = expandoValueService;
-	}
+    /**
+     * Returns the expando value remote service.
+     *
+     * @return the expando value remote service
+     */
+    public com.liferay.portlet.expando.service.ExpandoValueService getExpandoValueService() {
+        return expandoValueService;
+    }
 
-	/**
-	 * Returns the expando value persistence.
-	 *
-	 * @return the expando value persistence
-	 */
-	public ExpandoValuePersistence getExpandoValuePersistence() {
-		return expandoValuePersistence;
-	}
+    /**
+     * Sets the expando value remote service.
+     *
+     * @param expandoValueService the expando value remote service
+     */
+    public void setExpandoValueService(
+        com.liferay.portlet.expando.service.ExpandoValueService expandoValueService) {
+        this.expandoValueService = expandoValueService;
+    }
 
-	/**
-	 * Sets the expando value persistence.
-	 *
-	 * @param expandoValuePersistence the expando value persistence
-	 */
-	public void setExpandoValuePersistence(
-		ExpandoValuePersistence expandoValuePersistence) {
-		this.expandoValuePersistence = expandoValuePersistence;
-	}
+    /**
+     * Returns the expando value persistence.
+     *
+     * @return the expando value persistence
+     */
+    public ExpandoValuePersistence getExpandoValuePersistence() {
+        return expandoValuePersistence;
+    }
 
-	/**
-	 * Returns the counter local service.
-	 *
-	 * @return the counter local service
-	 */
-	public com.liferay.counter.service.CounterLocalService getCounterLocalService() {
-		return counterLocalService;
-	}
+    /**
+     * Sets the expando value persistence.
+     *
+     * @param expandoValuePersistence the expando value persistence
+     */
+    public void setExpandoValuePersistence(
+        ExpandoValuePersistence expandoValuePersistence) {
+        this.expandoValuePersistence = expandoValuePersistence;
+    }
 
-	/**
-	 * Sets the counter local service.
-	 *
-	 * @param counterLocalService the counter local service
-	 */
-	public void setCounterLocalService(
-		com.liferay.counter.service.CounterLocalService counterLocalService) {
-		this.counterLocalService = counterLocalService;
-	}
+    /**
+     * Returns the counter local service.
+     *
+     * @return the counter local service
+     */
+    public com.liferay.counter.service.CounterLocalService getCounterLocalService() {
+        return counterLocalService;
+    }
 
-	/**
-	 * Returns the resource local service.
-	 *
-	 * @return the resource local service
-	 */
-	public com.liferay.portal.service.ResourceLocalService getResourceLocalService() {
-		return resourceLocalService;
-	}
+    /**
+     * Sets the counter local service.
+     *
+     * @param counterLocalService the counter local service
+     */
+    public void setCounterLocalService(
+        com.liferay.counter.service.CounterLocalService counterLocalService) {
+        this.counterLocalService = counterLocalService;
+    }
 
-	/**
-	 * Sets the resource local service.
-	 *
-	 * @param resourceLocalService the resource local service
-	 */
-	public void setResourceLocalService(
-		com.liferay.portal.service.ResourceLocalService resourceLocalService) {
-		this.resourceLocalService = resourceLocalService;
-	}
+    /**
+     * Returns the resource local service.
+     *
+     * @return the resource local service
+     */
+    public com.liferay.portal.service.ResourceLocalService getResourceLocalService() {
+        return resourceLocalService;
+    }
 
-	/**
-	 * Returns the user local service.
-	 *
-	 * @return the user local service
-	 */
-	public com.liferay.portal.service.UserLocalService getUserLocalService() {
-		return userLocalService;
-	}
+    /**
+     * Sets the resource local service.
+     *
+     * @param resourceLocalService the resource local service
+     */
+    public void setResourceLocalService(
+        com.liferay.portal.service.ResourceLocalService resourceLocalService) {
+        this.resourceLocalService = resourceLocalService;
+    }
 
-	/**
-	 * Sets the user local service.
-	 *
-	 * @param userLocalService the user local service
-	 */
-	public void setUserLocalService(
-		com.liferay.portal.service.UserLocalService userLocalService) {
-		this.userLocalService = userLocalService;
-	}
+    /**
+     * Returns the user local service.
+     *
+     * @return the user local service
+     */
+    public com.liferay.portal.service.UserLocalService getUserLocalService() {
+        return userLocalService;
+    }
 
-	/**
-	 * Returns the user remote service.
-	 *
-	 * @return the user remote service
-	 */
-	public com.liferay.portal.service.UserService getUserService() {
-		return userService;
-	}
+    /**
+     * Sets the user local service.
+     *
+     * @param userLocalService the user local service
+     */
+    public void setUserLocalService(
+        com.liferay.portal.service.UserLocalService userLocalService) {
+        this.userLocalService = userLocalService;
+    }
 
-	/**
-	 * Sets the user remote service.
-	 *
-	 * @param userService the user remote service
-	 */
-	public void setUserService(
-		com.liferay.portal.service.UserService userService) {
-		this.userService = userService;
-	}
+    /**
+     * Returns the user remote service.
+     *
+     * @return the user remote service
+     */
+    public com.liferay.portal.service.UserService getUserService() {
+        return userService;
+    }
 
-	/**
-	 * Returns the user persistence.
-	 *
-	 * @return the user persistence
-	 */
-	public UserPersistence getUserPersistence() {
-		return userPersistence;
-	}
+    /**
+     * Sets the user remote service.
+     *
+     * @param userService the user remote service
+     */
+    public void setUserService(
+        com.liferay.portal.service.UserService userService) {
+        this.userService = userService;
+    }
 
-	/**
-	 * Sets the user persistence.
-	 *
-	 * @param userPersistence the user persistence
-	 */
-	public void setUserPersistence(UserPersistence userPersistence) {
-		this.userPersistence = userPersistence;
-	}
+    /**
+     * Returns the user persistence.
+     *
+     * @return the user persistence
+     */
+    public UserPersistence getUserPersistence() {
+        return userPersistence;
+    }
 
-	/**
-	 * Returns the user finder.
-	 *
-	 * @return the user finder
-	 */
-	public UserFinder getUserFinder() {
-		return userFinder;
-	}
+    /**
+     * Sets the user persistence.
+     *
+     * @param userPersistence the user persistence
+     */
+    public void setUserPersistence(UserPersistence userPersistence) {
+        this.userPersistence = userPersistence;
+    }
 
-	/**
-	 * Sets the user finder.
-	 *
-	 * @param userFinder the user finder
-	 */
-	public void setUserFinder(UserFinder userFinder) {
-		this.userFinder = userFinder;
-	}
+    /**
+     * Returns the user finder.
+     *
+     * @return the user finder
+     */
+    public UserFinder getUserFinder() {
+        return userFinder;
+    }
 
-	public void afterPropertiesSet() {
-		persistedModelLocalServiceRegistry.register("com.liferay.portlet.expando.model.ExpandoTable",
-			expandoTableLocalService);
-	}
+    /**
+     * Sets the user finder.
+     *
+     * @param userFinder the user finder
+     */
+    public void setUserFinder(UserFinder userFinder) {
+        this.userFinder = userFinder;
+    }
 
-	public void destroy() {
-		persistedModelLocalServiceRegistry.unregister(
-			"com.liferay.portlet.expando.model.ExpandoTable");
-	}
+    public void afterPropertiesSet() {
+        persistedModelLocalServiceRegistry.register("com.liferay.portlet.expando.model.ExpandoTable",
+            expandoTableLocalService);
+    }
 
-	/**
-	 * Returns the Spring bean ID for this bean.
-	 *
-	 * @return the Spring bean ID for this bean
-	 */
-	@Override
-	public String getBeanIdentifier() {
-		return _beanIdentifier;
-	}
+    public void destroy() {
+        persistedModelLocalServiceRegistry.unregister(
+            "com.liferay.portlet.expando.model.ExpandoTable");
+    }
 
-	/**
-	 * Sets the Spring bean ID for this bean.
-	 *
-	 * @param beanIdentifier the Spring bean ID for this bean
-	 */
-	@Override
-	public void setBeanIdentifier(String beanIdentifier) {
-		_beanIdentifier = beanIdentifier;
-	}
+    /**
+     * Returns the Spring bean ID for this bean.
+     *
+     * @return the Spring bean ID for this bean
+     */
+    @Override
+    public String getBeanIdentifier() {
+        return _beanIdentifier;
+    }
 
-	protected Class<?> getModelClass() {
-		return ExpandoTable.class;
-	}
+    /**
+     * Sets the Spring bean ID for this bean.
+     *
+     * @param beanIdentifier the Spring bean ID for this bean
+     */
+    @Override
+    public void setBeanIdentifier(String beanIdentifier) {
+        _beanIdentifier = beanIdentifier;
+    }
 
-	protected String getModelClassName() {
-		return ExpandoTable.class.getName();
-	}
+    protected Class<?> getModelClass() {
+        return ExpandoTable.class;
+    }
 
-	/**
-	 * Performs an SQL query.
-	 *
-	 * @param sql the sql query
-	 */
-	protected void runSQL(String sql) throws SystemException {
-		try {
-			DataSource dataSource = expandoTablePersistence.getDataSource();
+    protected String getModelClassName() {
+        return ExpandoTable.class.getName();
+    }
 
-			SqlUpdate sqlUpdate = SqlUpdateFactoryUtil.getSqlUpdate(dataSource,
-					sql, new int[0]);
+    /**
+     * Performs an SQL query.
+     *
+     * @param sql the sql query
+     */
+    protected void runSQL(String sql) throws SystemException {
+        try {
+            DataSource dataSource = expandoTablePersistence.getDataSource();
 
-			sqlUpdate.update();
-		}
-		catch (Exception e) {
-			throw new SystemException(e);
-		}
-	}
+            SqlUpdate sqlUpdate = SqlUpdateFactoryUtil.getSqlUpdate(dataSource,
+                    sql, new int[0]);
 
-	@BeanReference(type = com.liferay.portlet.expando.service.ExpandoColumnLocalService.class)
-	protected com.liferay.portlet.expando.service.ExpandoColumnLocalService expandoColumnLocalService;
-	@BeanReference(type = com.liferay.portlet.expando.service.ExpandoColumnService.class)
-	protected com.liferay.portlet.expando.service.ExpandoColumnService expandoColumnService;
-	@BeanReference(type = ExpandoColumnPersistence.class)
-	protected ExpandoColumnPersistence expandoColumnPersistence;
-	@BeanReference(type = com.liferay.portlet.expando.service.ExpandoRowLocalService.class)
-	protected com.liferay.portlet.expando.service.ExpandoRowLocalService expandoRowLocalService;
-	@BeanReference(type = ExpandoRowPersistence.class)
-	protected ExpandoRowPersistence expandoRowPersistence;
-	@BeanReference(type = com.liferay.portlet.expando.service.ExpandoTableLocalService.class)
-	protected com.liferay.portlet.expando.service.ExpandoTableLocalService expandoTableLocalService;
-	@BeanReference(type = ExpandoTablePersistence.class)
-	protected ExpandoTablePersistence expandoTablePersistence;
-	@BeanReference(type = com.liferay.portlet.expando.service.ExpandoValueLocalService.class)
-	protected com.liferay.portlet.expando.service.ExpandoValueLocalService expandoValueLocalService;
-	@BeanReference(type = com.liferay.portlet.expando.service.ExpandoValueService.class)
-	protected com.liferay.portlet.expando.service.ExpandoValueService expandoValueService;
-	@BeanReference(type = ExpandoValuePersistence.class)
-	protected ExpandoValuePersistence expandoValuePersistence;
-	@BeanReference(type = com.liferay.counter.service.CounterLocalService.class)
-	protected com.liferay.counter.service.CounterLocalService counterLocalService;
-	@BeanReference(type = com.liferay.portal.service.ResourceLocalService.class)
-	protected com.liferay.portal.service.ResourceLocalService resourceLocalService;
-	@BeanReference(type = com.liferay.portal.service.UserLocalService.class)
-	protected com.liferay.portal.service.UserLocalService userLocalService;
-	@BeanReference(type = com.liferay.portal.service.UserService.class)
-	protected com.liferay.portal.service.UserService userService;
-	@BeanReference(type = UserPersistence.class)
-	protected UserPersistence userPersistence;
-	@BeanReference(type = UserFinder.class)
-	protected UserFinder userFinder;
-	@BeanReference(type = PersistedModelLocalServiceRegistry.class)
-	protected PersistedModelLocalServiceRegistry persistedModelLocalServiceRegistry;
-	private String _beanIdentifier;
+            sqlUpdate.update();
+        } catch (Exception e) {
+            throw new SystemException(e);
+        }
+    }
 }

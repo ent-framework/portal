@@ -1,22 +1,9 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.model.ModelWrapper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,300 +19,300 @@ import java.util.Map;
  */
 @ProviderType
 public class ResourceActionWrapper implements ResourceAction,
-	ModelWrapper<ResourceAction> {
-	public ResourceActionWrapper(ResourceAction resourceAction) {
-		_resourceAction = resourceAction;
-	}
+    ModelWrapper<ResourceAction> {
+    private ResourceAction _resourceAction;
 
-	@Override
-	public Class<?> getModelClass() {
-		return ResourceAction.class;
-	}
+    public ResourceActionWrapper(ResourceAction resourceAction) {
+        _resourceAction = resourceAction;
+    }
 
-	@Override
-	public String getModelClassName() {
-		return ResourceAction.class.getName();
-	}
+    @Override
+    public Class<?> getModelClass() {
+        return ResourceAction.class;
+    }
 
-	@Override
-	public Map<String, Object> getModelAttributes() {
-		Map<String, Object> attributes = new HashMap<String, Object>();
+    @Override
+    public String getModelClassName() {
+        return ResourceAction.class.getName();
+    }
 
-		attributes.put("resourceActionId", getResourceActionId());
-		attributes.put("name", getName());
-		attributes.put("actionId", getActionId());
-		attributes.put("bitwiseValue", getBitwiseValue());
+    @Override
+    public Map<String, Object> getModelAttributes() {
+        Map<String, Object> attributes = new HashMap<String, Object>();
 
-		return attributes;
-	}
+        attributes.put("resourceActionId", getResourceActionId());
+        attributes.put("name", getName());
+        attributes.put("actionId", getActionId());
+        attributes.put("bitwiseValue", getBitwiseValue());
 
-	@Override
-	public void setModelAttributes(Map<String, Object> attributes) {
-		Long resourceActionId = (Long)attributes.get("resourceActionId");
+        return attributes;
+    }
 
-		if (resourceActionId != null) {
-			setResourceActionId(resourceActionId);
-		}
+    @Override
+    public void setModelAttributes(Map<String, Object> attributes) {
+        Long resourceActionId = (Long) attributes.get("resourceActionId");
 
-		String name = (String)attributes.get("name");
+        if (resourceActionId != null) {
+            setResourceActionId(resourceActionId);
+        }
 
-		if (name != null) {
-			setName(name);
-		}
+        String name = (String) attributes.get("name");
 
-		String actionId = (String)attributes.get("actionId");
+        if (name != null) {
+            setName(name);
+        }
 
-		if (actionId != null) {
-			setActionId(actionId);
-		}
+        String actionId = (String) attributes.get("actionId");
 
-		Long bitwiseValue = (Long)attributes.get("bitwiseValue");
+        if (actionId != null) {
+            setActionId(actionId);
+        }
 
-		if (bitwiseValue != null) {
-			setBitwiseValue(bitwiseValue);
-		}
-	}
+        Long bitwiseValue = (Long) attributes.get("bitwiseValue");
 
-	/**
-	* Returns the primary key of this resource action.
-	*
-	* @return the primary key of this resource action
-	*/
-	@Override
-	public long getPrimaryKey() {
-		return _resourceAction.getPrimaryKey();
-	}
+        if (bitwiseValue != null) {
+            setBitwiseValue(bitwiseValue);
+        }
+    }
 
-	/**
-	* Sets the primary key of this resource action.
-	*
-	* @param primaryKey the primary key of this resource action
-	*/
-	@Override
-	public void setPrimaryKey(long primaryKey) {
-		_resourceAction.setPrimaryKey(primaryKey);
-	}
+    /**
+    * Returns the primary key of this resource action.
+    *
+    * @return the primary key of this resource action
+    */
+    @Override
+    public long getPrimaryKey() {
+        return _resourceAction.getPrimaryKey();
+    }
 
-	/**
-	* Returns the resource action ID of this resource action.
-	*
-	* @return the resource action ID of this resource action
-	*/
-	@Override
-	public long getResourceActionId() {
-		return _resourceAction.getResourceActionId();
-	}
+    /**
+    * Sets the primary key of this resource action.
+    *
+    * @param primaryKey the primary key of this resource action
+    */
+    @Override
+    public void setPrimaryKey(long primaryKey) {
+        _resourceAction.setPrimaryKey(primaryKey);
+    }
 
-	/**
-	* Sets the resource action ID of this resource action.
-	*
-	* @param resourceActionId the resource action ID of this resource action
-	*/
-	@Override
-	public void setResourceActionId(long resourceActionId) {
-		_resourceAction.setResourceActionId(resourceActionId);
-	}
+    /**
+    * Returns the resource action ID of this resource action.
+    *
+    * @return the resource action ID of this resource action
+    */
+    @Override
+    public long getResourceActionId() {
+        return _resourceAction.getResourceActionId();
+    }
 
-	/**
-	* Returns the name of this resource action.
-	*
-	* @return the name of this resource action
-	*/
-	@Override
-	public java.lang.String getName() {
-		return _resourceAction.getName();
-	}
+    /**
+    * Sets the resource action ID of this resource action.
+    *
+    * @param resourceActionId the resource action ID of this resource action
+    */
+    @Override
+    public void setResourceActionId(long resourceActionId) {
+        _resourceAction.setResourceActionId(resourceActionId);
+    }
 
-	/**
-	* Sets the name of this resource action.
-	*
-	* @param name the name of this resource action
-	*/
-	@Override
-	public void setName(java.lang.String name) {
-		_resourceAction.setName(name);
-	}
+    /**
+    * Returns the name of this resource action.
+    *
+    * @return the name of this resource action
+    */
+    @Override
+    public java.lang.String getName() {
+        return _resourceAction.getName();
+    }
 
-	/**
-	* Returns the action ID of this resource action.
-	*
-	* @return the action ID of this resource action
-	*/
-	@Override
-	public java.lang.String getActionId() {
-		return _resourceAction.getActionId();
-	}
+    /**
+    * Sets the name of this resource action.
+    *
+    * @param name the name of this resource action
+    */
+    @Override
+    public void setName(java.lang.String name) {
+        _resourceAction.setName(name);
+    }
 
-	/**
-	* Sets the action ID of this resource action.
-	*
-	* @param actionId the action ID of this resource action
-	*/
-	@Override
-	public void setActionId(java.lang.String actionId) {
-		_resourceAction.setActionId(actionId);
-	}
+    /**
+    * Returns the action ID of this resource action.
+    *
+    * @return the action ID of this resource action
+    */
+    @Override
+    public java.lang.String getActionId() {
+        return _resourceAction.getActionId();
+    }
 
-	/**
-	* Returns the bitwise value of this resource action.
-	*
-	* @return the bitwise value of this resource action
-	*/
-	@Override
-	public long getBitwiseValue() {
-		return _resourceAction.getBitwiseValue();
-	}
+    /**
+    * Sets the action ID of this resource action.
+    *
+    * @param actionId the action ID of this resource action
+    */
+    @Override
+    public void setActionId(java.lang.String actionId) {
+        _resourceAction.setActionId(actionId);
+    }
 
-	/**
-	* Sets the bitwise value of this resource action.
-	*
-	* @param bitwiseValue the bitwise value of this resource action
-	*/
-	@Override
-	public void setBitwiseValue(long bitwiseValue) {
-		_resourceAction.setBitwiseValue(bitwiseValue);
-	}
+    /**
+    * Returns the bitwise value of this resource action.
+    *
+    * @return the bitwise value of this resource action
+    */
+    @Override
+    public long getBitwiseValue() {
+        return _resourceAction.getBitwiseValue();
+    }
 
-	@Override
-	public boolean isNew() {
-		return _resourceAction.isNew();
-	}
+    /**
+    * Sets the bitwise value of this resource action.
+    *
+    * @param bitwiseValue the bitwise value of this resource action
+    */
+    @Override
+    public void setBitwiseValue(long bitwiseValue) {
+        _resourceAction.setBitwiseValue(bitwiseValue);
+    }
 
-	@Override
-	public void setNew(boolean n) {
-		_resourceAction.setNew(n);
-	}
+    @Override
+    public boolean isNew() {
+        return _resourceAction.isNew();
+    }
 
-	@Override
-	public boolean isCachedModel() {
-		return _resourceAction.isCachedModel();
-	}
+    @Override
+    public void setNew(boolean n) {
+        _resourceAction.setNew(n);
+    }
 
-	@Override
-	public void setCachedModel(boolean cachedModel) {
-		_resourceAction.setCachedModel(cachedModel);
-	}
+    @Override
+    public boolean isCachedModel() {
+        return _resourceAction.isCachedModel();
+    }
 
-	@Override
-	public boolean isEscapedModel() {
-		return _resourceAction.isEscapedModel();
-	}
+    @Override
+    public void setCachedModel(boolean cachedModel) {
+        _resourceAction.setCachedModel(cachedModel);
+    }
 
-	@Override
-	public java.io.Serializable getPrimaryKeyObj() {
-		return _resourceAction.getPrimaryKeyObj();
-	}
+    @Override
+    public boolean isEscapedModel() {
+        return _resourceAction.isEscapedModel();
+    }
 
-	@Override
-	public void setPrimaryKeyObj(java.io.Serializable primaryKeyObj) {
-		_resourceAction.setPrimaryKeyObj(primaryKeyObj);
-	}
+    @Override
+    public java.io.Serializable getPrimaryKeyObj() {
+        return _resourceAction.getPrimaryKeyObj();
+    }
 
-	@Override
-	public com.liferay.portlet.expando.model.ExpandoBridge getExpandoBridge() {
-		return _resourceAction.getExpandoBridge();
-	}
+    @Override
+    public void setPrimaryKeyObj(java.io.Serializable primaryKeyObj) {
+        _resourceAction.setPrimaryKeyObj(primaryKeyObj);
+    }
 
-	@Override
-	public void setExpandoBridgeAttributes(
-		com.liferay.portal.model.BaseModel<?> baseModel) {
-		_resourceAction.setExpandoBridgeAttributes(baseModel);
-	}
+    @Override
+    public com.liferay.portlet.expando.model.ExpandoBridge getExpandoBridge() {
+        return _resourceAction.getExpandoBridge();
+    }
 
-	@Override
-	public void setExpandoBridgeAttributes(
-		com.liferay.portlet.expando.model.ExpandoBridge expandoBridge) {
-		_resourceAction.setExpandoBridgeAttributes(expandoBridge);
-	}
+    @Override
+    public void setExpandoBridgeAttributes(
+        com.liferay.portal.model.BaseModel<?> baseModel) {
+        _resourceAction.setExpandoBridgeAttributes(baseModel);
+    }
 
-	@Override
-	public void setExpandoBridgeAttributes(
-		com.liferay.portal.service.ServiceContext serviceContext) {
-		_resourceAction.setExpandoBridgeAttributes(serviceContext);
-	}
+    @Override
+    public void setExpandoBridgeAttributes(
+        com.liferay.portlet.expando.model.ExpandoBridge expandoBridge) {
+        _resourceAction.setExpandoBridgeAttributes(expandoBridge);
+    }
 
-	@Override
-	public java.lang.Object clone() {
-		return new ResourceActionWrapper((ResourceAction)_resourceAction.clone());
-	}
+    @Override
+    public void setExpandoBridgeAttributes(
+        com.liferay.portal.service.ServiceContext serviceContext) {
+        _resourceAction.setExpandoBridgeAttributes(serviceContext);
+    }
 
-	@Override
-	public int compareTo(com.liferay.portal.model.ResourceAction resourceAction) {
-		return _resourceAction.compareTo(resourceAction);
-	}
+    @Override
+    public java.lang.Object clone() {
+        return new ResourceActionWrapper((ResourceAction) _resourceAction.clone());
+    }
 
-	@Override
-	public int hashCode() {
-		return _resourceAction.hashCode();
-	}
+    @Override
+    public int compareTo(com.liferay.portal.model.ResourceAction resourceAction) {
+        return _resourceAction.compareTo(resourceAction);
+    }
 
-	@Override
-	public com.liferay.portal.model.CacheModel<com.liferay.portal.model.ResourceAction> toCacheModel() {
-		return _resourceAction.toCacheModel();
-	}
+    @Override
+    public int hashCode() {
+        return _resourceAction.hashCode();
+    }
 
-	@Override
-	public com.liferay.portal.model.ResourceAction toEscapedModel() {
-		return new ResourceActionWrapper(_resourceAction.toEscapedModel());
-	}
+    @Override
+    public com.liferay.portal.model.CacheModel<com.liferay.portal.model.ResourceAction> toCacheModel() {
+        return _resourceAction.toCacheModel();
+    }
 
-	@Override
-	public com.liferay.portal.model.ResourceAction toUnescapedModel() {
-		return new ResourceActionWrapper(_resourceAction.toUnescapedModel());
-	}
+    @Override
+    public com.liferay.portal.model.ResourceAction toEscapedModel() {
+        return new ResourceActionWrapper(_resourceAction.toEscapedModel());
+    }
 
-	@Override
-	public java.lang.String toString() {
-		return _resourceAction.toString();
-	}
+    @Override
+    public com.liferay.portal.model.ResourceAction toUnescapedModel() {
+        return new ResourceActionWrapper(_resourceAction.toUnescapedModel());
+    }
 
-	@Override
-	public java.lang.String toXmlString() {
-		return _resourceAction.toXmlString();
-	}
+    @Override
+    public java.lang.String toString() {
+        return _resourceAction.toString();
+    }
 
-	@Override
-	public void persist()
-		throws com.liferay.portal.kernel.exception.SystemException {
-		_resourceAction.persist();
-	}
+    @Override
+    public java.lang.String toXmlString() {
+        return _resourceAction.toXmlString();
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
+    @Override
+    public void persist()
+        throws com.liferay.portal.kernel.exception.SystemException {
+        _resourceAction.persist();
+    }
 
-		if (!(obj instanceof ResourceActionWrapper)) {
-			return false;
-		}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
 
-		ResourceActionWrapper resourceActionWrapper = (ResourceActionWrapper)obj;
+        if (!(obj instanceof ResourceActionWrapper)) {
+            return false;
+        }
 
-		if (Validator.equals(_resourceAction,
-					resourceActionWrapper._resourceAction)) {
-			return true;
-		}
+        ResourceActionWrapper resourceActionWrapper = (ResourceActionWrapper) obj;
 
-		return false;
-	}
+        if (Validator.equals(_resourceAction,
+                    resourceActionWrapper._resourceAction)) {
+            return true;
+        }
 
-	/**
-	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedModel}
-	 */
-	public ResourceAction getWrappedResourceAction() {
-		return _resourceAction;
-	}
+        return false;
+    }
 
-	@Override
-	public ResourceAction getWrappedModel() {
-		return _resourceAction;
-	}
+    /**
+     * @deprecated As of 6.1.0, replaced by {@link #getWrappedModel}
+     */
+    public ResourceAction getWrappedResourceAction() {
+        return _resourceAction;
+    }
 
-	@Override
-	public void resetOriginalValues() {
-		_resourceAction.resetOriginalValues();
-	}
+    @Override
+    public ResourceAction getWrappedModel() {
+        return _resourceAction;
+    }
 
-	private ResourceAction _resourceAction;
+    @Override
+    public void resetOriginalValues() {
+        _resourceAction.resetOriginalValues();
+    }
 }

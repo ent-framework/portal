@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.announcements.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -33,89 +19,87 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class AnnouncementsDeliveryCacheModel implements CacheModel<AnnouncementsDelivery>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(15);
+    Externalizable {
+    public long deliveryId;
+    public long companyId;
+    public long userId;
+    public String type;
+    public boolean email;
+    public boolean sms;
+    public boolean website;
 
-		sb.append("{deliveryId=");
-		sb.append(deliveryId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", type=");
-		sb.append(type);
-		sb.append(", email=");
-		sb.append(email);
-		sb.append(", sms=");
-		sb.append(sms);
-		sb.append(", website=");
-		sb.append(website);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(15);
 
-		return sb.toString();
-	}
+        sb.append("{deliveryId=");
+        sb.append(deliveryId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", type=");
+        sb.append(type);
+        sb.append(", email=");
+        sb.append(email);
+        sb.append(", sms=");
+        sb.append(sms);
+        sb.append(", website=");
+        sb.append(website);
+        sb.append("}");
 
-	@Override
-	public AnnouncementsDelivery toEntityModel() {
-		AnnouncementsDeliveryImpl announcementsDeliveryImpl = new AnnouncementsDeliveryImpl();
+        return sb.toString();
+    }
 
-		announcementsDeliveryImpl.setDeliveryId(deliveryId);
-		announcementsDeliveryImpl.setCompanyId(companyId);
-		announcementsDeliveryImpl.setUserId(userId);
+    @Override
+    public AnnouncementsDelivery toEntityModel() {
+        AnnouncementsDeliveryImpl announcementsDeliveryImpl = new AnnouncementsDeliveryImpl();
 
-		if (type == null) {
-			announcementsDeliveryImpl.setType(StringPool.BLANK);
-		}
-		else {
-			announcementsDeliveryImpl.setType(type);
-		}
+        announcementsDeliveryImpl.setDeliveryId(deliveryId);
+        announcementsDeliveryImpl.setCompanyId(companyId);
+        announcementsDeliveryImpl.setUserId(userId);
 
-		announcementsDeliveryImpl.setEmail(email);
-		announcementsDeliveryImpl.setSms(sms);
-		announcementsDeliveryImpl.setWebsite(website);
+        if (type == null) {
+            announcementsDeliveryImpl.setType(StringPool.BLANK);
+        } else {
+            announcementsDeliveryImpl.setType(type);
+        }
 
-		announcementsDeliveryImpl.resetOriginalValues();
+        announcementsDeliveryImpl.setEmail(email);
+        announcementsDeliveryImpl.setSms(sms);
+        announcementsDeliveryImpl.setWebsite(website);
 
-		return announcementsDeliveryImpl;
-	}
+        announcementsDeliveryImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		deliveryId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		type = objectInput.readUTF();
-		email = objectInput.readBoolean();
-		sms = objectInput.readBoolean();
-		website = objectInput.readBoolean();
-	}
+        return announcementsDeliveryImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(deliveryId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        deliveryId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        type = objectInput.readUTF();
+        email = objectInput.readBoolean();
+        sms = objectInput.readBoolean();
+        website = objectInput.readBoolean();
+    }
 
-		if (type == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(type);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(deliveryId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeBoolean(email);
-		objectOutput.writeBoolean(sms);
-		objectOutput.writeBoolean(website);
-	}
+        if (type == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(type);
+        }
 
-	public long deliveryId;
-	public long companyId;
-	public long userId;
-	public String type;
-	public boolean email;
-	public boolean sms;
-	public boolean website;
+        objectOutput.writeBoolean(email);
+        objectOutput.writeBoolean(sms);
+        objectOutput.writeBoolean(website);
+    }
 }

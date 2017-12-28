@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,126 +20,120 @@ import java.util.Date;
  * @generated
  */
 public class TicketCacheModel implements CacheModel<Ticket>, Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(19);
+    public long ticketId;
+    public long companyId;
+    public long createDate;
+    public long classNameId;
+    public long classPK;
+    public String key;
+    public int type;
+    public String extraInfo;
+    public long expirationDate;
 
-		sb.append("{ticketId=");
-		sb.append(ticketId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", classNameId=");
-		sb.append(classNameId);
-		sb.append(", classPK=");
-		sb.append(classPK);
-		sb.append(", key=");
-		sb.append(key);
-		sb.append(", type=");
-		sb.append(type);
-		sb.append(", extraInfo=");
-		sb.append(extraInfo);
-		sb.append(", expirationDate=");
-		sb.append(expirationDate);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(19);
 
-		return sb.toString();
-	}
+        sb.append("{ticketId=");
+        sb.append(ticketId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", classNameId=");
+        sb.append(classNameId);
+        sb.append(", classPK=");
+        sb.append(classPK);
+        sb.append(", key=");
+        sb.append(key);
+        sb.append(", type=");
+        sb.append(type);
+        sb.append(", extraInfo=");
+        sb.append(extraInfo);
+        sb.append(", expirationDate=");
+        sb.append(expirationDate);
+        sb.append("}");
 
-	@Override
-	public Ticket toEntityModel() {
-		TicketImpl ticketImpl = new TicketImpl();
+        return sb.toString();
+    }
 
-		ticketImpl.setTicketId(ticketId);
-		ticketImpl.setCompanyId(companyId);
+    @Override
+    public Ticket toEntityModel() {
+        TicketImpl ticketImpl = new TicketImpl();
 
-		if (createDate == Long.MIN_VALUE) {
-			ticketImpl.setCreateDate(null);
-		}
-		else {
-			ticketImpl.setCreateDate(new Date(createDate));
-		}
+        ticketImpl.setTicketId(ticketId);
+        ticketImpl.setCompanyId(companyId);
 
-		ticketImpl.setClassNameId(classNameId);
-		ticketImpl.setClassPK(classPK);
+        if (createDate == Long.MIN_VALUE) {
+            ticketImpl.setCreateDate(null);
+        } else {
+            ticketImpl.setCreateDate(new Date(createDate));
+        }
 
-		if (key == null) {
-			ticketImpl.setKey(StringPool.BLANK);
-		}
-		else {
-			ticketImpl.setKey(key);
-		}
+        ticketImpl.setClassNameId(classNameId);
+        ticketImpl.setClassPK(classPK);
 
-		ticketImpl.setType(type);
+        if (key == null) {
+            ticketImpl.setKey(StringPool.BLANK);
+        } else {
+            ticketImpl.setKey(key);
+        }
 
-		if (extraInfo == null) {
-			ticketImpl.setExtraInfo(StringPool.BLANK);
-		}
-		else {
-			ticketImpl.setExtraInfo(extraInfo);
-		}
+        ticketImpl.setType(type);
 
-		if (expirationDate == Long.MIN_VALUE) {
-			ticketImpl.setExpirationDate(null);
-		}
-		else {
-			ticketImpl.setExpirationDate(new Date(expirationDate));
-		}
+        if (extraInfo == null) {
+            ticketImpl.setExtraInfo(StringPool.BLANK);
+        } else {
+            ticketImpl.setExtraInfo(extraInfo);
+        }
 
-		ticketImpl.resetOriginalValues();
+        if (expirationDate == Long.MIN_VALUE) {
+            ticketImpl.setExpirationDate(null);
+        } else {
+            ticketImpl.setExpirationDate(new Date(expirationDate));
+        }
 
-		return ticketImpl;
-	}
+        ticketImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		ticketId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		createDate = objectInput.readLong();
-		classNameId = objectInput.readLong();
-		classPK = objectInput.readLong();
-		key = objectInput.readUTF();
-		type = objectInput.readInt();
-		extraInfo = objectInput.readUTF();
-		expirationDate = objectInput.readLong();
-	}
+        return ticketImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(ticketId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(classNameId);
-		objectOutput.writeLong(classPK);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        ticketId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        createDate = objectInput.readLong();
+        classNameId = objectInput.readLong();
+        classPK = objectInput.readLong();
+        key = objectInput.readUTF();
+        type = objectInput.readInt();
+        extraInfo = objectInput.readUTF();
+        expirationDate = objectInput.readLong();
+    }
 
-		if (key == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(key);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(ticketId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(classNameId);
+        objectOutput.writeLong(classPK);
 
-		objectOutput.writeInt(type);
+        if (key == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(key);
+        }
 
-		if (extraInfo == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(extraInfo);
-		}
+        objectOutput.writeInt(type);
 
-		objectOutput.writeLong(expirationDate);
-	}
+        if (extraInfo == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(extraInfo);
+        }
 
-	public long ticketId;
-	public long companyId;
-	public long createDate;
-	public long classNameId;
-	public long classPK;
-	public String key;
-	public int type;
-	public String extraInfo;
-	public long expirationDate;
+        objectOutput.writeLong(expirationDate);
+    }
 }

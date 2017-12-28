@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -31,51 +17,51 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class OrgGroupRoleCacheModel implements CacheModel<OrgGroupRole>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(7);
+    Externalizable {
+    public long organizationId;
+    public long groupId;
+    public long roleId;
 
-		sb.append("{organizationId=");
-		sb.append(organizationId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", roleId=");
-		sb.append(roleId);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(7);
 
-		return sb.toString();
-	}
+        sb.append("{organizationId=");
+        sb.append(organizationId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", roleId=");
+        sb.append(roleId);
+        sb.append("}");
 
-	@Override
-	public OrgGroupRole toEntityModel() {
-		OrgGroupRoleImpl orgGroupRoleImpl = new OrgGroupRoleImpl();
+        return sb.toString();
+    }
 
-		orgGroupRoleImpl.setOrganizationId(organizationId);
-		orgGroupRoleImpl.setGroupId(groupId);
-		orgGroupRoleImpl.setRoleId(roleId);
+    @Override
+    public OrgGroupRole toEntityModel() {
+        OrgGroupRoleImpl orgGroupRoleImpl = new OrgGroupRoleImpl();
 
-		orgGroupRoleImpl.resetOriginalValues();
+        orgGroupRoleImpl.setOrganizationId(organizationId);
+        orgGroupRoleImpl.setGroupId(groupId);
+        orgGroupRoleImpl.setRoleId(roleId);
 
-		return orgGroupRoleImpl;
-	}
+        orgGroupRoleImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		organizationId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		roleId = objectInput.readLong();
-	}
+        return orgGroupRoleImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(organizationId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(roleId);
-	}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        organizationId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        roleId = objectInput.readLong();
+    }
 
-	public long organizationId;
-	public long groupId;
-	public long roleId;
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(organizationId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(roleId);
+    }
 }

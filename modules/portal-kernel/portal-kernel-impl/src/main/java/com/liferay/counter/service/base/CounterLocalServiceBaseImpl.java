@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.counter.service.base;
 
 import com.liferay.counter.model.Counter;
@@ -56,447 +42,446 @@ import javax.sql.DataSource;
  * @generated
  */
 public abstract class CounterLocalServiceBaseImpl extends BaseLocalServiceImpl
-	implements CounterLocalService, IdentifiableBean {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this class directly. Always use {@link com.liferay.counter.service.CounterLocalServiceUtil} to access the counter local service.
-	 */
+    implements CounterLocalService, IdentifiableBean {
+    @BeanReference(type = com.liferay.counter.service.CounterLocalService.class)
+    protected com.liferay.counter.service.CounterLocalService counterLocalService;
+    @BeanReference(type = CounterPersistence.class)
+    protected CounterPersistence counterPersistence;
+    @BeanReference(type = CounterFinder.class)
+    protected CounterFinder counterFinder;
+    @BeanReference(type = com.liferay.portal.service.ResourceLocalService.class)
+    protected com.liferay.portal.service.ResourceLocalService resourceLocalService;
+    @BeanReference(type = com.liferay.portal.service.UserLocalService.class)
+    protected com.liferay.portal.service.UserLocalService userLocalService;
+    @BeanReference(type = com.liferay.portal.service.UserService.class)
+    protected com.liferay.portal.service.UserService userService;
+    @BeanReference(type = UserPersistence.class)
+    protected UserPersistence userPersistence;
+    @BeanReference(type = UserFinder.class)
+    protected UserFinder userFinder;
+    @BeanReference(type = PersistedModelLocalServiceRegistry.class)
+    protected PersistedModelLocalServiceRegistry persistedModelLocalServiceRegistry;
+    private String _beanIdentifier;
 
-	/**
-	 * Adds the counter to the database. Also notifies the appropriate model listeners.
-	 *
-	 * @param counter the counter
-	 * @return the counter that was added
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Indexable(type = IndexableType.REINDEX)
-	@Override
-	public Counter addCounter(Counter counter) throws SystemException {
-		counter.setNew(true);
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this class directly. Always use {@link com.liferay.counter.service.CounterLocalServiceUtil} to access the counter local service.
+     */
 
-		return counterPersistence.update(counter);
-	}
+    /**
+     * Adds the counter to the database. Also notifies the appropriate model listeners.
+     *
+     * @param counter the counter
+     * @return the counter that was added
+     * @throws SystemException if a system exception occurred
+     */
+    @Indexable(type = IndexableType.REINDEX)
+    @Override
+    public Counter addCounter(Counter counter) throws SystemException {
+        counter.setNew(true);
 
-	/**
-	 * Creates a new counter with the primary key. Does not add the counter to the database.
-	 *
-	 * @param name the primary key for the new counter
-	 * @return the new counter
-	 */
-	@Override
-	public Counter createCounter(String name) {
-		return counterPersistence.create(name);
-	}
+        return counterPersistence.update(counter);
+    }
 
-	/**
-	 * Deletes the counter with the primary key from the database. Also notifies the appropriate model listeners.
-	 *
-	 * @param name the primary key of the counter
-	 * @return the counter that was removed
-	 * @throws PortalException if a counter with the primary key could not be found
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Indexable(type = IndexableType.DELETE)
-	@Override
-	public Counter deleteCounter(String name)
-		throws PortalException, SystemException {
-		return counterPersistence.remove(name);
-	}
+    /**
+     * Creates a new counter with the primary key. Does not add the counter to the database.
+     *
+     * @param name the primary key for the new counter
+     * @return the new counter
+     */
+    @Override
+    public Counter createCounter(String name) {
+        return counterPersistence.create(name);
+    }
 
-	/**
-	 * Deletes the counter from the database. Also notifies the appropriate model listeners.
-	 *
-	 * @param counter the counter
-	 * @return the counter that was removed
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Indexable(type = IndexableType.DELETE)
-	@Override
-	public Counter deleteCounter(Counter counter) throws SystemException {
-		return counterPersistence.remove(counter);
-	}
+    /**
+     * Deletes the counter with the primary key from the database. Also notifies the appropriate model listeners.
+     *
+     * @param name the primary key of the counter
+     * @return the counter that was removed
+     * @throws PortalException if a counter with the primary key could not be found
+     * @throws SystemException if a system exception occurred
+     */
+    @Indexable(type = IndexableType.DELETE)
+    @Override
+    public Counter deleteCounter(String name)
+        throws PortalException, SystemException {
+        return counterPersistence.remove(name);
+    }
 
-	@Override
-	public DynamicQuery dynamicQuery() {
-		Class<?> clazz = getClass();
+    /**
+     * Deletes the counter from the database. Also notifies the appropriate model listeners.
+     *
+     * @param counter the counter
+     * @return the counter that was removed
+     * @throws SystemException if a system exception occurred
+     */
+    @Indexable(type = IndexableType.DELETE)
+    @Override
+    public Counter deleteCounter(Counter counter) throws SystemException {
+        return counterPersistence.remove(counter);
+    }
 
-		return DynamicQueryFactoryUtil.forClass(Counter.class,
-			clazz.getClassLoader());
-	}
+    @Override
+    public DynamicQuery dynamicQuery() {
+        Class<?> clazz = getClass();
 
-	/**
-	 * Performs a dynamic query on the database and returns the matching rows.
-	 *
-	 * @param dynamicQuery the dynamic query
-	 * @return the matching rows
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Override
-	@SuppressWarnings("rawtypes")
-	public List dynamicQuery(DynamicQuery dynamicQuery)
-		throws SystemException {
-		return counterPersistence.findWithDynamicQuery(dynamicQuery);
-	}
+        return DynamicQueryFactoryUtil.forClass(Counter.class,
+            clazz.getClassLoader());
+    }
 
-	/**
-	 * Performs a dynamic query on the database and returns a range of the matching rows.
-	 *
-	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.counter.model.impl.CounterModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	 * </p>
-	 *
-	 * @param dynamicQuery the dynamic query
-	 * @param start the lower bound of the range of model instances
-	 * @param end the upper bound of the range of model instances (not inclusive)
-	 * @return the range of matching rows
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Override
-	@SuppressWarnings("rawtypes")
-	public List dynamicQuery(DynamicQuery dynamicQuery, int start, int end)
-		throws SystemException {
-		return counterPersistence.findWithDynamicQuery(dynamicQuery, start, end);
-	}
+    /**
+     * Performs a dynamic query on the database and returns the matching rows.
+     *
+     * @param dynamicQuery the dynamic query
+     * @return the matching rows
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    @SuppressWarnings("rawtypes")
+    public List dynamicQuery(DynamicQuery dynamicQuery)
+        throws SystemException {
+        return counterPersistence.findWithDynamicQuery(dynamicQuery);
+    }
 
-	/**
-	 * Performs a dynamic query on the database and returns an ordered range of the matching rows.
-	 *
-	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.counter.model.impl.CounterModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	 * </p>
-	 *
-	 * @param dynamicQuery the dynamic query
-	 * @param start the lower bound of the range of model instances
-	 * @param end the upper bound of the range of model instances (not inclusive)
-	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	 * @return the ordered range of matching rows
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Override
-	@SuppressWarnings("rawtypes")
-	public List dynamicQuery(DynamicQuery dynamicQuery, int start, int end,
-		OrderByComparator orderByComparator) throws SystemException {
-		return counterPersistence.findWithDynamicQuery(dynamicQuery, start,
-			end, orderByComparator);
-	}
+    /**
+     * Performs a dynamic query on the database and returns a range of the matching rows.
+     *
+     * <p>
+     * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.counter.model.impl.CounterModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+     * </p>
+     *
+     * @param dynamicQuery the dynamic query
+     * @param start the lower bound of the range of model instances
+     * @param end the upper bound of the range of model instances (not inclusive)
+     * @return the range of matching rows
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    @SuppressWarnings("rawtypes")
+    public List dynamicQuery(DynamicQuery dynamicQuery, int start, int end)
+        throws SystemException {
+        return counterPersistence.findWithDynamicQuery(dynamicQuery, start, end);
+    }
 
-	/**
-	 * Returns the number of rows that match the dynamic query.
-	 *
-	 * @param dynamicQuery the dynamic query
-	 * @return the number of rows that match the dynamic query
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Override
-	public long dynamicQueryCount(DynamicQuery dynamicQuery)
-		throws SystemException {
-		return counterPersistence.countWithDynamicQuery(dynamicQuery);
-	}
+    /**
+     * Performs a dynamic query on the database and returns an ordered range of the matching rows.
+     *
+     * <p>
+     * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.counter.model.impl.CounterModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+     * </p>
+     *
+     * @param dynamicQuery the dynamic query
+     * @param start the lower bound of the range of model instances
+     * @param end the upper bound of the range of model instances (not inclusive)
+     * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+     * @return the ordered range of matching rows
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    @SuppressWarnings("rawtypes")
+    public List dynamicQuery(DynamicQuery dynamicQuery, int start, int end,
+        OrderByComparator orderByComparator) throws SystemException {
+        return counterPersistence.findWithDynamicQuery(dynamicQuery, start,
+            end, orderByComparator);
+    }
 
-	/**
-	 * Returns the number of rows that match the dynamic query.
-	 *
-	 * @param dynamicQuery the dynamic query
-	 * @param projection the projection to apply to the query
-	 * @return the number of rows that match the dynamic query
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Override
-	public long dynamicQueryCount(DynamicQuery dynamicQuery,
-		Projection projection) throws SystemException {
-		return counterPersistence.countWithDynamicQuery(dynamicQuery, projection);
-	}
+    /**
+     * Returns the number of rows that match the dynamic query.
+     *
+     * @param dynamicQuery the dynamic query
+     * @return the number of rows that match the dynamic query
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    public long dynamicQueryCount(DynamicQuery dynamicQuery)
+        throws SystemException {
+        return counterPersistence.countWithDynamicQuery(dynamicQuery);
+    }
 
-	@Override
-	public Counter fetchCounter(String name) throws SystemException {
-		return counterPersistence.fetchByPrimaryKey(name);
-	}
+    /**
+     * Returns the number of rows that match the dynamic query.
+     *
+     * @param dynamicQuery the dynamic query
+     * @param projection the projection to apply to the query
+     * @return the number of rows that match the dynamic query
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    public long dynamicQueryCount(DynamicQuery dynamicQuery,
+        Projection projection) throws SystemException {
+        return counterPersistence.countWithDynamicQuery(dynamicQuery, projection);
+    }
 
-	/**
-	 * Returns the counter with the primary key.
-	 *
-	 * @param name the primary key of the counter
-	 * @return the counter
-	 * @throws PortalException if a counter with the primary key could not be found
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Override
-	public Counter getCounter(String name)
-		throws PortalException, SystemException {
-		return counterPersistence.findByPrimaryKey(name);
-	}
+    @Override
+    public Counter fetchCounter(String name) throws SystemException {
+        return counterPersistence.fetchByPrimaryKey(name);
+    }
 
-	@Override
-	public PersistedModel getPersistedModel(Serializable primaryKeyObj)
-		throws PortalException, SystemException {
-		return counterPersistence.findByPrimaryKey(primaryKeyObj);
-	}
+    /**
+     * Returns the counter with the primary key.
+     *
+     * @param name the primary key of the counter
+     * @return the counter
+     * @throws PortalException if a counter with the primary key could not be found
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    public Counter getCounter(String name)
+        throws PortalException, SystemException {
+        return counterPersistence.findByPrimaryKey(name);
+    }
 
-	/**
-	 * Returns a range of all the counters.
-	 *
-	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.counter.model.impl.CounterModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	 * </p>
-	 *
-	 * @param start the lower bound of the range of counters
-	 * @param end the upper bound of the range of counters (not inclusive)
-	 * @return the range of counters
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Override
-	public List<Counter> getCounters(int start, int end)
-		throws SystemException {
-		return counterPersistence.findAll(start, end);
-	}
+    @Override
+    public PersistedModel getPersistedModel(Serializable primaryKeyObj)
+        throws PortalException, SystemException {
+        return counterPersistence.findByPrimaryKey(primaryKeyObj);
+    }
 
-	/**
-	 * Returns the number of counters.
-	 *
-	 * @return the number of counters
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Override
-	public int getCountersCount() throws SystemException {
-		return counterPersistence.countAll();
-	}
+    /**
+     * Returns a range of all the counters.
+     *
+     * <p>
+     * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.counter.model.impl.CounterModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+     * </p>
+     *
+     * @param start the lower bound of the range of counters
+     * @param end the upper bound of the range of counters (not inclusive)
+     * @return the range of counters
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    public List<Counter> getCounters(int start, int end)
+        throws SystemException {
+        return counterPersistence.findAll(start, end);
+    }
 
-	/**
-	 * Updates the counter in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
-	 *
-	 * @param counter the counter
-	 * @return the counter that was updated
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Indexable(type = IndexableType.REINDEX)
-	@Override
-	public Counter updateCounter(Counter counter) throws SystemException {
-		return counterPersistence.update(counter);
-	}
+    /**
+     * Returns the number of counters.
+     *
+     * @return the number of counters
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    public int getCountersCount() throws SystemException {
+        return counterPersistence.countAll();
+    }
 
-	/**
-	 * Returns the counter local service.
-	 *
-	 * @return the counter local service
-	 */
-	public com.liferay.counter.service.CounterLocalService getCounterLocalService() {
-		return counterLocalService;
-	}
+    /**
+     * Updates the counter in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
+     *
+     * @param counter the counter
+     * @return the counter that was updated
+     * @throws SystemException if a system exception occurred
+     */
+    @Indexable(type = IndexableType.REINDEX)
+    @Override
+    public Counter updateCounter(Counter counter) throws SystemException {
+        return counterPersistence.update(counter);
+    }
 
-	/**
-	 * Sets the counter local service.
-	 *
-	 * @param counterLocalService the counter local service
-	 */
-	public void setCounterLocalService(
-		com.liferay.counter.service.CounterLocalService counterLocalService) {
-		this.counterLocalService = counterLocalService;
-	}
+    /**
+     * Returns the counter local service.
+     *
+     * @return the counter local service
+     */
+    public com.liferay.counter.service.CounterLocalService getCounterLocalService() {
+        return counterLocalService;
+    }
 
-	/**
-	 * Returns the counter persistence.
-	 *
-	 * @return the counter persistence
-	 */
-	public CounterPersistence getCounterPersistence() {
-		return counterPersistence;
-	}
+    /**
+     * Sets the counter local service.
+     *
+     * @param counterLocalService the counter local service
+     */
+    public void setCounterLocalService(
+        com.liferay.counter.service.CounterLocalService counterLocalService) {
+        this.counterLocalService = counterLocalService;
+    }
 
-	/**
-	 * Sets the counter persistence.
-	 *
-	 * @param counterPersistence the counter persistence
-	 */
-	public void setCounterPersistence(CounterPersistence counterPersistence) {
-		this.counterPersistence = counterPersistence;
-	}
+    /**
+     * Returns the counter persistence.
+     *
+     * @return the counter persistence
+     */
+    public CounterPersistence getCounterPersistence() {
+        return counterPersistence;
+    }
 
-	/**
-	 * Returns the counter finder.
-	 *
-	 * @return the counter finder
-	 */
-	public CounterFinder getCounterFinder() {
-		return counterFinder;
-	}
+    /**
+     * Sets the counter persistence.
+     *
+     * @param counterPersistence the counter persistence
+     */
+    public void setCounterPersistence(CounterPersistence counterPersistence) {
+        this.counterPersistence = counterPersistence;
+    }
 
-	/**
-	 * Sets the counter finder.
-	 *
-	 * @param counterFinder the counter finder
-	 */
-	public void setCounterFinder(CounterFinder counterFinder) {
-		this.counterFinder = counterFinder;
-	}
+    /**
+     * Returns the counter finder.
+     *
+     * @return the counter finder
+     */
+    public CounterFinder getCounterFinder() {
+        return counterFinder;
+    }
 
-	/**
-	 * Returns the resource local service.
-	 *
-	 * @return the resource local service
-	 */
-	public com.liferay.portal.service.ResourceLocalService getResourceLocalService() {
-		return resourceLocalService;
-	}
+    /**
+     * Sets the counter finder.
+     *
+     * @param counterFinder the counter finder
+     */
+    public void setCounterFinder(CounterFinder counterFinder) {
+        this.counterFinder = counterFinder;
+    }
 
-	/**
-	 * Sets the resource local service.
-	 *
-	 * @param resourceLocalService the resource local service
-	 */
-	public void setResourceLocalService(
-		com.liferay.portal.service.ResourceLocalService resourceLocalService) {
-		this.resourceLocalService = resourceLocalService;
-	}
+    /**
+     * Returns the resource local service.
+     *
+     * @return the resource local service
+     */
+    public com.liferay.portal.service.ResourceLocalService getResourceLocalService() {
+        return resourceLocalService;
+    }
 
-	/**
-	 * Returns the user local service.
-	 *
-	 * @return the user local service
-	 */
-	public com.liferay.portal.service.UserLocalService getUserLocalService() {
-		return userLocalService;
-	}
+    /**
+     * Sets the resource local service.
+     *
+     * @param resourceLocalService the resource local service
+     */
+    public void setResourceLocalService(
+        com.liferay.portal.service.ResourceLocalService resourceLocalService) {
+        this.resourceLocalService = resourceLocalService;
+    }
 
-	/**
-	 * Sets the user local service.
-	 *
-	 * @param userLocalService the user local service
-	 */
-	public void setUserLocalService(
-		com.liferay.portal.service.UserLocalService userLocalService) {
-		this.userLocalService = userLocalService;
-	}
+    /**
+     * Returns the user local service.
+     *
+     * @return the user local service
+     */
+    public com.liferay.portal.service.UserLocalService getUserLocalService() {
+        return userLocalService;
+    }
 
-	/**
-	 * Returns the user remote service.
-	 *
-	 * @return the user remote service
-	 */
-	public com.liferay.portal.service.UserService getUserService() {
-		return userService;
-	}
+    /**
+     * Sets the user local service.
+     *
+     * @param userLocalService the user local service
+     */
+    public void setUserLocalService(
+        com.liferay.portal.service.UserLocalService userLocalService) {
+        this.userLocalService = userLocalService;
+    }
 
-	/**
-	 * Sets the user remote service.
-	 *
-	 * @param userService the user remote service
-	 */
-	public void setUserService(
-		com.liferay.portal.service.UserService userService) {
-		this.userService = userService;
-	}
+    /**
+     * Returns the user remote service.
+     *
+     * @return the user remote service
+     */
+    public com.liferay.portal.service.UserService getUserService() {
+        return userService;
+    }
 
-	/**
-	 * Returns the user persistence.
-	 *
-	 * @return the user persistence
-	 */
-	public UserPersistence getUserPersistence() {
-		return userPersistence;
-	}
+    /**
+     * Sets the user remote service.
+     *
+     * @param userService the user remote service
+     */
+    public void setUserService(
+        com.liferay.portal.service.UserService userService) {
+        this.userService = userService;
+    }
 
-	/**
-	 * Sets the user persistence.
-	 *
-	 * @param userPersistence the user persistence
-	 */
-	public void setUserPersistence(UserPersistence userPersistence) {
-		this.userPersistence = userPersistence;
-	}
+    /**
+     * Returns the user persistence.
+     *
+     * @return the user persistence
+     */
+    public UserPersistence getUserPersistence() {
+        return userPersistence;
+    }
 
-	/**
-	 * Returns the user finder.
-	 *
-	 * @return the user finder
-	 */
-	public UserFinder getUserFinder() {
-		return userFinder;
-	}
+    /**
+     * Sets the user persistence.
+     *
+     * @param userPersistence the user persistence
+     */
+    public void setUserPersistence(UserPersistence userPersistence) {
+        this.userPersistence = userPersistence;
+    }
 
-	/**
-	 * Sets the user finder.
-	 *
-	 * @param userFinder the user finder
-	 */
-	public void setUserFinder(UserFinder userFinder) {
-		this.userFinder = userFinder;
-	}
+    /**
+     * Returns the user finder.
+     *
+     * @return the user finder
+     */
+    public UserFinder getUserFinder() {
+        return userFinder;
+    }
 
-	public void afterPropertiesSet() {
-		persistedModelLocalServiceRegistry.register("com.liferay.counter.model.Counter",
-			counterLocalService);
-	}
+    /**
+     * Sets the user finder.
+     *
+     * @param userFinder the user finder
+     */
+    public void setUserFinder(UserFinder userFinder) {
+        this.userFinder = userFinder;
+    }
 
-	public void destroy() {
-		persistedModelLocalServiceRegistry.unregister(
-			"com.liferay.counter.model.Counter");
-	}
+    public void afterPropertiesSet() {
+        persistedModelLocalServiceRegistry.register("com.liferay.counter.model.Counter",
+            counterLocalService);
+    }
 
-	/**
-	 * Returns the Spring bean ID for this bean.
-	 *
-	 * @return the Spring bean ID for this bean
-	 */
-	@Override
-	public String getBeanIdentifier() {
-		return _beanIdentifier;
-	}
+    public void destroy() {
+        persistedModelLocalServiceRegistry.unregister(
+            "com.liferay.counter.model.Counter");
+    }
 
-	/**
-	 * Sets the Spring bean ID for this bean.
-	 *
-	 * @param beanIdentifier the Spring bean ID for this bean
-	 */
-	@Override
-	public void setBeanIdentifier(String beanIdentifier) {
-		_beanIdentifier = beanIdentifier;
-	}
+    /**
+     * Returns the Spring bean ID for this bean.
+     *
+     * @return the Spring bean ID for this bean
+     */
+    @Override
+    public String getBeanIdentifier() {
+        return _beanIdentifier;
+    }
 
-	protected Class<?> getModelClass() {
-		return Counter.class;
-	}
+    /**
+     * Sets the Spring bean ID for this bean.
+     *
+     * @param beanIdentifier the Spring bean ID for this bean
+     */
+    @Override
+    public void setBeanIdentifier(String beanIdentifier) {
+        _beanIdentifier = beanIdentifier;
+    }
 
-	protected String getModelClassName() {
-		return Counter.class.getName();
-	}
+    protected Class<?> getModelClass() {
+        return Counter.class;
+    }
 
-	/**
-	 * Performs an SQL query.
-	 *
-	 * @param sql the sql query
-	 */
-	protected void runSQL(String sql) throws SystemException {
-		try {
-			DataSource dataSource = counterPersistence.getDataSource();
+    protected String getModelClassName() {
+        return Counter.class.getName();
+    }
 
-			SqlUpdate sqlUpdate = SqlUpdateFactoryUtil.getSqlUpdate(dataSource,
-					sql, new int[0]);
+    /**
+     * Performs an SQL query.
+     *
+     * @param sql the sql query
+     */
+    protected void runSQL(String sql) throws SystemException {
+        try {
+            DataSource dataSource = counterPersistence.getDataSource();
 
-			sqlUpdate.update();
-		}
-		catch (Exception e) {
-			throw new SystemException(e);
-		}
-	}
+            SqlUpdate sqlUpdate = SqlUpdateFactoryUtil.getSqlUpdate(dataSource,
+                    sql, new int[0]);
 
-	@BeanReference(type = com.liferay.counter.service.CounterLocalService.class)
-	protected com.liferay.counter.service.CounterLocalService counterLocalService;
-	@BeanReference(type = CounterPersistence.class)
-	protected CounterPersistence counterPersistence;
-	@BeanReference(type = CounterFinder.class)
-	protected CounterFinder counterFinder;
-	@BeanReference(type = com.liferay.portal.service.ResourceLocalService.class)
-	protected com.liferay.portal.service.ResourceLocalService resourceLocalService;
-	@BeanReference(type = com.liferay.portal.service.UserLocalService.class)
-	protected com.liferay.portal.service.UserLocalService userLocalService;
-	@BeanReference(type = com.liferay.portal.service.UserService.class)
-	protected com.liferay.portal.service.UserService userService;
-	@BeanReference(type = UserPersistence.class)
-	protected UserPersistence userPersistence;
-	@BeanReference(type = UserFinder.class)
-	protected UserFinder userFinder;
-	@BeanReference(type = PersistedModelLocalServiceRegistry.class)
-	protected PersistedModelLocalServiceRegistry persistedModelLocalServiceRegistry;
-	private String _beanIdentifier;
+            sqlUpdate.update();
+        } catch (Exception e) {
+            throw new SystemException(e);
+        }
+    }
 }

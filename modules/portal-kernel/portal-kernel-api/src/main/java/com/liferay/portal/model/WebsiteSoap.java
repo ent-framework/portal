@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -28,183 +14,182 @@ import java.util.List;
  * @generated
  */
 public class WebsiteSoap implements Serializable {
-	public static WebsiteSoap toSoapModel(Website model) {
-		WebsiteSoap soapModel = new WebsiteSoap();
+    private String _uuid;
+    private long _websiteId;
+    private long _companyId;
+    private long _userId;
+    private String _userName;
+    private Date _createDate;
+    private Date _modifiedDate;
+    private long _classNameId;
+    private long _classPK;
+    private String _url;
+    private int _typeId;
+    private boolean _primary;
 
-		soapModel.setUuid(model.getUuid());
-		soapModel.setWebsiteId(model.getWebsiteId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setUserName(model.getUserName());
-		soapModel.setCreateDate(model.getCreateDate());
-		soapModel.setModifiedDate(model.getModifiedDate());
-		soapModel.setClassNameId(model.getClassNameId());
-		soapModel.setClassPK(model.getClassPK());
-		soapModel.setUrl(model.getUrl());
-		soapModel.setTypeId(model.getTypeId());
-		soapModel.setPrimary(model.getPrimary());
+    public WebsiteSoap() {
+    }
 
-		return soapModel;
-	}
+    public static WebsiteSoap toSoapModel(Website model) {
+        WebsiteSoap soapModel = new WebsiteSoap();
 
-	public static WebsiteSoap[] toSoapModels(Website[] models) {
-		WebsiteSoap[] soapModels = new WebsiteSoap[models.length];
+        soapModel.setUuid(model.getUuid());
+        soapModel.setWebsiteId(model.getWebsiteId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setUserName(model.getUserName());
+        soapModel.setCreateDate(model.getCreateDate());
+        soapModel.setModifiedDate(model.getModifiedDate());
+        soapModel.setClassNameId(model.getClassNameId());
+        soapModel.setClassPK(model.getClassPK());
+        soapModel.setUrl(model.getUrl());
+        soapModel.setTypeId(model.getTypeId());
+        soapModel.setPrimary(model.getPrimary());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static WebsiteSoap[] toSoapModels(Website[] models) {
+        WebsiteSoap[] soapModels = new WebsiteSoap[models.length];
 
-	public static WebsiteSoap[][] toSoapModels(Website[][] models) {
-		WebsiteSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new WebsiteSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new WebsiteSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static WebsiteSoap[][] toSoapModels(Website[][] models) {
+        WebsiteSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new WebsiteSoap[models.length][models[0].length];
+        } else {
+            soapModels = new WebsiteSoap[0][0];
+        }
 
-	public static WebsiteSoap[] toSoapModels(List<Website> models) {
-		List<WebsiteSoap> soapModels = new ArrayList<WebsiteSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (Website model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new WebsiteSoap[soapModels.size()]);
-	}
+    public static WebsiteSoap[] toSoapModels(List<Website> models) {
+        List<WebsiteSoap> soapModels = new ArrayList<WebsiteSoap>(models.size());
 
-	public WebsiteSoap() {
-	}
+        for (Website model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _websiteId;
-	}
+        return soapModels.toArray(new WebsiteSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setWebsiteId(pk);
-	}
+    public long getPrimaryKey() {
+        return _websiteId;
+    }
 
-	public String getUuid() {
-		return _uuid;
-	}
+    public void setPrimaryKey(long pk) {
+        setWebsiteId(pk);
+    }
 
-	public void setUuid(String uuid) {
-		_uuid = uuid;
-	}
+    public String getUuid() {
+        return _uuid;
+    }
 
-	public long getWebsiteId() {
-		return _websiteId;
-	}
+    public void setUuid(String uuid) {
+        _uuid = uuid;
+    }
 
-	public void setWebsiteId(long websiteId) {
-		_websiteId = websiteId;
-	}
+    public long getWebsiteId() {
+        return _websiteId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setWebsiteId(long websiteId) {
+        _websiteId = websiteId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public String getUserName() {
-		return _userName;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setUserName(String userName) {
-		_userName = userName;
-	}
+    public String getUserName() {
+        return _userName;
+    }
 
-	public Date getCreateDate() {
-		return _createDate;
-	}
+    public void setUserName(String userName) {
+        _userName = userName;
+    }
 
-	public void setCreateDate(Date createDate) {
-		_createDate = createDate;
-	}
+    public Date getCreateDate() {
+        return _createDate;
+    }
 
-	public Date getModifiedDate() {
-		return _modifiedDate;
-	}
+    public void setCreateDate(Date createDate) {
+        _createDate = createDate;
+    }
 
-	public void setModifiedDate(Date modifiedDate) {
-		_modifiedDate = modifiedDate;
-	}
+    public Date getModifiedDate() {
+        return _modifiedDate;
+    }
 
-	public long getClassNameId() {
-		return _classNameId;
-	}
+    public void setModifiedDate(Date modifiedDate) {
+        _modifiedDate = modifiedDate;
+    }
 
-	public void setClassNameId(long classNameId) {
-		_classNameId = classNameId;
-	}
+    public long getClassNameId() {
+        return _classNameId;
+    }
 
-	public long getClassPK() {
-		return _classPK;
-	}
+    public void setClassNameId(long classNameId) {
+        _classNameId = classNameId;
+    }
 
-	public void setClassPK(long classPK) {
-		_classPK = classPK;
-	}
+    public long getClassPK() {
+        return _classPK;
+    }
 
-	public String getUrl() {
-		return _url;
-	}
+    public void setClassPK(long classPK) {
+        _classPK = classPK;
+    }
 
-	public void setUrl(String url) {
-		_url = url;
-	}
+    public String getUrl() {
+        return _url;
+    }
 
-	public int getTypeId() {
-		return _typeId;
-	}
+    public void setUrl(String url) {
+        _url = url;
+    }
 
-	public void setTypeId(int typeId) {
-		_typeId = typeId;
-	}
+    public int getTypeId() {
+        return _typeId;
+    }
 
-	public boolean getPrimary() {
-		return _primary;
-	}
+    public void setTypeId(int typeId) {
+        _typeId = typeId;
+    }
 
-	public boolean isPrimary() {
-		return _primary;
-	}
+    public boolean getPrimary() {
+        return _primary;
+    }
 
-	public void setPrimary(boolean primary) {
-		_primary = primary;
-	}
+    public boolean isPrimary() {
+        return _primary;
+    }
 
-	private String _uuid;
-	private long _websiteId;
-	private long _companyId;
-	private long _userId;
-	private String _userName;
-	private Date _createDate;
-	private Date _modifiedDate;
-	private long _classNameId;
-	private long _classPK;
-	private String _url;
-	private int _typeId;
-	private boolean _primary;
+    public void setPrimary(boolean primary) {
+        _primary = primary;
+    }
 }

@@ -1,22 +1,10 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.bean.AutoEscape;
+import com.liferay.portal.model.BaseModel;
+import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.service.ServiceContext;
 
 import com.liferay.portlet.expando.model.ExpandoBridge;
@@ -38,165 +26,166 @@ import java.io.Serializable;
  */
 @ProviderType
 public interface ResourceTypePermissionModel extends BaseModel<ResourceTypePermission> {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this interface directly. All methods that expect a resource type permission model instance should use the {@link ResourceTypePermission} interface instead.
-	 */
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this interface directly. All methods that expect a resource type permission model instance should use the {@link ResourceTypePermission} interface instead.
+     */
 
-	/**
-	 * Returns the primary key of this resource type permission.
-	 *
-	 * @return the primary key of this resource type permission
-	 */
-	public long getPrimaryKey();
+    /**
+     * Returns the primary key of this resource type permission.
+     *
+     * @return the primary key of this resource type permission
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this resource type permission.
-	 *
-	 * @param primaryKey the primary key of this resource type permission
-	 */
-	public void setPrimaryKey(long primaryKey);
+    /**
+     * Sets the primary key of this resource type permission.
+     *
+     * @param primaryKey the primary key of this resource type permission
+     */
+    public void setPrimaryKey(long primaryKey);
 
-	/**
-	 * Returns the resource type permission ID of this resource type permission.
-	 *
-	 * @return the resource type permission ID of this resource type permission
-	 */
-	public long getResourceTypePermissionId();
+    /**
+     * Returns the resource type permission ID of this resource type permission.
+     *
+     * @return the resource type permission ID of this resource type permission
+     */
+    public long getResourceTypePermissionId();
 
-	/**
-	 * Sets the resource type permission ID of this resource type permission.
-	 *
-	 * @param resourceTypePermissionId the resource type permission ID of this resource type permission
-	 */
-	public void setResourceTypePermissionId(long resourceTypePermissionId);
+    /**
+     * Sets the resource type permission ID of this resource type permission.
+     *
+     * @param resourceTypePermissionId the resource type permission ID of this resource type permission
+     */
+    public void setResourceTypePermissionId(long resourceTypePermissionId);
 
-	/**
-	 * Returns the company ID of this resource type permission.
-	 *
-	 * @return the company ID of this resource type permission
-	 */
-	public long getCompanyId();
+    /**
+     * Returns the company ID of this resource type permission.
+     *
+     * @return the company ID of this resource type permission
+     */
+    public long getCompanyId();
 
-	/**
-	 * Sets the company ID of this resource type permission.
-	 *
-	 * @param companyId the company ID of this resource type permission
-	 */
-	public void setCompanyId(long companyId);
+    /**
+     * Sets the company ID of this resource type permission.
+     *
+     * @param companyId the company ID of this resource type permission
+     */
+    public void setCompanyId(long companyId);
 
-	/**
-	 * Returns the group ID of this resource type permission.
-	 *
-	 * @return the group ID of this resource type permission
-	 */
-	public long getGroupId();
+    /**
+     * Returns the group ID of this resource type permission.
+     *
+     * @return the group ID of this resource type permission
+     */
+    public long getGroupId();
 
-	/**
-	 * Sets the group ID of this resource type permission.
-	 *
-	 * @param groupId the group ID of this resource type permission
-	 */
-	public void setGroupId(long groupId);
+    /**
+     * Sets the group ID of this resource type permission.
+     *
+     * @param groupId the group ID of this resource type permission
+     */
+    public void setGroupId(long groupId);
 
-	/**
-	 * Returns the name of this resource type permission.
-	 *
-	 * @return the name of this resource type permission
-	 */
-	@AutoEscape
-	public String getName();
+    /**
+     * Returns the name of this resource type permission.
+     *
+     * @return the name of this resource type permission
+     */
+    @AutoEscape
+    public String getName();
 
-	/**
-	 * Sets the name of this resource type permission.
-	 *
-	 * @param name the name of this resource type permission
-	 */
-	public void setName(String name);
+    /**
+     * Sets the name of this resource type permission.
+     *
+     * @param name the name of this resource type permission
+     */
+    public void setName(String name);
 
-	/**
-	 * Returns the role ID of this resource type permission.
-	 *
-	 * @return the role ID of this resource type permission
-	 */
-	public long getRoleId();
+    /**
+     * Returns the role ID of this resource type permission.
+     *
+     * @return the role ID of this resource type permission
+     */
+    public long getRoleId();
 
-	/**
-	 * Sets the role ID of this resource type permission.
-	 *
-	 * @param roleId the role ID of this resource type permission
-	 */
-	public void setRoleId(long roleId);
+    /**
+     * Sets the role ID of this resource type permission.
+     *
+     * @param roleId the role ID of this resource type permission
+     */
+    public void setRoleId(long roleId);
 
-	/**
-	 * Returns the action IDs of this resource type permission.
-	 *
-	 * @return the action IDs of this resource type permission
-	 */
-	public long getActionIds();
+    /**
+     * Returns the action IDs of this resource type permission.
+     *
+     * @return the action IDs of this resource type permission
+     */
+    public long getActionIds();
 
-	/**
-	 * Sets the action IDs of this resource type permission.
-	 *
-	 * @param actionIds the action IDs of this resource type permission
-	 */
-	public void setActionIds(long actionIds);
+    /**
+     * Sets the action IDs of this resource type permission.
+     *
+     * @param actionIds the action IDs of this resource type permission
+     */
+    public void setActionIds(long actionIds);
 
-	@Override
-	public boolean isNew();
+    @Override
+    public boolean isNew();
 
-	@Override
-	public void setNew(boolean n);
+    @Override
+    public void setNew(boolean n);
 
-	@Override
-	public boolean isCachedModel();
+    @Override
+    public boolean isCachedModel();
 
-	@Override
-	public void setCachedModel(boolean cachedModel);
+    @Override
+    public void setCachedModel(boolean cachedModel);
 
-	@Override
-	public boolean isEscapedModel();
+    @Override
+    public boolean isEscapedModel();
 
-	@Override
-	public Serializable getPrimaryKeyObj();
+    @Override
+    public Serializable getPrimaryKeyObj();
 
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj);
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj);
 
-	@Override
-	public ExpandoBridge getExpandoBridge();
+    @Override
+    public ExpandoBridge getExpandoBridge();
 
-	@Override
-	public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
+    @Override
+    public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
 
-	@Override
-	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
+    @Override
+    public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	@Override
-	public Object clone();
+    @Override
+    public Object clone();
 
-	@Override
-	public int compareTo(ResourceTypePermission resourceTypePermission);
+    @Override
+    public int compareTo(
+        com.liferay.portal.model.ResourceTypePermission resourceTypePermission);
 
-	@Override
-	public int hashCode();
+    @Override
+    public int hashCode();
 
-	@Override
-	public CacheModel<ResourceTypePermission> toCacheModel();
+    @Override
+    public CacheModel<com.liferay.portal.model.ResourceTypePermission> toCacheModel();
 
-	@Override
-	public ResourceTypePermission toEscapedModel();
+    @Override
+    public com.liferay.portal.model.ResourceTypePermission toEscapedModel();
 
-	@Override
-	public ResourceTypePermission toUnescapedModel();
+    @Override
+    public com.liferay.portal.model.ResourceTypePermission toUnescapedModel();
 
-	@Override
-	public String toString();
+    @Override
+    public String toString();
 
-	@Override
-	public String toXmlString();
+    @Override
+    public String toXmlString();
 }

@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.journal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -35,368 +21,336 @@ import java.util.Date;
  * @generated
  */
 public class JournalFeedCacheModel implements CacheModel<JournalFeed>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(47);
+    Externalizable {
+    public String uuid;
+    public long id;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public String feedId;
+    public String name;
+    public String description;
+    public String type;
+    public String structureId;
+    public String templateId;
+    public String rendererTemplateId;
+    public int delta;
+    public String orderByCol;
+    public String orderByType;
+    public String targetLayoutFriendlyUrl;
+    public String targetPortletId;
+    public String contentField;
+    public String feedFormat;
+    public double feedVersion;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", id=");
-		sb.append(id);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", feedId=");
-		sb.append(feedId);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", description=");
-		sb.append(description);
-		sb.append(", type=");
-		sb.append(type);
-		sb.append(", structureId=");
-		sb.append(structureId);
-		sb.append(", templateId=");
-		sb.append(templateId);
-		sb.append(", rendererTemplateId=");
-		sb.append(rendererTemplateId);
-		sb.append(", delta=");
-		sb.append(delta);
-		sb.append(", orderByCol=");
-		sb.append(orderByCol);
-		sb.append(", orderByType=");
-		sb.append(orderByType);
-		sb.append(", targetLayoutFriendlyUrl=");
-		sb.append(targetLayoutFriendlyUrl);
-		sb.append(", targetPortletId=");
-		sb.append(targetPortletId);
-		sb.append(", contentField=");
-		sb.append(contentField);
-		sb.append(", feedFormat=");
-		sb.append(feedFormat);
-		sb.append(", feedVersion=");
-		sb.append(feedVersion);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(47);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", id=");
+        sb.append(id);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", feedId=");
+        sb.append(feedId);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", description=");
+        sb.append(description);
+        sb.append(", type=");
+        sb.append(type);
+        sb.append(", structureId=");
+        sb.append(structureId);
+        sb.append(", templateId=");
+        sb.append(templateId);
+        sb.append(", rendererTemplateId=");
+        sb.append(rendererTemplateId);
+        sb.append(", delta=");
+        sb.append(delta);
+        sb.append(", orderByCol=");
+        sb.append(orderByCol);
+        sb.append(", orderByType=");
+        sb.append(orderByType);
+        sb.append(", targetLayoutFriendlyUrl=");
+        sb.append(targetLayoutFriendlyUrl);
+        sb.append(", targetPortletId=");
+        sb.append(targetPortletId);
+        sb.append(", contentField=");
+        sb.append(contentField);
+        sb.append(", feedFormat=");
+        sb.append(feedFormat);
+        sb.append(", feedVersion=");
+        sb.append(feedVersion);
+        sb.append("}");
 
-	@Override
-	public JournalFeed toEntityModel() {
-		JournalFeedImpl journalFeedImpl = new JournalFeedImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			journalFeedImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			journalFeedImpl.setUuid(uuid);
-		}
+    @Override
+    public JournalFeed toEntityModel() {
+        JournalFeedImpl journalFeedImpl = new JournalFeedImpl();
 
-		journalFeedImpl.setId(id);
-		journalFeedImpl.setGroupId(groupId);
-		journalFeedImpl.setCompanyId(companyId);
-		journalFeedImpl.setUserId(userId);
+        if (uuid == null) {
+            journalFeedImpl.setUuid(StringPool.BLANK);
+        } else {
+            journalFeedImpl.setUuid(uuid);
+        }
 
-		if (userName == null) {
-			journalFeedImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			journalFeedImpl.setUserName(userName);
-		}
+        journalFeedImpl.setId(id);
+        journalFeedImpl.setGroupId(groupId);
+        journalFeedImpl.setCompanyId(companyId);
+        journalFeedImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			journalFeedImpl.setCreateDate(null);
-		}
-		else {
-			journalFeedImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            journalFeedImpl.setUserName(StringPool.BLANK);
+        } else {
+            journalFeedImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			journalFeedImpl.setModifiedDate(null);
-		}
-		else {
-			journalFeedImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            journalFeedImpl.setCreateDate(null);
+        } else {
+            journalFeedImpl.setCreateDate(new Date(createDate));
+        }
 
-		if (feedId == null) {
-			journalFeedImpl.setFeedId(StringPool.BLANK);
-		}
-		else {
-			journalFeedImpl.setFeedId(feedId);
-		}
+        if (modifiedDate == Long.MIN_VALUE) {
+            journalFeedImpl.setModifiedDate(null);
+        } else {
+            journalFeedImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (name == null) {
-			journalFeedImpl.setName(StringPool.BLANK);
-		}
-		else {
-			journalFeedImpl.setName(name);
-		}
+        if (feedId == null) {
+            journalFeedImpl.setFeedId(StringPool.BLANK);
+        } else {
+            journalFeedImpl.setFeedId(feedId);
+        }
 
-		if (description == null) {
-			journalFeedImpl.setDescription(StringPool.BLANK);
-		}
-		else {
-			journalFeedImpl.setDescription(description);
-		}
+        if (name == null) {
+            journalFeedImpl.setName(StringPool.BLANK);
+        } else {
+            journalFeedImpl.setName(name);
+        }
 
-		if (type == null) {
-			journalFeedImpl.setType(StringPool.BLANK);
-		}
-		else {
-			journalFeedImpl.setType(type);
-		}
+        if (description == null) {
+            journalFeedImpl.setDescription(StringPool.BLANK);
+        } else {
+            journalFeedImpl.setDescription(description);
+        }
 
-		if (structureId == null) {
-			journalFeedImpl.setStructureId(StringPool.BLANK);
-		}
-		else {
-			journalFeedImpl.setStructureId(structureId);
-		}
+        if (type == null) {
+            journalFeedImpl.setType(StringPool.BLANK);
+        } else {
+            journalFeedImpl.setType(type);
+        }
 
-		if (templateId == null) {
-			journalFeedImpl.setTemplateId(StringPool.BLANK);
-		}
-		else {
-			journalFeedImpl.setTemplateId(templateId);
-		}
+        if (structureId == null) {
+            journalFeedImpl.setStructureId(StringPool.BLANK);
+        } else {
+            journalFeedImpl.setStructureId(structureId);
+        }
 
-		if (rendererTemplateId == null) {
-			journalFeedImpl.setRendererTemplateId(StringPool.BLANK);
-		}
-		else {
-			journalFeedImpl.setRendererTemplateId(rendererTemplateId);
-		}
+        if (templateId == null) {
+            journalFeedImpl.setTemplateId(StringPool.BLANK);
+        } else {
+            journalFeedImpl.setTemplateId(templateId);
+        }
 
-		journalFeedImpl.setDelta(delta);
+        if (rendererTemplateId == null) {
+            journalFeedImpl.setRendererTemplateId(StringPool.BLANK);
+        } else {
+            journalFeedImpl.setRendererTemplateId(rendererTemplateId);
+        }
 
-		if (orderByCol == null) {
-			journalFeedImpl.setOrderByCol(StringPool.BLANK);
-		}
-		else {
-			journalFeedImpl.setOrderByCol(orderByCol);
-		}
+        journalFeedImpl.setDelta(delta);
 
-		if (orderByType == null) {
-			journalFeedImpl.setOrderByType(StringPool.BLANK);
-		}
-		else {
-			journalFeedImpl.setOrderByType(orderByType);
-		}
+        if (orderByCol == null) {
+            journalFeedImpl.setOrderByCol(StringPool.BLANK);
+        } else {
+            journalFeedImpl.setOrderByCol(orderByCol);
+        }
 
-		if (targetLayoutFriendlyUrl == null) {
-			journalFeedImpl.setTargetLayoutFriendlyUrl(StringPool.BLANK);
-		}
-		else {
-			journalFeedImpl.setTargetLayoutFriendlyUrl(targetLayoutFriendlyUrl);
-		}
+        if (orderByType == null) {
+            journalFeedImpl.setOrderByType(StringPool.BLANK);
+        } else {
+            journalFeedImpl.setOrderByType(orderByType);
+        }
 
-		if (targetPortletId == null) {
-			journalFeedImpl.setTargetPortletId(StringPool.BLANK);
-		}
-		else {
-			journalFeedImpl.setTargetPortletId(targetPortletId);
-		}
+        if (targetLayoutFriendlyUrl == null) {
+            journalFeedImpl.setTargetLayoutFriendlyUrl(StringPool.BLANK);
+        } else {
+            journalFeedImpl.setTargetLayoutFriendlyUrl(targetLayoutFriendlyUrl);
+        }
 
-		if (contentField == null) {
-			journalFeedImpl.setContentField(StringPool.BLANK);
-		}
-		else {
-			journalFeedImpl.setContentField(contentField);
-		}
+        if (targetPortletId == null) {
+            journalFeedImpl.setTargetPortletId(StringPool.BLANK);
+        } else {
+            journalFeedImpl.setTargetPortletId(targetPortletId);
+        }
 
-		if (feedFormat == null) {
-			journalFeedImpl.setFeedFormat(StringPool.BLANK);
-		}
-		else {
-			journalFeedImpl.setFeedFormat(feedFormat);
-		}
+        if (contentField == null) {
+            journalFeedImpl.setContentField(StringPool.BLANK);
+        } else {
+            journalFeedImpl.setContentField(contentField);
+        }
 
-		journalFeedImpl.setFeedVersion(feedVersion);
+        if (feedFormat == null) {
+            journalFeedImpl.setFeedFormat(StringPool.BLANK);
+        } else {
+            journalFeedImpl.setFeedFormat(feedFormat);
+        }
 
-		journalFeedImpl.resetOriginalValues();
+        journalFeedImpl.setFeedVersion(feedVersion);
 
-		return journalFeedImpl;
-	}
+        journalFeedImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		id = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		feedId = objectInput.readUTF();
-		name = objectInput.readUTF();
-		description = objectInput.readUTF();
-		type = objectInput.readUTF();
-		structureId = objectInput.readUTF();
-		templateId = objectInput.readUTF();
-		rendererTemplateId = objectInput.readUTF();
-		delta = objectInput.readInt();
-		orderByCol = objectInput.readUTF();
-		orderByType = objectInput.readUTF();
-		targetLayoutFriendlyUrl = objectInput.readUTF();
-		targetPortletId = objectInput.readUTF();
-		contentField = objectInput.readUTF();
-		feedFormat = objectInput.readUTF();
-		feedVersion = objectInput.readDouble();
-	}
+        return journalFeedImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        id = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        feedId = objectInput.readUTF();
+        name = objectInput.readUTF();
+        description = objectInput.readUTF();
+        type = objectInput.readUTF();
+        structureId = objectInput.readUTF();
+        templateId = objectInput.readUTF();
+        rendererTemplateId = objectInput.readUTF();
+        delta = objectInput.readInt();
+        orderByCol = objectInput.readUTF();
+        orderByType = objectInput.readUTF();
+        targetLayoutFriendlyUrl = objectInput.readUTF();
+        targetPortletId = objectInput.readUTF();
+        contentField = objectInput.readUTF();
+        feedFormat = objectInput.readUTF();
+        feedVersion = objectInput.readDouble();
+    }
 
-		objectOutput.writeLong(id);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+        objectOutput.writeLong(id);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (feedId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(feedId);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        if (feedId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(feedId);
+        }
 
-		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(description);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		if (type == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(type);
-		}
+        if (description == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(description);
+        }
 
-		if (structureId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(structureId);
-		}
+        if (type == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(type);
+        }
 
-		if (templateId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(templateId);
-		}
+        if (structureId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(structureId);
+        }
 
-		if (rendererTemplateId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(rendererTemplateId);
-		}
+        if (templateId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(templateId);
+        }
 
-		objectOutput.writeInt(delta);
+        if (rendererTemplateId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(rendererTemplateId);
+        }
 
-		if (orderByCol == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(orderByCol);
-		}
+        objectOutput.writeInt(delta);
 
-		if (orderByType == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(orderByType);
-		}
+        if (orderByCol == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(orderByCol);
+        }
 
-		if (targetLayoutFriendlyUrl == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(targetLayoutFriendlyUrl);
-		}
+        if (orderByType == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(orderByType);
+        }
 
-		if (targetPortletId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(targetPortletId);
-		}
+        if (targetLayoutFriendlyUrl == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(targetLayoutFriendlyUrl);
+        }
 
-		if (contentField == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(contentField);
-		}
+        if (targetPortletId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(targetPortletId);
+        }
 
-		if (feedFormat == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(feedFormat);
-		}
+        if (contentField == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(contentField);
+        }
 
-		objectOutput.writeDouble(feedVersion);
-	}
+        if (feedFormat == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(feedFormat);
+        }
 
-	public String uuid;
-	public long id;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public String feedId;
-	public String name;
-	public String description;
-	public String type;
-	public String structureId;
-	public String templateId;
-	public String rendererTemplateId;
-	public int delta;
-	public String orderByCol;
-	public String orderByType;
-	public String targetLayoutFriendlyUrl;
-	public String targetPortletId;
-	public String contentField;
-	public String feedFormat;
-	public double feedVersion;
+        objectOutput.writeDouble(feedVersion);
+    }
 }

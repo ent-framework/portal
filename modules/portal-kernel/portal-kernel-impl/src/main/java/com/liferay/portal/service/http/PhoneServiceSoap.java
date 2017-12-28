@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
@@ -64,100 +50,94 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class PhoneServiceSoap {
-	/**
-	* @deprecated As of 6.2.0, replaced by {@link #addPhone( String, long,
-	String, String, int, boolean, ServiceContext)}
-	*/
-	public static com.liferay.portal.model.PhoneSoap addPhone(
-		java.lang.String className, long classPK, java.lang.String number,
-		java.lang.String extension, int typeId, boolean primary)
-		throws RemoteException {
-		try {
-			com.liferay.portal.model.Phone returnValue = PhoneServiceUtil.addPhone(className,
-					classPK, number, extension, typeId, primary);
+    private static Log _log = LogFactoryUtil.getLog(PhoneServiceSoap.class);
 
-			return com.liferay.portal.model.PhoneSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    /**
+    * @deprecated As of 6.2.0, replaced by {@link #addPhone( String, long,
+    String, String, int, boolean, ServiceContext)}
+    */
+    public static com.liferay.portal.model.PhoneSoap addPhone(
+        java.lang.String className, long classPK, java.lang.String number,
+        java.lang.String extension, int typeId, boolean primary)
+        throws RemoteException {
+        try {
+            com.liferay.portal.model.Phone returnValue = PhoneServiceUtil.addPhone(className,
+                    classPK, number, extension, typeId, primary);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.PhoneSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portal.model.PhoneSoap addPhone(
-		java.lang.String className, long classPK, java.lang.String number,
-		java.lang.String extension, int typeId, boolean primary,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			com.liferay.portal.model.Phone returnValue = PhoneServiceUtil.addPhone(className,
-					classPK, number, extension, typeId, primary, serviceContext);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portal.model.PhoneSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.PhoneSoap addPhone(
+        java.lang.String className, long classPK, java.lang.String number,
+        java.lang.String extension, int typeId, boolean primary,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            com.liferay.portal.model.Phone returnValue = PhoneServiceUtil.addPhone(className,
+                    classPK, number, extension, typeId, primary, serviceContext);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.PhoneSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void deletePhone(long phoneId) throws RemoteException {
-		try {
-			PhoneServiceUtil.deletePhone(phoneId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void deletePhone(long phoneId) throws RemoteException {
+        try {
+            PhoneServiceUtil.deletePhone(phoneId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portal.model.PhoneSoap getPhone(long phoneId)
-		throws RemoteException {
-		try {
-			com.liferay.portal.model.Phone returnValue = PhoneServiceUtil.getPhone(phoneId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portal.model.PhoneSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.PhoneSoap getPhone(long phoneId)
+        throws RemoteException {
+        try {
+            com.liferay.portal.model.Phone returnValue = PhoneServiceUtil.getPhone(phoneId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.PhoneSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portal.model.PhoneSoap[] getPhones(
-		java.lang.String className, long classPK) throws RemoteException {
-		try {
-			java.util.List<com.liferay.portal.model.Phone> returnValue = PhoneServiceUtil.getPhones(className,
-					classPK);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portal.model.PhoneSoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.PhoneSoap[] getPhones(
+        java.lang.String className, long classPK) throws RemoteException {
+        try {
+            java.util.List<com.liferay.portal.model.Phone> returnValue = PhoneServiceUtil.getPhones(className,
+                    classPK);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.PhoneSoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portal.model.PhoneSoap updatePhone(long phoneId,
-		java.lang.String number, java.lang.String extension, int typeId,
-		boolean primary) throws RemoteException {
-		try {
-			com.liferay.portal.model.Phone returnValue = PhoneServiceUtil.updatePhone(phoneId,
-					number, extension, typeId, primary);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portal.model.PhoneSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.PhoneSoap updatePhone(long phoneId,
+        java.lang.String number, java.lang.String extension, int typeId,
+        boolean primary) throws RemoteException {
+        try {
+            com.liferay.portal.model.Phone returnValue = PhoneServiceUtil.updatePhone(phoneId,
+                    number, extension, typeId, primary);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.PhoneSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	private static Log _log = LogFactoryUtil.getLog(PhoneServiceSoap.class);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

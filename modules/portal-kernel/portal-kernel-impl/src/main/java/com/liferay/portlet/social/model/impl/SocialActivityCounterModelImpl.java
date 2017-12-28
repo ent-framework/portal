@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.social.model.impl;
 
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
@@ -51,727 +37,722 @@ import java.util.Map;
  * @generated
  */
 public class SocialActivityCounterModelImpl extends BaseModelImpl<SocialActivityCounter>
-	implements SocialActivityCounterModel {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this class directly. All methods that expect a social activity counter model instance should use the {@link com.liferay.portlet.social.model.SocialActivityCounter} interface instead.
-	 */
-	public static final String TABLE_NAME = "SocialActivityCounter";
-	public static final Object[][] TABLE_COLUMNS = {
-			{ "activityCounterId", Types.BIGINT },
-			{ "groupId", Types.BIGINT },
-			{ "companyId", Types.BIGINT },
-			{ "classNameId", Types.BIGINT },
-			{ "classPK", Types.BIGINT },
-			{ "name", Types.VARCHAR },
-			{ "ownerType", Types.INTEGER },
-			{ "currentValue", Types.INTEGER },
-			{ "totalValue", Types.INTEGER },
-			{ "graceValue", Types.INTEGER },
-			{ "startPeriod", Types.INTEGER },
-			{ "endPeriod", Types.INTEGER },
-			{ "active_", Types.BOOLEAN }
-		};
-	public static final String TABLE_SQL_CREATE = "create table SocialActivityCounter (activityCounterId LONG not null primary key,groupId LONG,companyId LONG,classNameId LONG,classPK LONG,name VARCHAR(75) null,ownerType INTEGER,currentValue INTEGER,totalValue INTEGER,graceValue INTEGER,startPeriod INTEGER,endPeriod INTEGER,active_ BOOLEAN)";
-	public static final String TABLE_SQL_DROP = "drop table SocialActivityCounter";
-	public static final String ORDER_BY_JPQL = " ORDER BY socialActivityCounter.activityCounterId ASC";
-	public static final String ORDER_BY_SQL = " ORDER BY SocialActivityCounter.activityCounterId ASC";
-	public static final String DATA_SOURCE = "liferayDataSource";
-	public static final String SESSION_FACTORY = "liferaySessionFactory";
-	public static final String TX_MANAGER = "liferayTransactionManager";
-	public static final boolean ENTITY_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
-				"value.object.entity.cache.enabled.com.liferay.portlet.social.model.SocialActivityCounter"),
-			true);
-	public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
-				"value.object.finder.cache.enabled.com.liferay.portlet.social.model.SocialActivityCounter"),
-			true);
-	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
-				"value.object.column.bitmask.enabled.com.liferay.portlet.social.model.SocialActivityCounter"),
-			true);
-	public static long CLASSNAMEID_COLUMN_BITMASK = 1L;
-	public static long CLASSPK_COLUMN_BITMASK = 2L;
-	public static long ENDPERIOD_COLUMN_BITMASK = 4L;
-	public static long GROUPID_COLUMN_BITMASK = 8L;
-	public static long NAME_COLUMN_BITMASK = 16L;
-	public static long OWNERTYPE_COLUMN_BITMASK = 32L;
-	public static long STARTPERIOD_COLUMN_BITMASK = 64L;
-	public static long ACTIVITYCOUNTERID_COLUMN_BITMASK = 128L;
-	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.portal.util.PropsUtil.get(
-				"lock.expiration.time.com.liferay.portlet.social.model.SocialActivityCounter"));
-
-	public SocialActivityCounterModelImpl() {
-	}
-
-	@Override
-	public long getPrimaryKey() {
-		return _activityCounterId;
-	}
-
-	@Override
-	public void setPrimaryKey(long primaryKey) {
-		setActivityCounterId(primaryKey);
-	}
-
-	@Override
-	public Serializable getPrimaryKeyObj() {
-		return _activityCounterId;
-	}
-
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj) {
-		setPrimaryKey(((Long)primaryKeyObj).longValue());
-	}
-
-	@Override
-	public Class<?> getModelClass() {
-		return SocialActivityCounter.class;
-	}
-
-	@Override
-	public String getModelClassName() {
-		return SocialActivityCounter.class.getName();
-	}
-
-	@Override
-	public Map<String, Object> getModelAttributes() {
-		Map<String, Object> attributes = new HashMap<String, Object>();
-
-		attributes.put("activityCounterId", getActivityCounterId());
-		attributes.put("groupId", getGroupId());
-		attributes.put("companyId", getCompanyId());
-		attributes.put("classNameId", getClassNameId());
-		attributes.put("classPK", getClassPK());
-		attributes.put("name", getName());
-		attributes.put("ownerType", getOwnerType());
-		attributes.put("currentValue", getCurrentValue());
-		attributes.put("totalValue", getTotalValue());
-		attributes.put("graceValue", getGraceValue());
-		attributes.put("startPeriod", getStartPeriod());
-		attributes.put("endPeriod", getEndPeriod());
-		attributes.put("active", getActive());
-
-		return attributes;
-	}
+    implements SocialActivityCounterModel {
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this class directly. All methods that expect a social activity counter model instance should use the {@link com.liferay.portlet.social.model.SocialActivityCounter} interface instead.
+     */
+    public static final String TABLE_NAME = "SocialActivityCounter";
+    public static final Object[][] TABLE_COLUMNS = {
+            { "activityCounterId", Types.BIGINT },
+            { "groupId", Types.BIGINT },
+            { "companyId", Types.BIGINT },
+            { "classNameId", Types.BIGINT },
+            { "classPK", Types.BIGINT },
+            { "name", Types.VARCHAR },
+            { "ownerType", Types.INTEGER },
+            { "currentValue", Types.INTEGER },
+            { "totalValue", Types.INTEGER },
+            { "graceValue", Types.INTEGER },
+            { "startPeriod", Types.INTEGER },
+            { "endPeriod", Types.INTEGER },
+            { "active_", Types.BOOLEAN }
+        };
+    public static final String TABLE_SQL_CREATE = "create table SocialActivityCounter (activityCounterId LONG not null primary key,groupId LONG,companyId LONG,classNameId LONG,classPK LONG,name VARCHAR(75) null,ownerType INTEGER,currentValue INTEGER,totalValue INTEGER,graceValue INTEGER,startPeriod INTEGER,endPeriod INTEGER,active_ BOOLEAN)";
+    public static final String TABLE_SQL_DROP = "drop table SocialActivityCounter";
+    public static final String ORDER_BY_JPQL = " ORDER BY socialActivityCounter.activityCounterId ASC";
+    public static final String ORDER_BY_SQL = " ORDER BY SocialActivityCounter.activityCounterId ASC";
+    public static final String DATA_SOURCE = "liferayDataSource";
+    public static final String SESSION_FACTORY = "liferaySessionFactory";
+    public static final String TX_MANAGER = "liferayTransactionManager";
+    public static final boolean ENTITY_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
+                "value.object.entity.cache.enabled.com.liferay.portlet.social.model.SocialActivityCounter"),
+            true);
+    public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
+                "value.object.finder.cache.enabled.com.liferay.portlet.social.model.SocialActivityCounter"),
+            true);
+    public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
+                "value.object.column.bitmask.enabled.com.liferay.portlet.social.model.SocialActivityCounter"),
+            true);
+    public static long CLASSNAMEID_COLUMN_BITMASK = 1L;
+    public static long CLASSPK_COLUMN_BITMASK = 2L;
+    public static long ENDPERIOD_COLUMN_BITMASK = 4L;
+    public static long GROUPID_COLUMN_BITMASK = 8L;
+    public static long NAME_COLUMN_BITMASK = 16L;
+    public static long OWNERTYPE_COLUMN_BITMASK = 32L;
+    public static long STARTPERIOD_COLUMN_BITMASK = 64L;
+    public static long ACTIVITYCOUNTERID_COLUMN_BITMASK = 128L;
+    public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.portal.util.PropsUtil.get(
+                "lock.expiration.time.com.liferay.portlet.social.model.SocialActivityCounter"));
+    private static ClassLoader _classLoader = SocialActivityCounter.class.getClassLoader();
+    private static Class<?>[] _escapedModelInterfaces = new Class[] {
+            SocialActivityCounter.class
+        };
+    private long _activityCounterId;
+    private long _groupId;
+    private long _originalGroupId;
+    private boolean _setOriginalGroupId;
+    private long _companyId;
+    private long _classNameId;
+    private long _originalClassNameId;
+    private boolean _setOriginalClassNameId;
+    private long _classPK;
+    private long _originalClassPK;
+    private boolean _setOriginalClassPK;
+    private String _name;
+    private String _originalName;
+    private int _ownerType;
+    private int _originalOwnerType;
+    private boolean _setOriginalOwnerType;
+    private int _currentValue;
+    private int _totalValue;
+    private int _graceValue;
+    private int _startPeriod;
+    private int _originalStartPeriod;
+    private boolean _setOriginalStartPeriod;
+    private int _endPeriod;
+    private int _originalEndPeriod;
+    private boolean _setOriginalEndPeriod;
+    private boolean _active;
+    private long _columnBitmask;
+    private SocialActivityCounter _escapedModel;
+
+    public SocialActivityCounterModelImpl() {
+    }
+
+    @Override
+    public long getPrimaryKey() {
+        return _activityCounterId;
+    }
+
+    @Override
+    public void setPrimaryKey(long primaryKey) {
+        setActivityCounterId(primaryKey);
+    }
+
+    @Override
+    public Serializable getPrimaryKeyObj() {
+        return _activityCounterId;
+    }
+
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj) {
+        setPrimaryKey(((Long) primaryKeyObj).longValue());
+    }
 
-	@Override
-	public void setModelAttributes(Map<String, Object> attributes) {
-		Long activityCounterId = (Long)attributes.get("activityCounterId");
+    @Override
+    public Class<?> getModelClass() {
+        return SocialActivityCounter.class;
+    }
 
-		if (activityCounterId != null) {
-			setActivityCounterId(activityCounterId);
-		}
+    @Override
+    public String getModelClassName() {
+        return SocialActivityCounter.class.getName();
+    }
 
-		Long groupId = (Long)attributes.get("groupId");
+    @Override
+    public Map<String, Object> getModelAttributes() {
+        Map<String, Object> attributes = new HashMap<String, Object>();
 
-		if (groupId != null) {
-			setGroupId(groupId);
-		}
+        attributes.put("activityCounterId", getActivityCounterId());
+        attributes.put("groupId", getGroupId());
+        attributes.put("companyId", getCompanyId());
+        attributes.put("classNameId", getClassNameId());
+        attributes.put("classPK", getClassPK());
+        attributes.put("name", getName());
+        attributes.put("ownerType", getOwnerType());
+        attributes.put("currentValue", getCurrentValue());
+        attributes.put("totalValue", getTotalValue());
+        attributes.put("graceValue", getGraceValue());
+        attributes.put("startPeriod", getStartPeriod());
+        attributes.put("endPeriod", getEndPeriod());
+        attributes.put("active", getActive());
 
-		Long companyId = (Long)attributes.get("companyId");
+        return attributes;
+    }
 
-		if (companyId != null) {
-			setCompanyId(companyId);
-		}
+    @Override
+    public void setModelAttributes(Map<String, Object> attributes) {
+        Long activityCounterId = (Long) attributes.get("activityCounterId");
 
-		Long classNameId = (Long)attributes.get("classNameId");
+        if (activityCounterId != null) {
+            setActivityCounterId(activityCounterId);
+        }
 
-		if (classNameId != null) {
-			setClassNameId(classNameId);
-		}
+        Long groupId = (Long) attributes.get("groupId");
 
-		Long classPK = (Long)attributes.get("classPK");
+        if (groupId != null) {
+            setGroupId(groupId);
+        }
 
-		if (classPK != null) {
-			setClassPK(classPK);
-		}
+        Long companyId = (Long) attributes.get("companyId");
 
-		String name = (String)attributes.get("name");
+        if (companyId != null) {
+            setCompanyId(companyId);
+        }
 
-		if (name != null) {
-			setName(name);
-		}
+        Long classNameId = (Long) attributes.get("classNameId");
 
-		Integer ownerType = (Integer)attributes.get("ownerType");
+        if (classNameId != null) {
+            setClassNameId(classNameId);
+        }
 
-		if (ownerType != null) {
-			setOwnerType(ownerType);
-		}
+        Long classPK = (Long) attributes.get("classPK");
 
-		Integer currentValue = (Integer)attributes.get("currentValue");
+        if (classPK != null) {
+            setClassPK(classPK);
+        }
 
-		if (currentValue != null) {
-			setCurrentValue(currentValue);
-		}
+        String name = (String) attributes.get("name");
 
-		Integer totalValue = (Integer)attributes.get("totalValue");
+        if (name != null) {
+            setName(name);
+        }
 
-		if (totalValue != null) {
-			setTotalValue(totalValue);
-		}
+        Integer ownerType = (Integer) attributes.get("ownerType");
 
-		Integer graceValue = (Integer)attributes.get("graceValue");
+        if (ownerType != null) {
+            setOwnerType(ownerType);
+        }
 
-		if (graceValue != null) {
-			setGraceValue(graceValue);
-		}
+        Integer currentValue = (Integer) attributes.get("currentValue");
 
-		Integer startPeriod = (Integer)attributes.get("startPeriod");
+        if (currentValue != null) {
+            setCurrentValue(currentValue);
+        }
 
-		if (startPeriod != null) {
-			setStartPeriod(startPeriod);
-		}
+        Integer totalValue = (Integer) attributes.get("totalValue");
 
-		Integer endPeriod = (Integer)attributes.get("endPeriod");
+        if (totalValue != null) {
+            setTotalValue(totalValue);
+        }
 
-		if (endPeriod != null) {
-			setEndPeriod(endPeriod);
-		}
+        Integer graceValue = (Integer) attributes.get("graceValue");
 
-		Boolean active = (Boolean)attributes.get("active");
+        if (graceValue != null) {
+            setGraceValue(graceValue);
+        }
 
-		if (active != null) {
-			setActive(active);
-		}
-	}
+        Integer startPeriod = (Integer) attributes.get("startPeriod");
 
-	@Override
-	public long getActivityCounterId() {
-		return _activityCounterId;
-	}
+        if (startPeriod != null) {
+            setStartPeriod(startPeriod);
+        }
 
-	@Override
-	public void setActivityCounterId(long activityCounterId) {
-		_activityCounterId = activityCounterId;
-	}
+        Integer endPeriod = (Integer) attributes.get("endPeriod");
 
-	@Override
-	public long getGroupId() {
-		return _groupId;
-	}
+        if (endPeriod != null) {
+            setEndPeriod(endPeriod);
+        }
 
-	@Override
-	public void setGroupId(long groupId) {
-		_columnBitmask |= GROUPID_COLUMN_BITMASK;
+        Boolean active = (Boolean) attributes.get("active");
 
-		if (!_setOriginalGroupId) {
-			_setOriginalGroupId = true;
+        if (active != null) {
+            setActive(active);
+        }
+    }
 
-			_originalGroupId = _groupId;
-		}
+    @Override
+    public long getActivityCounterId() {
+        return _activityCounterId;
+    }
 
-		_groupId = groupId;
-	}
+    @Override
+    public void setActivityCounterId(long activityCounterId) {
+        _activityCounterId = activityCounterId;
+    }
 
-	public long getOriginalGroupId() {
-		return _originalGroupId;
-	}
+    @Override
+    public long getGroupId() {
+        return _groupId;
+    }
 
-	@Override
-	public long getCompanyId() {
-		return _companyId;
-	}
+    @Override
+    public void setGroupId(long groupId) {
+        _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
-	@Override
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+        if (!_setOriginalGroupId) {
+            _setOriginalGroupId = true;
 
-	@Override
-	public String getClassName() {
-		if (getClassNameId() <= 0) {
-			return StringPool.BLANK;
-		}
+            _originalGroupId = _groupId;
+        }
 
-		return PortalUtil.getClassName(getClassNameId());
-	}
+        _groupId = groupId;
+    }
 
-	@Override
-	public void setClassName(String className) {
-		long classNameId = 0;
+    public long getOriginalGroupId() {
+        return _originalGroupId;
+    }
 
-		if (Validator.isNotNull(className)) {
-			classNameId = PortalUtil.getClassNameId(className);
-		}
+    @Override
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-		setClassNameId(classNameId);
-	}
+    @Override
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	@Override
-	public long getClassNameId() {
-		return _classNameId;
-	}
+    @Override
+    public String getClassName() {
+        if (getClassNameId() <= 0) {
+            return StringPool.BLANK;
+        }
 
-	@Override
-	public void setClassNameId(long classNameId) {
-		_columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
+        return PortalUtil.getClassName(getClassNameId());
+    }
 
-		if (!_setOriginalClassNameId) {
-			_setOriginalClassNameId = true;
+    @Override
+    public void setClassName(String className) {
+        long classNameId = 0;
 
-			_originalClassNameId = _classNameId;
-		}
+        if (Validator.isNotNull(className)) {
+            classNameId = PortalUtil.getClassNameId(className);
+        }
 
-		_classNameId = classNameId;
-	}
+        setClassNameId(classNameId);
+    }
 
-	public long getOriginalClassNameId() {
-		return _originalClassNameId;
-	}
+    @Override
+    public long getClassNameId() {
+        return _classNameId;
+    }
 
-	@Override
-	public long getClassPK() {
-		return _classPK;
-	}
+    @Override
+    public void setClassNameId(long classNameId) {
+        _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
-	@Override
-	public void setClassPK(long classPK) {
-		_columnBitmask |= CLASSPK_COLUMN_BITMASK;
+        if (!_setOriginalClassNameId) {
+            _setOriginalClassNameId = true;
 
-		if (!_setOriginalClassPK) {
-			_setOriginalClassPK = true;
+            _originalClassNameId = _classNameId;
+        }
 
-			_originalClassPK = _classPK;
-		}
+        _classNameId = classNameId;
+    }
 
-		_classPK = classPK;
-	}
+    public long getOriginalClassNameId() {
+        return _originalClassNameId;
+    }
 
-	public long getOriginalClassPK() {
-		return _originalClassPK;
-	}
+    @Override
+    public long getClassPK() {
+        return _classPK;
+    }
 
-	@Override
-	public String getName() {
-		if (_name == null) {
-			return StringPool.BLANK;
-		}
-		else {
-			return _name;
-		}
-	}
+    @Override
+    public void setClassPK(long classPK) {
+        _columnBitmask |= CLASSPK_COLUMN_BITMASK;
 
-	@Override
-	public void setName(String name) {
-		_columnBitmask |= NAME_COLUMN_BITMASK;
+        if (!_setOriginalClassPK) {
+            _setOriginalClassPK = true;
 
-		if (_originalName == null) {
-			_originalName = _name;
-		}
+            _originalClassPK = _classPK;
+        }
 
-		_name = name;
-	}
+        _classPK = classPK;
+    }
 
-	public String getOriginalName() {
-		return GetterUtil.getString(_originalName);
-	}
+    public long getOriginalClassPK() {
+        return _originalClassPK;
+    }
 
-	@Override
-	public int getOwnerType() {
-		return _ownerType;
-	}
+    @Override
+    public String getName() {
+        if (_name == null) {
+            return StringPool.BLANK;
+        } else {
+            return _name;
+        }
+    }
 
-	@Override
-	public void setOwnerType(int ownerType) {
-		_columnBitmask |= OWNERTYPE_COLUMN_BITMASK;
+    @Override
+    public void setName(String name) {
+        _columnBitmask |= NAME_COLUMN_BITMASK;
 
-		if (!_setOriginalOwnerType) {
-			_setOriginalOwnerType = true;
+        if (_originalName == null) {
+            _originalName = _name;
+        }
 
-			_originalOwnerType = _ownerType;
-		}
+        _name = name;
+    }
 
-		_ownerType = ownerType;
-	}
+    public String getOriginalName() {
+        return GetterUtil.getString(_originalName);
+    }
 
-	public int getOriginalOwnerType() {
-		return _originalOwnerType;
-	}
+    @Override
+    public int getOwnerType() {
+        return _ownerType;
+    }
 
-	@Override
-	public int getCurrentValue() {
-		return _currentValue;
-	}
+    @Override
+    public void setOwnerType(int ownerType) {
+        _columnBitmask |= OWNERTYPE_COLUMN_BITMASK;
 
-	@Override
-	public void setCurrentValue(int currentValue) {
-		_currentValue = currentValue;
-	}
+        if (!_setOriginalOwnerType) {
+            _setOriginalOwnerType = true;
 
-	@Override
-	public int getTotalValue() {
-		return _totalValue;
-	}
+            _originalOwnerType = _ownerType;
+        }
 
-	@Override
-	public void setTotalValue(int totalValue) {
-		_totalValue = totalValue;
-	}
+        _ownerType = ownerType;
+    }
 
-	@Override
-	public int getGraceValue() {
-		return _graceValue;
-	}
+    public int getOriginalOwnerType() {
+        return _originalOwnerType;
+    }
 
-	@Override
-	public void setGraceValue(int graceValue) {
-		_graceValue = graceValue;
-	}
+    @Override
+    public int getCurrentValue() {
+        return _currentValue;
+    }
 
-	@Override
-	public int getStartPeriod() {
-		return _startPeriod;
-	}
+    @Override
+    public void setCurrentValue(int currentValue) {
+        _currentValue = currentValue;
+    }
 
-	@Override
-	public void setStartPeriod(int startPeriod) {
-		_columnBitmask |= STARTPERIOD_COLUMN_BITMASK;
+    @Override
+    public int getTotalValue() {
+        return _totalValue;
+    }
 
-		if (!_setOriginalStartPeriod) {
-			_setOriginalStartPeriod = true;
+    @Override
+    public void setTotalValue(int totalValue) {
+        _totalValue = totalValue;
+    }
 
-			_originalStartPeriod = _startPeriod;
-		}
+    @Override
+    public int getGraceValue() {
+        return _graceValue;
+    }
 
-		_startPeriod = startPeriod;
-	}
+    @Override
+    public void setGraceValue(int graceValue) {
+        _graceValue = graceValue;
+    }
+
+    @Override
+    public int getStartPeriod() {
+        return _startPeriod;
+    }
+
+    @Override
+    public void setStartPeriod(int startPeriod) {
+        _columnBitmask |= STARTPERIOD_COLUMN_BITMASK;
+
+        if (!_setOriginalStartPeriod) {
+            _setOriginalStartPeriod = true;
+
+            _originalStartPeriod = _startPeriod;
+        }
+
+        _startPeriod = startPeriod;
+    }
+
+    public int getOriginalStartPeriod() {
+        return _originalStartPeriod;
+    }
+
+    @Override
+    public int getEndPeriod() {
+        return _endPeriod;
+    }
+
+    @Override
+    public void setEndPeriod(int endPeriod) {
+        _columnBitmask |= ENDPERIOD_COLUMN_BITMASK;
+
+        if (!_setOriginalEndPeriod) {
+            _setOriginalEndPeriod = true;
+
+            _originalEndPeriod = _endPeriod;
+        }
+
+        _endPeriod = endPeriod;
+    }
+
+    public int getOriginalEndPeriod() {
+        return _originalEndPeriod;
+    }
+
+    @Override
+    public boolean getActive() {
+        return _active;
+    }
+
+    @Override
+    public boolean isActive() {
+        return _active;
+    }
+
+    @Override
+    public void setActive(boolean active) {
+        _active = active;
+    }
+
+    public long getColumnBitmask() {
+        return _columnBitmask;
+    }
 
-	public int getOriginalStartPeriod() {
-		return _originalStartPeriod;
-	}
+    @Override
+    public ExpandoBridge getExpandoBridge() {
+        return ExpandoBridgeFactoryUtil.getExpandoBridge(getCompanyId(),
+            SocialActivityCounter.class.getName(), getPrimaryKey());
+    }
 
-	@Override
-	public int getEndPeriod() {
-		return _endPeriod;
-	}
-
-	@Override
-	public void setEndPeriod(int endPeriod) {
-		_columnBitmask |= ENDPERIOD_COLUMN_BITMASK;
-
-		if (!_setOriginalEndPeriod) {
-			_setOriginalEndPeriod = true;
-
-			_originalEndPeriod = _endPeriod;
-		}
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext) {
+        ExpandoBridge expandoBridge = getExpandoBridge();
 
-		_endPeriod = endPeriod;
-	}
+        expandoBridge.setAttributes(serviceContext);
+    }
 
-	public int getOriginalEndPeriod() {
-		return _originalEndPeriod;
-	}
-
-	@Override
-	public boolean getActive() {
-		return _active;
-	}
-
-	@Override
-	public boolean isActive() {
-		return _active;
-	}
-
-	@Override
-	public void setActive(boolean active) {
-		_active = active;
-	}
-
-	public long getColumnBitmask() {
-		return _columnBitmask;
-	}
+    @Override
+    public SocialActivityCounter toEscapedModel() {
+        if (_escapedModel == null) {
+            _escapedModel = (SocialActivityCounter) ProxyUtil.newProxyInstance(_classLoader,
+                    _escapedModelInterfaces, new AutoEscapeBeanHandler(this));
+        }
 
-	@Override
-	public ExpandoBridge getExpandoBridge() {
-		return ExpandoBridgeFactoryUtil.getExpandoBridge(getCompanyId(),
-			SocialActivityCounter.class.getName(), getPrimaryKey());
-	}
+        return _escapedModel;
+    }
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext) {
-		ExpandoBridge expandoBridge = getExpandoBridge();
+    @Override
+    public Object clone() {
+        SocialActivityCounterImpl socialActivityCounterImpl = new SocialActivityCounterImpl();
 
-		expandoBridge.setAttributes(serviceContext);
-	}
+        socialActivityCounterImpl.setActivityCounterId(getActivityCounterId());
+        socialActivityCounterImpl.setGroupId(getGroupId());
+        socialActivityCounterImpl.setCompanyId(getCompanyId());
+        socialActivityCounterImpl.setClassNameId(getClassNameId());
+        socialActivityCounterImpl.setClassPK(getClassPK());
+        socialActivityCounterImpl.setName(getName());
+        socialActivityCounterImpl.setOwnerType(getOwnerType());
+        socialActivityCounterImpl.setCurrentValue(getCurrentValue());
+        socialActivityCounterImpl.setTotalValue(getTotalValue());
+        socialActivityCounterImpl.setGraceValue(getGraceValue());
+        socialActivityCounterImpl.setStartPeriod(getStartPeriod());
+        socialActivityCounterImpl.setEndPeriod(getEndPeriod());
+        socialActivityCounterImpl.setActive(getActive());
 
-	@Override
-	public SocialActivityCounter toEscapedModel() {
-		if (_escapedModel == null) {
-			_escapedModel = (SocialActivityCounter)ProxyUtil.newProxyInstance(_classLoader,
-					_escapedModelInterfaces, new AutoEscapeBeanHandler(this));
-		}
+        socialActivityCounterImpl.resetOriginalValues();
 
-		return _escapedModel;
-	}
+        return socialActivityCounterImpl;
+    }
 
-	@Override
-	public Object clone() {
-		SocialActivityCounterImpl socialActivityCounterImpl = new SocialActivityCounterImpl();
+    @Override
+    public int compareTo(SocialActivityCounter socialActivityCounter) {
+        long primaryKey = socialActivityCounter.getPrimaryKey();
 
-		socialActivityCounterImpl.setActivityCounterId(getActivityCounterId());
-		socialActivityCounterImpl.setGroupId(getGroupId());
-		socialActivityCounterImpl.setCompanyId(getCompanyId());
-		socialActivityCounterImpl.setClassNameId(getClassNameId());
-		socialActivityCounterImpl.setClassPK(getClassPK());
-		socialActivityCounterImpl.setName(getName());
-		socialActivityCounterImpl.setOwnerType(getOwnerType());
-		socialActivityCounterImpl.setCurrentValue(getCurrentValue());
-		socialActivityCounterImpl.setTotalValue(getTotalValue());
-		socialActivityCounterImpl.setGraceValue(getGraceValue());
-		socialActivityCounterImpl.setStartPeriod(getStartPeriod());
-		socialActivityCounterImpl.setEndPeriod(getEndPeriod());
-		socialActivityCounterImpl.setActive(getActive());
+        if (getPrimaryKey() < primaryKey) {
+            return -1;
+        } else if (getPrimaryKey() > primaryKey) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 
-		socialActivityCounterImpl.resetOriginalValues();
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
 
-		return socialActivityCounterImpl;
-	}
+        if (!(obj instanceof SocialActivityCounter)) {
+            return false;
+        }
 
-	@Override
-	public int compareTo(SocialActivityCounter socialActivityCounter) {
-		long primaryKey = socialActivityCounter.getPrimaryKey();
+        SocialActivityCounter socialActivityCounter = (SocialActivityCounter) obj;
 
-		if (getPrimaryKey() < primaryKey) {
-			return -1;
-		}
-		else if (getPrimaryKey() > primaryKey) {
-			return 1;
-		}
-		else {
-			return 0;
-		}
-	}
+        long primaryKey = socialActivityCounter.getPrimaryKey();
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
+        if (getPrimaryKey() == primaryKey) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-		if (!(obj instanceof SocialActivityCounter)) {
-			return false;
-		}
+    @Override
+    public int hashCode() {
+        return (int) getPrimaryKey();
+    }
 
-		SocialActivityCounter socialActivityCounter = (SocialActivityCounter)obj;
+    @Override
+    public void resetOriginalValues() {
+        SocialActivityCounterModelImpl socialActivityCounterModelImpl = this;
 
-		long primaryKey = socialActivityCounter.getPrimaryKey();
+        socialActivityCounterModelImpl._originalGroupId = socialActivityCounterModelImpl._groupId;
 
-		if (getPrimaryKey() == primaryKey) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
+        socialActivityCounterModelImpl._setOriginalGroupId = false;
 
-	@Override
-	public int hashCode() {
-		return (int)getPrimaryKey();
-	}
+        socialActivityCounterModelImpl._originalClassNameId = socialActivityCounterModelImpl._classNameId;
 
-	@Override
-	public void resetOriginalValues() {
-		SocialActivityCounterModelImpl socialActivityCounterModelImpl = this;
+        socialActivityCounterModelImpl._setOriginalClassNameId = false;
 
-		socialActivityCounterModelImpl._originalGroupId = socialActivityCounterModelImpl._groupId;
+        socialActivityCounterModelImpl._originalClassPK = socialActivityCounterModelImpl._classPK;
 
-		socialActivityCounterModelImpl._setOriginalGroupId = false;
+        socialActivityCounterModelImpl._setOriginalClassPK = false;
 
-		socialActivityCounterModelImpl._originalClassNameId = socialActivityCounterModelImpl._classNameId;
+        socialActivityCounterModelImpl._originalName = socialActivityCounterModelImpl._name;
 
-		socialActivityCounterModelImpl._setOriginalClassNameId = false;
+        socialActivityCounterModelImpl._originalOwnerType = socialActivityCounterModelImpl._ownerType;
 
-		socialActivityCounterModelImpl._originalClassPK = socialActivityCounterModelImpl._classPK;
+        socialActivityCounterModelImpl._setOriginalOwnerType = false;
 
-		socialActivityCounterModelImpl._setOriginalClassPK = false;
+        socialActivityCounterModelImpl._originalStartPeriod = socialActivityCounterModelImpl._startPeriod;
 
-		socialActivityCounterModelImpl._originalName = socialActivityCounterModelImpl._name;
+        socialActivityCounterModelImpl._setOriginalStartPeriod = false;
 
-		socialActivityCounterModelImpl._originalOwnerType = socialActivityCounterModelImpl._ownerType;
+        socialActivityCounterModelImpl._originalEndPeriod = socialActivityCounterModelImpl._endPeriod;
 
-		socialActivityCounterModelImpl._setOriginalOwnerType = false;
+        socialActivityCounterModelImpl._setOriginalEndPeriod = false;
 
-		socialActivityCounterModelImpl._originalStartPeriod = socialActivityCounterModelImpl._startPeriod;
+        socialActivityCounterModelImpl._columnBitmask = 0;
+    }
 
-		socialActivityCounterModelImpl._setOriginalStartPeriod = false;
+    @Override
+    public CacheModel<SocialActivityCounter> toCacheModel() {
+        SocialActivityCounterCacheModel socialActivityCounterCacheModel = new SocialActivityCounterCacheModel();
 
-		socialActivityCounterModelImpl._originalEndPeriod = socialActivityCounterModelImpl._endPeriod;
+        socialActivityCounterCacheModel.activityCounterId = getActivityCounterId();
 
-		socialActivityCounterModelImpl._setOriginalEndPeriod = false;
-
-		socialActivityCounterModelImpl._columnBitmask = 0;
-	}
-
-	@Override
-	public CacheModel<SocialActivityCounter> toCacheModel() {
-		SocialActivityCounterCacheModel socialActivityCounterCacheModel = new SocialActivityCounterCacheModel();
-
-		socialActivityCounterCacheModel.activityCounterId = getActivityCounterId();
-
-		socialActivityCounterCacheModel.groupId = getGroupId();
-
-		socialActivityCounterCacheModel.companyId = getCompanyId();
-
-		socialActivityCounterCacheModel.classNameId = getClassNameId();
-
-		socialActivityCounterCacheModel.classPK = getClassPK();
-
-		socialActivityCounterCacheModel.name = getName();
-
-		String name = socialActivityCounterCacheModel.name;
-
-		if ((name != null) && (name.length() == 0)) {
-			socialActivityCounterCacheModel.name = null;
-		}
-
-		socialActivityCounterCacheModel.ownerType = getOwnerType();
-
-		socialActivityCounterCacheModel.currentValue = getCurrentValue();
-
-		socialActivityCounterCacheModel.totalValue = getTotalValue();
-
-		socialActivityCounterCacheModel.graceValue = getGraceValue();
-
-		socialActivityCounterCacheModel.startPeriod = getStartPeriod();
-
-		socialActivityCounterCacheModel.endPeriod = getEndPeriod();
-
-		socialActivityCounterCacheModel.active = getActive();
-
-		return socialActivityCounterCacheModel;
-	}
-
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(27);
-
-		sb.append("{activityCounterId=");
-		sb.append(getActivityCounterId());
-		sb.append(", groupId=");
-		sb.append(getGroupId());
-		sb.append(", companyId=");
-		sb.append(getCompanyId());
-		sb.append(", classNameId=");
-		sb.append(getClassNameId());
-		sb.append(", classPK=");
-		sb.append(getClassPK());
-		sb.append(", name=");
-		sb.append(getName());
-		sb.append(", ownerType=");
-		sb.append(getOwnerType());
-		sb.append(", currentValue=");
-		sb.append(getCurrentValue());
-		sb.append(", totalValue=");
-		sb.append(getTotalValue());
-		sb.append(", graceValue=");
-		sb.append(getGraceValue());
-		sb.append(", startPeriod=");
-		sb.append(getStartPeriod());
-		sb.append(", endPeriod=");
-		sb.append(getEndPeriod());
-		sb.append(", active=");
-		sb.append(getActive());
-		sb.append("}");
-
-		return sb.toString();
-	}
-
-	@Override
-	public String toXmlString() {
-		StringBundler sb = new StringBundler(43);
-
-		sb.append("<model><model-name>");
-		sb.append("com.liferay.portlet.social.model.SocialActivityCounter");
-		sb.append("</model-name>");
-
-		sb.append(
-			"<column><column-name>activityCounterId</column-name><column-value><![CDATA[");
-		sb.append(getActivityCounterId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>groupId</column-name><column-value><![CDATA[");
-		sb.append(getGroupId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>companyId</column-name><column-value><![CDATA[");
-		sb.append(getCompanyId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>classNameId</column-name><column-value><![CDATA[");
-		sb.append(getClassNameId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>classPK</column-name><column-value><![CDATA[");
-		sb.append(getClassPK());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>name</column-name><column-value><![CDATA[");
-		sb.append(getName());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>ownerType</column-name><column-value><![CDATA[");
-		sb.append(getOwnerType());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>currentValue</column-name><column-value><![CDATA[");
-		sb.append(getCurrentValue());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>totalValue</column-name><column-value><![CDATA[");
-		sb.append(getTotalValue());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>graceValue</column-name><column-value><![CDATA[");
-		sb.append(getGraceValue());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>startPeriod</column-name><column-value><![CDATA[");
-		sb.append(getStartPeriod());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>endPeriod</column-name><column-value><![CDATA[");
-		sb.append(getEndPeriod());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>active</column-name><column-value><![CDATA[");
-		sb.append(getActive());
-		sb.append("]]></column-value></column>");
-
-		sb.append("</model>");
-
-		return sb.toString();
-	}
-
-	private static ClassLoader _classLoader = SocialActivityCounter.class.getClassLoader();
-	private static Class<?>[] _escapedModelInterfaces = new Class[] {
-			SocialActivityCounter.class
-		};
-	private long _activityCounterId;
-	private long _groupId;
-	private long _originalGroupId;
-	private boolean _setOriginalGroupId;
-	private long _companyId;
-	private long _classNameId;
-	private long _originalClassNameId;
-	private boolean _setOriginalClassNameId;
-	private long _classPK;
-	private long _originalClassPK;
-	private boolean _setOriginalClassPK;
-	private String _name;
-	private String _originalName;
-	private int _ownerType;
-	private int _originalOwnerType;
-	private boolean _setOriginalOwnerType;
-	private int _currentValue;
-	private int _totalValue;
-	private int _graceValue;
-	private int _startPeriod;
-	private int _originalStartPeriod;
-	private boolean _setOriginalStartPeriod;
-	private int _endPeriod;
-	private int _originalEndPeriod;
-	private boolean _setOriginalEndPeriod;
-	private boolean _active;
-	private long _columnBitmask;
-	private SocialActivityCounter _escapedModel;
+        socialActivityCounterCacheModel.groupId = getGroupId();
+
+        socialActivityCounterCacheModel.companyId = getCompanyId();
+
+        socialActivityCounterCacheModel.classNameId = getClassNameId();
+
+        socialActivityCounterCacheModel.classPK = getClassPK();
+
+        socialActivityCounterCacheModel.name = getName();
+
+        String name = socialActivityCounterCacheModel.name;
+
+        if ((name != null) && (name.length() == 0)) {
+            socialActivityCounterCacheModel.name = null;
+        }
+
+        socialActivityCounterCacheModel.ownerType = getOwnerType();
+
+        socialActivityCounterCacheModel.currentValue = getCurrentValue();
+
+        socialActivityCounterCacheModel.totalValue = getTotalValue();
+
+        socialActivityCounterCacheModel.graceValue = getGraceValue();
+
+        socialActivityCounterCacheModel.startPeriod = getStartPeriod();
+
+        socialActivityCounterCacheModel.endPeriod = getEndPeriod();
+
+        socialActivityCounterCacheModel.active = getActive();
+
+        return socialActivityCounterCacheModel;
+    }
+
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(27);
+
+        sb.append("{activityCounterId=");
+        sb.append(getActivityCounterId());
+        sb.append(", groupId=");
+        sb.append(getGroupId());
+        sb.append(", companyId=");
+        sb.append(getCompanyId());
+        sb.append(", classNameId=");
+        sb.append(getClassNameId());
+        sb.append(", classPK=");
+        sb.append(getClassPK());
+        sb.append(", name=");
+        sb.append(getName());
+        sb.append(", ownerType=");
+        sb.append(getOwnerType());
+        sb.append(", currentValue=");
+        sb.append(getCurrentValue());
+        sb.append(", totalValue=");
+        sb.append(getTotalValue());
+        sb.append(", graceValue=");
+        sb.append(getGraceValue());
+        sb.append(", startPeriod=");
+        sb.append(getStartPeriod());
+        sb.append(", endPeriod=");
+        sb.append(getEndPeriod());
+        sb.append(", active=");
+        sb.append(getActive());
+        sb.append("}");
+
+        return sb.toString();
+    }
+
+    @Override
+    public String toXmlString() {
+        StringBundler sb = new StringBundler(43);
+
+        sb.append("<model><model-name>");
+        sb.append("com.liferay.portlet.social.model.SocialActivityCounter");
+        sb.append("</model-name>");
+
+        sb.append(
+            "<column><column-name>activityCounterId</column-name><column-value><![CDATA[");
+        sb.append(getActivityCounterId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>groupId</column-name><column-value><![CDATA[");
+        sb.append(getGroupId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>companyId</column-name><column-value><![CDATA[");
+        sb.append(getCompanyId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>classNameId</column-name><column-value><![CDATA[");
+        sb.append(getClassNameId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>classPK</column-name><column-value><![CDATA[");
+        sb.append(getClassPK());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>name</column-name><column-value><![CDATA[");
+        sb.append(getName());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>ownerType</column-name><column-value><![CDATA[");
+        sb.append(getOwnerType());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>currentValue</column-name><column-value><![CDATA[");
+        sb.append(getCurrentValue());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>totalValue</column-name><column-value><![CDATA[");
+        sb.append(getTotalValue());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>graceValue</column-name><column-value><![CDATA[");
+        sb.append(getGraceValue());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>startPeriod</column-name><column-value><![CDATA[");
+        sb.append(getStartPeriod());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>endPeriod</column-name><column-value><![CDATA[");
+        sb.append(getEndPeriod());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>active</column-name><column-value><![CDATA[");
+        sb.append(getActive());
+        sb.append("]]></column-value></column>");
+
+        sb.append("</model>");
+
+        return sb.toString();
+    }
 }

@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -32,133 +18,127 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class UserNotificationEventCacheModel implements CacheModel<UserNotificationEvent>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(21);
+    Externalizable {
+    public String uuid;
+    public long userNotificationEventId;
+    public long companyId;
+    public long userId;
+    public String type;
+    public long timestamp;
+    public long deliverBy;
+    public boolean delivered;
+    public String payload;
+    public boolean archived;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", userNotificationEventId=");
-		sb.append(userNotificationEventId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", type=");
-		sb.append(type);
-		sb.append(", timestamp=");
-		sb.append(timestamp);
-		sb.append(", deliverBy=");
-		sb.append(deliverBy);
-		sb.append(", delivered=");
-		sb.append(delivered);
-		sb.append(", payload=");
-		sb.append(payload);
-		sb.append(", archived=");
-		sb.append(archived);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(21);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", userNotificationEventId=");
+        sb.append(userNotificationEventId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", type=");
+        sb.append(type);
+        sb.append(", timestamp=");
+        sb.append(timestamp);
+        sb.append(", deliverBy=");
+        sb.append(deliverBy);
+        sb.append(", delivered=");
+        sb.append(delivered);
+        sb.append(", payload=");
+        sb.append(payload);
+        sb.append(", archived=");
+        sb.append(archived);
+        sb.append("}");
 
-	@Override
-	public UserNotificationEvent toEntityModel() {
-		UserNotificationEventImpl userNotificationEventImpl = new UserNotificationEventImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			userNotificationEventImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			userNotificationEventImpl.setUuid(uuid);
-		}
+    @Override
+    public UserNotificationEvent toEntityModel() {
+        UserNotificationEventImpl userNotificationEventImpl = new UserNotificationEventImpl();
 
-		userNotificationEventImpl.setUserNotificationEventId(userNotificationEventId);
-		userNotificationEventImpl.setCompanyId(companyId);
-		userNotificationEventImpl.setUserId(userId);
+        if (uuid == null) {
+            userNotificationEventImpl.setUuid(StringPool.BLANK);
+        } else {
+            userNotificationEventImpl.setUuid(uuid);
+        }
 
-		if (type == null) {
-			userNotificationEventImpl.setType(StringPool.BLANK);
-		}
-		else {
-			userNotificationEventImpl.setType(type);
-		}
+        userNotificationEventImpl.setUserNotificationEventId(userNotificationEventId);
+        userNotificationEventImpl.setCompanyId(companyId);
+        userNotificationEventImpl.setUserId(userId);
 
-		userNotificationEventImpl.setTimestamp(timestamp);
-		userNotificationEventImpl.setDeliverBy(deliverBy);
-		userNotificationEventImpl.setDelivered(delivered);
+        if (type == null) {
+            userNotificationEventImpl.setType(StringPool.BLANK);
+        } else {
+            userNotificationEventImpl.setType(type);
+        }
 
-		if (payload == null) {
-			userNotificationEventImpl.setPayload(StringPool.BLANK);
-		}
-		else {
-			userNotificationEventImpl.setPayload(payload);
-		}
+        userNotificationEventImpl.setTimestamp(timestamp);
+        userNotificationEventImpl.setDeliverBy(deliverBy);
+        userNotificationEventImpl.setDelivered(delivered);
 
-		userNotificationEventImpl.setArchived(archived);
+        if (payload == null) {
+            userNotificationEventImpl.setPayload(StringPool.BLANK);
+        } else {
+            userNotificationEventImpl.setPayload(payload);
+        }
 
-		userNotificationEventImpl.resetOriginalValues();
+        userNotificationEventImpl.setArchived(archived);
 
-		return userNotificationEventImpl;
-	}
+        userNotificationEventImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		userNotificationEventId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		type = objectInput.readUTF();
-		timestamp = objectInput.readLong();
-		deliverBy = objectInput.readLong();
-		delivered = objectInput.readBoolean();
-		payload = objectInput.readUTF();
-		archived = objectInput.readBoolean();
-	}
+        return userNotificationEventImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        userNotificationEventId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        type = objectInput.readUTF();
+        timestamp = objectInput.readLong();
+        deliverBy = objectInput.readLong();
+        delivered = objectInput.readBoolean();
+        payload = objectInput.readUTF();
+        archived = objectInput.readBoolean();
+    }
 
-		objectOutput.writeLong(userNotificationEventId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (type == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(type);
-		}
+        objectOutput.writeLong(userNotificationEventId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(timestamp);
-		objectOutput.writeLong(deliverBy);
-		objectOutput.writeBoolean(delivered);
+        if (type == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(type);
+        }
 
-		if (payload == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(payload);
-		}
+        objectOutput.writeLong(timestamp);
+        objectOutput.writeLong(deliverBy);
+        objectOutput.writeBoolean(delivered);
 
-		objectOutput.writeBoolean(archived);
-	}
+        if (payload == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(payload);
+        }
 
-	public String uuid;
-	public long userNotificationEventId;
-	public long companyId;
-	public long userId;
-	public String type;
-	public long timestamp;
-	public long deliverBy;
-	public boolean delivered;
-	public String payload;
-	public boolean archived;
+        objectOutput.writeBoolean(archived);
+    }
 }

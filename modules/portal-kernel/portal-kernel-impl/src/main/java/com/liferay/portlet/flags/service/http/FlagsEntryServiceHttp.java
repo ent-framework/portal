@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.flags.service.http;
 
 import com.liferay.portal.kernel.log.Log;
@@ -52,40 +38,38 @@ import com.liferay.portlet.flags.service.FlagsEntryServiceUtil;
  * @generated
  */
 public class FlagsEntryServiceHttp {
-	public static void addEntry(HttpPrincipal httpPrincipal,
-		java.lang.String className, long classPK,
-		java.lang.String reporterEmailAddress, long reportedUserId,
-		java.lang.String contentTitle, java.lang.String contentURL,
-		java.lang.String reason,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(FlagsEntryServiceUtil.class,
-					"addEntry", _addEntryParameterTypes0);
+    private static Log _log = LogFactoryUtil.getLog(FlagsEntryServiceHttp.class);
+    private static final Class<?>[] _addEntryParameterTypes0 = new Class[] {
+            java.lang.String.class, long.class, java.lang.String.class,
+            long.class, java.lang.String.class, java.lang.String.class,
+            java.lang.String.class,
+            com.liferay.portal.service.ServiceContext.class
+        };
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					className, classPK, reporterEmailAddress, reportedUserId,
-					contentTitle, contentURL, reason, serviceContext);
+    public static void addEntry(HttpPrincipal httpPrincipal,
+        java.lang.String className, long classPK,
+        java.lang.String reporterEmailAddress, long reportedUserId,
+        java.lang.String contentTitle, java.lang.String contentURL,
+        java.lang.String reason,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(FlagsEntryServiceUtil.class,
+                    "addEntry", _addEntryParameterTypes0);
 
-			try {
-				TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    className, classPK, reporterEmailAddress, reportedUserId,
+                    contentTitle, contentURL, reason, serviceContext);
 
-			throw se;
-		}
-	}
+            try {
+                TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	private static Log _log = LogFactoryUtil.getLog(FlagsEntryServiceHttp.class);
-	private static final Class<?>[] _addEntryParameterTypes0 = new Class[] {
-			java.lang.String.class, long.class, java.lang.String.class,
-			long.class, java.lang.String.class, java.lang.String.class,
-			java.lang.String.class,
-			com.liferay.portal.service.ServiceContext.class
-		};
+            throw se;
+        }
+    }
 }

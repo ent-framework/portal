@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
@@ -25,6 +11,7 @@ import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.model.SystemEvent;
 import com.liferay.portal.model.SystemEventModel;
+import com.liferay.portal.model.impl.BaseModelImpl;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.util.PortalUtil;
 
@@ -53,759 +40,753 @@ import java.util.Map;
  * @generated
  */
 public class SystemEventModelImpl extends BaseModelImpl<SystemEvent>
-	implements SystemEventModel {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this class directly. All methods that expect a system event model instance should use the {@link com.liferay.portal.model.SystemEvent} interface instead.
-	 */
-	public static final String TABLE_NAME = "SystemEvent";
-	public static final Object[][] TABLE_COLUMNS = {
-			{ "systemEventId", Types.BIGINT },
-			{ "groupId", Types.BIGINT },
-			{ "companyId", Types.BIGINT },
-			{ "userId", Types.BIGINT },
-			{ "userName", Types.VARCHAR },
-			{ "createDate", Types.TIMESTAMP },
-			{ "classNameId", Types.BIGINT },
-			{ "classPK", Types.BIGINT },
-			{ "classUuid", Types.VARCHAR },
-			{ "referrerClassNameId", Types.BIGINT },
-			{ "parentSystemEventId", Types.BIGINT },
-			{ "systemEventSetKey", Types.BIGINT },
-			{ "type_", Types.INTEGER },
-			{ "extraData", Types.CLOB }
-		};
-	public static final String TABLE_SQL_CREATE = "create table SystemEvent (systemEventId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,classNameId LONG,classPK LONG,classUuid VARCHAR(75) null,referrerClassNameId LONG,parentSystemEventId LONG,systemEventSetKey LONG,type_ INTEGER,extraData TEXT null)";
-	public static final String TABLE_SQL_DROP = "drop table SystemEvent";
-	public static final String ORDER_BY_JPQL = " ORDER BY systemEvent.createDate DESC";
-	public static final String ORDER_BY_SQL = " ORDER BY SystemEvent.createDate DESC";
-	public static final String DATA_SOURCE = "liferayDataSource";
-	public static final String SESSION_FACTORY = "liferaySessionFactory";
-	public static final String TX_MANAGER = "liferayTransactionManager";
-	public static final boolean ENTITY_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
-				"value.object.entity.cache.enabled.com.liferay.portal.model.SystemEvent"),
-			true);
-	public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
-				"value.object.finder.cache.enabled.com.liferay.portal.model.SystemEvent"),
-			true);
-	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
-				"value.object.column.bitmask.enabled.com.liferay.portal.model.SystemEvent"),
-			true);
-	public static long CLASSNAMEID_COLUMN_BITMASK = 1L;
-	public static long CLASSPK_COLUMN_BITMASK = 2L;
-	public static long GROUPID_COLUMN_BITMASK = 4L;
-	public static long SYSTEMEVENTSETKEY_COLUMN_BITMASK = 8L;
-	public static long TYPE_COLUMN_BITMASK = 16L;
-	public static long CREATEDATE_COLUMN_BITMASK = 32L;
-	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.portal.util.PropsUtil.get(
-				"lock.expiration.time.com.liferay.portal.model.SystemEvent"));
-
-	public SystemEventModelImpl() {
-	}
-
-	@Override
-	public long getPrimaryKey() {
-		return _systemEventId;
-	}
-
-	@Override
-	public void setPrimaryKey(long primaryKey) {
-		setSystemEventId(primaryKey);
-	}
-
-	@Override
-	public Serializable getPrimaryKeyObj() {
-		return _systemEventId;
-	}
-
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj) {
-		setPrimaryKey(((Long)primaryKeyObj).longValue());
-	}
-
-	@Override
-	public Class<?> getModelClass() {
-		return SystemEvent.class;
-	}
-
-	@Override
-	public String getModelClassName() {
-		return SystemEvent.class.getName();
-	}
-
-	@Override
-	public Map<String, Object> getModelAttributes() {
-		Map<String, Object> attributes = new HashMap<String, Object>();
-
-		attributes.put("systemEventId", getSystemEventId());
-		attributes.put("groupId", getGroupId());
-		attributes.put("companyId", getCompanyId());
-		attributes.put("userId", getUserId());
-		attributes.put("userName", getUserName());
-		attributes.put("createDate", getCreateDate());
-		attributes.put("classNameId", getClassNameId());
-		attributes.put("classPK", getClassPK());
-		attributes.put("classUuid", getClassUuid());
-		attributes.put("referrerClassNameId", getReferrerClassNameId());
-		attributes.put("parentSystemEventId", getParentSystemEventId());
-		attributes.put("systemEventSetKey", getSystemEventSetKey());
-		attributes.put("type", getType());
-		attributes.put("extraData", getExtraData());
-
-		return attributes;
-	}
+    implements SystemEventModel {
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this class directly. All methods that expect a system event model instance should use the {@link com.liferay.portal.model.SystemEvent} interface instead.
+     */
+    public static final String TABLE_NAME = "SystemEvent";
+    public static final Object[][] TABLE_COLUMNS = {
+            { "systemEventId", Types.BIGINT },
+            { "groupId", Types.BIGINT },
+            { "companyId", Types.BIGINT },
+            { "userId", Types.BIGINT },
+            { "userName", Types.VARCHAR },
+            { "createDate", Types.TIMESTAMP },
+            { "classNameId", Types.BIGINT },
+            { "classPK", Types.BIGINT },
+            { "classUuid", Types.VARCHAR },
+            { "referrerClassNameId", Types.BIGINT },
+            { "parentSystemEventId", Types.BIGINT },
+            { "systemEventSetKey", Types.BIGINT },
+            { "type_", Types.INTEGER },
+            { "extraData", Types.CLOB }
+        };
+    public static final String TABLE_SQL_CREATE = "create table SystemEvent (systemEventId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,classNameId LONG,classPK LONG,classUuid VARCHAR(75) null,referrerClassNameId LONG,parentSystemEventId LONG,systemEventSetKey LONG,type_ INTEGER,extraData TEXT null)";
+    public static final String TABLE_SQL_DROP = "drop table SystemEvent";
+    public static final String ORDER_BY_JPQL = " ORDER BY systemEvent.createDate DESC";
+    public static final String ORDER_BY_SQL = " ORDER BY SystemEvent.createDate DESC";
+    public static final String DATA_SOURCE = "liferayDataSource";
+    public static final String SESSION_FACTORY = "liferaySessionFactory";
+    public static final String TX_MANAGER = "liferayTransactionManager";
+    public static final boolean ENTITY_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
+                "value.object.entity.cache.enabled.com.liferay.portal.model.SystemEvent"),
+            true);
+    public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
+                "value.object.finder.cache.enabled.com.liferay.portal.model.SystemEvent"),
+            true);
+    public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
+                "value.object.column.bitmask.enabled.com.liferay.portal.model.SystemEvent"),
+            true);
+    public static long CLASSNAMEID_COLUMN_BITMASK = 1L;
+    public static long CLASSPK_COLUMN_BITMASK = 2L;
+    public static long GROUPID_COLUMN_BITMASK = 4L;
+    public static long SYSTEMEVENTSETKEY_COLUMN_BITMASK = 8L;
+    public static long TYPE_COLUMN_BITMASK = 16L;
+    public static long CREATEDATE_COLUMN_BITMASK = 32L;
+    public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.portal.util.PropsUtil.get(
+                "lock.expiration.time.com.liferay.portal.model.SystemEvent"));
+    private static ClassLoader _classLoader = SystemEvent.class.getClassLoader();
+    private static Class<?>[] _escapedModelInterfaces = new Class[] {
+            SystemEvent.class
+        };
+    private long _systemEventId;
+    private long _groupId;
+    private long _originalGroupId;
+    private boolean _setOriginalGroupId;
+    private long _companyId;
+    private long _userId;
+    private String _userUuid;
+    private String _userName;
+    private Date _createDate;
+    private long _classNameId;
+    private long _originalClassNameId;
+    private boolean _setOriginalClassNameId;
+    private long _classPK;
+    private long _originalClassPK;
+    private boolean _setOriginalClassPK;
+    private String _classUuid;
+    private long _referrerClassNameId;
+    private long _parentSystemEventId;
+    private long _systemEventSetKey;
+    private long _originalSystemEventSetKey;
+    private boolean _setOriginalSystemEventSetKey;
+    private int _type;
+    private int _originalType;
+    private boolean _setOriginalType;
+    private String _extraData;
+    private long _columnBitmask;
+    private SystemEvent _escapedModel;
+
+    public SystemEventModelImpl() {
+    }
+
+    @Override
+    public long getPrimaryKey() {
+        return _systemEventId;
+    }
+
+    @Override
+    public void setPrimaryKey(long primaryKey) {
+        setSystemEventId(primaryKey);
+    }
+
+    @Override
+    public Serializable getPrimaryKeyObj() {
+        return _systemEventId;
+    }
+
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj) {
+        setPrimaryKey(((Long) primaryKeyObj).longValue());
+    }
 
-	@Override
-	public void setModelAttributes(Map<String, Object> attributes) {
-		Long systemEventId = (Long)attributes.get("systemEventId");
+    @Override
+    public Class<?> getModelClass() {
+        return SystemEvent.class;
+    }
 
-		if (systemEventId != null) {
-			setSystemEventId(systemEventId);
-		}
+    @Override
+    public String getModelClassName() {
+        return SystemEvent.class.getName();
+    }
 
-		Long groupId = (Long)attributes.get("groupId");
+    @Override
+    public Map<String, Object> getModelAttributes() {
+        Map<String, Object> attributes = new HashMap<String, Object>();
 
-		if (groupId != null) {
-			setGroupId(groupId);
-		}
+        attributes.put("systemEventId", getSystemEventId());
+        attributes.put("groupId", getGroupId());
+        attributes.put("companyId", getCompanyId());
+        attributes.put("userId", getUserId());
+        attributes.put("userName", getUserName());
+        attributes.put("createDate", getCreateDate());
+        attributes.put("classNameId", getClassNameId());
+        attributes.put("classPK", getClassPK());
+        attributes.put("classUuid", getClassUuid());
+        attributes.put("referrerClassNameId", getReferrerClassNameId());
+        attributes.put("parentSystemEventId", getParentSystemEventId());
+        attributes.put("systemEventSetKey", getSystemEventSetKey());
+        attributes.put("type", getType());
+        attributes.put("extraData", getExtraData());
 
-		Long companyId = (Long)attributes.get("companyId");
+        return attributes;
+    }
 
-		if (companyId != null) {
-			setCompanyId(companyId);
-		}
+    @Override
+    public void setModelAttributes(Map<String, Object> attributes) {
+        Long systemEventId = (Long) attributes.get("systemEventId");
 
-		Long userId = (Long)attributes.get("userId");
+        if (systemEventId != null) {
+            setSystemEventId(systemEventId);
+        }
 
-		if (userId != null) {
-			setUserId(userId);
-		}
+        Long groupId = (Long) attributes.get("groupId");
 
-		String userName = (String)attributes.get("userName");
+        if (groupId != null) {
+            setGroupId(groupId);
+        }
 
-		if (userName != null) {
-			setUserName(userName);
-		}
+        Long companyId = (Long) attributes.get("companyId");
 
-		Date createDate = (Date)attributes.get("createDate");
+        if (companyId != null) {
+            setCompanyId(companyId);
+        }
 
-		if (createDate != null) {
-			setCreateDate(createDate);
-		}
+        Long userId = (Long) attributes.get("userId");
 
-		Long classNameId = (Long)attributes.get("classNameId");
+        if (userId != null) {
+            setUserId(userId);
+        }
 
-		if (classNameId != null) {
-			setClassNameId(classNameId);
-		}
+        String userName = (String) attributes.get("userName");
 
-		Long classPK = (Long)attributes.get("classPK");
+        if (userName != null) {
+            setUserName(userName);
+        }
 
-		if (classPK != null) {
-			setClassPK(classPK);
-		}
+        Date createDate = (Date) attributes.get("createDate");
 
-		String classUuid = (String)attributes.get("classUuid");
+        if (createDate != null) {
+            setCreateDate(createDate);
+        }
 
-		if (classUuid != null) {
-			setClassUuid(classUuid);
-		}
+        Long classNameId = (Long) attributes.get("classNameId");
 
-		Long referrerClassNameId = (Long)attributes.get("referrerClassNameId");
+        if (classNameId != null) {
+            setClassNameId(classNameId);
+        }
 
-		if (referrerClassNameId != null) {
-			setReferrerClassNameId(referrerClassNameId);
-		}
+        Long classPK = (Long) attributes.get("classPK");
 
-		Long parentSystemEventId = (Long)attributes.get("parentSystemEventId");
+        if (classPK != null) {
+            setClassPK(classPK);
+        }
 
-		if (parentSystemEventId != null) {
-			setParentSystemEventId(parentSystemEventId);
-		}
+        String classUuid = (String) attributes.get("classUuid");
 
-		Long systemEventSetKey = (Long)attributes.get("systemEventSetKey");
+        if (classUuid != null) {
+            setClassUuid(classUuid);
+        }
 
-		if (systemEventSetKey != null) {
-			setSystemEventSetKey(systemEventSetKey);
-		}
+        Long referrerClassNameId = (Long) attributes.get("referrerClassNameId");
 
-		Integer type = (Integer)attributes.get("type");
+        if (referrerClassNameId != null) {
+            setReferrerClassNameId(referrerClassNameId);
+        }
 
-		if (type != null) {
-			setType(type);
-		}
+        Long parentSystemEventId = (Long) attributes.get("parentSystemEventId");
 
-		String extraData = (String)attributes.get("extraData");
+        if (parentSystemEventId != null) {
+            setParentSystemEventId(parentSystemEventId);
+        }
+
+        Long systemEventSetKey = (Long) attributes.get("systemEventSetKey");
 
-		if (extraData != null) {
-			setExtraData(extraData);
-		}
-	}
+        if (systemEventSetKey != null) {
+            setSystemEventSetKey(systemEventSetKey);
+        }
 
-	@Override
-	public long getSystemEventId() {
-		return _systemEventId;
-	}
+        Integer type = (Integer) attributes.get("type");
 
-	@Override
-	public void setSystemEventId(long systemEventId) {
-		_systemEventId = systemEventId;
-	}
+        if (type != null) {
+            setType(type);
+        }
+
+        String extraData = (String) attributes.get("extraData");
 
-	@Override
-	public long getGroupId() {
-		return _groupId;
-	}
+        if (extraData != null) {
+            setExtraData(extraData);
+        }
+    }
 
-	@Override
-	public void setGroupId(long groupId) {
-		_columnBitmask |= GROUPID_COLUMN_BITMASK;
+    @Override
+    public long getSystemEventId() {
+        return _systemEventId;
+    }
+
+    @Override
+    public void setSystemEventId(long systemEventId) {
+        _systemEventId = systemEventId;
+    }
 
-		if (!_setOriginalGroupId) {
-			_setOriginalGroupId = true;
+    @Override
+    public long getGroupId() {
+        return _groupId;
+    }
 
-			_originalGroupId = _groupId;
-		}
+    @Override
+    public void setGroupId(long groupId) {
+        _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
-		_groupId = groupId;
-	}
+        if (!_setOriginalGroupId) {
+            _setOriginalGroupId = true;
 
-	public long getOriginalGroupId() {
-		return _originalGroupId;
-	}
+            _originalGroupId = _groupId;
+        }
 
-	@Override
-	public long getCompanyId() {
-		return _companyId;
-	}
+        _groupId = groupId;
+    }
 
-	@Override
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getOriginalGroupId() {
+        return _originalGroupId;
+    }
 
-	@Override
-	public long getUserId() {
-		return _userId;
-	}
+    @Override
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	@Override
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    @Override
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	@Override
-	public String getUserUuid() throws SystemException {
-		return PortalUtil.getUserValue(getUserId(), "uuid", _userUuid);
-	}
+    @Override
+    public long getUserId() {
+        return _userId;
+    }
 
-	@Override
-	public void setUserUuid(String userUuid) {
-		_userUuid = userUuid;
-	}
+    @Override
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	@Override
-	public String getUserName() {
-		if (_userName == null) {
-			return StringPool.BLANK;
-		}
-		else {
-			return _userName;
-		}
-	}
+    @Override
+    public String getUserUuid() throws SystemException {
+        return PortalUtil.getUserValue(getUserId(), "uuid", _userUuid);
+    }
 
-	@Override
-	public void setUserName(String userName) {
-		_userName = userName;
-	}
+    @Override
+    public void setUserUuid(String userUuid) {
+        _userUuid = userUuid;
+    }
 
-	@Override
-	public Date getCreateDate() {
-		return _createDate;
-	}
+    @Override
+    public String getUserName() {
+        if (_userName == null) {
+            return StringPool.BLANK;
+        } else {
+            return _userName;
+        }
+    }
+
+    @Override
+    public void setUserName(String userName) {
+        _userName = userName;
+    }
+
+    @Override
+    public Date getCreateDate() {
+        return _createDate;
+    }
+
+    @Override
+    public void setCreateDate(Date createDate) {
+        _columnBitmask = -1L;
+
+        _createDate = createDate;
+    }
+
+    @Override
+    public String getClassName() {
+        if (getClassNameId() <= 0) {
+            return StringPool.BLANK;
+        }
+
+        return PortalUtil.getClassName(getClassNameId());
+    }
+
+    @Override
+    public void setClassName(String className) {
+        long classNameId = 0;
+
+        if (Validator.isNotNull(className)) {
+            classNameId = PortalUtil.getClassNameId(className);
+        }
+
+        setClassNameId(classNameId);
+    }
+
+    @Override
+    public long getClassNameId() {
+        return _classNameId;
+    }
+
+    @Override
+    public void setClassNameId(long classNameId) {
+        _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
+
+        if (!_setOriginalClassNameId) {
+            _setOriginalClassNameId = true;
+
+            _originalClassNameId = _classNameId;
+        }
+
+        _classNameId = classNameId;
+    }
+
+    public long getOriginalClassNameId() {
+        return _originalClassNameId;
+    }
+
+    @Override
+    public long getClassPK() {
+        return _classPK;
+    }
+
+    @Override
+    public void setClassPK(long classPK) {
+        _columnBitmask |= CLASSPK_COLUMN_BITMASK;
+
+        if (!_setOriginalClassPK) {
+            _setOriginalClassPK = true;
+
+            _originalClassPK = _classPK;
+        }
+
+        _classPK = classPK;
+    }
+
+    public long getOriginalClassPK() {
+        return _originalClassPK;
+    }
+
+    @Override
+    public String getClassUuid() {
+        if (_classUuid == null) {
+            return StringPool.BLANK;
+        } else {
+            return _classUuid;
+        }
+    }
+
+    @Override
+    public void setClassUuid(String classUuid) {
+        _classUuid = classUuid;
+    }
+
+    @Override
+    public long getReferrerClassNameId() {
+        return _referrerClassNameId;
+    }
+
+    @Override
+    public void setReferrerClassNameId(long referrerClassNameId) {
+        _referrerClassNameId = referrerClassNameId;
+    }
+
+    @Override
+    public long getParentSystemEventId() {
+        return _parentSystemEventId;
+    }
+
+    @Override
+    public void setParentSystemEventId(long parentSystemEventId) {
+        _parentSystemEventId = parentSystemEventId;
+    }
+
+    @Override
+    public long getSystemEventSetKey() {
+        return _systemEventSetKey;
+    }
+
+    @Override
+    public void setSystemEventSetKey(long systemEventSetKey) {
+        _columnBitmask |= SYSTEMEVENTSETKEY_COLUMN_BITMASK;
+
+        if (!_setOriginalSystemEventSetKey) {
+            _setOriginalSystemEventSetKey = true;
+
+            _originalSystemEventSetKey = _systemEventSetKey;
+        }
+
+        _systemEventSetKey = systemEventSetKey;
+    }
+
+    public long getOriginalSystemEventSetKey() {
+        return _originalSystemEventSetKey;
+    }
+
+    @Override
+    public int getType() {
+        return _type;
+    }
+
+    @Override
+    public void setType(int type) {
+        _columnBitmask |= TYPE_COLUMN_BITMASK;
+
+        if (!_setOriginalType) {
+            _setOriginalType = true;
+
+            _originalType = _type;
+        }
+
+        _type = type;
+    }
+
+    public int getOriginalType() {
+        return _originalType;
+    }
+
+    @Override
+    public String getExtraData() {
+        if (_extraData == null) {
+            return StringPool.BLANK;
+        } else {
+            return _extraData;
+        }
+    }
+
+    @Override
+    public void setExtraData(String extraData) {
+        _extraData = extraData;
+    }
+
+    public long getColumnBitmask() {
+        return _columnBitmask;
+    }
+
+    @Override
+    public ExpandoBridge getExpandoBridge() {
+        return ExpandoBridgeFactoryUtil.getExpandoBridge(getCompanyId(),
+            SystemEvent.class.getName(), getPrimaryKey());
+    }
+
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext) {
+        ExpandoBridge expandoBridge = getExpandoBridge();
 
-	@Override
-	public void setCreateDate(Date createDate) {
-		_columnBitmask = -1L;
+        expandoBridge.setAttributes(serviceContext);
+    }
 
-		_createDate = createDate;
-	}
+    @Override
+    public SystemEvent toEscapedModel() {
+        if (_escapedModel == null) {
+            _escapedModel = (SystemEvent) ProxyUtil.newProxyInstance(_classLoader,
+                    _escapedModelInterfaces, new AutoEscapeBeanHandler(this));
+        }
 
-	@Override
-	public String getClassName() {
-		if (getClassNameId() <= 0) {
-			return StringPool.BLANK;
-		}
+        return _escapedModel;
+    }
 
-		return PortalUtil.getClassName(getClassNameId());
-	}
+    @Override
+    public Object clone() {
+        SystemEventImpl systemEventImpl = new SystemEventImpl();
 
-	@Override
-	public void setClassName(String className) {
-		long classNameId = 0;
+        systemEventImpl.setSystemEventId(getSystemEventId());
+        systemEventImpl.setGroupId(getGroupId());
+        systemEventImpl.setCompanyId(getCompanyId());
+        systemEventImpl.setUserId(getUserId());
+        systemEventImpl.setUserName(getUserName());
+        systemEventImpl.setCreateDate(getCreateDate());
+        systemEventImpl.setClassNameId(getClassNameId());
+        systemEventImpl.setClassPK(getClassPK());
+        systemEventImpl.setClassUuid(getClassUuid());
+        systemEventImpl.setReferrerClassNameId(getReferrerClassNameId());
+        systemEventImpl.setParentSystemEventId(getParentSystemEventId());
+        systemEventImpl.setSystemEventSetKey(getSystemEventSetKey());
+        systemEventImpl.setType(getType());
+        systemEventImpl.setExtraData(getExtraData());
 
-		if (Validator.isNotNull(className)) {
-			classNameId = PortalUtil.getClassNameId(className);
-		}
+        systemEventImpl.resetOriginalValues();
 
-		setClassNameId(classNameId);
-	}
+        return systemEventImpl;
+    }
 
-	@Override
-	public long getClassNameId() {
-		return _classNameId;
-	}
+    @Override
+    public int compareTo(SystemEvent systemEvent) {
+        int value = 0;
 
-	@Override
-	public void setClassNameId(long classNameId) {
-		_columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
+        value = DateUtil.compareTo(getCreateDate(), systemEvent.getCreateDate());
 
-		if (!_setOriginalClassNameId) {
-			_setOriginalClassNameId = true;
+        value = value * -1;
 
-			_originalClassNameId = _classNameId;
-		}
+        if (value != 0) {
+            return value;
+        }
 
-		_classNameId = classNameId;
-	}
+        return 0;
+    }
 
-	public long getOriginalClassNameId() {
-		return _originalClassNameId;
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
 
-	@Override
-	public long getClassPK() {
-		return _classPK;
-	}
+        if (!(obj instanceof SystemEvent)) {
+            return false;
+        }
 
-	@Override
-	public void setClassPK(long classPK) {
-		_columnBitmask |= CLASSPK_COLUMN_BITMASK;
+        SystemEvent systemEvent = (SystemEvent) obj;
 
-		if (!_setOriginalClassPK) {
-			_setOriginalClassPK = true;
+        long primaryKey = systemEvent.getPrimaryKey();
 
-			_originalClassPK = _classPK;
-		}
+        if (getPrimaryKey() == primaryKey) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-		_classPK = classPK;
-	}
+    @Override
+    public int hashCode() {
+        return (int) getPrimaryKey();
+    }
 
-	public long getOriginalClassPK() {
-		return _originalClassPK;
-	}
+    @Override
+    public void resetOriginalValues() {
+        SystemEventModelImpl systemEventModelImpl = this;
 
-	@Override
-	public String getClassUuid() {
-		if (_classUuid == null) {
-			return StringPool.BLANK;
-		}
-		else {
-			return _classUuid;
-		}
-	}
+        systemEventModelImpl._originalGroupId = systemEventModelImpl._groupId;
 
-	@Override
-	public void setClassUuid(String classUuid) {
-		_classUuid = classUuid;
-	}
-
-	@Override
-	public long getReferrerClassNameId() {
-		return _referrerClassNameId;
-	}
-
-	@Override
-	public void setReferrerClassNameId(long referrerClassNameId) {
-		_referrerClassNameId = referrerClassNameId;
-	}
-
-	@Override
-	public long getParentSystemEventId() {
-		return _parentSystemEventId;
-	}
-
-	@Override
-	public void setParentSystemEventId(long parentSystemEventId) {
-		_parentSystemEventId = parentSystemEventId;
-	}
-
-	@Override
-	public long getSystemEventSetKey() {
-		return _systemEventSetKey;
-	}
-
-	@Override
-	public void setSystemEventSetKey(long systemEventSetKey) {
-		_columnBitmask |= SYSTEMEVENTSETKEY_COLUMN_BITMASK;
-
-		if (!_setOriginalSystemEventSetKey) {
-			_setOriginalSystemEventSetKey = true;
-
-			_originalSystemEventSetKey = _systemEventSetKey;
-		}
-
-		_systemEventSetKey = systemEventSetKey;
-	}
-
-	public long getOriginalSystemEventSetKey() {
-		return _originalSystemEventSetKey;
-	}
-
-	@Override
-	public int getType() {
-		return _type;
-	}
-
-	@Override
-	public void setType(int type) {
-		_columnBitmask |= TYPE_COLUMN_BITMASK;
-
-		if (!_setOriginalType) {
-			_setOriginalType = true;
-
-			_originalType = _type;
-		}
-
-		_type = type;
-	}
-
-	public int getOriginalType() {
-		return _originalType;
-	}
-
-	@Override
-	public String getExtraData() {
-		if (_extraData == null) {
-			return StringPool.BLANK;
-		}
-		else {
-			return _extraData;
-		}
-	}
-
-	@Override
-	public void setExtraData(String extraData) {
-		_extraData = extraData;
-	}
-
-	public long getColumnBitmask() {
-		return _columnBitmask;
-	}
+        systemEventModelImpl._setOriginalGroupId = false;
 
-	@Override
-	public ExpandoBridge getExpandoBridge() {
-		return ExpandoBridgeFactoryUtil.getExpandoBridge(getCompanyId(),
-			SystemEvent.class.getName(), getPrimaryKey());
-	}
+        systemEventModelImpl._originalClassNameId = systemEventModelImpl._classNameId;
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext) {
-		ExpandoBridge expandoBridge = getExpandoBridge();
+        systemEventModelImpl._setOriginalClassNameId = false;
 
-		expandoBridge.setAttributes(serviceContext);
-	}
+        systemEventModelImpl._originalClassPK = systemEventModelImpl._classPK;
 
-	@Override
-	public SystemEvent toEscapedModel() {
-		if (_escapedModel == null) {
-			_escapedModel = (SystemEvent)ProxyUtil.newProxyInstance(_classLoader,
-					_escapedModelInterfaces, new AutoEscapeBeanHandler(this));
-		}
+        systemEventModelImpl._setOriginalClassPK = false;
 
-		return _escapedModel;
-	}
+        systemEventModelImpl._originalSystemEventSetKey = systemEventModelImpl._systemEventSetKey;
 
-	@Override
-	public Object clone() {
-		SystemEventImpl systemEventImpl = new SystemEventImpl();
+        systemEventModelImpl._setOriginalSystemEventSetKey = false;
 
-		systemEventImpl.setSystemEventId(getSystemEventId());
-		systemEventImpl.setGroupId(getGroupId());
-		systemEventImpl.setCompanyId(getCompanyId());
-		systemEventImpl.setUserId(getUserId());
-		systemEventImpl.setUserName(getUserName());
-		systemEventImpl.setCreateDate(getCreateDate());
-		systemEventImpl.setClassNameId(getClassNameId());
-		systemEventImpl.setClassPK(getClassPK());
-		systemEventImpl.setClassUuid(getClassUuid());
-		systemEventImpl.setReferrerClassNameId(getReferrerClassNameId());
-		systemEventImpl.setParentSystemEventId(getParentSystemEventId());
-		systemEventImpl.setSystemEventSetKey(getSystemEventSetKey());
-		systemEventImpl.setType(getType());
-		systemEventImpl.setExtraData(getExtraData());
+        systemEventModelImpl._originalType = systemEventModelImpl._type;
 
-		systemEventImpl.resetOriginalValues();
+        systemEventModelImpl._setOriginalType = false;
 
-		return systemEventImpl;
-	}
+        systemEventModelImpl._columnBitmask = 0;
+    }
 
-	@Override
-	public int compareTo(SystemEvent systemEvent) {
-		int value = 0;
+    @Override
+    public CacheModel<SystemEvent> toCacheModel() {
+        SystemEventCacheModel systemEventCacheModel = new SystemEventCacheModel();
 
-		value = DateUtil.compareTo(getCreateDate(), systemEvent.getCreateDate());
+        systemEventCacheModel.systemEventId = getSystemEventId();
 
-		value = value * -1;
+        systemEventCacheModel.groupId = getGroupId();
 
-		if (value != 0) {
-			return value;
-		}
+        systemEventCacheModel.companyId = getCompanyId();
 
-		return 0;
-	}
+        systemEventCacheModel.userId = getUserId();
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
+        systemEventCacheModel.userName = getUserName();
 
-		if (!(obj instanceof SystemEvent)) {
-			return false;
-		}
+        String userName = systemEventCacheModel.userName;
 
-		SystemEvent systemEvent = (SystemEvent)obj;
+        if ((userName != null) && (userName.length() == 0)) {
+            systemEventCacheModel.userName = null;
+        }
 
-		long primaryKey = systemEvent.getPrimaryKey();
-
-		if (getPrimaryKey() == primaryKey) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-
-	@Override
-	public int hashCode() {
-		return (int)getPrimaryKey();
-	}
-
-	@Override
-	public void resetOriginalValues() {
-		SystemEventModelImpl systemEventModelImpl = this;
-
-		systemEventModelImpl._originalGroupId = systemEventModelImpl._groupId;
-
-		systemEventModelImpl._setOriginalGroupId = false;
-
-		systemEventModelImpl._originalClassNameId = systemEventModelImpl._classNameId;
-
-		systemEventModelImpl._setOriginalClassNameId = false;
-
-		systemEventModelImpl._originalClassPK = systemEventModelImpl._classPK;
-
-		systemEventModelImpl._setOriginalClassPK = false;
-
-		systemEventModelImpl._originalSystemEventSetKey = systemEventModelImpl._systemEventSetKey;
-
-		systemEventModelImpl._setOriginalSystemEventSetKey = false;
-
-		systemEventModelImpl._originalType = systemEventModelImpl._type;
-
-		systemEventModelImpl._setOriginalType = false;
-
-		systemEventModelImpl._columnBitmask = 0;
-	}
-
-	@Override
-	public CacheModel<SystemEvent> toCacheModel() {
-		SystemEventCacheModel systemEventCacheModel = new SystemEventCacheModel();
-
-		systemEventCacheModel.systemEventId = getSystemEventId();
-
-		systemEventCacheModel.groupId = getGroupId();
-
-		systemEventCacheModel.companyId = getCompanyId();
-
-		systemEventCacheModel.userId = getUserId();
-
-		systemEventCacheModel.userName = getUserName();
-
-		String userName = systemEventCacheModel.userName;
-
-		if ((userName != null) && (userName.length() == 0)) {
-			systemEventCacheModel.userName = null;
-		}
-
-		Date createDate = getCreateDate();
-
-		if (createDate != null) {
-			systemEventCacheModel.createDate = createDate.getTime();
-		}
-		else {
-			systemEventCacheModel.createDate = Long.MIN_VALUE;
-		}
-
-		systemEventCacheModel.classNameId = getClassNameId();
-
-		systemEventCacheModel.classPK = getClassPK();
-
-		systemEventCacheModel.classUuid = getClassUuid();
-
-		String classUuid = systemEventCacheModel.classUuid;
-
-		if ((classUuid != null) && (classUuid.length() == 0)) {
-			systemEventCacheModel.classUuid = null;
-		}
-
-		systemEventCacheModel.referrerClassNameId = getReferrerClassNameId();
-
-		systemEventCacheModel.parentSystemEventId = getParentSystemEventId();
-
-		systemEventCacheModel.systemEventSetKey = getSystemEventSetKey();
-
-		systemEventCacheModel.type = getType();
-
-		systemEventCacheModel.extraData = getExtraData();
-
-		String extraData = systemEventCacheModel.extraData;
-
-		if ((extraData != null) && (extraData.length() == 0)) {
-			systemEventCacheModel.extraData = null;
-		}
-
-		return systemEventCacheModel;
-	}
-
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(29);
-
-		sb.append("{systemEventId=");
-		sb.append(getSystemEventId());
-		sb.append(", groupId=");
-		sb.append(getGroupId());
-		sb.append(", companyId=");
-		sb.append(getCompanyId());
-		sb.append(", userId=");
-		sb.append(getUserId());
-		sb.append(", userName=");
-		sb.append(getUserName());
-		sb.append(", createDate=");
-		sb.append(getCreateDate());
-		sb.append(", classNameId=");
-		sb.append(getClassNameId());
-		sb.append(", classPK=");
-		sb.append(getClassPK());
-		sb.append(", classUuid=");
-		sb.append(getClassUuid());
-		sb.append(", referrerClassNameId=");
-		sb.append(getReferrerClassNameId());
-		sb.append(", parentSystemEventId=");
-		sb.append(getParentSystemEventId());
-		sb.append(", systemEventSetKey=");
-		sb.append(getSystemEventSetKey());
-		sb.append(", type=");
-		sb.append(getType());
-		sb.append(", extraData=");
-		sb.append(getExtraData());
-		sb.append("}");
-
-		return sb.toString();
-	}
-
-	@Override
-	public String toXmlString() {
-		StringBundler sb = new StringBundler(46);
-
-		sb.append("<model><model-name>");
-		sb.append("com.liferay.portal.model.SystemEvent");
-		sb.append("</model-name>");
-
-		sb.append(
-			"<column><column-name>systemEventId</column-name><column-value><![CDATA[");
-		sb.append(getSystemEventId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>groupId</column-name><column-value><![CDATA[");
-		sb.append(getGroupId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>companyId</column-name><column-value><![CDATA[");
-		sb.append(getCompanyId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>userId</column-name><column-value><![CDATA[");
-		sb.append(getUserId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>userName</column-name><column-value><![CDATA[");
-		sb.append(getUserName());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>createDate</column-name><column-value><![CDATA[");
-		sb.append(getCreateDate());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>classNameId</column-name><column-value><![CDATA[");
-		sb.append(getClassNameId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>classPK</column-name><column-value><![CDATA[");
-		sb.append(getClassPK());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>classUuid</column-name><column-value><![CDATA[");
-		sb.append(getClassUuid());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>referrerClassNameId</column-name><column-value><![CDATA[");
-		sb.append(getReferrerClassNameId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>parentSystemEventId</column-name><column-value><![CDATA[");
-		sb.append(getParentSystemEventId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>systemEventSetKey</column-name><column-value><![CDATA[");
-		sb.append(getSystemEventSetKey());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>type</column-name><column-value><![CDATA[");
-		sb.append(getType());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>extraData</column-name><column-value><![CDATA[");
-		sb.append(getExtraData());
-		sb.append("]]></column-value></column>");
-
-		sb.append("</model>");
-
-		return sb.toString();
-	}
-
-	private static ClassLoader _classLoader = SystemEvent.class.getClassLoader();
-	private static Class<?>[] _escapedModelInterfaces = new Class[] {
-			SystemEvent.class
-		};
-	private long _systemEventId;
-	private long _groupId;
-	private long _originalGroupId;
-	private boolean _setOriginalGroupId;
-	private long _companyId;
-	private long _userId;
-	private String _userUuid;
-	private String _userName;
-	private Date _createDate;
-	private long _classNameId;
-	private long _originalClassNameId;
-	private boolean _setOriginalClassNameId;
-	private long _classPK;
-	private long _originalClassPK;
-	private boolean _setOriginalClassPK;
-	private String _classUuid;
-	private long _referrerClassNameId;
-	private long _parentSystemEventId;
-	private long _systemEventSetKey;
-	private long _originalSystemEventSetKey;
-	private boolean _setOriginalSystemEventSetKey;
-	private int _type;
-	private int _originalType;
-	private boolean _setOriginalType;
-	private String _extraData;
-	private long _columnBitmask;
-	private SystemEvent _escapedModel;
+        Date createDate = getCreateDate();
+
+        if (createDate != null) {
+            systemEventCacheModel.createDate = createDate.getTime();
+        } else {
+            systemEventCacheModel.createDate = Long.MIN_VALUE;
+        }
+
+        systemEventCacheModel.classNameId = getClassNameId();
+
+        systemEventCacheModel.classPK = getClassPK();
+
+        systemEventCacheModel.classUuid = getClassUuid();
+
+        String classUuid = systemEventCacheModel.classUuid;
+
+        if ((classUuid != null) && (classUuid.length() == 0)) {
+            systemEventCacheModel.classUuid = null;
+        }
+
+        systemEventCacheModel.referrerClassNameId = getReferrerClassNameId();
+
+        systemEventCacheModel.parentSystemEventId = getParentSystemEventId();
+
+        systemEventCacheModel.systemEventSetKey = getSystemEventSetKey();
+
+        systemEventCacheModel.type = getType();
+
+        systemEventCacheModel.extraData = getExtraData();
+
+        String extraData = systemEventCacheModel.extraData;
+
+        if ((extraData != null) && (extraData.length() == 0)) {
+            systemEventCacheModel.extraData = null;
+        }
+
+        return systemEventCacheModel;
+    }
+
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(29);
+
+        sb.append("{systemEventId=");
+        sb.append(getSystemEventId());
+        sb.append(", groupId=");
+        sb.append(getGroupId());
+        sb.append(", companyId=");
+        sb.append(getCompanyId());
+        sb.append(", userId=");
+        sb.append(getUserId());
+        sb.append(", userName=");
+        sb.append(getUserName());
+        sb.append(", createDate=");
+        sb.append(getCreateDate());
+        sb.append(", classNameId=");
+        sb.append(getClassNameId());
+        sb.append(", classPK=");
+        sb.append(getClassPK());
+        sb.append(", classUuid=");
+        sb.append(getClassUuid());
+        sb.append(", referrerClassNameId=");
+        sb.append(getReferrerClassNameId());
+        sb.append(", parentSystemEventId=");
+        sb.append(getParentSystemEventId());
+        sb.append(", systemEventSetKey=");
+        sb.append(getSystemEventSetKey());
+        sb.append(", type=");
+        sb.append(getType());
+        sb.append(", extraData=");
+        sb.append(getExtraData());
+        sb.append("}");
+
+        return sb.toString();
+    }
+
+    @Override
+    public String toXmlString() {
+        StringBundler sb = new StringBundler(46);
+
+        sb.append("<model><model-name>");
+        sb.append("com.liferay.portal.model.SystemEvent");
+        sb.append("</model-name>");
+
+        sb.append(
+            "<column><column-name>systemEventId</column-name><column-value><![CDATA[");
+        sb.append(getSystemEventId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>groupId</column-name><column-value><![CDATA[");
+        sb.append(getGroupId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>companyId</column-name><column-value><![CDATA[");
+        sb.append(getCompanyId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>userId</column-name><column-value><![CDATA[");
+        sb.append(getUserId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>userName</column-name><column-value><![CDATA[");
+        sb.append(getUserName());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>createDate</column-name><column-value><![CDATA[");
+        sb.append(getCreateDate());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>classNameId</column-name><column-value><![CDATA[");
+        sb.append(getClassNameId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>classPK</column-name><column-value><![CDATA[");
+        sb.append(getClassPK());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>classUuid</column-name><column-value><![CDATA[");
+        sb.append(getClassUuid());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>referrerClassNameId</column-name><column-value><![CDATA[");
+        sb.append(getReferrerClassNameId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>parentSystemEventId</column-name><column-value><![CDATA[");
+        sb.append(getParentSystemEventId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>systemEventSetKey</column-name><column-value><![CDATA[");
+        sb.append(getSystemEventSetKey());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>type</column-name><column-value><![CDATA[");
+        sb.append(getType());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>extraData</column-name><column-value><![CDATA[");
+        sb.append(getExtraData());
+        sb.append("]]></column-value></column>");
+
+        sb.append("</model>");
+
+        return sb.toString();
+    }
 }

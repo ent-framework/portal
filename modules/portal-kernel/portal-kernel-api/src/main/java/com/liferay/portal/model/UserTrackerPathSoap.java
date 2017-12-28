@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -27,101 +13,100 @@ import java.util.List;
  * @generated
  */
 public class UserTrackerPathSoap implements Serializable {
-	public static UserTrackerPathSoap toSoapModel(UserTrackerPath model) {
-		UserTrackerPathSoap soapModel = new UserTrackerPathSoap();
+    private long _userTrackerPathId;
+    private long _userTrackerId;
+    private String _path;
+    private Date _pathDate;
 
-		soapModel.setUserTrackerPathId(model.getUserTrackerPathId());
-		soapModel.setUserTrackerId(model.getUserTrackerId());
-		soapModel.setPath(model.getPath());
-		soapModel.setPathDate(model.getPathDate());
+    public UserTrackerPathSoap() {
+    }
 
-		return soapModel;
-	}
+    public static UserTrackerPathSoap toSoapModel(UserTrackerPath model) {
+        UserTrackerPathSoap soapModel = new UserTrackerPathSoap();
 
-	public static UserTrackerPathSoap[] toSoapModels(UserTrackerPath[] models) {
-		UserTrackerPathSoap[] soapModels = new UserTrackerPathSoap[models.length];
+        soapModel.setUserTrackerPathId(model.getUserTrackerPathId());
+        soapModel.setUserTrackerId(model.getUserTrackerId());
+        soapModel.setPath(model.getPath());
+        soapModel.setPathDate(model.getPathDate());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static UserTrackerPathSoap[] toSoapModels(UserTrackerPath[] models) {
+        UserTrackerPathSoap[] soapModels = new UserTrackerPathSoap[models.length];
 
-	public static UserTrackerPathSoap[][] toSoapModels(
-		UserTrackerPath[][] models) {
-		UserTrackerPathSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new UserTrackerPathSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new UserTrackerPathSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static UserTrackerPathSoap[][] toSoapModels(
+        UserTrackerPath[][] models) {
+        UserTrackerPathSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new UserTrackerPathSoap[models.length][models[0].length];
+        } else {
+            soapModels = new UserTrackerPathSoap[0][0];
+        }
 
-	public static UserTrackerPathSoap[] toSoapModels(
-		List<UserTrackerPath> models) {
-		List<UserTrackerPathSoap> soapModels = new ArrayList<UserTrackerPathSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (UserTrackerPath model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new UserTrackerPathSoap[soapModels.size()]);
-	}
+    public static UserTrackerPathSoap[] toSoapModels(
+        List<UserTrackerPath> models) {
+        List<UserTrackerPathSoap> soapModels = new ArrayList<UserTrackerPathSoap>(models.size());
 
-	public UserTrackerPathSoap() {
-	}
+        for (UserTrackerPath model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _userTrackerPathId;
-	}
+        return soapModels.toArray(new UserTrackerPathSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setUserTrackerPathId(pk);
-	}
+    public long getPrimaryKey() {
+        return _userTrackerPathId;
+    }
 
-	public long getUserTrackerPathId() {
-		return _userTrackerPathId;
-	}
+    public void setPrimaryKey(long pk) {
+        setUserTrackerPathId(pk);
+    }
 
-	public void setUserTrackerPathId(long userTrackerPathId) {
-		_userTrackerPathId = userTrackerPathId;
-	}
+    public long getUserTrackerPathId() {
+        return _userTrackerPathId;
+    }
 
-	public long getUserTrackerId() {
-		return _userTrackerId;
-	}
+    public void setUserTrackerPathId(long userTrackerPathId) {
+        _userTrackerPathId = userTrackerPathId;
+    }
 
-	public void setUserTrackerId(long userTrackerId) {
-		_userTrackerId = userTrackerId;
-	}
+    public long getUserTrackerId() {
+        return _userTrackerId;
+    }
 
-	public String getPath() {
-		return _path;
-	}
+    public void setUserTrackerId(long userTrackerId) {
+        _userTrackerId = userTrackerId;
+    }
 
-	public void setPath(String path) {
-		_path = path;
-	}
+    public String getPath() {
+        return _path;
+    }
 
-	public Date getPathDate() {
-		return _pathDate;
-	}
+    public void setPath(String path) {
+        _path = path;
+    }
 
-	public void setPathDate(Date pathDate) {
-		_pathDate = pathDate;
-	}
+    public Date getPathDate() {
+        return _pathDate;
+    }
 
-	private long _userTrackerPathId;
-	private long _userTrackerId;
-	private String _path;
-	private Date _pathDate;
+    public void setPathDate(Date pathDate) {
+        _pathDate = pathDate;
+    }
 }

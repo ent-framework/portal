@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.softwarecatalog.service.http;
 
 import com.liferay.portal.kernel.log.Log;
@@ -52,164 +38,156 @@ import com.liferay.portlet.softwarecatalog.service.SCLicenseServiceUtil;
  * @generated
  */
 public class SCLicenseServiceHttp {
-	public static com.liferay.portlet.softwarecatalog.model.SCLicense addLicense(
-		HttpPrincipal httpPrincipal, java.lang.String name,
-		java.lang.String url, boolean openSource, boolean active,
-		boolean recommended)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(SCLicenseServiceUtil.class,
-					"addLicense", _addLicenseParameterTypes0);
+    private static Log _log = LogFactoryUtil.getLog(SCLicenseServiceHttp.class);
+    private static final Class<?>[] _addLicenseParameterTypes0 = new Class[] {
+            java.lang.String.class, java.lang.String.class, boolean.class,
+            boolean.class, boolean.class
+        };
+    private static final Class<?>[] _deleteLicenseParameterTypes1 = new Class[] {
+            long.class
+        };
+    private static final Class<?>[] _getLicenseParameterTypes2 = new Class[] {
+            long.class
+        };
+    private static final Class<?>[] _updateLicenseParameterTypes3 = new Class[] {
+            long.class, java.lang.String.class, java.lang.String.class,
+            boolean.class, boolean.class, boolean.class
+        };
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, name,
-					url, openSource, active, recommended);
+    public static com.liferay.portlet.softwarecatalog.model.SCLicense addLicense(
+        HttpPrincipal httpPrincipal, java.lang.String name,
+        java.lang.String url, boolean openSource, boolean active,
+        boolean recommended)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(SCLicenseServiceUtil.class,
+                    "addLicense", _addLicenseParameterTypes0);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey, name,
+                    url, openSource, active, recommended);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portlet.softwarecatalog.model.SCLicense)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portlet.softwarecatalog.model.SCLicense) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static void deleteLicense(HttpPrincipal httpPrincipal, long licenseId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(SCLicenseServiceUtil.class,
-					"deleteLicense", _deleteLicenseParameterTypes1);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, licenseId);
+    public static void deleteLicense(HttpPrincipal httpPrincipal, long licenseId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(SCLicenseServiceUtil.class,
+                    "deleteLicense", _deleteLicenseParameterTypes1);
 
-			try {
-				TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            MethodHandler methodHandler = new MethodHandler(methodKey, licenseId);
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			throw se;
-		}
-	}
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static com.liferay.portlet.softwarecatalog.model.SCLicense getLicense(
-		HttpPrincipal httpPrincipal, long licenseId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(SCLicenseServiceUtil.class,
-					"getLicense", _getLicenseParameterTypes2);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, licenseId);
+    public static com.liferay.portlet.softwarecatalog.model.SCLicense getLicense(
+        HttpPrincipal httpPrincipal, long licenseId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(SCLicenseServiceUtil.class,
+                    "getLicense", _getLicenseParameterTypes2);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey, licenseId);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portlet.softwarecatalog.model.SCLicense)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portlet.softwarecatalog.model.SCLicense) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static com.liferay.portlet.softwarecatalog.model.SCLicense updateLicense(
-		HttpPrincipal httpPrincipal, long licenseId, java.lang.String name,
-		java.lang.String url, boolean openSource, boolean active,
-		boolean recommended)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(SCLicenseServiceUtil.class,
-					"updateLicense", _updateLicenseParameterTypes3);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					licenseId, name, url, openSource, active, recommended);
+    public static com.liferay.portlet.softwarecatalog.model.SCLicense updateLicense(
+        HttpPrincipal httpPrincipal, long licenseId, java.lang.String name,
+        java.lang.String url, boolean openSource, boolean active,
+        boolean recommended)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(SCLicenseServiceUtil.class,
+                    "updateLicense", _updateLicenseParameterTypes3);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    licenseId, name, url, openSource, active, recommended);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portlet.softwarecatalog.model.SCLicense)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portlet.softwarecatalog.model.SCLicense) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	private static Log _log = LogFactoryUtil.getLog(SCLicenseServiceHttp.class);
-	private static final Class<?>[] _addLicenseParameterTypes0 = new Class[] {
-			java.lang.String.class, java.lang.String.class, boolean.class,
-			boolean.class, boolean.class
-		};
-	private static final Class<?>[] _deleteLicenseParameterTypes1 = new Class[] {
-			long.class
-		};
-	private static final Class<?>[] _getLicenseParameterTypes2 = new Class[] {
-			long.class
-		};
-	private static final Class<?>[] _updateLicenseParameterTypes3 = new Class[] {
-			long.class, java.lang.String.class, java.lang.String.class,
-			boolean.class, boolean.class, boolean.class
-		};
+            throw se;
+        }
+    }
 }

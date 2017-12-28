@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -26,111 +12,110 @@ import java.util.List;
  * @generated
  */
 public class ServiceComponentSoap implements Serializable {
-	public static ServiceComponentSoap toSoapModel(ServiceComponent model) {
-		ServiceComponentSoap soapModel = new ServiceComponentSoap();
+    private long _serviceComponentId;
+    private String _buildNamespace;
+    private long _buildNumber;
+    private long _buildDate;
+    private String _data;
 
-		soapModel.setServiceComponentId(model.getServiceComponentId());
-		soapModel.setBuildNamespace(model.getBuildNamespace());
-		soapModel.setBuildNumber(model.getBuildNumber());
-		soapModel.setBuildDate(model.getBuildDate());
-		soapModel.setData(model.getData());
+    public ServiceComponentSoap() {
+    }
 
-		return soapModel;
-	}
+    public static ServiceComponentSoap toSoapModel(ServiceComponent model) {
+        ServiceComponentSoap soapModel = new ServiceComponentSoap();
 
-	public static ServiceComponentSoap[] toSoapModels(ServiceComponent[] models) {
-		ServiceComponentSoap[] soapModels = new ServiceComponentSoap[models.length];
+        soapModel.setServiceComponentId(model.getServiceComponentId());
+        soapModel.setBuildNamespace(model.getBuildNamespace());
+        soapModel.setBuildNumber(model.getBuildNumber());
+        soapModel.setBuildDate(model.getBuildDate());
+        soapModel.setData(model.getData());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static ServiceComponentSoap[] toSoapModels(ServiceComponent[] models) {
+        ServiceComponentSoap[] soapModels = new ServiceComponentSoap[models.length];
 
-	public static ServiceComponentSoap[][] toSoapModels(
-		ServiceComponent[][] models) {
-		ServiceComponentSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new ServiceComponentSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new ServiceComponentSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static ServiceComponentSoap[][] toSoapModels(
+        ServiceComponent[][] models) {
+        ServiceComponentSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new ServiceComponentSoap[models.length][models[0].length];
+        } else {
+            soapModels = new ServiceComponentSoap[0][0];
+        }
 
-	public static ServiceComponentSoap[] toSoapModels(
-		List<ServiceComponent> models) {
-		List<ServiceComponentSoap> soapModels = new ArrayList<ServiceComponentSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (ServiceComponent model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new ServiceComponentSoap[soapModels.size()]);
-	}
+    public static ServiceComponentSoap[] toSoapModels(
+        List<ServiceComponent> models) {
+        List<ServiceComponentSoap> soapModels = new ArrayList<ServiceComponentSoap>(models.size());
 
-	public ServiceComponentSoap() {
-	}
+        for (ServiceComponent model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _serviceComponentId;
-	}
+        return soapModels.toArray(new ServiceComponentSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setServiceComponentId(pk);
-	}
+    public long getPrimaryKey() {
+        return _serviceComponentId;
+    }
 
-	public long getServiceComponentId() {
-		return _serviceComponentId;
-	}
+    public void setPrimaryKey(long pk) {
+        setServiceComponentId(pk);
+    }
 
-	public void setServiceComponentId(long serviceComponentId) {
-		_serviceComponentId = serviceComponentId;
-	}
+    public long getServiceComponentId() {
+        return _serviceComponentId;
+    }
 
-	public String getBuildNamespace() {
-		return _buildNamespace;
-	}
+    public void setServiceComponentId(long serviceComponentId) {
+        _serviceComponentId = serviceComponentId;
+    }
 
-	public void setBuildNamespace(String buildNamespace) {
-		_buildNamespace = buildNamespace;
-	}
+    public String getBuildNamespace() {
+        return _buildNamespace;
+    }
 
-	public long getBuildNumber() {
-		return _buildNumber;
-	}
+    public void setBuildNamespace(String buildNamespace) {
+        _buildNamespace = buildNamespace;
+    }
 
-	public void setBuildNumber(long buildNumber) {
-		_buildNumber = buildNumber;
-	}
+    public long getBuildNumber() {
+        return _buildNumber;
+    }
 
-	public long getBuildDate() {
-		return _buildDate;
-	}
+    public void setBuildNumber(long buildNumber) {
+        _buildNumber = buildNumber;
+    }
 
-	public void setBuildDate(long buildDate) {
-		_buildDate = buildDate;
-	}
+    public long getBuildDate() {
+        return _buildDate;
+    }
 
-	public String getData() {
-		return _data;
-	}
+    public void setBuildDate(long buildDate) {
+        _buildDate = buildDate;
+    }
 
-	public void setData(String data) {
-		_data = data;
-	}
+    public String getData() {
+        return _data;
+    }
 
-	private long _serviceComponentId;
-	private String _buildNamespace;
-	private long _buildNumber;
-	private long _buildDate;
-	private String _data;
+    public void setData(String data) {
+        _data = data;
+    }
 }

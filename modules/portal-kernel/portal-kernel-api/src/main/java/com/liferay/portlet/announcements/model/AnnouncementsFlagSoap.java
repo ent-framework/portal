@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.announcements.model;
 
 import java.io.Serializable;
@@ -28,112 +14,111 @@ import java.util.List;
  * @generated
  */
 public class AnnouncementsFlagSoap implements Serializable {
-	public static AnnouncementsFlagSoap toSoapModel(AnnouncementsFlag model) {
-		AnnouncementsFlagSoap soapModel = new AnnouncementsFlagSoap();
+    private long _flagId;
+    private long _userId;
+    private Date _createDate;
+    private long _entryId;
+    private int _value;
 
-		soapModel.setFlagId(model.getFlagId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setCreateDate(model.getCreateDate());
-		soapModel.setEntryId(model.getEntryId());
-		soapModel.setValue(model.getValue());
+    public AnnouncementsFlagSoap() {
+    }
 
-		return soapModel;
-	}
+    public static AnnouncementsFlagSoap toSoapModel(AnnouncementsFlag model) {
+        AnnouncementsFlagSoap soapModel = new AnnouncementsFlagSoap();
 
-	public static AnnouncementsFlagSoap[] toSoapModels(
-		AnnouncementsFlag[] models) {
-		AnnouncementsFlagSoap[] soapModels = new AnnouncementsFlagSoap[models.length];
+        soapModel.setFlagId(model.getFlagId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setCreateDate(model.getCreateDate());
+        soapModel.setEntryId(model.getEntryId());
+        soapModel.setValue(model.getValue());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static AnnouncementsFlagSoap[] toSoapModels(
+        AnnouncementsFlag[] models) {
+        AnnouncementsFlagSoap[] soapModels = new AnnouncementsFlagSoap[models.length];
 
-	public static AnnouncementsFlagSoap[][] toSoapModels(
-		AnnouncementsFlag[][] models) {
-		AnnouncementsFlagSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new AnnouncementsFlagSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new AnnouncementsFlagSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static AnnouncementsFlagSoap[][] toSoapModels(
+        AnnouncementsFlag[][] models) {
+        AnnouncementsFlagSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new AnnouncementsFlagSoap[models.length][models[0].length];
+        } else {
+            soapModels = new AnnouncementsFlagSoap[0][0];
+        }
 
-	public static AnnouncementsFlagSoap[] toSoapModels(
-		List<AnnouncementsFlag> models) {
-		List<AnnouncementsFlagSoap> soapModels = new ArrayList<AnnouncementsFlagSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (AnnouncementsFlag model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new AnnouncementsFlagSoap[soapModels.size()]);
-	}
+    public static AnnouncementsFlagSoap[] toSoapModels(
+        List<AnnouncementsFlag> models) {
+        List<AnnouncementsFlagSoap> soapModels = new ArrayList<AnnouncementsFlagSoap>(models.size());
 
-	public AnnouncementsFlagSoap() {
-	}
+        for (AnnouncementsFlag model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _flagId;
-	}
+        return soapModels.toArray(new AnnouncementsFlagSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setFlagId(pk);
-	}
+    public long getPrimaryKey() {
+        return _flagId;
+    }
 
-	public long getFlagId() {
-		return _flagId;
-	}
+    public void setPrimaryKey(long pk) {
+        setFlagId(pk);
+    }
 
-	public void setFlagId(long flagId) {
-		_flagId = flagId;
-	}
+    public long getFlagId() {
+        return _flagId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setFlagId(long flagId) {
+        _flagId = flagId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public Date getCreateDate() {
-		return _createDate;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setCreateDate(Date createDate) {
-		_createDate = createDate;
-	}
+    public Date getCreateDate() {
+        return _createDate;
+    }
 
-	public long getEntryId() {
-		return _entryId;
-	}
+    public void setCreateDate(Date createDate) {
+        _createDate = createDate;
+    }
 
-	public void setEntryId(long entryId) {
-		_entryId = entryId;
-	}
+    public long getEntryId() {
+        return _entryId;
+    }
 
-	public int getValue() {
-		return _value;
-	}
+    public void setEntryId(long entryId) {
+        _entryId = entryId;
+    }
 
-	public void setValue(int value) {
-		_value = value;
-	}
+    public int getValue() {
+        return _value;
+    }
 
-	private long _flagId;
-	private long _userId;
-	private Date _createDate;
-	private long _entryId;
-	private int _value;
+    public void setValue(int value) {
+        _value = value;
+    }
 }

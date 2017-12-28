@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.shopping.model;
 
 import java.io.Serializable;
@@ -28,243 +14,242 @@ import java.util.List;
  * @generated
  */
 public class ShoppingCouponSoap implements Serializable {
-	public static ShoppingCouponSoap toSoapModel(ShoppingCoupon model) {
-		ShoppingCouponSoap soapModel = new ShoppingCouponSoap();
+    private long _couponId;
+    private long _groupId;
+    private long _companyId;
+    private long _userId;
+    private String _userName;
+    private Date _createDate;
+    private Date _modifiedDate;
+    private String _code;
+    private String _name;
+    private String _description;
+    private Date _startDate;
+    private Date _endDate;
+    private boolean _active;
+    private String _limitCategories;
+    private String _limitSkus;
+    private double _minOrder;
+    private double _discount;
+    private String _discountType;
 
-		soapModel.setCouponId(model.getCouponId());
-		soapModel.setGroupId(model.getGroupId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setUserName(model.getUserName());
-		soapModel.setCreateDate(model.getCreateDate());
-		soapModel.setModifiedDate(model.getModifiedDate());
-		soapModel.setCode(model.getCode());
-		soapModel.setName(model.getName());
-		soapModel.setDescription(model.getDescription());
-		soapModel.setStartDate(model.getStartDate());
-		soapModel.setEndDate(model.getEndDate());
-		soapModel.setActive(model.getActive());
-		soapModel.setLimitCategories(model.getLimitCategories());
-		soapModel.setLimitSkus(model.getLimitSkus());
-		soapModel.setMinOrder(model.getMinOrder());
-		soapModel.setDiscount(model.getDiscount());
-		soapModel.setDiscountType(model.getDiscountType());
+    public ShoppingCouponSoap() {
+    }
 
-		return soapModel;
-	}
+    public static ShoppingCouponSoap toSoapModel(ShoppingCoupon model) {
+        ShoppingCouponSoap soapModel = new ShoppingCouponSoap();
 
-	public static ShoppingCouponSoap[] toSoapModels(ShoppingCoupon[] models) {
-		ShoppingCouponSoap[] soapModels = new ShoppingCouponSoap[models.length];
+        soapModel.setCouponId(model.getCouponId());
+        soapModel.setGroupId(model.getGroupId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setUserName(model.getUserName());
+        soapModel.setCreateDate(model.getCreateDate());
+        soapModel.setModifiedDate(model.getModifiedDate());
+        soapModel.setCode(model.getCode());
+        soapModel.setName(model.getName());
+        soapModel.setDescription(model.getDescription());
+        soapModel.setStartDate(model.getStartDate());
+        soapModel.setEndDate(model.getEndDate());
+        soapModel.setActive(model.getActive());
+        soapModel.setLimitCategories(model.getLimitCategories());
+        soapModel.setLimitSkus(model.getLimitSkus());
+        soapModel.setMinOrder(model.getMinOrder());
+        soapModel.setDiscount(model.getDiscount());
+        soapModel.setDiscountType(model.getDiscountType());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static ShoppingCouponSoap[] toSoapModels(ShoppingCoupon[] models) {
+        ShoppingCouponSoap[] soapModels = new ShoppingCouponSoap[models.length];
 
-	public static ShoppingCouponSoap[][] toSoapModels(ShoppingCoupon[][] models) {
-		ShoppingCouponSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new ShoppingCouponSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new ShoppingCouponSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static ShoppingCouponSoap[][] toSoapModels(ShoppingCoupon[][] models) {
+        ShoppingCouponSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new ShoppingCouponSoap[models.length][models[0].length];
+        } else {
+            soapModels = new ShoppingCouponSoap[0][0];
+        }
 
-	public static ShoppingCouponSoap[] toSoapModels(List<ShoppingCoupon> models) {
-		List<ShoppingCouponSoap> soapModels = new ArrayList<ShoppingCouponSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (ShoppingCoupon model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new ShoppingCouponSoap[soapModels.size()]);
-	}
+    public static ShoppingCouponSoap[] toSoapModels(List<ShoppingCoupon> models) {
+        List<ShoppingCouponSoap> soapModels = new ArrayList<ShoppingCouponSoap>(models.size());
 
-	public ShoppingCouponSoap() {
-	}
+        for (ShoppingCoupon model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _couponId;
-	}
+        return soapModels.toArray(new ShoppingCouponSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setCouponId(pk);
-	}
+    public long getPrimaryKey() {
+        return _couponId;
+    }
 
-	public long getCouponId() {
-		return _couponId;
-	}
+    public void setPrimaryKey(long pk) {
+        setCouponId(pk);
+    }
 
-	public void setCouponId(long couponId) {
-		_couponId = couponId;
-	}
+    public long getCouponId() {
+        return _couponId;
+    }
 
-	public long getGroupId() {
-		return _groupId;
-	}
+    public void setCouponId(long couponId) {
+        _couponId = couponId;
+    }
 
-	public void setGroupId(long groupId) {
-		_groupId = groupId;
-	}
+    public long getGroupId() {
+        return _groupId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setGroupId(long groupId) {
+        _groupId = groupId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public String getUserName() {
-		return _userName;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setUserName(String userName) {
-		_userName = userName;
-	}
+    public String getUserName() {
+        return _userName;
+    }
 
-	public Date getCreateDate() {
-		return _createDate;
-	}
+    public void setUserName(String userName) {
+        _userName = userName;
+    }
 
-	public void setCreateDate(Date createDate) {
-		_createDate = createDate;
-	}
+    public Date getCreateDate() {
+        return _createDate;
+    }
 
-	public Date getModifiedDate() {
-		return _modifiedDate;
-	}
+    public void setCreateDate(Date createDate) {
+        _createDate = createDate;
+    }
 
-	public void setModifiedDate(Date modifiedDate) {
-		_modifiedDate = modifiedDate;
-	}
+    public Date getModifiedDate() {
+        return _modifiedDate;
+    }
 
-	public String getCode() {
-		return _code;
-	}
+    public void setModifiedDate(Date modifiedDate) {
+        _modifiedDate = modifiedDate;
+    }
 
-	public void setCode(String code) {
-		_code = code;
-	}
+    public String getCode() {
+        return _code;
+    }
 
-	public String getName() {
-		return _name;
-	}
+    public void setCode(String code) {
+        _code = code;
+    }
 
-	public void setName(String name) {
-		_name = name;
-	}
+    public String getName() {
+        return _name;
+    }
 
-	public String getDescription() {
-		return _description;
-	}
+    public void setName(String name) {
+        _name = name;
+    }
 
-	public void setDescription(String description) {
-		_description = description;
-	}
+    public String getDescription() {
+        return _description;
+    }
 
-	public Date getStartDate() {
-		return _startDate;
-	}
+    public void setDescription(String description) {
+        _description = description;
+    }
 
-	public void setStartDate(Date startDate) {
-		_startDate = startDate;
-	}
+    public Date getStartDate() {
+        return _startDate;
+    }
 
-	public Date getEndDate() {
-		return _endDate;
-	}
+    public void setStartDate(Date startDate) {
+        _startDate = startDate;
+    }
 
-	public void setEndDate(Date endDate) {
-		_endDate = endDate;
-	}
+    public Date getEndDate() {
+        return _endDate;
+    }
 
-	public boolean getActive() {
-		return _active;
-	}
+    public void setEndDate(Date endDate) {
+        _endDate = endDate;
+    }
 
-	public boolean isActive() {
-		return _active;
-	}
+    public boolean getActive() {
+        return _active;
+    }
 
-	public void setActive(boolean active) {
-		_active = active;
-	}
+    public boolean isActive() {
+        return _active;
+    }
 
-	public String getLimitCategories() {
-		return _limitCategories;
-	}
+    public void setActive(boolean active) {
+        _active = active;
+    }
 
-	public void setLimitCategories(String limitCategories) {
-		_limitCategories = limitCategories;
-	}
+    public String getLimitCategories() {
+        return _limitCategories;
+    }
 
-	public String getLimitSkus() {
-		return _limitSkus;
-	}
+    public void setLimitCategories(String limitCategories) {
+        _limitCategories = limitCategories;
+    }
 
-	public void setLimitSkus(String limitSkus) {
-		_limitSkus = limitSkus;
-	}
+    public String getLimitSkus() {
+        return _limitSkus;
+    }
 
-	public double getMinOrder() {
-		return _minOrder;
-	}
+    public void setLimitSkus(String limitSkus) {
+        _limitSkus = limitSkus;
+    }
 
-	public void setMinOrder(double minOrder) {
-		_minOrder = minOrder;
-	}
+    public double getMinOrder() {
+        return _minOrder;
+    }
 
-	public double getDiscount() {
-		return _discount;
-	}
+    public void setMinOrder(double minOrder) {
+        _minOrder = minOrder;
+    }
 
-	public void setDiscount(double discount) {
-		_discount = discount;
-	}
+    public double getDiscount() {
+        return _discount;
+    }
 
-	public String getDiscountType() {
-		return _discountType;
-	}
+    public void setDiscount(double discount) {
+        _discount = discount;
+    }
 
-	public void setDiscountType(String discountType) {
-		_discountType = discountType;
-	}
+    public String getDiscountType() {
+        return _discountType;
+    }
 
-	private long _couponId;
-	private long _groupId;
-	private long _companyId;
-	private long _userId;
-	private String _userName;
-	private Date _createDate;
-	private Date _modifiedDate;
-	private String _code;
-	private String _name;
-	private String _description;
-	private Date _startDate;
-	private Date _endDate;
-	private boolean _active;
-	private String _limitCategories;
-	private String _limitSkus;
-	private double _minOrder;
-	private double _discount;
-	private String _discountType;
+    public void setDiscountType(String discountType) {
+        _discountType = discountType;
+    }
 }

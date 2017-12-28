@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.mobiledevicerules.model;
 
 import java.io.Serializable;
@@ -28,183 +14,182 @@ import java.util.List;
  * @generated
  */
 public class MDRRuleGroupInstanceSoap implements Serializable {
-	public static MDRRuleGroupInstanceSoap toSoapModel(
-		MDRRuleGroupInstance model) {
-		MDRRuleGroupInstanceSoap soapModel = new MDRRuleGroupInstanceSoap();
+    private String _uuid;
+    private long _ruleGroupInstanceId;
+    private long _groupId;
+    private long _companyId;
+    private long _userId;
+    private String _userName;
+    private Date _createDate;
+    private Date _modifiedDate;
+    private long _classNameId;
+    private long _classPK;
+    private long _ruleGroupId;
+    private int _priority;
 
-		soapModel.setUuid(model.getUuid());
-		soapModel.setRuleGroupInstanceId(model.getRuleGroupInstanceId());
-		soapModel.setGroupId(model.getGroupId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setUserName(model.getUserName());
-		soapModel.setCreateDate(model.getCreateDate());
-		soapModel.setModifiedDate(model.getModifiedDate());
-		soapModel.setClassNameId(model.getClassNameId());
-		soapModel.setClassPK(model.getClassPK());
-		soapModel.setRuleGroupId(model.getRuleGroupId());
-		soapModel.setPriority(model.getPriority());
+    public MDRRuleGroupInstanceSoap() {
+    }
 
-		return soapModel;
-	}
+    public static MDRRuleGroupInstanceSoap toSoapModel(
+        MDRRuleGroupInstance model) {
+        MDRRuleGroupInstanceSoap soapModel = new MDRRuleGroupInstanceSoap();
 
-	public static MDRRuleGroupInstanceSoap[] toSoapModels(
-		MDRRuleGroupInstance[] models) {
-		MDRRuleGroupInstanceSoap[] soapModels = new MDRRuleGroupInstanceSoap[models.length];
+        soapModel.setUuid(model.getUuid());
+        soapModel.setRuleGroupInstanceId(model.getRuleGroupInstanceId());
+        soapModel.setGroupId(model.getGroupId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setUserName(model.getUserName());
+        soapModel.setCreateDate(model.getCreateDate());
+        soapModel.setModifiedDate(model.getModifiedDate());
+        soapModel.setClassNameId(model.getClassNameId());
+        soapModel.setClassPK(model.getClassPK());
+        soapModel.setRuleGroupId(model.getRuleGroupId());
+        soapModel.setPriority(model.getPriority());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static MDRRuleGroupInstanceSoap[] toSoapModels(
+        MDRRuleGroupInstance[] models) {
+        MDRRuleGroupInstanceSoap[] soapModels = new MDRRuleGroupInstanceSoap[models.length];
 
-	public static MDRRuleGroupInstanceSoap[][] toSoapModels(
-		MDRRuleGroupInstance[][] models) {
-		MDRRuleGroupInstanceSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new MDRRuleGroupInstanceSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new MDRRuleGroupInstanceSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static MDRRuleGroupInstanceSoap[][] toSoapModels(
+        MDRRuleGroupInstance[][] models) {
+        MDRRuleGroupInstanceSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new MDRRuleGroupInstanceSoap[models.length][models[0].length];
+        } else {
+            soapModels = new MDRRuleGroupInstanceSoap[0][0];
+        }
 
-	public static MDRRuleGroupInstanceSoap[] toSoapModels(
-		List<MDRRuleGroupInstance> models) {
-		List<MDRRuleGroupInstanceSoap> soapModels = new ArrayList<MDRRuleGroupInstanceSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (MDRRuleGroupInstance model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new MDRRuleGroupInstanceSoap[soapModels.size()]);
-	}
+    public static MDRRuleGroupInstanceSoap[] toSoapModels(
+        List<MDRRuleGroupInstance> models) {
+        List<MDRRuleGroupInstanceSoap> soapModels = new ArrayList<MDRRuleGroupInstanceSoap>(models.size());
 
-	public MDRRuleGroupInstanceSoap() {
-	}
+        for (MDRRuleGroupInstance model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _ruleGroupInstanceId;
-	}
+        return soapModels.toArray(new MDRRuleGroupInstanceSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setRuleGroupInstanceId(pk);
-	}
+    public long getPrimaryKey() {
+        return _ruleGroupInstanceId;
+    }
 
-	public String getUuid() {
-		return _uuid;
-	}
+    public void setPrimaryKey(long pk) {
+        setRuleGroupInstanceId(pk);
+    }
 
-	public void setUuid(String uuid) {
-		_uuid = uuid;
-	}
+    public String getUuid() {
+        return _uuid;
+    }
 
-	public long getRuleGroupInstanceId() {
-		return _ruleGroupInstanceId;
-	}
+    public void setUuid(String uuid) {
+        _uuid = uuid;
+    }
 
-	public void setRuleGroupInstanceId(long ruleGroupInstanceId) {
-		_ruleGroupInstanceId = ruleGroupInstanceId;
-	}
+    public long getRuleGroupInstanceId() {
+        return _ruleGroupInstanceId;
+    }
 
-	public long getGroupId() {
-		return _groupId;
-	}
+    public void setRuleGroupInstanceId(long ruleGroupInstanceId) {
+        _ruleGroupInstanceId = ruleGroupInstanceId;
+    }
 
-	public void setGroupId(long groupId) {
-		_groupId = groupId;
-	}
+    public long getGroupId() {
+        return _groupId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setGroupId(long groupId) {
+        _groupId = groupId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public String getUserName() {
-		return _userName;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setUserName(String userName) {
-		_userName = userName;
-	}
+    public String getUserName() {
+        return _userName;
+    }
 
-	public Date getCreateDate() {
-		return _createDate;
-	}
+    public void setUserName(String userName) {
+        _userName = userName;
+    }
 
-	public void setCreateDate(Date createDate) {
-		_createDate = createDate;
-	}
+    public Date getCreateDate() {
+        return _createDate;
+    }
 
-	public Date getModifiedDate() {
-		return _modifiedDate;
-	}
+    public void setCreateDate(Date createDate) {
+        _createDate = createDate;
+    }
 
-	public void setModifiedDate(Date modifiedDate) {
-		_modifiedDate = modifiedDate;
-	}
+    public Date getModifiedDate() {
+        return _modifiedDate;
+    }
 
-	public long getClassNameId() {
-		return _classNameId;
-	}
+    public void setModifiedDate(Date modifiedDate) {
+        _modifiedDate = modifiedDate;
+    }
 
-	public void setClassNameId(long classNameId) {
-		_classNameId = classNameId;
-	}
+    public long getClassNameId() {
+        return _classNameId;
+    }
 
-	public long getClassPK() {
-		return _classPK;
-	}
+    public void setClassNameId(long classNameId) {
+        _classNameId = classNameId;
+    }
 
-	public void setClassPK(long classPK) {
-		_classPK = classPK;
-	}
+    public long getClassPK() {
+        return _classPK;
+    }
 
-	public long getRuleGroupId() {
-		return _ruleGroupId;
-	}
+    public void setClassPK(long classPK) {
+        _classPK = classPK;
+    }
 
-	public void setRuleGroupId(long ruleGroupId) {
-		_ruleGroupId = ruleGroupId;
-	}
+    public long getRuleGroupId() {
+        return _ruleGroupId;
+    }
 
-	public int getPriority() {
-		return _priority;
-	}
+    public void setRuleGroupId(long ruleGroupId) {
+        _ruleGroupId = ruleGroupId;
+    }
 
-	public void setPriority(int priority) {
-		_priority = priority;
-	}
+    public int getPriority() {
+        return _priority;
+    }
 
-	private String _uuid;
-	private long _ruleGroupInstanceId;
-	private long _groupId;
-	private long _companyId;
-	private long _userId;
-	private String _userName;
-	private Date _createDate;
-	private Date _modifiedDate;
-	private long _classNameId;
-	private long _classPK;
-	private long _ruleGroupId;
-	private int _priority;
+    public void setPriority(int priority) {
+        _priority = priority;
+    }
 }

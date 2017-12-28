@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
@@ -68,138 +54,131 @@ import java.util.Map;
  */
 @ProviderType
 public class LayoutPrototypeServiceSoap {
-	/**
-	* @deprecated As of 6.2.0, replaced by {@link #addLayoutPrototype(Map,
-	String, boolean, ServiceContext)}
-	*/
-	public static com.liferay.portal.model.LayoutPrototypeSoap addLayoutPrototype(
-		java.lang.String[] nameMapLanguageIds,
-		java.lang.String[] nameMapValues, java.lang.String description,
-		boolean active) throws RemoteException {
-		try {
-			Map<Locale, String> nameMap = LocalizationUtil.getLocalizationMap(nameMapLanguageIds,
-					nameMapValues);
+    private static Log _log = LogFactoryUtil.getLog(LayoutPrototypeServiceSoap.class);
 
-			com.liferay.portal.model.LayoutPrototype returnValue = LayoutPrototypeServiceUtil.addLayoutPrototype(nameMap,
-					description, active);
+    /**
+    * @deprecated As of 6.2.0, replaced by {@link #addLayoutPrototype(Map,
+    String, boolean, ServiceContext)}
+    */
+    public static com.liferay.portal.model.LayoutPrototypeSoap addLayoutPrototype(
+        java.lang.String[] nameMapLanguageIds,
+        java.lang.String[] nameMapValues, java.lang.String description,
+        boolean active) throws RemoteException {
+        try {
+            Map<Locale, String> nameMap = LocalizationUtil.getLocalizationMap(nameMapLanguageIds,
+                    nameMapValues);
 
-			return com.liferay.portal.model.LayoutPrototypeSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            com.liferay.portal.model.LayoutPrototype returnValue = LayoutPrototypeServiceUtil.addLayoutPrototype(nameMap,
+                    description, active);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.LayoutPrototypeSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portal.model.LayoutPrototypeSoap addLayoutPrototype(
-		java.lang.String[] nameMapLanguageIds,
-		java.lang.String[] nameMapValues, java.lang.String description,
-		boolean active, com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			Map<Locale, String> nameMap = LocalizationUtil.getLocalizationMap(nameMapLanguageIds,
-					nameMapValues);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			com.liferay.portal.model.LayoutPrototype returnValue = LayoutPrototypeServiceUtil.addLayoutPrototype(nameMap,
-					description, active, serviceContext);
+    public static com.liferay.portal.model.LayoutPrototypeSoap addLayoutPrototype(
+        java.lang.String[] nameMapLanguageIds,
+        java.lang.String[] nameMapValues, java.lang.String description,
+        boolean active, com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            Map<Locale, String> nameMap = LocalizationUtil.getLocalizationMap(nameMapLanguageIds,
+                    nameMapValues);
 
-			return com.liferay.portal.model.LayoutPrototypeSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            com.liferay.portal.model.LayoutPrototype returnValue = LayoutPrototypeServiceUtil.addLayoutPrototype(nameMap,
+                    description, active, serviceContext);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.LayoutPrototypeSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void deleteLayoutPrototype(long layoutPrototypeId)
-		throws RemoteException {
-		try {
-			LayoutPrototypeServiceUtil.deleteLayoutPrototype(layoutPrototypeId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void deleteLayoutPrototype(long layoutPrototypeId)
+        throws RemoteException {
+        try {
+            LayoutPrototypeServiceUtil.deleteLayoutPrototype(layoutPrototypeId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portal.model.LayoutPrototypeSoap getLayoutPrototype(
-		long layoutPrototypeId) throws RemoteException {
-		try {
-			com.liferay.portal.model.LayoutPrototype returnValue = LayoutPrototypeServiceUtil.getLayoutPrototype(layoutPrototypeId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portal.model.LayoutPrototypeSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.LayoutPrototypeSoap getLayoutPrototype(
+        long layoutPrototypeId) throws RemoteException {
+        try {
+            com.liferay.portal.model.LayoutPrototype returnValue = LayoutPrototypeServiceUtil.getLayoutPrototype(layoutPrototypeId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.LayoutPrototypeSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portal.model.LayoutPrototypeSoap[] search(
-		long companyId, java.lang.Boolean active,
-		com.liferay.portal.kernel.util.OrderByComparator obc)
-		throws RemoteException {
-		try {
-			java.util.List<com.liferay.portal.model.LayoutPrototype> returnValue =
-				LayoutPrototypeServiceUtil.search(companyId, active, obc);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portal.model.LayoutPrototypeSoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.LayoutPrototypeSoap[] search(
+        long companyId, java.lang.Boolean active,
+        com.liferay.portal.kernel.util.OrderByComparator obc)
+        throws RemoteException {
+        try {
+            java.util.List<com.liferay.portal.model.LayoutPrototype> returnValue =
+                LayoutPrototypeServiceUtil.search(companyId, active, obc);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.LayoutPrototypeSoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	/**
-	* @deprecated As of 6.2.0, replaced by {@link #updateLayoutPrototype(long,
-	Map, String, boolean, ServiceContext)}
-	*/
-	public static com.liferay.portal.model.LayoutPrototypeSoap updateLayoutPrototype(
-		long layoutPrototypeId, java.lang.String[] nameMapLanguageIds,
-		java.lang.String[] nameMapValues, java.lang.String description,
-		boolean active) throws RemoteException {
-		try {
-			Map<Locale, String> nameMap = LocalizationUtil.getLocalizationMap(nameMapLanguageIds,
-					nameMapValues);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			com.liferay.portal.model.LayoutPrototype returnValue = LayoutPrototypeServiceUtil.updateLayoutPrototype(layoutPrototypeId,
-					nameMap, description, active);
+    /**
+    * @deprecated As of 6.2.0, replaced by {@link #updateLayoutPrototype(long,
+    Map, String, boolean, ServiceContext)}
+    */
+    public static com.liferay.portal.model.LayoutPrototypeSoap updateLayoutPrototype(
+        long layoutPrototypeId, java.lang.String[] nameMapLanguageIds,
+        java.lang.String[] nameMapValues, java.lang.String description,
+        boolean active) throws RemoteException {
+        try {
+            Map<Locale, String> nameMap = LocalizationUtil.getLocalizationMap(nameMapLanguageIds,
+                    nameMapValues);
 
-			return com.liferay.portal.model.LayoutPrototypeSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            com.liferay.portal.model.LayoutPrototype returnValue = LayoutPrototypeServiceUtil.updateLayoutPrototype(layoutPrototypeId,
+                    nameMap, description, active);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.LayoutPrototypeSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portal.model.LayoutPrototypeSoap updateLayoutPrototype(
-		long layoutPrototypeId, java.lang.String[] nameMapLanguageIds,
-		java.lang.String[] nameMapValues, java.lang.String description,
-		boolean active, com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			Map<Locale, String> nameMap = LocalizationUtil.getLocalizationMap(nameMapLanguageIds,
-					nameMapValues);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			com.liferay.portal.model.LayoutPrototype returnValue = LayoutPrototypeServiceUtil.updateLayoutPrototype(layoutPrototypeId,
-					nameMap, description, active, serviceContext);
+    public static com.liferay.portal.model.LayoutPrototypeSoap updateLayoutPrototype(
+        long layoutPrototypeId, java.lang.String[] nameMapLanguageIds,
+        java.lang.String[] nameMapValues, java.lang.String description,
+        boolean active, com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            Map<Locale, String> nameMap = LocalizationUtil.getLocalizationMap(nameMapLanguageIds,
+                    nameMapValues);
 
-			return com.liferay.portal.model.LayoutPrototypeSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            com.liferay.portal.model.LayoutPrototype returnValue = LayoutPrototypeServiceUtil.updateLayoutPrototype(layoutPrototypeId,
+                    nameMap, description, active, serviceContext);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.LayoutPrototypeSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	private static Log _log = LogFactoryUtil.getLog(LayoutPrototypeServiceSoap.class);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

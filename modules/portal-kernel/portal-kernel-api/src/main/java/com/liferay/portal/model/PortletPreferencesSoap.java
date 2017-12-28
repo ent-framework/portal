@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -27,122 +13,121 @@ import java.util.List;
  * @generated
  */
 public class PortletPreferencesSoap implements Serializable {
-	public static PortletPreferencesSoap toSoapModel(PortletPreferences model) {
-		PortletPreferencesSoap soapModel = new PortletPreferencesSoap();
+    private long _portletPreferencesId;
+    private long _ownerId;
+    private int _ownerType;
+    private long _plid;
+    private String _portletId;
+    private String _preferences;
 
-		soapModel.setPortletPreferencesId(model.getPortletPreferencesId());
-		soapModel.setOwnerId(model.getOwnerId());
-		soapModel.setOwnerType(model.getOwnerType());
-		soapModel.setPlid(model.getPlid());
-		soapModel.setPortletId(model.getPortletId());
-		soapModel.setPreferences(model.getPreferences());
+    public PortletPreferencesSoap() {
+    }
 
-		return soapModel;
-	}
+    public static PortletPreferencesSoap toSoapModel(PortletPreferences model) {
+        PortletPreferencesSoap soapModel = new PortletPreferencesSoap();
 
-	public static PortletPreferencesSoap[] toSoapModels(
-		PortletPreferences[] models) {
-		PortletPreferencesSoap[] soapModels = new PortletPreferencesSoap[models.length];
+        soapModel.setPortletPreferencesId(model.getPortletPreferencesId());
+        soapModel.setOwnerId(model.getOwnerId());
+        soapModel.setOwnerType(model.getOwnerType());
+        soapModel.setPlid(model.getPlid());
+        soapModel.setPortletId(model.getPortletId());
+        soapModel.setPreferences(model.getPreferences());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static PortletPreferencesSoap[] toSoapModels(
+        PortletPreferences[] models) {
+        PortletPreferencesSoap[] soapModels = new PortletPreferencesSoap[models.length];
 
-	public static PortletPreferencesSoap[][] toSoapModels(
-		PortletPreferences[][] models) {
-		PortletPreferencesSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new PortletPreferencesSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new PortletPreferencesSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static PortletPreferencesSoap[][] toSoapModels(
+        PortletPreferences[][] models) {
+        PortletPreferencesSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new PortletPreferencesSoap[models.length][models[0].length];
+        } else {
+            soapModels = new PortletPreferencesSoap[0][0];
+        }
 
-	public static PortletPreferencesSoap[] toSoapModels(
-		List<PortletPreferences> models) {
-		List<PortletPreferencesSoap> soapModels = new ArrayList<PortletPreferencesSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (PortletPreferences model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new PortletPreferencesSoap[soapModels.size()]);
-	}
+    public static PortletPreferencesSoap[] toSoapModels(
+        List<PortletPreferences> models) {
+        List<PortletPreferencesSoap> soapModels = new ArrayList<PortletPreferencesSoap>(models.size());
 
-	public PortletPreferencesSoap() {
-	}
+        for (PortletPreferences model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _portletPreferencesId;
-	}
+        return soapModels.toArray(new PortletPreferencesSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setPortletPreferencesId(pk);
-	}
+    public long getPrimaryKey() {
+        return _portletPreferencesId;
+    }
 
-	public long getPortletPreferencesId() {
-		return _portletPreferencesId;
-	}
+    public void setPrimaryKey(long pk) {
+        setPortletPreferencesId(pk);
+    }
 
-	public void setPortletPreferencesId(long portletPreferencesId) {
-		_portletPreferencesId = portletPreferencesId;
-	}
+    public long getPortletPreferencesId() {
+        return _portletPreferencesId;
+    }
 
-	public long getOwnerId() {
-		return _ownerId;
-	}
+    public void setPortletPreferencesId(long portletPreferencesId) {
+        _portletPreferencesId = portletPreferencesId;
+    }
 
-	public void setOwnerId(long ownerId) {
-		_ownerId = ownerId;
-	}
+    public long getOwnerId() {
+        return _ownerId;
+    }
 
-	public int getOwnerType() {
-		return _ownerType;
-	}
+    public void setOwnerId(long ownerId) {
+        _ownerId = ownerId;
+    }
 
-	public void setOwnerType(int ownerType) {
-		_ownerType = ownerType;
-	}
+    public int getOwnerType() {
+        return _ownerType;
+    }
 
-	public long getPlid() {
-		return _plid;
-	}
+    public void setOwnerType(int ownerType) {
+        _ownerType = ownerType;
+    }
 
-	public void setPlid(long plid) {
-		_plid = plid;
-	}
+    public long getPlid() {
+        return _plid;
+    }
 
-	public String getPortletId() {
-		return _portletId;
-	}
+    public void setPlid(long plid) {
+        _plid = plid;
+    }
 
-	public void setPortletId(String portletId) {
-		_portletId = portletId;
-	}
+    public String getPortletId() {
+        return _portletId;
+    }
 
-	public String getPreferences() {
-		return _preferences;
-	}
+    public void setPortletId(String portletId) {
+        _portletId = portletId;
+    }
 
-	public void setPreferences(String preferences) {
-		_preferences = preferences;
-	}
+    public String getPreferences() {
+        return _preferences;
+    }
 
-	private long _portletPreferencesId;
-	private long _ownerId;
-	private int _ownerType;
-	private long _plid;
-	private String _portletId;
-	private String _preferences;
+    public void setPreferences(String preferences) {
+        _preferences = preferences;
+    }
 }

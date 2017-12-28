@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.documentlibrary.model.impl;
 
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
@@ -52,515 +38,512 @@ import java.util.Map;
  * @generated
  */
 public class DLFileRankModelImpl extends BaseModelImpl<DLFileRank>
-	implements DLFileRankModel {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this class directly. All methods that expect a document library file rank model instance should use the {@link com.liferay.portlet.documentlibrary.model.DLFileRank} interface instead.
-	 */
-	public static final String TABLE_NAME = "DLFileRank";
-	public static final Object[][] TABLE_COLUMNS = {
-			{ "fileRankId", Types.BIGINT },
-			{ "groupId", Types.BIGINT },
-			{ "companyId", Types.BIGINT },
-			{ "userId", Types.BIGINT },
-			{ "createDate", Types.TIMESTAMP },
-			{ "fileEntryId", Types.BIGINT },
-			{ "active_", Types.BOOLEAN }
-		};
-	public static final String TABLE_SQL_CREATE = "create table DLFileRank (fileRankId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,createDate DATE null,fileEntryId LONG,active_ BOOLEAN)";
-	public static final String TABLE_SQL_DROP = "drop table DLFileRank";
-	public static final String ORDER_BY_JPQL = " ORDER BY dlFileRank.createDate DESC";
-	public static final String ORDER_BY_SQL = " ORDER BY DLFileRank.createDate DESC";
-	public static final String DATA_SOURCE = "liferayDataSource";
-	public static final String SESSION_FACTORY = "liferaySessionFactory";
-	public static final String TX_MANAGER = "liferayTransactionManager";
-	public static final boolean ENTITY_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
-				"value.object.entity.cache.enabled.com.liferay.portlet.documentlibrary.model.DLFileRank"),
-			true);
-	public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
-				"value.object.finder.cache.enabled.com.liferay.portlet.documentlibrary.model.DLFileRank"),
-			true);
-	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
-				"value.object.column.bitmask.enabled.com.liferay.portlet.documentlibrary.model.DLFileRank"),
-			true);
-	public static long ACTIVE_COLUMN_BITMASK = 1L;
-	public static long COMPANYID_COLUMN_BITMASK = 2L;
-	public static long FILEENTRYID_COLUMN_BITMASK = 4L;
-	public static long GROUPID_COLUMN_BITMASK = 8L;
-	public static long USERID_COLUMN_BITMASK = 16L;
-	public static long CREATEDATE_COLUMN_BITMASK = 32L;
-	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.portal.util.PropsUtil.get(
-				"lock.expiration.time.com.liferay.portlet.documentlibrary.model.DLFileRank"));
-
-	public DLFileRankModelImpl() {
-	}
-
-	@Override
-	public long getPrimaryKey() {
-		return _fileRankId;
-	}
-
-	@Override
-	public void setPrimaryKey(long primaryKey) {
-		setFileRankId(primaryKey);
-	}
-
-	@Override
-	public Serializable getPrimaryKeyObj() {
-		return _fileRankId;
-	}
-
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj) {
-		setPrimaryKey(((Long)primaryKeyObj).longValue());
-	}
-
-	@Override
-	public Class<?> getModelClass() {
-		return DLFileRank.class;
-	}
-
-	@Override
-	public String getModelClassName() {
-		return DLFileRank.class.getName();
-	}
-
-	@Override
-	public Map<String, Object> getModelAttributes() {
-		Map<String, Object> attributes = new HashMap<String, Object>();
-
-		attributes.put("fileRankId", getFileRankId());
-		attributes.put("groupId", getGroupId());
-		attributes.put("companyId", getCompanyId());
-		attributes.put("userId", getUserId());
-		attributes.put("createDate", getCreateDate());
-		attributes.put("fileEntryId", getFileEntryId());
-		attributes.put("active", getActive());
-
-		return attributes;
-	}
-
-	@Override
-	public void setModelAttributes(Map<String, Object> attributes) {
-		Long fileRankId = (Long)attributes.get("fileRankId");
-
-		if (fileRankId != null) {
-			setFileRankId(fileRankId);
-		}
-
-		Long groupId = (Long)attributes.get("groupId");
-
-		if (groupId != null) {
-			setGroupId(groupId);
-		}
+    implements DLFileRankModel {
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this class directly. All methods that expect a document library file rank model instance should use the {@link com.liferay.portlet.documentlibrary.model.DLFileRank} interface instead.
+     */
+    public static final String TABLE_NAME = "DLFileRank";
+    public static final Object[][] TABLE_COLUMNS = {
+            { "fileRankId", Types.BIGINT },
+            { "groupId", Types.BIGINT },
+            { "companyId", Types.BIGINT },
+            { "userId", Types.BIGINT },
+            { "createDate", Types.TIMESTAMP },
+            { "fileEntryId", Types.BIGINT },
+            { "active_", Types.BOOLEAN }
+        };
+    public static final String TABLE_SQL_CREATE = "create table DLFileRank (fileRankId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,createDate DATE null,fileEntryId LONG,active_ BOOLEAN)";
+    public static final String TABLE_SQL_DROP = "drop table DLFileRank";
+    public static final String ORDER_BY_JPQL = " ORDER BY dlFileRank.createDate DESC";
+    public static final String ORDER_BY_SQL = " ORDER BY DLFileRank.createDate DESC";
+    public static final String DATA_SOURCE = "liferayDataSource";
+    public static final String SESSION_FACTORY = "liferaySessionFactory";
+    public static final String TX_MANAGER = "liferayTransactionManager";
+    public static final boolean ENTITY_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
+                "value.object.entity.cache.enabled.com.liferay.portlet.documentlibrary.model.DLFileRank"),
+            true);
+    public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
+                "value.object.finder.cache.enabled.com.liferay.portlet.documentlibrary.model.DLFileRank"),
+            true);
+    public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
+                "value.object.column.bitmask.enabled.com.liferay.portlet.documentlibrary.model.DLFileRank"),
+            true);
+    public static long ACTIVE_COLUMN_BITMASK = 1L;
+    public static long COMPANYID_COLUMN_BITMASK = 2L;
+    public static long FILEENTRYID_COLUMN_BITMASK = 4L;
+    public static long GROUPID_COLUMN_BITMASK = 8L;
+    public static long USERID_COLUMN_BITMASK = 16L;
+    public static long CREATEDATE_COLUMN_BITMASK = 32L;
+    public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.portal.util.PropsUtil.get(
+                "lock.expiration.time.com.liferay.portlet.documentlibrary.model.DLFileRank"));
+    private static ClassLoader _classLoader = DLFileRank.class.getClassLoader();
+    private static Class<?>[] _escapedModelInterfaces = new Class[] {
+            DLFileRank.class
+        };
+    private long _fileRankId;
+    private long _groupId;
+    private long _originalGroupId;
+    private boolean _setOriginalGroupId;
+    private long _companyId;
+    private long _originalCompanyId;
+    private boolean _setOriginalCompanyId;
+    private long _userId;
+    private String _userUuid;
+    private long _originalUserId;
+    private boolean _setOriginalUserId;
+    private Date _createDate;
+    private long _fileEntryId;
+    private long _originalFileEntryId;
+    private boolean _setOriginalFileEntryId;
+    private boolean _active;
+    private boolean _originalActive;
+    private boolean _setOriginalActive;
+    private long _columnBitmask;
+    private DLFileRank _escapedModel;
+
+    public DLFileRankModelImpl() {
+    }
+
+    @Override
+    public long getPrimaryKey() {
+        return _fileRankId;
+    }
+
+    @Override
+    public void setPrimaryKey(long primaryKey) {
+        setFileRankId(primaryKey);
+    }
+
+    @Override
+    public Serializable getPrimaryKeyObj() {
+        return _fileRankId;
+    }
+
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj) {
+        setPrimaryKey(((Long) primaryKeyObj).longValue());
+    }
+
+    @Override
+    public Class<?> getModelClass() {
+        return DLFileRank.class;
+    }
+
+    @Override
+    public String getModelClassName() {
+        return DLFileRank.class.getName();
+    }
+
+    @Override
+    public Map<String, Object> getModelAttributes() {
+        Map<String, Object> attributes = new HashMap<String, Object>();
 
-		Long companyId = (Long)attributes.get("companyId");
+        attributes.put("fileRankId", getFileRankId());
+        attributes.put("groupId", getGroupId());
+        attributes.put("companyId", getCompanyId());
+        attributes.put("userId", getUserId());
+        attributes.put("createDate", getCreateDate());
+        attributes.put("fileEntryId", getFileEntryId());
+        attributes.put("active", getActive());
 
-		if (companyId != null) {
-			setCompanyId(companyId);
-		}
+        return attributes;
+    }
 
-		Long userId = (Long)attributes.get("userId");
+    @Override
+    public void setModelAttributes(Map<String, Object> attributes) {
+        Long fileRankId = (Long) attributes.get("fileRankId");
 
-		if (userId != null) {
-			setUserId(userId);
-		}
+        if (fileRankId != null) {
+            setFileRankId(fileRankId);
+        }
 
-		Date createDate = (Date)attributes.get("createDate");
+        Long groupId = (Long) attributes.get("groupId");
 
-		if (createDate != null) {
-			setCreateDate(createDate);
-		}
+        if (groupId != null) {
+            setGroupId(groupId);
+        }
 
-		Long fileEntryId = (Long)attributes.get("fileEntryId");
+        Long companyId = (Long) attributes.get("companyId");
 
-		if (fileEntryId != null) {
-			setFileEntryId(fileEntryId);
-		}
+        if (companyId != null) {
+            setCompanyId(companyId);
+        }
 
-		Boolean active = (Boolean)attributes.get("active");
+        Long userId = (Long) attributes.get("userId");
 
-		if (active != null) {
-			setActive(active);
-		}
-	}
+        if (userId != null) {
+            setUserId(userId);
+        }
 
-	@Override
-	public long getFileRankId() {
-		return _fileRankId;
-	}
+        Date createDate = (Date) attributes.get("createDate");
 
-	@Override
-	public void setFileRankId(long fileRankId) {
-		_fileRankId = fileRankId;
-	}
+        if (createDate != null) {
+            setCreateDate(createDate);
+        }
 
-	@Override
-	public long getGroupId() {
-		return _groupId;
-	}
+        Long fileEntryId = (Long) attributes.get("fileEntryId");
 
-	@Override
-	public void setGroupId(long groupId) {
-		_columnBitmask |= GROUPID_COLUMN_BITMASK;
+        if (fileEntryId != null) {
+            setFileEntryId(fileEntryId);
+        }
 
-		if (!_setOriginalGroupId) {
-			_setOriginalGroupId = true;
+        Boolean active = (Boolean) attributes.get("active");
 
-			_originalGroupId = _groupId;
-		}
+        if (active != null) {
+            setActive(active);
+        }
+    }
 
-		_groupId = groupId;
-	}
+    @Override
+    public long getFileRankId() {
+        return _fileRankId;
+    }
 
-	public long getOriginalGroupId() {
-		return _originalGroupId;
-	}
+    @Override
+    public void setFileRankId(long fileRankId) {
+        _fileRankId = fileRankId;
+    }
 
-	@Override
-	public long getCompanyId() {
-		return _companyId;
-	}
+    @Override
+    public long getGroupId() {
+        return _groupId;
+    }
 
-	@Override
-	public void setCompanyId(long companyId) {
-		_columnBitmask |= COMPANYID_COLUMN_BITMASK;
+    @Override
+    public void setGroupId(long groupId) {
+        _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
-		if (!_setOriginalCompanyId) {
-			_setOriginalCompanyId = true;
+        if (!_setOriginalGroupId) {
+            _setOriginalGroupId = true;
 
-			_originalCompanyId = _companyId;
-		}
+            _originalGroupId = _groupId;
+        }
 
-		_companyId = companyId;
-	}
+        _groupId = groupId;
+    }
 
-	public long getOriginalCompanyId() {
-		return _originalCompanyId;
-	}
+    public long getOriginalGroupId() {
+        return _originalGroupId;
+    }
 
-	@Override
-	public long getUserId() {
-		return _userId;
-	}
+    @Override
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	@Override
-	public void setUserId(long userId) {
-		_columnBitmask |= USERID_COLUMN_BITMASK;
+    @Override
+    public void setCompanyId(long companyId) {
+        _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
-		if (!_setOriginalUserId) {
-			_setOriginalUserId = true;
+        if (!_setOriginalCompanyId) {
+            _setOriginalCompanyId = true;
 
-			_originalUserId = _userId;
-		}
+            _originalCompanyId = _companyId;
+        }
 
-		_userId = userId;
-	}
+        _companyId = companyId;
+    }
 
-	@Override
-	public String getUserUuid() throws SystemException {
-		return PortalUtil.getUserValue(getUserId(), "uuid", _userUuid);
-	}
+    public long getOriginalCompanyId() {
+        return _originalCompanyId;
+    }
 
-	@Override
-	public void setUserUuid(String userUuid) {
-		_userUuid = userUuid;
-	}
+    @Override
+    public long getUserId() {
+        return _userId;
+    }
 
-	public long getOriginalUserId() {
-		return _originalUserId;
-	}
+    @Override
+    public void setUserId(long userId) {
+        _columnBitmask |= USERID_COLUMN_BITMASK;
 
-	@Override
-	public Date getCreateDate() {
-		return _createDate;
-	}
+        if (!_setOriginalUserId) {
+            _setOriginalUserId = true;
 
-	@Override
-	public void setCreateDate(Date createDate) {
-		_columnBitmask = -1L;
+            _originalUserId = _userId;
+        }
 
-		_createDate = createDate;
-	}
+        _userId = userId;
+    }
 
-	@Override
-	public long getFileEntryId() {
-		return _fileEntryId;
-	}
+    @Override
+    public String getUserUuid() throws SystemException {
+        return PortalUtil.getUserValue(getUserId(), "uuid", _userUuid);
+    }
 
-	@Override
-	public void setFileEntryId(long fileEntryId) {
-		_columnBitmask |= FILEENTRYID_COLUMN_BITMASK;
+    @Override
+    public void setUserUuid(String userUuid) {
+        _userUuid = userUuid;
+    }
 
-		if (!_setOriginalFileEntryId) {
-			_setOriginalFileEntryId = true;
+    public long getOriginalUserId() {
+        return _originalUserId;
+    }
 
-			_originalFileEntryId = _fileEntryId;
-		}
+    @Override
+    public Date getCreateDate() {
+        return _createDate;
+    }
 
-		_fileEntryId = fileEntryId;
-	}
+    @Override
+    public void setCreateDate(Date createDate) {
+        _columnBitmask = -1L;
 
-	public long getOriginalFileEntryId() {
-		return _originalFileEntryId;
-	}
+        _createDate = createDate;
+    }
 
-	@Override
-	public boolean getActive() {
-		return _active;
-	}
+    @Override
+    public long getFileEntryId() {
+        return _fileEntryId;
+    }
 
-	@Override
-	public boolean isActive() {
-		return _active;
-	}
+    @Override
+    public void setFileEntryId(long fileEntryId) {
+        _columnBitmask |= FILEENTRYID_COLUMN_BITMASK;
 
-	@Override
-	public void setActive(boolean active) {
-		_columnBitmask |= ACTIVE_COLUMN_BITMASK;
+        if (!_setOriginalFileEntryId) {
+            _setOriginalFileEntryId = true;
 
-		if (!_setOriginalActive) {
-			_setOriginalActive = true;
+            _originalFileEntryId = _fileEntryId;
+        }
 
-			_originalActive = _active;
-		}
+        _fileEntryId = fileEntryId;
+    }
 
-		_active = active;
-	}
+    public long getOriginalFileEntryId() {
+        return _originalFileEntryId;
+    }
 
-	public boolean getOriginalActive() {
-		return _originalActive;
-	}
+    @Override
+    public boolean getActive() {
+        return _active;
+    }
 
-	public long getColumnBitmask() {
-		return _columnBitmask;
-	}
+    @Override
+    public boolean isActive() {
+        return _active;
+    }
 
-	@Override
-	public ExpandoBridge getExpandoBridge() {
-		return ExpandoBridgeFactoryUtil.getExpandoBridge(getCompanyId(),
-			DLFileRank.class.getName(), getPrimaryKey());
-	}
+    @Override
+    public void setActive(boolean active) {
+        _columnBitmask |= ACTIVE_COLUMN_BITMASK;
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext) {
-		ExpandoBridge expandoBridge = getExpandoBridge();
+        if (!_setOriginalActive) {
+            _setOriginalActive = true;
 
-		expandoBridge.setAttributes(serviceContext);
-	}
+            _originalActive = _active;
+        }
 
-	@Override
-	public DLFileRank toEscapedModel() {
-		if (_escapedModel == null) {
-			_escapedModel = (DLFileRank)ProxyUtil.newProxyInstance(_classLoader,
-					_escapedModelInterfaces, new AutoEscapeBeanHandler(this));
-		}
+        _active = active;
+    }
 
-		return _escapedModel;
-	}
+    public boolean getOriginalActive() {
+        return _originalActive;
+    }
 
-	@Override
-	public Object clone() {
-		DLFileRankImpl dlFileRankImpl = new DLFileRankImpl();
+    public long getColumnBitmask() {
+        return _columnBitmask;
+    }
 
-		dlFileRankImpl.setFileRankId(getFileRankId());
-		dlFileRankImpl.setGroupId(getGroupId());
-		dlFileRankImpl.setCompanyId(getCompanyId());
-		dlFileRankImpl.setUserId(getUserId());
-		dlFileRankImpl.setCreateDate(getCreateDate());
-		dlFileRankImpl.setFileEntryId(getFileEntryId());
-		dlFileRankImpl.setActive(getActive());
+    @Override
+    public ExpandoBridge getExpandoBridge() {
+        return ExpandoBridgeFactoryUtil.getExpandoBridge(getCompanyId(),
+            DLFileRank.class.getName(), getPrimaryKey());
+    }
 
-		dlFileRankImpl.resetOriginalValues();
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext) {
+        ExpandoBridge expandoBridge = getExpandoBridge();
 
-		return dlFileRankImpl;
-	}
+        expandoBridge.setAttributes(serviceContext);
+    }
 
-	@Override
-	public int compareTo(DLFileRank dlFileRank) {
-		int value = 0;
+    @Override
+    public DLFileRank toEscapedModel() {
+        if (_escapedModel == null) {
+            _escapedModel = (DLFileRank) ProxyUtil.newProxyInstance(_classLoader,
+                    _escapedModelInterfaces, new AutoEscapeBeanHandler(this));
+        }
 
-		value = DateUtil.compareTo(getCreateDate(), dlFileRank.getCreateDate());
+        return _escapedModel;
+    }
 
-		value = value * -1;
+    @Override
+    public Object clone() {
+        DLFileRankImpl dlFileRankImpl = new DLFileRankImpl();
 
-		if (value != 0) {
-			return value;
-		}
+        dlFileRankImpl.setFileRankId(getFileRankId());
+        dlFileRankImpl.setGroupId(getGroupId());
+        dlFileRankImpl.setCompanyId(getCompanyId());
+        dlFileRankImpl.setUserId(getUserId());
+        dlFileRankImpl.setCreateDate(getCreateDate());
+        dlFileRankImpl.setFileEntryId(getFileEntryId());
+        dlFileRankImpl.setActive(getActive());
 
-		return 0;
-	}
+        dlFileRankImpl.resetOriginalValues();
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
+        return dlFileRankImpl;
+    }
 
-		if (!(obj instanceof DLFileRank)) {
-			return false;
-		}
+    @Override
+    public int compareTo(DLFileRank dlFileRank) {
+        int value = 0;
 
-		DLFileRank dlFileRank = (DLFileRank)obj;
+        value = DateUtil.compareTo(getCreateDate(), dlFileRank.getCreateDate());
 
-		long primaryKey = dlFileRank.getPrimaryKey();
+        value = value * -1;
 
-		if (getPrimaryKey() == primaryKey) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
+        if (value != 0) {
+            return value;
+        }
 
-	@Override
-	public int hashCode() {
-		return (int)getPrimaryKey();
-	}
+        return 0;
+    }
 
-	@Override
-	public void resetOriginalValues() {
-		DLFileRankModelImpl dlFileRankModelImpl = this;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
 
-		dlFileRankModelImpl._originalGroupId = dlFileRankModelImpl._groupId;
+        if (!(obj instanceof DLFileRank)) {
+            return false;
+        }
 
-		dlFileRankModelImpl._setOriginalGroupId = false;
+        DLFileRank dlFileRank = (DLFileRank) obj;
 
-		dlFileRankModelImpl._originalCompanyId = dlFileRankModelImpl._companyId;
+        long primaryKey = dlFileRank.getPrimaryKey();
 
-		dlFileRankModelImpl._setOriginalCompanyId = false;
+        if (getPrimaryKey() == primaryKey) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-		dlFileRankModelImpl._originalUserId = dlFileRankModelImpl._userId;
+    @Override
+    public int hashCode() {
+        return (int) getPrimaryKey();
+    }
 
-		dlFileRankModelImpl._setOriginalUserId = false;
+    @Override
+    public void resetOriginalValues() {
+        DLFileRankModelImpl dlFileRankModelImpl = this;
 
-		dlFileRankModelImpl._originalFileEntryId = dlFileRankModelImpl._fileEntryId;
+        dlFileRankModelImpl._originalGroupId = dlFileRankModelImpl._groupId;
 
-		dlFileRankModelImpl._setOriginalFileEntryId = false;
+        dlFileRankModelImpl._setOriginalGroupId = false;
 
-		dlFileRankModelImpl._originalActive = dlFileRankModelImpl._active;
+        dlFileRankModelImpl._originalCompanyId = dlFileRankModelImpl._companyId;
 
-		dlFileRankModelImpl._setOriginalActive = false;
+        dlFileRankModelImpl._setOriginalCompanyId = false;
 
-		dlFileRankModelImpl._columnBitmask = 0;
-	}
+        dlFileRankModelImpl._originalUserId = dlFileRankModelImpl._userId;
 
-	@Override
-	public CacheModel<DLFileRank> toCacheModel() {
-		DLFileRankCacheModel dlFileRankCacheModel = new DLFileRankCacheModel();
+        dlFileRankModelImpl._setOriginalUserId = false;
 
-		dlFileRankCacheModel.fileRankId = getFileRankId();
+        dlFileRankModelImpl._originalFileEntryId = dlFileRankModelImpl._fileEntryId;
 
-		dlFileRankCacheModel.groupId = getGroupId();
-
-		dlFileRankCacheModel.companyId = getCompanyId();
-
-		dlFileRankCacheModel.userId = getUserId();
-
-		Date createDate = getCreateDate();
-
-		if (createDate != null) {
-			dlFileRankCacheModel.createDate = createDate.getTime();
-		}
-		else {
-			dlFileRankCacheModel.createDate = Long.MIN_VALUE;
-		}
-
-		dlFileRankCacheModel.fileEntryId = getFileEntryId();
-
-		dlFileRankCacheModel.active = getActive();
-
-		return dlFileRankCacheModel;
-	}
-
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(15);
-
-		sb.append("{fileRankId=");
-		sb.append(getFileRankId());
-		sb.append(", groupId=");
-		sb.append(getGroupId());
-		sb.append(", companyId=");
-		sb.append(getCompanyId());
-		sb.append(", userId=");
-		sb.append(getUserId());
-		sb.append(", createDate=");
-		sb.append(getCreateDate());
-		sb.append(", fileEntryId=");
-		sb.append(getFileEntryId());
-		sb.append(", active=");
-		sb.append(getActive());
-		sb.append("}");
-
-		return sb.toString();
-	}
-
-	@Override
-	public String toXmlString() {
-		StringBundler sb = new StringBundler(25);
-
-		sb.append("<model><model-name>");
-		sb.append("com.liferay.portlet.documentlibrary.model.DLFileRank");
-		sb.append("</model-name>");
-
-		sb.append(
-			"<column><column-name>fileRankId</column-name><column-value><![CDATA[");
-		sb.append(getFileRankId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>groupId</column-name><column-value><![CDATA[");
-		sb.append(getGroupId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>companyId</column-name><column-value><![CDATA[");
-		sb.append(getCompanyId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>userId</column-name><column-value><![CDATA[");
-		sb.append(getUserId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>createDate</column-name><column-value><![CDATA[");
-		sb.append(getCreateDate());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>fileEntryId</column-name><column-value><![CDATA[");
-		sb.append(getFileEntryId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>active</column-name><column-value><![CDATA[");
-		sb.append(getActive());
-		sb.append("]]></column-value></column>");
-
-		sb.append("</model>");
-
-		return sb.toString();
-	}
-
-	private static ClassLoader _classLoader = DLFileRank.class.getClassLoader();
-	private static Class<?>[] _escapedModelInterfaces = new Class[] {
-			DLFileRank.class
-		};
-	private long _fileRankId;
-	private long _groupId;
-	private long _originalGroupId;
-	private boolean _setOriginalGroupId;
-	private long _companyId;
-	private long _originalCompanyId;
-	private boolean _setOriginalCompanyId;
-	private long _userId;
-	private String _userUuid;
-	private long _originalUserId;
-	private boolean _setOriginalUserId;
-	private Date _createDate;
-	private long _fileEntryId;
-	private long _originalFileEntryId;
-	private boolean _setOriginalFileEntryId;
-	private boolean _active;
-	private boolean _originalActive;
-	private boolean _setOriginalActive;
-	private long _columnBitmask;
-	private DLFileRank _escapedModel;
+        dlFileRankModelImpl._setOriginalFileEntryId = false;
+
+        dlFileRankModelImpl._originalActive = dlFileRankModelImpl._active;
+
+        dlFileRankModelImpl._setOriginalActive = false;
+
+        dlFileRankModelImpl._columnBitmask = 0;
+    }
+
+    @Override
+    public CacheModel<DLFileRank> toCacheModel() {
+        DLFileRankCacheModel dlFileRankCacheModel = new DLFileRankCacheModel();
+
+        dlFileRankCacheModel.fileRankId = getFileRankId();
+
+        dlFileRankCacheModel.groupId = getGroupId();
+
+        dlFileRankCacheModel.companyId = getCompanyId();
+
+        dlFileRankCacheModel.userId = getUserId();
+
+        Date createDate = getCreateDate();
+
+        if (createDate != null) {
+            dlFileRankCacheModel.createDate = createDate.getTime();
+        } else {
+            dlFileRankCacheModel.createDate = Long.MIN_VALUE;
+        }
+
+        dlFileRankCacheModel.fileEntryId = getFileEntryId();
+
+        dlFileRankCacheModel.active = getActive();
+
+        return dlFileRankCacheModel;
+    }
+
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(15);
+
+        sb.append("{fileRankId=");
+        sb.append(getFileRankId());
+        sb.append(", groupId=");
+        sb.append(getGroupId());
+        sb.append(", companyId=");
+        sb.append(getCompanyId());
+        sb.append(", userId=");
+        sb.append(getUserId());
+        sb.append(", createDate=");
+        sb.append(getCreateDate());
+        sb.append(", fileEntryId=");
+        sb.append(getFileEntryId());
+        sb.append(", active=");
+        sb.append(getActive());
+        sb.append("}");
+
+        return sb.toString();
+    }
+
+    @Override
+    public String toXmlString() {
+        StringBundler sb = new StringBundler(25);
+
+        sb.append("<model><model-name>");
+        sb.append("com.liferay.portlet.documentlibrary.model.DLFileRank");
+        sb.append("</model-name>");
+
+        sb.append(
+            "<column><column-name>fileRankId</column-name><column-value><![CDATA[");
+        sb.append(getFileRankId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>groupId</column-name><column-value><![CDATA[");
+        sb.append(getGroupId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>companyId</column-name><column-value><![CDATA[");
+        sb.append(getCompanyId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>userId</column-name><column-value><![CDATA[");
+        sb.append(getUserId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>createDate</column-name><column-value><![CDATA[");
+        sb.append(getCreateDate());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>fileEntryId</column-name><column-value><![CDATA[");
+        sb.append(getFileEntryId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>active</column-name><column-value><![CDATA[");
+        sb.append(getActive());
+        sb.append("]]></column-value></column>");
+
+        sb.append("</model>");
+
+        return sb.toString();
+    }
 }

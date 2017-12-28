@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -32,95 +18,91 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class ResourceBlockCacheModel implements CacheModel<ResourceBlock>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(13);
+    Externalizable {
+    public long resourceBlockId;
+    public long companyId;
+    public long groupId;
+    public String name;
+    public String permissionsHash;
+    public long referenceCount;
 
-		sb.append("{resourceBlockId=");
-		sb.append(resourceBlockId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", permissionsHash=");
-		sb.append(permissionsHash);
-		sb.append(", referenceCount=");
-		sb.append(referenceCount);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(13);
 
-		return sb.toString();
-	}
+        sb.append("{resourceBlockId=");
+        sb.append(resourceBlockId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", permissionsHash=");
+        sb.append(permissionsHash);
+        sb.append(", referenceCount=");
+        sb.append(referenceCount);
+        sb.append("}");
 
-	@Override
-	public ResourceBlock toEntityModel() {
-		ResourceBlockImpl resourceBlockImpl = new ResourceBlockImpl();
+        return sb.toString();
+    }
 
-		resourceBlockImpl.setResourceBlockId(resourceBlockId);
-		resourceBlockImpl.setCompanyId(companyId);
-		resourceBlockImpl.setGroupId(groupId);
+    @Override
+    public ResourceBlock toEntityModel() {
+        ResourceBlockImpl resourceBlockImpl = new ResourceBlockImpl();
 
-		if (name == null) {
-			resourceBlockImpl.setName(StringPool.BLANK);
-		}
-		else {
-			resourceBlockImpl.setName(name);
-		}
+        resourceBlockImpl.setResourceBlockId(resourceBlockId);
+        resourceBlockImpl.setCompanyId(companyId);
+        resourceBlockImpl.setGroupId(groupId);
 
-		if (permissionsHash == null) {
-			resourceBlockImpl.setPermissionsHash(StringPool.BLANK);
-		}
-		else {
-			resourceBlockImpl.setPermissionsHash(permissionsHash);
-		}
+        if (name == null) {
+            resourceBlockImpl.setName(StringPool.BLANK);
+        } else {
+            resourceBlockImpl.setName(name);
+        }
 
-		resourceBlockImpl.setReferenceCount(referenceCount);
+        if (permissionsHash == null) {
+            resourceBlockImpl.setPermissionsHash(StringPool.BLANK);
+        } else {
+            resourceBlockImpl.setPermissionsHash(permissionsHash);
+        }
 
-		resourceBlockImpl.resetOriginalValues();
+        resourceBlockImpl.setReferenceCount(referenceCount);
 
-		return resourceBlockImpl;
-	}
+        resourceBlockImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		resourceBlockId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		name = objectInput.readUTF();
-		permissionsHash = objectInput.readUTF();
-		referenceCount = objectInput.readLong();
-	}
+        return resourceBlockImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(resourceBlockId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(groupId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        resourceBlockId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        name = objectInput.readUTF();
+        permissionsHash = objectInput.readUTF();
+        referenceCount = objectInput.readLong();
+    }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(resourceBlockId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(groupId);
 
-		if (permissionsHash == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(permissionsHash);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		objectOutput.writeLong(referenceCount);
-	}
+        if (permissionsHash == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(permissionsHash);
+        }
 
-	public long resourceBlockId;
-	public long companyId;
-	public long groupId;
-	public String name;
-	public String permissionsHash;
-	public long referenceCount;
+        objectOutput.writeLong(referenceCount);
+    }
 }

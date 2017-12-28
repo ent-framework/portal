@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.asset.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -35,327 +21,305 @@ import java.util.Date;
  * @generated
  */
 public class AssetEntryCacheModel implements CacheModel<AssetEntry>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(53);
+    Externalizable {
+    public long entryId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public long classNameId;
+    public long classPK;
+    public String classUuid;
+    public long classTypeId;
+    public boolean visible;
+    public long startDate;
+    public long endDate;
+    public long publishDate;
+    public long expirationDate;
+    public String mimeType;
+    public String title;
+    public String description;
+    public String summary;
+    public String url;
+    public String layoutUuid;
+    public int height;
+    public int width;
+    public double priority;
+    public int viewCount;
 
-		sb.append("{entryId=");
-		sb.append(entryId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", classNameId=");
-		sb.append(classNameId);
-		sb.append(", classPK=");
-		sb.append(classPK);
-		sb.append(", classUuid=");
-		sb.append(classUuid);
-		sb.append(", classTypeId=");
-		sb.append(classTypeId);
-		sb.append(", visible=");
-		sb.append(visible);
-		sb.append(", startDate=");
-		sb.append(startDate);
-		sb.append(", endDate=");
-		sb.append(endDate);
-		sb.append(", publishDate=");
-		sb.append(publishDate);
-		sb.append(", expirationDate=");
-		sb.append(expirationDate);
-		sb.append(", mimeType=");
-		sb.append(mimeType);
-		sb.append(", title=");
-		sb.append(title);
-		sb.append(", description=");
-		sb.append(description);
-		sb.append(", summary=");
-		sb.append(summary);
-		sb.append(", url=");
-		sb.append(url);
-		sb.append(", layoutUuid=");
-		sb.append(layoutUuid);
-		sb.append(", height=");
-		sb.append(height);
-		sb.append(", width=");
-		sb.append(width);
-		sb.append(", priority=");
-		sb.append(priority);
-		sb.append(", viewCount=");
-		sb.append(viewCount);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(53);
 
-		return sb.toString();
-	}
+        sb.append("{entryId=");
+        sb.append(entryId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", classNameId=");
+        sb.append(classNameId);
+        sb.append(", classPK=");
+        sb.append(classPK);
+        sb.append(", classUuid=");
+        sb.append(classUuid);
+        sb.append(", classTypeId=");
+        sb.append(classTypeId);
+        sb.append(", visible=");
+        sb.append(visible);
+        sb.append(", startDate=");
+        sb.append(startDate);
+        sb.append(", endDate=");
+        sb.append(endDate);
+        sb.append(", publishDate=");
+        sb.append(publishDate);
+        sb.append(", expirationDate=");
+        sb.append(expirationDate);
+        sb.append(", mimeType=");
+        sb.append(mimeType);
+        sb.append(", title=");
+        sb.append(title);
+        sb.append(", description=");
+        sb.append(description);
+        sb.append(", summary=");
+        sb.append(summary);
+        sb.append(", url=");
+        sb.append(url);
+        sb.append(", layoutUuid=");
+        sb.append(layoutUuid);
+        sb.append(", height=");
+        sb.append(height);
+        sb.append(", width=");
+        sb.append(width);
+        sb.append(", priority=");
+        sb.append(priority);
+        sb.append(", viewCount=");
+        sb.append(viewCount);
+        sb.append("}");
 
-	@Override
-	public AssetEntry toEntityModel() {
-		AssetEntryImpl assetEntryImpl = new AssetEntryImpl();
+        return sb.toString();
+    }
 
-		assetEntryImpl.setEntryId(entryId);
-		assetEntryImpl.setGroupId(groupId);
-		assetEntryImpl.setCompanyId(companyId);
-		assetEntryImpl.setUserId(userId);
+    @Override
+    public AssetEntry toEntityModel() {
+        AssetEntryImpl assetEntryImpl = new AssetEntryImpl();
 
-		if (userName == null) {
-			assetEntryImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			assetEntryImpl.setUserName(userName);
-		}
+        assetEntryImpl.setEntryId(entryId);
+        assetEntryImpl.setGroupId(groupId);
+        assetEntryImpl.setCompanyId(companyId);
+        assetEntryImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			assetEntryImpl.setCreateDate(null);
-		}
-		else {
-			assetEntryImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            assetEntryImpl.setUserName(StringPool.BLANK);
+        } else {
+            assetEntryImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			assetEntryImpl.setModifiedDate(null);
-		}
-		else {
-			assetEntryImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            assetEntryImpl.setCreateDate(null);
+        } else {
+            assetEntryImpl.setCreateDate(new Date(createDate));
+        }
 
-		assetEntryImpl.setClassNameId(classNameId);
-		assetEntryImpl.setClassPK(classPK);
+        if (modifiedDate == Long.MIN_VALUE) {
+            assetEntryImpl.setModifiedDate(null);
+        } else {
+            assetEntryImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (classUuid == null) {
-			assetEntryImpl.setClassUuid(StringPool.BLANK);
-		}
-		else {
-			assetEntryImpl.setClassUuid(classUuid);
-		}
+        assetEntryImpl.setClassNameId(classNameId);
+        assetEntryImpl.setClassPK(classPK);
 
-		assetEntryImpl.setClassTypeId(classTypeId);
-		assetEntryImpl.setVisible(visible);
+        if (classUuid == null) {
+            assetEntryImpl.setClassUuid(StringPool.BLANK);
+        } else {
+            assetEntryImpl.setClassUuid(classUuid);
+        }
 
-		if (startDate == Long.MIN_VALUE) {
-			assetEntryImpl.setStartDate(null);
-		}
-		else {
-			assetEntryImpl.setStartDate(new Date(startDate));
-		}
+        assetEntryImpl.setClassTypeId(classTypeId);
+        assetEntryImpl.setVisible(visible);
 
-		if (endDate == Long.MIN_VALUE) {
-			assetEntryImpl.setEndDate(null);
-		}
-		else {
-			assetEntryImpl.setEndDate(new Date(endDate));
-		}
+        if (startDate == Long.MIN_VALUE) {
+            assetEntryImpl.setStartDate(null);
+        } else {
+            assetEntryImpl.setStartDate(new Date(startDate));
+        }
 
-		if (publishDate == Long.MIN_VALUE) {
-			assetEntryImpl.setPublishDate(null);
-		}
-		else {
-			assetEntryImpl.setPublishDate(new Date(publishDate));
-		}
+        if (endDate == Long.MIN_VALUE) {
+            assetEntryImpl.setEndDate(null);
+        } else {
+            assetEntryImpl.setEndDate(new Date(endDate));
+        }
 
-		if (expirationDate == Long.MIN_VALUE) {
-			assetEntryImpl.setExpirationDate(null);
-		}
-		else {
-			assetEntryImpl.setExpirationDate(new Date(expirationDate));
-		}
+        if (publishDate == Long.MIN_VALUE) {
+            assetEntryImpl.setPublishDate(null);
+        } else {
+            assetEntryImpl.setPublishDate(new Date(publishDate));
+        }
 
-		if (mimeType == null) {
-			assetEntryImpl.setMimeType(StringPool.BLANK);
-		}
-		else {
-			assetEntryImpl.setMimeType(mimeType);
-		}
+        if (expirationDate == Long.MIN_VALUE) {
+            assetEntryImpl.setExpirationDate(null);
+        } else {
+            assetEntryImpl.setExpirationDate(new Date(expirationDate));
+        }
 
-		if (title == null) {
-			assetEntryImpl.setTitle(StringPool.BLANK);
-		}
-		else {
-			assetEntryImpl.setTitle(title);
-		}
+        if (mimeType == null) {
+            assetEntryImpl.setMimeType(StringPool.BLANK);
+        } else {
+            assetEntryImpl.setMimeType(mimeType);
+        }
 
-		if (description == null) {
-			assetEntryImpl.setDescription(StringPool.BLANK);
-		}
-		else {
-			assetEntryImpl.setDescription(description);
-		}
+        if (title == null) {
+            assetEntryImpl.setTitle(StringPool.BLANK);
+        } else {
+            assetEntryImpl.setTitle(title);
+        }
 
-		if (summary == null) {
-			assetEntryImpl.setSummary(StringPool.BLANK);
-		}
-		else {
-			assetEntryImpl.setSummary(summary);
-		}
+        if (description == null) {
+            assetEntryImpl.setDescription(StringPool.BLANK);
+        } else {
+            assetEntryImpl.setDescription(description);
+        }
 
-		if (url == null) {
-			assetEntryImpl.setUrl(StringPool.BLANK);
-		}
-		else {
-			assetEntryImpl.setUrl(url);
-		}
+        if (summary == null) {
+            assetEntryImpl.setSummary(StringPool.BLANK);
+        } else {
+            assetEntryImpl.setSummary(summary);
+        }
 
-		if (layoutUuid == null) {
-			assetEntryImpl.setLayoutUuid(StringPool.BLANK);
-		}
-		else {
-			assetEntryImpl.setLayoutUuid(layoutUuid);
-		}
+        if (url == null) {
+            assetEntryImpl.setUrl(StringPool.BLANK);
+        } else {
+            assetEntryImpl.setUrl(url);
+        }
 
-		assetEntryImpl.setHeight(height);
-		assetEntryImpl.setWidth(width);
-		assetEntryImpl.setPriority(priority);
-		assetEntryImpl.setViewCount(viewCount);
+        if (layoutUuid == null) {
+            assetEntryImpl.setLayoutUuid(StringPool.BLANK);
+        } else {
+            assetEntryImpl.setLayoutUuid(layoutUuid);
+        }
 
-		assetEntryImpl.resetOriginalValues();
+        assetEntryImpl.setHeight(height);
+        assetEntryImpl.setWidth(width);
+        assetEntryImpl.setPriority(priority);
+        assetEntryImpl.setViewCount(viewCount);
 
-		return assetEntryImpl;
-	}
+        assetEntryImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		entryId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		classNameId = objectInput.readLong();
-		classPK = objectInput.readLong();
-		classUuid = objectInput.readUTF();
-		classTypeId = objectInput.readLong();
-		visible = objectInput.readBoolean();
-		startDate = objectInput.readLong();
-		endDate = objectInput.readLong();
-		publishDate = objectInput.readLong();
-		expirationDate = objectInput.readLong();
-		mimeType = objectInput.readUTF();
-		title = objectInput.readUTF();
-		description = objectInput.readUTF();
-		summary = objectInput.readUTF();
-		url = objectInput.readUTF();
-		layoutUuid = objectInput.readUTF();
-		height = objectInput.readInt();
-		width = objectInput.readInt();
-		priority = objectInput.readDouble();
-		viewCount = objectInput.readInt();
-	}
+        return assetEntryImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(entryId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        entryId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        classNameId = objectInput.readLong();
+        classPK = objectInput.readLong();
+        classUuid = objectInput.readUTF();
+        classTypeId = objectInput.readLong();
+        visible = objectInput.readBoolean();
+        startDate = objectInput.readLong();
+        endDate = objectInput.readLong();
+        publishDate = objectInput.readLong();
+        expirationDate = objectInput.readLong();
+        mimeType = objectInput.readUTF();
+        title = objectInput.readUTF();
+        description = objectInput.readUTF();
+        summary = objectInput.readUTF();
+        url = objectInput.readUTF();
+        layoutUuid = objectInput.readUTF();
+        height = objectInput.readInt();
+        width = objectInput.readInt();
+        priority = objectInput.readDouble();
+        viewCount = objectInput.readInt();
+    }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(entryId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(classNameId);
-		objectOutput.writeLong(classPK);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (classUuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(classUuid);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(classNameId);
+        objectOutput.writeLong(classPK);
 
-		objectOutput.writeLong(classTypeId);
-		objectOutput.writeBoolean(visible);
-		objectOutput.writeLong(startDate);
-		objectOutput.writeLong(endDate);
-		objectOutput.writeLong(publishDate);
-		objectOutput.writeLong(expirationDate);
+        if (classUuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(classUuid);
+        }
 
-		if (mimeType == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(mimeType);
-		}
+        objectOutput.writeLong(classTypeId);
+        objectOutput.writeBoolean(visible);
+        objectOutput.writeLong(startDate);
+        objectOutput.writeLong(endDate);
+        objectOutput.writeLong(publishDate);
+        objectOutput.writeLong(expirationDate);
 
-		if (title == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(title);
-		}
+        if (mimeType == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(mimeType);
+        }
 
-		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(description);
-		}
+        if (title == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(title);
+        }
 
-		if (summary == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(summary);
-		}
+        if (description == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(description);
+        }
 
-		if (url == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(url);
-		}
+        if (summary == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(summary);
+        }
 
-		if (layoutUuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(layoutUuid);
-		}
+        if (url == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(url);
+        }
 
-		objectOutput.writeInt(height);
-		objectOutput.writeInt(width);
-		objectOutput.writeDouble(priority);
-		objectOutput.writeInt(viewCount);
-	}
+        if (layoutUuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(layoutUuid);
+        }
 
-	public long entryId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public long classNameId;
-	public long classPK;
-	public String classUuid;
-	public long classTypeId;
-	public boolean visible;
-	public long startDate;
-	public long endDate;
-	public long publishDate;
-	public long expirationDate;
-	public String mimeType;
-	public String title;
-	public String description;
-	public String summary;
-	public String url;
-	public String layoutUuid;
-	public int height;
-	public int width;
-	public double priority;
-	public int viewCount;
+        objectOutput.writeInt(height);
+        objectOutput.writeInt(width);
+        objectOutput.writeDouble(priority);
+        objectOutput.writeInt(viewCount);
+    }
 }

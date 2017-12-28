@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.journal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -33,99 +19,95 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class JournalContentSearchCacheModel implements CacheModel<JournalContentSearch>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(15);
+    Externalizable {
+    public long contentSearchId;
+    public long groupId;
+    public long companyId;
+    public boolean privateLayout;
+    public long layoutId;
+    public String portletId;
+    public String articleId;
 
-		sb.append("{contentSearchId=");
-		sb.append(contentSearchId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", privateLayout=");
-		sb.append(privateLayout);
-		sb.append(", layoutId=");
-		sb.append(layoutId);
-		sb.append(", portletId=");
-		sb.append(portletId);
-		sb.append(", articleId=");
-		sb.append(articleId);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(15);
 
-		return sb.toString();
-	}
+        sb.append("{contentSearchId=");
+        sb.append(contentSearchId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", privateLayout=");
+        sb.append(privateLayout);
+        sb.append(", layoutId=");
+        sb.append(layoutId);
+        sb.append(", portletId=");
+        sb.append(portletId);
+        sb.append(", articleId=");
+        sb.append(articleId);
+        sb.append("}");
 
-	@Override
-	public JournalContentSearch toEntityModel() {
-		JournalContentSearchImpl journalContentSearchImpl = new JournalContentSearchImpl();
+        return sb.toString();
+    }
 
-		journalContentSearchImpl.setContentSearchId(contentSearchId);
-		journalContentSearchImpl.setGroupId(groupId);
-		journalContentSearchImpl.setCompanyId(companyId);
-		journalContentSearchImpl.setPrivateLayout(privateLayout);
-		journalContentSearchImpl.setLayoutId(layoutId);
+    @Override
+    public JournalContentSearch toEntityModel() {
+        JournalContentSearchImpl journalContentSearchImpl = new JournalContentSearchImpl();
 
-		if (portletId == null) {
-			journalContentSearchImpl.setPortletId(StringPool.BLANK);
-		}
-		else {
-			journalContentSearchImpl.setPortletId(portletId);
-		}
+        journalContentSearchImpl.setContentSearchId(contentSearchId);
+        journalContentSearchImpl.setGroupId(groupId);
+        journalContentSearchImpl.setCompanyId(companyId);
+        journalContentSearchImpl.setPrivateLayout(privateLayout);
+        journalContentSearchImpl.setLayoutId(layoutId);
 
-		if (articleId == null) {
-			journalContentSearchImpl.setArticleId(StringPool.BLANK);
-		}
-		else {
-			journalContentSearchImpl.setArticleId(articleId);
-		}
+        if (portletId == null) {
+            journalContentSearchImpl.setPortletId(StringPool.BLANK);
+        } else {
+            journalContentSearchImpl.setPortletId(portletId);
+        }
 
-		journalContentSearchImpl.resetOriginalValues();
+        if (articleId == null) {
+            journalContentSearchImpl.setArticleId(StringPool.BLANK);
+        } else {
+            journalContentSearchImpl.setArticleId(articleId);
+        }
 
-		return journalContentSearchImpl;
-	}
+        journalContentSearchImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		contentSearchId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		privateLayout = objectInput.readBoolean();
-		layoutId = objectInput.readLong();
-		portletId = objectInput.readUTF();
-		articleId = objectInput.readUTF();
-	}
+        return journalContentSearchImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(contentSearchId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeBoolean(privateLayout);
-		objectOutput.writeLong(layoutId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        contentSearchId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        privateLayout = objectInput.readBoolean();
+        layoutId = objectInput.readLong();
+        portletId = objectInput.readUTF();
+        articleId = objectInput.readUTF();
+    }
 
-		if (portletId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(portletId);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(contentSearchId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeBoolean(privateLayout);
+        objectOutput.writeLong(layoutId);
 
-		if (articleId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(articleId);
-		}
-	}
+        if (portletId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(portletId);
+        }
 
-	public long contentSearchId;
-	public long groupId;
-	public long companyId;
-	public boolean privateLayout;
-	public long layoutId;
-	public String portletId;
-	public String articleId;
+        if (articleId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(articleId);
+        }
+    }
 }

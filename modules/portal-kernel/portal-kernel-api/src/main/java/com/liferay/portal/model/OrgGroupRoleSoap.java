@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import com.liferay.portal.service.persistence.OrgGroupRolePK;
@@ -28,91 +14,90 @@ import java.util.List;
  * @generated
  */
 public class OrgGroupRoleSoap implements Serializable {
-	public static OrgGroupRoleSoap toSoapModel(OrgGroupRole model) {
-		OrgGroupRoleSoap soapModel = new OrgGroupRoleSoap();
+    private long _organizationId;
+    private long _groupId;
+    private long _roleId;
 
-		soapModel.setOrganizationId(model.getOrganizationId());
-		soapModel.setGroupId(model.getGroupId());
-		soapModel.setRoleId(model.getRoleId());
+    public OrgGroupRoleSoap() {
+    }
 
-		return soapModel;
-	}
+    public static OrgGroupRoleSoap toSoapModel(OrgGroupRole model) {
+        OrgGroupRoleSoap soapModel = new OrgGroupRoleSoap();
 
-	public static OrgGroupRoleSoap[] toSoapModels(OrgGroupRole[] models) {
-		OrgGroupRoleSoap[] soapModels = new OrgGroupRoleSoap[models.length];
+        soapModel.setOrganizationId(model.getOrganizationId());
+        soapModel.setGroupId(model.getGroupId());
+        soapModel.setRoleId(model.getRoleId());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static OrgGroupRoleSoap[] toSoapModels(OrgGroupRole[] models) {
+        OrgGroupRoleSoap[] soapModels = new OrgGroupRoleSoap[models.length];
 
-	public static OrgGroupRoleSoap[][] toSoapModels(OrgGroupRole[][] models) {
-		OrgGroupRoleSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new OrgGroupRoleSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new OrgGroupRoleSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static OrgGroupRoleSoap[][] toSoapModels(OrgGroupRole[][] models) {
+        OrgGroupRoleSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new OrgGroupRoleSoap[models.length][models[0].length];
+        } else {
+            soapModels = new OrgGroupRoleSoap[0][0];
+        }
 
-	public static OrgGroupRoleSoap[] toSoapModels(List<OrgGroupRole> models) {
-		List<OrgGroupRoleSoap> soapModels = new ArrayList<OrgGroupRoleSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (OrgGroupRole model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new OrgGroupRoleSoap[soapModels.size()]);
-	}
+    public static OrgGroupRoleSoap[] toSoapModels(List<OrgGroupRole> models) {
+        List<OrgGroupRoleSoap> soapModels = new ArrayList<OrgGroupRoleSoap>(models.size());
 
-	public OrgGroupRoleSoap() {
-	}
+        for (OrgGroupRole model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public OrgGroupRolePK getPrimaryKey() {
-		return new OrgGroupRolePK(_organizationId, _groupId, _roleId);
-	}
+        return soapModels.toArray(new OrgGroupRoleSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(OrgGroupRolePK pk) {
-		setOrganizationId(pk.organizationId);
-		setGroupId(pk.groupId);
-		setRoleId(pk.roleId);
-	}
+    public OrgGroupRolePK getPrimaryKey() {
+        return new OrgGroupRolePK(_organizationId, _groupId, _roleId);
+    }
 
-	public long getOrganizationId() {
-		return _organizationId;
-	}
+    public void setPrimaryKey(OrgGroupRolePK pk) {
+        setOrganizationId(pk.organizationId);
+        setGroupId(pk.groupId);
+        setRoleId(pk.roleId);
+    }
 
-	public void setOrganizationId(long organizationId) {
-		_organizationId = organizationId;
-	}
+    public long getOrganizationId() {
+        return _organizationId;
+    }
 
-	public long getGroupId() {
-		return _groupId;
-	}
+    public void setOrganizationId(long organizationId) {
+        _organizationId = organizationId;
+    }
 
-	public void setGroupId(long groupId) {
-		_groupId = groupId;
-	}
+    public long getGroupId() {
+        return _groupId;
+    }
 
-	public long getRoleId() {
-		return _roleId;
-	}
+    public void setGroupId(long groupId) {
+        _groupId = groupId;
+    }
 
-	public void setRoleId(long roleId) {
-		_roleId = roleId;
-	}
+    public long getRoleId() {
+        return _roleId;
+    }
 
-	private long _organizationId;
-	private long _groupId;
-	private long _roleId;
+    public void setRoleId(long roleId) {
+        _roleId = roleId;
+    }
 }

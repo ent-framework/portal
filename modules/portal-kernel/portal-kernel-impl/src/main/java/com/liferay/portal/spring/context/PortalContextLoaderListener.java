@@ -174,8 +174,6 @@ public class PortalContextLoaderListener extends ContextLoaderListener {
 			throw new RuntimeException(cnfe);
 		}
 		
-		System.out.println("contextInitialized:" + ClassLoaderUtil.getPortalClassLoader().getClass().getName());
-
 		DBFactoryUtil.reset();
 		DeployManagerUtil.reset();
 		InstancePool.reset();
@@ -233,7 +231,7 @@ public class PortalContextLoaderListener extends ContextLoaderListener {
 
 		ApplicationContext applicationContext = WebApplicationContextUtils.getWebApplicationContext(servletContext);
 
-//		ApplicationContext applicationContext = ContextLoader.getCurrentWebApplicationContext();
+		//ApplicationContext applicationContext = ContextLoader.getCurrentWebApplicationContext();
 
 //		try {
 //			BeanReferenceRefreshUtil.refresh(applicationContext);
@@ -242,32 +240,22 @@ public class PortalContextLoaderListener extends ContextLoaderListener {
 //			_log.error(e, e);
 //		}
 
-		FinderCacheUtil finderCacheUtil = applicationContext.getBean(FinderCacheUtil.class);
-		EntityCacheUtil entityCacheUtil = applicationContext.getBean(EntityCacheUtil.class);
-		//PermissionCacheUtil permissionCacheUtil = applicationContext.getBean(PermissionCacheUtil.class);
-		TemplateResourceLoaderUtil templateResourceLoaderUtil = applicationContext.getBean(TemplateResourceLoaderUtil.class);
-
-		CacheUtil cacheUtil = applicationContext.getBean(CacheUtil.class);
-		MultiVMPoolUtil multiVMPoolUtil = applicationContext.getBean(MultiVMPoolUtil.class);
-		SingleVMPoolUtil singleVMPoolUtil = applicationContext.getBean(SingleVMPoolUtil.class);
-		WebCachePoolUtil webCachePoolUtil = applicationContext.getBean(WebCachePoolUtil.class);
-		
 		if (CACHE_CLEAR_ON_CONTEXT_INITIALIZATION) {
-			finderCacheUtil.clearCache();
-			finderCacheUtil.clearLocalCache();
-			entityCacheUtil.clearCache();
-			entityCacheUtil.clearLocalCache();
+			FinderCacheUtil.clearCache();
+			FinderCacheUtil.clearLocalCache();
+			EntityCacheUtil.clearCache();
+			EntityCacheUtil.clearLocalCache();
 			PermissionCacheUtil.clearCache();
 			PermissionCacheUtil.clearLocalCache();
-			templateResourceLoaderUtil.clearCache();
+			TemplateResourceLoaderUtil.clearCache();
 		//	WikiCacheUtil.clearCache(0);
 
 			ServletContextPool.clear();
 
-			cacheUtil.clearCache();
-			multiVMPoolUtil.clear();
-			singleVMPoolUtil.clear();
-			webCachePoolUtil.clear();
+			CacheUtil.clearCache();
+			MultiVMPoolUtil.clear();
+			SingleVMPoolUtil.clear();
+			WebCachePoolUtil.clear();
 		}
 
 		ClassLoader portalClassLoader = ClassLoaderUtil.getPortalClassLoader();
@@ -276,21 +264,21 @@ public class PortalContextLoaderListener extends ContextLoaderListener {
 
 		ServletContextPool.put(_portalServlerContextName, servletContext);
 
-		BeanLocatorImpl beanLocatorImpl = new BeanLocatorImpl(portalClassLoader, applicationContext);
-
-		PortalBeanLocatorUtil.setBeanLocator(beanLocatorImpl);
-
-		ClassLoader classLoader = portalClassLoader;
-
-		while (classLoader != null) {
-			CachedIntrospectionResults.clearClassLoader(classLoader);
-
-			classLoader = classLoader.getParent();
-		}
-
-		AutowireCapableBeanFactory autowireCapableBeanFactory = applicationContext.getAutowireCapableBeanFactory();
-
-		clearFilteredPropertyDescriptorsCache(autowireCapableBeanFactory);
+//		BeanLocatorImpl beanLocatorImpl = new BeanLocatorImpl(portalClassLoader, applicationContext);
+//
+//		PortalBeanLocatorUtil.setBeanLocator(beanLocatorImpl);
+//
+//		ClassLoader classLoader = portalClassLoader;
+//
+//		while (classLoader != null) {
+//			CachedIntrospectionResults.clearClassLoader(classLoader);
+//
+//			classLoader = classLoader.getParent();
+//		}
+//
+//		AutowireCapableBeanFactory autowireCapableBeanFactory = applicationContext.getAutowireCapableBeanFactory();
+//
+//		clearFilteredPropertyDescriptorsCache(autowireCapableBeanFactory);
 
 	}
 

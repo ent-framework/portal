@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.dynamicdatalists.service.http;
 
 import aQute.bnd.annotation.ProviderType;
@@ -69,200 +55,190 @@ import java.util.Map;
  */
 @ProviderType
 public class DDLRecordSetServiceSoap {
-	public static com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap addRecordSet(
-		long groupId, long ddmStructureId, java.lang.String recordSetKey,
-		java.lang.String[] nameMapLanguageIds,
-		java.lang.String[] nameMapValues,
-		java.lang.String[] descriptionMapLanguageIds,
-		java.lang.String[] descriptionMapValues, int minDisplayRows, int scope,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			Map<Locale, String> nameMap = LocalizationUtil.getLocalizationMap(nameMapLanguageIds,
-					nameMapValues);
-			Map<Locale, String> descriptionMap = LocalizationUtil.getLocalizationMap(descriptionMapLanguageIds,
-					descriptionMapValues);
+    private static Log _log = LogFactoryUtil.getLog(DDLRecordSetServiceSoap.class);
 
-			com.liferay.portlet.dynamicdatalists.model.DDLRecordSet returnValue = DDLRecordSetServiceUtil.addRecordSet(groupId,
-					ddmStructureId, recordSetKey, nameMap, descriptionMap,
-					minDisplayRows, scope, serviceContext);
+    public static com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap addRecordSet(
+        long groupId, long ddmStructureId, java.lang.String recordSetKey,
+        java.lang.String[] nameMapLanguageIds,
+        java.lang.String[] nameMapValues,
+        java.lang.String[] descriptionMapLanguageIds,
+        java.lang.String[] descriptionMapValues, int minDisplayRows, int scope,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            Map<Locale, String> nameMap = LocalizationUtil.getLocalizationMap(nameMapLanguageIds,
+                    nameMapValues);
+            Map<Locale, String> descriptionMap = LocalizationUtil.getLocalizationMap(descriptionMapLanguageIds,
+                    descriptionMapValues);
 
-			return com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            com.liferay.portlet.dynamicdatalists.model.DDLRecordSet returnValue = DDLRecordSetServiceUtil.addRecordSet(groupId,
+                    ddmStructureId, recordSetKey, nameMap, descriptionMap,
+                    minDisplayRows, scope, serviceContext);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void deleteRecordSet(long recordSetId)
-		throws RemoteException {
-		try {
-			DDLRecordSetServiceUtil.deleteRecordSet(recordSetId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void deleteRecordSet(long recordSetId)
+        throws RemoteException {
+        try {
+            DDLRecordSetServiceUtil.deleteRecordSet(recordSetId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap getRecordSet(
-		long recordSetId) throws RemoteException {
-		try {
-			com.liferay.portlet.dynamicdatalists.model.DDLRecordSet returnValue = DDLRecordSetServiceUtil.getRecordSet(recordSetId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap getRecordSet(
+        long recordSetId) throws RemoteException {
+        try {
+            com.liferay.portlet.dynamicdatalists.model.DDLRecordSet returnValue = DDLRecordSetServiceUtil.getRecordSet(recordSetId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap[] search(
-		long companyId, long groupId, java.lang.String keywords, int scope,
-		int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws RemoteException {
-		try {
-			java.util.List<com.liferay.portlet.dynamicdatalists.model.DDLRecordSet> returnValue =
-				DDLRecordSetServiceUtil.search(companyId, groupId, keywords,
-					scope, start, end, orderByComparator);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap[] search(
+        long companyId, long groupId, java.lang.String keywords, int scope,
+        int start, int end,
+        com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+        throws RemoteException {
+        try {
+            java.util.List<com.liferay.portlet.dynamicdatalists.model.DDLRecordSet> returnValue =
+                DDLRecordSetServiceUtil.search(companyId, groupId, keywords,
+                    scope, start, end, orderByComparator);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap[] search(
-		long companyId, long groupId, java.lang.String name,
-		java.lang.String description, int scope, boolean andOperator,
-		int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws RemoteException {
-		try {
-			java.util.List<com.liferay.portlet.dynamicdatalists.model.DDLRecordSet> returnValue =
-				DDLRecordSetServiceUtil.search(companyId, groupId, name,
-					description, scope, andOperator, start, end,
-					orderByComparator);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap[] search(
+        long companyId, long groupId, java.lang.String name,
+        java.lang.String description, int scope, boolean andOperator,
+        int start, int end,
+        com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+        throws RemoteException {
+        try {
+            java.util.List<com.liferay.portlet.dynamicdatalists.model.DDLRecordSet> returnValue =
+                DDLRecordSetServiceUtil.search(companyId, groupId, name,
+                    description, scope, andOperator, start, end,
+                    orderByComparator);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static int searchCount(long companyId, long groupId,
-		java.lang.String keywords, int scope) throws RemoteException {
-		try {
-			int returnValue = DDLRecordSetServiceUtil.searchCount(companyId,
-					groupId, keywords, scope);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return returnValue;
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static int searchCount(long companyId, long groupId,
+        java.lang.String keywords, int scope) throws RemoteException {
+        try {
+            int returnValue = DDLRecordSetServiceUtil.searchCount(companyId,
+                    groupId, keywords, scope);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return returnValue;
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static int searchCount(long companyId, long groupId,
-		java.lang.String name, java.lang.String description, int scope,
-		boolean andOperator) throws RemoteException {
-		try {
-			int returnValue = DDLRecordSetServiceUtil.searchCount(companyId,
-					groupId, name, description, scope, andOperator);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return returnValue;
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static int searchCount(long companyId, long groupId,
+        java.lang.String name, java.lang.String description, int scope,
+        boolean andOperator) throws RemoteException {
+        try {
+            int returnValue = DDLRecordSetServiceUtil.searchCount(companyId,
+                    groupId, name, description, scope, andOperator);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return returnValue;
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap updateMinDisplayRows(
-		long recordSetId, int minDisplayRows,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			com.liferay.portlet.dynamicdatalists.model.DDLRecordSet returnValue = DDLRecordSetServiceUtil.updateMinDisplayRows(recordSetId,
-					minDisplayRows, serviceContext);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap updateMinDisplayRows(
+        long recordSetId, int minDisplayRows,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            com.liferay.portlet.dynamicdatalists.model.DDLRecordSet returnValue = DDLRecordSetServiceUtil.updateMinDisplayRows(recordSetId,
+                    minDisplayRows, serviceContext);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap updateRecordSet(
-		long recordSetId, long ddmStructureId,
-		java.lang.String[] nameMapLanguageIds,
-		java.lang.String[] nameMapValues,
-		java.lang.String[] descriptionMapLanguageIds,
-		java.lang.String[] descriptionMapValues, int minDisplayRows,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			Map<Locale, String> nameMap = LocalizationUtil.getLocalizationMap(nameMapLanguageIds,
-					nameMapValues);
-			Map<Locale, String> descriptionMap = LocalizationUtil.getLocalizationMap(descriptionMapLanguageIds,
-					descriptionMapValues);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			com.liferay.portlet.dynamicdatalists.model.DDLRecordSet returnValue = DDLRecordSetServiceUtil.updateRecordSet(recordSetId,
-					ddmStructureId, nameMap, descriptionMap, minDisplayRows,
-					serviceContext);
+    public static com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap updateRecordSet(
+        long recordSetId, long ddmStructureId,
+        java.lang.String[] nameMapLanguageIds,
+        java.lang.String[] nameMapValues,
+        java.lang.String[] descriptionMapLanguageIds,
+        java.lang.String[] descriptionMapValues, int minDisplayRows,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            Map<Locale, String> nameMap = LocalizationUtil.getLocalizationMap(nameMapLanguageIds,
+                    nameMapValues);
+            Map<Locale, String> descriptionMap = LocalizationUtil.getLocalizationMap(descriptionMapLanguageIds,
+                    descriptionMapValues);
 
-			return com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            com.liferay.portlet.dynamicdatalists.model.DDLRecordSet returnValue = DDLRecordSetServiceUtil.updateRecordSet(recordSetId,
+                    ddmStructureId, nameMap, descriptionMap, minDisplayRows,
+                    serviceContext);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap updateRecordSet(
-		long groupId, long ddmStructureId, java.lang.String recordSetKey,
-		java.lang.String[] nameMapLanguageIds,
-		java.lang.String[] nameMapValues,
-		java.lang.String[] descriptionMapLanguageIds,
-		java.lang.String[] descriptionMapValues, int minDisplayRows,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			Map<Locale, String> nameMap = LocalizationUtil.getLocalizationMap(nameMapLanguageIds,
-					nameMapValues);
-			Map<Locale, String> descriptionMap = LocalizationUtil.getLocalizationMap(descriptionMapLanguageIds,
-					descriptionMapValues);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			com.liferay.portlet.dynamicdatalists.model.DDLRecordSet returnValue = DDLRecordSetServiceUtil.updateRecordSet(groupId,
-					ddmStructureId, recordSetKey, nameMap, descriptionMap,
-					minDisplayRows, serviceContext);
+    public static com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap updateRecordSet(
+        long groupId, long ddmStructureId, java.lang.String recordSetKey,
+        java.lang.String[] nameMapLanguageIds,
+        java.lang.String[] nameMapValues,
+        java.lang.String[] descriptionMapLanguageIds,
+        java.lang.String[] descriptionMapValues, int minDisplayRows,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            Map<Locale, String> nameMap = LocalizationUtil.getLocalizationMap(nameMapLanguageIds,
+                    nameMapValues);
+            Map<Locale, String> descriptionMap = LocalizationUtil.getLocalizationMap(descriptionMapLanguageIds,
+                    descriptionMapValues);
 
-			return com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            com.liferay.portlet.dynamicdatalists.model.DDLRecordSet returnValue = DDLRecordSetServiceUtil.updateRecordSet(groupId,
+                    ddmStructureId, recordSetKey, nameMap, descriptionMap,
+                    minDisplayRows, serviceContext);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.dynamicdatalists.model.DDLRecordSetSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	private static Log _log = LogFactoryUtil.getLog(DDLRecordSetServiceSoap.class);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

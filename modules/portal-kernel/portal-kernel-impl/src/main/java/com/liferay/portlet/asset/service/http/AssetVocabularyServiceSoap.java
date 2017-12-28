@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.asset.service.http;
 
 import aQute.bnd.annotation.ProviderType;
@@ -69,404 +55,382 @@ import java.util.Map;
  */
 @ProviderType
 public class AssetVocabularyServiceSoap {
-	/**
-	* @deprecated As of 6.1.0 {@link #addVocabulary(String, Map, Map, String,
-	ServiceContext)}
-	*/
-	public static com.liferay.portlet.asset.model.AssetVocabularySoap addVocabulary(
-		java.lang.String[] titleMapLanguageIds,
-		java.lang.String[] titleMapValues,
-		java.lang.String[] descriptionMapLanguageIds,
-		java.lang.String[] descriptionMapValues, java.lang.String settings,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			Map<Locale, String> titleMap = LocalizationUtil.getLocalizationMap(titleMapLanguageIds,
-					titleMapValues);
-			Map<Locale, String> descriptionMap = LocalizationUtil.getLocalizationMap(descriptionMapLanguageIds,
-					descriptionMapValues);
-
-			com.liferay.portlet.asset.model.AssetVocabulary returnValue = AssetVocabularyServiceUtil.addVocabulary(titleMap,
-					descriptionMap, settings, serviceContext);
-
-			return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-
-			throw new RemoteException(e.getMessage());
-		}
-	}
-
-	public static com.liferay.portlet.asset.model.AssetVocabularySoap addVocabulary(
-		java.lang.String title, java.lang.String[] titleMapLanguageIds,
-		java.lang.String[] titleMapValues,
-		java.lang.String[] descriptionMapLanguageIds,
-		java.lang.String[] descriptionMapValues, java.lang.String settings,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			Map<Locale, String> titleMap = LocalizationUtil.getLocalizationMap(titleMapLanguageIds,
-					titleMapValues);
-			Map<Locale, String> descriptionMap = LocalizationUtil.getLocalizationMap(descriptionMapLanguageIds,
-					descriptionMapValues);
-
-			com.liferay.portlet.asset.model.AssetVocabulary returnValue = AssetVocabularyServiceUtil.addVocabulary(title,
-					titleMap, descriptionMap, settings, serviceContext);
-
-			return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-
-			throw new RemoteException(e.getMessage());
-		}
-	}
-
-	public static com.liferay.portlet.asset.model.AssetVocabularySoap addVocabulary(
-		java.lang.String title,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			com.liferay.portlet.asset.model.AssetVocabulary returnValue = AssetVocabularyServiceUtil.addVocabulary(title,
-					serviceContext);
-
-			return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-
-			throw new RemoteException(e.getMessage());
-		}
-	}
-
-	/**
-	* @deprecated As of 6.2.0, Replaced by {@link #deleteVocabularies(long[],
-	ServiceContext)}
-	*/
-	public static void deleteVocabularies(long[] vocabularyIds)
-		throws RemoteException {
-		try {
-			AssetVocabularyServiceUtil.deleteVocabularies(vocabularyIds);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-
-			throw new RemoteException(e.getMessage());
-		}
-	}
-
-	public static com.liferay.portlet.asset.model.AssetVocabularySoap[] deleteVocabularies(
-		long[] vocabularyIds,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			java.util.List<com.liferay.portlet.asset.model.AssetVocabulary> returnValue =
-				AssetVocabularyServiceUtil.deleteVocabularies(vocabularyIds,
-					serviceContext);
-
-			return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-
-			throw new RemoteException(e.getMessage());
-		}
-	}
-
-	public static void deleteVocabulary(long vocabularyId)
-		throws RemoteException {
-		try {
-			AssetVocabularyServiceUtil.deleteVocabulary(vocabularyId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-
-			throw new RemoteException(e.getMessage());
-		}
-	}
-
-	public static com.liferay.portlet.asset.model.AssetVocabularySoap[] getCompanyVocabularies(
-		long companyId) throws RemoteException {
-		try {
-			java.util.List<com.liferay.portlet.asset.model.AssetVocabulary> returnValue =
-				AssetVocabularyServiceUtil.getCompanyVocabularies(companyId);
-
-			return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-
-			throw new RemoteException(e.getMessage());
-		}
-	}
-
-	public static com.liferay.portlet.asset.model.AssetVocabularySoap[] getGroupsVocabularies(
-		long[] groupIds) throws RemoteException {
-		try {
-			java.util.List<com.liferay.portlet.asset.model.AssetVocabulary> returnValue =
-				AssetVocabularyServiceUtil.getGroupsVocabularies(groupIds);
-
-			return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-
-			throw new RemoteException(e.getMessage());
-		}
-	}
-
-	public static com.liferay.portlet.asset.model.AssetVocabularySoap[] getGroupsVocabularies(
-		long[] groupIds, java.lang.String className) throws RemoteException {
-		try {
-			java.util.List<com.liferay.portlet.asset.model.AssetVocabulary> returnValue =
-				AssetVocabularyServiceUtil.getGroupsVocabularies(groupIds,
-					className);
-
-			return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-
-			throw new RemoteException(e.getMessage());
-		}
-	}
-
-	public static com.liferay.portlet.asset.model.AssetVocabularySoap[] getGroupVocabularies(
-		long groupId) throws RemoteException {
-		try {
-			java.util.List<com.liferay.portlet.asset.model.AssetVocabulary> returnValue =
-				AssetVocabularyServiceUtil.getGroupVocabularies(groupId);
-
-			return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-
-			throw new RemoteException(e.getMessage());
-		}
-	}
-
-	public static com.liferay.portlet.asset.model.AssetVocabularySoap[] getGroupVocabularies(
-		long groupId, boolean createDefaultVocabulary)
-		throws RemoteException {
-		try {
-			java.util.List<com.liferay.portlet.asset.model.AssetVocabulary> returnValue =
-				AssetVocabularyServiceUtil.getGroupVocabularies(groupId,
-					createDefaultVocabulary);
-
-			return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-
-			throw new RemoteException(e.getMessage());
-		}
-	}
-
-	public static com.liferay.portlet.asset.model.AssetVocabularySoap[] getGroupVocabularies(
-		long groupId, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator obc)
-		throws RemoteException {
-		try {
-			java.util.List<com.liferay.portlet.asset.model.AssetVocabulary> returnValue =
-				AssetVocabularyServiceUtil.getGroupVocabularies(groupId, start,
-					end, obc);
-
-			return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-
-			throw new RemoteException(e.getMessage());
-		}
-	}
-
-	public static com.liferay.portlet.asset.model.AssetVocabularySoap[] getGroupVocabularies(
-		long groupId, java.lang.String name, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator obc)
-		throws RemoteException {
-		try {
-			java.util.List<com.liferay.portlet.asset.model.AssetVocabulary> returnValue =
-				AssetVocabularyServiceUtil.getGroupVocabularies(groupId, name,
-					start, end, obc);
-
-			return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-
-			throw new RemoteException(e.getMessage());
-		}
-	}
-
-	public static int getGroupVocabulariesCount(long groupId)
-		throws RemoteException {
-		try {
-			int returnValue = AssetVocabularyServiceUtil.getGroupVocabulariesCount(groupId);
-
-			return returnValue;
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-
-			throw new RemoteException(e.getMessage());
-		}
-	}
-
-	public static int getGroupVocabulariesCount(long groupId,
-		java.lang.String name) throws RemoteException {
-		try {
-			int returnValue = AssetVocabularyServiceUtil.getGroupVocabulariesCount(groupId,
-					name);
-
-			return returnValue;
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-
-			throw new RemoteException(e.getMessage());
-		}
-	}
-
-	public static com.liferay.portlet.asset.model.AssetVocabularyDisplay getGroupVocabulariesDisplay(
-		long groupId, java.lang.String title, int start, int end,
-		boolean addDefaultVocabulary,
-		com.liferay.portal.kernel.util.OrderByComparator obc)
-		throws RemoteException {
-		try {
-			com.liferay.portlet.asset.model.AssetVocabularyDisplay returnValue = AssetVocabularyServiceUtil.getGroupVocabulariesDisplay(groupId,
-					title, start, end, addDefaultVocabulary, obc);
-
-			return returnValue;
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-
-			throw new RemoteException(e.getMessage());
-		}
-	}
-
-	public static com.liferay.portlet.asset.model.AssetVocabularyDisplay getGroupVocabulariesDisplay(
-		long groupId, java.lang.String name, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator obc)
-		throws RemoteException {
-		try {
-			com.liferay.portlet.asset.model.AssetVocabularyDisplay returnValue = AssetVocabularyServiceUtil.getGroupVocabulariesDisplay(groupId,
-					name, start, end, obc);
-
-			return returnValue;
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-
-			throw new RemoteException(e.getMessage());
-		}
-	}
-
-	/**
-	* @deprecated As of 6.2.0, with no direct replacement
-	*/
-	public static java.lang.String getJSONGroupVocabularies(long groupId,
-		java.lang.String name, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator obc)
-		throws RemoteException {
-		try {
-			com.liferay.portal.kernel.json.JSONObject returnValue = AssetVocabularyServiceUtil.getJSONGroupVocabularies(groupId,
-					name, start, end, obc);
-
-			return returnValue.toString();
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-
-			throw new RemoteException(e.getMessage());
-		}
-	}
-
-	public static com.liferay.portlet.asset.model.AssetVocabularySoap[] getVocabularies(
-		long[] vocabularyIds) throws RemoteException {
-		try {
-			java.util.List<com.liferay.portlet.asset.model.AssetVocabulary> returnValue =
-				AssetVocabularyServiceUtil.getVocabularies(vocabularyIds);
-
-			return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-
-			throw new RemoteException(e.getMessage());
-		}
-	}
-
-	public static com.liferay.portlet.asset.model.AssetVocabularySoap getVocabulary(
-		long vocabularyId) throws RemoteException {
-		try {
-			com.liferay.portlet.asset.model.AssetVocabulary returnValue = AssetVocabularyServiceUtil.getVocabulary(vocabularyId);
-
-			return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-
-			throw new RemoteException(e.getMessage());
-		}
-	}
-
-	/**
-	* @deprecated As of 6.1.0, {@link #updateVocabulary(long, String, Map, Map,
-	String, ServiceContext)}
-	*/
-	public static com.liferay.portlet.asset.model.AssetVocabularySoap updateVocabulary(
-		long vocabularyId, java.lang.String[] titleMapLanguageIds,
-		java.lang.String[] titleMapValues,
-		java.lang.String[] descriptionMapLanguageIds,
-		java.lang.String[] descriptionMapValues, java.lang.String settings,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			Map<Locale, String> titleMap = LocalizationUtil.getLocalizationMap(titleMapLanguageIds,
-					titleMapValues);
-			Map<Locale, String> descriptionMap = LocalizationUtil.getLocalizationMap(descriptionMapLanguageIds,
-					descriptionMapValues);
-
-			com.liferay.portlet.asset.model.AssetVocabulary returnValue = AssetVocabularyServiceUtil.updateVocabulary(vocabularyId,
-					titleMap, descriptionMap, settings, serviceContext);
-
-			return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-
-			throw new RemoteException(e.getMessage());
-		}
-	}
-
-	public static com.liferay.portlet.asset.model.AssetVocabularySoap updateVocabulary(
-		long vocabularyId, java.lang.String title,
-		java.lang.String[] titleMapLanguageIds,
-		java.lang.String[] titleMapValues,
-		java.lang.String[] descriptionMapLanguageIds,
-		java.lang.String[] descriptionMapValues, java.lang.String settings,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			Map<Locale, String> titleMap = LocalizationUtil.getLocalizationMap(titleMapLanguageIds,
-					titleMapValues);
-			Map<Locale, String> descriptionMap = LocalizationUtil.getLocalizationMap(descriptionMapLanguageIds,
-					descriptionMapValues);
-
-			com.liferay.portlet.asset.model.AssetVocabulary returnValue = AssetVocabularyServiceUtil.updateVocabulary(vocabularyId,
-					title, titleMap, descriptionMap, settings, serviceContext);
-
-			return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-
-			throw new RemoteException(e.getMessage());
-		}
-	}
-
-	private static Log _log = LogFactoryUtil.getLog(AssetVocabularyServiceSoap.class);
+    private static Log _log = LogFactoryUtil.getLog(AssetVocabularyServiceSoap.class);
+
+    /**
+    * @deprecated As of 6.1.0 {@link #addVocabulary(String, Map, Map, String,
+    ServiceContext)}
+    */
+    public static com.liferay.portlet.asset.model.AssetVocabularySoap addVocabulary(
+        java.lang.String[] titleMapLanguageIds,
+        java.lang.String[] titleMapValues,
+        java.lang.String[] descriptionMapLanguageIds,
+        java.lang.String[] descriptionMapValues, java.lang.String settings,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            Map<Locale, String> titleMap = LocalizationUtil.getLocalizationMap(titleMapLanguageIds,
+                    titleMapValues);
+            Map<Locale, String> descriptionMap = LocalizationUtil.getLocalizationMap(descriptionMapLanguageIds,
+                    descriptionMapValues);
+
+            com.liferay.portlet.asset.model.AssetVocabulary returnValue = AssetVocabularyServiceUtil.addVocabulary(titleMap,
+                    descriptionMap, settings, serviceContext);
+
+            return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
+
+            throw new RemoteException(e.getMessage());
+        }
+    }
+
+    public static com.liferay.portlet.asset.model.AssetVocabularySoap addVocabulary(
+        java.lang.String title, java.lang.String[] titleMapLanguageIds,
+        java.lang.String[] titleMapValues,
+        java.lang.String[] descriptionMapLanguageIds,
+        java.lang.String[] descriptionMapValues, java.lang.String settings,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            Map<Locale, String> titleMap = LocalizationUtil.getLocalizationMap(titleMapLanguageIds,
+                    titleMapValues);
+            Map<Locale, String> descriptionMap = LocalizationUtil.getLocalizationMap(descriptionMapLanguageIds,
+                    descriptionMapValues);
+
+            com.liferay.portlet.asset.model.AssetVocabulary returnValue = AssetVocabularyServiceUtil.addVocabulary(title,
+                    titleMap, descriptionMap, settings, serviceContext);
+
+            return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
+
+            throw new RemoteException(e.getMessage());
+        }
+    }
+
+    public static com.liferay.portlet.asset.model.AssetVocabularySoap addVocabulary(
+        java.lang.String title,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            com.liferay.portlet.asset.model.AssetVocabulary returnValue = AssetVocabularyServiceUtil.addVocabulary(title,
+                    serviceContext);
+
+            return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
+
+            throw new RemoteException(e.getMessage());
+        }
+    }
+
+    /**
+    * @deprecated As of 6.2.0, Replaced by {@link #deleteVocabularies(long[],
+    ServiceContext)}
+    */
+    public static void deleteVocabularies(long[] vocabularyIds)
+        throws RemoteException {
+        try {
+            AssetVocabularyServiceUtil.deleteVocabularies(vocabularyIds);
+        } catch (Exception e) {
+            _log.error(e, e);
+
+            throw new RemoteException(e.getMessage());
+        }
+    }
+
+    public static com.liferay.portlet.asset.model.AssetVocabularySoap[] deleteVocabularies(
+        long[] vocabularyIds,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            java.util.List<com.liferay.portlet.asset.model.AssetVocabulary> returnValue =
+                AssetVocabularyServiceUtil.deleteVocabularies(vocabularyIds,
+                    serviceContext);
+
+            return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
+
+            throw new RemoteException(e.getMessage());
+        }
+    }
+
+    public static void deleteVocabulary(long vocabularyId)
+        throws RemoteException {
+        try {
+            AssetVocabularyServiceUtil.deleteVocabulary(vocabularyId);
+        } catch (Exception e) {
+            _log.error(e, e);
+
+            throw new RemoteException(e.getMessage());
+        }
+    }
+
+    public static com.liferay.portlet.asset.model.AssetVocabularySoap[] getCompanyVocabularies(
+        long companyId) throws RemoteException {
+        try {
+            java.util.List<com.liferay.portlet.asset.model.AssetVocabulary> returnValue =
+                AssetVocabularyServiceUtil.getCompanyVocabularies(companyId);
+
+            return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
+
+            throw new RemoteException(e.getMessage());
+        }
+    }
+
+    public static com.liferay.portlet.asset.model.AssetVocabularySoap[] getGroupsVocabularies(
+        long[] groupIds) throws RemoteException {
+        try {
+            java.util.List<com.liferay.portlet.asset.model.AssetVocabulary> returnValue =
+                AssetVocabularyServiceUtil.getGroupsVocabularies(groupIds);
+
+            return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
+
+            throw new RemoteException(e.getMessage());
+        }
+    }
+
+    public static com.liferay.portlet.asset.model.AssetVocabularySoap[] getGroupsVocabularies(
+        long[] groupIds, java.lang.String className) throws RemoteException {
+        try {
+            java.util.List<com.liferay.portlet.asset.model.AssetVocabulary> returnValue =
+                AssetVocabularyServiceUtil.getGroupsVocabularies(groupIds,
+                    className);
+
+            return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
+
+            throw new RemoteException(e.getMessage());
+        }
+    }
+
+    public static com.liferay.portlet.asset.model.AssetVocabularySoap[] getGroupVocabularies(
+        long groupId) throws RemoteException {
+        try {
+            java.util.List<com.liferay.portlet.asset.model.AssetVocabulary> returnValue =
+                AssetVocabularyServiceUtil.getGroupVocabularies(groupId);
+
+            return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
+
+            throw new RemoteException(e.getMessage());
+        }
+    }
+
+    public static com.liferay.portlet.asset.model.AssetVocabularySoap[] getGroupVocabularies(
+        long groupId, boolean createDefaultVocabulary)
+        throws RemoteException {
+        try {
+            java.util.List<com.liferay.portlet.asset.model.AssetVocabulary> returnValue =
+                AssetVocabularyServiceUtil.getGroupVocabularies(groupId,
+                    createDefaultVocabulary);
+
+            return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
+
+            throw new RemoteException(e.getMessage());
+        }
+    }
+
+    public static com.liferay.portlet.asset.model.AssetVocabularySoap[] getGroupVocabularies(
+        long groupId, int start, int end,
+        com.liferay.portal.kernel.util.OrderByComparator obc)
+        throws RemoteException {
+        try {
+            java.util.List<com.liferay.portlet.asset.model.AssetVocabulary> returnValue =
+                AssetVocabularyServiceUtil.getGroupVocabularies(groupId, start,
+                    end, obc);
+
+            return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
+
+            throw new RemoteException(e.getMessage());
+        }
+    }
+
+    public static com.liferay.portlet.asset.model.AssetVocabularySoap[] getGroupVocabularies(
+        long groupId, java.lang.String name, int start, int end,
+        com.liferay.portal.kernel.util.OrderByComparator obc)
+        throws RemoteException {
+        try {
+            java.util.List<com.liferay.portlet.asset.model.AssetVocabulary> returnValue =
+                AssetVocabularyServiceUtil.getGroupVocabularies(groupId, name,
+                    start, end, obc);
+
+            return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
+
+            throw new RemoteException(e.getMessage());
+        }
+    }
+
+    public static int getGroupVocabulariesCount(long groupId)
+        throws RemoteException {
+        try {
+            int returnValue = AssetVocabularyServiceUtil.getGroupVocabulariesCount(groupId);
+
+            return returnValue;
+        } catch (Exception e) {
+            _log.error(e, e);
+
+            throw new RemoteException(e.getMessage());
+        }
+    }
+
+    public static int getGroupVocabulariesCount(long groupId,
+        java.lang.String name) throws RemoteException {
+        try {
+            int returnValue = AssetVocabularyServiceUtil.getGroupVocabulariesCount(groupId,
+                    name);
+
+            return returnValue;
+        } catch (Exception e) {
+            _log.error(e, e);
+
+            throw new RemoteException(e.getMessage());
+        }
+    }
+
+    public static com.liferay.portlet.asset.model.AssetVocabularyDisplay getGroupVocabulariesDisplay(
+        long groupId, java.lang.String title, int start, int end,
+        boolean addDefaultVocabulary,
+        com.liferay.portal.kernel.util.OrderByComparator obc)
+        throws RemoteException {
+        try {
+            com.liferay.portlet.asset.model.AssetVocabularyDisplay returnValue = AssetVocabularyServiceUtil.getGroupVocabulariesDisplay(groupId,
+                    title, start, end, addDefaultVocabulary, obc);
+
+            return returnValue;
+        } catch (Exception e) {
+            _log.error(e, e);
+
+            throw new RemoteException(e.getMessage());
+        }
+    }
+
+    public static com.liferay.portlet.asset.model.AssetVocabularyDisplay getGroupVocabulariesDisplay(
+        long groupId, java.lang.String name, int start, int end,
+        com.liferay.portal.kernel.util.OrderByComparator obc)
+        throws RemoteException {
+        try {
+            com.liferay.portlet.asset.model.AssetVocabularyDisplay returnValue = AssetVocabularyServiceUtil.getGroupVocabulariesDisplay(groupId,
+                    name, start, end, obc);
+
+            return returnValue;
+        } catch (Exception e) {
+            _log.error(e, e);
+
+            throw new RemoteException(e.getMessage());
+        }
+    }
+
+    /**
+    * @deprecated As of 6.2.0, with no direct replacement
+    */
+    public static java.lang.String getJSONGroupVocabularies(long groupId,
+        java.lang.String name, int start, int end,
+        com.liferay.portal.kernel.util.OrderByComparator obc)
+        throws RemoteException {
+        try {
+            com.liferay.portal.kernel.json.JSONObject returnValue = AssetVocabularyServiceUtil.getJSONGroupVocabularies(groupId,
+                    name, start, end, obc);
+
+            return returnValue.toString();
+        } catch (Exception e) {
+            _log.error(e, e);
+
+            throw new RemoteException(e.getMessage());
+        }
+    }
+
+    public static com.liferay.portlet.asset.model.AssetVocabularySoap[] getVocabularies(
+        long[] vocabularyIds) throws RemoteException {
+        try {
+            java.util.List<com.liferay.portlet.asset.model.AssetVocabulary> returnValue =
+                AssetVocabularyServiceUtil.getVocabularies(vocabularyIds);
+
+            return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
+
+            throw new RemoteException(e.getMessage());
+        }
+    }
+
+    public static com.liferay.portlet.asset.model.AssetVocabularySoap getVocabulary(
+        long vocabularyId) throws RemoteException {
+        try {
+            com.liferay.portlet.asset.model.AssetVocabulary returnValue = AssetVocabularyServiceUtil.getVocabulary(vocabularyId);
+
+            return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
+
+            throw new RemoteException(e.getMessage());
+        }
+    }
+
+    /**
+    * @deprecated As of 6.1.0, {@link #updateVocabulary(long, String, Map, Map,
+    String, ServiceContext)}
+    */
+    public static com.liferay.portlet.asset.model.AssetVocabularySoap updateVocabulary(
+        long vocabularyId, java.lang.String[] titleMapLanguageIds,
+        java.lang.String[] titleMapValues,
+        java.lang.String[] descriptionMapLanguageIds,
+        java.lang.String[] descriptionMapValues, java.lang.String settings,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            Map<Locale, String> titleMap = LocalizationUtil.getLocalizationMap(titleMapLanguageIds,
+                    titleMapValues);
+            Map<Locale, String> descriptionMap = LocalizationUtil.getLocalizationMap(descriptionMapLanguageIds,
+                    descriptionMapValues);
+
+            com.liferay.portlet.asset.model.AssetVocabulary returnValue = AssetVocabularyServiceUtil.updateVocabulary(vocabularyId,
+                    titleMap, descriptionMap, settings, serviceContext);
+
+            return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
+
+            throw new RemoteException(e.getMessage());
+        }
+    }
+
+    public static com.liferay.portlet.asset.model.AssetVocabularySoap updateVocabulary(
+        long vocabularyId, java.lang.String title,
+        java.lang.String[] titleMapLanguageIds,
+        java.lang.String[] titleMapValues,
+        java.lang.String[] descriptionMapLanguageIds,
+        java.lang.String[] descriptionMapValues, java.lang.String settings,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            Map<Locale, String> titleMap = LocalizationUtil.getLocalizationMap(titleMapLanguageIds,
+                    titleMapValues);
+            Map<Locale, String> descriptionMap = LocalizationUtil.getLocalizationMap(descriptionMapLanguageIds,
+                    descriptionMapValues);
+
+            com.liferay.portlet.asset.model.AssetVocabulary returnValue = AssetVocabularyServiceUtil.updateVocabulary(vocabularyId,
+                    title, titleMap, descriptionMap, settings, serviceContext);
+
+            return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
+
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

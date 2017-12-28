@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -27,139 +13,138 @@ import java.util.List;
  * @generated
  */
 public class UserTrackerSoap implements Serializable {
-	public static UserTrackerSoap toSoapModel(UserTracker model) {
-		UserTrackerSoap soapModel = new UserTrackerSoap();
+    private long _userTrackerId;
+    private long _companyId;
+    private long _userId;
+    private Date _modifiedDate;
+    private String _sessionId;
+    private String _remoteAddr;
+    private String _remoteHost;
+    private String _userAgent;
 
-		soapModel.setUserTrackerId(model.getUserTrackerId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setModifiedDate(model.getModifiedDate());
-		soapModel.setSessionId(model.getSessionId());
-		soapModel.setRemoteAddr(model.getRemoteAddr());
-		soapModel.setRemoteHost(model.getRemoteHost());
-		soapModel.setUserAgent(model.getUserAgent());
+    public UserTrackerSoap() {
+    }
 
-		return soapModel;
-	}
+    public static UserTrackerSoap toSoapModel(UserTracker model) {
+        UserTrackerSoap soapModel = new UserTrackerSoap();
 
-	public static UserTrackerSoap[] toSoapModels(UserTracker[] models) {
-		UserTrackerSoap[] soapModels = new UserTrackerSoap[models.length];
+        soapModel.setUserTrackerId(model.getUserTrackerId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setModifiedDate(model.getModifiedDate());
+        soapModel.setSessionId(model.getSessionId());
+        soapModel.setRemoteAddr(model.getRemoteAddr());
+        soapModel.setRemoteHost(model.getRemoteHost());
+        soapModel.setUserAgent(model.getUserAgent());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static UserTrackerSoap[] toSoapModels(UserTracker[] models) {
+        UserTrackerSoap[] soapModels = new UserTrackerSoap[models.length];
 
-	public static UserTrackerSoap[][] toSoapModels(UserTracker[][] models) {
-		UserTrackerSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new UserTrackerSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new UserTrackerSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static UserTrackerSoap[][] toSoapModels(UserTracker[][] models) {
+        UserTrackerSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new UserTrackerSoap[models.length][models[0].length];
+        } else {
+            soapModels = new UserTrackerSoap[0][0];
+        }
 
-	public static UserTrackerSoap[] toSoapModels(List<UserTracker> models) {
-		List<UserTrackerSoap> soapModels = new ArrayList<UserTrackerSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (UserTracker model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new UserTrackerSoap[soapModels.size()]);
-	}
+    public static UserTrackerSoap[] toSoapModels(List<UserTracker> models) {
+        List<UserTrackerSoap> soapModels = new ArrayList<UserTrackerSoap>(models.size());
 
-	public UserTrackerSoap() {
-	}
+        for (UserTracker model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _userTrackerId;
-	}
+        return soapModels.toArray(new UserTrackerSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setUserTrackerId(pk);
-	}
+    public long getPrimaryKey() {
+        return _userTrackerId;
+    }
 
-	public long getUserTrackerId() {
-		return _userTrackerId;
-	}
+    public void setPrimaryKey(long pk) {
+        setUserTrackerId(pk);
+    }
 
-	public void setUserTrackerId(long userTrackerId) {
-		_userTrackerId = userTrackerId;
-	}
+    public long getUserTrackerId() {
+        return _userTrackerId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setUserTrackerId(long userTrackerId) {
+        _userTrackerId = userTrackerId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public Date getModifiedDate() {
-		return _modifiedDate;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setModifiedDate(Date modifiedDate) {
-		_modifiedDate = modifiedDate;
-	}
+    public Date getModifiedDate() {
+        return _modifiedDate;
+    }
 
-	public String getSessionId() {
-		return _sessionId;
-	}
+    public void setModifiedDate(Date modifiedDate) {
+        _modifiedDate = modifiedDate;
+    }
 
-	public void setSessionId(String sessionId) {
-		_sessionId = sessionId;
-	}
+    public String getSessionId() {
+        return _sessionId;
+    }
 
-	public String getRemoteAddr() {
-		return _remoteAddr;
-	}
+    public void setSessionId(String sessionId) {
+        _sessionId = sessionId;
+    }
 
-	public void setRemoteAddr(String remoteAddr) {
-		_remoteAddr = remoteAddr;
-	}
+    public String getRemoteAddr() {
+        return _remoteAddr;
+    }
 
-	public String getRemoteHost() {
-		return _remoteHost;
-	}
+    public void setRemoteAddr(String remoteAddr) {
+        _remoteAddr = remoteAddr;
+    }
 
-	public void setRemoteHost(String remoteHost) {
-		_remoteHost = remoteHost;
-	}
+    public String getRemoteHost() {
+        return _remoteHost;
+    }
 
-	public String getUserAgent() {
-		return _userAgent;
-	}
+    public void setRemoteHost(String remoteHost) {
+        _remoteHost = remoteHost;
+    }
 
-	public void setUserAgent(String userAgent) {
-		_userAgent = userAgent;
-	}
+    public String getUserAgent() {
+        return _userAgent;
+    }
 
-	private long _userTrackerId;
-	private long _companyId;
-	private long _userId;
-	private Date _modifiedDate;
-	private String _sessionId;
-	private String _remoteAddr;
-	private String _remoteHost;
-	private String _userAgent;
+    public void setUserAgent(String userAgent) {
+        _userAgent = userAgent;
+    }
 }

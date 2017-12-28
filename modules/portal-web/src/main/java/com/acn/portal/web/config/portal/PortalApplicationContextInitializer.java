@@ -23,13 +23,12 @@ import com.liferay.portal.util.PropsValues;
 /**
  * Created by jeff on 26/12/2017.
  */
-public class PortalApplicationContextInitializer implements ApplicationContextInitializer {
+public class PortalApplicationContextInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
     @Override
     public void initialize(ConfigurableApplicationContext applicationContext) {
 
-    		System.out.println("PortalApplicationContextInitializer:" + Thread.currentThread().getContextClassLoader().getClass().getName());
-
     		InitUtil.init();
+    		
     		
     		BeanLocator beanLocator = new BeanLocatorImpl(ClassLoaderUtil.getPortalClassLoader(), applicationContext);
 
@@ -46,12 +45,9 @@ public class PortalApplicationContextInitializer implements ApplicationContextIn
     			configLocations.remove("META-INF/jpa-spring.xml");
     		}
 
-    		AbstractApplicationContext portalContext =
-    			new ArrayApplicationContext(
-    				configLocations.toArray(new String[configLocations.size()]), applicationContext);
-
-
- 
+    		AbstractApplicationContext portalContext = new ArrayApplicationContext(configLocations.toArray(new String[configLocations.size()]));
+    		
+    		portalContext.setParent(applicationContext);
 
     		//InitUtil.initWithSpring();
 

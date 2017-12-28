@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -26,99 +12,98 @@ import java.util.List;
  * @generated
  */
 public class VirtualHostSoap implements Serializable {
-	public static VirtualHostSoap toSoapModel(VirtualHost model) {
-		VirtualHostSoap soapModel = new VirtualHostSoap();
+    private long _virtualHostId;
+    private long _companyId;
+    private long _layoutSetId;
+    private String _hostname;
 
-		soapModel.setVirtualHostId(model.getVirtualHostId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setLayoutSetId(model.getLayoutSetId());
-		soapModel.setHostname(model.getHostname());
+    public VirtualHostSoap() {
+    }
 
-		return soapModel;
-	}
+    public static VirtualHostSoap toSoapModel(VirtualHost model) {
+        VirtualHostSoap soapModel = new VirtualHostSoap();
 
-	public static VirtualHostSoap[] toSoapModels(VirtualHost[] models) {
-		VirtualHostSoap[] soapModels = new VirtualHostSoap[models.length];
+        soapModel.setVirtualHostId(model.getVirtualHostId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setLayoutSetId(model.getLayoutSetId());
+        soapModel.setHostname(model.getHostname());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static VirtualHostSoap[] toSoapModels(VirtualHost[] models) {
+        VirtualHostSoap[] soapModels = new VirtualHostSoap[models.length];
 
-	public static VirtualHostSoap[][] toSoapModels(VirtualHost[][] models) {
-		VirtualHostSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new VirtualHostSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new VirtualHostSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static VirtualHostSoap[][] toSoapModels(VirtualHost[][] models) {
+        VirtualHostSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new VirtualHostSoap[models.length][models[0].length];
+        } else {
+            soapModels = new VirtualHostSoap[0][0];
+        }
 
-	public static VirtualHostSoap[] toSoapModels(List<VirtualHost> models) {
-		List<VirtualHostSoap> soapModels = new ArrayList<VirtualHostSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (VirtualHost model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new VirtualHostSoap[soapModels.size()]);
-	}
+    public static VirtualHostSoap[] toSoapModels(List<VirtualHost> models) {
+        List<VirtualHostSoap> soapModels = new ArrayList<VirtualHostSoap>(models.size());
 
-	public VirtualHostSoap() {
-	}
+        for (VirtualHost model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _virtualHostId;
-	}
+        return soapModels.toArray(new VirtualHostSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setVirtualHostId(pk);
-	}
+    public long getPrimaryKey() {
+        return _virtualHostId;
+    }
 
-	public long getVirtualHostId() {
-		return _virtualHostId;
-	}
+    public void setPrimaryKey(long pk) {
+        setVirtualHostId(pk);
+    }
 
-	public void setVirtualHostId(long virtualHostId) {
-		_virtualHostId = virtualHostId;
-	}
+    public long getVirtualHostId() {
+        return _virtualHostId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setVirtualHostId(long virtualHostId) {
+        _virtualHostId = virtualHostId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getLayoutSetId() {
-		return _layoutSetId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setLayoutSetId(long layoutSetId) {
-		_layoutSetId = layoutSetId;
-	}
+    public long getLayoutSetId() {
+        return _layoutSetId;
+    }
 
-	public String getHostname() {
-		return _hostname;
-	}
+    public void setLayoutSetId(long layoutSetId) {
+        _layoutSetId = layoutSetId;
+    }
 
-	public void setHostname(String hostname) {
-		_hostname = hostname;
-	}
+    public String getHostname() {
+        return _hostname;
+    }
 
-	private long _virtualHostId;
-	private long _companyId;
-	private long _layoutSetId;
-	private String _hostname;
+    public void setHostname(String hostname) {
+        _hostname = hostname;
+    }
 }

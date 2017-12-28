@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -28,183 +14,182 @@ import java.util.List;
  * @generated
  */
 public class EmailAddressSoap implements Serializable {
-	public static EmailAddressSoap toSoapModel(EmailAddress model) {
-		EmailAddressSoap soapModel = new EmailAddressSoap();
+    private String _uuid;
+    private long _emailAddressId;
+    private long _companyId;
+    private long _userId;
+    private String _userName;
+    private Date _createDate;
+    private Date _modifiedDate;
+    private long _classNameId;
+    private long _classPK;
+    private String _address;
+    private int _typeId;
+    private boolean _primary;
 
-		soapModel.setUuid(model.getUuid());
-		soapModel.setEmailAddressId(model.getEmailAddressId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setUserName(model.getUserName());
-		soapModel.setCreateDate(model.getCreateDate());
-		soapModel.setModifiedDate(model.getModifiedDate());
-		soapModel.setClassNameId(model.getClassNameId());
-		soapModel.setClassPK(model.getClassPK());
-		soapModel.setAddress(model.getAddress());
-		soapModel.setTypeId(model.getTypeId());
-		soapModel.setPrimary(model.getPrimary());
+    public EmailAddressSoap() {
+    }
 
-		return soapModel;
-	}
+    public static EmailAddressSoap toSoapModel(EmailAddress model) {
+        EmailAddressSoap soapModel = new EmailAddressSoap();
 
-	public static EmailAddressSoap[] toSoapModels(EmailAddress[] models) {
-		EmailAddressSoap[] soapModels = new EmailAddressSoap[models.length];
+        soapModel.setUuid(model.getUuid());
+        soapModel.setEmailAddressId(model.getEmailAddressId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setUserName(model.getUserName());
+        soapModel.setCreateDate(model.getCreateDate());
+        soapModel.setModifiedDate(model.getModifiedDate());
+        soapModel.setClassNameId(model.getClassNameId());
+        soapModel.setClassPK(model.getClassPK());
+        soapModel.setAddress(model.getAddress());
+        soapModel.setTypeId(model.getTypeId());
+        soapModel.setPrimary(model.getPrimary());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static EmailAddressSoap[] toSoapModels(EmailAddress[] models) {
+        EmailAddressSoap[] soapModels = new EmailAddressSoap[models.length];
 
-	public static EmailAddressSoap[][] toSoapModels(EmailAddress[][] models) {
-		EmailAddressSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new EmailAddressSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new EmailAddressSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static EmailAddressSoap[][] toSoapModels(EmailAddress[][] models) {
+        EmailAddressSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new EmailAddressSoap[models.length][models[0].length];
+        } else {
+            soapModels = new EmailAddressSoap[0][0];
+        }
 
-	public static EmailAddressSoap[] toSoapModels(List<EmailAddress> models) {
-		List<EmailAddressSoap> soapModels = new ArrayList<EmailAddressSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (EmailAddress model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new EmailAddressSoap[soapModels.size()]);
-	}
+    public static EmailAddressSoap[] toSoapModels(List<EmailAddress> models) {
+        List<EmailAddressSoap> soapModels = new ArrayList<EmailAddressSoap>(models.size());
 
-	public EmailAddressSoap() {
-	}
+        for (EmailAddress model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _emailAddressId;
-	}
+        return soapModels.toArray(new EmailAddressSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setEmailAddressId(pk);
-	}
+    public long getPrimaryKey() {
+        return _emailAddressId;
+    }
 
-	public String getUuid() {
-		return _uuid;
-	}
+    public void setPrimaryKey(long pk) {
+        setEmailAddressId(pk);
+    }
 
-	public void setUuid(String uuid) {
-		_uuid = uuid;
-	}
+    public String getUuid() {
+        return _uuid;
+    }
 
-	public long getEmailAddressId() {
-		return _emailAddressId;
-	}
+    public void setUuid(String uuid) {
+        _uuid = uuid;
+    }
 
-	public void setEmailAddressId(long emailAddressId) {
-		_emailAddressId = emailAddressId;
-	}
+    public long getEmailAddressId() {
+        return _emailAddressId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setEmailAddressId(long emailAddressId) {
+        _emailAddressId = emailAddressId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public String getUserName() {
-		return _userName;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setUserName(String userName) {
-		_userName = userName;
-	}
+    public String getUserName() {
+        return _userName;
+    }
 
-	public Date getCreateDate() {
-		return _createDate;
-	}
+    public void setUserName(String userName) {
+        _userName = userName;
+    }
 
-	public void setCreateDate(Date createDate) {
-		_createDate = createDate;
-	}
+    public Date getCreateDate() {
+        return _createDate;
+    }
 
-	public Date getModifiedDate() {
-		return _modifiedDate;
-	}
+    public void setCreateDate(Date createDate) {
+        _createDate = createDate;
+    }
 
-	public void setModifiedDate(Date modifiedDate) {
-		_modifiedDate = modifiedDate;
-	}
+    public Date getModifiedDate() {
+        return _modifiedDate;
+    }
 
-	public long getClassNameId() {
-		return _classNameId;
-	}
+    public void setModifiedDate(Date modifiedDate) {
+        _modifiedDate = modifiedDate;
+    }
 
-	public void setClassNameId(long classNameId) {
-		_classNameId = classNameId;
-	}
+    public long getClassNameId() {
+        return _classNameId;
+    }
 
-	public long getClassPK() {
-		return _classPK;
-	}
+    public void setClassNameId(long classNameId) {
+        _classNameId = classNameId;
+    }
 
-	public void setClassPK(long classPK) {
-		_classPK = classPK;
-	}
+    public long getClassPK() {
+        return _classPK;
+    }
 
-	public String getAddress() {
-		return _address;
-	}
+    public void setClassPK(long classPK) {
+        _classPK = classPK;
+    }
 
-	public void setAddress(String address) {
-		_address = address;
-	}
+    public String getAddress() {
+        return _address;
+    }
 
-	public int getTypeId() {
-		return _typeId;
-	}
+    public void setAddress(String address) {
+        _address = address;
+    }
 
-	public void setTypeId(int typeId) {
-		_typeId = typeId;
-	}
+    public int getTypeId() {
+        return _typeId;
+    }
 
-	public boolean getPrimary() {
-		return _primary;
-	}
+    public void setTypeId(int typeId) {
+        _typeId = typeId;
+    }
 
-	public boolean isPrimary() {
-		return _primary;
-	}
+    public boolean getPrimary() {
+        return _primary;
+    }
 
-	public void setPrimary(boolean primary) {
-		_primary = primary;
-	}
+    public boolean isPrimary() {
+        return _primary;
+    }
 
-	private String _uuid;
-	private long _emailAddressId;
-	private long _companyId;
-	private long _userId;
-	private String _userName;
-	private Date _createDate;
-	private Date _modifiedDate;
-	private long _classNameId;
-	private long _classPK;
-	private String _address;
-	private int _typeId;
-	private boolean _primary;
+    public void setPrimary(boolean primary) {
+        _primary = primary;
+    }
 }

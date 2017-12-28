@@ -19,6 +19,7 @@
     <properties>
         <!-- Build properties -->
         <maven.version>3.0.0</maven.version>
+        <start-class>com.acn.portal.web.PortalWebApp</start-class>
         <java.version>1.8</java.version>
         <scala.version>2.12.1</scala.version>
         <node.version>v8.9.1</node.version>
@@ -67,6 +68,8 @@
         <jacoco-maven-plugin.version>0.7.9</jacoco-maven-plugin.version>
         <scala-maven-plugin.version>3.2.2</scala-maven-plugin.version>
         <sonar-maven-plugin.version>3.2</sonar-maven-plugin.version>
+
+		<quartz.version>2.1.6</quartz.version>
 
         <!-- Sonar properties -->
         <sonar.exclusions>src/main/webapp/content/**/*.*, src/main/webapp/i18n/*.js, target/www/**/*.*</sonar.exclusions>
@@ -328,6 +331,19 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-data</artifactId>
         </dependency>
+
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>${quartz.version}</version>
+		</dependency>
+
+
+<dependency>
+    <groupId>cglib</groupId>
+    <artifactId>cglib</artifactId>
+    <version>2.2.2</version>
+</dependency>
         <!-- jhipster-needle-maven-add-dependency -->
     </dependencies>
 
@@ -543,10 +559,7 @@
                     <mainClass>${start-class}</mainClass>
                     <executable>true</executable>
                     <fork>true</fork>
-                    <!--
-                    Enable the line below to have remote debugging of your application on port 5005
                     <jvmArguments>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005</jvmArguments>
-                    -->
                 </configuration>
             </plugin>
             <plugin>
@@ -866,10 +879,7 @@
                             <executable>true</executable>
                             <fork>true</fork>
                             <addResources>true</addResources>
-                            <!--
-                            Enable the line below to have remote debugging of your application on port 5005
                             <jvmArguments>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005</jvmArguments>
-                            -->
                         </configuration>
                     </plugin>
                     <plugin>

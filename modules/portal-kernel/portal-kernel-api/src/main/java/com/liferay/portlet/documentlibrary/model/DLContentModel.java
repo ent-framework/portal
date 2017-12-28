@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.documentlibrary.model;
 
 import aQute.bnd.annotation.ProviderType;
@@ -42,194 +28,195 @@ import java.sql.Blob;
  */
 @ProviderType
 public interface DLContentModel extends BaseModel<DLContent> {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this interface directly. All methods that expect a document library content model instance should use the {@link DLContent} interface instead.
-	 */
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this interface directly. All methods that expect a document library content model instance should use the {@link DLContent} interface instead.
+     */
 
-	/**
-	 * Returns the primary key of this document library content.
-	 *
-	 * @return the primary key of this document library content
-	 */
-	public long getPrimaryKey();
+    /**
+     * Returns the primary key of this document library content.
+     *
+     * @return the primary key of this document library content
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this document library content.
-	 *
-	 * @param primaryKey the primary key of this document library content
-	 */
-	public void setPrimaryKey(long primaryKey);
+    /**
+     * Sets the primary key of this document library content.
+     *
+     * @param primaryKey the primary key of this document library content
+     */
+    public void setPrimaryKey(long primaryKey);
 
-	/**
-	 * Returns the content ID of this document library content.
-	 *
-	 * @return the content ID of this document library content
-	 */
-	public long getContentId();
+    /**
+     * Returns the content ID of this document library content.
+     *
+     * @return the content ID of this document library content
+     */
+    public long getContentId();
 
-	/**
-	 * Sets the content ID of this document library content.
-	 *
-	 * @param contentId the content ID of this document library content
-	 */
-	public void setContentId(long contentId);
+    /**
+     * Sets the content ID of this document library content.
+     *
+     * @param contentId the content ID of this document library content
+     */
+    public void setContentId(long contentId);
 
-	/**
-	 * Returns the group ID of this document library content.
-	 *
-	 * @return the group ID of this document library content
-	 */
-	public long getGroupId();
+    /**
+     * Returns the group ID of this document library content.
+     *
+     * @return the group ID of this document library content
+     */
+    public long getGroupId();
 
-	/**
-	 * Sets the group ID of this document library content.
-	 *
-	 * @param groupId the group ID of this document library content
-	 */
-	public void setGroupId(long groupId);
+    /**
+     * Sets the group ID of this document library content.
+     *
+     * @param groupId the group ID of this document library content
+     */
+    public void setGroupId(long groupId);
 
-	/**
-	 * Returns the company ID of this document library content.
-	 *
-	 * @return the company ID of this document library content
-	 */
-	public long getCompanyId();
+    /**
+     * Returns the company ID of this document library content.
+     *
+     * @return the company ID of this document library content
+     */
+    public long getCompanyId();
 
-	/**
-	 * Sets the company ID of this document library content.
-	 *
-	 * @param companyId the company ID of this document library content
-	 */
-	public void setCompanyId(long companyId);
+    /**
+     * Sets the company ID of this document library content.
+     *
+     * @param companyId the company ID of this document library content
+     */
+    public void setCompanyId(long companyId);
 
-	/**
-	 * Returns the repository ID of this document library content.
-	 *
-	 * @return the repository ID of this document library content
-	 */
-	public long getRepositoryId();
+    /**
+     * Returns the repository ID of this document library content.
+     *
+     * @return the repository ID of this document library content
+     */
+    public long getRepositoryId();
 
-	/**
-	 * Sets the repository ID of this document library content.
-	 *
-	 * @param repositoryId the repository ID of this document library content
-	 */
-	public void setRepositoryId(long repositoryId);
+    /**
+     * Sets the repository ID of this document library content.
+     *
+     * @param repositoryId the repository ID of this document library content
+     */
+    public void setRepositoryId(long repositoryId);
 
-	/**
-	 * Returns the path of this document library content.
-	 *
-	 * @return the path of this document library content
-	 */
-	@AutoEscape
-	public String getPath();
+    /**
+     * Returns the path of this document library content.
+     *
+     * @return the path of this document library content
+     */
+    @AutoEscape
+    public String getPath();
 
-	/**
-	 * Sets the path of this document library content.
-	 *
-	 * @param path the path of this document library content
-	 */
-	public void setPath(String path);
+    /**
+     * Sets the path of this document library content.
+     *
+     * @param path the path of this document library content
+     */
+    public void setPath(String path);
 
-	/**
-	 * Returns the version of this document library content.
-	 *
-	 * @return the version of this document library content
-	 */
-	@AutoEscape
-	public String getVersion();
+    /**
+     * Returns the version of this document library content.
+     *
+     * @return the version of this document library content
+     */
+    @AutoEscape
+    public String getVersion();
 
-	/**
-	 * Sets the version of this document library content.
-	 *
-	 * @param version the version of this document library content
-	 */
-	public void setVersion(String version);
+    /**
+     * Sets the version of this document library content.
+     *
+     * @param version the version of this document library content
+     */
+    public void setVersion(String version);
 
-	/**
-	 * Returns the data of this document library content.
-	 *
-	 * @return the data of this document library content
-	 */
-	public Blob getData();
+    /**
+     * Returns the data of this document library content.
+     *
+     * @return the data of this document library content
+     */
+    public Blob getData();
 
-	/**
-	 * Sets the data of this document library content.
-	 *
-	 * @param data the data of this document library content
-	 */
-	public void setData(Blob data);
+    /**
+     * Sets the data of this document library content.
+     *
+     * @param data the data of this document library content
+     */
+    public void setData(Blob data);
 
-	/**
-	 * Returns the size of this document library content.
-	 *
-	 * @return the size of this document library content
-	 */
-	public long getSize();
+    /**
+     * Returns the size of this document library content.
+     *
+     * @return the size of this document library content
+     */
+    public long getSize();
 
-	/**
-	 * Sets the size of this document library content.
-	 *
-	 * @param size the size of this document library content
-	 */
-	public void setSize(long size);
+    /**
+     * Sets the size of this document library content.
+     *
+     * @param size the size of this document library content
+     */
+    public void setSize(long size);
 
-	@Override
-	public boolean isNew();
+    @Override
+    public boolean isNew();
 
-	@Override
-	public void setNew(boolean n);
+    @Override
+    public void setNew(boolean n);
 
-	@Override
-	public boolean isCachedModel();
+    @Override
+    public boolean isCachedModel();
 
-	@Override
-	public void setCachedModel(boolean cachedModel);
+    @Override
+    public void setCachedModel(boolean cachedModel);
 
-	@Override
-	public boolean isEscapedModel();
+    @Override
+    public boolean isEscapedModel();
 
-	@Override
-	public Serializable getPrimaryKeyObj();
+    @Override
+    public Serializable getPrimaryKeyObj();
 
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj);
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj);
 
-	@Override
-	public ExpandoBridge getExpandoBridge();
+    @Override
+    public ExpandoBridge getExpandoBridge();
 
-	@Override
-	public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
+    @Override
+    public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
 
-	@Override
-	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
+    @Override
+    public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	@Override
-	public Object clone();
+    @Override
+    public Object clone();
 
-	@Override
-	public int compareTo(DLContent dlContent);
+    @Override
+    public int compareTo(
+        com.liferay.portlet.documentlibrary.model.DLContent dlContent);
 
-	@Override
-	public int hashCode();
+    @Override
+    public int hashCode();
 
-	@Override
-	public CacheModel<DLContent> toCacheModel();
+    @Override
+    public CacheModel<com.liferay.portlet.documentlibrary.model.DLContent> toCacheModel();
 
-	@Override
-	public DLContent toEscapedModel();
+    @Override
+    public com.liferay.portlet.documentlibrary.model.DLContent toEscapedModel();
 
-	@Override
-	public DLContent toUnescapedModel();
+    @Override
+    public com.liferay.portlet.documentlibrary.model.DLContent toUnescapedModel();
 
-	@Override
-	public String toString();
+    @Override
+    public String toString();
 
-	@Override
-	public String toXmlString();
+    @Override
+    public String toXmlString();
 }

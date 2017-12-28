@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,297 +20,275 @@ import java.util.Date;
  * @generated
  */
 public class LayoutSetBranchCacheModel implements CacheModel<LayoutSetBranch>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(43);
+    Externalizable {
+    public long layoutSetBranchId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public boolean privateLayout;
+    public String name;
+    public String description;
+    public boolean master;
+    public boolean logo;
+    public long logoId;
+    public String themeId;
+    public String colorSchemeId;
+    public String wapThemeId;
+    public String wapColorSchemeId;
+    public String css;
+    public String settings;
+    public String layoutSetPrototypeUuid;
+    public boolean layoutSetPrototypeLinkEnabled;
 
-		sb.append("{layoutSetBranchId=");
-		sb.append(layoutSetBranchId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", privateLayout=");
-		sb.append(privateLayout);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", description=");
-		sb.append(description);
-		sb.append(", master=");
-		sb.append(master);
-		sb.append(", logo=");
-		sb.append(logo);
-		sb.append(", logoId=");
-		sb.append(logoId);
-		sb.append(", themeId=");
-		sb.append(themeId);
-		sb.append(", colorSchemeId=");
-		sb.append(colorSchemeId);
-		sb.append(", wapThemeId=");
-		sb.append(wapThemeId);
-		sb.append(", wapColorSchemeId=");
-		sb.append(wapColorSchemeId);
-		sb.append(", css=");
-		sb.append(css);
-		sb.append(", settings=");
-		sb.append(settings);
-		sb.append(", layoutSetPrototypeUuid=");
-		sb.append(layoutSetPrototypeUuid);
-		sb.append(", layoutSetPrototypeLinkEnabled=");
-		sb.append(layoutSetPrototypeLinkEnabled);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(43);
 
-		return sb.toString();
-	}
+        sb.append("{layoutSetBranchId=");
+        sb.append(layoutSetBranchId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", privateLayout=");
+        sb.append(privateLayout);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", description=");
+        sb.append(description);
+        sb.append(", master=");
+        sb.append(master);
+        sb.append(", logo=");
+        sb.append(logo);
+        sb.append(", logoId=");
+        sb.append(logoId);
+        sb.append(", themeId=");
+        sb.append(themeId);
+        sb.append(", colorSchemeId=");
+        sb.append(colorSchemeId);
+        sb.append(", wapThemeId=");
+        sb.append(wapThemeId);
+        sb.append(", wapColorSchemeId=");
+        sb.append(wapColorSchemeId);
+        sb.append(", css=");
+        sb.append(css);
+        sb.append(", settings=");
+        sb.append(settings);
+        sb.append(", layoutSetPrototypeUuid=");
+        sb.append(layoutSetPrototypeUuid);
+        sb.append(", layoutSetPrototypeLinkEnabled=");
+        sb.append(layoutSetPrototypeLinkEnabled);
+        sb.append("}");
 
-	@Override
-	public LayoutSetBranch toEntityModel() {
-		LayoutSetBranchImpl layoutSetBranchImpl = new LayoutSetBranchImpl();
+        return sb.toString();
+    }
 
-		layoutSetBranchImpl.setLayoutSetBranchId(layoutSetBranchId);
-		layoutSetBranchImpl.setGroupId(groupId);
-		layoutSetBranchImpl.setCompanyId(companyId);
-		layoutSetBranchImpl.setUserId(userId);
+    @Override
+    public LayoutSetBranch toEntityModel() {
+        LayoutSetBranchImpl layoutSetBranchImpl = new LayoutSetBranchImpl();
 
-		if (userName == null) {
-			layoutSetBranchImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			layoutSetBranchImpl.setUserName(userName);
-		}
+        layoutSetBranchImpl.setLayoutSetBranchId(layoutSetBranchId);
+        layoutSetBranchImpl.setGroupId(groupId);
+        layoutSetBranchImpl.setCompanyId(companyId);
+        layoutSetBranchImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			layoutSetBranchImpl.setCreateDate(null);
-		}
-		else {
-			layoutSetBranchImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            layoutSetBranchImpl.setUserName(StringPool.BLANK);
+        } else {
+            layoutSetBranchImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			layoutSetBranchImpl.setModifiedDate(null);
-		}
-		else {
-			layoutSetBranchImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            layoutSetBranchImpl.setCreateDate(null);
+        } else {
+            layoutSetBranchImpl.setCreateDate(new Date(createDate));
+        }
 
-		layoutSetBranchImpl.setPrivateLayout(privateLayout);
+        if (modifiedDate == Long.MIN_VALUE) {
+            layoutSetBranchImpl.setModifiedDate(null);
+        } else {
+            layoutSetBranchImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (name == null) {
-			layoutSetBranchImpl.setName(StringPool.BLANK);
-		}
-		else {
-			layoutSetBranchImpl.setName(name);
-		}
+        layoutSetBranchImpl.setPrivateLayout(privateLayout);
 
-		if (description == null) {
-			layoutSetBranchImpl.setDescription(StringPool.BLANK);
-		}
-		else {
-			layoutSetBranchImpl.setDescription(description);
-		}
+        if (name == null) {
+            layoutSetBranchImpl.setName(StringPool.BLANK);
+        } else {
+            layoutSetBranchImpl.setName(name);
+        }
 
-		layoutSetBranchImpl.setMaster(master);
-		layoutSetBranchImpl.setLogo(logo);
-		layoutSetBranchImpl.setLogoId(logoId);
+        if (description == null) {
+            layoutSetBranchImpl.setDescription(StringPool.BLANK);
+        } else {
+            layoutSetBranchImpl.setDescription(description);
+        }
 
-		if (themeId == null) {
-			layoutSetBranchImpl.setThemeId(StringPool.BLANK);
-		}
-		else {
-			layoutSetBranchImpl.setThemeId(themeId);
-		}
+        layoutSetBranchImpl.setMaster(master);
+        layoutSetBranchImpl.setLogo(logo);
+        layoutSetBranchImpl.setLogoId(logoId);
 
-		if (colorSchemeId == null) {
-			layoutSetBranchImpl.setColorSchemeId(StringPool.BLANK);
-		}
-		else {
-			layoutSetBranchImpl.setColorSchemeId(colorSchemeId);
-		}
+        if (themeId == null) {
+            layoutSetBranchImpl.setThemeId(StringPool.BLANK);
+        } else {
+            layoutSetBranchImpl.setThemeId(themeId);
+        }
 
-		if (wapThemeId == null) {
-			layoutSetBranchImpl.setWapThemeId(StringPool.BLANK);
-		}
-		else {
-			layoutSetBranchImpl.setWapThemeId(wapThemeId);
-		}
+        if (colorSchemeId == null) {
+            layoutSetBranchImpl.setColorSchemeId(StringPool.BLANK);
+        } else {
+            layoutSetBranchImpl.setColorSchemeId(colorSchemeId);
+        }
 
-		if (wapColorSchemeId == null) {
-			layoutSetBranchImpl.setWapColorSchemeId(StringPool.BLANK);
-		}
-		else {
-			layoutSetBranchImpl.setWapColorSchemeId(wapColorSchemeId);
-		}
+        if (wapThemeId == null) {
+            layoutSetBranchImpl.setWapThemeId(StringPool.BLANK);
+        } else {
+            layoutSetBranchImpl.setWapThemeId(wapThemeId);
+        }
 
-		if (css == null) {
-			layoutSetBranchImpl.setCss(StringPool.BLANK);
-		}
-		else {
-			layoutSetBranchImpl.setCss(css);
-		}
+        if (wapColorSchemeId == null) {
+            layoutSetBranchImpl.setWapColorSchemeId(StringPool.BLANK);
+        } else {
+            layoutSetBranchImpl.setWapColorSchemeId(wapColorSchemeId);
+        }
 
-		if (settings == null) {
-			layoutSetBranchImpl.setSettings(StringPool.BLANK);
-		}
-		else {
-			layoutSetBranchImpl.setSettings(settings);
-		}
+        if (css == null) {
+            layoutSetBranchImpl.setCss(StringPool.BLANK);
+        } else {
+            layoutSetBranchImpl.setCss(css);
+        }
 
-		if (layoutSetPrototypeUuid == null) {
-			layoutSetBranchImpl.setLayoutSetPrototypeUuid(StringPool.BLANK);
-		}
-		else {
-			layoutSetBranchImpl.setLayoutSetPrototypeUuid(layoutSetPrototypeUuid);
-		}
+        if (settings == null) {
+            layoutSetBranchImpl.setSettings(StringPool.BLANK);
+        } else {
+            layoutSetBranchImpl.setSettings(settings);
+        }
 
-		layoutSetBranchImpl.setLayoutSetPrototypeLinkEnabled(layoutSetPrototypeLinkEnabled);
+        if (layoutSetPrototypeUuid == null) {
+            layoutSetBranchImpl.setLayoutSetPrototypeUuid(StringPool.BLANK);
+        } else {
+            layoutSetBranchImpl.setLayoutSetPrototypeUuid(layoutSetPrototypeUuid);
+        }
 
-		layoutSetBranchImpl.resetOriginalValues();
+        layoutSetBranchImpl.setLayoutSetPrototypeLinkEnabled(layoutSetPrototypeLinkEnabled);
 
-		return layoutSetBranchImpl;
-	}
+        layoutSetBranchImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		layoutSetBranchId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		privateLayout = objectInput.readBoolean();
-		name = objectInput.readUTF();
-		description = objectInput.readUTF();
-		master = objectInput.readBoolean();
-		logo = objectInput.readBoolean();
-		logoId = objectInput.readLong();
-		themeId = objectInput.readUTF();
-		colorSchemeId = objectInput.readUTF();
-		wapThemeId = objectInput.readUTF();
-		wapColorSchemeId = objectInput.readUTF();
-		css = objectInput.readUTF();
-		settings = objectInput.readUTF();
-		layoutSetPrototypeUuid = objectInput.readUTF();
-		layoutSetPrototypeLinkEnabled = objectInput.readBoolean();
-	}
+        return layoutSetBranchImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(layoutSetBranchId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        layoutSetBranchId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        privateLayout = objectInput.readBoolean();
+        name = objectInput.readUTF();
+        description = objectInput.readUTF();
+        master = objectInput.readBoolean();
+        logo = objectInput.readBoolean();
+        logoId = objectInput.readLong();
+        themeId = objectInput.readUTF();
+        colorSchemeId = objectInput.readUTF();
+        wapThemeId = objectInput.readUTF();
+        wapColorSchemeId = objectInput.readUTF();
+        css = objectInput.readUTF();
+        settings = objectInput.readUTF();
+        layoutSetPrototypeUuid = objectInput.readUTF();
+        layoutSetPrototypeLinkEnabled = objectInput.readBoolean();
+    }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(layoutSetBranchId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeBoolean(privateLayout);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeBoolean(privateLayout);
 
-		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(description);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		objectOutput.writeBoolean(master);
-		objectOutput.writeBoolean(logo);
-		objectOutput.writeLong(logoId);
+        if (description == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(description);
+        }
 
-		if (themeId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(themeId);
-		}
+        objectOutput.writeBoolean(master);
+        objectOutput.writeBoolean(logo);
+        objectOutput.writeLong(logoId);
 
-		if (colorSchemeId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(colorSchemeId);
-		}
+        if (themeId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(themeId);
+        }
 
-		if (wapThemeId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(wapThemeId);
-		}
+        if (colorSchemeId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(colorSchemeId);
+        }
 
-		if (wapColorSchemeId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(wapColorSchemeId);
-		}
+        if (wapThemeId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(wapThemeId);
+        }
 
-		if (css == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(css);
-		}
+        if (wapColorSchemeId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(wapColorSchemeId);
+        }
 
-		if (settings == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(settings);
-		}
+        if (css == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(css);
+        }
 
-		if (layoutSetPrototypeUuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(layoutSetPrototypeUuid);
-		}
+        if (settings == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(settings);
+        }
 
-		objectOutput.writeBoolean(layoutSetPrototypeLinkEnabled);
-	}
+        if (layoutSetPrototypeUuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(layoutSetPrototypeUuid);
+        }
 
-	public long layoutSetBranchId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public boolean privateLayout;
-	public String name;
-	public String description;
-	public boolean master;
-	public boolean logo;
-	public long logoId;
-	public String themeId;
-	public String colorSchemeId;
-	public String wapThemeId;
-	public String wapColorSchemeId;
-	public String css;
-	public String settings;
-	public String layoutSetPrototypeUuid;
-	public boolean layoutSetPrototypeLinkEnabled;
+        objectOutput.writeBoolean(layoutSetPrototypeLinkEnabled);
+    }
 }

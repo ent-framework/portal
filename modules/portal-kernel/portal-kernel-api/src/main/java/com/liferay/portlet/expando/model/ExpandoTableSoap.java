@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.expando.model;
 
 import java.io.Serializable;
@@ -26,99 +12,98 @@ import java.util.List;
  * @generated
  */
 public class ExpandoTableSoap implements Serializable {
-	public static ExpandoTableSoap toSoapModel(ExpandoTable model) {
-		ExpandoTableSoap soapModel = new ExpandoTableSoap();
+    private long _tableId;
+    private long _companyId;
+    private long _classNameId;
+    private String _name;
 
-		soapModel.setTableId(model.getTableId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setClassNameId(model.getClassNameId());
-		soapModel.setName(model.getName());
+    public ExpandoTableSoap() {
+    }
 
-		return soapModel;
-	}
+    public static ExpandoTableSoap toSoapModel(ExpandoTable model) {
+        ExpandoTableSoap soapModel = new ExpandoTableSoap();
 
-	public static ExpandoTableSoap[] toSoapModels(ExpandoTable[] models) {
-		ExpandoTableSoap[] soapModels = new ExpandoTableSoap[models.length];
+        soapModel.setTableId(model.getTableId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setClassNameId(model.getClassNameId());
+        soapModel.setName(model.getName());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static ExpandoTableSoap[] toSoapModels(ExpandoTable[] models) {
+        ExpandoTableSoap[] soapModels = new ExpandoTableSoap[models.length];
 
-	public static ExpandoTableSoap[][] toSoapModels(ExpandoTable[][] models) {
-		ExpandoTableSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new ExpandoTableSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new ExpandoTableSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static ExpandoTableSoap[][] toSoapModels(ExpandoTable[][] models) {
+        ExpandoTableSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new ExpandoTableSoap[models.length][models[0].length];
+        } else {
+            soapModels = new ExpandoTableSoap[0][0];
+        }
 
-	public static ExpandoTableSoap[] toSoapModels(List<ExpandoTable> models) {
-		List<ExpandoTableSoap> soapModels = new ArrayList<ExpandoTableSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (ExpandoTable model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new ExpandoTableSoap[soapModels.size()]);
-	}
+    public static ExpandoTableSoap[] toSoapModels(List<ExpandoTable> models) {
+        List<ExpandoTableSoap> soapModels = new ArrayList<ExpandoTableSoap>(models.size());
 
-	public ExpandoTableSoap() {
-	}
+        for (ExpandoTable model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _tableId;
-	}
+        return soapModels.toArray(new ExpandoTableSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setTableId(pk);
-	}
+    public long getPrimaryKey() {
+        return _tableId;
+    }
 
-	public long getTableId() {
-		return _tableId;
-	}
+    public void setPrimaryKey(long pk) {
+        setTableId(pk);
+    }
 
-	public void setTableId(long tableId) {
-		_tableId = tableId;
-	}
+    public long getTableId() {
+        return _tableId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setTableId(long tableId) {
+        _tableId = tableId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getClassNameId() {
-		return _classNameId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setClassNameId(long classNameId) {
-		_classNameId = classNameId;
-	}
+    public long getClassNameId() {
+        return _classNameId;
+    }
 
-	public String getName() {
-		return _name;
-	}
+    public void setClassNameId(long classNameId) {
+        _classNameId = classNameId;
+    }
 
-	public void setName(String name) {
-		_name = name;
-	}
+    public String getName() {
+        return _name;
+    }
 
-	private long _tableId;
-	private long _companyId;
-	private long _classNameId;
-	private String _name;
+    public void setName(String name) {
+        _name = name;
+    }
 }

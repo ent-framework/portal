@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
@@ -64,55 +50,51 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class UserGroupRoleServiceSoap {
-	public static void addUserGroupRoles(long userId, long groupId,
-		long[] roleIds) throws RemoteException {
-		try {
-			UserGroupRoleServiceUtil.addUserGroupRoles(userId, groupId, roleIds);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    private static Log _log = LogFactoryUtil.getLog(UserGroupRoleServiceSoap.class);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void addUserGroupRoles(long userId, long groupId,
+        long[] roleIds) throws RemoteException {
+        try {
+            UserGroupRoleServiceUtil.addUserGroupRoles(userId, groupId, roleIds);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void addUserGroupRoles(long[] userIds, long groupId,
-		long roleId) throws RemoteException {
-		try {
-			UserGroupRoleServiceUtil.addUserGroupRoles(userIds, groupId, roleId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void addUserGroupRoles(long[] userIds, long groupId,
+        long roleId) throws RemoteException {
+        try {
+            UserGroupRoleServiceUtil.addUserGroupRoles(userIds, groupId, roleId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void deleteUserGroupRoles(long userId, long groupId,
-		long[] roleIds) throws RemoteException {
-		try {
-			UserGroupRoleServiceUtil.deleteUserGroupRoles(userId, groupId,
-				roleIds);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void deleteUserGroupRoles(long userId, long groupId,
+        long[] roleIds) throws RemoteException {
+        try {
+            UserGroupRoleServiceUtil.deleteUserGroupRoles(userId, groupId,
+                roleIds);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void deleteUserGroupRoles(long[] userIds, long groupId,
-		long roleId) throws RemoteException {
-		try {
-			UserGroupRoleServiceUtil.deleteUserGroupRoles(userIds, groupId,
-				roleId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void deleteUserGroupRoles(long[] userIds, long groupId,
+        long roleId) throws RemoteException {
+        try {
+            UserGroupRoleServiceUtil.deleteUserGroupRoles(userIds, groupId,
+                roleId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	private static Log _log = LogFactoryUtil.getLog(UserGroupRoleServiceSoap.class);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

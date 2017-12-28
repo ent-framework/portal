@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -31,51 +17,51 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class UserGroupGroupRoleCacheModel implements CacheModel<UserGroupGroupRole>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(7);
+    Externalizable {
+    public long userGroupId;
+    public long groupId;
+    public long roleId;
 
-		sb.append("{userGroupId=");
-		sb.append(userGroupId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", roleId=");
-		sb.append(roleId);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(7);
 
-		return sb.toString();
-	}
+        sb.append("{userGroupId=");
+        sb.append(userGroupId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", roleId=");
+        sb.append(roleId);
+        sb.append("}");
 
-	@Override
-	public UserGroupGroupRole toEntityModel() {
-		UserGroupGroupRoleImpl userGroupGroupRoleImpl = new UserGroupGroupRoleImpl();
+        return sb.toString();
+    }
 
-		userGroupGroupRoleImpl.setUserGroupId(userGroupId);
-		userGroupGroupRoleImpl.setGroupId(groupId);
-		userGroupGroupRoleImpl.setRoleId(roleId);
+    @Override
+    public UserGroupGroupRole toEntityModel() {
+        UserGroupGroupRoleImpl userGroupGroupRoleImpl = new UserGroupGroupRoleImpl();
 
-		userGroupGroupRoleImpl.resetOriginalValues();
+        userGroupGroupRoleImpl.setUserGroupId(userGroupId);
+        userGroupGroupRoleImpl.setGroupId(groupId);
+        userGroupGroupRoleImpl.setRoleId(roleId);
 
-		return userGroupGroupRoleImpl;
-	}
+        userGroupGroupRoleImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		userGroupId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		roleId = objectInput.readLong();
-	}
+        return userGroupGroupRoleImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(userGroupId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(roleId);
-	}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        userGroupId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        roleId = objectInput.readLong();
+    }
 
-	public long userGroupId;
-	public long groupId;
-	public long roleId;
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(userGroupId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(roleId);
+    }
 }

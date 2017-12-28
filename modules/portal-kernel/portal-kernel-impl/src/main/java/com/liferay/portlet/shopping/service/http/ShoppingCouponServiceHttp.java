@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.shopping.service.http;
 
 import com.liferay.portal.kernel.log.Log;
@@ -52,239 +38,229 @@ import com.liferay.portlet.shopping.service.ShoppingCouponServiceUtil;
  * @generated
  */
 public class ShoppingCouponServiceHttp {
-	public static com.liferay.portlet.shopping.model.ShoppingCoupon addCoupon(
-		HttpPrincipal httpPrincipal, java.lang.String code, boolean autoCode,
-		java.lang.String name, java.lang.String description,
-		int startDateMonth, int startDateDay, int startDateYear,
-		int startDateHour, int startDateMinute, int endDateMonth,
-		int endDateDay, int endDateYear, int endDateHour, int endDateMinute,
-		boolean neverExpire, boolean active, java.lang.String limitCategories,
-		java.lang.String limitSkus, double minOrder, double discount,
-		java.lang.String discountType,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(ShoppingCouponServiceUtil.class,
-					"addCoupon", _addCouponParameterTypes0);
+    private static Log _log = LogFactoryUtil.getLog(ShoppingCouponServiceHttp.class);
+    private static final Class<?>[] _addCouponParameterTypes0 = new Class[] {
+            java.lang.String.class, boolean.class, java.lang.String.class,
+            java.lang.String.class, int.class, int.class, int.class, int.class,
+            int.class, int.class, int.class, int.class, int.class, int.class,
+            boolean.class, boolean.class, java.lang.String.class,
+            java.lang.String.class, double.class, double.class,
+            java.lang.String.class,
+            com.liferay.portal.service.ServiceContext.class
+        };
+    private static final Class<?>[] _deleteCouponParameterTypes1 = new Class[] {
+            long.class, long.class
+        };
+    private static final Class<?>[] _getCouponParameterTypes2 = new Class[] {
+            long.class, long.class
+        };
+    private static final Class<?>[] _searchParameterTypes3 = new Class[] {
+            long.class, long.class, java.lang.String.class, boolean.class,
+            java.lang.String.class, boolean.class, int.class, int.class
+        };
+    private static final Class<?>[] _updateCouponParameterTypes4 = new Class[] {
+            long.class, java.lang.String.class, java.lang.String.class,
+            int.class, int.class, int.class, int.class, int.class, int.class,
+            int.class, int.class, int.class, int.class, boolean.class,
+            boolean.class, java.lang.String.class, java.lang.String.class,
+            double.class, double.class, java.lang.String.class,
+            com.liferay.portal.service.ServiceContext.class
+        };
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, code,
-					autoCode, name, description, startDateMonth, startDateDay,
-					startDateYear, startDateHour, startDateMinute,
-					endDateMonth, endDateDay, endDateYear, endDateHour,
-					endDateMinute, neverExpire, active, limitCategories,
-					limitSkus, minOrder, discount, discountType, serviceContext);
+    public static com.liferay.portlet.shopping.model.ShoppingCoupon addCoupon(
+        HttpPrincipal httpPrincipal, java.lang.String code, boolean autoCode,
+        java.lang.String name, java.lang.String description,
+        int startDateMonth, int startDateDay, int startDateYear,
+        int startDateHour, int startDateMinute, int endDateMonth,
+        int endDateDay, int endDateYear, int endDateHour, int endDateMinute,
+        boolean neverExpire, boolean active, java.lang.String limitCategories,
+        java.lang.String limitSkus, double minOrder, double discount,
+        java.lang.String discountType,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(ShoppingCouponServiceUtil.class,
+                    "addCoupon", _addCouponParameterTypes0);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey, code,
+                    autoCode, name, description, startDateMonth, startDateDay,
+                    startDateYear, startDateHour, startDateMinute,
+                    endDateMonth, endDateDay, endDateYear, endDateHour,
+                    endDateMinute, neverExpire, active, limitCategories,
+                    limitSkus, minOrder, discount, discountType, serviceContext);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portlet.shopping.model.ShoppingCoupon)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portlet.shopping.model.ShoppingCoupon) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static void deleteCoupon(HttpPrincipal httpPrincipal, long groupId,
-		long couponId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(ShoppingCouponServiceUtil.class,
-					"deleteCoupon", _deleteCouponParameterTypes1);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
-					couponId);
+    public static void deleteCoupon(HttpPrincipal httpPrincipal, long groupId,
+        long couponId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(ShoppingCouponServiceUtil.class,
+                    "deleteCoupon", _deleteCouponParameterTypes1);
 
-			try {
-				TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
+                    couponId);
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			throw se;
-		}
-	}
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static com.liferay.portlet.shopping.model.ShoppingCoupon getCoupon(
-		HttpPrincipal httpPrincipal, long groupId, long couponId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(ShoppingCouponServiceUtil.class,
-					"getCoupon", _getCouponParameterTypes2);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
-					couponId);
+    public static com.liferay.portlet.shopping.model.ShoppingCoupon getCoupon(
+        HttpPrincipal httpPrincipal, long groupId, long couponId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(ShoppingCouponServiceUtil.class,
+                    "getCoupon", _getCouponParameterTypes2);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
+                    couponId);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portlet.shopping.model.ShoppingCoupon)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portlet.shopping.model.ShoppingCoupon) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static java.util.List<com.liferay.portlet.shopping.model.ShoppingCoupon> search(
-		HttpPrincipal httpPrincipal, long groupId, long companyId,
-		java.lang.String code, boolean active, java.lang.String discountType,
-		boolean andOperator, int start, int end)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(ShoppingCouponServiceUtil.class,
-					"search", _searchParameterTypes3);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
-					companyId, code, active, discountType, andOperator, start,
-					end);
+    public static java.util.List<com.liferay.portlet.shopping.model.ShoppingCoupon> search(
+        HttpPrincipal httpPrincipal, long groupId, long companyId,
+        java.lang.String code, boolean active, java.lang.String discountType,
+        boolean andOperator, int start, int end)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(ShoppingCouponServiceUtil.class,
+                    "search", _searchParameterTypes3);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
+                    companyId, code, active, discountType, andOperator, start,
+                    end);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (java.util.List<com.liferay.portlet.shopping.model.ShoppingCoupon>)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (java.util.List<com.liferay.portlet.shopping.model.ShoppingCoupon>) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static com.liferay.portlet.shopping.model.ShoppingCoupon updateCoupon(
-		HttpPrincipal httpPrincipal, long couponId, java.lang.String name,
-		java.lang.String description, int startDateMonth, int startDateDay,
-		int startDateYear, int startDateHour, int startDateMinute,
-		int endDateMonth, int endDateDay, int endDateYear, int endDateHour,
-		int endDateMinute, boolean neverExpire, boolean active,
-		java.lang.String limitCategories, java.lang.String limitSkus,
-		double minOrder, double discount, java.lang.String discountType,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(ShoppingCouponServiceUtil.class,
-					"updateCoupon", _updateCouponParameterTypes4);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					couponId, name, description, startDateMonth, startDateDay,
-					startDateYear, startDateHour, startDateMinute,
-					endDateMonth, endDateDay, endDateYear, endDateHour,
-					endDateMinute, neverExpire, active, limitCategories,
-					limitSkus, minOrder, discount, discountType, serviceContext);
+    public static com.liferay.portlet.shopping.model.ShoppingCoupon updateCoupon(
+        HttpPrincipal httpPrincipal, long couponId, java.lang.String name,
+        java.lang.String description, int startDateMonth, int startDateDay,
+        int startDateYear, int startDateHour, int startDateMinute,
+        int endDateMonth, int endDateDay, int endDateYear, int endDateHour,
+        int endDateMinute, boolean neverExpire, boolean active,
+        java.lang.String limitCategories, java.lang.String limitSkus,
+        double minOrder, double discount, java.lang.String discountType,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(ShoppingCouponServiceUtil.class,
+                    "updateCoupon", _updateCouponParameterTypes4);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    couponId, name, description, startDateMonth, startDateDay,
+                    startDateYear, startDateHour, startDateMinute,
+                    endDateMonth, endDateDay, endDateYear, endDateHour,
+                    endDateMinute, neverExpire, active, limitCategories,
+                    limitSkus, minOrder, discount, discountType, serviceContext);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portlet.shopping.model.ShoppingCoupon)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portlet.shopping.model.ShoppingCoupon) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	private static Log _log = LogFactoryUtil.getLog(ShoppingCouponServiceHttp.class);
-	private static final Class<?>[] _addCouponParameterTypes0 = new Class[] {
-			java.lang.String.class, boolean.class, java.lang.String.class,
-			java.lang.String.class, int.class, int.class, int.class, int.class,
-			int.class, int.class, int.class, int.class, int.class, int.class,
-			boolean.class, boolean.class, java.lang.String.class,
-			java.lang.String.class, double.class, double.class,
-			java.lang.String.class,
-			com.liferay.portal.service.ServiceContext.class
-		};
-	private static final Class<?>[] _deleteCouponParameterTypes1 = new Class[] {
-			long.class, long.class
-		};
-	private static final Class<?>[] _getCouponParameterTypes2 = new Class[] {
-			long.class, long.class
-		};
-	private static final Class<?>[] _searchParameterTypes3 = new Class[] {
-			long.class, long.class, java.lang.String.class, boolean.class,
-			java.lang.String.class, boolean.class, int.class, int.class
-		};
-	private static final Class<?>[] _updateCouponParameterTypes4 = new Class[] {
-			long.class, java.lang.String.class, java.lang.String.class,
-			int.class, int.class, int.class, int.class, int.class, int.class,
-			int.class, int.class, int.class, int.class, boolean.class,
-			boolean.class, java.lang.String.class, java.lang.String.class,
-			double.class, double.class, java.lang.String.class,
-			com.liferay.portal.service.ServiceContext.class
-		};
+            throw se;
+        }
+    }
 }

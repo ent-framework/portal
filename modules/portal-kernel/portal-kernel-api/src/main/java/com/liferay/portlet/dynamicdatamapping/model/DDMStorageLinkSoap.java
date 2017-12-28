@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.dynamicdatamapping.model;
 
 import java.io.Serializable;
@@ -26,109 +12,108 @@ import java.util.List;
  * @generated
  */
 public class DDMStorageLinkSoap implements Serializable {
-	public static DDMStorageLinkSoap toSoapModel(DDMStorageLink model) {
-		DDMStorageLinkSoap soapModel = new DDMStorageLinkSoap();
+    private String _uuid;
+    private long _storageLinkId;
+    private long _classNameId;
+    private long _classPK;
+    private long _structureId;
 
-		soapModel.setUuid(model.getUuid());
-		soapModel.setStorageLinkId(model.getStorageLinkId());
-		soapModel.setClassNameId(model.getClassNameId());
-		soapModel.setClassPK(model.getClassPK());
-		soapModel.setStructureId(model.getStructureId());
+    public DDMStorageLinkSoap() {
+    }
 
-		return soapModel;
-	}
+    public static DDMStorageLinkSoap toSoapModel(DDMStorageLink model) {
+        DDMStorageLinkSoap soapModel = new DDMStorageLinkSoap();
 
-	public static DDMStorageLinkSoap[] toSoapModels(DDMStorageLink[] models) {
-		DDMStorageLinkSoap[] soapModels = new DDMStorageLinkSoap[models.length];
+        soapModel.setUuid(model.getUuid());
+        soapModel.setStorageLinkId(model.getStorageLinkId());
+        soapModel.setClassNameId(model.getClassNameId());
+        soapModel.setClassPK(model.getClassPK());
+        soapModel.setStructureId(model.getStructureId());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static DDMStorageLinkSoap[] toSoapModels(DDMStorageLink[] models) {
+        DDMStorageLinkSoap[] soapModels = new DDMStorageLinkSoap[models.length];
 
-	public static DDMStorageLinkSoap[][] toSoapModels(DDMStorageLink[][] models) {
-		DDMStorageLinkSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new DDMStorageLinkSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new DDMStorageLinkSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static DDMStorageLinkSoap[][] toSoapModels(DDMStorageLink[][] models) {
+        DDMStorageLinkSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new DDMStorageLinkSoap[models.length][models[0].length];
+        } else {
+            soapModels = new DDMStorageLinkSoap[0][0];
+        }
 
-	public static DDMStorageLinkSoap[] toSoapModels(List<DDMStorageLink> models) {
-		List<DDMStorageLinkSoap> soapModels = new ArrayList<DDMStorageLinkSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (DDMStorageLink model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new DDMStorageLinkSoap[soapModels.size()]);
-	}
+    public static DDMStorageLinkSoap[] toSoapModels(List<DDMStorageLink> models) {
+        List<DDMStorageLinkSoap> soapModels = new ArrayList<DDMStorageLinkSoap>(models.size());
 
-	public DDMStorageLinkSoap() {
-	}
+        for (DDMStorageLink model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _storageLinkId;
-	}
+        return soapModels.toArray(new DDMStorageLinkSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setStorageLinkId(pk);
-	}
+    public long getPrimaryKey() {
+        return _storageLinkId;
+    }
 
-	public String getUuid() {
-		return _uuid;
-	}
+    public void setPrimaryKey(long pk) {
+        setStorageLinkId(pk);
+    }
 
-	public void setUuid(String uuid) {
-		_uuid = uuid;
-	}
+    public String getUuid() {
+        return _uuid;
+    }
 
-	public long getStorageLinkId() {
-		return _storageLinkId;
-	}
+    public void setUuid(String uuid) {
+        _uuid = uuid;
+    }
 
-	public void setStorageLinkId(long storageLinkId) {
-		_storageLinkId = storageLinkId;
-	}
+    public long getStorageLinkId() {
+        return _storageLinkId;
+    }
 
-	public long getClassNameId() {
-		return _classNameId;
-	}
+    public void setStorageLinkId(long storageLinkId) {
+        _storageLinkId = storageLinkId;
+    }
 
-	public void setClassNameId(long classNameId) {
-		_classNameId = classNameId;
-	}
+    public long getClassNameId() {
+        return _classNameId;
+    }
 
-	public long getClassPK() {
-		return _classPK;
-	}
+    public void setClassNameId(long classNameId) {
+        _classNameId = classNameId;
+    }
 
-	public void setClassPK(long classPK) {
-		_classPK = classPK;
-	}
+    public long getClassPK() {
+        return _classPK;
+    }
 
-	public long getStructureId() {
-		return _structureId;
-	}
+    public void setClassPK(long classPK) {
+        _classPK = classPK;
+    }
 
-	public void setStructureId(long structureId) {
-		_structureId = structureId;
-	}
+    public long getStructureId() {
+        return _structureId;
+    }
 
-	private String _uuid;
-	private long _storageLinkId;
-	private long _classNameId;
-	private long _classPK;
-	private long _structureId;
+    public void setStructureId(long structureId) {
+        _structureId = structureId;
+    }
 }

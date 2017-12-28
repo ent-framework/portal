@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.expando.model;
 
 import java.io.Serializable;
@@ -27,109 +13,108 @@ import java.util.List;
  * @generated
  */
 public class ExpandoRowSoap implements Serializable {
-	public static ExpandoRowSoap toSoapModel(ExpandoRow model) {
-		ExpandoRowSoap soapModel = new ExpandoRowSoap();
+    private long _rowId;
+    private long _companyId;
+    private Date _modifiedDate;
+    private long _tableId;
+    private long _classPK;
 
-		soapModel.setRowId(model.getRowId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setModifiedDate(model.getModifiedDate());
-		soapModel.setTableId(model.getTableId());
-		soapModel.setClassPK(model.getClassPK());
+    public ExpandoRowSoap() {
+    }
 
-		return soapModel;
-	}
+    public static ExpandoRowSoap toSoapModel(ExpandoRow model) {
+        ExpandoRowSoap soapModel = new ExpandoRowSoap();
 
-	public static ExpandoRowSoap[] toSoapModels(ExpandoRow[] models) {
-		ExpandoRowSoap[] soapModels = new ExpandoRowSoap[models.length];
+        soapModel.setRowId(model.getRowId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setModifiedDate(model.getModifiedDate());
+        soapModel.setTableId(model.getTableId());
+        soapModel.setClassPK(model.getClassPK());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static ExpandoRowSoap[] toSoapModels(ExpandoRow[] models) {
+        ExpandoRowSoap[] soapModels = new ExpandoRowSoap[models.length];
 
-	public static ExpandoRowSoap[][] toSoapModels(ExpandoRow[][] models) {
-		ExpandoRowSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new ExpandoRowSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new ExpandoRowSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static ExpandoRowSoap[][] toSoapModels(ExpandoRow[][] models) {
+        ExpandoRowSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new ExpandoRowSoap[models.length][models[0].length];
+        } else {
+            soapModels = new ExpandoRowSoap[0][0];
+        }
 
-	public static ExpandoRowSoap[] toSoapModels(List<ExpandoRow> models) {
-		List<ExpandoRowSoap> soapModels = new ArrayList<ExpandoRowSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (ExpandoRow model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new ExpandoRowSoap[soapModels.size()]);
-	}
+    public static ExpandoRowSoap[] toSoapModels(List<ExpandoRow> models) {
+        List<ExpandoRowSoap> soapModels = new ArrayList<ExpandoRowSoap>(models.size());
 
-	public ExpandoRowSoap() {
-	}
+        for (ExpandoRow model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _rowId;
-	}
+        return soapModels.toArray(new ExpandoRowSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setRowId(pk);
-	}
+    public long getPrimaryKey() {
+        return _rowId;
+    }
 
-	public long getRowId() {
-		return _rowId;
-	}
+    public void setPrimaryKey(long pk) {
+        setRowId(pk);
+    }
 
-	public void setRowId(long rowId) {
-		_rowId = rowId;
-	}
+    public long getRowId() {
+        return _rowId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setRowId(long rowId) {
+        _rowId = rowId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public Date getModifiedDate() {
-		return _modifiedDate;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setModifiedDate(Date modifiedDate) {
-		_modifiedDate = modifiedDate;
-	}
+    public Date getModifiedDate() {
+        return _modifiedDate;
+    }
 
-	public long getTableId() {
-		return _tableId;
-	}
+    public void setModifiedDate(Date modifiedDate) {
+        _modifiedDate = modifiedDate;
+    }
 
-	public void setTableId(long tableId) {
-		_tableId = tableId;
-	}
+    public long getTableId() {
+        return _tableId;
+    }
 
-	public long getClassPK() {
-		return _classPK;
-	}
+    public void setTableId(long tableId) {
+        _tableId = tableId;
+    }
 
-	public void setClassPK(long classPK) {
-		_classPK = classPK;
-	}
+    public long getClassPK() {
+        return _classPK;
+    }
 
-	private long _rowId;
-	private long _companyId;
-	private Date _modifiedDate;
-	private long _tableId;
-	private long _classPK;
+    public void setClassPK(long classPK) {
+        _classPK = classPK;
+    }
 }

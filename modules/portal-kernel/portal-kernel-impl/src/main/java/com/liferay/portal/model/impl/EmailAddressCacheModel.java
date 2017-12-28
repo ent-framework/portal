@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,157 +20,149 @@ import java.util.Date;
  * @generated
  */
 public class EmailAddressCacheModel implements CacheModel<EmailAddress>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(25);
+    Externalizable {
+    public String uuid;
+    public long emailAddressId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public long classNameId;
+    public long classPK;
+    public String address;
+    public int typeId;
+    public boolean primary;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", emailAddressId=");
-		sb.append(emailAddressId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", classNameId=");
-		sb.append(classNameId);
-		sb.append(", classPK=");
-		sb.append(classPK);
-		sb.append(", address=");
-		sb.append(address);
-		sb.append(", typeId=");
-		sb.append(typeId);
-		sb.append(", primary=");
-		sb.append(primary);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(25);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", emailAddressId=");
+        sb.append(emailAddressId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", classNameId=");
+        sb.append(classNameId);
+        sb.append(", classPK=");
+        sb.append(classPK);
+        sb.append(", address=");
+        sb.append(address);
+        sb.append(", typeId=");
+        sb.append(typeId);
+        sb.append(", primary=");
+        sb.append(primary);
+        sb.append("}");
 
-	@Override
-	public EmailAddress toEntityModel() {
-		EmailAddressImpl emailAddressImpl = new EmailAddressImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			emailAddressImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			emailAddressImpl.setUuid(uuid);
-		}
+    @Override
+    public EmailAddress toEntityModel() {
+        EmailAddressImpl emailAddressImpl = new EmailAddressImpl();
 
-		emailAddressImpl.setEmailAddressId(emailAddressId);
-		emailAddressImpl.setCompanyId(companyId);
-		emailAddressImpl.setUserId(userId);
+        if (uuid == null) {
+            emailAddressImpl.setUuid(StringPool.BLANK);
+        } else {
+            emailAddressImpl.setUuid(uuid);
+        }
 
-		if (userName == null) {
-			emailAddressImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			emailAddressImpl.setUserName(userName);
-		}
+        emailAddressImpl.setEmailAddressId(emailAddressId);
+        emailAddressImpl.setCompanyId(companyId);
+        emailAddressImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			emailAddressImpl.setCreateDate(null);
-		}
-		else {
-			emailAddressImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            emailAddressImpl.setUserName(StringPool.BLANK);
+        } else {
+            emailAddressImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			emailAddressImpl.setModifiedDate(null);
-		}
-		else {
-			emailAddressImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            emailAddressImpl.setCreateDate(null);
+        } else {
+            emailAddressImpl.setCreateDate(new Date(createDate));
+        }
 
-		emailAddressImpl.setClassNameId(classNameId);
-		emailAddressImpl.setClassPK(classPK);
+        if (modifiedDate == Long.MIN_VALUE) {
+            emailAddressImpl.setModifiedDate(null);
+        } else {
+            emailAddressImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (address == null) {
-			emailAddressImpl.setAddress(StringPool.BLANK);
-		}
-		else {
-			emailAddressImpl.setAddress(address);
-		}
+        emailAddressImpl.setClassNameId(classNameId);
+        emailAddressImpl.setClassPK(classPK);
 
-		emailAddressImpl.setTypeId(typeId);
-		emailAddressImpl.setPrimary(primary);
+        if (address == null) {
+            emailAddressImpl.setAddress(StringPool.BLANK);
+        } else {
+            emailAddressImpl.setAddress(address);
+        }
 
-		emailAddressImpl.resetOriginalValues();
+        emailAddressImpl.setTypeId(typeId);
+        emailAddressImpl.setPrimary(primary);
 
-		return emailAddressImpl;
-	}
+        emailAddressImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		emailAddressId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		classNameId = objectInput.readLong();
-		classPK = objectInput.readLong();
-		address = objectInput.readUTF();
-		typeId = objectInput.readInt();
-		primary = objectInput.readBoolean();
-	}
+        return emailAddressImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        emailAddressId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        classNameId = objectInput.readLong();
+        classPK = objectInput.readLong();
+        address = objectInput.readUTF();
+        typeId = objectInput.readInt();
+        primary = objectInput.readBoolean();
+    }
 
-		objectOutput.writeLong(emailAddressId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+        objectOutput.writeLong(emailAddressId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(classNameId);
-		objectOutput.writeLong(classPK);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (address == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(address);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(classNameId);
+        objectOutput.writeLong(classPK);
 
-		objectOutput.writeInt(typeId);
-		objectOutput.writeBoolean(primary);
-	}
+        if (address == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(address);
+        }
 
-	public String uuid;
-	public long emailAddressId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public long classNameId;
-	public long classPK;
-	public String address;
-	public int typeId;
-	public boolean primary;
+        objectOutput.writeInt(typeId);
+        objectOutput.writeBoolean(primary);
+    }
 }

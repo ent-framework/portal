@@ -1,22 +1,10 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.bean.AutoEscape;
+import com.liferay.portal.model.BaseModel;
+import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.service.ServiceContext;
 
 import com.liferay.portlet.expando.model.ExpandoBridge;
@@ -38,137 +26,138 @@ import java.io.Serializable;
  */
 @ProviderType
 public interface PortalPreferencesModel extends BaseModel<PortalPreferences> {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this interface directly. All methods that expect a portal preferences model instance should use the {@link PortalPreferences} interface instead.
-	 */
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this interface directly. All methods that expect a portal preferences model instance should use the {@link PortalPreferences} interface instead.
+     */
 
-	/**
-	 * Returns the primary key of this portal preferences.
-	 *
-	 * @return the primary key of this portal preferences
-	 */
-	public long getPrimaryKey();
+    /**
+     * Returns the primary key of this portal preferences.
+     *
+     * @return the primary key of this portal preferences
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this portal preferences.
-	 *
-	 * @param primaryKey the primary key of this portal preferences
-	 */
-	public void setPrimaryKey(long primaryKey);
+    /**
+     * Sets the primary key of this portal preferences.
+     *
+     * @param primaryKey the primary key of this portal preferences
+     */
+    public void setPrimaryKey(long primaryKey);
 
-	/**
-	 * Returns the portal preferences ID of this portal preferences.
-	 *
-	 * @return the portal preferences ID of this portal preferences
-	 */
-	public long getPortalPreferencesId();
+    /**
+     * Returns the portal preferences ID of this portal preferences.
+     *
+     * @return the portal preferences ID of this portal preferences
+     */
+    public long getPortalPreferencesId();
 
-	/**
-	 * Sets the portal preferences ID of this portal preferences.
-	 *
-	 * @param portalPreferencesId the portal preferences ID of this portal preferences
-	 */
-	public void setPortalPreferencesId(long portalPreferencesId);
+    /**
+     * Sets the portal preferences ID of this portal preferences.
+     *
+     * @param portalPreferencesId the portal preferences ID of this portal preferences
+     */
+    public void setPortalPreferencesId(long portalPreferencesId);
 
-	/**
-	 * Returns the owner ID of this portal preferences.
-	 *
-	 * @return the owner ID of this portal preferences
-	 */
-	public long getOwnerId();
+    /**
+     * Returns the owner ID of this portal preferences.
+     *
+     * @return the owner ID of this portal preferences
+     */
+    public long getOwnerId();
 
-	/**
-	 * Sets the owner ID of this portal preferences.
-	 *
-	 * @param ownerId the owner ID of this portal preferences
-	 */
-	public void setOwnerId(long ownerId);
+    /**
+     * Sets the owner ID of this portal preferences.
+     *
+     * @param ownerId the owner ID of this portal preferences
+     */
+    public void setOwnerId(long ownerId);
 
-	/**
-	 * Returns the owner type of this portal preferences.
-	 *
-	 * @return the owner type of this portal preferences
-	 */
-	public int getOwnerType();
+    /**
+     * Returns the owner type of this portal preferences.
+     *
+     * @return the owner type of this portal preferences
+     */
+    public int getOwnerType();
 
-	/**
-	 * Sets the owner type of this portal preferences.
-	 *
-	 * @param ownerType the owner type of this portal preferences
-	 */
-	public void setOwnerType(int ownerType);
+    /**
+     * Sets the owner type of this portal preferences.
+     *
+     * @param ownerType the owner type of this portal preferences
+     */
+    public void setOwnerType(int ownerType);
 
-	/**
-	 * Returns the preferences of this portal preferences.
-	 *
-	 * @return the preferences of this portal preferences
-	 */
-	@AutoEscape
-	public String getPreferences();
+    /**
+     * Returns the preferences of this portal preferences.
+     *
+     * @return the preferences of this portal preferences
+     */
+    @AutoEscape
+    public String getPreferences();
 
-	/**
-	 * Sets the preferences of this portal preferences.
-	 *
-	 * @param preferences the preferences of this portal preferences
-	 */
-	public void setPreferences(String preferences);
+    /**
+     * Sets the preferences of this portal preferences.
+     *
+     * @param preferences the preferences of this portal preferences
+     */
+    public void setPreferences(String preferences);
 
-	@Override
-	public boolean isNew();
+    @Override
+    public boolean isNew();
 
-	@Override
-	public void setNew(boolean n);
+    @Override
+    public void setNew(boolean n);
 
-	@Override
-	public boolean isCachedModel();
+    @Override
+    public boolean isCachedModel();
 
-	@Override
-	public void setCachedModel(boolean cachedModel);
+    @Override
+    public void setCachedModel(boolean cachedModel);
 
-	@Override
-	public boolean isEscapedModel();
+    @Override
+    public boolean isEscapedModel();
 
-	@Override
-	public Serializable getPrimaryKeyObj();
+    @Override
+    public Serializable getPrimaryKeyObj();
 
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj);
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj);
 
-	@Override
-	public ExpandoBridge getExpandoBridge();
+    @Override
+    public ExpandoBridge getExpandoBridge();
 
-	@Override
-	public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
+    @Override
+    public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
 
-	@Override
-	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
+    @Override
+    public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	@Override
-	public Object clone();
+    @Override
+    public Object clone();
 
-	@Override
-	public int compareTo(PortalPreferences portalPreferences);
+    @Override
+    public int compareTo(
+        com.liferay.portal.model.PortalPreferences portalPreferences);
 
-	@Override
-	public int hashCode();
+    @Override
+    public int hashCode();
 
-	@Override
-	public CacheModel<PortalPreferences> toCacheModel();
+    @Override
+    public CacheModel<com.liferay.portal.model.PortalPreferences> toCacheModel();
 
-	@Override
-	public PortalPreferences toEscapedModel();
+    @Override
+    public com.liferay.portal.model.PortalPreferences toEscapedModel();
 
-	@Override
-	public PortalPreferences toUnescapedModel();
+    @Override
+    public com.liferay.portal.model.PortalPreferences toUnescapedModel();
 
-	@Override
-	public String toString();
+    @Override
+    public String toString();
 
-	@Override
-	public String toXmlString();
+    @Override
+    public String toXmlString();
 }

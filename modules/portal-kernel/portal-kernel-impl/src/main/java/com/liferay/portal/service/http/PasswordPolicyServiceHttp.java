@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.service.http;
 
 import com.liferay.portal.kernel.log.Log;
@@ -20,6 +6,7 @@ import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.PasswordPolicyServiceUtil;
+import com.liferay.portal.service.http.TunnelUtil;
 
 /**
  * Provides the HTTP utility for the
@@ -50,278 +37,268 @@ import com.liferay.portal.service.PasswordPolicyServiceUtil;
  * @generated
  */
 public class PasswordPolicyServiceHttp {
-	public static com.liferay.portal.model.PasswordPolicy addPasswordPolicy(
-		HttpPrincipal httpPrincipal, java.lang.String name,
-		java.lang.String description, boolean changeable,
-		boolean changeRequired, long minAge, boolean checkSyntax,
-		boolean allowDictionaryWords, int minAlphanumeric, int minLength,
-		int minLowerCase, int minNumbers, int minSymbols, int minUpperCase,
-		boolean history, int historyCount, boolean expireable, long maxAge,
-		long warningTime, int graceLimit, boolean lockout, int maxFailure,
-		long lockoutDuration, long resetFailureCount, long resetTicketMaxAge)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(PasswordPolicyServiceUtil.class,
-					"addPasswordPolicy", _addPasswordPolicyParameterTypes0);
+    private static Log _log = LogFactoryUtil.getLog(PasswordPolicyServiceHttp.class);
+    private static final Class<?>[] _addPasswordPolicyParameterTypes0 = new Class[] {
+            java.lang.String.class, java.lang.String.class, boolean.class,
+            boolean.class, long.class, boolean.class, boolean.class, int.class,
+            int.class, int.class, int.class, int.class, int.class, boolean.class,
+            int.class, boolean.class, long.class, long.class, int.class,
+            boolean.class, int.class, long.class, long.class, long.class
+        };
+    private static final Class<?>[] _addPasswordPolicyParameterTypes1 = new Class[] {
+            java.lang.String.class, java.lang.String.class, boolean.class,
+            boolean.class, long.class, boolean.class, boolean.class, int.class,
+            int.class, int.class, int.class, int.class, int.class,
+            java.lang.String.class, boolean.class, int.class, boolean.class,
+            long.class, long.class, int.class, boolean.class, int.class,
+            long.class, long.class, long.class,
+            com.liferay.portal.service.ServiceContext.class
+        };
+    private static final Class<?>[] _deletePasswordPolicyParameterTypes2 = new Class[] {
+            long.class
+        };
+    private static final Class<?>[] _updatePasswordPolicyParameterTypes3 = new Class[] {
+            long.class, java.lang.String.class, java.lang.String.class,
+            boolean.class, boolean.class, long.class, boolean.class,
+            boolean.class, int.class, int.class, int.class, int.class, int.class,
+            int.class, boolean.class, int.class, boolean.class, long.class,
+            long.class, int.class, boolean.class, int.class, long.class,
+            long.class, long.class
+        };
+    private static final Class<?>[] _updatePasswordPolicyParameterTypes4 = new Class[] {
+            long.class, java.lang.String.class, java.lang.String.class,
+            boolean.class, boolean.class, long.class, boolean.class,
+            boolean.class, int.class, int.class, int.class, int.class, int.class,
+            int.class, java.lang.String.class, boolean.class, int.class,
+            boolean.class, long.class, long.class, int.class, boolean.class,
+            int.class, long.class, long.class, long.class,
+            com.liferay.portal.service.ServiceContext.class
+        };
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, name,
-					description, changeable, changeRequired, minAge,
-					checkSyntax, allowDictionaryWords, minAlphanumeric,
-					minLength, minLowerCase, minNumbers, minSymbols,
-					minUpperCase, history, historyCount, expireable, maxAge,
-					warningTime, graceLimit, lockout, maxFailure,
-					lockoutDuration, resetFailureCount, resetTicketMaxAge);
+    public static com.liferay.portal.model.PasswordPolicy addPasswordPolicy(
+        HttpPrincipal httpPrincipal, java.lang.String name,
+        java.lang.String description, boolean changeable,
+        boolean changeRequired, long minAge, boolean checkSyntax,
+        boolean allowDictionaryWords, int minAlphanumeric, int minLength,
+        int minLowerCase, int minNumbers, int minSymbols, int minUpperCase,
+        boolean history, int historyCount, boolean expireable, long maxAge,
+        long warningTime, int graceLimit, boolean lockout, int maxFailure,
+        long lockoutDuration, long resetFailureCount, long resetTicketMaxAge)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(PasswordPolicyServiceUtil.class,
+                    "addPasswordPolicy", _addPasswordPolicyParameterTypes0);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey, name,
+                    description, changeable, changeRequired, minAge,
+                    checkSyntax, allowDictionaryWords, minAlphanumeric,
+                    minLength, minLowerCase, minNumbers, minSymbols,
+                    minUpperCase, history, historyCount, expireable, maxAge,
+                    warningTime, graceLimit, lockout, maxFailure,
+                    lockoutDuration, resetFailureCount, resetTicketMaxAge);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portal.model.PasswordPolicy)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portal.model.PasswordPolicy) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static com.liferay.portal.model.PasswordPolicy addPasswordPolicy(
-		HttpPrincipal httpPrincipal, java.lang.String name,
-		java.lang.String description, boolean changeable,
-		boolean changeRequired, long minAge, boolean checkSyntax,
-		boolean allowDictionaryWords, int minAlphanumeric, int minLength,
-		int minLowerCase, int minNumbers, int minSymbols, int minUpperCase,
-		java.lang.String regex, boolean history, int historyCount,
-		boolean expireable, long maxAge, long warningTime, int graceLimit,
-		boolean lockout, int maxFailure, long lockoutDuration,
-		long resetFailureCount, long resetTicketMaxAge,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(PasswordPolicyServiceUtil.class,
-					"addPasswordPolicy", _addPasswordPolicyParameterTypes1);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, name,
-					description, changeable, changeRequired, minAge,
-					checkSyntax, allowDictionaryWords, minAlphanumeric,
-					minLength, minLowerCase, minNumbers, minSymbols,
-					minUpperCase, regex, history, historyCount, expireable,
-					maxAge, warningTime, graceLimit, lockout, maxFailure,
-					lockoutDuration, resetFailureCount, resetTicketMaxAge,
-					serviceContext);
+    public static com.liferay.portal.model.PasswordPolicy addPasswordPolicy(
+        HttpPrincipal httpPrincipal, java.lang.String name,
+        java.lang.String description, boolean changeable,
+        boolean changeRequired, long minAge, boolean checkSyntax,
+        boolean allowDictionaryWords, int minAlphanumeric, int minLength,
+        int minLowerCase, int minNumbers, int minSymbols, int minUpperCase,
+        java.lang.String regex, boolean history, int historyCount,
+        boolean expireable, long maxAge, long warningTime, int graceLimit,
+        boolean lockout, int maxFailure, long lockoutDuration,
+        long resetFailureCount, long resetTicketMaxAge,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(PasswordPolicyServiceUtil.class,
+                    "addPasswordPolicy", _addPasswordPolicyParameterTypes1);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey, name,
+                    description, changeable, changeRequired, minAge,
+                    checkSyntax, allowDictionaryWords, minAlphanumeric,
+                    minLength, minLowerCase, minNumbers, minSymbols,
+                    minUpperCase, regex, history, historyCount, expireable,
+                    maxAge, warningTime, graceLimit, lockout, maxFailure,
+                    lockoutDuration, resetFailureCount, resetTicketMaxAge,
+                    serviceContext);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portal.model.PasswordPolicy)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portal.model.PasswordPolicy) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static void deletePasswordPolicy(HttpPrincipal httpPrincipal,
-		long passwordPolicyId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(PasswordPolicyServiceUtil.class,
-					"deletePasswordPolicy", _deletePasswordPolicyParameterTypes2);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					passwordPolicyId);
+    public static void deletePasswordPolicy(HttpPrincipal httpPrincipal,
+        long passwordPolicyId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(PasswordPolicyServiceUtil.class,
+                    "deletePasswordPolicy", _deletePasswordPolicyParameterTypes2);
 
-			try {
-				TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    passwordPolicyId);
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			throw se;
-		}
-	}
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static com.liferay.portal.model.PasswordPolicy updatePasswordPolicy(
-		HttpPrincipal httpPrincipal, long passwordPolicyId,
-		java.lang.String name, java.lang.String description,
-		boolean changeable, boolean changeRequired, long minAge,
-		boolean checkSyntax, boolean allowDictionaryWords, int minAlphanumeric,
-		int minLength, int minLowerCase, int minNumbers, int minSymbols,
-		int minUpperCase, boolean history, int historyCount,
-		boolean expireable, long maxAge, long warningTime, int graceLimit,
-		boolean lockout, int maxFailure, long lockoutDuration,
-		long resetFailureCount, long resetTicketMaxAge)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(PasswordPolicyServiceUtil.class,
-					"updatePasswordPolicy", _updatePasswordPolicyParameterTypes3);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					passwordPolicyId, name, description, changeable,
-					changeRequired, minAge, checkSyntax, allowDictionaryWords,
-					minAlphanumeric, minLength, minLowerCase, minNumbers,
-					minSymbols, minUpperCase, history, historyCount,
-					expireable, maxAge, warningTime, graceLimit, lockout,
-					maxFailure, lockoutDuration, resetFailureCount,
-					resetTicketMaxAge);
+    public static com.liferay.portal.model.PasswordPolicy updatePasswordPolicy(
+        HttpPrincipal httpPrincipal, long passwordPolicyId,
+        java.lang.String name, java.lang.String description,
+        boolean changeable, boolean changeRequired, long minAge,
+        boolean checkSyntax, boolean allowDictionaryWords, int minAlphanumeric,
+        int minLength, int minLowerCase, int minNumbers, int minSymbols,
+        int minUpperCase, boolean history, int historyCount,
+        boolean expireable, long maxAge, long warningTime, int graceLimit,
+        boolean lockout, int maxFailure, long lockoutDuration,
+        long resetFailureCount, long resetTicketMaxAge)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(PasswordPolicyServiceUtil.class,
+                    "updatePasswordPolicy", _updatePasswordPolicyParameterTypes3);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    passwordPolicyId, name, description, changeable,
+                    changeRequired, minAge, checkSyntax, allowDictionaryWords,
+                    minAlphanumeric, minLength, minLowerCase, minNumbers,
+                    minSymbols, minUpperCase, history, historyCount,
+                    expireable, maxAge, warningTime, graceLimit, lockout,
+                    maxFailure, lockoutDuration, resetFailureCount,
+                    resetTicketMaxAge);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portal.model.PasswordPolicy)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portal.model.PasswordPolicy) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static com.liferay.portal.model.PasswordPolicy updatePasswordPolicy(
-		HttpPrincipal httpPrincipal, long passwordPolicyId,
-		java.lang.String name, java.lang.String description,
-		boolean changeable, boolean changeRequired, long minAge,
-		boolean checkSyntax, boolean allowDictionaryWords, int minAlphanumeric,
-		int minLength, int minLowerCase, int minNumbers, int minSymbols,
-		int minUpperCase, java.lang.String regex, boolean history,
-		int historyCount, boolean expireable, long maxAge, long warningTime,
-		int graceLimit, boolean lockout, int maxFailure, long lockoutDuration,
-		long resetFailureCount, long resetTicketMaxAge,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(PasswordPolicyServiceUtil.class,
-					"updatePasswordPolicy", _updatePasswordPolicyParameterTypes4);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					passwordPolicyId, name, description, changeable,
-					changeRequired, minAge, checkSyntax, allowDictionaryWords,
-					minAlphanumeric, minLength, minLowerCase, minNumbers,
-					minSymbols, minUpperCase, regex, history, historyCount,
-					expireable, maxAge, warningTime, graceLimit, lockout,
-					maxFailure, lockoutDuration, resetFailureCount,
-					resetTicketMaxAge, serviceContext);
+    public static com.liferay.portal.model.PasswordPolicy updatePasswordPolicy(
+        HttpPrincipal httpPrincipal, long passwordPolicyId,
+        java.lang.String name, java.lang.String description,
+        boolean changeable, boolean changeRequired, long minAge,
+        boolean checkSyntax, boolean allowDictionaryWords, int minAlphanumeric,
+        int minLength, int minLowerCase, int minNumbers, int minSymbols,
+        int minUpperCase, java.lang.String regex, boolean history,
+        int historyCount, boolean expireable, long maxAge, long warningTime,
+        int graceLimit, boolean lockout, int maxFailure, long lockoutDuration,
+        long resetFailureCount, long resetTicketMaxAge,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(PasswordPolicyServiceUtil.class,
+                    "updatePasswordPolicy", _updatePasswordPolicyParameterTypes4);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    passwordPolicyId, name, description, changeable,
+                    changeRequired, minAge, checkSyntax, allowDictionaryWords,
+                    minAlphanumeric, minLength, minLowerCase, minNumbers,
+                    minSymbols, minUpperCase, regex, history, historyCount,
+                    expireable, maxAge, warningTime, graceLimit, lockout,
+                    maxFailure, lockoutDuration, resetFailureCount,
+                    resetTicketMaxAge, serviceContext);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portal.model.PasswordPolicy)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portal.model.PasswordPolicy) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	private static Log _log = LogFactoryUtil.getLog(PasswordPolicyServiceHttp.class);
-	private static final Class<?>[] _addPasswordPolicyParameterTypes0 = new Class[] {
-			java.lang.String.class, java.lang.String.class, boolean.class,
-			boolean.class, long.class, boolean.class, boolean.class, int.class,
-			int.class, int.class, int.class, int.class, int.class, boolean.class,
-			int.class, boolean.class, long.class, long.class, int.class,
-			boolean.class, int.class, long.class, long.class, long.class
-		};
-	private static final Class<?>[] _addPasswordPolicyParameterTypes1 = new Class[] {
-			java.lang.String.class, java.lang.String.class, boolean.class,
-			boolean.class, long.class, boolean.class, boolean.class, int.class,
-			int.class, int.class, int.class, int.class, int.class,
-			java.lang.String.class, boolean.class, int.class, boolean.class,
-			long.class, long.class, int.class, boolean.class, int.class,
-			long.class, long.class, long.class,
-			com.liferay.portal.service.ServiceContext.class
-		};
-	private static final Class<?>[] _deletePasswordPolicyParameterTypes2 = new Class[] {
-			long.class
-		};
-	private static final Class<?>[] _updatePasswordPolicyParameterTypes3 = new Class[] {
-			long.class, java.lang.String.class, java.lang.String.class,
-			boolean.class, boolean.class, long.class, boolean.class,
-			boolean.class, int.class, int.class, int.class, int.class, int.class,
-			int.class, boolean.class, int.class, boolean.class, long.class,
-			long.class, int.class, boolean.class, int.class, long.class,
-			long.class, long.class
-		};
-	private static final Class<?>[] _updatePasswordPolicyParameterTypes4 = new Class[] {
-			long.class, java.lang.String.class, java.lang.String.class,
-			boolean.class, boolean.class, long.class, boolean.class,
-			boolean.class, int.class, int.class, int.class, int.class, int.class,
-			int.class, java.lang.String.class, boolean.class, int.class,
-			boolean.class, long.class, long.class, int.class, boolean.class,
-			int.class, long.class, long.class, long.class,
-			com.liferay.portal.service.ServiceContext.class
-		};
+            throw se;
+        }
+    }
 }

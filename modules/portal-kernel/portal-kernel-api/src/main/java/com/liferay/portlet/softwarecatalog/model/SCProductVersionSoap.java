@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.softwarecatalog.model;
 
 import java.io.Serializable;
@@ -28,185 +14,184 @@ import java.util.List;
  * @generated
  */
 public class SCProductVersionSoap implements Serializable {
-	public static SCProductVersionSoap toSoapModel(SCProductVersion model) {
-		SCProductVersionSoap soapModel = new SCProductVersionSoap();
+    private long _productVersionId;
+    private long _companyId;
+    private long _userId;
+    private String _userName;
+    private Date _createDate;
+    private Date _modifiedDate;
+    private long _productEntryId;
+    private String _version;
+    private String _changeLog;
+    private String _downloadPageURL;
+    private String _directDownloadURL;
+    private boolean _repoStoreArtifact;
 
-		soapModel.setProductVersionId(model.getProductVersionId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setUserName(model.getUserName());
-		soapModel.setCreateDate(model.getCreateDate());
-		soapModel.setModifiedDate(model.getModifiedDate());
-		soapModel.setProductEntryId(model.getProductEntryId());
-		soapModel.setVersion(model.getVersion());
-		soapModel.setChangeLog(model.getChangeLog());
-		soapModel.setDownloadPageURL(model.getDownloadPageURL());
-		soapModel.setDirectDownloadURL(model.getDirectDownloadURL());
-		soapModel.setRepoStoreArtifact(model.getRepoStoreArtifact());
+    public SCProductVersionSoap() {
+    }
 
-		return soapModel;
-	}
+    public static SCProductVersionSoap toSoapModel(SCProductVersion model) {
+        SCProductVersionSoap soapModel = new SCProductVersionSoap();
 
-	public static SCProductVersionSoap[] toSoapModels(SCProductVersion[] models) {
-		SCProductVersionSoap[] soapModels = new SCProductVersionSoap[models.length];
+        soapModel.setProductVersionId(model.getProductVersionId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setUserName(model.getUserName());
+        soapModel.setCreateDate(model.getCreateDate());
+        soapModel.setModifiedDate(model.getModifiedDate());
+        soapModel.setProductEntryId(model.getProductEntryId());
+        soapModel.setVersion(model.getVersion());
+        soapModel.setChangeLog(model.getChangeLog());
+        soapModel.setDownloadPageURL(model.getDownloadPageURL());
+        soapModel.setDirectDownloadURL(model.getDirectDownloadURL());
+        soapModel.setRepoStoreArtifact(model.getRepoStoreArtifact());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static SCProductVersionSoap[] toSoapModels(SCProductVersion[] models) {
+        SCProductVersionSoap[] soapModels = new SCProductVersionSoap[models.length];
 
-	public static SCProductVersionSoap[][] toSoapModels(
-		SCProductVersion[][] models) {
-		SCProductVersionSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new SCProductVersionSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new SCProductVersionSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static SCProductVersionSoap[][] toSoapModels(
+        SCProductVersion[][] models) {
+        SCProductVersionSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new SCProductVersionSoap[models.length][models[0].length];
+        } else {
+            soapModels = new SCProductVersionSoap[0][0];
+        }
 
-	public static SCProductVersionSoap[] toSoapModels(
-		List<SCProductVersion> models) {
-		List<SCProductVersionSoap> soapModels = new ArrayList<SCProductVersionSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (SCProductVersion model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new SCProductVersionSoap[soapModels.size()]);
-	}
+    public static SCProductVersionSoap[] toSoapModels(
+        List<SCProductVersion> models) {
+        List<SCProductVersionSoap> soapModels = new ArrayList<SCProductVersionSoap>(models.size());
 
-	public SCProductVersionSoap() {
-	}
+        for (SCProductVersion model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _productVersionId;
-	}
+        return soapModels.toArray(new SCProductVersionSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setProductVersionId(pk);
-	}
+    public long getPrimaryKey() {
+        return _productVersionId;
+    }
 
-	public long getProductVersionId() {
-		return _productVersionId;
-	}
+    public void setPrimaryKey(long pk) {
+        setProductVersionId(pk);
+    }
 
-	public void setProductVersionId(long productVersionId) {
-		_productVersionId = productVersionId;
-	}
+    public long getProductVersionId() {
+        return _productVersionId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setProductVersionId(long productVersionId) {
+        _productVersionId = productVersionId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public String getUserName() {
-		return _userName;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setUserName(String userName) {
-		_userName = userName;
-	}
+    public String getUserName() {
+        return _userName;
+    }
 
-	public Date getCreateDate() {
-		return _createDate;
-	}
+    public void setUserName(String userName) {
+        _userName = userName;
+    }
 
-	public void setCreateDate(Date createDate) {
-		_createDate = createDate;
-	}
+    public Date getCreateDate() {
+        return _createDate;
+    }
 
-	public Date getModifiedDate() {
-		return _modifiedDate;
-	}
+    public void setCreateDate(Date createDate) {
+        _createDate = createDate;
+    }
 
-	public void setModifiedDate(Date modifiedDate) {
-		_modifiedDate = modifiedDate;
-	}
+    public Date getModifiedDate() {
+        return _modifiedDate;
+    }
 
-	public long getProductEntryId() {
-		return _productEntryId;
-	}
+    public void setModifiedDate(Date modifiedDate) {
+        _modifiedDate = modifiedDate;
+    }
 
-	public void setProductEntryId(long productEntryId) {
-		_productEntryId = productEntryId;
-	}
+    public long getProductEntryId() {
+        return _productEntryId;
+    }
 
-	public String getVersion() {
-		return _version;
-	}
+    public void setProductEntryId(long productEntryId) {
+        _productEntryId = productEntryId;
+    }
 
-	public void setVersion(String version) {
-		_version = version;
-	}
+    public String getVersion() {
+        return _version;
+    }
 
-	public String getChangeLog() {
-		return _changeLog;
-	}
+    public void setVersion(String version) {
+        _version = version;
+    }
 
-	public void setChangeLog(String changeLog) {
-		_changeLog = changeLog;
-	}
+    public String getChangeLog() {
+        return _changeLog;
+    }
 
-	public String getDownloadPageURL() {
-		return _downloadPageURL;
-	}
+    public void setChangeLog(String changeLog) {
+        _changeLog = changeLog;
+    }
 
-	public void setDownloadPageURL(String downloadPageURL) {
-		_downloadPageURL = downloadPageURL;
-	}
+    public String getDownloadPageURL() {
+        return _downloadPageURL;
+    }
 
-	public String getDirectDownloadURL() {
-		return _directDownloadURL;
-	}
+    public void setDownloadPageURL(String downloadPageURL) {
+        _downloadPageURL = downloadPageURL;
+    }
 
-	public void setDirectDownloadURL(String directDownloadURL) {
-		_directDownloadURL = directDownloadURL;
-	}
+    public String getDirectDownloadURL() {
+        return _directDownloadURL;
+    }
 
-	public boolean getRepoStoreArtifact() {
-		return _repoStoreArtifact;
-	}
+    public void setDirectDownloadURL(String directDownloadURL) {
+        _directDownloadURL = directDownloadURL;
+    }
 
-	public boolean isRepoStoreArtifact() {
-		return _repoStoreArtifact;
-	}
+    public boolean getRepoStoreArtifact() {
+        return _repoStoreArtifact;
+    }
 
-	public void setRepoStoreArtifact(boolean repoStoreArtifact) {
-		_repoStoreArtifact = repoStoreArtifact;
-	}
+    public boolean isRepoStoreArtifact() {
+        return _repoStoreArtifact;
+    }
 
-	private long _productVersionId;
-	private long _companyId;
-	private long _userId;
-	private String _userName;
-	private Date _createDate;
-	private Date _modifiedDate;
-	private long _productEntryId;
-	private String _version;
-	private String _changeLog;
-	private String _downloadPageURL;
-	private String _directDownloadURL;
-	private boolean _repoStoreArtifact;
+    public void setRepoStoreArtifact(boolean repoStoreArtifact) {
+        _repoStoreArtifact = repoStoreArtifact;
+    }
 }

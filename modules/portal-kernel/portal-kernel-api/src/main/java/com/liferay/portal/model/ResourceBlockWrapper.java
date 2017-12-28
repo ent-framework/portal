@@ -1,22 +1,9 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.model.ModelWrapper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,353 +19,353 @@ import java.util.Map;
  */
 @ProviderType
 public class ResourceBlockWrapper implements ResourceBlock,
-	ModelWrapper<ResourceBlock> {
-	public ResourceBlockWrapper(ResourceBlock resourceBlock) {
-		_resourceBlock = resourceBlock;
-	}
+    ModelWrapper<ResourceBlock> {
+    private ResourceBlock _resourceBlock;
 
-	@Override
-	public Class<?> getModelClass() {
-		return ResourceBlock.class;
-	}
+    public ResourceBlockWrapper(ResourceBlock resourceBlock) {
+        _resourceBlock = resourceBlock;
+    }
 
-	@Override
-	public String getModelClassName() {
-		return ResourceBlock.class.getName();
-	}
+    @Override
+    public Class<?> getModelClass() {
+        return ResourceBlock.class;
+    }
 
-	@Override
-	public Map<String, Object> getModelAttributes() {
-		Map<String, Object> attributes = new HashMap<String, Object>();
+    @Override
+    public String getModelClassName() {
+        return ResourceBlock.class.getName();
+    }
 
-		attributes.put("resourceBlockId", getResourceBlockId());
-		attributes.put("companyId", getCompanyId());
-		attributes.put("groupId", getGroupId());
-		attributes.put("name", getName());
-		attributes.put("permissionsHash", getPermissionsHash());
-		attributes.put("referenceCount", getReferenceCount());
+    @Override
+    public Map<String, Object> getModelAttributes() {
+        Map<String, Object> attributes = new HashMap<String, Object>();
 
-		return attributes;
-	}
+        attributes.put("resourceBlockId", getResourceBlockId());
+        attributes.put("companyId", getCompanyId());
+        attributes.put("groupId", getGroupId());
+        attributes.put("name", getName());
+        attributes.put("permissionsHash", getPermissionsHash());
+        attributes.put("referenceCount", getReferenceCount());
 
-	@Override
-	public void setModelAttributes(Map<String, Object> attributes) {
-		Long resourceBlockId = (Long)attributes.get("resourceBlockId");
+        return attributes;
+    }
 
-		if (resourceBlockId != null) {
-			setResourceBlockId(resourceBlockId);
-		}
+    @Override
+    public void setModelAttributes(Map<String, Object> attributes) {
+        Long resourceBlockId = (Long) attributes.get("resourceBlockId");
 
-		Long companyId = (Long)attributes.get("companyId");
+        if (resourceBlockId != null) {
+            setResourceBlockId(resourceBlockId);
+        }
 
-		if (companyId != null) {
-			setCompanyId(companyId);
-		}
+        Long companyId = (Long) attributes.get("companyId");
 
-		Long groupId = (Long)attributes.get("groupId");
+        if (companyId != null) {
+            setCompanyId(companyId);
+        }
 
-		if (groupId != null) {
-			setGroupId(groupId);
-		}
+        Long groupId = (Long) attributes.get("groupId");
 
-		String name = (String)attributes.get("name");
+        if (groupId != null) {
+            setGroupId(groupId);
+        }
 
-		if (name != null) {
-			setName(name);
-		}
+        String name = (String) attributes.get("name");
 
-		String permissionsHash = (String)attributes.get("permissionsHash");
+        if (name != null) {
+            setName(name);
+        }
 
-		if (permissionsHash != null) {
-			setPermissionsHash(permissionsHash);
-		}
+        String permissionsHash = (String) attributes.get("permissionsHash");
 
-		Long referenceCount = (Long)attributes.get("referenceCount");
+        if (permissionsHash != null) {
+            setPermissionsHash(permissionsHash);
+        }
 
-		if (referenceCount != null) {
-			setReferenceCount(referenceCount);
-		}
-	}
+        Long referenceCount = (Long) attributes.get("referenceCount");
 
-	/**
-	* Returns the primary key of this resource block.
-	*
-	* @return the primary key of this resource block
-	*/
-	@Override
-	public long getPrimaryKey() {
-		return _resourceBlock.getPrimaryKey();
-	}
+        if (referenceCount != null) {
+            setReferenceCount(referenceCount);
+        }
+    }
 
-	/**
-	* Sets the primary key of this resource block.
-	*
-	* @param primaryKey the primary key of this resource block
-	*/
-	@Override
-	public void setPrimaryKey(long primaryKey) {
-		_resourceBlock.setPrimaryKey(primaryKey);
-	}
+    /**
+    * Returns the primary key of this resource block.
+    *
+    * @return the primary key of this resource block
+    */
+    @Override
+    public long getPrimaryKey() {
+        return _resourceBlock.getPrimaryKey();
+    }
 
-	/**
-	* Returns the resource block ID of this resource block.
-	*
-	* @return the resource block ID of this resource block
-	*/
-	@Override
-	public long getResourceBlockId() {
-		return _resourceBlock.getResourceBlockId();
-	}
+    /**
+    * Sets the primary key of this resource block.
+    *
+    * @param primaryKey the primary key of this resource block
+    */
+    @Override
+    public void setPrimaryKey(long primaryKey) {
+        _resourceBlock.setPrimaryKey(primaryKey);
+    }
 
-	/**
-	* Sets the resource block ID of this resource block.
-	*
-	* @param resourceBlockId the resource block ID of this resource block
-	*/
-	@Override
-	public void setResourceBlockId(long resourceBlockId) {
-		_resourceBlock.setResourceBlockId(resourceBlockId);
-	}
+    /**
+    * Returns the resource block ID of this resource block.
+    *
+    * @return the resource block ID of this resource block
+    */
+    @Override
+    public long getResourceBlockId() {
+        return _resourceBlock.getResourceBlockId();
+    }
 
-	/**
-	* Returns the company ID of this resource block.
-	*
-	* @return the company ID of this resource block
-	*/
-	@Override
-	public long getCompanyId() {
-		return _resourceBlock.getCompanyId();
-	}
+    /**
+    * Sets the resource block ID of this resource block.
+    *
+    * @param resourceBlockId the resource block ID of this resource block
+    */
+    @Override
+    public void setResourceBlockId(long resourceBlockId) {
+        _resourceBlock.setResourceBlockId(resourceBlockId);
+    }
 
-	/**
-	* Sets the company ID of this resource block.
-	*
-	* @param companyId the company ID of this resource block
-	*/
-	@Override
-	public void setCompanyId(long companyId) {
-		_resourceBlock.setCompanyId(companyId);
-	}
+    /**
+    * Returns the company ID of this resource block.
+    *
+    * @return the company ID of this resource block
+    */
+    @Override
+    public long getCompanyId() {
+        return _resourceBlock.getCompanyId();
+    }
 
-	/**
-	* Returns the group ID of this resource block.
-	*
-	* @return the group ID of this resource block
-	*/
-	@Override
-	public long getGroupId() {
-		return _resourceBlock.getGroupId();
-	}
+    /**
+    * Sets the company ID of this resource block.
+    *
+    * @param companyId the company ID of this resource block
+    */
+    @Override
+    public void setCompanyId(long companyId) {
+        _resourceBlock.setCompanyId(companyId);
+    }
 
-	/**
-	* Sets the group ID of this resource block.
-	*
-	* @param groupId the group ID of this resource block
-	*/
-	@Override
-	public void setGroupId(long groupId) {
-		_resourceBlock.setGroupId(groupId);
-	}
+    /**
+    * Returns the group ID of this resource block.
+    *
+    * @return the group ID of this resource block
+    */
+    @Override
+    public long getGroupId() {
+        return _resourceBlock.getGroupId();
+    }
 
-	/**
-	* Returns the name of this resource block.
-	*
-	* @return the name of this resource block
-	*/
-	@Override
-	public java.lang.String getName() {
-		return _resourceBlock.getName();
-	}
+    /**
+    * Sets the group ID of this resource block.
+    *
+    * @param groupId the group ID of this resource block
+    */
+    @Override
+    public void setGroupId(long groupId) {
+        _resourceBlock.setGroupId(groupId);
+    }
 
-	/**
-	* Sets the name of this resource block.
-	*
-	* @param name the name of this resource block
-	*/
-	@Override
-	public void setName(java.lang.String name) {
-		_resourceBlock.setName(name);
-	}
+    /**
+    * Returns the name of this resource block.
+    *
+    * @return the name of this resource block
+    */
+    @Override
+    public java.lang.String getName() {
+        return _resourceBlock.getName();
+    }
 
-	/**
-	* Returns the permissions hash of this resource block.
-	*
-	* @return the permissions hash of this resource block
-	*/
-	@Override
-	public java.lang.String getPermissionsHash() {
-		return _resourceBlock.getPermissionsHash();
-	}
+    /**
+    * Sets the name of this resource block.
+    *
+    * @param name the name of this resource block
+    */
+    @Override
+    public void setName(java.lang.String name) {
+        _resourceBlock.setName(name);
+    }
 
-	/**
-	* Sets the permissions hash of this resource block.
-	*
-	* @param permissionsHash the permissions hash of this resource block
-	*/
-	@Override
-	public void setPermissionsHash(java.lang.String permissionsHash) {
-		_resourceBlock.setPermissionsHash(permissionsHash);
-	}
+    /**
+    * Returns the permissions hash of this resource block.
+    *
+    * @return the permissions hash of this resource block
+    */
+    @Override
+    public java.lang.String getPermissionsHash() {
+        return _resourceBlock.getPermissionsHash();
+    }
 
-	/**
-	* Returns the reference count of this resource block.
-	*
-	* @return the reference count of this resource block
-	*/
-	@Override
-	public long getReferenceCount() {
-		return _resourceBlock.getReferenceCount();
-	}
+    /**
+    * Sets the permissions hash of this resource block.
+    *
+    * @param permissionsHash the permissions hash of this resource block
+    */
+    @Override
+    public void setPermissionsHash(java.lang.String permissionsHash) {
+        _resourceBlock.setPermissionsHash(permissionsHash);
+    }
 
-	/**
-	* Sets the reference count of this resource block.
-	*
-	* @param referenceCount the reference count of this resource block
-	*/
-	@Override
-	public void setReferenceCount(long referenceCount) {
-		_resourceBlock.setReferenceCount(referenceCount);
-	}
+    /**
+    * Returns the reference count of this resource block.
+    *
+    * @return the reference count of this resource block
+    */
+    @Override
+    public long getReferenceCount() {
+        return _resourceBlock.getReferenceCount();
+    }
 
-	@Override
-	public boolean isNew() {
-		return _resourceBlock.isNew();
-	}
+    /**
+    * Sets the reference count of this resource block.
+    *
+    * @param referenceCount the reference count of this resource block
+    */
+    @Override
+    public void setReferenceCount(long referenceCount) {
+        _resourceBlock.setReferenceCount(referenceCount);
+    }
 
-	@Override
-	public void setNew(boolean n) {
-		_resourceBlock.setNew(n);
-	}
+    @Override
+    public boolean isNew() {
+        return _resourceBlock.isNew();
+    }
 
-	@Override
-	public boolean isCachedModel() {
-		return _resourceBlock.isCachedModel();
-	}
+    @Override
+    public void setNew(boolean n) {
+        _resourceBlock.setNew(n);
+    }
 
-	@Override
-	public void setCachedModel(boolean cachedModel) {
-		_resourceBlock.setCachedModel(cachedModel);
-	}
+    @Override
+    public boolean isCachedModel() {
+        return _resourceBlock.isCachedModel();
+    }
 
-	@Override
-	public boolean isEscapedModel() {
-		return _resourceBlock.isEscapedModel();
-	}
+    @Override
+    public void setCachedModel(boolean cachedModel) {
+        _resourceBlock.setCachedModel(cachedModel);
+    }
 
-	@Override
-	public java.io.Serializable getPrimaryKeyObj() {
-		return _resourceBlock.getPrimaryKeyObj();
-	}
+    @Override
+    public boolean isEscapedModel() {
+        return _resourceBlock.isEscapedModel();
+    }
 
-	@Override
-	public void setPrimaryKeyObj(java.io.Serializable primaryKeyObj) {
-		_resourceBlock.setPrimaryKeyObj(primaryKeyObj);
-	}
+    @Override
+    public java.io.Serializable getPrimaryKeyObj() {
+        return _resourceBlock.getPrimaryKeyObj();
+    }
 
-	@Override
-	public com.liferay.portlet.expando.model.ExpandoBridge getExpandoBridge() {
-		return _resourceBlock.getExpandoBridge();
-	}
+    @Override
+    public void setPrimaryKeyObj(java.io.Serializable primaryKeyObj) {
+        _resourceBlock.setPrimaryKeyObj(primaryKeyObj);
+    }
 
-	@Override
-	public void setExpandoBridgeAttributes(
-		com.liferay.portal.model.BaseModel<?> baseModel) {
-		_resourceBlock.setExpandoBridgeAttributes(baseModel);
-	}
+    @Override
+    public com.liferay.portlet.expando.model.ExpandoBridge getExpandoBridge() {
+        return _resourceBlock.getExpandoBridge();
+    }
 
-	@Override
-	public void setExpandoBridgeAttributes(
-		com.liferay.portlet.expando.model.ExpandoBridge expandoBridge) {
-		_resourceBlock.setExpandoBridgeAttributes(expandoBridge);
-	}
+    @Override
+    public void setExpandoBridgeAttributes(
+        com.liferay.portal.model.BaseModel<?> baseModel) {
+        _resourceBlock.setExpandoBridgeAttributes(baseModel);
+    }
 
-	@Override
-	public void setExpandoBridgeAttributes(
-		com.liferay.portal.service.ServiceContext serviceContext) {
-		_resourceBlock.setExpandoBridgeAttributes(serviceContext);
-	}
+    @Override
+    public void setExpandoBridgeAttributes(
+        com.liferay.portlet.expando.model.ExpandoBridge expandoBridge) {
+        _resourceBlock.setExpandoBridgeAttributes(expandoBridge);
+    }
 
-	@Override
-	public java.lang.Object clone() {
-		return new ResourceBlockWrapper((ResourceBlock)_resourceBlock.clone());
-	}
+    @Override
+    public void setExpandoBridgeAttributes(
+        com.liferay.portal.service.ServiceContext serviceContext) {
+        _resourceBlock.setExpandoBridgeAttributes(serviceContext);
+    }
 
-	@Override
-	public int compareTo(com.liferay.portal.model.ResourceBlock resourceBlock) {
-		return _resourceBlock.compareTo(resourceBlock);
-	}
+    @Override
+    public java.lang.Object clone() {
+        return new ResourceBlockWrapper((ResourceBlock) _resourceBlock.clone());
+    }
 
-	@Override
-	public int hashCode() {
-		return _resourceBlock.hashCode();
-	}
+    @Override
+    public int compareTo(com.liferay.portal.model.ResourceBlock resourceBlock) {
+        return _resourceBlock.compareTo(resourceBlock);
+    }
 
-	@Override
-	public com.liferay.portal.model.CacheModel<com.liferay.portal.model.ResourceBlock> toCacheModel() {
-		return _resourceBlock.toCacheModel();
-	}
+    @Override
+    public int hashCode() {
+        return _resourceBlock.hashCode();
+    }
 
-	@Override
-	public com.liferay.portal.model.ResourceBlock toEscapedModel() {
-		return new ResourceBlockWrapper(_resourceBlock.toEscapedModel());
-	}
+    @Override
+    public com.liferay.portal.model.CacheModel<com.liferay.portal.model.ResourceBlock> toCacheModel() {
+        return _resourceBlock.toCacheModel();
+    }
 
-	@Override
-	public com.liferay.portal.model.ResourceBlock toUnescapedModel() {
-		return new ResourceBlockWrapper(_resourceBlock.toUnescapedModel());
-	}
+    @Override
+    public com.liferay.portal.model.ResourceBlock toEscapedModel() {
+        return new ResourceBlockWrapper(_resourceBlock.toEscapedModel());
+    }
 
-	@Override
-	public java.lang.String toString() {
-		return _resourceBlock.toString();
-	}
+    @Override
+    public com.liferay.portal.model.ResourceBlock toUnescapedModel() {
+        return new ResourceBlockWrapper(_resourceBlock.toUnescapedModel());
+    }
 
-	@Override
-	public java.lang.String toXmlString() {
-		return _resourceBlock.toXmlString();
-	}
+    @Override
+    public java.lang.String toString() {
+        return _resourceBlock.toString();
+    }
 
-	@Override
-	public void persist()
-		throws com.liferay.portal.kernel.exception.SystemException {
-		_resourceBlock.persist();
-	}
+    @Override
+    public java.lang.String toXmlString() {
+        return _resourceBlock.toXmlString();
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
+    @Override
+    public void persist()
+        throws com.liferay.portal.kernel.exception.SystemException {
+        _resourceBlock.persist();
+    }
 
-		if (!(obj instanceof ResourceBlockWrapper)) {
-			return false;
-		}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
 
-		ResourceBlockWrapper resourceBlockWrapper = (ResourceBlockWrapper)obj;
+        if (!(obj instanceof ResourceBlockWrapper)) {
+            return false;
+        }
 
-		if (Validator.equals(_resourceBlock, resourceBlockWrapper._resourceBlock)) {
-			return true;
-		}
+        ResourceBlockWrapper resourceBlockWrapper = (ResourceBlockWrapper) obj;
 
-		return false;
-	}
+        if (Validator.equals(_resourceBlock, resourceBlockWrapper._resourceBlock)) {
+            return true;
+        }
 
-	/**
-	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedModel}
-	 */
-	public ResourceBlock getWrappedResourceBlock() {
-		return _resourceBlock;
-	}
+        return false;
+    }
 
-	@Override
-	public ResourceBlock getWrappedModel() {
-		return _resourceBlock;
-	}
+    /**
+     * @deprecated As of 6.1.0, replaced by {@link #getWrappedModel}
+     */
+    public ResourceBlock getWrappedResourceBlock() {
+        return _resourceBlock;
+    }
 
-	@Override
-	public void resetOriginalValues() {
-		_resourceBlock.resetOriginalValues();
-	}
+    @Override
+    public ResourceBlock getWrappedModel() {
+        return _resourceBlock;
+    }
 
-	private ResourceBlock _resourceBlock;
+    @Override
+    public void resetOriginalValues() {
+        _resourceBlock.resetOriginalValues();
+    }
 }

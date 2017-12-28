@@ -1,22 +1,9 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.model.ModelWrapper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,343 +19,343 @@ import java.util.Map;
  */
 @ProviderType
 public class ServiceComponentWrapper implements ServiceComponent,
-	ModelWrapper<ServiceComponent> {
-	public ServiceComponentWrapper(ServiceComponent serviceComponent) {
-		_serviceComponent = serviceComponent;
-	}
+    ModelWrapper<ServiceComponent> {
+    private ServiceComponent _serviceComponent;
 
-	@Override
-	public Class<?> getModelClass() {
-		return ServiceComponent.class;
-	}
+    public ServiceComponentWrapper(ServiceComponent serviceComponent) {
+        _serviceComponent = serviceComponent;
+    }
 
-	@Override
-	public String getModelClassName() {
-		return ServiceComponent.class.getName();
-	}
+    @Override
+    public Class<?> getModelClass() {
+        return ServiceComponent.class;
+    }
 
-	@Override
-	public Map<String, Object> getModelAttributes() {
-		Map<String, Object> attributes = new HashMap<String, Object>();
+    @Override
+    public String getModelClassName() {
+        return ServiceComponent.class.getName();
+    }
 
-		attributes.put("serviceComponentId", getServiceComponentId());
-		attributes.put("buildNamespace", getBuildNamespace());
-		attributes.put("buildNumber", getBuildNumber());
-		attributes.put("buildDate", getBuildDate());
-		attributes.put("data", getData());
+    @Override
+    public Map<String, Object> getModelAttributes() {
+        Map<String, Object> attributes = new HashMap<String, Object>();
 
-		return attributes;
-	}
+        attributes.put("serviceComponentId", getServiceComponentId());
+        attributes.put("buildNamespace", getBuildNamespace());
+        attributes.put("buildNumber", getBuildNumber());
+        attributes.put("buildDate", getBuildDate());
+        attributes.put("data", getData());
 
-	@Override
-	public void setModelAttributes(Map<String, Object> attributes) {
-		Long serviceComponentId = (Long)attributes.get("serviceComponentId");
+        return attributes;
+    }
 
-		if (serviceComponentId != null) {
-			setServiceComponentId(serviceComponentId);
-		}
+    @Override
+    public void setModelAttributes(Map<String, Object> attributes) {
+        Long serviceComponentId = (Long) attributes.get("serviceComponentId");
 
-		String buildNamespace = (String)attributes.get("buildNamespace");
+        if (serviceComponentId != null) {
+            setServiceComponentId(serviceComponentId);
+        }
 
-		if (buildNamespace != null) {
-			setBuildNamespace(buildNamespace);
-		}
+        String buildNamespace = (String) attributes.get("buildNamespace");
 
-		Long buildNumber = (Long)attributes.get("buildNumber");
+        if (buildNamespace != null) {
+            setBuildNamespace(buildNamespace);
+        }
 
-		if (buildNumber != null) {
-			setBuildNumber(buildNumber);
-		}
+        Long buildNumber = (Long) attributes.get("buildNumber");
 
-		Long buildDate = (Long)attributes.get("buildDate");
+        if (buildNumber != null) {
+            setBuildNumber(buildNumber);
+        }
 
-		if (buildDate != null) {
-			setBuildDate(buildDate);
-		}
+        Long buildDate = (Long) attributes.get("buildDate");
 
-		String data = (String)attributes.get("data");
+        if (buildDate != null) {
+            setBuildDate(buildDate);
+        }
 
-		if (data != null) {
-			setData(data);
-		}
-	}
+        String data = (String) attributes.get("data");
 
-	/**
-	* Returns the primary key of this service component.
-	*
-	* @return the primary key of this service component
-	*/
-	@Override
-	public long getPrimaryKey() {
-		return _serviceComponent.getPrimaryKey();
-	}
+        if (data != null) {
+            setData(data);
+        }
+    }
 
-	/**
-	* Sets the primary key of this service component.
-	*
-	* @param primaryKey the primary key of this service component
-	*/
-	@Override
-	public void setPrimaryKey(long primaryKey) {
-		_serviceComponent.setPrimaryKey(primaryKey);
-	}
+    /**
+    * Returns the primary key of this service component.
+    *
+    * @return the primary key of this service component
+    */
+    @Override
+    public long getPrimaryKey() {
+        return _serviceComponent.getPrimaryKey();
+    }
 
-	/**
-	* Returns the service component ID of this service component.
-	*
-	* @return the service component ID of this service component
-	*/
-	@Override
-	public long getServiceComponentId() {
-		return _serviceComponent.getServiceComponentId();
-	}
+    /**
+    * Sets the primary key of this service component.
+    *
+    * @param primaryKey the primary key of this service component
+    */
+    @Override
+    public void setPrimaryKey(long primaryKey) {
+        _serviceComponent.setPrimaryKey(primaryKey);
+    }
 
-	/**
-	* Sets the service component ID of this service component.
-	*
-	* @param serviceComponentId the service component ID of this service component
-	*/
-	@Override
-	public void setServiceComponentId(long serviceComponentId) {
-		_serviceComponent.setServiceComponentId(serviceComponentId);
-	}
+    /**
+    * Returns the service component ID of this service component.
+    *
+    * @return the service component ID of this service component
+    */
+    @Override
+    public long getServiceComponentId() {
+        return _serviceComponent.getServiceComponentId();
+    }
 
-	/**
-	* Returns the build namespace of this service component.
-	*
-	* @return the build namespace of this service component
-	*/
-	@Override
-	public java.lang.String getBuildNamespace() {
-		return _serviceComponent.getBuildNamespace();
-	}
+    /**
+    * Sets the service component ID of this service component.
+    *
+    * @param serviceComponentId the service component ID of this service component
+    */
+    @Override
+    public void setServiceComponentId(long serviceComponentId) {
+        _serviceComponent.setServiceComponentId(serviceComponentId);
+    }
 
-	/**
-	* Sets the build namespace of this service component.
-	*
-	* @param buildNamespace the build namespace of this service component
-	*/
-	@Override
-	public void setBuildNamespace(java.lang.String buildNamespace) {
-		_serviceComponent.setBuildNamespace(buildNamespace);
-	}
+    /**
+    * Returns the build namespace of this service component.
+    *
+    * @return the build namespace of this service component
+    */
+    @Override
+    public java.lang.String getBuildNamespace() {
+        return _serviceComponent.getBuildNamespace();
+    }
 
-	/**
-	* Returns the build number of this service component.
-	*
-	* @return the build number of this service component
-	*/
-	@Override
-	public long getBuildNumber() {
-		return _serviceComponent.getBuildNumber();
-	}
+    /**
+    * Sets the build namespace of this service component.
+    *
+    * @param buildNamespace the build namespace of this service component
+    */
+    @Override
+    public void setBuildNamespace(java.lang.String buildNamespace) {
+        _serviceComponent.setBuildNamespace(buildNamespace);
+    }
 
-	/**
-	* Sets the build number of this service component.
-	*
-	* @param buildNumber the build number of this service component
-	*/
-	@Override
-	public void setBuildNumber(long buildNumber) {
-		_serviceComponent.setBuildNumber(buildNumber);
-	}
+    /**
+    * Returns the build number of this service component.
+    *
+    * @return the build number of this service component
+    */
+    @Override
+    public long getBuildNumber() {
+        return _serviceComponent.getBuildNumber();
+    }
 
-	/**
-	* Returns the build date of this service component.
-	*
-	* @return the build date of this service component
-	*/
-	@Override
-	public long getBuildDate() {
-		return _serviceComponent.getBuildDate();
-	}
+    /**
+    * Sets the build number of this service component.
+    *
+    * @param buildNumber the build number of this service component
+    */
+    @Override
+    public void setBuildNumber(long buildNumber) {
+        _serviceComponent.setBuildNumber(buildNumber);
+    }
 
-	/**
-	* Sets the build date of this service component.
-	*
-	* @param buildDate the build date of this service component
-	*/
-	@Override
-	public void setBuildDate(long buildDate) {
-		_serviceComponent.setBuildDate(buildDate);
-	}
+    /**
+    * Returns the build date of this service component.
+    *
+    * @return the build date of this service component
+    */
+    @Override
+    public long getBuildDate() {
+        return _serviceComponent.getBuildDate();
+    }
 
-	/**
-	* Returns the data of this service component.
-	*
-	* @return the data of this service component
-	*/
-	@Override
-	public java.lang.String getData() {
-		return _serviceComponent.getData();
-	}
+    /**
+    * Sets the build date of this service component.
+    *
+    * @param buildDate the build date of this service component
+    */
+    @Override
+    public void setBuildDate(long buildDate) {
+        _serviceComponent.setBuildDate(buildDate);
+    }
 
-	/**
-	* Sets the data of this service component.
-	*
-	* @param data the data of this service component
-	*/
-	@Override
-	public void setData(java.lang.String data) {
-		_serviceComponent.setData(data);
-	}
+    /**
+    * Returns the data of this service component.
+    *
+    * @return the data of this service component
+    */
+    @Override
+    public java.lang.String getData() {
+        return _serviceComponent.getData();
+    }
 
-	@Override
-	public boolean isNew() {
-		return _serviceComponent.isNew();
-	}
+    /**
+    * Sets the data of this service component.
+    *
+    * @param data the data of this service component
+    */
+    @Override
+    public void setData(java.lang.String data) {
+        _serviceComponent.setData(data);
+    }
 
-	@Override
-	public void setNew(boolean n) {
-		_serviceComponent.setNew(n);
-	}
+    @Override
+    public boolean isNew() {
+        return _serviceComponent.isNew();
+    }
 
-	@Override
-	public boolean isCachedModel() {
-		return _serviceComponent.isCachedModel();
-	}
+    @Override
+    public void setNew(boolean n) {
+        _serviceComponent.setNew(n);
+    }
 
-	@Override
-	public void setCachedModel(boolean cachedModel) {
-		_serviceComponent.setCachedModel(cachedModel);
-	}
+    @Override
+    public boolean isCachedModel() {
+        return _serviceComponent.isCachedModel();
+    }
 
-	@Override
-	public boolean isEscapedModel() {
-		return _serviceComponent.isEscapedModel();
-	}
+    @Override
+    public void setCachedModel(boolean cachedModel) {
+        _serviceComponent.setCachedModel(cachedModel);
+    }
 
-	@Override
-	public java.io.Serializable getPrimaryKeyObj() {
-		return _serviceComponent.getPrimaryKeyObj();
-	}
+    @Override
+    public boolean isEscapedModel() {
+        return _serviceComponent.isEscapedModel();
+    }
 
-	@Override
-	public void setPrimaryKeyObj(java.io.Serializable primaryKeyObj) {
-		_serviceComponent.setPrimaryKeyObj(primaryKeyObj);
-	}
+    @Override
+    public java.io.Serializable getPrimaryKeyObj() {
+        return _serviceComponent.getPrimaryKeyObj();
+    }
 
-	@Override
-	public com.liferay.portlet.expando.model.ExpandoBridge getExpandoBridge() {
-		return _serviceComponent.getExpandoBridge();
-	}
+    @Override
+    public void setPrimaryKeyObj(java.io.Serializable primaryKeyObj) {
+        _serviceComponent.setPrimaryKeyObj(primaryKeyObj);
+    }
 
-	@Override
-	public void setExpandoBridgeAttributes(
-		com.liferay.portal.model.BaseModel<?> baseModel) {
-		_serviceComponent.setExpandoBridgeAttributes(baseModel);
-	}
+    @Override
+    public com.liferay.portlet.expando.model.ExpandoBridge getExpandoBridge() {
+        return _serviceComponent.getExpandoBridge();
+    }
 
-	@Override
-	public void setExpandoBridgeAttributes(
-		com.liferay.portlet.expando.model.ExpandoBridge expandoBridge) {
-		_serviceComponent.setExpandoBridgeAttributes(expandoBridge);
-	}
+    @Override
+    public void setExpandoBridgeAttributes(
+        com.liferay.portal.model.BaseModel<?> baseModel) {
+        _serviceComponent.setExpandoBridgeAttributes(baseModel);
+    }
 
-	@Override
-	public void setExpandoBridgeAttributes(
-		com.liferay.portal.service.ServiceContext serviceContext) {
-		_serviceComponent.setExpandoBridgeAttributes(serviceContext);
-	}
+    @Override
+    public void setExpandoBridgeAttributes(
+        com.liferay.portlet.expando.model.ExpandoBridge expandoBridge) {
+        _serviceComponent.setExpandoBridgeAttributes(expandoBridge);
+    }
 
-	@Override
-	public java.lang.Object clone() {
-		return new ServiceComponentWrapper((ServiceComponent)_serviceComponent.clone());
-	}
+    @Override
+    public void setExpandoBridgeAttributes(
+        com.liferay.portal.service.ServiceContext serviceContext) {
+        _serviceComponent.setExpandoBridgeAttributes(serviceContext);
+    }
 
-	@Override
-	public int compareTo(
-		com.liferay.portal.model.ServiceComponent serviceComponent) {
-		return _serviceComponent.compareTo(serviceComponent);
-	}
+    @Override
+    public java.lang.Object clone() {
+        return new ServiceComponentWrapper((ServiceComponent) _serviceComponent.clone());
+    }
 
-	@Override
-	public int hashCode() {
-		return _serviceComponent.hashCode();
-	}
+    @Override
+    public int compareTo(
+        com.liferay.portal.model.ServiceComponent serviceComponent) {
+        return _serviceComponent.compareTo(serviceComponent);
+    }
 
-	@Override
-	public com.liferay.portal.model.CacheModel<com.liferay.portal.model.ServiceComponent> toCacheModel() {
-		return _serviceComponent.toCacheModel();
-	}
+    @Override
+    public int hashCode() {
+        return _serviceComponent.hashCode();
+    }
 
-	@Override
-	public com.liferay.portal.model.ServiceComponent toEscapedModel() {
-		return new ServiceComponentWrapper(_serviceComponent.toEscapedModel());
-	}
+    @Override
+    public com.liferay.portal.model.CacheModel<com.liferay.portal.model.ServiceComponent> toCacheModel() {
+        return _serviceComponent.toCacheModel();
+    }
 
-	@Override
-	public com.liferay.portal.model.ServiceComponent toUnescapedModel() {
-		return new ServiceComponentWrapper(_serviceComponent.toUnescapedModel());
-	}
+    @Override
+    public com.liferay.portal.model.ServiceComponent toEscapedModel() {
+        return new ServiceComponentWrapper(_serviceComponent.toEscapedModel());
+    }
 
-	@Override
-	public java.lang.String toString() {
-		return _serviceComponent.toString();
-	}
+    @Override
+    public com.liferay.portal.model.ServiceComponent toUnescapedModel() {
+        return new ServiceComponentWrapper(_serviceComponent.toUnescapedModel());
+    }
 
-	@Override
-	public java.lang.String toXmlString() {
-		return _serviceComponent.toXmlString();
-	}
+    @Override
+    public java.lang.String toString() {
+        return _serviceComponent.toString();
+    }
 
-	@Override
-	public void persist()
-		throws com.liferay.portal.kernel.exception.SystemException {
-		_serviceComponent.persist();
-	}
+    @Override
+    public java.lang.String toXmlString() {
+        return _serviceComponent.toXmlString();
+    }
 
-	@Override
-	public java.lang.String getIndexesSQL() {
-		return _serviceComponent.getIndexesSQL();
-	}
+    @Override
+    public void persist()
+        throws com.liferay.portal.kernel.exception.SystemException {
+        _serviceComponent.persist();
+    }
 
-	@Override
-	public java.lang.String getSequencesSQL() {
-		return _serviceComponent.getSequencesSQL();
-	}
+    @Override
+    public java.lang.String getIndexesSQL() {
+        return _serviceComponent.getIndexesSQL();
+    }
 
-	@Override
-	public java.lang.String getTablesSQL() {
-		return _serviceComponent.getTablesSQL();
-	}
+    @Override
+    public java.lang.String getSequencesSQL() {
+        return _serviceComponent.getSequencesSQL();
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
+    @Override
+    public java.lang.String getTablesSQL() {
+        return _serviceComponent.getTablesSQL();
+    }
 
-		if (!(obj instanceof ServiceComponentWrapper)) {
-			return false;
-		}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
 
-		ServiceComponentWrapper serviceComponentWrapper = (ServiceComponentWrapper)obj;
+        if (!(obj instanceof ServiceComponentWrapper)) {
+            return false;
+        }
 
-		if (Validator.equals(_serviceComponent,
-					serviceComponentWrapper._serviceComponent)) {
-			return true;
-		}
+        ServiceComponentWrapper serviceComponentWrapper = (ServiceComponentWrapper) obj;
 
-		return false;
-	}
+        if (Validator.equals(_serviceComponent,
+                    serviceComponentWrapper._serviceComponent)) {
+            return true;
+        }
 
-	/**
-	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedModel}
-	 */
-	public ServiceComponent getWrappedServiceComponent() {
-		return _serviceComponent;
-	}
+        return false;
+    }
 
-	@Override
-	public ServiceComponent getWrappedModel() {
-		return _serviceComponent;
-	}
+    /**
+     * @deprecated As of 6.1.0, replaced by {@link #getWrappedModel}
+     */
+    public ServiceComponent getWrappedServiceComponent() {
+        return _serviceComponent;
+    }
 
-	@Override
-	public void resetOriginalValues() {
-		_serviceComponent.resetOriginalValues();
-	}
+    @Override
+    public ServiceComponent getWrappedModel() {
+        return _serviceComponent;
+    }
 
-	private ServiceComponent _serviceComponent;
+    @Override
+    public void resetOriginalValues() {
+        _serviceComponent.resetOriginalValues();
+    }
 }

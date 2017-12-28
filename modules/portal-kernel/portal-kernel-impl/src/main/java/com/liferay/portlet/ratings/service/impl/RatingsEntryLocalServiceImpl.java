@@ -27,8 +27,8 @@ import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portlet.asset.model.AssetEntry;
-import com.liferay.portlet.blogs.model.BlogsEntry;
-import com.liferay.portlet.blogs.model.BlogsStatsUser;
+//import com.liferay.portlet.blogs.model.BlogsEntry;
+//import com.liferay.portlet.blogs.model.BlogsStatsUser;
 import com.liferay.portlet.ratings.EntryScoreException;
 import com.liferay.portlet.ratings.model.RatingsEntry;
 import com.liferay.portlet.ratings.model.RatingsStats;
@@ -216,35 +216,35 @@ public class RatingsEntryLocalServiceImpl
 
 		// Blogs entry
 
-		if (className.equals(BlogsEntry.class.getName())) {
-			BlogsEntry blogsEntry = blogsEntryPersistence.findByPrimaryKey(
-				classPK);
-
-			BlogsStatsUser blogsStatsUser =
-				blogsStatsUserLocalService.getStatsUser(
-					blogsEntry.getGroupId(), blogsEntry.getUserId());
-
-			int ratingsTotalEntries = blogsStatsUser.getRatingsTotalEntries();
-			double ratingsTotalScore = blogsStatsUser.getRatingsTotalScore();
-			double ratingsAverageScore =
-				blogsStatsUser.getRatingsAverageScore();
-
-			if (newEntry) {
-				ratingsTotalEntries++;
-				ratingsTotalScore += score;
-			}
-			else {
-				ratingsTotalScore = ratingsTotalScore - oldScore + score;
-			}
-
-			ratingsAverageScore = ratingsTotalScore / ratingsTotalEntries;
-
-			blogsStatsUser.setRatingsTotalEntries(ratingsTotalEntries);
-			blogsStatsUser.setRatingsTotalScore(ratingsTotalScore);
-			blogsStatsUser.setRatingsAverageScore(ratingsAverageScore);
-
-			blogsStatsUserPersistence.update(blogsStatsUser);
-		}
+//		if (className.equals(BlogsEntry.class.getName())) {
+//			BlogsEntry blogsEntry = blogsEntryPersistence.findByPrimaryKey(
+//				classPK);
+//
+//			BlogsStatsUser blogsStatsUser =
+//				blogsStatsUserLocalService.getStatsUser(
+//					blogsEntry.getGroupId(), blogsEntry.getUserId());
+//
+//			int ratingsTotalEntries = blogsStatsUser.getRatingsTotalEntries();
+//			double ratingsTotalScore = blogsStatsUser.getRatingsTotalScore();
+//			double ratingsAverageScore =
+//				blogsStatsUser.getRatingsAverageScore();
+//
+//			if (newEntry) {
+//				ratingsTotalEntries++;
+//				ratingsTotalScore += score;
+//			}
+//			else {
+//				ratingsTotalScore = ratingsTotalScore - oldScore + score;
+//			}
+//
+//			ratingsAverageScore = ratingsTotalScore / ratingsTotalEntries;
+//
+//			blogsStatsUser.setRatingsTotalEntries(ratingsTotalEntries);
+//			blogsStatsUser.setRatingsTotalScore(ratingsTotalScore);
+//			blogsStatsUser.setRatingsAverageScore(ratingsAverageScore);
+//
+//			blogsStatsUserPersistence.update(blogsStatsUser);
+//		}
 
 		// Social
 

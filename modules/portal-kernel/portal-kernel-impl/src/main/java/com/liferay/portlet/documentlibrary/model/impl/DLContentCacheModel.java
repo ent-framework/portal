@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.documentlibrary.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -33,101 +19,97 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class DLContentCacheModel implements CacheModel<DLContent>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(15);
+    Externalizable {
+    public long contentId;
+    public long groupId;
+    public long companyId;
+    public long repositoryId;
+    public String path;
+    public String version;
+    public long size;
 
-		sb.append("{contentId=");
-		sb.append(contentId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", repositoryId=");
-		sb.append(repositoryId);
-		sb.append(", path=");
-		sb.append(path);
-		sb.append(", version=");
-		sb.append(version);
-		sb.append(", size=");
-		sb.append(size);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(15);
 
-		return sb.toString();
-	}
+        sb.append("{contentId=");
+        sb.append(contentId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", repositoryId=");
+        sb.append(repositoryId);
+        sb.append(", path=");
+        sb.append(path);
+        sb.append(", version=");
+        sb.append(version);
+        sb.append(", size=");
+        sb.append(size);
+        sb.append("}");
 
-	@Override
-	public DLContent toEntityModel() {
-		DLContentImpl dlContentImpl = new DLContentImpl();
+        return sb.toString();
+    }
 
-		dlContentImpl.setContentId(contentId);
-		dlContentImpl.setGroupId(groupId);
-		dlContentImpl.setCompanyId(companyId);
-		dlContentImpl.setRepositoryId(repositoryId);
+    @Override
+    public DLContent toEntityModel() {
+        DLContentImpl dlContentImpl = new DLContentImpl();
 
-		if (path == null) {
-			dlContentImpl.setPath(StringPool.BLANK);
-		}
-		else {
-			dlContentImpl.setPath(path);
-		}
+        dlContentImpl.setContentId(contentId);
+        dlContentImpl.setGroupId(groupId);
+        dlContentImpl.setCompanyId(companyId);
+        dlContentImpl.setRepositoryId(repositoryId);
 
-		if (version == null) {
-			dlContentImpl.setVersion(StringPool.BLANK);
-		}
-		else {
-			dlContentImpl.setVersion(version);
-		}
+        if (path == null) {
+            dlContentImpl.setPath(StringPool.BLANK);
+        } else {
+            dlContentImpl.setPath(path);
+        }
 
-		dlContentImpl.setSize(size);
+        if (version == null) {
+            dlContentImpl.setVersion(StringPool.BLANK);
+        } else {
+            dlContentImpl.setVersion(version);
+        }
 
-		dlContentImpl.resetOriginalValues();
+        dlContentImpl.setSize(size);
 
-		return dlContentImpl;
-	}
+        dlContentImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		contentId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		repositoryId = objectInput.readLong();
-		path = objectInput.readUTF();
-		version = objectInput.readUTF();
-		size = objectInput.readLong();
-	}
+        return dlContentImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(contentId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(repositoryId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        contentId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        repositoryId = objectInput.readLong();
+        path = objectInput.readUTF();
+        version = objectInput.readUTF();
+        size = objectInput.readLong();
+    }
 
-		if (path == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(path);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(contentId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(repositoryId);
 
-		if (version == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(version);
-		}
+        if (path == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(path);
+        }
 
-		objectOutput.writeLong(size);
-	}
+        if (version == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(version);
+        }
 
-	public long contentId;
-	public long groupId;
-	public long companyId;
-	public long repositoryId;
-	public String path;
-	public String version;
-	public long size;
+        objectOutput.writeLong(size);
+    }
 }

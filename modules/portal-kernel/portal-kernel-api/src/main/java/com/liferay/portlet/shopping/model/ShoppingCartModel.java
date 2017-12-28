@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.shopping.model;
 
 import aQute.bnd.annotation.ProviderType;
@@ -44,273 +30,274 @@ import java.util.Date;
  */
 @ProviderType
 public interface ShoppingCartModel extends BaseModel<ShoppingCart>, GroupedModel {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this interface directly. All methods that expect a shopping cart model instance should use the {@link ShoppingCart} interface instead.
-	 */
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this interface directly. All methods that expect a shopping cart model instance should use the {@link ShoppingCart} interface instead.
+     */
 
-	/**
-	 * Returns the primary key of this shopping cart.
-	 *
-	 * @return the primary key of this shopping cart
-	 */
-	public long getPrimaryKey();
+    /**
+     * Returns the primary key of this shopping cart.
+     *
+     * @return the primary key of this shopping cart
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this shopping cart.
-	 *
-	 * @param primaryKey the primary key of this shopping cart
-	 */
-	public void setPrimaryKey(long primaryKey);
+    /**
+     * Sets the primary key of this shopping cart.
+     *
+     * @param primaryKey the primary key of this shopping cart
+     */
+    public void setPrimaryKey(long primaryKey);
 
-	/**
-	 * Returns the cart ID of this shopping cart.
-	 *
-	 * @return the cart ID of this shopping cart
-	 */
-	public long getCartId();
+    /**
+     * Returns the cart ID of this shopping cart.
+     *
+     * @return the cart ID of this shopping cart
+     */
+    public long getCartId();
 
-	/**
-	 * Sets the cart ID of this shopping cart.
-	 *
-	 * @param cartId the cart ID of this shopping cart
-	 */
-	public void setCartId(long cartId);
+    /**
+     * Sets the cart ID of this shopping cart.
+     *
+     * @param cartId the cart ID of this shopping cart
+     */
+    public void setCartId(long cartId);
 
-	/**
-	 * Returns the group ID of this shopping cart.
-	 *
-	 * @return the group ID of this shopping cart
-	 */
-	@Override
-	public long getGroupId();
+    /**
+     * Returns the group ID of this shopping cart.
+     *
+     * @return the group ID of this shopping cart
+     */
+    @Override
+    public long getGroupId();
 
-	/**
-	 * Sets the group ID of this shopping cart.
-	 *
-	 * @param groupId the group ID of this shopping cart
-	 */
-	@Override
-	public void setGroupId(long groupId);
+    /**
+     * Sets the group ID of this shopping cart.
+     *
+     * @param groupId the group ID of this shopping cart
+     */
+    @Override
+    public void setGroupId(long groupId);
 
-	/**
-	 * Returns the company ID of this shopping cart.
-	 *
-	 * @return the company ID of this shopping cart
-	 */
-	@Override
-	public long getCompanyId();
+    /**
+     * Returns the company ID of this shopping cart.
+     *
+     * @return the company ID of this shopping cart
+     */
+    @Override
+    public long getCompanyId();
 
-	/**
-	 * Sets the company ID of this shopping cart.
-	 *
-	 * @param companyId the company ID of this shopping cart
-	 */
-	@Override
-	public void setCompanyId(long companyId);
+    /**
+     * Sets the company ID of this shopping cart.
+     *
+     * @param companyId the company ID of this shopping cart
+     */
+    @Override
+    public void setCompanyId(long companyId);
 
-	/**
-	 * Returns the user ID of this shopping cart.
-	 *
-	 * @return the user ID of this shopping cart
-	 */
-	@Override
-	public long getUserId();
+    /**
+     * Returns the user ID of this shopping cart.
+     *
+     * @return the user ID of this shopping cart
+     */
+    @Override
+    public long getUserId();
 
-	/**
-	 * Sets the user ID of this shopping cart.
-	 *
-	 * @param userId the user ID of this shopping cart
-	 */
-	@Override
-	public void setUserId(long userId);
+    /**
+     * Sets the user ID of this shopping cart.
+     *
+     * @param userId the user ID of this shopping cart
+     */
+    @Override
+    public void setUserId(long userId);
 
-	/**
-	 * Returns the user uuid of this shopping cart.
-	 *
-	 * @return the user uuid of this shopping cart
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Override
-	public String getUserUuid() throws SystemException;
+    /**
+     * Returns the user uuid of this shopping cart.
+     *
+     * @return the user uuid of this shopping cart
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    public String getUserUuid() throws SystemException;
 
-	/**
-	 * Sets the user uuid of this shopping cart.
-	 *
-	 * @param userUuid the user uuid of this shopping cart
-	 */
-	@Override
-	public void setUserUuid(String userUuid);
+    /**
+     * Sets the user uuid of this shopping cart.
+     *
+     * @param userUuid the user uuid of this shopping cart
+     */
+    @Override
+    public void setUserUuid(String userUuid);
 
-	/**
-	 * Returns the user name of this shopping cart.
-	 *
-	 * @return the user name of this shopping cart
-	 */
-	@AutoEscape
-	@Override
-	public String getUserName();
+    /**
+     * Returns the user name of this shopping cart.
+     *
+     * @return the user name of this shopping cart
+     */
+    @AutoEscape
+    @Override
+    public String getUserName();
 
-	/**
-	 * Sets the user name of this shopping cart.
-	 *
-	 * @param userName the user name of this shopping cart
-	 */
-	@Override
-	public void setUserName(String userName);
+    /**
+     * Sets the user name of this shopping cart.
+     *
+     * @param userName the user name of this shopping cart
+     */
+    @Override
+    public void setUserName(String userName);
 
-	/**
-	 * Returns the create date of this shopping cart.
-	 *
-	 * @return the create date of this shopping cart
-	 */
-	@Override
-	public Date getCreateDate();
+    /**
+     * Returns the create date of this shopping cart.
+     *
+     * @return the create date of this shopping cart
+     */
+    @Override
+    public Date getCreateDate();
 
-	/**
-	 * Sets the create date of this shopping cart.
-	 *
-	 * @param createDate the create date of this shopping cart
-	 */
-	@Override
-	public void setCreateDate(Date createDate);
+    /**
+     * Sets the create date of this shopping cart.
+     *
+     * @param createDate the create date of this shopping cart
+     */
+    @Override
+    public void setCreateDate(Date createDate);
 
-	/**
-	 * Returns the modified date of this shopping cart.
-	 *
-	 * @return the modified date of this shopping cart
-	 */
-	@Override
-	public Date getModifiedDate();
+    /**
+     * Returns the modified date of this shopping cart.
+     *
+     * @return the modified date of this shopping cart
+     */
+    @Override
+    public Date getModifiedDate();
 
-	/**
-	 * Sets the modified date of this shopping cart.
-	 *
-	 * @param modifiedDate the modified date of this shopping cart
-	 */
-	@Override
-	public void setModifiedDate(Date modifiedDate);
+    /**
+     * Sets the modified date of this shopping cart.
+     *
+     * @param modifiedDate the modified date of this shopping cart
+     */
+    @Override
+    public void setModifiedDate(Date modifiedDate);
 
-	/**
-	 * Returns the item IDs of this shopping cart.
-	 *
-	 * @return the item IDs of this shopping cart
-	 */
-	@AutoEscape
-	public String getItemIds();
+    /**
+     * Returns the item IDs of this shopping cart.
+     *
+     * @return the item IDs of this shopping cart
+     */
+    @AutoEscape
+    public String getItemIds();
 
-	/**
-	 * Sets the item IDs of this shopping cart.
-	 *
-	 * @param itemIds the item IDs of this shopping cart
-	 */
-	public void setItemIds(String itemIds);
+    /**
+     * Sets the item IDs of this shopping cart.
+     *
+     * @param itemIds the item IDs of this shopping cart
+     */
+    public void setItemIds(String itemIds);
 
-	/**
-	 * Returns the coupon codes of this shopping cart.
-	 *
-	 * @return the coupon codes of this shopping cart
-	 */
-	@AutoEscape
-	public String getCouponCodes();
+    /**
+     * Returns the coupon codes of this shopping cart.
+     *
+     * @return the coupon codes of this shopping cart
+     */
+    @AutoEscape
+    public String getCouponCodes();
 
-	/**
-	 * Sets the coupon codes of this shopping cart.
-	 *
-	 * @param couponCodes the coupon codes of this shopping cart
-	 */
-	public void setCouponCodes(String couponCodes);
+    /**
+     * Sets the coupon codes of this shopping cart.
+     *
+     * @param couponCodes the coupon codes of this shopping cart
+     */
+    public void setCouponCodes(String couponCodes);
 
-	/**
-	 * Returns the alt shipping of this shopping cart.
-	 *
-	 * @return the alt shipping of this shopping cart
-	 */
-	public int getAltShipping();
+    /**
+     * Returns the alt shipping of this shopping cart.
+     *
+     * @return the alt shipping of this shopping cart
+     */
+    public int getAltShipping();
 
-	/**
-	 * Sets the alt shipping of this shopping cart.
-	 *
-	 * @param altShipping the alt shipping of this shopping cart
-	 */
-	public void setAltShipping(int altShipping);
+    /**
+     * Sets the alt shipping of this shopping cart.
+     *
+     * @param altShipping the alt shipping of this shopping cart
+     */
+    public void setAltShipping(int altShipping);
 
-	/**
-	 * Returns the insure of this shopping cart.
-	 *
-	 * @return the insure of this shopping cart
-	 */
-	public boolean getInsure();
+    /**
+     * Returns the insure of this shopping cart.
+     *
+     * @return the insure of this shopping cart
+     */
+    public boolean getInsure();
 
-	/**
-	 * Returns <code>true</code> if this shopping cart is insure.
-	 *
-	 * @return <code>true</code> if this shopping cart is insure; <code>false</code> otherwise
-	 */
-	public boolean isInsure();
+    /**
+     * Returns <code>true</code> if this shopping cart is insure.
+     *
+     * @return <code>true</code> if this shopping cart is insure; <code>false</code> otherwise
+     */
+    public boolean isInsure();
 
-	/**
-	 * Sets whether this shopping cart is insure.
-	 *
-	 * @param insure the insure of this shopping cart
-	 */
-	public void setInsure(boolean insure);
+    /**
+     * Sets whether this shopping cart is insure.
+     *
+     * @param insure the insure of this shopping cart
+     */
+    public void setInsure(boolean insure);
 
-	@Override
-	public boolean isNew();
+    @Override
+    public boolean isNew();
 
-	@Override
-	public void setNew(boolean n);
+    @Override
+    public void setNew(boolean n);
 
-	@Override
-	public boolean isCachedModel();
+    @Override
+    public boolean isCachedModel();
 
-	@Override
-	public void setCachedModel(boolean cachedModel);
+    @Override
+    public void setCachedModel(boolean cachedModel);
 
-	@Override
-	public boolean isEscapedModel();
+    @Override
+    public boolean isEscapedModel();
 
-	@Override
-	public Serializable getPrimaryKeyObj();
+    @Override
+    public Serializable getPrimaryKeyObj();
 
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj);
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj);
 
-	@Override
-	public ExpandoBridge getExpandoBridge();
+    @Override
+    public ExpandoBridge getExpandoBridge();
 
-	@Override
-	public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
+    @Override
+    public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
 
-	@Override
-	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
+    @Override
+    public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	@Override
-	public Object clone();
+    @Override
+    public Object clone();
 
-	@Override
-	public int compareTo(ShoppingCart shoppingCart);
+    @Override
+    public int compareTo(
+        com.liferay.portlet.shopping.model.ShoppingCart shoppingCart);
 
-	@Override
-	public int hashCode();
+    @Override
+    public int hashCode();
 
-	@Override
-	public CacheModel<ShoppingCart> toCacheModel();
+    @Override
+    public CacheModel<com.liferay.portlet.shopping.model.ShoppingCart> toCacheModel();
 
-	@Override
-	public ShoppingCart toEscapedModel();
+    @Override
+    public com.liferay.portlet.shopping.model.ShoppingCart toEscapedModel();
 
-	@Override
-	public ShoppingCart toUnescapedModel();
+    @Override
+    public com.liferay.portlet.shopping.model.ShoppingCart toUnescapedModel();
 
-	@Override
-	public String toString();
+    @Override
+    public String toString();
 
-	@Override
-	public String toXmlString();
+    @Override
+    public String toXmlString();
 }

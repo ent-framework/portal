@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,144 +20,136 @@ import java.util.Date;
  * @generated
  */
 public class PortletItemCacheModel implements CacheModel<PortletItem>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(21);
+    Externalizable {
+    public long portletItemId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public String name;
+    public String portletId;
+    public long classNameId;
 
-		sb.append("{portletItemId=");
-		sb.append(portletItemId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", portletId=");
-		sb.append(portletId);
-		sb.append(", classNameId=");
-		sb.append(classNameId);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(21);
 
-		return sb.toString();
-	}
+        sb.append("{portletItemId=");
+        sb.append(portletItemId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", portletId=");
+        sb.append(portletId);
+        sb.append(", classNameId=");
+        sb.append(classNameId);
+        sb.append("}");
 
-	@Override
-	public PortletItem toEntityModel() {
-		PortletItemImpl portletItemImpl = new PortletItemImpl();
+        return sb.toString();
+    }
 
-		portletItemImpl.setPortletItemId(portletItemId);
-		portletItemImpl.setGroupId(groupId);
-		portletItemImpl.setCompanyId(companyId);
-		portletItemImpl.setUserId(userId);
+    @Override
+    public PortletItem toEntityModel() {
+        PortletItemImpl portletItemImpl = new PortletItemImpl();
 
-		if (userName == null) {
-			portletItemImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			portletItemImpl.setUserName(userName);
-		}
+        portletItemImpl.setPortletItemId(portletItemId);
+        portletItemImpl.setGroupId(groupId);
+        portletItemImpl.setCompanyId(companyId);
+        portletItemImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			portletItemImpl.setCreateDate(null);
-		}
-		else {
-			portletItemImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            portletItemImpl.setUserName(StringPool.BLANK);
+        } else {
+            portletItemImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			portletItemImpl.setModifiedDate(null);
-		}
-		else {
-			portletItemImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            portletItemImpl.setCreateDate(null);
+        } else {
+            portletItemImpl.setCreateDate(new Date(createDate));
+        }
 
-		if (name == null) {
-			portletItemImpl.setName(StringPool.BLANK);
-		}
-		else {
-			portletItemImpl.setName(name);
-		}
+        if (modifiedDate == Long.MIN_VALUE) {
+            portletItemImpl.setModifiedDate(null);
+        } else {
+            portletItemImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (portletId == null) {
-			portletItemImpl.setPortletId(StringPool.BLANK);
-		}
-		else {
-			portletItemImpl.setPortletId(portletId);
-		}
+        if (name == null) {
+            portletItemImpl.setName(StringPool.BLANK);
+        } else {
+            portletItemImpl.setName(name);
+        }
 
-		portletItemImpl.setClassNameId(classNameId);
+        if (portletId == null) {
+            portletItemImpl.setPortletId(StringPool.BLANK);
+        } else {
+            portletItemImpl.setPortletId(portletId);
+        }
 
-		portletItemImpl.resetOriginalValues();
+        portletItemImpl.setClassNameId(classNameId);
 
-		return portletItemImpl;
-	}
+        portletItemImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		portletItemId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		name = objectInput.readUTF();
-		portletId = objectInput.readUTF();
-		classNameId = objectInput.readLong();
-	}
+        return portletItemImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(portletItemId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        portletItemId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        name = objectInput.readUTF();
+        portletId = objectInput.readUTF();
+        classNameId = objectInput.readLong();
+    }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(portletItemId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
 
-		if (portletId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(portletId);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		objectOutput.writeLong(classNameId);
-	}
+        if (portletId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(portletId);
+        }
 
-	public long portletItemId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public String name;
-	public String portletId;
-	public long classNameId;
+        objectOutput.writeLong(classNameId);
+    }
 }

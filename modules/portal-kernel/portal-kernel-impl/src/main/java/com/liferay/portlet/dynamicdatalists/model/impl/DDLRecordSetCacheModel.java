@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.dynamicdatalists.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -35,193 +21,181 @@ import java.util.Date;
  * @generated
  */
 public class DDLRecordSetCacheModel implements CacheModel<DDLRecordSet>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(29);
+    Externalizable {
+    public String uuid;
+    public long recordSetId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public long DDMStructureId;
+    public String recordSetKey;
+    public String name;
+    public String description;
+    public int minDisplayRows;
+    public int scope;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", recordSetId=");
-		sb.append(recordSetId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", DDMStructureId=");
-		sb.append(DDMStructureId);
-		sb.append(", recordSetKey=");
-		sb.append(recordSetKey);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", description=");
-		sb.append(description);
-		sb.append(", minDisplayRows=");
-		sb.append(minDisplayRows);
-		sb.append(", scope=");
-		sb.append(scope);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(29);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", recordSetId=");
+        sb.append(recordSetId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", DDMStructureId=");
+        sb.append(DDMStructureId);
+        sb.append(", recordSetKey=");
+        sb.append(recordSetKey);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", description=");
+        sb.append(description);
+        sb.append(", minDisplayRows=");
+        sb.append(minDisplayRows);
+        sb.append(", scope=");
+        sb.append(scope);
+        sb.append("}");
 
-	@Override
-	public DDLRecordSet toEntityModel() {
-		DDLRecordSetImpl ddlRecordSetImpl = new DDLRecordSetImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			ddlRecordSetImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			ddlRecordSetImpl.setUuid(uuid);
-		}
+    @Override
+    public DDLRecordSet toEntityModel() {
+        DDLRecordSetImpl ddlRecordSetImpl = new DDLRecordSetImpl();
 
-		ddlRecordSetImpl.setRecordSetId(recordSetId);
-		ddlRecordSetImpl.setGroupId(groupId);
-		ddlRecordSetImpl.setCompanyId(companyId);
-		ddlRecordSetImpl.setUserId(userId);
+        if (uuid == null) {
+            ddlRecordSetImpl.setUuid(StringPool.BLANK);
+        } else {
+            ddlRecordSetImpl.setUuid(uuid);
+        }
 
-		if (userName == null) {
-			ddlRecordSetImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			ddlRecordSetImpl.setUserName(userName);
-		}
+        ddlRecordSetImpl.setRecordSetId(recordSetId);
+        ddlRecordSetImpl.setGroupId(groupId);
+        ddlRecordSetImpl.setCompanyId(companyId);
+        ddlRecordSetImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			ddlRecordSetImpl.setCreateDate(null);
-		}
-		else {
-			ddlRecordSetImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            ddlRecordSetImpl.setUserName(StringPool.BLANK);
+        } else {
+            ddlRecordSetImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			ddlRecordSetImpl.setModifiedDate(null);
-		}
-		else {
-			ddlRecordSetImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            ddlRecordSetImpl.setCreateDate(null);
+        } else {
+            ddlRecordSetImpl.setCreateDate(new Date(createDate));
+        }
 
-		ddlRecordSetImpl.setDDMStructureId(DDMStructureId);
+        if (modifiedDate == Long.MIN_VALUE) {
+            ddlRecordSetImpl.setModifiedDate(null);
+        } else {
+            ddlRecordSetImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (recordSetKey == null) {
-			ddlRecordSetImpl.setRecordSetKey(StringPool.BLANK);
-		}
-		else {
-			ddlRecordSetImpl.setRecordSetKey(recordSetKey);
-		}
+        ddlRecordSetImpl.setDDMStructureId(DDMStructureId);
 
-		if (name == null) {
-			ddlRecordSetImpl.setName(StringPool.BLANK);
-		}
-		else {
-			ddlRecordSetImpl.setName(name);
-		}
+        if (recordSetKey == null) {
+            ddlRecordSetImpl.setRecordSetKey(StringPool.BLANK);
+        } else {
+            ddlRecordSetImpl.setRecordSetKey(recordSetKey);
+        }
 
-		if (description == null) {
-			ddlRecordSetImpl.setDescription(StringPool.BLANK);
-		}
-		else {
-			ddlRecordSetImpl.setDescription(description);
-		}
+        if (name == null) {
+            ddlRecordSetImpl.setName(StringPool.BLANK);
+        } else {
+            ddlRecordSetImpl.setName(name);
+        }
 
-		ddlRecordSetImpl.setMinDisplayRows(minDisplayRows);
-		ddlRecordSetImpl.setScope(scope);
+        if (description == null) {
+            ddlRecordSetImpl.setDescription(StringPool.BLANK);
+        } else {
+            ddlRecordSetImpl.setDescription(description);
+        }
 
-		ddlRecordSetImpl.resetOriginalValues();
+        ddlRecordSetImpl.setMinDisplayRows(minDisplayRows);
+        ddlRecordSetImpl.setScope(scope);
 
-		return ddlRecordSetImpl;
-	}
+        ddlRecordSetImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		recordSetId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		DDMStructureId = objectInput.readLong();
-		recordSetKey = objectInput.readUTF();
-		name = objectInput.readUTF();
-		description = objectInput.readUTF();
-		minDisplayRows = objectInput.readInt();
-		scope = objectInput.readInt();
-	}
+        return ddlRecordSetImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        recordSetId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        DDMStructureId = objectInput.readLong();
+        recordSetKey = objectInput.readUTF();
+        name = objectInput.readUTF();
+        description = objectInput.readUTF();
+        minDisplayRows = objectInput.readInt();
+        scope = objectInput.readInt();
+    }
 
-		objectOutput.writeLong(recordSetId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+        objectOutput.writeLong(recordSetId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(DDMStructureId);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (recordSetKey == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(recordSetKey);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(DDMStructureId);
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        if (recordSetKey == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(recordSetKey);
+        }
 
-		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(description);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		objectOutput.writeInt(minDisplayRows);
-		objectOutput.writeInt(scope);
-	}
+        if (description == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(description);
+        }
 
-	public String uuid;
-	public long recordSetId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public long DDMStructureId;
-	public String recordSetKey;
-	public String name;
-	public String description;
-	public int minDisplayRows;
-	public int scope;
+        objectOutput.writeInt(minDisplayRows);
+        objectOutput.writeInt(scope);
+    }
 }

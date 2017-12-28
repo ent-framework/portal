@@ -1,23 +1,11 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.model.BaseModel;
+import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.service.ServiceContext;
 
 import com.liferay.portlet.expando.model.ExpandoBridge;
@@ -41,152 +29,153 @@ import java.util.Date;
  */
 @ProviderType
 public interface PasswordTrackerModel extends BaseModel<PasswordTracker> {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this interface directly. All methods that expect a password tracker model instance should use the {@link PasswordTracker} interface instead.
-	 */
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this interface directly. All methods that expect a password tracker model instance should use the {@link PasswordTracker} interface instead.
+     */
 
-	/**
-	 * Returns the primary key of this password tracker.
-	 *
-	 * @return the primary key of this password tracker
-	 */
-	public long getPrimaryKey();
+    /**
+     * Returns the primary key of this password tracker.
+     *
+     * @return the primary key of this password tracker
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this password tracker.
-	 *
-	 * @param primaryKey the primary key of this password tracker
-	 */
-	public void setPrimaryKey(long primaryKey);
+    /**
+     * Sets the primary key of this password tracker.
+     *
+     * @param primaryKey the primary key of this password tracker
+     */
+    public void setPrimaryKey(long primaryKey);
 
-	/**
-	 * Returns the password tracker ID of this password tracker.
-	 *
-	 * @return the password tracker ID of this password tracker
-	 */
-	public long getPasswordTrackerId();
+    /**
+     * Returns the password tracker ID of this password tracker.
+     *
+     * @return the password tracker ID of this password tracker
+     */
+    public long getPasswordTrackerId();
 
-	/**
-	 * Sets the password tracker ID of this password tracker.
-	 *
-	 * @param passwordTrackerId the password tracker ID of this password tracker
-	 */
-	public void setPasswordTrackerId(long passwordTrackerId);
+    /**
+     * Sets the password tracker ID of this password tracker.
+     *
+     * @param passwordTrackerId the password tracker ID of this password tracker
+     */
+    public void setPasswordTrackerId(long passwordTrackerId);
 
-	/**
-	 * Returns the user ID of this password tracker.
-	 *
-	 * @return the user ID of this password tracker
-	 */
-	public long getUserId();
+    /**
+     * Returns the user ID of this password tracker.
+     *
+     * @return the user ID of this password tracker
+     */
+    public long getUserId();
 
-	/**
-	 * Sets the user ID of this password tracker.
-	 *
-	 * @param userId the user ID of this password tracker
-	 */
-	public void setUserId(long userId);
+    /**
+     * Sets the user ID of this password tracker.
+     *
+     * @param userId the user ID of this password tracker
+     */
+    public void setUserId(long userId);
 
-	/**
-	 * Returns the user uuid of this password tracker.
-	 *
-	 * @return the user uuid of this password tracker
-	 * @throws SystemException if a system exception occurred
-	 */
-	public String getUserUuid() throws SystemException;
+    /**
+     * Returns the user uuid of this password tracker.
+     *
+     * @return the user uuid of this password tracker
+     * @throws SystemException if a system exception occurred
+     */
+    public String getUserUuid() throws SystemException;
 
-	/**
-	 * Sets the user uuid of this password tracker.
-	 *
-	 * @param userUuid the user uuid of this password tracker
-	 */
-	public void setUserUuid(String userUuid);
+    /**
+     * Sets the user uuid of this password tracker.
+     *
+     * @param userUuid the user uuid of this password tracker
+     */
+    public void setUserUuid(String userUuid);
 
-	/**
-	 * Returns the create date of this password tracker.
-	 *
-	 * @return the create date of this password tracker
-	 */
-	public Date getCreateDate();
+    /**
+     * Returns the create date of this password tracker.
+     *
+     * @return the create date of this password tracker
+     */
+    public Date getCreateDate();
 
-	/**
-	 * Sets the create date of this password tracker.
-	 *
-	 * @param createDate the create date of this password tracker
-	 */
-	public void setCreateDate(Date createDate);
+    /**
+     * Sets the create date of this password tracker.
+     *
+     * @param createDate the create date of this password tracker
+     */
+    public void setCreateDate(Date createDate);
 
-	/**
-	 * Returns the password of this password tracker.
-	 *
-	 * @return the password of this password tracker
-	 */
-	@AutoEscape
-	public String getPassword();
+    /**
+     * Returns the password of this password tracker.
+     *
+     * @return the password of this password tracker
+     */
+    @AutoEscape
+    public String getPassword();
 
-	/**
-	 * Sets the password of this password tracker.
-	 *
-	 * @param password the password of this password tracker
-	 */
-	public void setPassword(String password);
+    /**
+     * Sets the password of this password tracker.
+     *
+     * @param password the password of this password tracker
+     */
+    public void setPassword(String password);
 
-	@Override
-	public boolean isNew();
+    @Override
+    public boolean isNew();
 
-	@Override
-	public void setNew(boolean n);
+    @Override
+    public void setNew(boolean n);
 
-	@Override
-	public boolean isCachedModel();
+    @Override
+    public boolean isCachedModel();
 
-	@Override
-	public void setCachedModel(boolean cachedModel);
+    @Override
+    public void setCachedModel(boolean cachedModel);
 
-	@Override
-	public boolean isEscapedModel();
+    @Override
+    public boolean isEscapedModel();
 
-	@Override
-	public Serializable getPrimaryKeyObj();
+    @Override
+    public Serializable getPrimaryKeyObj();
 
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj);
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj);
 
-	@Override
-	public ExpandoBridge getExpandoBridge();
+    @Override
+    public ExpandoBridge getExpandoBridge();
 
-	@Override
-	public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
+    @Override
+    public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
 
-	@Override
-	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
+    @Override
+    public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	@Override
-	public Object clone();
+    @Override
+    public Object clone();
 
-	@Override
-	public int compareTo(PasswordTracker passwordTracker);
+    @Override
+    public int compareTo(
+        com.liferay.portal.model.PasswordTracker passwordTracker);
 
-	@Override
-	public int hashCode();
+    @Override
+    public int hashCode();
 
-	@Override
-	public CacheModel<PasswordTracker> toCacheModel();
+    @Override
+    public CacheModel<com.liferay.portal.model.PasswordTracker> toCacheModel();
 
-	@Override
-	public PasswordTracker toEscapedModel();
+    @Override
+    public com.liferay.portal.model.PasswordTracker toEscapedModel();
 
-	@Override
-	public PasswordTracker toUnescapedModel();
+    @Override
+    public com.liferay.portal.model.PasswordTracker toUnescapedModel();
 
-	@Override
-	public String toString();
+    @Override
+    public String toString();
 
-	@Override
-	public String toXmlString();
+    @Override
+    public String toXmlString();
 }

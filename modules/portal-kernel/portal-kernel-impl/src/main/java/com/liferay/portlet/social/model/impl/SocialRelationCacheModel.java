@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.social.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -33,87 +19,85 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class SocialRelationCacheModel implements CacheModel<SocialRelation>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(15);
+    Externalizable {
+    public String uuid;
+    public long relationId;
+    public long companyId;
+    public long createDate;
+    public long userId1;
+    public long userId2;
+    public int type;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", relationId=");
-		sb.append(relationId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", userId1=");
-		sb.append(userId1);
-		sb.append(", userId2=");
-		sb.append(userId2);
-		sb.append(", type=");
-		sb.append(type);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(15);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", relationId=");
+        sb.append(relationId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", userId1=");
+        sb.append(userId1);
+        sb.append(", userId2=");
+        sb.append(userId2);
+        sb.append(", type=");
+        sb.append(type);
+        sb.append("}");
 
-	@Override
-	public SocialRelation toEntityModel() {
-		SocialRelationImpl socialRelationImpl = new SocialRelationImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			socialRelationImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			socialRelationImpl.setUuid(uuid);
-		}
+    @Override
+    public SocialRelation toEntityModel() {
+        SocialRelationImpl socialRelationImpl = new SocialRelationImpl();
 
-		socialRelationImpl.setRelationId(relationId);
-		socialRelationImpl.setCompanyId(companyId);
-		socialRelationImpl.setCreateDate(createDate);
-		socialRelationImpl.setUserId1(userId1);
-		socialRelationImpl.setUserId2(userId2);
-		socialRelationImpl.setType(type);
+        if (uuid == null) {
+            socialRelationImpl.setUuid(StringPool.BLANK);
+        } else {
+            socialRelationImpl.setUuid(uuid);
+        }
 
-		socialRelationImpl.resetOriginalValues();
+        socialRelationImpl.setRelationId(relationId);
+        socialRelationImpl.setCompanyId(companyId);
+        socialRelationImpl.setCreateDate(createDate);
+        socialRelationImpl.setUserId1(userId1);
+        socialRelationImpl.setUserId2(userId2);
+        socialRelationImpl.setType(type);
 
-		return socialRelationImpl;
-	}
+        socialRelationImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		relationId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		createDate = objectInput.readLong();
-		userId1 = objectInput.readLong();
-		userId2 = objectInput.readLong();
-		type = objectInput.readInt();
-	}
+        return socialRelationImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        relationId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        createDate = objectInput.readLong();
+        userId1 = objectInput.readLong();
+        userId2 = objectInput.readLong();
+        type = objectInput.readInt();
+    }
 
-		objectOutput.writeLong(relationId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(userId1);
-		objectOutput.writeLong(userId2);
-		objectOutput.writeInt(type);
-	}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-	public String uuid;
-	public long relationId;
-	public long companyId;
-	public long createDate;
-	public long userId1;
-	public long userId2;
-	public int type;
+        objectOutput.writeLong(relationId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(userId1);
+        objectOutput.writeLong(userId2);
+        objectOutput.writeInt(type);
+    }
 }

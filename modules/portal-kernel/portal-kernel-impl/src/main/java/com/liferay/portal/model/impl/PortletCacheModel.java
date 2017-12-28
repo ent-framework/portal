@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -32,88 +18,84 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class PortletCacheModel implements CacheModel<Portlet>, Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(11);
+    public long id;
+    public long companyId;
+    public String portletId;
+    public String roles;
+    public boolean active;
 
-		sb.append("{id=");
-		sb.append(id);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", portletId=");
-		sb.append(portletId);
-		sb.append(", roles=");
-		sb.append(roles);
-		sb.append(", active=");
-		sb.append(active);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(11);
 
-		return sb.toString();
-	}
+        sb.append("{id=");
+        sb.append(id);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", portletId=");
+        sb.append(portletId);
+        sb.append(", roles=");
+        sb.append(roles);
+        sb.append(", active=");
+        sb.append(active);
+        sb.append("}");
 
-	@Override
-	public Portlet toEntityModel() {
-		PortletImpl portletImpl = new PortletImpl();
+        return sb.toString();
+    }
 
-		portletImpl.setId(id);
-		portletImpl.setCompanyId(companyId);
+    @Override
+    public Portlet toEntityModel() {
+        PortletImpl portletImpl = new PortletImpl();
 
-		if (portletId == null) {
-			portletImpl.setPortletId(StringPool.BLANK);
-		}
-		else {
-			portletImpl.setPortletId(portletId);
-		}
+        portletImpl.setId(id);
+        portletImpl.setCompanyId(companyId);
 
-		if (roles == null) {
-			portletImpl.setRoles(StringPool.BLANK);
-		}
-		else {
-			portletImpl.setRoles(roles);
-		}
+        if (portletId == null) {
+            portletImpl.setPortletId(StringPool.BLANK);
+        } else {
+            portletImpl.setPortletId(portletId);
+        }
 
-		portletImpl.setActive(active);
+        if (roles == null) {
+            portletImpl.setRoles(StringPool.BLANK);
+        } else {
+            portletImpl.setRoles(roles);
+        }
 
-		portletImpl.resetOriginalValues();
+        portletImpl.setActive(active);
 
-		return portletImpl;
-	}
+        portletImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		id = objectInput.readLong();
-		companyId = objectInput.readLong();
-		portletId = objectInput.readUTF();
-		roles = objectInput.readUTF();
-		active = objectInput.readBoolean();
-	}
+        return portletImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(id);
-		objectOutput.writeLong(companyId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        id = objectInput.readLong();
+        companyId = objectInput.readLong();
+        portletId = objectInput.readUTF();
+        roles = objectInput.readUTF();
+        active = objectInput.readBoolean();
+    }
 
-		if (portletId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(portletId);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(id);
+        objectOutput.writeLong(companyId);
 
-		if (roles == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(roles);
-		}
+        if (portletId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(portletId);
+        }
 
-		objectOutput.writeBoolean(active);
-	}
+        if (roles == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(roles);
+        }
 
-	public long id;
-	public long companyId;
-	public String portletId;
-	public String roles;
-	public boolean active;
+        objectOutput.writeBoolean(active);
+    }
 }

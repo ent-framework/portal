@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.service.http;
 
 import com.liferay.portal.kernel.log.Log;
@@ -20,6 +6,7 @@ import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.OrgLaborServiceUtil;
+import com.liferay.portal.service.http.TunnelUtil;
 
 /**
  * Provides the HTTP utility for the
@@ -50,215 +37,205 @@ import com.liferay.portal.service.OrgLaborServiceUtil;
  * @generated
  */
 public class OrgLaborServiceHttp {
-	public static com.liferay.portal.model.OrgLabor addOrgLabor(
-		HttpPrincipal httpPrincipal, long organizationId, int typeId,
-		int sunOpen, int sunClose, int monOpen, int monClose, int tueOpen,
-		int tueClose, int wedOpen, int wedClose, int thuOpen, int thuClose,
-		int friOpen, int friClose, int satOpen, int satClose)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(OrgLaborServiceUtil.class,
-					"addOrgLabor", _addOrgLaborParameterTypes0);
+    private static Log _log = LogFactoryUtil.getLog(OrgLaborServiceHttp.class);
+    private static final Class<?>[] _addOrgLaborParameterTypes0 = new Class[] {
+            long.class, int.class, int.class, int.class, int.class, int.class,
+            int.class, int.class, int.class, int.class, int.class, int.class,
+            int.class, int.class, int.class, int.class
+        };
+    private static final Class<?>[] _deleteOrgLaborParameterTypes1 = new Class[] {
+            long.class
+        };
+    private static final Class<?>[] _getOrgLaborParameterTypes2 = new Class[] {
+            long.class
+        };
+    private static final Class<?>[] _getOrgLaborsParameterTypes3 = new Class[] {
+            long.class
+        };
+    private static final Class<?>[] _updateOrgLaborParameterTypes4 = new Class[] {
+            long.class, int.class, int.class, int.class, int.class, int.class,
+            int.class, int.class, int.class, int.class, int.class, int.class,
+            int.class, int.class, int.class, int.class
+        };
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					organizationId, typeId, sunOpen, sunClose, monOpen,
-					monClose, tueOpen, tueClose, wedOpen, wedClose, thuOpen,
-					thuClose, friOpen, friClose, satOpen, satClose);
+    public static com.liferay.portal.model.OrgLabor addOrgLabor(
+        HttpPrincipal httpPrincipal, long organizationId, int typeId,
+        int sunOpen, int sunClose, int monOpen, int monClose, int tueOpen,
+        int tueClose, int wedOpen, int wedClose, int thuOpen, int thuClose,
+        int friOpen, int friClose, int satOpen, int satClose)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(OrgLaborServiceUtil.class,
+                    "addOrgLabor", _addOrgLaborParameterTypes0);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    organizationId, typeId, sunOpen, sunClose, monOpen,
+                    monClose, tueOpen, tueClose, wedOpen, wedClose, thuOpen,
+                    thuClose, friOpen, friClose, satOpen, satClose);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portal.model.OrgLabor)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portal.model.OrgLabor) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static void deleteOrgLabor(HttpPrincipal httpPrincipal,
-		long orgLaborId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(OrgLaborServiceUtil.class,
-					"deleteOrgLabor", _deleteOrgLaborParameterTypes1);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					orgLaborId);
+    public static void deleteOrgLabor(HttpPrincipal httpPrincipal,
+        long orgLaborId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(OrgLaborServiceUtil.class,
+                    "deleteOrgLabor", _deleteOrgLaborParameterTypes1);
 
-			try {
-				TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    orgLaborId);
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			throw se;
-		}
-	}
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static com.liferay.portal.model.OrgLabor getOrgLabor(
-		HttpPrincipal httpPrincipal, long orgLaborId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(OrgLaborServiceUtil.class,
-					"getOrgLabor", _getOrgLaborParameterTypes2);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					orgLaborId);
+    public static com.liferay.portal.model.OrgLabor getOrgLabor(
+        HttpPrincipal httpPrincipal, long orgLaborId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(OrgLaborServiceUtil.class,
+                    "getOrgLabor", _getOrgLaborParameterTypes2);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    orgLaborId);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portal.model.OrgLabor)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portal.model.OrgLabor) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static java.util.List<com.liferay.portal.model.OrgLabor> getOrgLabors(
-		HttpPrincipal httpPrincipal, long organizationId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(OrgLaborServiceUtil.class,
-					"getOrgLabors", _getOrgLaborsParameterTypes3);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					organizationId);
+    public static java.util.List<com.liferay.portal.model.OrgLabor> getOrgLabors(
+        HttpPrincipal httpPrincipal, long organizationId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(OrgLaborServiceUtil.class,
+                    "getOrgLabors", _getOrgLaborsParameterTypes3);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    organizationId);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (java.util.List<com.liferay.portal.model.OrgLabor>)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (java.util.List<com.liferay.portal.model.OrgLabor>) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	public static com.liferay.portal.model.OrgLabor updateOrgLabor(
-		HttpPrincipal httpPrincipal, long orgLaborId, int typeId, int sunOpen,
-		int sunClose, int monOpen, int monClose, int tueOpen, int tueClose,
-		int wedOpen, int wedClose, int thuOpen, int thuClose, int friOpen,
-		int friClose, int satOpen, int satClose)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		try {
-			MethodKey methodKey = new MethodKey(OrgLaborServiceUtil.class,
-					"updateOrgLabor", _updateOrgLaborParameterTypes4);
+            throw se;
+        }
+    }
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					orgLaborId, typeId, sunOpen, sunClose, monOpen, monClose,
-					tueOpen, tueClose, wedOpen, wedClose, thuOpen, thuClose,
-					friOpen, friClose, satOpen, satClose);
+    public static com.liferay.portal.model.OrgLabor updateOrgLabor(
+        HttpPrincipal httpPrincipal, long orgLaborId, int typeId, int sunOpen,
+        int sunClose, int monOpen, int monClose, int tueOpen, int tueClose,
+        int wedOpen, int wedClose, int thuOpen, int thuClose, int friOpen,
+        int friClose, int satOpen, int satClose)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            MethodKey methodKey = new MethodKey(OrgLaborServiceUtil.class,
+                    "updateOrgLabor", _updateOrgLaborParameterTypes4);
 
-			Object returnObj = null;
+            MethodHandler methodHandler = new MethodHandler(methodKey,
+                    orgLaborId, typeId, sunOpen, sunClose, monOpen, monClose,
+                    tueOpen, tueClose, wedOpen, wedClose, thuOpen, thuClose,
+                    friOpen, friClose, satOpen, satClose);
 
-			try {
-				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception e) {
-				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
-					throw (com.liferay.portal.kernel.exception.PortalException)e;
-				}
+            Object returnObj = null;
 
-				if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
-					throw (com.liferay.portal.kernel.exception.SystemException)e;
-				}
+            try {
+                returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+            } catch (Exception e) {
+                if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+                    throw (com.liferay.portal.kernel.exception.PortalException) e;
+                }
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
-			}
+                if (e instanceof com.liferay.portal.kernel.exception.SystemException) {
+                    throw (com.liferay.portal.kernel.exception.SystemException) e;
+                }
 
-			return (com.liferay.portal.model.OrgLabor)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException se) {
-			_log.error(se, se);
+                throw new com.liferay.portal.kernel.exception.SystemException(e);
+            }
 
-			throw se;
-		}
-	}
+            return (com.liferay.portal.model.OrgLabor) returnObj;
+        } catch (com.liferay.portal.kernel.exception.SystemException se) {
+            _log.error(se, se);
 
-	private static Log _log = LogFactoryUtil.getLog(OrgLaborServiceHttp.class);
-	private static final Class<?>[] _addOrgLaborParameterTypes0 = new Class[] {
-			long.class, int.class, int.class, int.class, int.class, int.class,
-			int.class, int.class, int.class, int.class, int.class, int.class,
-			int.class, int.class, int.class, int.class
-		};
-	private static final Class<?>[] _deleteOrgLaborParameterTypes1 = new Class[] {
-			long.class
-		};
-	private static final Class<?>[] _getOrgLaborParameterTypes2 = new Class[] {
-			long.class
-		};
-	private static final Class<?>[] _getOrgLaborsParameterTypes3 = new Class[] {
-			long.class
-		};
-	private static final Class<?>[] _updateOrgLaborParameterTypes4 = new Class[] {
-			long.class, int.class, int.class, int.class, int.class, int.class,
-			int.class, int.class, int.class, int.class, int.class, int.class,
-			int.class, int.class, int.class, int.class
-		};
+            throw se;
+        }
+    }
 }

@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,75 +20,72 @@ import java.util.Date;
  * @generated
  */
 public class PasswordTrackerCacheModel implements CacheModel<PasswordTracker>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(9);
+    Externalizable {
+    public long passwordTrackerId;
+    public long userId;
+    public long createDate;
+    public String password;
 
-		sb.append("{passwordTrackerId=");
-		sb.append(passwordTrackerId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", password=");
-		sb.append(password);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(9);
 
-		return sb.toString();
-	}
+        sb.append("{passwordTrackerId=");
+        sb.append(passwordTrackerId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", password=");
+        sb.append(password);
+        sb.append("}");
 
-	@Override
-	public PasswordTracker toEntityModel() {
-		PasswordTrackerImpl passwordTrackerImpl = new PasswordTrackerImpl();
+        return sb.toString();
+    }
 
-		passwordTrackerImpl.setPasswordTrackerId(passwordTrackerId);
-		passwordTrackerImpl.setUserId(userId);
+    @Override
+    public PasswordTracker toEntityModel() {
+        PasswordTrackerImpl passwordTrackerImpl = new PasswordTrackerImpl();
 
-		if (createDate == Long.MIN_VALUE) {
-			passwordTrackerImpl.setCreateDate(null);
-		}
-		else {
-			passwordTrackerImpl.setCreateDate(new Date(createDate));
-		}
+        passwordTrackerImpl.setPasswordTrackerId(passwordTrackerId);
+        passwordTrackerImpl.setUserId(userId);
 
-		if (password == null) {
-			passwordTrackerImpl.setPassword(StringPool.BLANK);
-		}
-		else {
-			passwordTrackerImpl.setPassword(password);
-		}
+        if (createDate == Long.MIN_VALUE) {
+            passwordTrackerImpl.setCreateDate(null);
+        } else {
+            passwordTrackerImpl.setCreateDate(new Date(createDate));
+        }
 
-		passwordTrackerImpl.resetOriginalValues();
+        if (password == null) {
+            passwordTrackerImpl.setPassword(StringPool.BLANK);
+        } else {
+            passwordTrackerImpl.setPassword(password);
+        }
 
-		return passwordTrackerImpl;
-	}
+        passwordTrackerImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		passwordTrackerId = objectInput.readLong();
-		userId = objectInput.readLong();
-		createDate = objectInput.readLong();
-		password = objectInput.readUTF();
-	}
+        return passwordTrackerImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(passwordTrackerId);
-		objectOutput.writeLong(userId);
-		objectOutput.writeLong(createDate);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        passwordTrackerId = objectInput.readLong();
+        userId = objectInput.readLong();
+        createDate = objectInput.readLong();
+        password = objectInput.readUTF();
+    }
 
-		if (password == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(password);
-		}
-	}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(passwordTrackerId);
+        objectOutput.writeLong(userId);
+        objectOutput.writeLong(createDate);
 
-	public long passwordTrackerId;
-	public long userId;
-	public long createDate;
-	public String password;
+        if (password == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(password);
+        }
+    }
 }

@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,204 +20,190 @@ import java.util.Date;
  * @generated
  */
 public class RoleCacheModel implements CacheModel<Role>, Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(29);
+    public String uuid;
+    public long roleId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public long classNameId;
+    public long classPK;
+    public String name;
+    public String title;
+    public String description;
+    public int type;
+    public String subtype;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", roleId=");
-		sb.append(roleId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", classNameId=");
-		sb.append(classNameId);
-		sb.append(", classPK=");
-		sb.append(classPK);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", title=");
-		sb.append(title);
-		sb.append(", description=");
-		sb.append(description);
-		sb.append(", type=");
-		sb.append(type);
-		sb.append(", subtype=");
-		sb.append(subtype);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(29);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", roleId=");
+        sb.append(roleId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", classNameId=");
+        sb.append(classNameId);
+        sb.append(", classPK=");
+        sb.append(classPK);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", title=");
+        sb.append(title);
+        sb.append(", description=");
+        sb.append(description);
+        sb.append(", type=");
+        sb.append(type);
+        sb.append(", subtype=");
+        sb.append(subtype);
+        sb.append("}");
 
-	@Override
-	public Role toEntityModel() {
-		RoleImpl roleImpl = new RoleImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			roleImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			roleImpl.setUuid(uuid);
-		}
+    @Override
+    public Role toEntityModel() {
+        RoleImpl roleImpl = new RoleImpl();
 
-		roleImpl.setRoleId(roleId);
-		roleImpl.setCompanyId(companyId);
-		roleImpl.setUserId(userId);
+        if (uuid == null) {
+            roleImpl.setUuid(StringPool.BLANK);
+        } else {
+            roleImpl.setUuid(uuid);
+        }
 
-		if (userName == null) {
-			roleImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			roleImpl.setUserName(userName);
-		}
+        roleImpl.setRoleId(roleId);
+        roleImpl.setCompanyId(companyId);
+        roleImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			roleImpl.setCreateDate(null);
-		}
-		else {
-			roleImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            roleImpl.setUserName(StringPool.BLANK);
+        } else {
+            roleImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			roleImpl.setModifiedDate(null);
-		}
-		else {
-			roleImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            roleImpl.setCreateDate(null);
+        } else {
+            roleImpl.setCreateDate(new Date(createDate));
+        }
 
-		roleImpl.setClassNameId(classNameId);
-		roleImpl.setClassPK(classPK);
+        if (modifiedDate == Long.MIN_VALUE) {
+            roleImpl.setModifiedDate(null);
+        } else {
+            roleImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (name == null) {
-			roleImpl.setName(StringPool.BLANK);
-		}
-		else {
-			roleImpl.setName(name);
-		}
+        roleImpl.setClassNameId(classNameId);
+        roleImpl.setClassPK(classPK);
 
-		if (title == null) {
-			roleImpl.setTitle(StringPool.BLANK);
-		}
-		else {
-			roleImpl.setTitle(title);
-		}
+        if (name == null) {
+            roleImpl.setName(StringPool.BLANK);
+        } else {
+            roleImpl.setName(name);
+        }
 
-		if (description == null) {
-			roleImpl.setDescription(StringPool.BLANK);
-		}
-		else {
-			roleImpl.setDescription(description);
-		}
+        if (title == null) {
+            roleImpl.setTitle(StringPool.BLANK);
+        } else {
+            roleImpl.setTitle(title);
+        }
 
-		roleImpl.setType(type);
+        if (description == null) {
+            roleImpl.setDescription(StringPool.BLANK);
+        } else {
+            roleImpl.setDescription(description);
+        }
 
-		if (subtype == null) {
-			roleImpl.setSubtype(StringPool.BLANK);
-		}
-		else {
-			roleImpl.setSubtype(subtype);
-		}
+        roleImpl.setType(type);
 
-		roleImpl.resetOriginalValues();
+        if (subtype == null) {
+            roleImpl.setSubtype(StringPool.BLANK);
+        } else {
+            roleImpl.setSubtype(subtype);
+        }
 
-		return roleImpl;
-	}
+        roleImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		roleId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		classNameId = objectInput.readLong();
-		classPK = objectInput.readLong();
-		name = objectInput.readUTF();
-		title = objectInput.readUTF();
-		description = objectInput.readUTF();
-		type = objectInput.readInt();
-		subtype = objectInput.readUTF();
-	}
+        return roleImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        roleId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        classNameId = objectInput.readLong();
+        classPK = objectInput.readLong();
+        name = objectInput.readUTF();
+        title = objectInput.readUTF();
+        description = objectInput.readUTF();
+        type = objectInput.readInt();
+        subtype = objectInput.readUTF();
+    }
 
-		objectOutput.writeLong(roleId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+        objectOutput.writeLong(roleId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(classNameId);
-		objectOutput.writeLong(classPK);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(classNameId);
+        objectOutput.writeLong(classPK);
 
-		if (title == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(title);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(description);
-		}
+        if (title == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(title);
+        }
 
-		objectOutput.writeInt(type);
+        if (description == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(description);
+        }
 
-		if (subtype == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(subtype);
-		}
-	}
+        objectOutput.writeInt(type);
 
-	public String uuid;
-	public long roleId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public long classNameId;
-	public long classPK;
-	public String name;
-	public String title;
-	public String description;
-	public int type;
-	public String subtype;
+        if (subtype == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(subtype);
+        }
+    }
 }

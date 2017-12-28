@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.journal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -35,224 +21,209 @@ import java.util.Date;
  * @generated
  */
 public class JournalFolderCacheModel implements CacheModel<JournalFolder>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(33);
+    Externalizable {
+    public String uuid;
+    public long folderId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public long parentFolderId;
+    public String treePath;
+    public String name;
+    public String description;
+    public int status;
+    public long statusByUserId;
+    public String statusByUserName;
+    public long statusDate;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", folderId=");
-		sb.append(folderId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", parentFolderId=");
-		sb.append(parentFolderId);
-		sb.append(", treePath=");
-		sb.append(treePath);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", description=");
-		sb.append(description);
-		sb.append(", status=");
-		sb.append(status);
-		sb.append(", statusByUserId=");
-		sb.append(statusByUserId);
-		sb.append(", statusByUserName=");
-		sb.append(statusByUserName);
-		sb.append(", statusDate=");
-		sb.append(statusDate);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(33);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", folderId=");
+        sb.append(folderId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", parentFolderId=");
+        sb.append(parentFolderId);
+        sb.append(", treePath=");
+        sb.append(treePath);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", description=");
+        sb.append(description);
+        sb.append(", status=");
+        sb.append(status);
+        sb.append(", statusByUserId=");
+        sb.append(statusByUserId);
+        sb.append(", statusByUserName=");
+        sb.append(statusByUserName);
+        sb.append(", statusDate=");
+        sb.append(statusDate);
+        sb.append("}");
 
-	@Override
-	public JournalFolder toEntityModel() {
-		JournalFolderImpl journalFolderImpl = new JournalFolderImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			journalFolderImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			journalFolderImpl.setUuid(uuid);
-		}
+    @Override
+    public JournalFolder toEntityModel() {
+        JournalFolderImpl journalFolderImpl = new JournalFolderImpl();
 
-		journalFolderImpl.setFolderId(folderId);
-		journalFolderImpl.setGroupId(groupId);
-		journalFolderImpl.setCompanyId(companyId);
-		journalFolderImpl.setUserId(userId);
+        if (uuid == null) {
+            journalFolderImpl.setUuid(StringPool.BLANK);
+        } else {
+            journalFolderImpl.setUuid(uuid);
+        }
 
-		if (userName == null) {
-			journalFolderImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			journalFolderImpl.setUserName(userName);
-		}
+        journalFolderImpl.setFolderId(folderId);
+        journalFolderImpl.setGroupId(groupId);
+        journalFolderImpl.setCompanyId(companyId);
+        journalFolderImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			journalFolderImpl.setCreateDate(null);
-		}
-		else {
-			journalFolderImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            journalFolderImpl.setUserName(StringPool.BLANK);
+        } else {
+            journalFolderImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			journalFolderImpl.setModifiedDate(null);
-		}
-		else {
-			journalFolderImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            journalFolderImpl.setCreateDate(null);
+        } else {
+            journalFolderImpl.setCreateDate(new Date(createDate));
+        }
 
-		journalFolderImpl.setParentFolderId(parentFolderId);
+        if (modifiedDate == Long.MIN_VALUE) {
+            journalFolderImpl.setModifiedDate(null);
+        } else {
+            journalFolderImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (treePath == null) {
-			journalFolderImpl.setTreePath(StringPool.BLANK);
-		}
-		else {
-			journalFolderImpl.setTreePath(treePath);
-		}
+        journalFolderImpl.setParentFolderId(parentFolderId);
 
-		if (name == null) {
-			journalFolderImpl.setName(StringPool.BLANK);
-		}
-		else {
-			journalFolderImpl.setName(name);
-		}
+        if (treePath == null) {
+            journalFolderImpl.setTreePath(StringPool.BLANK);
+        } else {
+            journalFolderImpl.setTreePath(treePath);
+        }
 
-		if (description == null) {
-			journalFolderImpl.setDescription(StringPool.BLANK);
-		}
-		else {
-			journalFolderImpl.setDescription(description);
-		}
+        if (name == null) {
+            journalFolderImpl.setName(StringPool.BLANK);
+        } else {
+            journalFolderImpl.setName(name);
+        }
 
-		journalFolderImpl.setStatus(status);
-		journalFolderImpl.setStatusByUserId(statusByUserId);
+        if (description == null) {
+            journalFolderImpl.setDescription(StringPool.BLANK);
+        } else {
+            journalFolderImpl.setDescription(description);
+        }
 
-		if (statusByUserName == null) {
-			journalFolderImpl.setStatusByUserName(StringPool.BLANK);
-		}
-		else {
-			journalFolderImpl.setStatusByUserName(statusByUserName);
-		}
+        journalFolderImpl.setStatus(status);
+        journalFolderImpl.setStatusByUserId(statusByUserId);
 
-		if (statusDate == Long.MIN_VALUE) {
-			journalFolderImpl.setStatusDate(null);
-		}
-		else {
-			journalFolderImpl.setStatusDate(new Date(statusDate));
-		}
+        if (statusByUserName == null) {
+            journalFolderImpl.setStatusByUserName(StringPool.BLANK);
+        } else {
+            journalFolderImpl.setStatusByUserName(statusByUserName);
+        }
 
-		journalFolderImpl.resetOriginalValues();
+        if (statusDate == Long.MIN_VALUE) {
+            journalFolderImpl.setStatusDate(null);
+        } else {
+            journalFolderImpl.setStatusDate(new Date(statusDate));
+        }
 
-		return journalFolderImpl;
-	}
+        journalFolderImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		folderId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		parentFolderId = objectInput.readLong();
-		treePath = objectInput.readUTF();
-		name = objectInput.readUTF();
-		description = objectInput.readUTF();
-		status = objectInput.readInt();
-		statusByUserId = objectInput.readLong();
-		statusByUserName = objectInput.readUTF();
-		statusDate = objectInput.readLong();
-	}
+        return journalFolderImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        folderId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        parentFolderId = objectInput.readLong();
+        treePath = objectInput.readUTF();
+        name = objectInput.readUTF();
+        description = objectInput.readUTF();
+        status = objectInput.readInt();
+        statusByUserId = objectInput.readLong();
+        statusByUserName = objectInput.readUTF();
+        statusDate = objectInput.readLong();
+    }
 
-		objectOutput.writeLong(folderId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+        objectOutput.writeLong(folderId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(parentFolderId);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (treePath == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(treePath);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(parentFolderId);
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        if (treePath == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(treePath);
+        }
 
-		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(description);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		objectOutput.writeInt(status);
-		objectOutput.writeLong(statusByUserId);
+        if (description == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(description);
+        }
 
-		if (statusByUserName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(statusByUserName);
-		}
+        objectOutput.writeInt(status);
+        objectOutput.writeLong(statusByUserId);
 
-		objectOutput.writeLong(statusDate);
-	}
+        if (statusByUserName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(statusByUserName);
+        }
 
-	public String uuid;
-	public long folderId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public long parentFolderId;
-	public String treePath;
-	public String name;
-	public String description;
-	public int status;
-	public long statusByUserId;
-	public String statusByUserName;
-	public long statusDate;
+        objectOutput.writeLong(statusDate);
+    }
 }

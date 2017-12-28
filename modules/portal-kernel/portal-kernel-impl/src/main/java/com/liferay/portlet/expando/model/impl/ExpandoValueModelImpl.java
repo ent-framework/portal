@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.expando.model.impl;
 
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
@@ -53,637 +39,627 @@ import java.util.Map;
  */
 @JSON(strict = true)
 public class ExpandoValueModelImpl extends BaseModelImpl<ExpandoValue>
-	implements ExpandoValueModel {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this class directly. All methods that expect a expando value model instance should use the {@link com.liferay.portlet.expando.model.ExpandoValue} interface instead.
-	 */
-	public static final String TABLE_NAME = "ExpandoValue";
-	public static final Object[][] TABLE_COLUMNS = {
-			{ "valueId", Types.BIGINT },
-			{ "companyId", Types.BIGINT },
-			{ "tableId", Types.BIGINT },
-			{ "columnId", Types.BIGINT },
-			{ "rowId_", Types.BIGINT },
-			{ "classNameId", Types.BIGINT },
-			{ "classPK", Types.BIGINT },
-			{ "data_", Types.VARCHAR }
-		};
-	public static final String TABLE_SQL_CREATE = "create table ExpandoValue (valueId LONG not null primary key,companyId LONG,tableId LONG,columnId LONG,rowId_ LONG,classNameId LONG,classPK LONG,data_ STRING null)";
-	public static final String TABLE_SQL_DROP = "drop table ExpandoValue";
-	public static final String ORDER_BY_JPQL = " ORDER BY expandoValue.tableId ASC, expandoValue.rowId ASC, expandoValue.columnId ASC";
-	public static final String ORDER_BY_SQL = " ORDER BY ExpandoValue.tableId ASC, ExpandoValue.rowId_ ASC, ExpandoValue.columnId ASC";
-	public static final String DATA_SOURCE = "liferayDataSource";
-	public static final String SESSION_FACTORY = "liferaySessionFactory";
-	public static final String TX_MANAGER = "liferayTransactionManager";
-	public static final boolean ENTITY_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
-				"value.object.entity.cache.enabled.com.liferay.portlet.expando.model.ExpandoValue"),
-			true);
-	public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
-				"value.object.finder.cache.enabled.com.liferay.portlet.expando.model.ExpandoValue"),
-			true);
-	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
-				"value.object.column.bitmask.enabled.com.liferay.portlet.expando.model.ExpandoValue"),
-			true);
-	public static long CLASSNAMEID_COLUMN_BITMASK = 1L;
-	public static long CLASSPK_COLUMN_BITMASK = 2L;
-	public static long COLUMNID_COLUMN_BITMASK = 4L;
-	public static long DATA_COLUMN_BITMASK = 8L;
-	public static long ROWID_COLUMN_BITMASK = 16L;
-	public static long TABLEID_COLUMN_BITMASK = 32L;
-
-	/**
-	 * Converts the soap model instance into a normal model instance.
-	 *
-	 * @param soapModel the soap model instance to convert
-	 * @return the normal model instance
-	 */
-	public static ExpandoValue toModel(ExpandoValueSoap soapModel) {
-		if (soapModel == null) {
-			return null;
-		}
-
-		ExpandoValue model = new ExpandoValueImpl();
-
-		model.setValueId(soapModel.getValueId());
-		model.setCompanyId(soapModel.getCompanyId());
-		model.setTableId(soapModel.getTableId());
-		model.setColumnId(soapModel.getColumnId());
-		model.setRowId(soapModel.getRowId());
-		model.setClassNameId(soapModel.getClassNameId());
-		model.setClassPK(soapModel.getClassPK());
-		model.setData(soapModel.getData());
-
-		return model;
-	}
-
-	/**
-	 * Converts the soap model instances into normal model instances.
-	 *
-	 * @param soapModels the soap model instances to convert
-	 * @return the normal model instances
-	 */
-	public static List<ExpandoValue> toModels(ExpandoValueSoap[] soapModels) {
-		if (soapModels == null) {
-			return null;
-		}
-
-		List<ExpandoValue> models = new ArrayList<ExpandoValue>(soapModels.length);
-
-		for (ExpandoValueSoap soapModel : soapModels) {
-			models.add(toModel(soapModel));
-		}
-
-		return models;
-	}
-
-	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.portal.util.PropsUtil.get(
-				"lock.expiration.time.com.liferay.portlet.expando.model.ExpandoValue"));
-
-	public ExpandoValueModelImpl() {
-	}
-
-	@Override
-	public long getPrimaryKey() {
-		return _valueId;
-	}
-
-	@Override
-	public void setPrimaryKey(long primaryKey) {
-		setValueId(primaryKey);
-	}
-
-	@Override
-	public Serializable getPrimaryKeyObj() {
-		return _valueId;
-	}
+    implements ExpandoValueModel {
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this class directly. All methods that expect a expando value model instance should use the {@link com.liferay.portlet.expando.model.ExpandoValue} interface instead.
+     */
+    public static final String TABLE_NAME = "ExpandoValue";
+    public static final Object[][] TABLE_COLUMNS = {
+            { "valueId", Types.BIGINT },
+            { "companyId", Types.BIGINT },
+            { "tableId", Types.BIGINT },
+            { "columnId", Types.BIGINT },
+            { "rowId_", Types.BIGINT },
+            { "classNameId", Types.BIGINT },
+            { "classPK", Types.BIGINT },
+            { "data_", Types.VARCHAR }
+        };
+    public static final String TABLE_SQL_CREATE = "create table ExpandoValue (valueId LONG not null primary key,companyId LONG,tableId LONG,columnId LONG,rowId_ LONG,classNameId LONG,classPK LONG,data_ STRING null)";
+    public static final String TABLE_SQL_DROP = "drop table ExpandoValue";
+    public static final String ORDER_BY_JPQL = " ORDER BY expandoValue.tableId ASC, expandoValue.rowId ASC, expandoValue.columnId ASC";
+    public static final String ORDER_BY_SQL = " ORDER BY ExpandoValue.tableId ASC, ExpandoValue.rowId_ ASC, ExpandoValue.columnId ASC";
+    public static final String DATA_SOURCE = "liferayDataSource";
+    public static final String SESSION_FACTORY = "liferaySessionFactory";
+    public static final String TX_MANAGER = "liferayTransactionManager";
+    public static final boolean ENTITY_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
+                "value.object.entity.cache.enabled.com.liferay.portlet.expando.model.ExpandoValue"),
+            true);
+    public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
+                "value.object.finder.cache.enabled.com.liferay.portlet.expando.model.ExpandoValue"),
+            true);
+    public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.portal.util.PropsUtil.get(
+                "value.object.column.bitmask.enabled.com.liferay.portlet.expando.model.ExpandoValue"),
+            true);
+    public static long CLASSNAMEID_COLUMN_BITMASK = 1L;
+    public static long CLASSPK_COLUMN_BITMASK = 2L;
+    public static long COLUMNID_COLUMN_BITMASK = 4L;
+    public static long DATA_COLUMN_BITMASK = 8L;
+    public static long ROWID_COLUMN_BITMASK = 16L;
+    public static long TABLEID_COLUMN_BITMASK = 32L;
+    public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.portal.util.PropsUtil.get(
+                "lock.expiration.time.com.liferay.portlet.expando.model.ExpandoValue"));
+    private static ClassLoader _classLoader = ExpandoValue.class.getClassLoader();
+    private static Class<?>[] _escapedModelInterfaces = new Class[] {
+            ExpandoValue.class
+        };
+    private long _valueId;
+    private long _companyId;
+    private long _tableId;
+    private long _originalTableId;
+    private boolean _setOriginalTableId;
+    private long _columnId;
+    private long _originalColumnId;
+    private boolean _setOriginalColumnId;
+    private long _rowId;
+    private long _originalRowId;
+    private boolean _setOriginalRowId;
+    private long _classNameId;
+    private long _originalClassNameId;
+    private boolean _setOriginalClassNameId;
+    private long _classPK;
+    private long _originalClassPK;
+    private boolean _setOriginalClassPK;
+    private String _data;
+    private String _originalData;
+    private long _columnBitmask;
+    private ExpandoValue _escapedModel;
+
+    public ExpandoValueModelImpl() {
+    }
+
+    /**
+     * Converts the soap model instance into a normal model instance.
+     *
+     * @param soapModel the soap model instance to convert
+     * @return the normal model instance
+     */
+    public static ExpandoValue toModel(ExpandoValueSoap soapModel) {
+        if (soapModel == null) {
+            return null;
+        }
+
+        ExpandoValue model = new ExpandoValueImpl();
+
+        model.setValueId(soapModel.getValueId());
+        model.setCompanyId(soapModel.getCompanyId());
+        model.setTableId(soapModel.getTableId());
+        model.setColumnId(soapModel.getColumnId());
+        model.setRowId(soapModel.getRowId());
+        model.setClassNameId(soapModel.getClassNameId());
+        model.setClassPK(soapModel.getClassPK());
+        model.setData(soapModel.getData());
+
+        return model;
+    }
+
+    /**
+     * Converts the soap model instances into normal model instances.
+     *
+     * @param soapModels the soap model instances to convert
+     * @return the normal model instances
+     */
+    public static List<ExpandoValue> toModels(ExpandoValueSoap[] soapModels) {
+        if (soapModels == null) {
+            return null;
+        }
 
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj) {
-		setPrimaryKey(((Long)primaryKeyObj).longValue());
-	}
+        List<ExpandoValue> models = new ArrayList<ExpandoValue>(soapModels.length);
 
-	@Override
-	public Class<?> getModelClass() {
-		return ExpandoValue.class;
-	}
-
-	@Override
-	public String getModelClassName() {
-		return ExpandoValue.class.getName();
-	}
+        for (ExpandoValueSoap soapModel : soapModels) {
+            models.add(toModel(soapModel));
+        }
 
-	@Override
-	public Map<String, Object> getModelAttributes() {
-		Map<String, Object> attributes = new HashMap<String, Object>();
+        return models;
+    }
 
-		attributes.put("valueId", getValueId());
-		attributes.put("companyId", getCompanyId());
-		attributes.put("tableId", getTableId());
-		attributes.put("columnId", getColumnId());
-		attributes.put("rowId", getRowId());
-		attributes.put("classNameId", getClassNameId());
-		attributes.put("classPK", getClassPK());
-		attributes.put("data", getData());
+    @Override
+    public long getPrimaryKey() {
+        return _valueId;
+    }
 
-		return attributes;
-	}
+    @Override
+    public void setPrimaryKey(long primaryKey) {
+        setValueId(primaryKey);
+    }
 
-	@Override
-	public void setModelAttributes(Map<String, Object> attributes) {
-		Long valueId = (Long)attributes.get("valueId");
+    @Override
+    public Serializable getPrimaryKeyObj() {
+        return _valueId;
+    }
+
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj) {
+        setPrimaryKey(((Long) primaryKeyObj).longValue());
+    }
+
+    @Override
+    public Class<?> getModelClass() {
+        return ExpandoValue.class;
+    }
+
+    @Override
+    public String getModelClassName() {
+        return ExpandoValue.class.getName();
+    }
+
+    @Override
+    public Map<String, Object> getModelAttributes() {
+        Map<String, Object> attributes = new HashMap<String, Object>();
+
+        attributes.put("valueId", getValueId());
+        attributes.put("companyId", getCompanyId());
+        attributes.put("tableId", getTableId());
+        attributes.put("columnId", getColumnId());
+        attributes.put("rowId", getRowId());
+        attributes.put("classNameId", getClassNameId());
+        attributes.put("classPK", getClassPK());
+        attributes.put("data", getData());
+
+        return attributes;
+    }
+
+    @Override
+    public void setModelAttributes(Map<String, Object> attributes) {
+        Long valueId = (Long) attributes.get("valueId");
+
+        if (valueId != null) {
+            setValueId(valueId);
+        }
+
+        Long companyId = (Long) attributes.get("companyId");
+
+        if (companyId != null) {
+            setCompanyId(companyId);
+        }
+
+        Long tableId = (Long) attributes.get("tableId");
 
-		if (valueId != null) {
-			setValueId(valueId);
-		}
+        if (tableId != null) {
+            setTableId(tableId);
+        }
 
-		Long companyId = (Long)attributes.get("companyId");
+        Long columnId = (Long) attributes.get("columnId");
+
+        if (columnId != null) {
+            setColumnId(columnId);
+        }
+
+        Long rowId = (Long) attributes.get("rowId");
+
+        if (rowId != null) {
+            setRowId(rowId);
+        }
+
+        Long classNameId = (Long) attributes.get("classNameId");
+
+        if (classNameId != null) {
+            setClassNameId(classNameId);
+        }
+
+        Long classPK = (Long) attributes.get("classPK");
 
-		if (companyId != null) {
-			setCompanyId(companyId);
-		}
+        if (classPK != null) {
+            setClassPK(classPK);
+        }
 
-		Long tableId = (Long)attributes.get("tableId");
+        String data = (String) attributes.get("data");
+
+        if (data != null) {
+            setData(data);
+        }
+    }
+
+    @JSON
+    @Override
+    public long getValueId() {
+        return _valueId;
+    }
+
+    @Override
+    public void setValueId(long valueId) {
+        _valueId = valueId;
+    }
+
+    @JSON
+    @Override
+    public long getCompanyId() {
+        return _companyId;
+    }
+
+    @Override
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
+
+    @JSON
+    @Override
+    public long getTableId() {
+        return _tableId;
+    }
 
-		if (tableId != null) {
-			setTableId(tableId);
-		}
+    @Override
+    public void setTableId(long tableId) {
+        _columnBitmask = -1L;
 
-		Long columnId = (Long)attributes.get("columnId");
+        if (!_setOriginalTableId) {
+            _setOriginalTableId = true;
 
-		if (columnId != null) {
-			setColumnId(columnId);
-		}
+            _originalTableId = _tableId;
+        }
+
+        _tableId = tableId;
+    }
 
-		Long rowId = (Long)attributes.get("rowId");
+    public long getOriginalTableId() {
+        return _originalTableId;
+    }
 
-		if (rowId != null) {
-			setRowId(rowId);
-		}
+    @JSON
+    @Override
+    public long getColumnId() {
+        return _columnId;
+    }
 
-		Long classNameId = (Long)attributes.get("classNameId");
+    @Override
+    public void setColumnId(long columnId) {
+        _columnBitmask = -1L;
 
-		if (classNameId != null) {
-			setClassNameId(classNameId);
-		}
+        if (!_setOriginalColumnId) {
+            _setOriginalColumnId = true;
 
-		Long classPK = (Long)attributes.get("classPK");
+            _originalColumnId = _columnId;
+        }
 
-		if (classPK != null) {
-			setClassPK(classPK);
-		}
+        _columnId = columnId;
+    }
+
+    public long getOriginalColumnId() {
+        return _originalColumnId;
+    }
+
+    @JSON
+    @Override
+    public long getRowId() {
+        return _rowId;
+    }
+
+    @Override
+    public void setRowId(long rowId) {
+        _columnBitmask = -1L;
+
+        if (!_setOriginalRowId) {
+            _setOriginalRowId = true;
+
+            _originalRowId = _rowId;
+        }
+
+        _rowId = rowId;
+    }
+
+    public long getOriginalRowId() {
+        return _originalRowId;
+    }
+
+    @Override
+    public String getClassName() {
+        if (getClassNameId() <= 0) {
+            return StringPool.BLANK;
+        }
+
+        return PortalUtil.getClassName(getClassNameId());
+    }
+
+    @Override
+    public void setClassName(String className) {
+        long classNameId = 0;
+
+        if (Validator.isNotNull(className)) {
+            classNameId = PortalUtil.getClassNameId(className);
+        }
+
+        setClassNameId(classNameId);
+    }
+
+    @JSON
+    @Override
+    public long getClassNameId() {
+        return _classNameId;
+    }
+
+    @Override
+    public void setClassNameId(long classNameId) {
+        _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
+
+        if (!_setOriginalClassNameId) {
+            _setOriginalClassNameId = true;
+
+            _originalClassNameId = _classNameId;
+        }
+
+        _classNameId = classNameId;
+    }
+
+    public long getOriginalClassNameId() {
+        return _originalClassNameId;
+    }
+
+    @JSON
+    @Override
+    public long getClassPK() {
+        return _classPK;
+    }
+
+    @Override
+    public void setClassPK(long classPK) {
+        _columnBitmask |= CLASSPK_COLUMN_BITMASK;
+
+        if (!_setOriginalClassPK) {
+            _setOriginalClassPK = true;
+
+            _originalClassPK = _classPK;
+        }
+
+        _classPK = classPK;
+    }
+
+    public long getOriginalClassPK() {
+        return _originalClassPK;
+    }
+
+    @JSON
+    @Override
+    public String getData() {
+        if (_data == null) {
+            return StringPool.BLANK;
+        } else {
+            return _data;
+        }
+    }
+
+    @Override
+    public void setData(String data) {
+        _columnBitmask |= DATA_COLUMN_BITMASK;
+
+        if (_originalData == null) {
+            _originalData = _data;
+        }
+
+        _data = data;
+    }
+
+    public String getOriginalData() {
+        return GetterUtil.getString(_originalData);
+    }
+
+    public long getColumnBitmask() {
+        return _columnBitmask;
+    }
+
+    @Override
+    public ExpandoValue toEscapedModel() {
+        if (_escapedModel == null) {
+            _escapedModel = (ExpandoValue) ProxyUtil.newProxyInstance(_classLoader,
+                    _escapedModelInterfaces, new AutoEscapeBeanHandler(this));
+        }
+
+        return _escapedModel;
+    }
+
+    @Override
+    public Object clone() {
+        ExpandoValueImpl expandoValueImpl = new ExpandoValueImpl();
+
+        expandoValueImpl.setValueId(getValueId());
+        expandoValueImpl.setCompanyId(getCompanyId());
+        expandoValueImpl.setTableId(getTableId());
+        expandoValueImpl.setColumnId(getColumnId());
+        expandoValueImpl.setRowId(getRowId());
+        expandoValueImpl.setClassNameId(getClassNameId());
+        expandoValueImpl.setClassPK(getClassPK());
+        expandoValueImpl.setData(getData());
 
-		String data = (String)attributes.get("data");
+        expandoValueImpl.resetOriginalValues();
 
-		if (data != null) {
-			setData(data);
-		}
-	}
+        return expandoValueImpl;
+    }
 
-	@JSON
-	@Override
-	public long getValueId() {
-		return _valueId;
-	}
+    @Override
+    public int compareTo(ExpandoValue expandoValue) {
+        int value = 0;
 
-	@Override
-	public void setValueId(long valueId) {
-		_valueId = valueId;
-	}
+        if (getTableId() < expandoValue.getTableId()) {
+            value = -1;
+        } else if (getTableId() > expandoValue.getTableId()) {
+            value = 1;
+        } else {
+            value = 0;
+        }
 
-	@JSON
-	@Override
-	public long getCompanyId() {
-		return _companyId;
-	}
+        if (value != 0) {
+            return value;
+        }
 
-	@Override
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+        if (getRowId() < expandoValue.getRowId()) {
+            value = -1;
+        } else if (getRowId() > expandoValue.getRowId()) {
+            value = 1;
+        } else {
+            value = 0;
+        }
 
-	@JSON
-	@Override
-	public long getTableId() {
-		return _tableId;
-	}
+        if (value != 0) {
+            return value;
+        }
 
-	@Override
-	public void setTableId(long tableId) {
-		_columnBitmask = -1L;
+        if (getColumnId() < expandoValue.getColumnId()) {
+            value = -1;
+        } else if (getColumnId() > expandoValue.getColumnId()) {
+            value = 1;
+        } else {
+            value = 0;
+        }
 
-		if (!_setOriginalTableId) {
-			_setOriginalTableId = true;
+        if (value != 0) {
+            return value;
+        }
 
-			_originalTableId = _tableId;
-		}
+        return 0;
+    }
 
-		_tableId = tableId;
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
 
-	public long getOriginalTableId() {
-		return _originalTableId;
-	}
+        if (!(obj instanceof ExpandoValue)) {
+            return false;
+        }
 
-	@JSON
-	@Override
-	public long getColumnId() {
-		return _columnId;
-	}
+        ExpandoValue expandoValue = (ExpandoValue) obj;
 
-	@Override
-	public void setColumnId(long columnId) {
-		_columnBitmask = -1L;
+        long primaryKey = expandoValue.getPrimaryKey();
 
-		if (!_setOriginalColumnId) {
-			_setOriginalColumnId = true;
+        if (getPrimaryKey() == primaryKey) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-			_originalColumnId = _columnId;
-		}
+    @Override
+    public int hashCode() {
+        return (int) getPrimaryKey();
+    }
 
-		_columnId = columnId;
-	}
-
-	public long getOriginalColumnId() {
-		return _originalColumnId;
-	}
-
-	@JSON
-	@Override
-	public long getRowId() {
-		return _rowId;
-	}
-
-	@Override
-	public void setRowId(long rowId) {
-		_columnBitmask = -1L;
-
-		if (!_setOriginalRowId) {
-			_setOriginalRowId = true;
-
-			_originalRowId = _rowId;
-		}
-
-		_rowId = rowId;
-	}
-
-	public long getOriginalRowId() {
-		return _originalRowId;
-	}
-
-	@Override
-	public String getClassName() {
-		if (getClassNameId() <= 0) {
-			return StringPool.BLANK;
-		}
-
-		return PortalUtil.getClassName(getClassNameId());
-	}
-
-	@Override
-	public void setClassName(String className) {
-		long classNameId = 0;
-
-		if (Validator.isNotNull(className)) {
-			classNameId = PortalUtil.getClassNameId(className);
-		}
-
-		setClassNameId(classNameId);
-	}
-
-	@JSON
-	@Override
-	public long getClassNameId() {
-		return _classNameId;
-	}
-
-	@Override
-	public void setClassNameId(long classNameId) {
-		_columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
-
-		if (!_setOriginalClassNameId) {
-			_setOriginalClassNameId = true;
-
-			_originalClassNameId = _classNameId;
-		}
-
-		_classNameId = classNameId;
-	}
-
-	public long getOriginalClassNameId() {
-		return _originalClassNameId;
-	}
-
-	@JSON
-	@Override
-	public long getClassPK() {
-		return _classPK;
-	}
-
-	@Override
-	public void setClassPK(long classPK) {
-		_columnBitmask |= CLASSPK_COLUMN_BITMASK;
-
-		if (!_setOriginalClassPK) {
-			_setOriginalClassPK = true;
-
-			_originalClassPK = _classPK;
-		}
-
-		_classPK = classPK;
-	}
-
-	public long getOriginalClassPK() {
-		return _originalClassPK;
-	}
-
-	@JSON
-	@Override
-	public String getData() {
-		if (_data == null) {
-			return StringPool.BLANK;
-		}
-		else {
-			return _data;
-		}
-	}
-
-	@Override
-	public void setData(String data) {
-		_columnBitmask |= DATA_COLUMN_BITMASK;
-
-		if (_originalData == null) {
-			_originalData = _data;
-		}
-
-		_data = data;
-	}
-
-	public String getOriginalData() {
-		return GetterUtil.getString(_originalData);
-	}
-
-	public long getColumnBitmask() {
-		return _columnBitmask;
-	}
-
-	@Override
-	public ExpandoValue toEscapedModel() {
-		if (_escapedModel == null) {
-			_escapedModel = (ExpandoValue)ProxyUtil.newProxyInstance(_classLoader,
-					_escapedModelInterfaces, new AutoEscapeBeanHandler(this));
-		}
-
-		return _escapedModel;
-	}
-
-	@Override
-	public Object clone() {
-		ExpandoValueImpl expandoValueImpl = new ExpandoValueImpl();
-
-		expandoValueImpl.setValueId(getValueId());
-		expandoValueImpl.setCompanyId(getCompanyId());
-		expandoValueImpl.setTableId(getTableId());
-		expandoValueImpl.setColumnId(getColumnId());
-		expandoValueImpl.setRowId(getRowId());
-		expandoValueImpl.setClassNameId(getClassNameId());
-		expandoValueImpl.setClassPK(getClassPK());
-		expandoValueImpl.setData(getData());
-
-		expandoValueImpl.resetOriginalValues();
-
-		return expandoValueImpl;
-	}
-
-	@Override
-	public int compareTo(ExpandoValue expandoValue) {
-		int value = 0;
-
-		if (getTableId() < expandoValue.getTableId()) {
-			value = -1;
-		}
-		else if (getTableId() > expandoValue.getTableId()) {
-			value = 1;
-		}
-		else {
-			value = 0;
-		}
-
-		if (value != 0) {
-			return value;
-		}
-
-		if (getRowId() < expandoValue.getRowId()) {
-			value = -1;
-		}
-		else if (getRowId() > expandoValue.getRowId()) {
-			value = 1;
-		}
-		else {
-			value = 0;
-		}
-
-		if (value != 0) {
-			return value;
-		}
-
-		if (getColumnId() < expandoValue.getColumnId()) {
-			value = -1;
-		}
-		else if (getColumnId() > expandoValue.getColumnId()) {
-			value = 1;
-		}
-		else {
-			value = 0;
-		}
-
-		if (value != 0) {
-			return value;
-		}
-
-		return 0;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-
-		if (!(obj instanceof ExpandoValue)) {
-			return false;
-		}
-
-		ExpandoValue expandoValue = (ExpandoValue)obj;
-
-		long primaryKey = expandoValue.getPrimaryKey();
-
-		if (getPrimaryKey() == primaryKey) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-
-	@Override
-	public int hashCode() {
-		return (int)getPrimaryKey();
-	}
-
-	@Override
-	public void resetOriginalValues() {
-		ExpandoValueModelImpl expandoValueModelImpl = this;
-
-		expandoValueModelImpl._originalTableId = expandoValueModelImpl._tableId;
-
-		expandoValueModelImpl._setOriginalTableId = false;
-
-		expandoValueModelImpl._originalColumnId = expandoValueModelImpl._columnId;
-
-		expandoValueModelImpl._setOriginalColumnId = false;
-
-		expandoValueModelImpl._originalRowId = expandoValueModelImpl._rowId;
-
-		expandoValueModelImpl._setOriginalRowId = false;
-
-		expandoValueModelImpl._originalClassNameId = expandoValueModelImpl._classNameId;
-
-		expandoValueModelImpl._setOriginalClassNameId = false;
-
-		expandoValueModelImpl._originalClassPK = expandoValueModelImpl._classPK;
-
-		expandoValueModelImpl._setOriginalClassPK = false;
-
-		expandoValueModelImpl._originalData = expandoValueModelImpl._data;
-
-		expandoValueModelImpl._columnBitmask = 0;
-	}
-
-	@Override
-	public CacheModel<ExpandoValue> toCacheModel() {
-		ExpandoValueCacheModel expandoValueCacheModel = new ExpandoValueCacheModel();
-
-		expandoValueCacheModel.valueId = getValueId();
-
-		expandoValueCacheModel.companyId = getCompanyId();
-
-		expandoValueCacheModel.tableId = getTableId();
-
-		expandoValueCacheModel.columnId = getColumnId();
-
-		expandoValueCacheModel.rowId = getRowId();
-
-		expandoValueCacheModel.classNameId = getClassNameId();
-
-		expandoValueCacheModel.classPK = getClassPK();
-
-		expandoValueCacheModel.data = getData();
-
-		String data = expandoValueCacheModel.data;
-
-		if ((data != null) && (data.length() == 0)) {
-			expandoValueCacheModel.data = null;
-		}
-
-		return expandoValueCacheModel;
-	}
-
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(17);
-
-		sb.append("{valueId=");
-		sb.append(getValueId());
-		sb.append(", companyId=");
-		sb.append(getCompanyId());
-		sb.append(", tableId=");
-		sb.append(getTableId());
-		sb.append(", columnId=");
-		sb.append(getColumnId());
-		sb.append(", rowId=");
-		sb.append(getRowId());
-		sb.append(", classNameId=");
-		sb.append(getClassNameId());
-		sb.append(", classPK=");
-		sb.append(getClassPK());
-		sb.append(", data=");
-		sb.append(getData());
-		sb.append("}");
-
-		return sb.toString();
-	}
-
-	@Override
-	public String toXmlString() {
-		StringBundler sb = new StringBundler(28);
-
-		sb.append("<model><model-name>");
-		sb.append("com.liferay.portlet.expando.model.ExpandoValue");
-		sb.append("</model-name>");
-
-		sb.append(
-			"<column><column-name>valueId</column-name><column-value><![CDATA[");
-		sb.append(getValueId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>companyId</column-name><column-value><![CDATA[");
-		sb.append(getCompanyId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>tableId</column-name><column-value><![CDATA[");
-		sb.append(getTableId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>columnId</column-name><column-value><![CDATA[");
-		sb.append(getColumnId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>rowId</column-name><column-value><![CDATA[");
-		sb.append(getRowId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>classNameId</column-name><column-value><![CDATA[");
-		sb.append(getClassNameId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>classPK</column-name><column-value><![CDATA[");
-		sb.append(getClassPK());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>data</column-name><column-value><![CDATA[");
-		sb.append(getData());
-		sb.append("]]></column-value></column>");
-
-		sb.append("</model>");
-
-		return sb.toString();
-	}
-
-	private static ClassLoader _classLoader = ExpandoValue.class.getClassLoader();
-	private static Class<?>[] _escapedModelInterfaces = new Class[] {
-			ExpandoValue.class
-		};
-	private long _valueId;
-	private long _companyId;
-	private long _tableId;
-	private long _originalTableId;
-	private boolean _setOriginalTableId;
-	private long _columnId;
-	private long _originalColumnId;
-	private boolean _setOriginalColumnId;
-	private long _rowId;
-	private long _originalRowId;
-	private boolean _setOriginalRowId;
-	private long _classNameId;
-	private long _originalClassNameId;
-	private boolean _setOriginalClassNameId;
-	private long _classPK;
-	private long _originalClassPK;
-	private boolean _setOriginalClassPK;
-	private String _data;
-	private String _originalData;
-	private long _columnBitmask;
-	private ExpandoValue _escapedModel;
+    @Override
+    public void resetOriginalValues() {
+        ExpandoValueModelImpl expandoValueModelImpl = this;
+
+        expandoValueModelImpl._originalTableId = expandoValueModelImpl._tableId;
+
+        expandoValueModelImpl._setOriginalTableId = false;
+
+        expandoValueModelImpl._originalColumnId = expandoValueModelImpl._columnId;
+
+        expandoValueModelImpl._setOriginalColumnId = false;
+
+        expandoValueModelImpl._originalRowId = expandoValueModelImpl._rowId;
+
+        expandoValueModelImpl._setOriginalRowId = false;
+
+        expandoValueModelImpl._originalClassNameId = expandoValueModelImpl._classNameId;
+
+        expandoValueModelImpl._setOriginalClassNameId = false;
+
+        expandoValueModelImpl._originalClassPK = expandoValueModelImpl._classPK;
+
+        expandoValueModelImpl._setOriginalClassPK = false;
+
+        expandoValueModelImpl._originalData = expandoValueModelImpl._data;
+
+        expandoValueModelImpl._columnBitmask = 0;
+    }
+
+    @Override
+    public CacheModel<ExpandoValue> toCacheModel() {
+        ExpandoValueCacheModel expandoValueCacheModel = new ExpandoValueCacheModel();
+
+        expandoValueCacheModel.valueId = getValueId();
+
+        expandoValueCacheModel.companyId = getCompanyId();
+
+        expandoValueCacheModel.tableId = getTableId();
+
+        expandoValueCacheModel.columnId = getColumnId();
+
+        expandoValueCacheModel.rowId = getRowId();
+
+        expandoValueCacheModel.classNameId = getClassNameId();
+
+        expandoValueCacheModel.classPK = getClassPK();
+
+        expandoValueCacheModel.data = getData();
+
+        String data = expandoValueCacheModel.data;
+
+        if ((data != null) && (data.length() == 0)) {
+            expandoValueCacheModel.data = null;
+        }
+
+        return expandoValueCacheModel;
+    }
+
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(17);
+
+        sb.append("{valueId=");
+        sb.append(getValueId());
+        sb.append(", companyId=");
+        sb.append(getCompanyId());
+        sb.append(", tableId=");
+        sb.append(getTableId());
+        sb.append(", columnId=");
+        sb.append(getColumnId());
+        sb.append(", rowId=");
+        sb.append(getRowId());
+        sb.append(", classNameId=");
+        sb.append(getClassNameId());
+        sb.append(", classPK=");
+        sb.append(getClassPK());
+        sb.append(", data=");
+        sb.append(getData());
+        sb.append("}");
+
+        return sb.toString();
+    }
+
+    @Override
+    public String toXmlString() {
+        StringBundler sb = new StringBundler(28);
+
+        sb.append("<model><model-name>");
+        sb.append("com.liferay.portlet.expando.model.ExpandoValue");
+        sb.append("</model-name>");
+
+        sb.append(
+            "<column><column-name>valueId</column-name><column-value><![CDATA[");
+        sb.append(getValueId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>companyId</column-name><column-value><![CDATA[");
+        sb.append(getCompanyId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>tableId</column-name><column-value><![CDATA[");
+        sb.append(getTableId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>columnId</column-name><column-value><![CDATA[");
+        sb.append(getColumnId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>rowId</column-name><column-value><![CDATA[");
+        sb.append(getRowId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>classNameId</column-name><column-value><![CDATA[");
+        sb.append(getClassNameId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>classPK</column-name><column-value><![CDATA[");
+        sb.append(getClassPK());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>data</column-name><column-value><![CDATA[");
+        sb.append(getData());
+        sb.append("]]></column-value></column>");
+
+        sb.append("</model>");
+
+        return sb.toString();
+    }
 }

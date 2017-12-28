@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,100 +20,96 @@ import java.util.Date;
  * @generated
  */
 public class WebDAVPropsCacheModel implements CacheModel<WebDAVProps>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(15);
+    Externalizable {
+    public long webDavPropsId;
+    public long companyId;
+    public long createDate;
+    public long modifiedDate;
+    public long classNameId;
+    public long classPK;
+    public String props;
 
-		sb.append("{webDavPropsId=");
-		sb.append(webDavPropsId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", classNameId=");
-		sb.append(classNameId);
-		sb.append(", classPK=");
-		sb.append(classPK);
-		sb.append(", props=");
-		sb.append(props);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(15);
 
-		return sb.toString();
-	}
+        sb.append("{webDavPropsId=");
+        sb.append(webDavPropsId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", classNameId=");
+        sb.append(classNameId);
+        sb.append(", classPK=");
+        sb.append(classPK);
+        sb.append(", props=");
+        sb.append(props);
+        sb.append("}");
 
-	@Override
-	public WebDAVProps toEntityModel() {
-		WebDAVPropsImpl webDAVPropsImpl = new WebDAVPropsImpl();
+        return sb.toString();
+    }
 
-		webDAVPropsImpl.setWebDavPropsId(webDavPropsId);
-		webDAVPropsImpl.setCompanyId(companyId);
+    @Override
+    public WebDAVProps toEntityModel() {
+        WebDAVPropsImpl webDAVPropsImpl = new WebDAVPropsImpl();
 
-		if (createDate == Long.MIN_VALUE) {
-			webDAVPropsImpl.setCreateDate(null);
-		}
-		else {
-			webDAVPropsImpl.setCreateDate(new Date(createDate));
-		}
+        webDAVPropsImpl.setWebDavPropsId(webDavPropsId);
+        webDAVPropsImpl.setCompanyId(companyId);
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			webDAVPropsImpl.setModifiedDate(null);
-		}
-		else {
-			webDAVPropsImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            webDAVPropsImpl.setCreateDate(null);
+        } else {
+            webDAVPropsImpl.setCreateDate(new Date(createDate));
+        }
 
-		webDAVPropsImpl.setClassNameId(classNameId);
-		webDAVPropsImpl.setClassPK(classPK);
+        if (modifiedDate == Long.MIN_VALUE) {
+            webDAVPropsImpl.setModifiedDate(null);
+        } else {
+            webDAVPropsImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (props == null) {
-			webDAVPropsImpl.setProps(StringPool.BLANK);
-		}
-		else {
-			webDAVPropsImpl.setProps(props);
-		}
+        webDAVPropsImpl.setClassNameId(classNameId);
+        webDAVPropsImpl.setClassPK(classPK);
 
-		webDAVPropsImpl.resetOriginalValues();
+        if (props == null) {
+            webDAVPropsImpl.setProps(StringPool.BLANK);
+        } else {
+            webDAVPropsImpl.setProps(props);
+        }
 
-		return webDAVPropsImpl;
-	}
+        webDAVPropsImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		webDavPropsId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		classNameId = objectInput.readLong();
-		classPK = objectInput.readLong();
-		props = objectInput.readUTF();
-	}
+        return webDAVPropsImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(webDavPropsId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(classNameId);
-		objectOutput.writeLong(classPK);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        webDavPropsId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        classNameId = objectInput.readLong();
+        classPK = objectInput.readLong();
+        props = objectInput.readUTF();
+    }
 
-		if (props == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(props);
-		}
-	}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(webDavPropsId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(classNameId);
+        objectOutput.writeLong(classPK);
 
-	public long webDavPropsId;
-	public long companyId;
-	public long createDate;
-	public long modifiedDate;
-	public long classNameId;
-	public long classPK;
-	public String props;
+        if (props == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(props);
+        }
+    }
 }

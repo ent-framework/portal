@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.announcements.service.base;
 
 import com.liferay.portal.kernel.bean.BeanReference;
@@ -45,399 +31,398 @@ import javax.sql.DataSource;
  * @generated
  */
 public abstract class AnnouncementsFlagServiceBaseImpl extends BaseServiceImpl
-	implements AnnouncementsFlagService, IdentifiableBean {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this class directly. Always use {@link com.liferay.portlet.announcements.service.AnnouncementsFlagServiceUtil} to access the announcements flag remote service.
-	 */
+    implements AnnouncementsFlagService, IdentifiableBean {
+    @BeanReference(type = com.liferay.portlet.announcements.service.AnnouncementsDeliveryLocalService.class)
+    protected com.liferay.portlet.announcements.service.AnnouncementsDeliveryLocalService announcementsDeliveryLocalService;
+    @BeanReference(type = com.liferay.portlet.announcements.service.AnnouncementsDeliveryService.class)
+    protected com.liferay.portlet.announcements.service.AnnouncementsDeliveryService announcementsDeliveryService;
+    @BeanReference(type = AnnouncementsDeliveryPersistence.class)
+    protected AnnouncementsDeliveryPersistence announcementsDeliveryPersistence;
+    @BeanReference(type = com.liferay.portlet.announcements.service.AnnouncementsEntryLocalService.class)
+    protected com.liferay.portlet.announcements.service.AnnouncementsEntryLocalService announcementsEntryLocalService;
+    @BeanReference(type = com.liferay.portlet.announcements.service.AnnouncementsEntryService.class)
+    protected com.liferay.portlet.announcements.service.AnnouncementsEntryService announcementsEntryService;
+    @BeanReference(type = AnnouncementsEntryPersistence.class)
+    protected AnnouncementsEntryPersistence announcementsEntryPersistence;
+    @BeanReference(type = AnnouncementsEntryFinder.class)
+    protected AnnouncementsEntryFinder announcementsEntryFinder;
+    @BeanReference(type = com.liferay.portlet.announcements.service.AnnouncementsFlagLocalService.class)
+    protected com.liferay.portlet.announcements.service.AnnouncementsFlagLocalService announcementsFlagLocalService;
+    @BeanReference(type = com.liferay.portlet.announcements.service.AnnouncementsFlagService.class)
+    protected com.liferay.portlet.announcements.service.AnnouncementsFlagService announcementsFlagService;
+    @BeanReference(type = AnnouncementsFlagPersistence.class)
+    protected AnnouncementsFlagPersistence announcementsFlagPersistence;
+    @BeanReference(type = com.liferay.counter.service.CounterLocalService.class)
+    protected com.liferay.counter.service.CounterLocalService counterLocalService;
+    @BeanReference(type = com.liferay.portal.service.ResourceLocalService.class)
+    protected com.liferay.portal.service.ResourceLocalService resourceLocalService;
+    @BeanReference(type = com.liferay.portal.service.UserLocalService.class)
+    protected com.liferay.portal.service.UserLocalService userLocalService;
+    @BeanReference(type = com.liferay.portal.service.UserService.class)
+    protected com.liferay.portal.service.UserService userService;
+    @BeanReference(type = UserPersistence.class)
+    protected UserPersistence userPersistence;
+    @BeanReference(type = UserFinder.class)
+    protected UserFinder userFinder;
+    private String _beanIdentifier;
 
-	/**
-	 * Returns the announcements delivery local service.
-	 *
-	 * @return the announcements delivery local service
-	 */
-	public com.liferay.portlet.announcements.service.AnnouncementsDeliveryLocalService getAnnouncementsDeliveryLocalService() {
-		return announcementsDeliveryLocalService;
-	}
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this class directly. Always use {@link com.liferay.portlet.announcements.service.AnnouncementsFlagServiceUtil} to access the announcements flag remote service.
+     */
 
-	/**
-	 * Sets the announcements delivery local service.
-	 *
-	 * @param announcementsDeliveryLocalService the announcements delivery local service
-	 */
-	public void setAnnouncementsDeliveryLocalService(
-		com.liferay.portlet.announcements.service.AnnouncementsDeliveryLocalService announcementsDeliveryLocalService) {
-		this.announcementsDeliveryLocalService = announcementsDeliveryLocalService;
-	}
+    /**
+     * Returns the announcements delivery local service.
+     *
+     * @return the announcements delivery local service
+     */
+    public com.liferay.portlet.announcements.service.AnnouncementsDeliveryLocalService getAnnouncementsDeliveryLocalService() {
+        return announcementsDeliveryLocalService;
+    }
 
-	/**
-	 * Returns the announcements delivery remote service.
-	 *
-	 * @return the announcements delivery remote service
-	 */
-	public com.liferay.portlet.announcements.service.AnnouncementsDeliveryService getAnnouncementsDeliveryService() {
-		return announcementsDeliveryService;
-	}
+    /**
+     * Sets the announcements delivery local service.
+     *
+     * @param announcementsDeliveryLocalService the announcements delivery local service
+     */
+    public void setAnnouncementsDeliveryLocalService(
+        com.liferay.portlet.announcements.service.AnnouncementsDeliveryLocalService announcementsDeliveryLocalService) {
+        this.announcementsDeliveryLocalService = announcementsDeliveryLocalService;
+    }
 
-	/**
-	 * Sets the announcements delivery remote service.
-	 *
-	 * @param announcementsDeliveryService the announcements delivery remote service
-	 */
-	public void setAnnouncementsDeliveryService(
-		com.liferay.portlet.announcements.service.AnnouncementsDeliveryService announcementsDeliveryService) {
-		this.announcementsDeliveryService = announcementsDeliveryService;
-	}
+    /**
+     * Returns the announcements delivery remote service.
+     *
+     * @return the announcements delivery remote service
+     */
+    public com.liferay.portlet.announcements.service.AnnouncementsDeliveryService getAnnouncementsDeliveryService() {
+        return announcementsDeliveryService;
+    }
 
-	/**
-	 * Returns the announcements delivery persistence.
-	 *
-	 * @return the announcements delivery persistence
-	 */
-	public AnnouncementsDeliveryPersistence getAnnouncementsDeliveryPersistence() {
-		return announcementsDeliveryPersistence;
-	}
+    /**
+     * Sets the announcements delivery remote service.
+     *
+     * @param announcementsDeliveryService the announcements delivery remote service
+     */
+    public void setAnnouncementsDeliveryService(
+        com.liferay.portlet.announcements.service.AnnouncementsDeliveryService announcementsDeliveryService) {
+        this.announcementsDeliveryService = announcementsDeliveryService;
+    }
 
-	/**
-	 * Sets the announcements delivery persistence.
-	 *
-	 * @param announcementsDeliveryPersistence the announcements delivery persistence
-	 */
-	public void setAnnouncementsDeliveryPersistence(
-		AnnouncementsDeliveryPersistence announcementsDeliveryPersistence) {
-		this.announcementsDeliveryPersistence = announcementsDeliveryPersistence;
-	}
+    /**
+     * Returns the announcements delivery persistence.
+     *
+     * @return the announcements delivery persistence
+     */
+    public AnnouncementsDeliveryPersistence getAnnouncementsDeliveryPersistence() {
+        return announcementsDeliveryPersistence;
+    }
 
-	/**
-	 * Returns the announcements entry local service.
-	 *
-	 * @return the announcements entry local service
-	 */
-	public com.liferay.portlet.announcements.service.AnnouncementsEntryLocalService getAnnouncementsEntryLocalService() {
-		return announcementsEntryLocalService;
-	}
+    /**
+     * Sets the announcements delivery persistence.
+     *
+     * @param announcementsDeliveryPersistence the announcements delivery persistence
+     */
+    public void setAnnouncementsDeliveryPersistence(
+        AnnouncementsDeliveryPersistence announcementsDeliveryPersistence) {
+        this.announcementsDeliveryPersistence = announcementsDeliveryPersistence;
+    }
 
-	/**
-	 * Sets the announcements entry local service.
-	 *
-	 * @param announcementsEntryLocalService the announcements entry local service
-	 */
-	public void setAnnouncementsEntryLocalService(
-		com.liferay.portlet.announcements.service.AnnouncementsEntryLocalService announcementsEntryLocalService) {
-		this.announcementsEntryLocalService = announcementsEntryLocalService;
-	}
+    /**
+     * Returns the announcements entry local service.
+     *
+     * @return the announcements entry local service
+     */
+    public com.liferay.portlet.announcements.service.AnnouncementsEntryLocalService getAnnouncementsEntryLocalService() {
+        return announcementsEntryLocalService;
+    }
 
-	/**
-	 * Returns the announcements entry remote service.
-	 *
-	 * @return the announcements entry remote service
-	 */
-	public com.liferay.portlet.announcements.service.AnnouncementsEntryService getAnnouncementsEntryService() {
-		return announcementsEntryService;
-	}
+    /**
+     * Sets the announcements entry local service.
+     *
+     * @param announcementsEntryLocalService the announcements entry local service
+     */
+    public void setAnnouncementsEntryLocalService(
+        com.liferay.portlet.announcements.service.AnnouncementsEntryLocalService announcementsEntryLocalService) {
+        this.announcementsEntryLocalService = announcementsEntryLocalService;
+    }
 
-	/**
-	 * Sets the announcements entry remote service.
-	 *
-	 * @param announcementsEntryService the announcements entry remote service
-	 */
-	public void setAnnouncementsEntryService(
-		com.liferay.portlet.announcements.service.AnnouncementsEntryService announcementsEntryService) {
-		this.announcementsEntryService = announcementsEntryService;
-	}
+    /**
+     * Returns the announcements entry remote service.
+     *
+     * @return the announcements entry remote service
+     */
+    public com.liferay.portlet.announcements.service.AnnouncementsEntryService getAnnouncementsEntryService() {
+        return announcementsEntryService;
+    }
 
-	/**
-	 * Returns the announcements entry persistence.
-	 *
-	 * @return the announcements entry persistence
-	 */
-	public AnnouncementsEntryPersistence getAnnouncementsEntryPersistence() {
-		return announcementsEntryPersistence;
-	}
+    /**
+     * Sets the announcements entry remote service.
+     *
+     * @param announcementsEntryService the announcements entry remote service
+     */
+    public void setAnnouncementsEntryService(
+        com.liferay.portlet.announcements.service.AnnouncementsEntryService announcementsEntryService) {
+        this.announcementsEntryService = announcementsEntryService;
+    }
 
-	/**
-	 * Sets the announcements entry persistence.
-	 *
-	 * @param announcementsEntryPersistence the announcements entry persistence
-	 */
-	public void setAnnouncementsEntryPersistence(
-		AnnouncementsEntryPersistence announcementsEntryPersistence) {
-		this.announcementsEntryPersistence = announcementsEntryPersistence;
-	}
+    /**
+     * Returns the announcements entry persistence.
+     *
+     * @return the announcements entry persistence
+     */
+    public AnnouncementsEntryPersistence getAnnouncementsEntryPersistence() {
+        return announcementsEntryPersistence;
+    }
 
-	/**
-	 * Returns the announcements entry finder.
-	 *
-	 * @return the announcements entry finder
-	 */
-	public AnnouncementsEntryFinder getAnnouncementsEntryFinder() {
-		return announcementsEntryFinder;
-	}
+    /**
+     * Sets the announcements entry persistence.
+     *
+     * @param announcementsEntryPersistence the announcements entry persistence
+     */
+    public void setAnnouncementsEntryPersistence(
+        AnnouncementsEntryPersistence announcementsEntryPersistence) {
+        this.announcementsEntryPersistence = announcementsEntryPersistence;
+    }
 
-	/**
-	 * Sets the announcements entry finder.
-	 *
-	 * @param announcementsEntryFinder the announcements entry finder
-	 */
-	public void setAnnouncementsEntryFinder(
-		AnnouncementsEntryFinder announcementsEntryFinder) {
-		this.announcementsEntryFinder = announcementsEntryFinder;
-	}
+    /**
+     * Returns the announcements entry finder.
+     *
+     * @return the announcements entry finder
+     */
+    public AnnouncementsEntryFinder getAnnouncementsEntryFinder() {
+        return announcementsEntryFinder;
+    }
 
-	/**
-	 * Returns the announcements flag local service.
-	 *
-	 * @return the announcements flag local service
-	 */
-	public com.liferay.portlet.announcements.service.AnnouncementsFlagLocalService getAnnouncementsFlagLocalService() {
-		return announcementsFlagLocalService;
-	}
+    /**
+     * Sets the announcements entry finder.
+     *
+     * @param announcementsEntryFinder the announcements entry finder
+     */
+    public void setAnnouncementsEntryFinder(
+        AnnouncementsEntryFinder announcementsEntryFinder) {
+        this.announcementsEntryFinder = announcementsEntryFinder;
+    }
 
-	/**
-	 * Sets the announcements flag local service.
-	 *
-	 * @param announcementsFlagLocalService the announcements flag local service
-	 */
-	public void setAnnouncementsFlagLocalService(
-		com.liferay.portlet.announcements.service.AnnouncementsFlagLocalService announcementsFlagLocalService) {
-		this.announcementsFlagLocalService = announcementsFlagLocalService;
-	}
+    /**
+     * Returns the announcements flag local service.
+     *
+     * @return the announcements flag local service
+     */
+    public com.liferay.portlet.announcements.service.AnnouncementsFlagLocalService getAnnouncementsFlagLocalService() {
+        return announcementsFlagLocalService;
+    }
 
-	/**
-	 * Returns the announcements flag remote service.
-	 *
-	 * @return the announcements flag remote service
-	 */
-	public com.liferay.portlet.announcements.service.AnnouncementsFlagService getAnnouncementsFlagService() {
-		return announcementsFlagService;
-	}
+    /**
+     * Sets the announcements flag local service.
+     *
+     * @param announcementsFlagLocalService the announcements flag local service
+     */
+    public void setAnnouncementsFlagLocalService(
+        com.liferay.portlet.announcements.service.AnnouncementsFlagLocalService announcementsFlagLocalService) {
+        this.announcementsFlagLocalService = announcementsFlagLocalService;
+    }
 
-	/**
-	 * Sets the announcements flag remote service.
-	 *
-	 * @param announcementsFlagService the announcements flag remote service
-	 */
-	public void setAnnouncementsFlagService(
-		com.liferay.portlet.announcements.service.AnnouncementsFlagService announcementsFlagService) {
-		this.announcementsFlagService = announcementsFlagService;
-	}
+    /**
+     * Returns the announcements flag remote service.
+     *
+     * @return the announcements flag remote service
+     */
+    public com.liferay.portlet.announcements.service.AnnouncementsFlagService getAnnouncementsFlagService() {
+        return announcementsFlagService;
+    }
 
-	/**
-	 * Returns the announcements flag persistence.
-	 *
-	 * @return the announcements flag persistence
-	 */
-	public AnnouncementsFlagPersistence getAnnouncementsFlagPersistence() {
-		return announcementsFlagPersistence;
-	}
+    /**
+     * Sets the announcements flag remote service.
+     *
+     * @param announcementsFlagService the announcements flag remote service
+     */
+    public void setAnnouncementsFlagService(
+        com.liferay.portlet.announcements.service.AnnouncementsFlagService announcementsFlagService) {
+        this.announcementsFlagService = announcementsFlagService;
+    }
 
-	/**
-	 * Sets the announcements flag persistence.
-	 *
-	 * @param announcementsFlagPersistence the announcements flag persistence
-	 */
-	public void setAnnouncementsFlagPersistence(
-		AnnouncementsFlagPersistence announcementsFlagPersistence) {
-		this.announcementsFlagPersistence = announcementsFlagPersistence;
-	}
+    /**
+     * Returns the announcements flag persistence.
+     *
+     * @return the announcements flag persistence
+     */
+    public AnnouncementsFlagPersistence getAnnouncementsFlagPersistence() {
+        return announcementsFlagPersistence;
+    }
 
-	/**
-	 * Returns the counter local service.
-	 *
-	 * @return the counter local service
-	 */
-	public com.liferay.counter.service.CounterLocalService getCounterLocalService() {
-		return counterLocalService;
-	}
+    /**
+     * Sets the announcements flag persistence.
+     *
+     * @param announcementsFlagPersistence the announcements flag persistence
+     */
+    public void setAnnouncementsFlagPersistence(
+        AnnouncementsFlagPersistence announcementsFlagPersistence) {
+        this.announcementsFlagPersistence = announcementsFlagPersistence;
+    }
 
-	/**
-	 * Sets the counter local service.
-	 *
-	 * @param counterLocalService the counter local service
-	 */
-	public void setCounterLocalService(
-		com.liferay.counter.service.CounterLocalService counterLocalService) {
-		this.counterLocalService = counterLocalService;
-	}
+    /**
+     * Returns the counter local service.
+     *
+     * @return the counter local service
+     */
+    public com.liferay.counter.service.CounterLocalService getCounterLocalService() {
+        return counterLocalService;
+    }
 
-	/**
-	 * Returns the resource local service.
-	 *
-	 * @return the resource local service
-	 */
-	public com.liferay.portal.service.ResourceLocalService getResourceLocalService() {
-		return resourceLocalService;
-	}
+    /**
+     * Sets the counter local service.
+     *
+     * @param counterLocalService the counter local service
+     */
+    public void setCounterLocalService(
+        com.liferay.counter.service.CounterLocalService counterLocalService) {
+        this.counterLocalService = counterLocalService;
+    }
 
-	/**
-	 * Sets the resource local service.
-	 *
-	 * @param resourceLocalService the resource local service
-	 */
-	public void setResourceLocalService(
-		com.liferay.portal.service.ResourceLocalService resourceLocalService) {
-		this.resourceLocalService = resourceLocalService;
-	}
+    /**
+     * Returns the resource local service.
+     *
+     * @return the resource local service
+     */
+    public com.liferay.portal.service.ResourceLocalService getResourceLocalService() {
+        return resourceLocalService;
+    }
 
-	/**
-	 * Returns the user local service.
-	 *
-	 * @return the user local service
-	 */
-	public com.liferay.portal.service.UserLocalService getUserLocalService() {
-		return userLocalService;
-	}
+    /**
+     * Sets the resource local service.
+     *
+     * @param resourceLocalService the resource local service
+     */
+    public void setResourceLocalService(
+        com.liferay.portal.service.ResourceLocalService resourceLocalService) {
+        this.resourceLocalService = resourceLocalService;
+    }
 
-	/**
-	 * Sets the user local service.
-	 *
-	 * @param userLocalService the user local service
-	 */
-	public void setUserLocalService(
-		com.liferay.portal.service.UserLocalService userLocalService) {
-		this.userLocalService = userLocalService;
-	}
+    /**
+     * Returns the user local service.
+     *
+     * @return the user local service
+     */
+    public com.liferay.portal.service.UserLocalService getUserLocalService() {
+        return userLocalService;
+    }
 
-	/**
-	 * Returns the user remote service.
-	 *
-	 * @return the user remote service
-	 */
-	public com.liferay.portal.service.UserService getUserService() {
-		return userService;
-	}
+    /**
+     * Sets the user local service.
+     *
+     * @param userLocalService the user local service
+     */
+    public void setUserLocalService(
+        com.liferay.portal.service.UserLocalService userLocalService) {
+        this.userLocalService = userLocalService;
+    }
 
-	/**
-	 * Sets the user remote service.
-	 *
-	 * @param userService the user remote service
-	 */
-	public void setUserService(
-		com.liferay.portal.service.UserService userService) {
-		this.userService = userService;
-	}
+    /**
+     * Returns the user remote service.
+     *
+     * @return the user remote service
+     */
+    public com.liferay.portal.service.UserService getUserService() {
+        return userService;
+    }
 
-	/**
-	 * Returns the user persistence.
-	 *
-	 * @return the user persistence
-	 */
-	public UserPersistence getUserPersistence() {
-		return userPersistence;
-	}
+    /**
+     * Sets the user remote service.
+     *
+     * @param userService the user remote service
+     */
+    public void setUserService(
+        com.liferay.portal.service.UserService userService) {
+        this.userService = userService;
+    }
 
-	/**
-	 * Sets the user persistence.
-	 *
-	 * @param userPersistence the user persistence
-	 */
-	public void setUserPersistence(UserPersistence userPersistence) {
-		this.userPersistence = userPersistence;
-	}
+    /**
+     * Returns the user persistence.
+     *
+     * @return the user persistence
+     */
+    public UserPersistence getUserPersistence() {
+        return userPersistence;
+    }
 
-	/**
-	 * Returns the user finder.
-	 *
-	 * @return the user finder
-	 */
-	public UserFinder getUserFinder() {
-		return userFinder;
-	}
+    /**
+     * Sets the user persistence.
+     *
+     * @param userPersistence the user persistence
+     */
+    public void setUserPersistence(UserPersistence userPersistence) {
+        this.userPersistence = userPersistence;
+    }
 
-	/**
-	 * Sets the user finder.
-	 *
-	 * @param userFinder the user finder
-	 */
-	public void setUserFinder(UserFinder userFinder) {
-		this.userFinder = userFinder;
-	}
+    /**
+     * Returns the user finder.
+     *
+     * @return the user finder
+     */
+    public UserFinder getUserFinder() {
+        return userFinder;
+    }
 
-	public void afterPropertiesSet() {
-	}
+    /**
+     * Sets the user finder.
+     *
+     * @param userFinder the user finder
+     */
+    public void setUserFinder(UserFinder userFinder) {
+        this.userFinder = userFinder;
+    }
 
-	public void destroy() {
-	}
+    public void afterPropertiesSet() {
+    }
 
-	/**
-	 * Returns the Spring bean ID for this bean.
-	 *
-	 * @return the Spring bean ID for this bean
-	 */
-	@Override
-	public String getBeanIdentifier() {
-		return _beanIdentifier;
-	}
+    public void destroy() {
+    }
 
-	/**
-	 * Sets the Spring bean ID for this bean.
-	 *
-	 * @param beanIdentifier the Spring bean ID for this bean
-	 */
-	@Override
-	public void setBeanIdentifier(String beanIdentifier) {
-		_beanIdentifier = beanIdentifier;
-	}
+    /**
+     * Returns the Spring bean ID for this bean.
+     *
+     * @return the Spring bean ID for this bean
+     */
+    @Override
+    public String getBeanIdentifier() {
+        return _beanIdentifier;
+    }
 
-	protected Class<?> getModelClass() {
-		return AnnouncementsFlag.class;
-	}
+    /**
+     * Sets the Spring bean ID for this bean.
+     *
+     * @param beanIdentifier the Spring bean ID for this bean
+     */
+    @Override
+    public void setBeanIdentifier(String beanIdentifier) {
+        _beanIdentifier = beanIdentifier;
+    }
 
-	protected String getModelClassName() {
-		return AnnouncementsFlag.class.getName();
-	}
+    protected Class<?> getModelClass() {
+        return AnnouncementsFlag.class;
+    }
 
-	/**
-	 * Performs an SQL query.
-	 *
-	 * @param sql the sql query
-	 */
-	protected void runSQL(String sql) throws SystemException {
-		try {
-			DataSource dataSource = announcementsFlagPersistence.getDataSource();
+    protected String getModelClassName() {
+        return AnnouncementsFlag.class.getName();
+    }
 
-			SqlUpdate sqlUpdate = SqlUpdateFactoryUtil.getSqlUpdate(dataSource,
-					sql, new int[0]);
+    /**
+     * Performs an SQL query.
+     *
+     * @param sql the sql query
+     */
+    protected void runSQL(String sql) throws SystemException {
+        try {
+            DataSource dataSource = announcementsFlagPersistence.getDataSource();
 
-			sqlUpdate.update();
-		}
-		catch (Exception e) {
-			throw new SystemException(e);
-		}
-	}
+            SqlUpdate sqlUpdate = SqlUpdateFactoryUtil.getSqlUpdate(dataSource,
+                    sql, new int[0]);
 
-	@BeanReference(type = com.liferay.portlet.announcements.service.AnnouncementsDeliveryLocalService.class)
-	protected com.liferay.portlet.announcements.service.AnnouncementsDeliveryLocalService announcementsDeliveryLocalService;
-	@BeanReference(type = com.liferay.portlet.announcements.service.AnnouncementsDeliveryService.class)
-	protected com.liferay.portlet.announcements.service.AnnouncementsDeliveryService announcementsDeliveryService;
-	@BeanReference(type = AnnouncementsDeliveryPersistence.class)
-	protected AnnouncementsDeliveryPersistence announcementsDeliveryPersistence;
-	@BeanReference(type = com.liferay.portlet.announcements.service.AnnouncementsEntryLocalService.class)
-	protected com.liferay.portlet.announcements.service.AnnouncementsEntryLocalService announcementsEntryLocalService;
-	@BeanReference(type = com.liferay.portlet.announcements.service.AnnouncementsEntryService.class)
-	protected com.liferay.portlet.announcements.service.AnnouncementsEntryService announcementsEntryService;
-	@BeanReference(type = AnnouncementsEntryPersistence.class)
-	protected AnnouncementsEntryPersistence announcementsEntryPersistence;
-	@BeanReference(type = AnnouncementsEntryFinder.class)
-	protected AnnouncementsEntryFinder announcementsEntryFinder;
-	@BeanReference(type = com.liferay.portlet.announcements.service.AnnouncementsFlagLocalService.class)
-	protected com.liferay.portlet.announcements.service.AnnouncementsFlagLocalService announcementsFlagLocalService;
-	@BeanReference(type = com.liferay.portlet.announcements.service.AnnouncementsFlagService.class)
-	protected com.liferay.portlet.announcements.service.AnnouncementsFlagService announcementsFlagService;
-	@BeanReference(type = AnnouncementsFlagPersistence.class)
-	protected AnnouncementsFlagPersistence announcementsFlagPersistence;
-	@BeanReference(type = com.liferay.counter.service.CounterLocalService.class)
-	protected com.liferay.counter.service.CounterLocalService counterLocalService;
-	@BeanReference(type = com.liferay.portal.service.ResourceLocalService.class)
-	protected com.liferay.portal.service.ResourceLocalService resourceLocalService;
-	@BeanReference(type = com.liferay.portal.service.UserLocalService.class)
-	protected com.liferay.portal.service.UserLocalService userLocalService;
-	@BeanReference(type = com.liferay.portal.service.UserService.class)
-	protected com.liferay.portal.service.UserService userService;
-	@BeanReference(type = UserPersistence.class)
-	protected UserPersistence userPersistence;
-	@BeanReference(type = UserFinder.class)
-	protected UserFinder userFinder;
-	private String _beanIdentifier;
+            sqlUpdate.update();
+        } catch (Exception e) {
+            throw new SystemException(e);
+        }
+    }
 }

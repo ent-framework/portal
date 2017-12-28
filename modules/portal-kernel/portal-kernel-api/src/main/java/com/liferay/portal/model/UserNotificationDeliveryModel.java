@@ -1,23 +1,12 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.model.BaseModel;
+import com.liferay.portal.model.CacheModel;
+import com.liferay.portal.model.TypedModel;
 import com.liferay.portal.service.ServiceContext;
 
 import com.liferay.portlet.expando.model.ExpandoBridge;
@@ -39,228 +28,229 @@ import java.io.Serializable;
  */
 @ProviderType
 public interface UserNotificationDeliveryModel extends BaseModel<UserNotificationDelivery>,
-	TypedModel {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this interface directly. All methods that expect a user notification delivery model instance should use the {@link UserNotificationDelivery} interface instead.
-	 */
+    TypedModel {
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this interface directly. All methods that expect a user notification delivery model instance should use the {@link UserNotificationDelivery} interface instead.
+     */
 
-	/**
-	 * Returns the primary key of this user notification delivery.
-	 *
-	 * @return the primary key of this user notification delivery
-	 */
-	public long getPrimaryKey();
+    /**
+     * Returns the primary key of this user notification delivery.
+     *
+     * @return the primary key of this user notification delivery
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this user notification delivery.
-	 *
-	 * @param primaryKey the primary key of this user notification delivery
-	 */
-	public void setPrimaryKey(long primaryKey);
+    /**
+     * Sets the primary key of this user notification delivery.
+     *
+     * @param primaryKey the primary key of this user notification delivery
+     */
+    public void setPrimaryKey(long primaryKey);
 
-	/**
-	 * Returns the user notification delivery ID of this user notification delivery.
-	 *
-	 * @return the user notification delivery ID of this user notification delivery
-	 */
-	public long getUserNotificationDeliveryId();
+    /**
+     * Returns the user notification delivery ID of this user notification delivery.
+     *
+     * @return the user notification delivery ID of this user notification delivery
+     */
+    public long getUserNotificationDeliveryId();
 
-	/**
-	 * Sets the user notification delivery ID of this user notification delivery.
-	 *
-	 * @param userNotificationDeliveryId the user notification delivery ID of this user notification delivery
-	 */
-	public void setUserNotificationDeliveryId(long userNotificationDeliveryId);
+    /**
+     * Sets the user notification delivery ID of this user notification delivery.
+     *
+     * @param userNotificationDeliveryId the user notification delivery ID of this user notification delivery
+     */
+    public void setUserNotificationDeliveryId(long userNotificationDeliveryId);
 
-	/**
-	 * Returns the company ID of this user notification delivery.
-	 *
-	 * @return the company ID of this user notification delivery
-	 */
-	public long getCompanyId();
+    /**
+     * Returns the company ID of this user notification delivery.
+     *
+     * @return the company ID of this user notification delivery
+     */
+    public long getCompanyId();
 
-	/**
-	 * Sets the company ID of this user notification delivery.
-	 *
-	 * @param companyId the company ID of this user notification delivery
-	 */
-	public void setCompanyId(long companyId);
+    /**
+     * Sets the company ID of this user notification delivery.
+     *
+     * @param companyId the company ID of this user notification delivery
+     */
+    public void setCompanyId(long companyId);
 
-	/**
-	 * Returns the user ID of this user notification delivery.
-	 *
-	 * @return the user ID of this user notification delivery
-	 */
-	public long getUserId();
+    /**
+     * Returns the user ID of this user notification delivery.
+     *
+     * @return the user ID of this user notification delivery
+     */
+    public long getUserId();
 
-	/**
-	 * Sets the user ID of this user notification delivery.
-	 *
-	 * @param userId the user ID of this user notification delivery
-	 */
-	public void setUserId(long userId);
+    /**
+     * Sets the user ID of this user notification delivery.
+     *
+     * @param userId the user ID of this user notification delivery
+     */
+    public void setUserId(long userId);
 
-	/**
-	 * Returns the user uuid of this user notification delivery.
-	 *
-	 * @return the user uuid of this user notification delivery
-	 * @throws SystemException if a system exception occurred
-	 */
-	public String getUserUuid() throws SystemException;
+    /**
+     * Returns the user uuid of this user notification delivery.
+     *
+     * @return the user uuid of this user notification delivery
+     * @throws SystemException if a system exception occurred
+     */
+    public String getUserUuid() throws SystemException;
 
-	/**
-	 * Sets the user uuid of this user notification delivery.
-	 *
-	 * @param userUuid the user uuid of this user notification delivery
-	 */
-	public void setUserUuid(String userUuid);
+    /**
+     * Sets the user uuid of this user notification delivery.
+     *
+     * @param userUuid the user uuid of this user notification delivery
+     */
+    public void setUserUuid(String userUuid);
 
-	/**
-	 * Returns the portlet ID of this user notification delivery.
-	 *
-	 * @return the portlet ID of this user notification delivery
-	 */
-	@AutoEscape
-	public String getPortletId();
+    /**
+     * Returns the portlet ID of this user notification delivery.
+     *
+     * @return the portlet ID of this user notification delivery
+     */
+    @AutoEscape
+    public String getPortletId();
 
-	/**
-	 * Sets the portlet ID of this user notification delivery.
-	 *
-	 * @param portletId the portlet ID of this user notification delivery
-	 */
-	public void setPortletId(String portletId);
+    /**
+     * Sets the portlet ID of this user notification delivery.
+     *
+     * @param portletId the portlet ID of this user notification delivery
+     */
+    public void setPortletId(String portletId);
 
-	/**
-	 * Returns the fully qualified class name of this user notification delivery.
-	 *
-	 * @return the fully qualified class name of this user notification delivery
-	 */
-	@Override
-	public String getClassName();
+    /**
+     * Returns the fully qualified class name of this user notification delivery.
+     *
+     * @return the fully qualified class name of this user notification delivery
+     */
+    @Override
+    public String getClassName();
 
-	public void setClassName(String className);
+    public void setClassName(String className);
 
-	/**
-	 * Returns the class name ID of this user notification delivery.
-	 *
-	 * @return the class name ID of this user notification delivery
-	 */
-	@Override
-	public long getClassNameId();
+    /**
+     * Returns the class name ID of this user notification delivery.
+     *
+     * @return the class name ID of this user notification delivery
+     */
+    @Override
+    public long getClassNameId();
 
-	/**
-	 * Sets the class name ID of this user notification delivery.
-	 *
-	 * @param classNameId the class name ID of this user notification delivery
-	 */
-	@Override
-	public void setClassNameId(long classNameId);
+    /**
+     * Sets the class name ID of this user notification delivery.
+     *
+     * @param classNameId the class name ID of this user notification delivery
+     */
+    @Override
+    public void setClassNameId(long classNameId);
 
-	/**
-	 * Returns the notification type of this user notification delivery.
-	 *
-	 * @return the notification type of this user notification delivery
-	 */
-	public int getNotificationType();
+    /**
+     * Returns the notification type of this user notification delivery.
+     *
+     * @return the notification type of this user notification delivery
+     */
+    public int getNotificationType();
 
-	/**
-	 * Sets the notification type of this user notification delivery.
-	 *
-	 * @param notificationType the notification type of this user notification delivery
-	 */
-	public void setNotificationType(int notificationType);
+    /**
+     * Sets the notification type of this user notification delivery.
+     *
+     * @param notificationType the notification type of this user notification delivery
+     */
+    public void setNotificationType(int notificationType);
 
-	/**
-	 * Returns the delivery type of this user notification delivery.
-	 *
-	 * @return the delivery type of this user notification delivery
-	 */
-	public int getDeliveryType();
+    /**
+     * Returns the delivery type of this user notification delivery.
+     *
+     * @return the delivery type of this user notification delivery
+     */
+    public int getDeliveryType();
 
-	/**
-	 * Sets the delivery type of this user notification delivery.
-	 *
-	 * @param deliveryType the delivery type of this user notification delivery
-	 */
-	public void setDeliveryType(int deliveryType);
+    /**
+     * Sets the delivery type of this user notification delivery.
+     *
+     * @param deliveryType the delivery type of this user notification delivery
+     */
+    public void setDeliveryType(int deliveryType);
 
-	/**
-	 * Returns the deliver of this user notification delivery.
-	 *
-	 * @return the deliver of this user notification delivery
-	 */
-	public boolean getDeliver();
+    /**
+     * Returns the deliver of this user notification delivery.
+     *
+     * @return the deliver of this user notification delivery
+     */
+    public boolean getDeliver();
 
-	/**
-	 * Returns <code>true</code> if this user notification delivery is deliver.
-	 *
-	 * @return <code>true</code> if this user notification delivery is deliver; <code>false</code> otherwise
-	 */
-	public boolean isDeliver();
+    /**
+     * Returns <code>true</code> if this user notification delivery is deliver.
+     *
+     * @return <code>true</code> if this user notification delivery is deliver; <code>false</code> otherwise
+     */
+    public boolean isDeliver();
 
-	/**
-	 * Sets whether this user notification delivery is deliver.
-	 *
-	 * @param deliver the deliver of this user notification delivery
-	 */
-	public void setDeliver(boolean deliver);
+    /**
+     * Sets whether this user notification delivery is deliver.
+     *
+     * @param deliver the deliver of this user notification delivery
+     */
+    public void setDeliver(boolean deliver);
 
-	@Override
-	public boolean isNew();
+    @Override
+    public boolean isNew();
 
-	@Override
-	public void setNew(boolean n);
+    @Override
+    public void setNew(boolean n);
 
-	@Override
-	public boolean isCachedModel();
+    @Override
+    public boolean isCachedModel();
 
-	@Override
-	public void setCachedModel(boolean cachedModel);
+    @Override
+    public void setCachedModel(boolean cachedModel);
 
-	@Override
-	public boolean isEscapedModel();
+    @Override
+    public boolean isEscapedModel();
 
-	@Override
-	public Serializable getPrimaryKeyObj();
+    @Override
+    public Serializable getPrimaryKeyObj();
 
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj);
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj);
 
-	@Override
-	public ExpandoBridge getExpandoBridge();
+    @Override
+    public ExpandoBridge getExpandoBridge();
 
-	@Override
-	public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
+    @Override
+    public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
 
-	@Override
-	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
+    @Override
+    public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	@Override
-	public Object clone();
+    @Override
+    public Object clone();
 
-	@Override
-	public int compareTo(UserNotificationDelivery userNotificationDelivery);
+    @Override
+    public int compareTo(
+        com.liferay.portal.model.UserNotificationDelivery userNotificationDelivery);
 
-	@Override
-	public int hashCode();
+    @Override
+    public int hashCode();
 
-	@Override
-	public CacheModel<UserNotificationDelivery> toCacheModel();
+    @Override
+    public CacheModel<com.liferay.portal.model.UserNotificationDelivery> toCacheModel();
 
-	@Override
-	public UserNotificationDelivery toEscapedModel();
+    @Override
+    public com.liferay.portal.model.UserNotificationDelivery toEscapedModel();
 
-	@Override
-	public UserNotificationDelivery toUnescapedModel();
+    @Override
+    public com.liferay.portal.model.UserNotificationDelivery toUnescapedModel();
 
-	@Override
-	public String toString();
+    @Override
+    public String toString();
 
-	@Override
-	public String toXmlString();
+    @Override
+    public String toXmlString();
 }

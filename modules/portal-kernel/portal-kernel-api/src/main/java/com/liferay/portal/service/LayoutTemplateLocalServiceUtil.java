@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.service;
 
 import aQute.bnd.annotation.ProviderType;
@@ -35,110 +21,110 @@ import com.liferay.portal.kernel.util.ReferenceRegistry;
  */
 @ProviderType
 public class LayoutTemplateLocalServiceUtil {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify this class directly. Add custom service methods to {@link com.liferay.portal.service.impl.LayoutTemplateLocalServiceImpl} and rerun ServiceBuilder to regenerate this class.
-	 */
+    private static LayoutTemplateLocalService _service;
 
-	/**
-	* Returns the Spring bean ID for this bean.
-	*
-	* @return the Spring bean ID for this bean
-	*/
-	public static java.lang.String getBeanIdentifier() {
-		return getService().getBeanIdentifier();
-	}
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify this class directly. Add custom service methods to {@link com.liferay.portal.service.impl.LayoutTemplateLocalServiceImpl} and rerun ServiceBuilder to regenerate this class.
+     */
 
-	/**
-	* Sets the Spring bean ID for this bean.
-	*
-	* @param beanIdentifier the Spring bean ID for this bean
-	*/
-	public static void setBeanIdentifier(java.lang.String beanIdentifier) {
-		getService().setBeanIdentifier(beanIdentifier);
-	}
+    /**
+    * Returns the Spring bean ID for this bean.
+    *
+    * @return the Spring bean ID for this bean
+    */
+    public static java.lang.String getBeanIdentifier() {
+        return getService().getBeanIdentifier();
+    }
 
-	public static java.lang.String getContent(
-		java.lang.String layoutTemplateId, boolean standard,
-		java.lang.String themeId)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getContent(layoutTemplateId, standard, themeId);
-	}
+    /**
+    * Sets the Spring bean ID for this bean.
+    *
+    * @param beanIdentifier the Spring bean ID for this bean
+    */
+    public static void setBeanIdentifier(java.lang.String beanIdentifier) {
+        getService().setBeanIdentifier(beanIdentifier);
+    }
 
-	public static com.liferay.portal.model.LayoutTemplate getLayoutTemplate(
-		java.lang.String layoutTemplateId, boolean standard,
-		java.lang.String themeId) {
-		return getService()
-				   .getLayoutTemplate(layoutTemplateId, standard, themeId);
-	}
+    public static java.lang.String getContent(
+        java.lang.String layoutTemplateId, boolean standard,
+        java.lang.String themeId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getService().getContent(layoutTemplateId, standard, themeId);
+    }
 
-	public static java.util.List<com.liferay.portal.model.LayoutTemplate> getLayoutTemplates() {
-		return getService().getLayoutTemplates();
-	}
+    public static com.liferay.portal.model.LayoutTemplate getLayoutTemplate(
+        java.lang.String layoutTemplateId, boolean standard,
+        java.lang.String themeId) {
+        return getService()
+                   .getLayoutTemplate(layoutTemplateId, standard, themeId);
+    }
 
-	public static java.util.List<com.liferay.portal.model.LayoutTemplate> getLayoutTemplates(
-		java.lang.String themeId) {
-		return getService().getLayoutTemplates(themeId);
-	}
+    public static java.util.List<com.liferay.portal.model.LayoutTemplate> getLayoutTemplates() {
+        return getService().getLayoutTemplates();
+    }
 
-	public static java.lang.String getWapContent(
-		java.lang.String layoutTemplateId, boolean standard,
-		java.lang.String themeId)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getWapContent(layoutTemplateId, standard, themeId);
-	}
+    public static java.util.List<com.liferay.portal.model.LayoutTemplate> getLayoutTemplates(
+        java.lang.String themeId) {
+        return getService().getLayoutTemplates(themeId);
+    }
 
-	public static java.util.List<com.liferay.portal.model.LayoutTemplate> init(
-		javax.servlet.ServletContext servletContext, java.lang.String[] xmls,
-		com.liferay.portal.kernel.plugin.PluginPackage pluginPackage) {
-		return getService().init(servletContext, xmls, pluginPackage);
-	}
+    public static java.lang.String getWapContent(
+        java.lang.String layoutTemplateId, boolean standard,
+        java.lang.String themeId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getService().getWapContent(layoutTemplateId, standard, themeId);
+    }
 
-	public static java.util.List<com.liferay.portal.model.LayoutTemplate> init(
-		java.lang.String servletContextName,
-		javax.servlet.ServletContext servletContext, java.lang.String[] xmls,
-		com.liferay.portal.kernel.plugin.PluginPackage pluginPackage) {
-		return getService()
-				   .init(servletContextName, servletContext, xmls, pluginPackage);
-	}
+    public static java.util.List<com.liferay.portal.model.LayoutTemplate> init(
+        javax.servlet.ServletContext servletContext, java.lang.String[] xmls,
+        com.liferay.portal.kernel.plugin.PluginPackage pluginPackage) {
+        return getService().init(servletContext, xmls, pluginPackage);
+    }
 
-	public static void readLayoutTemplate(java.lang.String servletContextName,
-		javax.servlet.ServletContext servletContext,
-		java.util.Set<com.liferay.portal.model.LayoutTemplate> layoutTemplates,
-		com.liferay.portal.kernel.xml.Element element, boolean standard,
-		java.lang.String themeId,
-		com.liferay.portal.kernel.plugin.PluginPackage pluginPackage) {
-		getService()
-			.readLayoutTemplate(servletContextName, servletContext,
-			layoutTemplates, element, standard, themeId, pluginPackage);
-	}
+    public static java.util.List<com.liferay.portal.model.LayoutTemplate> init(
+        java.lang.String servletContextName,
+        javax.servlet.ServletContext servletContext, java.lang.String[] xmls,
+        com.liferay.portal.kernel.plugin.PluginPackage pluginPackage) {
+        return getService()
+                   .init(servletContextName, servletContext, xmls, pluginPackage);
+    }
 
-	public static void uninstallLayoutTemplate(
-		java.lang.String layoutTemplateId, boolean standard) {
-		getService().uninstallLayoutTemplate(layoutTemplateId, standard);
-	}
+    public static void readLayoutTemplate(java.lang.String servletContextName,
+        javax.servlet.ServletContext servletContext,
+        java.util.Set<com.liferay.portal.model.LayoutTemplate> layoutTemplates,
+        com.liferay.portal.kernel.xml.Element element, boolean standard,
+        java.lang.String themeId,
+        com.liferay.portal.kernel.plugin.PluginPackage pluginPackage) {
+        getService()
+            .readLayoutTemplate(servletContextName, servletContext,
+            layoutTemplates, element, standard, themeId, pluginPackage);
+    }
 
-	public static void uninstallLayoutTemplates(java.lang.String themeId) {
-		getService().uninstallLayoutTemplates(themeId);
-	}
+    public static void uninstallLayoutTemplate(
+        java.lang.String layoutTemplateId, boolean standard) {
+        getService().uninstallLayoutTemplate(layoutTemplateId, standard);
+    }
 
-	public static LayoutTemplateLocalService getService() {
-		if (_service == null) {
-			_service = (LayoutTemplateLocalService)PortalBeanLocatorUtil.locate(LayoutTemplateLocalService.class.getName());
+    public static void uninstallLayoutTemplates(java.lang.String themeId) {
+        getService().uninstallLayoutTemplates(themeId);
+    }
 
-			ReferenceRegistry.registerReference(LayoutTemplateLocalServiceUtil.class,
-				"_service");
-		}
+    public static LayoutTemplateLocalService getService() {
+        if (_service == null) {
+            _service = (LayoutTemplateLocalService) PortalBeanLocatorUtil.locate(LayoutTemplateLocalService.class.getName());
 
-		return _service;
-	}
+            ReferenceRegistry.registerReference(LayoutTemplateLocalServiceUtil.class,
+                "_service");
+        }
 
-	/**
-	 * @deprecated As of 6.2.0
-	 */
-	public void setService(LayoutTemplateLocalService service) {
-	}
+        return _service;
+    }
 
-	private static LayoutTemplateLocalService _service;
+    /**
+     * @deprecated As of 6.2.0
+     */
+    public void setService(LayoutTemplateLocalService service) {
+    }
 }

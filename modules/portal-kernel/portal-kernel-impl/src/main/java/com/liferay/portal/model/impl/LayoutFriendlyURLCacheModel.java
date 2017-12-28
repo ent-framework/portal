@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,167 +20,157 @@ import java.util.Date;
  * @generated
  */
 public class LayoutFriendlyURLCacheModel implements CacheModel<LayoutFriendlyURL>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(25);
+    Externalizable {
+    public String uuid;
+    public long layoutFriendlyURLId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public long plid;
+    public boolean privateLayout;
+    public String friendlyURL;
+    public String languageId;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", layoutFriendlyURLId=");
-		sb.append(layoutFriendlyURLId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", plid=");
-		sb.append(plid);
-		sb.append(", privateLayout=");
-		sb.append(privateLayout);
-		sb.append(", friendlyURL=");
-		sb.append(friendlyURL);
-		sb.append(", languageId=");
-		sb.append(languageId);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(25);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", layoutFriendlyURLId=");
+        sb.append(layoutFriendlyURLId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", plid=");
+        sb.append(plid);
+        sb.append(", privateLayout=");
+        sb.append(privateLayout);
+        sb.append(", friendlyURL=");
+        sb.append(friendlyURL);
+        sb.append(", languageId=");
+        sb.append(languageId);
+        sb.append("}");
 
-	@Override
-	public LayoutFriendlyURL toEntityModel() {
-		LayoutFriendlyURLImpl layoutFriendlyURLImpl = new LayoutFriendlyURLImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			layoutFriendlyURLImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			layoutFriendlyURLImpl.setUuid(uuid);
-		}
+    @Override
+    public LayoutFriendlyURL toEntityModel() {
+        LayoutFriendlyURLImpl layoutFriendlyURLImpl = new LayoutFriendlyURLImpl();
 
-		layoutFriendlyURLImpl.setLayoutFriendlyURLId(layoutFriendlyURLId);
-		layoutFriendlyURLImpl.setGroupId(groupId);
-		layoutFriendlyURLImpl.setCompanyId(companyId);
-		layoutFriendlyURLImpl.setUserId(userId);
+        if (uuid == null) {
+            layoutFriendlyURLImpl.setUuid(StringPool.BLANK);
+        } else {
+            layoutFriendlyURLImpl.setUuid(uuid);
+        }
 
-		if (userName == null) {
-			layoutFriendlyURLImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			layoutFriendlyURLImpl.setUserName(userName);
-		}
+        layoutFriendlyURLImpl.setLayoutFriendlyURLId(layoutFriendlyURLId);
+        layoutFriendlyURLImpl.setGroupId(groupId);
+        layoutFriendlyURLImpl.setCompanyId(companyId);
+        layoutFriendlyURLImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			layoutFriendlyURLImpl.setCreateDate(null);
-		}
-		else {
-			layoutFriendlyURLImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            layoutFriendlyURLImpl.setUserName(StringPool.BLANK);
+        } else {
+            layoutFriendlyURLImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			layoutFriendlyURLImpl.setModifiedDate(null);
-		}
-		else {
-			layoutFriendlyURLImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            layoutFriendlyURLImpl.setCreateDate(null);
+        } else {
+            layoutFriendlyURLImpl.setCreateDate(new Date(createDate));
+        }
 
-		layoutFriendlyURLImpl.setPlid(plid);
-		layoutFriendlyURLImpl.setPrivateLayout(privateLayout);
+        if (modifiedDate == Long.MIN_VALUE) {
+            layoutFriendlyURLImpl.setModifiedDate(null);
+        } else {
+            layoutFriendlyURLImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (friendlyURL == null) {
-			layoutFriendlyURLImpl.setFriendlyURL(StringPool.BLANK);
-		}
-		else {
-			layoutFriendlyURLImpl.setFriendlyURL(friendlyURL);
-		}
+        layoutFriendlyURLImpl.setPlid(plid);
+        layoutFriendlyURLImpl.setPrivateLayout(privateLayout);
 
-		if (languageId == null) {
-			layoutFriendlyURLImpl.setLanguageId(StringPool.BLANK);
-		}
-		else {
-			layoutFriendlyURLImpl.setLanguageId(languageId);
-		}
+        if (friendlyURL == null) {
+            layoutFriendlyURLImpl.setFriendlyURL(StringPool.BLANK);
+        } else {
+            layoutFriendlyURLImpl.setFriendlyURL(friendlyURL);
+        }
 
-		layoutFriendlyURLImpl.resetOriginalValues();
+        if (languageId == null) {
+            layoutFriendlyURLImpl.setLanguageId(StringPool.BLANK);
+        } else {
+            layoutFriendlyURLImpl.setLanguageId(languageId);
+        }
 
-		return layoutFriendlyURLImpl;
-	}
+        layoutFriendlyURLImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		layoutFriendlyURLId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		plid = objectInput.readLong();
-		privateLayout = objectInput.readBoolean();
-		friendlyURL = objectInput.readUTF();
-		languageId = objectInput.readUTF();
-	}
+        return layoutFriendlyURLImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        layoutFriendlyURLId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        plid = objectInput.readLong();
+        privateLayout = objectInput.readBoolean();
+        friendlyURL = objectInput.readUTF();
+        languageId = objectInput.readUTF();
+    }
 
-		objectOutput.writeLong(layoutFriendlyURLId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+        objectOutput.writeLong(layoutFriendlyURLId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(plid);
-		objectOutput.writeBoolean(privateLayout);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (friendlyURL == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(friendlyURL);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(plid);
+        objectOutput.writeBoolean(privateLayout);
 
-		if (languageId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(languageId);
-		}
-	}
+        if (friendlyURL == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(friendlyURL);
+        }
 
-	public String uuid;
-	public long layoutFriendlyURLId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public long plid;
-	public boolean privateLayout;
-	public String friendlyURL;
-	public String languageId;
+        if (languageId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(languageId);
+        }
+    }
 }

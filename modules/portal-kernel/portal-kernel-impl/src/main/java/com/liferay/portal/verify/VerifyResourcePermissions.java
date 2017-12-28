@@ -39,7 +39,7 @@ import com.liferay.portlet.announcements.model.AnnouncementsEntry;
 import com.liferay.portlet.asset.model.AssetCategory;
 import com.liferay.portlet.asset.model.AssetTag;
 import com.liferay.portlet.asset.model.AssetVocabulary;
-import com.liferay.portlet.blogs.model.BlogsEntry;
+//import com.liferay.portlet.blogs.model.BlogsEntry;
 import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 import com.liferay.portlet.documentlibrary.model.DLFileShortcut;
 import com.liferay.portlet.documentlibrary.model.DLFolder;
@@ -209,9 +209,9 @@ public class VerifyResourcePermissions extends VerifyProcess {
 		new String[] {
 			AssetVocabulary.class.getName(), "AssetVocabulary", "vocabularyId"
 		},
-		new String[] {
+/*		new String[] {
 			BlogsEntry.class.getName(), "BlogsEntry", "entryId"
-		},
+		},*/
 		new String[] {
 			DDMStructure.class.getName(), "DDMStructure", "structureId"
 		},

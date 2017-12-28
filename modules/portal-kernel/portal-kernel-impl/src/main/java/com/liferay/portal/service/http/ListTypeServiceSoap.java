@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
@@ -64,57 +50,53 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class ListTypeServiceSoap {
-	public static com.liferay.portal.model.ListTypeSoap getListType(
-		int listTypeId) throws RemoteException {
-		try {
-			com.liferay.portal.model.ListType returnValue = ListTypeServiceUtil.getListType(listTypeId);
+    private static Log _log = LogFactoryUtil.getLog(ListTypeServiceSoap.class);
 
-			return com.liferay.portal.model.ListTypeSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.ListTypeSoap getListType(
+        int listTypeId) throws RemoteException {
+        try {
+            com.liferay.portal.model.ListType returnValue = ListTypeServiceUtil.getListType(listTypeId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.ListTypeSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portal.model.ListTypeSoap[] getListTypes(
-		java.lang.String type) throws RemoteException {
-		try {
-			java.util.List<com.liferay.portal.model.ListType> returnValue = ListTypeServiceUtil.getListTypes(type);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portal.model.ListTypeSoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portal.model.ListTypeSoap[] getListTypes(
+        java.lang.String type) throws RemoteException {
+        try {
+            java.util.List<com.liferay.portal.model.ListType> returnValue = ListTypeServiceUtil.getListTypes(type);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portal.model.ListTypeSoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void validate(int listTypeId, long classNameId,
-		java.lang.String type) throws RemoteException {
-		try {
-			ListTypeServiceUtil.validate(listTypeId, classNameId, type);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void validate(int listTypeId, long classNameId,
+        java.lang.String type) throws RemoteException {
+        try {
+            ListTypeServiceUtil.validate(listTypeId, classNameId, type);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void validate(int listTypeId, java.lang.String type)
-		throws RemoteException {
-		try {
-			ListTypeServiceUtil.validate(listTypeId, type);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void validate(int listTypeId, java.lang.String type)
+        throws RemoteException {
+        try {
+            ListTypeServiceUtil.validate(listTypeId, type);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	private static Log _log = LogFactoryUtil.getLog(ListTypeServiceSoap.class);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

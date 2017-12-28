@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.softwarecatalog.service.http;
 
 import aQute.bnd.annotation.ProviderType;
@@ -65,107 +51,101 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class SCProductVersionServiceSoap {
-	public static com.liferay.portlet.softwarecatalog.model.SCProductVersionSoap addProductVersion(
-		long productEntryId, java.lang.String version,
-		java.lang.String changeLog, java.lang.String downloadPageURL,
-		java.lang.String directDownloadURL, boolean testDirectDownloadURL,
-		boolean repoStoreArtifact, long[] frameworkVersionIds,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws RemoteException {
-		try {
-			com.liferay.portlet.softwarecatalog.model.SCProductVersion returnValue =
-				SCProductVersionServiceUtil.addProductVersion(productEntryId,
-					version, changeLog, downloadPageURL, directDownloadURL,
-					testDirectDownloadURL, repoStoreArtifact,
-					frameworkVersionIds, serviceContext);
+    private static Log _log = LogFactoryUtil.getLog(SCProductVersionServiceSoap.class);
 
-			return com.liferay.portlet.softwarecatalog.model.SCProductVersionSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.softwarecatalog.model.SCProductVersionSoap addProductVersion(
+        long productEntryId, java.lang.String version,
+        java.lang.String changeLog, java.lang.String downloadPageURL,
+        java.lang.String directDownloadURL, boolean testDirectDownloadURL,
+        boolean repoStoreArtifact, long[] frameworkVersionIds,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws RemoteException {
+        try {
+            com.liferay.portlet.softwarecatalog.model.SCProductVersion returnValue =
+                SCProductVersionServiceUtil.addProductVersion(productEntryId,
+                    version, changeLog, downloadPageURL, directDownloadURL,
+                    testDirectDownloadURL, repoStoreArtifact,
+                    frameworkVersionIds, serviceContext);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.softwarecatalog.model.SCProductVersionSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void deleteProductVersion(long productVersionId)
-		throws RemoteException {
-		try {
-			SCProductVersionServiceUtil.deleteProductVersion(productVersionId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void deleteProductVersion(long productVersionId)
+        throws RemoteException {
+        try {
+            SCProductVersionServiceUtil.deleteProductVersion(productVersionId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.softwarecatalog.model.SCProductVersionSoap getProductVersion(
-		long productVersionId) throws RemoteException {
-		try {
-			com.liferay.portlet.softwarecatalog.model.SCProductVersion returnValue =
-				SCProductVersionServiceUtil.getProductVersion(productVersionId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.softwarecatalog.model.SCProductVersionSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.softwarecatalog.model.SCProductVersionSoap getProductVersion(
+        long productVersionId) throws RemoteException {
+        try {
+            com.liferay.portlet.softwarecatalog.model.SCProductVersion returnValue =
+                SCProductVersionServiceUtil.getProductVersion(productVersionId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.softwarecatalog.model.SCProductVersionSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.softwarecatalog.model.SCProductVersionSoap[] getProductVersions(
-		long productEntryId, int start, int end) throws RemoteException {
-		try {
-			java.util.List<com.liferay.portlet.softwarecatalog.model.SCProductVersion> returnValue =
-				SCProductVersionServiceUtil.getProductVersions(productEntryId,
-					start, end);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.softwarecatalog.model.SCProductVersionSoap.toSoapModels(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.softwarecatalog.model.SCProductVersionSoap[] getProductVersions(
+        long productEntryId, int start, int end) throws RemoteException {
+        try {
+            java.util.List<com.liferay.portlet.softwarecatalog.model.SCProductVersion> returnValue =
+                SCProductVersionServiceUtil.getProductVersions(productEntryId,
+                    start, end);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.softwarecatalog.model.SCProductVersionSoap.toSoapModels(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static int getProductVersionsCount(long productEntryId)
-		throws RemoteException {
-		try {
-			int returnValue = SCProductVersionServiceUtil.getProductVersionsCount(productEntryId);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return returnValue;
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static int getProductVersionsCount(long productEntryId)
+        throws RemoteException {
+        try {
+            int returnValue = SCProductVersionServiceUtil.getProductVersionsCount(productEntryId);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return returnValue;
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static com.liferay.portlet.softwarecatalog.model.SCProductVersionSoap updateProductVersion(
-		long productVersionId, java.lang.String version,
-		java.lang.String changeLog, java.lang.String downloadPageURL,
-		java.lang.String directDownloadURL, boolean testDirectDownloadURL,
-		boolean repoStoreArtifact, long[] frameworkVersionIds)
-		throws RemoteException {
-		try {
-			com.liferay.portlet.softwarecatalog.model.SCProductVersion returnValue =
-				SCProductVersionServiceUtil.updateProductVersion(productVersionId,
-					version, changeLog, downloadPageURL, directDownloadURL,
-					testDirectDownloadURL, repoStoreArtifact,
-					frameworkVersionIds);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			return com.liferay.portlet.softwarecatalog.model.SCProductVersionSoap.toSoapModel(returnValue);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    public static com.liferay.portlet.softwarecatalog.model.SCProductVersionSoap updateProductVersion(
+        long productVersionId, java.lang.String version,
+        java.lang.String changeLog, java.lang.String downloadPageURL,
+        java.lang.String directDownloadURL, boolean testDirectDownloadURL,
+        boolean repoStoreArtifact, long[] frameworkVersionIds)
+        throws RemoteException {
+        try {
+            com.liferay.portlet.softwarecatalog.model.SCProductVersion returnValue =
+                SCProductVersionServiceUtil.updateProductVersion(productVersionId,
+                    version, changeLog, downloadPageURL, directDownloadURL,
+                    testDirectDownloadURL, repoStoreArtifact,
+                    frameworkVersionIds);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            return com.liferay.portlet.softwarecatalog.model.SCProductVersionSoap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	private static Log _log = LogFactoryUtil.getLog(SCProductVersionServiceSoap.class);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

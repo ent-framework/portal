@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -27,79 +13,78 @@ import java.util.List;
  * @generated
  */
 public class ClassNameSoap implements Serializable {
-	public static ClassNameSoap toSoapModel(ClassName model) {
-		ClassNameSoap soapModel = new ClassNameSoap();
+    private long _classNameId;
+    private String _value;
 
-		soapModel.setClassNameId(model.getClassNameId());
-		soapModel.setValue(model.getValue());
+    public ClassNameSoap() {
+    }
 
-		return soapModel;
-	}
+    public static ClassNameSoap toSoapModel(ClassName model) {
+        ClassNameSoap soapModel = new ClassNameSoap();
 
-	public static ClassNameSoap[] toSoapModels(ClassName[] models) {
-		ClassNameSoap[] soapModels = new ClassNameSoap[models.length];
+        soapModel.setClassNameId(model.getClassNameId());
+        soapModel.setValue(model.getValue());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static ClassNameSoap[] toSoapModels(ClassName[] models) {
+        ClassNameSoap[] soapModels = new ClassNameSoap[models.length];
 
-	public static ClassNameSoap[][] toSoapModels(ClassName[][] models) {
-		ClassNameSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new ClassNameSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new ClassNameSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static ClassNameSoap[][] toSoapModels(ClassName[][] models) {
+        ClassNameSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new ClassNameSoap[models.length][models[0].length];
+        } else {
+            soapModels = new ClassNameSoap[0][0];
+        }
 
-	public static ClassNameSoap[] toSoapModels(List<ClassName> models) {
-		List<ClassNameSoap> soapModels = new ArrayList<ClassNameSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (ClassName model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new ClassNameSoap[soapModels.size()]);
-	}
+    public static ClassNameSoap[] toSoapModels(List<ClassName> models) {
+        List<ClassNameSoap> soapModels = new ArrayList<ClassNameSoap>(models.size());
 
-	public ClassNameSoap() {
-	}
+        for (ClassName model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _classNameId;
-	}
+        return soapModels.toArray(new ClassNameSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setClassNameId(pk);
-	}
+    public long getPrimaryKey() {
+        return _classNameId;
+    }
 
-	public long getClassNameId() {
-		return _classNameId;
-	}
+    public void setPrimaryKey(long pk) {
+        setClassNameId(pk);
+    }
 
-	public void setClassNameId(long classNameId) {
-		_classNameId = classNameId;
-	}
+    public long getClassNameId() {
+        return _classNameId;
+    }
 
-	public String getValue() {
-		return _value;
-	}
+    public void setClassNameId(long classNameId) {
+        _classNameId = classNameId;
+    }
 
-	public void setValue(String value) {
-		_value = value;
-	}
+    public String getValue() {
+        return _value;
+    }
 
-	private long _classNameId;
-	private String _value;
+    public void setValue(String value) {
+        _value = value;
+    }
 }

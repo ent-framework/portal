@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.softwarecatalog.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -35,262 +21,240 @@ import java.util.Date;
  * @generated
  */
 public class SCProductEntryCacheModel implements CacheModel<SCProductEntry>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(33);
+    Externalizable {
+    public long productEntryId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public String name;
+    public String type;
+    public String tags;
+    public String shortDescription;
+    public String longDescription;
+    public String pageURL;
+    public String author;
+    public String repoGroupId;
+    public String repoArtifactId;
 
-		sb.append("{productEntryId=");
-		sb.append(productEntryId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", type=");
-		sb.append(type);
-		sb.append(", tags=");
-		sb.append(tags);
-		sb.append(", shortDescription=");
-		sb.append(shortDescription);
-		sb.append(", longDescription=");
-		sb.append(longDescription);
-		sb.append(", pageURL=");
-		sb.append(pageURL);
-		sb.append(", author=");
-		sb.append(author);
-		sb.append(", repoGroupId=");
-		sb.append(repoGroupId);
-		sb.append(", repoArtifactId=");
-		sb.append(repoArtifactId);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(33);
 
-		return sb.toString();
-	}
+        sb.append("{productEntryId=");
+        sb.append(productEntryId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", type=");
+        sb.append(type);
+        sb.append(", tags=");
+        sb.append(tags);
+        sb.append(", shortDescription=");
+        sb.append(shortDescription);
+        sb.append(", longDescription=");
+        sb.append(longDescription);
+        sb.append(", pageURL=");
+        sb.append(pageURL);
+        sb.append(", author=");
+        sb.append(author);
+        sb.append(", repoGroupId=");
+        sb.append(repoGroupId);
+        sb.append(", repoArtifactId=");
+        sb.append(repoArtifactId);
+        sb.append("}");
 
-	@Override
-	public SCProductEntry toEntityModel() {
-		SCProductEntryImpl scProductEntryImpl = new SCProductEntryImpl();
+        return sb.toString();
+    }
 
-		scProductEntryImpl.setProductEntryId(productEntryId);
-		scProductEntryImpl.setGroupId(groupId);
-		scProductEntryImpl.setCompanyId(companyId);
-		scProductEntryImpl.setUserId(userId);
+    @Override
+    public SCProductEntry toEntityModel() {
+        SCProductEntryImpl scProductEntryImpl = new SCProductEntryImpl();
 
-		if (userName == null) {
-			scProductEntryImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			scProductEntryImpl.setUserName(userName);
-		}
+        scProductEntryImpl.setProductEntryId(productEntryId);
+        scProductEntryImpl.setGroupId(groupId);
+        scProductEntryImpl.setCompanyId(companyId);
+        scProductEntryImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			scProductEntryImpl.setCreateDate(null);
-		}
-		else {
-			scProductEntryImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            scProductEntryImpl.setUserName(StringPool.BLANK);
+        } else {
+            scProductEntryImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			scProductEntryImpl.setModifiedDate(null);
-		}
-		else {
-			scProductEntryImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            scProductEntryImpl.setCreateDate(null);
+        } else {
+            scProductEntryImpl.setCreateDate(new Date(createDate));
+        }
 
-		if (name == null) {
-			scProductEntryImpl.setName(StringPool.BLANK);
-		}
-		else {
-			scProductEntryImpl.setName(name);
-		}
+        if (modifiedDate == Long.MIN_VALUE) {
+            scProductEntryImpl.setModifiedDate(null);
+        } else {
+            scProductEntryImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (type == null) {
-			scProductEntryImpl.setType(StringPool.BLANK);
-		}
-		else {
-			scProductEntryImpl.setType(type);
-		}
+        if (name == null) {
+            scProductEntryImpl.setName(StringPool.BLANK);
+        } else {
+            scProductEntryImpl.setName(name);
+        }
 
-		if (tags == null) {
-			scProductEntryImpl.setTags(StringPool.BLANK);
-		}
-		else {
-			scProductEntryImpl.setTags(tags);
-		}
+        if (type == null) {
+            scProductEntryImpl.setType(StringPool.BLANK);
+        } else {
+            scProductEntryImpl.setType(type);
+        }
 
-		if (shortDescription == null) {
-			scProductEntryImpl.setShortDescription(StringPool.BLANK);
-		}
-		else {
-			scProductEntryImpl.setShortDescription(shortDescription);
-		}
+        if (tags == null) {
+            scProductEntryImpl.setTags(StringPool.BLANK);
+        } else {
+            scProductEntryImpl.setTags(tags);
+        }
 
-		if (longDescription == null) {
-			scProductEntryImpl.setLongDescription(StringPool.BLANK);
-		}
-		else {
-			scProductEntryImpl.setLongDescription(longDescription);
-		}
+        if (shortDescription == null) {
+            scProductEntryImpl.setShortDescription(StringPool.BLANK);
+        } else {
+            scProductEntryImpl.setShortDescription(shortDescription);
+        }
 
-		if (pageURL == null) {
-			scProductEntryImpl.setPageURL(StringPool.BLANK);
-		}
-		else {
-			scProductEntryImpl.setPageURL(pageURL);
-		}
+        if (longDescription == null) {
+            scProductEntryImpl.setLongDescription(StringPool.BLANK);
+        } else {
+            scProductEntryImpl.setLongDescription(longDescription);
+        }
 
-		if (author == null) {
-			scProductEntryImpl.setAuthor(StringPool.BLANK);
-		}
-		else {
-			scProductEntryImpl.setAuthor(author);
-		}
+        if (pageURL == null) {
+            scProductEntryImpl.setPageURL(StringPool.BLANK);
+        } else {
+            scProductEntryImpl.setPageURL(pageURL);
+        }
 
-		if (repoGroupId == null) {
-			scProductEntryImpl.setRepoGroupId(StringPool.BLANK);
-		}
-		else {
-			scProductEntryImpl.setRepoGroupId(repoGroupId);
-		}
+        if (author == null) {
+            scProductEntryImpl.setAuthor(StringPool.BLANK);
+        } else {
+            scProductEntryImpl.setAuthor(author);
+        }
 
-		if (repoArtifactId == null) {
-			scProductEntryImpl.setRepoArtifactId(StringPool.BLANK);
-		}
-		else {
-			scProductEntryImpl.setRepoArtifactId(repoArtifactId);
-		}
+        if (repoGroupId == null) {
+            scProductEntryImpl.setRepoGroupId(StringPool.BLANK);
+        } else {
+            scProductEntryImpl.setRepoGroupId(repoGroupId);
+        }
 
-		scProductEntryImpl.resetOriginalValues();
+        if (repoArtifactId == null) {
+            scProductEntryImpl.setRepoArtifactId(StringPool.BLANK);
+        } else {
+            scProductEntryImpl.setRepoArtifactId(repoArtifactId);
+        }
 
-		return scProductEntryImpl;
-	}
+        scProductEntryImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		productEntryId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		name = objectInput.readUTF();
-		type = objectInput.readUTF();
-		tags = objectInput.readUTF();
-		shortDescription = objectInput.readUTF();
-		longDescription = objectInput.readUTF();
-		pageURL = objectInput.readUTF();
-		author = objectInput.readUTF();
-		repoGroupId = objectInput.readUTF();
-		repoArtifactId = objectInput.readUTF();
-	}
+        return scProductEntryImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(productEntryId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        productEntryId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        name = objectInput.readUTF();
+        type = objectInput.readUTF();
+        tags = objectInput.readUTF();
+        shortDescription = objectInput.readUTF();
+        longDescription = objectInput.readUTF();
+        pageURL = objectInput.readUTF();
+        author = objectInput.readUTF();
+        repoGroupId = objectInput.readUTF();
+        repoArtifactId = objectInput.readUTF();
+    }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(productEntryId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
 
-		if (type == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(type);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		if (tags == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(tags);
-		}
+        if (type == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(type);
+        }
 
-		if (shortDescription == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(shortDescription);
-		}
+        if (tags == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(tags);
+        }
 
-		if (longDescription == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(longDescription);
-		}
+        if (shortDescription == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(shortDescription);
+        }
 
-		if (pageURL == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(pageURL);
-		}
+        if (longDescription == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(longDescription);
+        }
 
-		if (author == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(author);
-		}
+        if (pageURL == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(pageURL);
+        }
 
-		if (repoGroupId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(repoGroupId);
-		}
+        if (author == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(author);
+        }
 
-		if (repoArtifactId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(repoArtifactId);
-		}
-	}
+        if (repoGroupId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(repoGroupId);
+        }
 
-	public long productEntryId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public String name;
-	public String type;
-	public String tags;
-	public String shortDescription;
-	public String longDescription;
-	public String pageURL;
-	public String author;
-	public String repoGroupId;
-	public String repoArtifactId;
+        if (repoArtifactId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(repoArtifactId);
+        }
+    }
 }

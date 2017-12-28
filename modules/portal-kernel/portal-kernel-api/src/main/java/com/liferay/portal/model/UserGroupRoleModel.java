@@ -1,22 +1,10 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.model.BaseModel;
+import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.persistence.UserGroupRolePK;
 
@@ -39,137 +27,137 @@ import java.io.Serializable;
  */
 @ProviderType
 public interface UserGroupRoleModel extends BaseModel<UserGroupRole> {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this interface directly. All methods that expect a user group role model instance should use the {@link UserGroupRole} interface instead.
-	 */
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this interface directly. All methods that expect a user group role model instance should use the {@link UserGroupRole} interface instead.
+     */
 
-	/**
-	 * Returns the primary key of this user group role.
-	 *
-	 * @return the primary key of this user group role
-	 */
-	public UserGroupRolePK getPrimaryKey();
+    /**
+     * Returns the primary key of this user group role.
+     *
+     * @return the primary key of this user group role
+     */
+    public UserGroupRolePK getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this user group role.
-	 *
-	 * @param primaryKey the primary key of this user group role
-	 */
-	public void setPrimaryKey(UserGroupRolePK primaryKey);
+    /**
+     * Sets the primary key of this user group role.
+     *
+     * @param primaryKey the primary key of this user group role
+     */
+    public void setPrimaryKey(UserGroupRolePK primaryKey);
 
-	/**
-	 * Returns the user ID of this user group role.
-	 *
-	 * @return the user ID of this user group role
-	 */
-	public long getUserId();
+    /**
+     * Returns the user ID of this user group role.
+     *
+     * @return the user ID of this user group role
+     */
+    public long getUserId();
 
-	/**
-	 * Sets the user ID of this user group role.
-	 *
-	 * @param userId the user ID of this user group role
-	 */
-	public void setUserId(long userId);
+    /**
+     * Sets the user ID of this user group role.
+     *
+     * @param userId the user ID of this user group role
+     */
+    public void setUserId(long userId);
 
-	/**
-	 * Returns the user uuid of this user group role.
-	 *
-	 * @return the user uuid of this user group role
-	 * @throws SystemException if a system exception occurred
-	 */
-	public String getUserUuid() throws SystemException;
+    /**
+     * Returns the user uuid of this user group role.
+     *
+     * @return the user uuid of this user group role
+     * @throws SystemException if a system exception occurred
+     */
+    public String getUserUuid() throws SystemException;
 
-	/**
-	 * Sets the user uuid of this user group role.
-	 *
-	 * @param userUuid the user uuid of this user group role
-	 */
-	public void setUserUuid(String userUuid);
+    /**
+     * Sets the user uuid of this user group role.
+     *
+     * @param userUuid the user uuid of this user group role
+     */
+    public void setUserUuid(String userUuid);
 
-	/**
-	 * Returns the group ID of this user group role.
-	 *
-	 * @return the group ID of this user group role
-	 */
-	public long getGroupId();
+    /**
+     * Returns the group ID of this user group role.
+     *
+     * @return the group ID of this user group role
+     */
+    public long getGroupId();
 
-	/**
-	 * Sets the group ID of this user group role.
-	 *
-	 * @param groupId the group ID of this user group role
-	 */
-	public void setGroupId(long groupId);
+    /**
+     * Sets the group ID of this user group role.
+     *
+     * @param groupId the group ID of this user group role
+     */
+    public void setGroupId(long groupId);
 
-	/**
-	 * Returns the role ID of this user group role.
-	 *
-	 * @return the role ID of this user group role
-	 */
-	public long getRoleId();
+    /**
+     * Returns the role ID of this user group role.
+     *
+     * @return the role ID of this user group role
+     */
+    public long getRoleId();
 
-	/**
-	 * Sets the role ID of this user group role.
-	 *
-	 * @param roleId the role ID of this user group role
-	 */
-	public void setRoleId(long roleId);
+    /**
+     * Sets the role ID of this user group role.
+     *
+     * @param roleId the role ID of this user group role
+     */
+    public void setRoleId(long roleId);
 
-	@Override
-	public boolean isNew();
+    @Override
+    public boolean isNew();
 
-	@Override
-	public void setNew(boolean n);
+    @Override
+    public void setNew(boolean n);
 
-	@Override
-	public boolean isCachedModel();
+    @Override
+    public boolean isCachedModel();
 
-	@Override
-	public void setCachedModel(boolean cachedModel);
+    @Override
+    public void setCachedModel(boolean cachedModel);
 
-	@Override
-	public boolean isEscapedModel();
+    @Override
+    public boolean isEscapedModel();
 
-	@Override
-	public Serializable getPrimaryKeyObj();
+    @Override
+    public Serializable getPrimaryKeyObj();
 
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj);
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj);
 
-	@Override
-	public ExpandoBridge getExpandoBridge();
+    @Override
+    public ExpandoBridge getExpandoBridge();
 
-	@Override
-	public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
+    @Override
+    public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
 
-	@Override
-	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
+    @Override
+    public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	@Override
-	public Object clone();
+    @Override
+    public Object clone();
 
-	@Override
-	public int compareTo(UserGroupRole userGroupRole);
+    @Override
+    public int compareTo(com.liferay.portal.model.UserGroupRole userGroupRole);
 
-	@Override
-	public int hashCode();
+    @Override
+    public int hashCode();
 
-	@Override
-	public CacheModel<UserGroupRole> toCacheModel();
+    @Override
+    public CacheModel<com.liferay.portal.model.UserGroupRole> toCacheModel();
 
-	@Override
-	public UserGroupRole toEscapedModel();
+    @Override
+    public com.liferay.portal.model.UserGroupRole toEscapedModel();
 
-	@Override
-	public UserGroupRole toUnescapedModel();
+    @Override
+    public com.liferay.portal.model.UserGroupRole toUnescapedModel();
 
-	@Override
-	public String toString();
+    @Override
+    public String toString();
 
-	@Override
-	public String toXmlString();
+    @Override
+    public String toXmlString();
 }

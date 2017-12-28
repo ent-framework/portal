@@ -1,23 +1,11 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.model.BaseModel;
+import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.service.ServiceContext;
 
 import com.liferay.portlet.expando.model.ExpandoBridge;
@@ -39,168 +27,168 @@ import java.io.Serializable;
  */
 @ProviderType
 public interface UserIdMapperModel extends BaseModel<UserIdMapper> {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this interface directly. All methods that expect a user ID mapper model instance should use the {@link UserIdMapper} interface instead.
-	 */
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this interface directly. All methods that expect a user ID mapper model instance should use the {@link UserIdMapper} interface instead.
+     */
 
-	/**
-	 * Returns the primary key of this user ID mapper.
-	 *
-	 * @return the primary key of this user ID mapper
-	 */
-	public long getPrimaryKey();
+    /**
+     * Returns the primary key of this user ID mapper.
+     *
+     * @return the primary key of this user ID mapper
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this user ID mapper.
-	 *
-	 * @param primaryKey the primary key of this user ID mapper
-	 */
-	public void setPrimaryKey(long primaryKey);
+    /**
+     * Sets the primary key of this user ID mapper.
+     *
+     * @param primaryKey the primary key of this user ID mapper
+     */
+    public void setPrimaryKey(long primaryKey);
 
-	/**
-	 * Returns the user ID mapper ID of this user ID mapper.
-	 *
-	 * @return the user ID mapper ID of this user ID mapper
-	 */
-	public long getUserIdMapperId();
+    /**
+     * Returns the user ID mapper ID of this user ID mapper.
+     *
+     * @return the user ID mapper ID of this user ID mapper
+     */
+    public long getUserIdMapperId();
 
-	/**
-	 * Sets the user ID mapper ID of this user ID mapper.
-	 *
-	 * @param userIdMapperId the user ID mapper ID of this user ID mapper
-	 */
-	public void setUserIdMapperId(long userIdMapperId);
+    /**
+     * Sets the user ID mapper ID of this user ID mapper.
+     *
+     * @param userIdMapperId the user ID mapper ID of this user ID mapper
+     */
+    public void setUserIdMapperId(long userIdMapperId);
 
-	/**
-	 * Returns the user ID of this user ID mapper.
-	 *
-	 * @return the user ID of this user ID mapper
-	 */
-	public long getUserId();
+    /**
+     * Returns the user ID of this user ID mapper.
+     *
+     * @return the user ID of this user ID mapper
+     */
+    public long getUserId();
 
-	/**
-	 * Sets the user ID of this user ID mapper.
-	 *
-	 * @param userId the user ID of this user ID mapper
-	 */
-	public void setUserId(long userId);
+    /**
+     * Sets the user ID of this user ID mapper.
+     *
+     * @param userId the user ID of this user ID mapper
+     */
+    public void setUserId(long userId);
 
-	/**
-	 * Returns the user uuid of this user ID mapper.
-	 *
-	 * @return the user uuid of this user ID mapper
-	 * @throws SystemException if a system exception occurred
-	 */
-	public String getUserUuid() throws SystemException;
+    /**
+     * Returns the user uuid of this user ID mapper.
+     *
+     * @return the user uuid of this user ID mapper
+     * @throws SystemException if a system exception occurred
+     */
+    public String getUserUuid() throws SystemException;
 
-	/**
-	 * Sets the user uuid of this user ID mapper.
-	 *
-	 * @param userUuid the user uuid of this user ID mapper
-	 */
-	public void setUserUuid(String userUuid);
+    /**
+     * Sets the user uuid of this user ID mapper.
+     *
+     * @param userUuid the user uuid of this user ID mapper
+     */
+    public void setUserUuid(String userUuid);
 
-	/**
-	 * Returns the type of this user ID mapper.
-	 *
-	 * @return the type of this user ID mapper
-	 */
-	@AutoEscape
-	public String getType();
+    /**
+     * Returns the type of this user ID mapper.
+     *
+     * @return the type of this user ID mapper
+     */
+    @AutoEscape
+    public String getType();
 
-	/**
-	 * Sets the type of this user ID mapper.
-	 *
-	 * @param type the type of this user ID mapper
-	 */
-	public void setType(String type);
+    /**
+     * Sets the type of this user ID mapper.
+     *
+     * @param type the type of this user ID mapper
+     */
+    public void setType(String type);
 
-	/**
-	 * Returns the description of this user ID mapper.
-	 *
-	 * @return the description of this user ID mapper
-	 */
-	@AutoEscape
-	public String getDescription();
+    /**
+     * Returns the description of this user ID mapper.
+     *
+     * @return the description of this user ID mapper
+     */
+    @AutoEscape
+    public String getDescription();
 
-	/**
-	 * Sets the description of this user ID mapper.
-	 *
-	 * @param description the description of this user ID mapper
-	 */
-	public void setDescription(String description);
+    /**
+     * Sets the description of this user ID mapper.
+     *
+     * @param description the description of this user ID mapper
+     */
+    public void setDescription(String description);
 
-	/**
-	 * Returns the external user ID of this user ID mapper.
-	 *
-	 * @return the external user ID of this user ID mapper
-	 */
-	@AutoEscape
-	public String getExternalUserId();
+    /**
+     * Returns the external user ID of this user ID mapper.
+     *
+     * @return the external user ID of this user ID mapper
+     */
+    @AutoEscape
+    public String getExternalUserId();
 
-	/**
-	 * Sets the external user ID of this user ID mapper.
-	 *
-	 * @param externalUserId the external user ID of this user ID mapper
-	 */
-	public void setExternalUserId(String externalUserId);
+    /**
+     * Sets the external user ID of this user ID mapper.
+     *
+     * @param externalUserId the external user ID of this user ID mapper
+     */
+    public void setExternalUserId(String externalUserId);
 
-	@Override
-	public boolean isNew();
+    @Override
+    public boolean isNew();
 
-	@Override
-	public void setNew(boolean n);
+    @Override
+    public void setNew(boolean n);
 
-	@Override
-	public boolean isCachedModel();
+    @Override
+    public boolean isCachedModel();
 
-	@Override
-	public void setCachedModel(boolean cachedModel);
+    @Override
+    public void setCachedModel(boolean cachedModel);
 
-	@Override
-	public boolean isEscapedModel();
+    @Override
+    public boolean isEscapedModel();
 
-	@Override
-	public Serializable getPrimaryKeyObj();
+    @Override
+    public Serializable getPrimaryKeyObj();
 
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj);
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj);
 
-	@Override
-	public ExpandoBridge getExpandoBridge();
+    @Override
+    public ExpandoBridge getExpandoBridge();
 
-	@Override
-	public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
+    @Override
+    public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
 
-	@Override
-	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
+    @Override
+    public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	@Override
-	public Object clone();
+    @Override
+    public Object clone();
 
-	@Override
-	public int compareTo(UserIdMapper userIdMapper);
+    @Override
+    public int compareTo(com.liferay.portal.model.UserIdMapper userIdMapper);
 
-	@Override
-	public int hashCode();
+    @Override
+    public int hashCode();
 
-	@Override
-	public CacheModel<UserIdMapper> toCacheModel();
+    @Override
+    public CacheModel<com.liferay.portal.model.UserIdMapper> toCacheModel();
 
-	@Override
-	public UserIdMapper toEscapedModel();
+    @Override
+    public com.liferay.portal.model.UserIdMapper toEscapedModel();
 
-	@Override
-	public UserIdMapper toUnescapedModel();
+    @Override
+    public com.liferay.portal.model.UserIdMapper toUnescapedModel();
 
-	@Override
-	public String toString();
+    @Override
+    public String toString();
 
-	@Override
-	public String toXmlString();
+    @Override
+    public String toXmlString();
 }

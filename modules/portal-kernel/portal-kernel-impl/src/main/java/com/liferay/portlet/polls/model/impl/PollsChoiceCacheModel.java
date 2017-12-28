@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.polls.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -35,161 +21,151 @@ import java.util.Date;
  * @generated
  */
 public class PollsChoiceCacheModel implements CacheModel<PollsChoice>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(23);
+    Externalizable {
+    public String uuid;
+    public long choiceId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public long questionId;
+    public String name;
+    public String description;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", choiceId=");
-		sb.append(choiceId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", questionId=");
-		sb.append(questionId);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", description=");
-		sb.append(description);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(23);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", choiceId=");
+        sb.append(choiceId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", questionId=");
+        sb.append(questionId);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", description=");
+        sb.append(description);
+        sb.append("}");
 
-	@Override
-	public PollsChoice toEntityModel() {
-		PollsChoiceImpl pollsChoiceImpl = new PollsChoiceImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			pollsChoiceImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			pollsChoiceImpl.setUuid(uuid);
-		}
+    @Override
+    public PollsChoice toEntityModel() {
+        PollsChoiceImpl pollsChoiceImpl = new PollsChoiceImpl();
 
-		pollsChoiceImpl.setChoiceId(choiceId);
-		pollsChoiceImpl.setGroupId(groupId);
-		pollsChoiceImpl.setCompanyId(companyId);
-		pollsChoiceImpl.setUserId(userId);
+        if (uuid == null) {
+            pollsChoiceImpl.setUuid(StringPool.BLANK);
+        } else {
+            pollsChoiceImpl.setUuid(uuid);
+        }
 
-		if (userName == null) {
-			pollsChoiceImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			pollsChoiceImpl.setUserName(userName);
-		}
+        pollsChoiceImpl.setChoiceId(choiceId);
+        pollsChoiceImpl.setGroupId(groupId);
+        pollsChoiceImpl.setCompanyId(companyId);
+        pollsChoiceImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			pollsChoiceImpl.setCreateDate(null);
-		}
-		else {
-			pollsChoiceImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            pollsChoiceImpl.setUserName(StringPool.BLANK);
+        } else {
+            pollsChoiceImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			pollsChoiceImpl.setModifiedDate(null);
-		}
-		else {
-			pollsChoiceImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            pollsChoiceImpl.setCreateDate(null);
+        } else {
+            pollsChoiceImpl.setCreateDate(new Date(createDate));
+        }
 
-		pollsChoiceImpl.setQuestionId(questionId);
+        if (modifiedDate == Long.MIN_VALUE) {
+            pollsChoiceImpl.setModifiedDate(null);
+        } else {
+            pollsChoiceImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (name == null) {
-			pollsChoiceImpl.setName(StringPool.BLANK);
-		}
-		else {
-			pollsChoiceImpl.setName(name);
-		}
+        pollsChoiceImpl.setQuestionId(questionId);
 
-		if (description == null) {
-			pollsChoiceImpl.setDescription(StringPool.BLANK);
-		}
-		else {
-			pollsChoiceImpl.setDescription(description);
-		}
+        if (name == null) {
+            pollsChoiceImpl.setName(StringPool.BLANK);
+        } else {
+            pollsChoiceImpl.setName(name);
+        }
 
-		pollsChoiceImpl.resetOriginalValues();
+        if (description == null) {
+            pollsChoiceImpl.setDescription(StringPool.BLANK);
+        } else {
+            pollsChoiceImpl.setDescription(description);
+        }
 
-		return pollsChoiceImpl;
-	}
+        pollsChoiceImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		choiceId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		questionId = objectInput.readLong();
-		name = objectInput.readUTF();
-		description = objectInput.readUTF();
-	}
+        return pollsChoiceImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        choiceId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        questionId = objectInput.readLong();
+        name = objectInput.readUTF();
+        description = objectInput.readUTF();
+    }
 
-		objectOutput.writeLong(choiceId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+        objectOutput.writeLong(choiceId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(questionId);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(questionId);
 
-		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(description);
-		}
-	}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-	public String uuid;
-	public long choiceId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public long questionId;
-	public String name;
-	public String description;
+        if (description == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(description);
+        }
+    }
 }

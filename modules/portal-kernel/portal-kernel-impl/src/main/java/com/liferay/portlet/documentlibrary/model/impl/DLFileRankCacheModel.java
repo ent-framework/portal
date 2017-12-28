@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.documentlibrary.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,82 +20,81 @@ import java.util.Date;
  * @generated
  */
 public class DLFileRankCacheModel implements CacheModel<DLFileRank>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(15);
+    Externalizable {
+    public long fileRankId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public long createDate;
+    public long fileEntryId;
+    public boolean active;
 
-		sb.append("{fileRankId=");
-		sb.append(fileRankId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", fileEntryId=");
-		sb.append(fileEntryId);
-		sb.append(", active=");
-		sb.append(active);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(15);
 
-		return sb.toString();
-	}
+        sb.append("{fileRankId=");
+        sb.append(fileRankId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", fileEntryId=");
+        sb.append(fileEntryId);
+        sb.append(", active=");
+        sb.append(active);
+        sb.append("}");
 
-	@Override
-	public DLFileRank toEntityModel() {
-		DLFileRankImpl dlFileRankImpl = new DLFileRankImpl();
+        return sb.toString();
+    }
 
-		dlFileRankImpl.setFileRankId(fileRankId);
-		dlFileRankImpl.setGroupId(groupId);
-		dlFileRankImpl.setCompanyId(companyId);
-		dlFileRankImpl.setUserId(userId);
+    @Override
+    public DLFileRank toEntityModel() {
+        DLFileRankImpl dlFileRankImpl = new DLFileRankImpl();
 
-		if (createDate == Long.MIN_VALUE) {
-			dlFileRankImpl.setCreateDate(null);
-		}
-		else {
-			dlFileRankImpl.setCreateDate(new Date(createDate));
-		}
+        dlFileRankImpl.setFileRankId(fileRankId);
+        dlFileRankImpl.setGroupId(groupId);
+        dlFileRankImpl.setCompanyId(companyId);
+        dlFileRankImpl.setUserId(userId);
 
-		dlFileRankImpl.setFileEntryId(fileEntryId);
-		dlFileRankImpl.setActive(active);
+        if (createDate == Long.MIN_VALUE) {
+            dlFileRankImpl.setCreateDate(null);
+        } else {
+            dlFileRankImpl.setCreateDate(new Date(createDate));
+        }
 
-		dlFileRankImpl.resetOriginalValues();
+        dlFileRankImpl.setFileEntryId(fileEntryId);
+        dlFileRankImpl.setActive(active);
 
-		return dlFileRankImpl;
-	}
+        dlFileRankImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		fileRankId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		createDate = objectInput.readLong();
-		fileEntryId = objectInput.readLong();
-		active = objectInput.readBoolean();
-	}
+        return dlFileRankImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(fileRankId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(fileEntryId);
-		objectOutput.writeBoolean(active);
-	}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        fileRankId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        createDate = objectInput.readLong();
+        fileEntryId = objectInput.readLong();
+        active = objectInput.readBoolean();
+    }
 
-	public long fileRankId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public long createDate;
-	public long fileEntryId;
-	public boolean active;
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(fileRankId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(fileEntryId);
+        objectOutput.writeBoolean(active);
+    }
 }

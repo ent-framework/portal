@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.trash.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -33,83 +19,81 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class TrashVersionCacheModel implements CacheModel<TrashVersion>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(13);
+    Externalizable {
+    public long versionId;
+    public long entryId;
+    public long classNameId;
+    public long classPK;
+    public String typeSettings;
+    public int status;
 
-		sb.append("{versionId=");
-		sb.append(versionId);
-		sb.append(", entryId=");
-		sb.append(entryId);
-		sb.append(", classNameId=");
-		sb.append(classNameId);
-		sb.append(", classPK=");
-		sb.append(classPK);
-		sb.append(", typeSettings=");
-		sb.append(typeSettings);
-		sb.append(", status=");
-		sb.append(status);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(13);
 
-		return sb.toString();
-	}
+        sb.append("{versionId=");
+        sb.append(versionId);
+        sb.append(", entryId=");
+        sb.append(entryId);
+        sb.append(", classNameId=");
+        sb.append(classNameId);
+        sb.append(", classPK=");
+        sb.append(classPK);
+        sb.append(", typeSettings=");
+        sb.append(typeSettings);
+        sb.append(", status=");
+        sb.append(status);
+        sb.append("}");
 
-	@Override
-	public TrashVersion toEntityModel() {
-		TrashVersionImpl trashVersionImpl = new TrashVersionImpl();
+        return sb.toString();
+    }
 
-		trashVersionImpl.setVersionId(versionId);
-		trashVersionImpl.setEntryId(entryId);
-		trashVersionImpl.setClassNameId(classNameId);
-		trashVersionImpl.setClassPK(classPK);
+    @Override
+    public TrashVersion toEntityModel() {
+        TrashVersionImpl trashVersionImpl = new TrashVersionImpl();
 
-		if (typeSettings == null) {
-			trashVersionImpl.setTypeSettings(StringPool.BLANK);
-		}
-		else {
-			trashVersionImpl.setTypeSettings(typeSettings);
-		}
+        trashVersionImpl.setVersionId(versionId);
+        trashVersionImpl.setEntryId(entryId);
+        trashVersionImpl.setClassNameId(classNameId);
+        trashVersionImpl.setClassPK(classPK);
 
-		trashVersionImpl.setStatus(status);
+        if (typeSettings == null) {
+            trashVersionImpl.setTypeSettings(StringPool.BLANK);
+        } else {
+            trashVersionImpl.setTypeSettings(typeSettings);
+        }
 
-		trashVersionImpl.resetOriginalValues();
+        trashVersionImpl.setStatus(status);
 
-		return trashVersionImpl;
-	}
+        trashVersionImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		versionId = objectInput.readLong();
-		entryId = objectInput.readLong();
-		classNameId = objectInput.readLong();
-		classPK = objectInput.readLong();
-		typeSettings = objectInput.readUTF();
-		status = objectInput.readInt();
-	}
+        return trashVersionImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(versionId);
-		objectOutput.writeLong(entryId);
-		objectOutput.writeLong(classNameId);
-		objectOutput.writeLong(classPK);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        versionId = objectInput.readLong();
+        entryId = objectInput.readLong();
+        classNameId = objectInput.readLong();
+        classPK = objectInput.readLong();
+        typeSettings = objectInput.readUTF();
+        status = objectInput.readInt();
+    }
 
-		if (typeSettings == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(typeSettings);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(versionId);
+        objectOutput.writeLong(entryId);
+        objectOutput.writeLong(classNameId);
+        objectOutput.writeLong(classPK);
 
-		objectOutput.writeInt(status);
-	}
+        if (typeSettings == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(typeSettings);
+        }
 
-	public long versionId;
-	public long entryId;
-	public long classNameId;
-	public long classPK;
-	public String typeSettings;
-	public int status;
+        objectOutput.writeInt(status);
+    }
 }

@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.journal.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -35,450 +21,416 @@ import java.util.Date;
  * @generated
  */
 public class JournalArticleCacheModel implements CacheModel<JournalArticle>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(69);
+    Externalizable {
+    public String uuid;
+    public long id;
+    public long resourcePrimKey;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public long folderId;
+    public long classNameId;
+    public long classPK;
+    public String treePath;
+    public String articleId;
+    public double version;
+    public String title;
+    public String urlTitle;
+    public String description;
+    public String content;
+    public String type;
+    public String structureId;
+    public String templateId;
+    public String layoutUuid;
+    public long displayDate;
+    public long expirationDate;
+    public long reviewDate;
+    public boolean indexable;
+    public boolean smallImage;
+    public long smallImageId;
+    public String smallImageURL;
+    public int status;
+    public long statusByUserId;
+    public String statusByUserName;
+    public long statusDate;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", id=");
-		sb.append(id);
-		sb.append(", resourcePrimKey=");
-		sb.append(resourcePrimKey);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", folderId=");
-		sb.append(folderId);
-		sb.append(", classNameId=");
-		sb.append(classNameId);
-		sb.append(", classPK=");
-		sb.append(classPK);
-		sb.append(", treePath=");
-		sb.append(treePath);
-		sb.append(", articleId=");
-		sb.append(articleId);
-		sb.append(", version=");
-		sb.append(version);
-		sb.append(", title=");
-		sb.append(title);
-		sb.append(", urlTitle=");
-		sb.append(urlTitle);
-		sb.append(", description=");
-		sb.append(description);
-		sb.append(", content=");
-		sb.append(content);
-		sb.append(", type=");
-		sb.append(type);
-		sb.append(", structureId=");
-		sb.append(structureId);
-		sb.append(", templateId=");
-		sb.append(templateId);
-		sb.append(", layoutUuid=");
-		sb.append(layoutUuid);
-		sb.append(", displayDate=");
-		sb.append(displayDate);
-		sb.append(", expirationDate=");
-		sb.append(expirationDate);
-		sb.append(", reviewDate=");
-		sb.append(reviewDate);
-		sb.append(", indexable=");
-		sb.append(indexable);
-		sb.append(", smallImage=");
-		sb.append(smallImage);
-		sb.append(", smallImageId=");
-		sb.append(smallImageId);
-		sb.append(", smallImageURL=");
-		sb.append(smallImageURL);
-		sb.append(", status=");
-		sb.append(status);
-		sb.append(", statusByUserId=");
-		sb.append(statusByUserId);
-		sb.append(", statusByUserName=");
-		sb.append(statusByUserName);
-		sb.append(", statusDate=");
-		sb.append(statusDate);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(69);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", id=");
+        sb.append(id);
+        sb.append(", resourcePrimKey=");
+        sb.append(resourcePrimKey);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", folderId=");
+        sb.append(folderId);
+        sb.append(", classNameId=");
+        sb.append(classNameId);
+        sb.append(", classPK=");
+        sb.append(classPK);
+        sb.append(", treePath=");
+        sb.append(treePath);
+        sb.append(", articleId=");
+        sb.append(articleId);
+        sb.append(", version=");
+        sb.append(version);
+        sb.append(", title=");
+        sb.append(title);
+        sb.append(", urlTitle=");
+        sb.append(urlTitle);
+        sb.append(", description=");
+        sb.append(description);
+        sb.append(", content=");
+        sb.append(content);
+        sb.append(", type=");
+        sb.append(type);
+        sb.append(", structureId=");
+        sb.append(structureId);
+        sb.append(", templateId=");
+        sb.append(templateId);
+        sb.append(", layoutUuid=");
+        sb.append(layoutUuid);
+        sb.append(", displayDate=");
+        sb.append(displayDate);
+        sb.append(", expirationDate=");
+        sb.append(expirationDate);
+        sb.append(", reviewDate=");
+        sb.append(reviewDate);
+        sb.append(", indexable=");
+        sb.append(indexable);
+        sb.append(", smallImage=");
+        sb.append(smallImage);
+        sb.append(", smallImageId=");
+        sb.append(smallImageId);
+        sb.append(", smallImageURL=");
+        sb.append(smallImageURL);
+        sb.append(", status=");
+        sb.append(status);
+        sb.append(", statusByUserId=");
+        sb.append(statusByUserId);
+        sb.append(", statusByUserName=");
+        sb.append(statusByUserName);
+        sb.append(", statusDate=");
+        sb.append(statusDate);
+        sb.append("}");
 
-	@Override
-	public JournalArticle toEntityModel() {
-		JournalArticleImpl journalArticleImpl = new JournalArticleImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			journalArticleImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			journalArticleImpl.setUuid(uuid);
-		}
+    @Override
+    public JournalArticle toEntityModel() {
+        JournalArticleImpl journalArticleImpl = new JournalArticleImpl();
 
-		journalArticleImpl.setId(id);
-		journalArticleImpl.setResourcePrimKey(resourcePrimKey);
-		journalArticleImpl.setGroupId(groupId);
-		journalArticleImpl.setCompanyId(companyId);
-		journalArticleImpl.setUserId(userId);
+        if (uuid == null) {
+            journalArticleImpl.setUuid(StringPool.BLANK);
+        } else {
+            journalArticleImpl.setUuid(uuid);
+        }
 
-		if (userName == null) {
-			journalArticleImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			journalArticleImpl.setUserName(userName);
-		}
+        journalArticleImpl.setId(id);
+        journalArticleImpl.setResourcePrimKey(resourcePrimKey);
+        journalArticleImpl.setGroupId(groupId);
+        journalArticleImpl.setCompanyId(companyId);
+        journalArticleImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			journalArticleImpl.setCreateDate(null);
-		}
-		else {
-			journalArticleImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            journalArticleImpl.setUserName(StringPool.BLANK);
+        } else {
+            journalArticleImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			journalArticleImpl.setModifiedDate(null);
-		}
-		else {
-			journalArticleImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            journalArticleImpl.setCreateDate(null);
+        } else {
+            journalArticleImpl.setCreateDate(new Date(createDate));
+        }
 
-		journalArticleImpl.setFolderId(folderId);
-		journalArticleImpl.setClassNameId(classNameId);
-		journalArticleImpl.setClassPK(classPK);
+        if (modifiedDate == Long.MIN_VALUE) {
+            journalArticleImpl.setModifiedDate(null);
+        } else {
+            journalArticleImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (treePath == null) {
-			journalArticleImpl.setTreePath(StringPool.BLANK);
-		}
-		else {
-			journalArticleImpl.setTreePath(treePath);
-		}
+        journalArticleImpl.setFolderId(folderId);
+        journalArticleImpl.setClassNameId(classNameId);
+        journalArticleImpl.setClassPK(classPK);
 
-		if (articleId == null) {
-			journalArticleImpl.setArticleId(StringPool.BLANK);
-		}
-		else {
-			journalArticleImpl.setArticleId(articleId);
-		}
+        if (treePath == null) {
+            journalArticleImpl.setTreePath(StringPool.BLANK);
+        } else {
+            journalArticleImpl.setTreePath(treePath);
+        }
 
-		journalArticleImpl.setVersion(version);
+        if (articleId == null) {
+            journalArticleImpl.setArticleId(StringPool.BLANK);
+        } else {
+            journalArticleImpl.setArticleId(articleId);
+        }
 
-		if (title == null) {
-			journalArticleImpl.setTitle(StringPool.BLANK);
-		}
-		else {
-			journalArticleImpl.setTitle(title);
-		}
+        journalArticleImpl.setVersion(version);
 
-		if (urlTitle == null) {
-			journalArticleImpl.setUrlTitle(StringPool.BLANK);
-		}
-		else {
-			journalArticleImpl.setUrlTitle(urlTitle);
-		}
+        if (title == null) {
+            journalArticleImpl.setTitle(StringPool.BLANK);
+        } else {
+            journalArticleImpl.setTitle(title);
+        }
 
-		if (description == null) {
-			journalArticleImpl.setDescription(StringPool.BLANK);
-		}
-		else {
-			journalArticleImpl.setDescription(description);
-		}
+        if (urlTitle == null) {
+            journalArticleImpl.setUrlTitle(StringPool.BLANK);
+        } else {
+            journalArticleImpl.setUrlTitle(urlTitle);
+        }
 
-		if (content == null) {
-			journalArticleImpl.setContent(StringPool.BLANK);
-		}
-		else {
-			journalArticleImpl.setContent(content);
-		}
+        if (description == null) {
+            journalArticleImpl.setDescription(StringPool.BLANK);
+        } else {
+            journalArticleImpl.setDescription(description);
+        }
 
-		if (type == null) {
-			journalArticleImpl.setType(StringPool.BLANK);
-		}
-		else {
-			journalArticleImpl.setType(type);
-		}
+        if (content == null) {
+            journalArticleImpl.setContent(StringPool.BLANK);
+        } else {
+            journalArticleImpl.setContent(content);
+        }
 
-		if (structureId == null) {
-			journalArticleImpl.setStructureId(StringPool.BLANK);
-		}
-		else {
-			journalArticleImpl.setStructureId(structureId);
-		}
+        if (type == null) {
+            journalArticleImpl.setType(StringPool.BLANK);
+        } else {
+            journalArticleImpl.setType(type);
+        }
 
-		if (templateId == null) {
-			journalArticleImpl.setTemplateId(StringPool.BLANK);
-		}
-		else {
-			journalArticleImpl.setTemplateId(templateId);
-		}
+        if (structureId == null) {
+            journalArticleImpl.setStructureId(StringPool.BLANK);
+        } else {
+            journalArticleImpl.setStructureId(structureId);
+        }
 
-		if (layoutUuid == null) {
-			journalArticleImpl.setLayoutUuid(StringPool.BLANK);
-		}
-		else {
-			journalArticleImpl.setLayoutUuid(layoutUuid);
-		}
+        if (templateId == null) {
+            journalArticleImpl.setTemplateId(StringPool.BLANK);
+        } else {
+            journalArticleImpl.setTemplateId(templateId);
+        }
 
-		if (displayDate == Long.MIN_VALUE) {
-			journalArticleImpl.setDisplayDate(null);
-		}
-		else {
-			journalArticleImpl.setDisplayDate(new Date(displayDate));
-		}
+        if (layoutUuid == null) {
+            journalArticleImpl.setLayoutUuid(StringPool.BLANK);
+        } else {
+            journalArticleImpl.setLayoutUuid(layoutUuid);
+        }
 
-		if (expirationDate == Long.MIN_VALUE) {
-			journalArticleImpl.setExpirationDate(null);
-		}
-		else {
-			journalArticleImpl.setExpirationDate(new Date(expirationDate));
-		}
+        if (displayDate == Long.MIN_VALUE) {
+            journalArticleImpl.setDisplayDate(null);
+        } else {
+            journalArticleImpl.setDisplayDate(new Date(displayDate));
+        }
 
-		if (reviewDate == Long.MIN_VALUE) {
-			journalArticleImpl.setReviewDate(null);
-		}
-		else {
-			journalArticleImpl.setReviewDate(new Date(reviewDate));
-		}
+        if (expirationDate == Long.MIN_VALUE) {
+            journalArticleImpl.setExpirationDate(null);
+        } else {
+            journalArticleImpl.setExpirationDate(new Date(expirationDate));
+        }
 
-		journalArticleImpl.setIndexable(indexable);
-		journalArticleImpl.setSmallImage(smallImage);
-		journalArticleImpl.setSmallImageId(smallImageId);
+        if (reviewDate == Long.MIN_VALUE) {
+            journalArticleImpl.setReviewDate(null);
+        } else {
+            journalArticleImpl.setReviewDate(new Date(reviewDate));
+        }
 
-		if (smallImageURL == null) {
-			journalArticleImpl.setSmallImageURL(StringPool.BLANK);
-		}
-		else {
-			journalArticleImpl.setSmallImageURL(smallImageURL);
-		}
+        journalArticleImpl.setIndexable(indexable);
+        journalArticleImpl.setSmallImage(smallImage);
+        journalArticleImpl.setSmallImageId(smallImageId);
 
-		journalArticleImpl.setStatus(status);
-		journalArticleImpl.setStatusByUserId(statusByUserId);
+        if (smallImageURL == null) {
+            journalArticleImpl.setSmallImageURL(StringPool.BLANK);
+        } else {
+            journalArticleImpl.setSmallImageURL(smallImageURL);
+        }
 
-		if (statusByUserName == null) {
-			journalArticleImpl.setStatusByUserName(StringPool.BLANK);
-		}
-		else {
-			journalArticleImpl.setStatusByUserName(statusByUserName);
-		}
+        journalArticleImpl.setStatus(status);
+        journalArticleImpl.setStatusByUserId(statusByUserId);
 
-		if (statusDate == Long.MIN_VALUE) {
-			journalArticleImpl.setStatusDate(null);
-		}
-		else {
-			journalArticleImpl.setStatusDate(new Date(statusDate));
-		}
+        if (statusByUserName == null) {
+            journalArticleImpl.setStatusByUserName(StringPool.BLANK);
+        } else {
+            journalArticleImpl.setStatusByUserName(statusByUserName);
+        }
 
-		journalArticleImpl.resetOriginalValues();
+        if (statusDate == Long.MIN_VALUE) {
+            journalArticleImpl.setStatusDate(null);
+        } else {
+            journalArticleImpl.setStatusDate(new Date(statusDate));
+        }
 
-		return journalArticleImpl;
-	}
+        journalArticleImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		id = objectInput.readLong();
-		resourcePrimKey = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		folderId = objectInput.readLong();
-		classNameId = objectInput.readLong();
-		classPK = objectInput.readLong();
-		treePath = objectInput.readUTF();
-		articleId = objectInput.readUTF();
-		version = objectInput.readDouble();
-		title = objectInput.readUTF();
-		urlTitle = objectInput.readUTF();
-		description = objectInput.readUTF();
-		content = objectInput.readUTF();
-		type = objectInput.readUTF();
-		structureId = objectInput.readUTF();
-		templateId = objectInput.readUTF();
-		layoutUuid = objectInput.readUTF();
-		displayDate = objectInput.readLong();
-		expirationDate = objectInput.readLong();
-		reviewDate = objectInput.readLong();
-		indexable = objectInput.readBoolean();
-		smallImage = objectInput.readBoolean();
-		smallImageId = objectInput.readLong();
-		smallImageURL = objectInput.readUTF();
-		status = objectInput.readInt();
-		statusByUserId = objectInput.readLong();
-		statusByUserName = objectInput.readUTF();
-		statusDate = objectInput.readLong();
-	}
+        return journalArticleImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        id = objectInput.readLong();
+        resourcePrimKey = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        folderId = objectInput.readLong();
+        classNameId = objectInput.readLong();
+        classPK = objectInput.readLong();
+        treePath = objectInput.readUTF();
+        articleId = objectInput.readUTF();
+        version = objectInput.readDouble();
+        title = objectInput.readUTF();
+        urlTitle = objectInput.readUTF();
+        description = objectInput.readUTF();
+        content = objectInput.readUTF();
+        type = objectInput.readUTF();
+        structureId = objectInput.readUTF();
+        templateId = objectInput.readUTF();
+        layoutUuid = objectInput.readUTF();
+        displayDate = objectInput.readLong();
+        expirationDate = objectInput.readLong();
+        reviewDate = objectInput.readLong();
+        indexable = objectInput.readBoolean();
+        smallImage = objectInput.readBoolean();
+        smallImageId = objectInput.readLong();
+        smallImageURL = objectInput.readUTF();
+        status = objectInput.readInt();
+        statusByUserId = objectInput.readLong();
+        statusByUserName = objectInput.readUTF();
+        statusDate = objectInput.readLong();
+    }
 
-		objectOutput.writeLong(id);
-		objectOutput.writeLong(resourcePrimKey);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+        objectOutput.writeLong(id);
+        objectOutput.writeLong(resourcePrimKey);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(folderId);
-		objectOutput.writeLong(classNameId);
-		objectOutput.writeLong(classPK);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (treePath == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(treePath);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(folderId);
+        objectOutput.writeLong(classNameId);
+        objectOutput.writeLong(classPK);
 
-		if (articleId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(articleId);
-		}
+        if (treePath == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(treePath);
+        }
 
-		objectOutput.writeDouble(version);
+        if (articleId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(articleId);
+        }
 
-		if (title == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(title);
-		}
+        objectOutput.writeDouble(version);
 
-		if (urlTitle == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(urlTitle);
-		}
+        if (title == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(title);
+        }
 
-		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(description);
-		}
+        if (urlTitle == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(urlTitle);
+        }
 
-		if (content == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(content);
-		}
+        if (description == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(description);
+        }
 
-		if (type == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(type);
-		}
+        if (content == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(content);
+        }
 
-		if (structureId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(structureId);
-		}
+        if (type == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(type);
+        }
 
-		if (templateId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(templateId);
-		}
+        if (structureId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(structureId);
+        }
 
-		if (layoutUuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(layoutUuid);
-		}
+        if (templateId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(templateId);
+        }
 
-		objectOutput.writeLong(displayDate);
-		objectOutput.writeLong(expirationDate);
-		objectOutput.writeLong(reviewDate);
-		objectOutput.writeBoolean(indexable);
-		objectOutput.writeBoolean(smallImage);
-		objectOutput.writeLong(smallImageId);
+        if (layoutUuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(layoutUuid);
+        }
 
-		if (smallImageURL == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(smallImageURL);
-		}
+        objectOutput.writeLong(displayDate);
+        objectOutput.writeLong(expirationDate);
+        objectOutput.writeLong(reviewDate);
+        objectOutput.writeBoolean(indexable);
+        objectOutput.writeBoolean(smallImage);
+        objectOutput.writeLong(smallImageId);
 
-		objectOutput.writeInt(status);
-		objectOutput.writeLong(statusByUserId);
+        if (smallImageURL == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(smallImageURL);
+        }
 
-		if (statusByUserName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(statusByUserName);
-		}
+        objectOutput.writeInt(status);
+        objectOutput.writeLong(statusByUserId);
 
-		objectOutput.writeLong(statusDate);
-	}
+        if (statusByUserName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(statusByUserName);
+        }
 
-	public String uuid;
-	public long id;
-	public long resourcePrimKey;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public long folderId;
-	public long classNameId;
-	public long classPK;
-	public String treePath;
-	public String articleId;
-	public double version;
-	public String title;
-	public String urlTitle;
-	public String description;
-	public String content;
-	public String type;
-	public String structureId;
-	public String templateId;
-	public String layoutUuid;
-	public long displayDate;
-	public long expirationDate;
-	public long reviewDate;
-	public boolean indexable;
-	public boolean smallImage;
-	public long smallImageId;
-	public String smallImageURL;
-	public int status;
-	public long statusByUserId;
-	public String statusByUserName;
-	public long statusDate;
+        objectOutput.writeLong(statusDate);
+    }
 }

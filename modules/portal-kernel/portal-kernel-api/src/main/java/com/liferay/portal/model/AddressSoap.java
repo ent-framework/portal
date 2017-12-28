@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -28,257 +14,256 @@ import java.util.List;
  * @generated
  */
 public class AddressSoap implements Serializable {
-	public static AddressSoap toSoapModel(Address model) {
-		AddressSoap soapModel = new AddressSoap();
+    private String _uuid;
+    private long _addressId;
+    private long _companyId;
+    private long _userId;
+    private String _userName;
+    private Date _createDate;
+    private Date _modifiedDate;
+    private long _classNameId;
+    private long _classPK;
+    private String _street1;
+    private String _street2;
+    private String _street3;
+    private String _city;
+    private String _zip;
+    private long _regionId;
+    private long _countryId;
+    private int _typeId;
+    private boolean _mailing;
+    private boolean _primary;
 
-		soapModel.setUuid(model.getUuid());
-		soapModel.setAddressId(model.getAddressId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setUserName(model.getUserName());
-		soapModel.setCreateDate(model.getCreateDate());
-		soapModel.setModifiedDate(model.getModifiedDate());
-		soapModel.setClassNameId(model.getClassNameId());
-		soapModel.setClassPK(model.getClassPK());
-		soapModel.setStreet1(model.getStreet1());
-		soapModel.setStreet2(model.getStreet2());
-		soapModel.setStreet3(model.getStreet3());
-		soapModel.setCity(model.getCity());
-		soapModel.setZip(model.getZip());
-		soapModel.setRegionId(model.getRegionId());
-		soapModel.setCountryId(model.getCountryId());
-		soapModel.setTypeId(model.getTypeId());
-		soapModel.setMailing(model.getMailing());
-		soapModel.setPrimary(model.getPrimary());
+    public AddressSoap() {
+    }
 
-		return soapModel;
-	}
+    public static AddressSoap toSoapModel(Address model) {
+        AddressSoap soapModel = new AddressSoap();
 
-	public static AddressSoap[] toSoapModels(Address[] models) {
-		AddressSoap[] soapModels = new AddressSoap[models.length];
+        soapModel.setUuid(model.getUuid());
+        soapModel.setAddressId(model.getAddressId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setUserName(model.getUserName());
+        soapModel.setCreateDate(model.getCreateDate());
+        soapModel.setModifiedDate(model.getModifiedDate());
+        soapModel.setClassNameId(model.getClassNameId());
+        soapModel.setClassPK(model.getClassPK());
+        soapModel.setStreet1(model.getStreet1());
+        soapModel.setStreet2(model.getStreet2());
+        soapModel.setStreet3(model.getStreet3());
+        soapModel.setCity(model.getCity());
+        soapModel.setZip(model.getZip());
+        soapModel.setRegionId(model.getRegionId());
+        soapModel.setCountryId(model.getCountryId());
+        soapModel.setTypeId(model.getTypeId());
+        soapModel.setMailing(model.getMailing());
+        soapModel.setPrimary(model.getPrimary());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static AddressSoap[] toSoapModels(Address[] models) {
+        AddressSoap[] soapModels = new AddressSoap[models.length];
 
-	public static AddressSoap[][] toSoapModels(Address[][] models) {
-		AddressSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new AddressSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new AddressSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static AddressSoap[][] toSoapModels(Address[][] models) {
+        AddressSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new AddressSoap[models.length][models[0].length];
+        } else {
+            soapModels = new AddressSoap[0][0];
+        }
 
-	public static AddressSoap[] toSoapModels(List<Address> models) {
-		List<AddressSoap> soapModels = new ArrayList<AddressSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (Address model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new AddressSoap[soapModels.size()]);
-	}
+    public static AddressSoap[] toSoapModels(List<Address> models) {
+        List<AddressSoap> soapModels = new ArrayList<AddressSoap>(models.size());
 
-	public AddressSoap() {
-	}
+        for (Address model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _addressId;
-	}
+        return soapModels.toArray(new AddressSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setAddressId(pk);
-	}
+    public long getPrimaryKey() {
+        return _addressId;
+    }
 
-	public String getUuid() {
-		return _uuid;
-	}
+    public void setPrimaryKey(long pk) {
+        setAddressId(pk);
+    }
 
-	public void setUuid(String uuid) {
-		_uuid = uuid;
-	}
+    public String getUuid() {
+        return _uuid;
+    }
 
-	public long getAddressId() {
-		return _addressId;
-	}
+    public void setUuid(String uuid) {
+        _uuid = uuid;
+    }
 
-	public void setAddressId(long addressId) {
-		_addressId = addressId;
-	}
+    public long getAddressId() {
+        return _addressId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setAddressId(long addressId) {
+        _addressId = addressId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public String getUserName() {
-		return _userName;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setUserName(String userName) {
-		_userName = userName;
-	}
+    public String getUserName() {
+        return _userName;
+    }
 
-	public Date getCreateDate() {
-		return _createDate;
-	}
+    public void setUserName(String userName) {
+        _userName = userName;
+    }
 
-	public void setCreateDate(Date createDate) {
-		_createDate = createDate;
-	}
+    public Date getCreateDate() {
+        return _createDate;
+    }
 
-	public Date getModifiedDate() {
-		return _modifiedDate;
-	}
+    public void setCreateDate(Date createDate) {
+        _createDate = createDate;
+    }
 
-	public void setModifiedDate(Date modifiedDate) {
-		_modifiedDate = modifiedDate;
-	}
+    public Date getModifiedDate() {
+        return _modifiedDate;
+    }
 
-	public long getClassNameId() {
-		return _classNameId;
-	}
+    public void setModifiedDate(Date modifiedDate) {
+        _modifiedDate = modifiedDate;
+    }
 
-	public void setClassNameId(long classNameId) {
-		_classNameId = classNameId;
-	}
+    public long getClassNameId() {
+        return _classNameId;
+    }
 
-	public long getClassPK() {
-		return _classPK;
-	}
+    public void setClassNameId(long classNameId) {
+        _classNameId = classNameId;
+    }
 
-	public void setClassPK(long classPK) {
-		_classPK = classPK;
-	}
+    public long getClassPK() {
+        return _classPK;
+    }
 
-	public String getStreet1() {
-		return _street1;
-	}
+    public void setClassPK(long classPK) {
+        _classPK = classPK;
+    }
 
-	public void setStreet1(String street1) {
-		_street1 = street1;
-	}
+    public String getStreet1() {
+        return _street1;
+    }
 
-	public String getStreet2() {
-		return _street2;
-	}
+    public void setStreet1(String street1) {
+        _street1 = street1;
+    }
 
-	public void setStreet2(String street2) {
-		_street2 = street2;
-	}
+    public String getStreet2() {
+        return _street2;
+    }
 
-	public String getStreet3() {
-		return _street3;
-	}
+    public void setStreet2(String street2) {
+        _street2 = street2;
+    }
 
-	public void setStreet3(String street3) {
-		_street3 = street3;
-	}
+    public String getStreet3() {
+        return _street3;
+    }
 
-	public String getCity() {
-		return _city;
-	}
+    public void setStreet3(String street3) {
+        _street3 = street3;
+    }
 
-	public void setCity(String city) {
-		_city = city;
-	}
+    public String getCity() {
+        return _city;
+    }
 
-	public String getZip() {
-		return _zip;
-	}
+    public void setCity(String city) {
+        _city = city;
+    }
 
-	public void setZip(String zip) {
-		_zip = zip;
-	}
+    public String getZip() {
+        return _zip;
+    }
 
-	public long getRegionId() {
-		return _regionId;
-	}
+    public void setZip(String zip) {
+        _zip = zip;
+    }
 
-	public void setRegionId(long regionId) {
-		_regionId = regionId;
-	}
+    public long getRegionId() {
+        return _regionId;
+    }
 
-	public long getCountryId() {
-		return _countryId;
-	}
+    public void setRegionId(long regionId) {
+        _regionId = regionId;
+    }
 
-	public void setCountryId(long countryId) {
-		_countryId = countryId;
-	}
+    public long getCountryId() {
+        return _countryId;
+    }
 
-	public int getTypeId() {
-		return _typeId;
-	}
+    public void setCountryId(long countryId) {
+        _countryId = countryId;
+    }
 
-	public void setTypeId(int typeId) {
-		_typeId = typeId;
-	}
+    public int getTypeId() {
+        return _typeId;
+    }
 
-	public boolean getMailing() {
-		return _mailing;
-	}
+    public void setTypeId(int typeId) {
+        _typeId = typeId;
+    }
 
-	public boolean isMailing() {
-		return _mailing;
-	}
+    public boolean getMailing() {
+        return _mailing;
+    }
 
-	public void setMailing(boolean mailing) {
-		_mailing = mailing;
-	}
+    public boolean isMailing() {
+        return _mailing;
+    }
 
-	public boolean getPrimary() {
-		return _primary;
-	}
+    public void setMailing(boolean mailing) {
+        _mailing = mailing;
+    }
 
-	public boolean isPrimary() {
-		return _primary;
-	}
+    public boolean getPrimary() {
+        return _primary;
+    }
 
-	public void setPrimary(boolean primary) {
-		_primary = primary;
-	}
+    public boolean isPrimary() {
+        return _primary;
+    }
 
-	private String _uuid;
-	private long _addressId;
-	private long _companyId;
-	private long _userId;
-	private String _userName;
-	private Date _createDate;
-	private Date _modifiedDate;
-	private long _classNameId;
-	private long _classPK;
-	private String _street1;
-	private String _street2;
-	private String _street3;
-	private String _city;
-	private String _zip;
-	private long _regionId;
-	private long _countryId;
-	private int _typeId;
-	private boolean _mailing;
-	private boolean _primary;
+    public void setPrimary(boolean primary) {
+        _primary = primary;
+    }
 }

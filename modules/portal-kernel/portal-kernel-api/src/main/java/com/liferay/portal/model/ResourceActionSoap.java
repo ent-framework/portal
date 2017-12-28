@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -26,99 +12,98 @@ import java.util.List;
  * @generated
  */
 public class ResourceActionSoap implements Serializable {
-	public static ResourceActionSoap toSoapModel(ResourceAction model) {
-		ResourceActionSoap soapModel = new ResourceActionSoap();
+    private long _resourceActionId;
+    private String _name;
+    private String _actionId;
+    private long _bitwiseValue;
 
-		soapModel.setResourceActionId(model.getResourceActionId());
-		soapModel.setName(model.getName());
-		soapModel.setActionId(model.getActionId());
-		soapModel.setBitwiseValue(model.getBitwiseValue());
+    public ResourceActionSoap() {
+    }
 
-		return soapModel;
-	}
+    public static ResourceActionSoap toSoapModel(ResourceAction model) {
+        ResourceActionSoap soapModel = new ResourceActionSoap();
 
-	public static ResourceActionSoap[] toSoapModels(ResourceAction[] models) {
-		ResourceActionSoap[] soapModels = new ResourceActionSoap[models.length];
+        soapModel.setResourceActionId(model.getResourceActionId());
+        soapModel.setName(model.getName());
+        soapModel.setActionId(model.getActionId());
+        soapModel.setBitwiseValue(model.getBitwiseValue());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static ResourceActionSoap[] toSoapModels(ResourceAction[] models) {
+        ResourceActionSoap[] soapModels = new ResourceActionSoap[models.length];
 
-	public static ResourceActionSoap[][] toSoapModels(ResourceAction[][] models) {
-		ResourceActionSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new ResourceActionSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new ResourceActionSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static ResourceActionSoap[][] toSoapModels(ResourceAction[][] models) {
+        ResourceActionSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new ResourceActionSoap[models.length][models[0].length];
+        } else {
+            soapModels = new ResourceActionSoap[0][0];
+        }
 
-	public static ResourceActionSoap[] toSoapModels(List<ResourceAction> models) {
-		List<ResourceActionSoap> soapModels = new ArrayList<ResourceActionSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (ResourceAction model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new ResourceActionSoap[soapModels.size()]);
-	}
+    public static ResourceActionSoap[] toSoapModels(List<ResourceAction> models) {
+        List<ResourceActionSoap> soapModels = new ArrayList<ResourceActionSoap>(models.size());
 
-	public ResourceActionSoap() {
-	}
+        for (ResourceAction model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _resourceActionId;
-	}
+        return soapModels.toArray(new ResourceActionSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setResourceActionId(pk);
-	}
+    public long getPrimaryKey() {
+        return _resourceActionId;
+    }
 
-	public long getResourceActionId() {
-		return _resourceActionId;
-	}
+    public void setPrimaryKey(long pk) {
+        setResourceActionId(pk);
+    }
 
-	public void setResourceActionId(long resourceActionId) {
-		_resourceActionId = resourceActionId;
-	}
+    public long getResourceActionId() {
+        return _resourceActionId;
+    }
 
-	public String getName() {
-		return _name;
-	}
+    public void setResourceActionId(long resourceActionId) {
+        _resourceActionId = resourceActionId;
+    }
 
-	public void setName(String name) {
-		_name = name;
-	}
+    public String getName() {
+        return _name;
+    }
 
-	public String getActionId() {
-		return _actionId;
-	}
+    public void setName(String name) {
+        _name = name;
+    }
 
-	public void setActionId(String actionId) {
-		_actionId = actionId;
-	}
+    public String getActionId() {
+        return _actionId;
+    }
 
-	public long getBitwiseValue() {
-		return _bitwiseValue;
-	}
+    public void setActionId(String actionId) {
+        _actionId = actionId;
+    }
 
-	public void setBitwiseValue(long bitwiseValue) {
-		_bitwiseValue = bitwiseValue;
-	}
+    public long getBitwiseValue() {
+        return _bitwiseValue;
+    }
 
-	private long _resourceActionId;
-	private String _name;
-	private String _actionId;
-	private long _bitwiseValue;
+    public void setBitwiseValue(long bitwiseValue) {
+        _bitwiseValue = bitwiseValue;
+    }
 }

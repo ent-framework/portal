@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.shopping.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -35,161 +21,150 @@ import java.util.Date;
  * @generated
  */
 public class ShoppingOrderItemCacheModel implements CacheModel<ShoppingOrderItem>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(21);
+    Externalizable {
+    public long orderItemId;
+    public long orderId;
+    public String itemId;
+    public String sku;
+    public String name;
+    public String description;
+    public String properties;
+    public double price;
+    public int quantity;
+    public long shippedDate;
 
-		sb.append("{orderItemId=");
-		sb.append(orderItemId);
-		sb.append(", orderId=");
-		sb.append(orderId);
-		sb.append(", itemId=");
-		sb.append(itemId);
-		sb.append(", sku=");
-		sb.append(sku);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", description=");
-		sb.append(description);
-		sb.append(", properties=");
-		sb.append(properties);
-		sb.append(", price=");
-		sb.append(price);
-		sb.append(", quantity=");
-		sb.append(quantity);
-		sb.append(", shippedDate=");
-		sb.append(shippedDate);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(21);
 
-		return sb.toString();
-	}
+        sb.append("{orderItemId=");
+        sb.append(orderItemId);
+        sb.append(", orderId=");
+        sb.append(orderId);
+        sb.append(", itemId=");
+        sb.append(itemId);
+        sb.append(", sku=");
+        sb.append(sku);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", description=");
+        sb.append(description);
+        sb.append(", properties=");
+        sb.append(properties);
+        sb.append(", price=");
+        sb.append(price);
+        sb.append(", quantity=");
+        sb.append(quantity);
+        sb.append(", shippedDate=");
+        sb.append(shippedDate);
+        sb.append("}");
 
-	@Override
-	public ShoppingOrderItem toEntityModel() {
-		ShoppingOrderItemImpl shoppingOrderItemImpl = new ShoppingOrderItemImpl();
+        return sb.toString();
+    }
 
-		shoppingOrderItemImpl.setOrderItemId(orderItemId);
-		shoppingOrderItemImpl.setOrderId(orderId);
+    @Override
+    public ShoppingOrderItem toEntityModel() {
+        ShoppingOrderItemImpl shoppingOrderItemImpl = new ShoppingOrderItemImpl();
 
-		if (itemId == null) {
-			shoppingOrderItemImpl.setItemId(StringPool.BLANK);
-		}
-		else {
-			shoppingOrderItemImpl.setItemId(itemId);
-		}
+        shoppingOrderItemImpl.setOrderItemId(orderItemId);
+        shoppingOrderItemImpl.setOrderId(orderId);
 
-		if (sku == null) {
-			shoppingOrderItemImpl.setSku(StringPool.BLANK);
-		}
-		else {
-			shoppingOrderItemImpl.setSku(sku);
-		}
+        if (itemId == null) {
+            shoppingOrderItemImpl.setItemId(StringPool.BLANK);
+        } else {
+            shoppingOrderItemImpl.setItemId(itemId);
+        }
 
-		if (name == null) {
-			shoppingOrderItemImpl.setName(StringPool.BLANK);
-		}
-		else {
-			shoppingOrderItemImpl.setName(name);
-		}
+        if (sku == null) {
+            shoppingOrderItemImpl.setSku(StringPool.BLANK);
+        } else {
+            shoppingOrderItemImpl.setSku(sku);
+        }
 
-		if (description == null) {
-			shoppingOrderItemImpl.setDescription(StringPool.BLANK);
-		}
-		else {
-			shoppingOrderItemImpl.setDescription(description);
-		}
+        if (name == null) {
+            shoppingOrderItemImpl.setName(StringPool.BLANK);
+        } else {
+            shoppingOrderItemImpl.setName(name);
+        }
 
-		if (properties == null) {
-			shoppingOrderItemImpl.setProperties(StringPool.BLANK);
-		}
-		else {
-			shoppingOrderItemImpl.setProperties(properties);
-		}
+        if (description == null) {
+            shoppingOrderItemImpl.setDescription(StringPool.BLANK);
+        } else {
+            shoppingOrderItemImpl.setDescription(description);
+        }
 
-		shoppingOrderItemImpl.setPrice(price);
-		shoppingOrderItemImpl.setQuantity(quantity);
+        if (properties == null) {
+            shoppingOrderItemImpl.setProperties(StringPool.BLANK);
+        } else {
+            shoppingOrderItemImpl.setProperties(properties);
+        }
 
-		if (shippedDate == Long.MIN_VALUE) {
-			shoppingOrderItemImpl.setShippedDate(null);
-		}
-		else {
-			shoppingOrderItemImpl.setShippedDate(new Date(shippedDate));
-		}
+        shoppingOrderItemImpl.setPrice(price);
+        shoppingOrderItemImpl.setQuantity(quantity);
 
-		shoppingOrderItemImpl.resetOriginalValues();
+        if (shippedDate == Long.MIN_VALUE) {
+            shoppingOrderItemImpl.setShippedDate(null);
+        } else {
+            shoppingOrderItemImpl.setShippedDate(new Date(shippedDate));
+        }
 
-		return shoppingOrderItemImpl;
-	}
+        shoppingOrderItemImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		orderItemId = objectInput.readLong();
-		orderId = objectInput.readLong();
-		itemId = objectInput.readUTF();
-		sku = objectInput.readUTF();
-		name = objectInput.readUTF();
-		description = objectInput.readUTF();
-		properties = objectInput.readUTF();
-		price = objectInput.readDouble();
-		quantity = objectInput.readInt();
-		shippedDate = objectInput.readLong();
-	}
+        return shoppingOrderItemImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(orderItemId);
-		objectOutput.writeLong(orderId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        orderItemId = objectInput.readLong();
+        orderId = objectInput.readLong();
+        itemId = objectInput.readUTF();
+        sku = objectInput.readUTF();
+        name = objectInput.readUTF();
+        description = objectInput.readUTF();
+        properties = objectInput.readUTF();
+        price = objectInput.readDouble();
+        quantity = objectInput.readInt();
+        shippedDate = objectInput.readLong();
+    }
 
-		if (itemId == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(itemId);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(orderItemId);
+        objectOutput.writeLong(orderId);
 
-		if (sku == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(sku);
-		}
+        if (itemId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(itemId);
+        }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        if (sku == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(sku);
+        }
 
-		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(description);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		if (properties == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(properties);
-		}
+        if (description == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(description);
+        }
 
-		objectOutput.writeDouble(price);
-		objectOutput.writeInt(quantity);
-		objectOutput.writeLong(shippedDate);
-	}
+        if (properties == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(properties);
+        }
 
-	public long orderItemId;
-	public long orderId;
-	public String itemId;
-	public String sku;
-	public String name;
-	public String description;
-	public String properties;
-	public double price;
-	public int quantity;
-	public long shippedDate;
+        objectOutput.writeDouble(price);
+        objectOutput.writeInt(quantity);
+        objectOutput.writeLong(shippedDate);
+    }
 }

@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.dynamicdatalists.model.impl;
 
 import com.liferay.portal.kernel.exception.SystemException;
@@ -32,19 +18,18 @@ import com.liferay.portlet.dynamicdatalists.service.DDLRecordSetLocalServiceUtil
  * @generated
  */
 public abstract class DDLRecordSetBaseImpl extends DDLRecordSetModelImpl
-	implements DDLRecordSet {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this class directly. All methods that expect a d d l record set model instance should use the {@link DDLRecordSet} interface instead.
-	 */
-	@Override
-	public void persist() throws SystemException {
-		if (this.isNew()) {
-			DDLRecordSetLocalServiceUtil.addDDLRecordSet(this);
-		}
-		else {
-			DDLRecordSetLocalServiceUtil.updateDDLRecordSet(this);
-		}
-	}
+    implements DDLRecordSet {
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this class directly. All methods that expect a d d l record set model instance should use the {@link DDLRecordSet} interface instead.
+     */
+    @Override
+    public void persist() throws SystemException {
+        if (this.isNew()) {
+            DDLRecordSetLocalServiceUtil.addDDLRecordSet(this);
+        } else {
+            DDLRecordSetLocalServiceUtil.updateDDLRecordSet(this);
+        }
+    }
 }

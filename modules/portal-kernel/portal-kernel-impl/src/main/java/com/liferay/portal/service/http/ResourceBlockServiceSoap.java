@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
@@ -64,145 +50,135 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class ResourceBlockServiceSoap {
-	public static void addCompanyScopePermission(long scopeGroupId,
-		long companyId, java.lang.String name, long roleId,
-		java.lang.String actionId) throws RemoteException {
-		try {
-			ResourceBlockServiceUtil.addCompanyScopePermission(scopeGroupId,
-				companyId, name, roleId, actionId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+    private static Log _log = LogFactoryUtil.getLog(ResourceBlockServiceSoap.class);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void addCompanyScopePermission(long scopeGroupId,
+        long companyId, java.lang.String name, long roleId,
+        java.lang.String actionId) throws RemoteException {
+        try {
+            ResourceBlockServiceUtil.addCompanyScopePermission(scopeGroupId,
+                companyId, name, roleId, actionId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void addGroupScopePermission(long scopeGroupId,
-		long companyId, long groupId, java.lang.String name, long roleId,
-		java.lang.String actionId) throws RemoteException {
-		try {
-			ResourceBlockServiceUtil.addGroupScopePermission(scopeGroupId,
-				companyId, groupId, name, roleId, actionId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void addGroupScopePermission(long scopeGroupId,
+        long companyId, long groupId, java.lang.String name, long roleId,
+        java.lang.String actionId) throws RemoteException {
+        try {
+            ResourceBlockServiceUtil.addGroupScopePermission(scopeGroupId,
+                companyId, groupId, name, roleId, actionId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void addIndividualScopePermission(long companyId,
-		long groupId, java.lang.String name, long primKey, long roleId,
-		java.lang.String actionId) throws RemoteException {
-		try {
-			ResourceBlockServiceUtil.addIndividualScopePermission(companyId,
-				groupId, name, primKey, roleId, actionId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void addIndividualScopePermission(long companyId,
+        long groupId, java.lang.String name, long primKey, long roleId,
+        java.lang.String actionId) throws RemoteException {
+        try {
+            ResourceBlockServiceUtil.addIndividualScopePermission(companyId,
+                groupId, name, primKey, roleId, actionId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void removeAllGroupScopePermissions(long scopeGroupId,
-		long companyId, java.lang.String name, long roleId,
-		java.lang.String actionId) throws RemoteException {
-		try {
-			ResourceBlockServiceUtil.removeAllGroupScopePermissions(scopeGroupId,
-				companyId, name, roleId, actionId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void removeAllGroupScopePermissions(long scopeGroupId,
+        long companyId, java.lang.String name, long roleId,
+        java.lang.String actionId) throws RemoteException {
+        try {
+            ResourceBlockServiceUtil.removeAllGroupScopePermissions(scopeGroupId,
+                companyId, name, roleId, actionId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void removeCompanyScopePermission(long scopeGroupId,
-		long companyId, java.lang.String name, long roleId,
-		java.lang.String actionId) throws RemoteException {
-		try {
-			ResourceBlockServiceUtil.removeCompanyScopePermission(scopeGroupId,
-				companyId, name, roleId, actionId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void removeCompanyScopePermission(long scopeGroupId,
+        long companyId, java.lang.String name, long roleId,
+        java.lang.String actionId) throws RemoteException {
+        try {
+            ResourceBlockServiceUtil.removeCompanyScopePermission(scopeGroupId,
+                companyId, name, roleId, actionId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void removeGroupScopePermission(long scopeGroupId,
-		long companyId, long groupId, java.lang.String name, long roleId,
-		java.lang.String actionId) throws RemoteException {
-		try {
-			ResourceBlockServiceUtil.removeGroupScopePermission(scopeGroupId,
-				companyId, groupId, name, roleId, actionId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void removeGroupScopePermission(long scopeGroupId,
+        long companyId, long groupId, java.lang.String name, long roleId,
+        java.lang.String actionId) throws RemoteException {
+        try {
+            ResourceBlockServiceUtil.removeGroupScopePermission(scopeGroupId,
+                companyId, groupId, name, roleId, actionId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void removeIndividualScopePermission(long companyId,
-		long groupId, java.lang.String name, long primKey, long roleId,
-		java.lang.String actionId) throws RemoteException {
-		try {
-			ResourceBlockServiceUtil.removeIndividualScopePermission(companyId,
-				groupId, name, primKey, roleId, actionId);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void removeIndividualScopePermission(long companyId,
+        long groupId, java.lang.String name, long primKey, long roleId,
+        java.lang.String actionId) throws RemoteException {
+        try {
+            ResourceBlockServiceUtil.removeIndividualScopePermission(companyId,
+                groupId, name, primKey, roleId, actionId);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void setCompanyScopePermissions(long scopeGroupId,
-		long companyId, java.lang.String name, long roleId,
-		java.util.List<java.lang.String> actionIds) throws RemoteException {
-		try {
-			ResourceBlockServiceUtil.setCompanyScopePermissions(scopeGroupId,
-				companyId, name, roleId, actionIds);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void setCompanyScopePermissions(long scopeGroupId,
+        long companyId, java.lang.String name, long roleId,
+        java.util.List<java.lang.String> actionIds) throws RemoteException {
+        try {
+            ResourceBlockServiceUtil.setCompanyScopePermissions(scopeGroupId,
+                companyId, name, roleId, actionIds);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void setGroupScopePermissions(long scopeGroupId,
-		long companyId, long groupId, java.lang.String name, long roleId,
-		java.util.List<java.lang.String> actionIds) throws RemoteException {
-		try {
-			ResourceBlockServiceUtil.setGroupScopePermissions(scopeGroupId,
-				companyId, groupId, name, roleId, actionIds);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void setGroupScopePermissions(long scopeGroupId,
+        long companyId, long groupId, java.lang.String name, long roleId,
+        java.util.List<java.lang.String> actionIds) throws RemoteException {
+        try {
+            ResourceBlockServiceUtil.setGroupScopePermissions(scopeGroupId,
+                companyId, groupId, name, roleId, actionIds);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	public static void setIndividualScopePermissions(long companyId,
-		long groupId, java.lang.String name, long primKey, long roleId,
-		java.util.List<java.lang.String> actionIds) throws RemoteException {
-		try {
-			ResourceBlockServiceUtil.setIndividualScopePermissions(companyId,
-				groupId, name, primKey, roleId, actionIds);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+    public static void setIndividualScopePermissions(long companyId,
+        long groupId, java.lang.String name, long primKey, long roleId,
+        java.util.List<java.lang.String> actionIds) throws RemoteException {
+        try {
+            ResourceBlockServiceUtil.setIndividualScopePermissions(companyId,
+                groupId, name, primKey, roleId, actionIds);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-	private static Log _log = LogFactoryUtil.getLog(ResourceBlockServiceSoap.class);
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

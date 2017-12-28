@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.shopping.model;
 
 import aQute.bnd.annotation.ProviderType;
@@ -40,153 +26,154 @@ import java.io.Serializable;
  */
 @ProviderType
 public interface ShoppingItemFieldModel extends BaseModel<ShoppingItemField> {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this interface directly. All methods that expect a shopping item field model instance should use the {@link ShoppingItemField} interface instead.
-	 */
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this interface directly. All methods that expect a shopping item field model instance should use the {@link ShoppingItemField} interface instead.
+     */
 
-	/**
-	 * Returns the primary key of this shopping item field.
-	 *
-	 * @return the primary key of this shopping item field
-	 */
-	public long getPrimaryKey();
+    /**
+     * Returns the primary key of this shopping item field.
+     *
+     * @return the primary key of this shopping item field
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this shopping item field.
-	 *
-	 * @param primaryKey the primary key of this shopping item field
-	 */
-	public void setPrimaryKey(long primaryKey);
+    /**
+     * Sets the primary key of this shopping item field.
+     *
+     * @param primaryKey the primary key of this shopping item field
+     */
+    public void setPrimaryKey(long primaryKey);
 
-	/**
-	 * Returns the item field ID of this shopping item field.
-	 *
-	 * @return the item field ID of this shopping item field
-	 */
-	public long getItemFieldId();
+    /**
+     * Returns the item field ID of this shopping item field.
+     *
+     * @return the item field ID of this shopping item field
+     */
+    public long getItemFieldId();
 
-	/**
-	 * Sets the item field ID of this shopping item field.
-	 *
-	 * @param itemFieldId the item field ID of this shopping item field
-	 */
-	public void setItemFieldId(long itemFieldId);
+    /**
+     * Sets the item field ID of this shopping item field.
+     *
+     * @param itemFieldId the item field ID of this shopping item field
+     */
+    public void setItemFieldId(long itemFieldId);
 
-	/**
-	 * Returns the item ID of this shopping item field.
-	 *
-	 * @return the item ID of this shopping item field
-	 */
-	public long getItemId();
+    /**
+     * Returns the item ID of this shopping item field.
+     *
+     * @return the item ID of this shopping item field
+     */
+    public long getItemId();
 
-	/**
-	 * Sets the item ID of this shopping item field.
-	 *
-	 * @param itemId the item ID of this shopping item field
-	 */
-	public void setItemId(long itemId);
+    /**
+     * Sets the item ID of this shopping item field.
+     *
+     * @param itemId the item ID of this shopping item field
+     */
+    public void setItemId(long itemId);
 
-	/**
-	 * Returns the name of this shopping item field.
-	 *
-	 * @return the name of this shopping item field
-	 */
-	@AutoEscape
-	public String getName();
+    /**
+     * Returns the name of this shopping item field.
+     *
+     * @return the name of this shopping item field
+     */
+    @AutoEscape
+    public String getName();
 
-	/**
-	 * Sets the name of this shopping item field.
-	 *
-	 * @param name the name of this shopping item field
-	 */
-	public void setName(String name);
+    /**
+     * Sets the name of this shopping item field.
+     *
+     * @param name the name of this shopping item field
+     */
+    public void setName(String name);
 
-	/**
-	 * Returns the values of this shopping item field.
-	 *
-	 * @return the values of this shopping item field
-	 */
-	@AutoEscape
-	public String getValues();
+    /**
+     * Returns the values of this shopping item field.
+     *
+     * @return the values of this shopping item field
+     */
+    @AutoEscape
+    public String getValues();
 
-	/**
-	 * Sets the values of this shopping item field.
-	 *
-	 * @param values the values of this shopping item field
-	 */
-	public void setValues(String values);
+    /**
+     * Sets the values of this shopping item field.
+     *
+     * @param values the values of this shopping item field
+     */
+    public void setValues(String values);
 
-	/**
-	 * Returns the description of this shopping item field.
-	 *
-	 * @return the description of this shopping item field
-	 */
-	@AutoEscape
-	public String getDescription();
+    /**
+     * Returns the description of this shopping item field.
+     *
+     * @return the description of this shopping item field
+     */
+    @AutoEscape
+    public String getDescription();
 
-	/**
-	 * Sets the description of this shopping item field.
-	 *
-	 * @param description the description of this shopping item field
-	 */
-	public void setDescription(String description);
+    /**
+     * Sets the description of this shopping item field.
+     *
+     * @param description the description of this shopping item field
+     */
+    public void setDescription(String description);
 
-	@Override
-	public boolean isNew();
+    @Override
+    public boolean isNew();
 
-	@Override
-	public void setNew(boolean n);
+    @Override
+    public void setNew(boolean n);
 
-	@Override
-	public boolean isCachedModel();
+    @Override
+    public boolean isCachedModel();
 
-	@Override
-	public void setCachedModel(boolean cachedModel);
+    @Override
+    public void setCachedModel(boolean cachedModel);
 
-	@Override
-	public boolean isEscapedModel();
+    @Override
+    public boolean isEscapedModel();
 
-	@Override
-	public Serializable getPrimaryKeyObj();
+    @Override
+    public Serializable getPrimaryKeyObj();
 
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj);
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj);
 
-	@Override
-	public ExpandoBridge getExpandoBridge();
+    @Override
+    public ExpandoBridge getExpandoBridge();
 
-	@Override
-	public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
+    @Override
+    public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
 
-	@Override
-	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
+    @Override
+    public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	@Override
-	public Object clone();
+    @Override
+    public Object clone();
 
-	@Override
-	public int compareTo(ShoppingItemField shoppingItemField);
+    @Override
+    public int compareTo(
+        com.liferay.portlet.shopping.model.ShoppingItemField shoppingItemField);
 
-	@Override
-	public int hashCode();
+    @Override
+    public int hashCode();
 
-	@Override
-	public CacheModel<ShoppingItemField> toCacheModel();
+    @Override
+    public CacheModel<com.liferay.portlet.shopping.model.ShoppingItemField> toCacheModel();
 
-	@Override
-	public ShoppingItemField toEscapedModel();
+    @Override
+    public com.liferay.portlet.shopping.model.ShoppingItemField toEscapedModel();
 
-	@Override
-	public ShoppingItemField toUnescapedModel();
+    @Override
+    public com.liferay.portlet.shopping.model.ShoppingItemField toUnescapedModel();
 
-	@Override
-	public String toString();
+    @Override
+    public String toString();
 
-	@Override
-	public String toXmlString();
+    @Override
+    public String toXmlString();
 }

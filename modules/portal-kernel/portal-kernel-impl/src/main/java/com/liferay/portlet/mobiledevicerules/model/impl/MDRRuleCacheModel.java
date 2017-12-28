@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.mobiledevicerules.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -35,196 +21,182 @@ import java.util.Date;
  * @generated
  */
 public class MDRRuleCacheModel implements CacheModel<MDRRule>, Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(27);
+    public String uuid;
+    public long ruleId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public long ruleGroupId;
+    public String name;
+    public String description;
+    public String type;
+    public String typeSettings;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", ruleId=");
-		sb.append(ruleId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", ruleGroupId=");
-		sb.append(ruleGroupId);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", description=");
-		sb.append(description);
-		sb.append(", type=");
-		sb.append(type);
-		sb.append(", typeSettings=");
-		sb.append(typeSettings);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(27);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", ruleId=");
+        sb.append(ruleId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", ruleGroupId=");
+        sb.append(ruleGroupId);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", description=");
+        sb.append(description);
+        sb.append(", type=");
+        sb.append(type);
+        sb.append(", typeSettings=");
+        sb.append(typeSettings);
+        sb.append("}");
 
-	@Override
-	public MDRRule toEntityModel() {
-		MDRRuleImpl mdrRuleImpl = new MDRRuleImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			mdrRuleImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			mdrRuleImpl.setUuid(uuid);
-		}
+    @Override
+    public MDRRule toEntityModel() {
+        MDRRuleImpl mdrRuleImpl = new MDRRuleImpl();
 
-		mdrRuleImpl.setRuleId(ruleId);
-		mdrRuleImpl.setGroupId(groupId);
-		mdrRuleImpl.setCompanyId(companyId);
-		mdrRuleImpl.setUserId(userId);
+        if (uuid == null) {
+            mdrRuleImpl.setUuid(StringPool.BLANK);
+        } else {
+            mdrRuleImpl.setUuid(uuid);
+        }
 
-		if (userName == null) {
-			mdrRuleImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			mdrRuleImpl.setUserName(userName);
-		}
+        mdrRuleImpl.setRuleId(ruleId);
+        mdrRuleImpl.setGroupId(groupId);
+        mdrRuleImpl.setCompanyId(companyId);
+        mdrRuleImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			mdrRuleImpl.setCreateDate(null);
-		}
-		else {
-			mdrRuleImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            mdrRuleImpl.setUserName(StringPool.BLANK);
+        } else {
+            mdrRuleImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			mdrRuleImpl.setModifiedDate(null);
-		}
-		else {
-			mdrRuleImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            mdrRuleImpl.setCreateDate(null);
+        } else {
+            mdrRuleImpl.setCreateDate(new Date(createDate));
+        }
 
-		mdrRuleImpl.setRuleGroupId(ruleGroupId);
+        if (modifiedDate == Long.MIN_VALUE) {
+            mdrRuleImpl.setModifiedDate(null);
+        } else {
+            mdrRuleImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (name == null) {
-			mdrRuleImpl.setName(StringPool.BLANK);
-		}
-		else {
-			mdrRuleImpl.setName(name);
-		}
+        mdrRuleImpl.setRuleGroupId(ruleGroupId);
 
-		if (description == null) {
-			mdrRuleImpl.setDescription(StringPool.BLANK);
-		}
-		else {
-			mdrRuleImpl.setDescription(description);
-		}
+        if (name == null) {
+            mdrRuleImpl.setName(StringPool.BLANK);
+        } else {
+            mdrRuleImpl.setName(name);
+        }
 
-		if (type == null) {
-			mdrRuleImpl.setType(StringPool.BLANK);
-		}
-		else {
-			mdrRuleImpl.setType(type);
-		}
+        if (description == null) {
+            mdrRuleImpl.setDescription(StringPool.BLANK);
+        } else {
+            mdrRuleImpl.setDescription(description);
+        }
 
-		if (typeSettings == null) {
-			mdrRuleImpl.setTypeSettings(StringPool.BLANK);
-		}
-		else {
-			mdrRuleImpl.setTypeSettings(typeSettings);
-		}
+        if (type == null) {
+            mdrRuleImpl.setType(StringPool.BLANK);
+        } else {
+            mdrRuleImpl.setType(type);
+        }
 
-		mdrRuleImpl.resetOriginalValues();
+        if (typeSettings == null) {
+            mdrRuleImpl.setTypeSettings(StringPool.BLANK);
+        } else {
+            mdrRuleImpl.setTypeSettings(typeSettings);
+        }
 
-		return mdrRuleImpl;
-	}
+        mdrRuleImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		ruleId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		ruleGroupId = objectInput.readLong();
-		name = objectInput.readUTF();
-		description = objectInput.readUTF();
-		type = objectInput.readUTF();
-		typeSettings = objectInput.readUTF();
-	}
+        return mdrRuleImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        ruleId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        ruleGroupId = objectInput.readLong();
+        name = objectInput.readUTF();
+        description = objectInput.readUTF();
+        type = objectInput.readUTF();
+        typeSettings = objectInput.readUTF();
+    }
 
-		objectOutput.writeLong(ruleId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+        objectOutput.writeLong(ruleId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(ruleGroupId);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeLong(ruleGroupId);
 
-		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(description);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		if (type == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(type);
-		}
+        if (description == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(description);
+        }
 
-		if (typeSettings == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(typeSettings);
-		}
-	}
+        if (type == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(type);
+        }
 
-	public String uuid;
-	public long ruleId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public long ruleGroupId;
-	public String name;
-	public String description;
-	public String type;
-	public String typeSettings;
+        if (typeSettings == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(typeSettings);
+        }
+    }
 }

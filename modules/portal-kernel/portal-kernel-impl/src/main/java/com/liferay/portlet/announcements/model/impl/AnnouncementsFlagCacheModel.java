@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.announcements.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,70 +20,69 @@ import java.util.Date;
  * @generated
  */
 public class AnnouncementsFlagCacheModel implements CacheModel<AnnouncementsFlag>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(11);
+    Externalizable {
+    public long flagId;
+    public long userId;
+    public long createDate;
+    public long entryId;
+    public int value;
 
-		sb.append("{flagId=");
-		sb.append(flagId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", entryId=");
-		sb.append(entryId);
-		sb.append(", value=");
-		sb.append(value);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(11);
 
-		return sb.toString();
-	}
+        sb.append("{flagId=");
+        sb.append(flagId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", entryId=");
+        sb.append(entryId);
+        sb.append(", value=");
+        sb.append(value);
+        sb.append("}");
 
-	@Override
-	public AnnouncementsFlag toEntityModel() {
-		AnnouncementsFlagImpl announcementsFlagImpl = new AnnouncementsFlagImpl();
+        return sb.toString();
+    }
 
-		announcementsFlagImpl.setFlagId(flagId);
-		announcementsFlagImpl.setUserId(userId);
+    @Override
+    public AnnouncementsFlag toEntityModel() {
+        AnnouncementsFlagImpl announcementsFlagImpl = new AnnouncementsFlagImpl();
 
-		if (createDate == Long.MIN_VALUE) {
-			announcementsFlagImpl.setCreateDate(null);
-		}
-		else {
-			announcementsFlagImpl.setCreateDate(new Date(createDate));
-		}
+        announcementsFlagImpl.setFlagId(flagId);
+        announcementsFlagImpl.setUserId(userId);
 
-		announcementsFlagImpl.setEntryId(entryId);
-		announcementsFlagImpl.setValue(value);
+        if (createDate == Long.MIN_VALUE) {
+            announcementsFlagImpl.setCreateDate(null);
+        } else {
+            announcementsFlagImpl.setCreateDate(new Date(createDate));
+        }
 
-		announcementsFlagImpl.resetOriginalValues();
+        announcementsFlagImpl.setEntryId(entryId);
+        announcementsFlagImpl.setValue(value);
 
-		return announcementsFlagImpl;
-	}
+        announcementsFlagImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		flagId = objectInput.readLong();
-		userId = objectInput.readLong();
-		createDate = objectInput.readLong();
-		entryId = objectInput.readLong();
-		value = objectInput.readInt();
-	}
+        return announcementsFlagImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(flagId);
-		objectOutput.writeLong(userId);
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(entryId);
-		objectOutput.writeInt(value);
-	}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        flagId = objectInput.readLong();
+        userId = objectInput.readLong();
+        createDate = objectInput.readLong();
+        entryId = objectInput.readLong();
+        value = objectInput.readInt();
+    }
 
-	public long flagId;
-	public long userId;
-	public long createDate;
-	public long entryId;
-	public int value;
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(flagId);
+        objectOutput.writeLong(userId);
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(entryId);
+        objectOutput.writeInt(value);
+    }
 }

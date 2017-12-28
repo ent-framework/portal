@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.shopping.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -33,99 +19,93 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class ShoppingItemFieldCacheModel implements CacheModel<ShoppingItemField>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(11);
+    Externalizable {
+    public long itemFieldId;
+    public long itemId;
+    public String name;
+    public String values;
+    public String description;
 
-		sb.append("{itemFieldId=");
-		sb.append(itemFieldId);
-		sb.append(", itemId=");
-		sb.append(itemId);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", values=");
-		sb.append(values);
-		sb.append(", description=");
-		sb.append(description);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(11);
 
-		return sb.toString();
-	}
+        sb.append("{itemFieldId=");
+        sb.append(itemFieldId);
+        sb.append(", itemId=");
+        sb.append(itemId);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", values=");
+        sb.append(values);
+        sb.append(", description=");
+        sb.append(description);
+        sb.append("}");
 
-	@Override
-	public ShoppingItemField toEntityModel() {
-		ShoppingItemFieldImpl shoppingItemFieldImpl = new ShoppingItemFieldImpl();
+        return sb.toString();
+    }
 
-		shoppingItemFieldImpl.setItemFieldId(itemFieldId);
-		shoppingItemFieldImpl.setItemId(itemId);
+    @Override
+    public ShoppingItemField toEntityModel() {
+        ShoppingItemFieldImpl shoppingItemFieldImpl = new ShoppingItemFieldImpl();
 
-		if (name == null) {
-			shoppingItemFieldImpl.setName(StringPool.BLANK);
-		}
-		else {
-			shoppingItemFieldImpl.setName(name);
-		}
+        shoppingItemFieldImpl.setItemFieldId(itemFieldId);
+        shoppingItemFieldImpl.setItemId(itemId);
 
-		if (values == null) {
-			shoppingItemFieldImpl.setValues(StringPool.BLANK);
-		}
-		else {
-			shoppingItemFieldImpl.setValues(values);
-		}
+        if (name == null) {
+            shoppingItemFieldImpl.setName(StringPool.BLANK);
+        } else {
+            shoppingItemFieldImpl.setName(name);
+        }
 
-		if (description == null) {
-			shoppingItemFieldImpl.setDescription(StringPool.BLANK);
-		}
-		else {
-			shoppingItemFieldImpl.setDescription(description);
-		}
+        if (values == null) {
+            shoppingItemFieldImpl.setValues(StringPool.BLANK);
+        } else {
+            shoppingItemFieldImpl.setValues(values);
+        }
 
-		shoppingItemFieldImpl.resetOriginalValues();
+        if (description == null) {
+            shoppingItemFieldImpl.setDescription(StringPool.BLANK);
+        } else {
+            shoppingItemFieldImpl.setDescription(description);
+        }
 
-		return shoppingItemFieldImpl;
-	}
+        shoppingItemFieldImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		itemFieldId = objectInput.readLong();
-		itemId = objectInput.readLong();
-		name = objectInput.readUTF();
-		values = objectInput.readUTF();
-		description = objectInput.readUTF();
-	}
+        return shoppingItemFieldImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(itemFieldId);
-		objectOutput.writeLong(itemId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        itemFieldId = objectInput.readLong();
+        itemId = objectInput.readLong();
+        name = objectInput.readUTF();
+        values = objectInput.readUTF();
+        description = objectInput.readUTF();
+    }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(itemFieldId);
+        objectOutput.writeLong(itemId);
 
-		if (values == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(values);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(description);
-		}
-	}
+        if (values == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(values);
+        }
 
-	public long itemFieldId;
-	public long itemId;
-	public String name;
-	public String values;
-	public String description;
+        if (description == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(description);
+        }
+    }
 }

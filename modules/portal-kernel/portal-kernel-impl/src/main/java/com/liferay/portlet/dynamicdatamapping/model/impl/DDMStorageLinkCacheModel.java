@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.dynamicdatamapping.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -33,75 +19,73 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class DDMStorageLinkCacheModel implements CacheModel<DDMStorageLink>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(11);
+    Externalizable {
+    public String uuid;
+    public long storageLinkId;
+    public long classNameId;
+    public long classPK;
+    public long structureId;
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", storageLinkId=");
-		sb.append(storageLinkId);
-		sb.append(", classNameId=");
-		sb.append(classNameId);
-		sb.append(", classPK=");
-		sb.append(classPK);
-		sb.append(", structureId=");
-		sb.append(structureId);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(11);
 
-		return sb.toString();
-	}
+        sb.append("{uuid=");
+        sb.append(uuid);
+        sb.append(", storageLinkId=");
+        sb.append(storageLinkId);
+        sb.append(", classNameId=");
+        sb.append(classNameId);
+        sb.append(", classPK=");
+        sb.append(classPK);
+        sb.append(", structureId=");
+        sb.append(structureId);
+        sb.append("}");
 
-	@Override
-	public DDMStorageLink toEntityModel() {
-		DDMStorageLinkImpl ddmStorageLinkImpl = new DDMStorageLinkImpl();
+        return sb.toString();
+    }
 
-		if (uuid == null) {
-			ddmStorageLinkImpl.setUuid(StringPool.BLANK);
-		}
-		else {
-			ddmStorageLinkImpl.setUuid(uuid);
-		}
+    @Override
+    public DDMStorageLink toEntityModel() {
+        DDMStorageLinkImpl ddmStorageLinkImpl = new DDMStorageLinkImpl();
 
-		ddmStorageLinkImpl.setStorageLinkId(storageLinkId);
-		ddmStorageLinkImpl.setClassNameId(classNameId);
-		ddmStorageLinkImpl.setClassPK(classPK);
-		ddmStorageLinkImpl.setStructureId(structureId);
+        if (uuid == null) {
+            ddmStorageLinkImpl.setUuid(StringPool.BLANK);
+        } else {
+            ddmStorageLinkImpl.setUuid(uuid);
+        }
 
-		ddmStorageLinkImpl.resetOriginalValues();
+        ddmStorageLinkImpl.setStorageLinkId(storageLinkId);
+        ddmStorageLinkImpl.setClassNameId(classNameId);
+        ddmStorageLinkImpl.setClassPK(classPK);
+        ddmStorageLinkImpl.setStructureId(structureId);
 
-		return ddmStorageLinkImpl;
-	}
+        ddmStorageLinkImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
-		storageLinkId = objectInput.readLong();
-		classNameId = objectInput.readLong();
-		classPK = objectInput.readLong();
-		structureId = objectInput.readLong();
-	}
+        return ddmStorageLinkImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        storageLinkId = objectInput.readLong();
+        classNameId = objectInput.readLong();
+        classPK = objectInput.readLong();
+        structureId = objectInput.readLong();
+    }
 
-		objectOutput.writeLong(storageLinkId);
-		objectOutput.writeLong(classNameId);
-		objectOutput.writeLong(classPK);
-		objectOutput.writeLong(structureId);
-	}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
 
-	public String uuid;
-	public long storageLinkId;
-	public long classNameId;
-	public long classPK;
-	public long structureId;
+        objectOutput.writeLong(storageLinkId);
+        objectOutput.writeLong(classNameId);
+        objectOutput.writeLong(classPK);
+        objectOutput.writeLong(structureId);
+    }
 }

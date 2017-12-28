@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.model;
 
 import java.io.Serializable;
@@ -27,199 +13,198 @@ import java.util.List;
  * @generated
  */
 public class SystemEventSoap implements Serializable {
-	public static SystemEventSoap toSoapModel(SystemEvent model) {
-		SystemEventSoap soapModel = new SystemEventSoap();
+    private long _systemEventId;
+    private long _groupId;
+    private long _companyId;
+    private long _userId;
+    private String _userName;
+    private Date _createDate;
+    private long _classNameId;
+    private long _classPK;
+    private String _classUuid;
+    private long _referrerClassNameId;
+    private long _parentSystemEventId;
+    private long _systemEventSetKey;
+    private int _type;
+    private String _extraData;
 
-		soapModel.setSystemEventId(model.getSystemEventId());
-		soapModel.setGroupId(model.getGroupId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setUserName(model.getUserName());
-		soapModel.setCreateDate(model.getCreateDate());
-		soapModel.setClassNameId(model.getClassNameId());
-		soapModel.setClassPK(model.getClassPK());
-		soapModel.setClassUuid(model.getClassUuid());
-		soapModel.setReferrerClassNameId(model.getReferrerClassNameId());
-		soapModel.setParentSystemEventId(model.getParentSystemEventId());
-		soapModel.setSystemEventSetKey(model.getSystemEventSetKey());
-		soapModel.setType(model.getType());
-		soapModel.setExtraData(model.getExtraData());
+    public SystemEventSoap() {
+    }
 
-		return soapModel;
-	}
+    public static SystemEventSoap toSoapModel(SystemEvent model) {
+        SystemEventSoap soapModel = new SystemEventSoap();
 
-	public static SystemEventSoap[] toSoapModels(SystemEvent[] models) {
-		SystemEventSoap[] soapModels = new SystemEventSoap[models.length];
+        soapModel.setSystemEventId(model.getSystemEventId());
+        soapModel.setGroupId(model.getGroupId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setUserName(model.getUserName());
+        soapModel.setCreateDate(model.getCreateDate());
+        soapModel.setClassNameId(model.getClassNameId());
+        soapModel.setClassPK(model.getClassPK());
+        soapModel.setClassUuid(model.getClassUuid());
+        soapModel.setReferrerClassNameId(model.getReferrerClassNameId());
+        soapModel.setParentSystemEventId(model.getParentSystemEventId());
+        soapModel.setSystemEventSetKey(model.getSystemEventSetKey());
+        soapModel.setType(model.getType());
+        soapModel.setExtraData(model.getExtraData());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static SystemEventSoap[] toSoapModels(SystemEvent[] models) {
+        SystemEventSoap[] soapModels = new SystemEventSoap[models.length];
 
-	public static SystemEventSoap[][] toSoapModels(SystemEvent[][] models) {
-		SystemEventSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new SystemEventSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new SystemEventSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static SystemEventSoap[][] toSoapModels(SystemEvent[][] models) {
+        SystemEventSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new SystemEventSoap[models.length][models[0].length];
+        } else {
+            soapModels = new SystemEventSoap[0][0];
+        }
 
-	public static SystemEventSoap[] toSoapModels(List<SystemEvent> models) {
-		List<SystemEventSoap> soapModels = new ArrayList<SystemEventSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (SystemEvent model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new SystemEventSoap[soapModels.size()]);
-	}
+    public static SystemEventSoap[] toSoapModels(List<SystemEvent> models) {
+        List<SystemEventSoap> soapModels = new ArrayList<SystemEventSoap>(models.size());
 
-	public SystemEventSoap() {
-	}
+        for (SystemEvent model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _systemEventId;
-	}
+        return soapModels.toArray(new SystemEventSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setSystemEventId(pk);
-	}
+    public long getPrimaryKey() {
+        return _systemEventId;
+    }
 
-	public long getSystemEventId() {
-		return _systemEventId;
-	}
+    public void setPrimaryKey(long pk) {
+        setSystemEventId(pk);
+    }
 
-	public void setSystemEventId(long systemEventId) {
-		_systemEventId = systemEventId;
-	}
+    public long getSystemEventId() {
+        return _systemEventId;
+    }
 
-	public long getGroupId() {
-		return _groupId;
-	}
+    public void setSystemEventId(long systemEventId) {
+        _systemEventId = systemEventId;
+    }
 
-	public void setGroupId(long groupId) {
-		_groupId = groupId;
-	}
+    public long getGroupId() {
+        return _groupId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setGroupId(long groupId) {
+        _groupId = groupId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public String getUserName() {
-		return _userName;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setUserName(String userName) {
-		_userName = userName;
-	}
+    public String getUserName() {
+        return _userName;
+    }
 
-	public Date getCreateDate() {
-		return _createDate;
-	}
+    public void setUserName(String userName) {
+        _userName = userName;
+    }
 
-	public void setCreateDate(Date createDate) {
-		_createDate = createDate;
-	}
+    public Date getCreateDate() {
+        return _createDate;
+    }
 
-	public long getClassNameId() {
-		return _classNameId;
-	}
+    public void setCreateDate(Date createDate) {
+        _createDate = createDate;
+    }
 
-	public void setClassNameId(long classNameId) {
-		_classNameId = classNameId;
-	}
+    public long getClassNameId() {
+        return _classNameId;
+    }
 
-	public long getClassPK() {
-		return _classPK;
-	}
+    public void setClassNameId(long classNameId) {
+        _classNameId = classNameId;
+    }
 
-	public void setClassPK(long classPK) {
-		_classPK = classPK;
-	}
+    public long getClassPK() {
+        return _classPK;
+    }
 
-	public String getClassUuid() {
-		return _classUuid;
-	}
+    public void setClassPK(long classPK) {
+        _classPK = classPK;
+    }
 
-	public void setClassUuid(String classUuid) {
-		_classUuid = classUuid;
-	}
+    public String getClassUuid() {
+        return _classUuid;
+    }
 
-	public long getReferrerClassNameId() {
-		return _referrerClassNameId;
-	}
+    public void setClassUuid(String classUuid) {
+        _classUuid = classUuid;
+    }
 
-	public void setReferrerClassNameId(long referrerClassNameId) {
-		_referrerClassNameId = referrerClassNameId;
-	}
+    public long getReferrerClassNameId() {
+        return _referrerClassNameId;
+    }
 
-	public long getParentSystemEventId() {
-		return _parentSystemEventId;
-	}
+    public void setReferrerClassNameId(long referrerClassNameId) {
+        _referrerClassNameId = referrerClassNameId;
+    }
 
-	public void setParentSystemEventId(long parentSystemEventId) {
-		_parentSystemEventId = parentSystemEventId;
-	}
+    public long getParentSystemEventId() {
+        return _parentSystemEventId;
+    }
 
-	public long getSystemEventSetKey() {
-		return _systemEventSetKey;
-	}
+    public void setParentSystemEventId(long parentSystemEventId) {
+        _parentSystemEventId = parentSystemEventId;
+    }
 
-	public void setSystemEventSetKey(long systemEventSetKey) {
-		_systemEventSetKey = systemEventSetKey;
-	}
+    public long getSystemEventSetKey() {
+        return _systemEventSetKey;
+    }
 
-	public int getType() {
-		return _type;
-	}
+    public void setSystemEventSetKey(long systemEventSetKey) {
+        _systemEventSetKey = systemEventSetKey;
+    }
 
-	public void setType(int type) {
-		_type = type;
-	}
+    public int getType() {
+        return _type;
+    }
 
-	public String getExtraData() {
-		return _extraData;
-	}
+    public void setType(int type) {
+        _type = type;
+    }
 
-	public void setExtraData(String extraData) {
-		_extraData = extraData;
-	}
+    public String getExtraData() {
+        return _extraData;
+    }
 
-	private long _systemEventId;
-	private long _groupId;
-	private long _companyId;
-	private long _userId;
-	private String _userName;
-	private Date _createDate;
-	private long _classNameId;
-	private long _classPK;
-	private String _classUuid;
-	private long _referrerClassNameId;
-	private long _parentSystemEventId;
-	private long _systemEventSetKey;
-	private int _type;
-	private String _extraData;
+    public void setExtraData(String extraData) {
+        _extraData = extraData;
+    }
 }

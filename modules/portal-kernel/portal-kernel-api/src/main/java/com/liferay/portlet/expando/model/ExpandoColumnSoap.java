@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portlet.expando.model;
 
 import java.io.Serializable;
@@ -27,129 +13,128 @@ import java.util.List;
  * @generated
  */
 public class ExpandoColumnSoap implements Serializable {
-	public static ExpandoColumnSoap toSoapModel(ExpandoColumn model) {
-		ExpandoColumnSoap soapModel = new ExpandoColumnSoap();
+    private long _columnId;
+    private long _companyId;
+    private long _tableId;
+    private String _name;
+    private int _type;
+    private String _defaultData;
+    private String _typeSettings;
 
-		soapModel.setColumnId(model.getColumnId());
-		soapModel.setCompanyId(model.getCompanyId());
-		soapModel.setTableId(model.getTableId());
-		soapModel.setName(model.getName());
-		soapModel.setType(model.getType());
-		soapModel.setDefaultData(model.getDefaultData());
-		soapModel.setTypeSettings(model.getTypeSettings());
+    public ExpandoColumnSoap() {
+    }
 
-		return soapModel;
-	}
+    public static ExpandoColumnSoap toSoapModel(ExpandoColumn model) {
+        ExpandoColumnSoap soapModel = new ExpandoColumnSoap();
 
-	public static ExpandoColumnSoap[] toSoapModels(ExpandoColumn[] models) {
-		ExpandoColumnSoap[] soapModels = new ExpandoColumnSoap[models.length];
+        soapModel.setColumnId(model.getColumnId());
+        soapModel.setCompanyId(model.getCompanyId());
+        soapModel.setTableId(model.getTableId());
+        soapModel.setName(model.getName());
+        soapModel.setType(model.getType());
+        soapModel.setDefaultData(model.getDefaultData());
+        soapModel.setTypeSettings(model.getTypeSettings());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static ExpandoColumnSoap[] toSoapModels(ExpandoColumn[] models) {
+        ExpandoColumnSoap[] soapModels = new ExpandoColumnSoap[models.length];
 
-	public static ExpandoColumnSoap[][] toSoapModels(ExpandoColumn[][] models) {
-		ExpandoColumnSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new ExpandoColumnSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new ExpandoColumnSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static ExpandoColumnSoap[][] toSoapModels(ExpandoColumn[][] models) {
+        ExpandoColumnSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new ExpandoColumnSoap[models.length][models[0].length];
+        } else {
+            soapModels = new ExpandoColumnSoap[0][0];
+        }
 
-	public static ExpandoColumnSoap[] toSoapModels(List<ExpandoColumn> models) {
-		List<ExpandoColumnSoap> soapModels = new ArrayList<ExpandoColumnSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (ExpandoColumn model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new ExpandoColumnSoap[soapModels.size()]);
-	}
+    public static ExpandoColumnSoap[] toSoapModels(List<ExpandoColumn> models) {
+        List<ExpandoColumnSoap> soapModels = new ArrayList<ExpandoColumnSoap>(models.size());
 
-	public ExpandoColumnSoap() {
-	}
+        for (ExpandoColumn model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _columnId;
-	}
+        return soapModels.toArray(new ExpandoColumnSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setColumnId(pk);
-	}
+    public long getPrimaryKey() {
+        return _columnId;
+    }
 
-	public long getColumnId() {
-		return _columnId;
-	}
+    public void setPrimaryKey(long pk) {
+        setColumnId(pk);
+    }
 
-	public void setColumnId(long columnId) {
-		_columnId = columnId;
-	}
+    public long getColumnId() {
+        return _columnId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setColumnId(long columnId) {
+        _columnId = columnId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getTableId() {
-		return _tableId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setTableId(long tableId) {
-		_tableId = tableId;
-	}
+    public long getTableId() {
+        return _tableId;
+    }
 
-	public String getName() {
-		return _name;
-	}
+    public void setTableId(long tableId) {
+        _tableId = tableId;
+    }
 
-	public void setName(String name) {
-		_name = name;
-	}
+    public String getName() {
+        return _name;
+    }
 
-	public int getType() {
-		return _type;
-	}
+    public void setName(String name) {
+        _name = name;
+    }
 
-	public void setType(int type) {
-		_type = type;
-	}
+    public int getType() {
+        return _type;
+    }
 
-	public String getDefaultData() {
-		return _defaultData;
-	}
+    public void setType(int type) {
+        _type = type;
+    }
 
-	public void setDefaultData(String defaultData) {
-		_defaultData = defaultData;
-	}
+    public String getDefaultData() {
+        return _defaultData;
+    }
 
-	public String getTypeSettings() {
-		return _typeSettings;
-	}
+    public void setDefaultData(String defaultData) {
+        _defaultData = defaultData;
+    }
 
-	public void setTypeSettings(String typeSettings) {
-		_typeSettings = typeSettings;
-	}
+    public String getTypeSettings() {
+        return _typeSettings;
+    }
 
-	private long _columnId;
-	private long _companyId;
-	private long _tableId;
-	private String _name;
-	private int _type;
-	private String _defaultData;
-	private String _typeSettings;
+    public void setTypeSettings(String typeSettings) {
+        _typeSettings = typeSettings;
+    }
 }
