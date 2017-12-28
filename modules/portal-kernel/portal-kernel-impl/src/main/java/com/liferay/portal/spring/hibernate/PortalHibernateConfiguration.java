@@ -29,6 +29,7 @@ import com.liferay.portal.util.ClassLoaderUtil;
 import com.liferay.portal.util.PropsUtil;
 import com.liferay.portal.util.PropsValues;
 
+import java.io.IOException;
 import java.io.InputStream;
 
 import java.net.URL;
@@ -45,6 +46,7 @@ import javassist.util.proxy.ProxyFactory;
 
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
+import org.hibernate.boot.MetadataSources;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.dialect.Dialect;
@@ -68,6 +70,7 @@ public class PortalHibernateConfiguration extends LocalSessionFactoryBean {
 		this.builder = new LocalSessionFactoryBuilder(ds, getConfigurationClassLoader());
 		
 	}
+
 
 	public SessionFactory buildSessionFactory() throws Exception {
 		//setBeanClassLoader(getConfigurationClassLoader());
@@ -124,6 +127,12 @@ public class PortalHibernateConfiguration extends LocalSessionFactoryBean {
 
 	protected String[] getConfigurationResources() {
 		return PropsUtil.getArray(PropsKeys.HIBERNATE_CONFIGS);
+	}
+
+	@Override
+	public void afterPropertiesSet() throws IOException {
+		this.loadConfiguration();
+		super.afterPropertiesSet();
 	}
 
 	//@Override

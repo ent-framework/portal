@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.ext.model;
 
 import aQute.bnd.annotation.ProviderType;
@@ -40,139 +26,124 @@ import java.io.Serializable;
  */
 @ProviderType
 public interface FilterScopeModel extends BaseModel<FilterScope> {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this interface directly. All methods that expect a filter scope model instance should use the {@link FilterScope} interface instead.
-	 */
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this interface directly. All methods that expect a filter scope model instance should use the {@link FilterScope} interface instead.
+     */
 
-	/**
-	 * Returns the primary key of this filter scope.
-	 *
-	 * @return the primary key of this filter scope
-	 */
-	public long getPrimaryKey();
+    /**
+     * Returns the primary key of this filter scope.
+     *
+     * @return the primary key of this filter scope
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this filter scope.
-	 *
-	 * @param primaryKey the primary key of this filter scope
-	 */
-	public void setPrimaryKey(long primaryKey);
+    /**
+     * Sets the primary key of this filter scope.
+     *
+     * @param primaryKey the primary key of this filter scope
+     */
+    public void setPrimaryKey(long primaryKey);
 
-	/**
-	 * Returns the filter scope ID of this filter scope.
-	 *
-	 * @return the filter scope ID of this filter scope
-	 */
-	public long getFilterScopeId();
+    /**
+     * Returns the filter scope ID of this filter scope.
+     *
+     * @return the filter scope ID of this filter scope
+     */
+    public long getFilterScopeId();
 
-	/**
-	 * Sets the filter scope ID of this filter scope.
-	 *
-	 * @param filterScopeId the filter scope ID of this filter scope
-	 */
-	public void setFilterScopeId(long filterScopeId);
+    /**
+     * Sets the filter scope ID of this filter scope.
+     *
+     * @param filterScopeId the filter scope ID of this filter scope
+     */
+    public void setFilterScopeId(long filterScopeId);
 
-	/**
-	 * Returns the filter name of this filter scope.
-	 *
-	 * @return the filter name of this filter scope
-	 */
-	@AutoEscape
-	public String getFilterName();
+    /**
+     * Returns the filter name of this filter scope.
+     *
+     * @return the filter name of this filter scope
+     */
+    @AutoEscape
+    public String getFilterName();
 
-	/**
-	 * Sets the filter name of this filter scope.
-	 *
-	 * @param filterName the filter name of this filter scope
-	 */
-	public void setFilterName(String filterName);
+    /**
+     * Sets the filter name of this filter scope.
+     *
+     * @param filterName the filter name of this filter scope
+     */
+    public void setFilterName(String filterName);
 
-	/**
-	 * Returns the class name of this filter scope.
-	 *
-	 * @return the class name of this filter scope
-	 */
-	@AutoEscape
-	public String getClassName();
+    /**
+     * Returns the class name of this filter scope.
+     *
+     * @return the class name of this filter scope
+     */
+    @AutoEscape
+    public String getClassName();
 
-	/**
-	 * Sets the class name of this filter scope.
-	 *
-	 * @param className the class name of this filter scope
-	 */
-	public void setClassName(String className);
+    /**
+     * Sets the class name of this filter scope.
+     *
+     * @param className the class name of this filter scope
+     */
+    public void setClassName(String className);
 
-	/**
-	 * Returns the context path of this filter scope.
-	 *
-	 * @return the context path of this filter scope
-	 */
-	@AutoEscape
-	public String getContextPath();
+    @Override
+    public boolean isNew();
 
-	/**
-	 * Sets the context path of this filter scope.
-	 *
-	 * @param contextPath the context path of this filter scope
-	 */
-	public void setContextPath(String contextPath);
+    @Override
+    public void setNew(boolean n);
 
-	@Override
-	public boolean isNew();
+    @Override
+    public boolean isCachedModel();
 
-	@Override
-	public void setNew(boolean n);
+    @Override
+    public void setCachedModel(boolean cachedModel);
 
-	@Override
-	public boolean isCachedModel();
+    @Override
+    public boolean isEscapedModel();
 
-	@Override
-	public void setCachedModel(boolean cachedModel);
+    @Override
+    public Serializable getPrimaryKeyObj();
 
-	@Override
-	public boolean isEscapedModel();
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj);
 
-	@Override
-	public Serializable getPrimaryKeyObj();
+    @Override
+    public ExpandoBridge getExpandoBridge();
 
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj);
+    @Override
+    public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
 
-	@Override
-	public ExpandoBridge getExpandoBridge();
+    @Override
+    public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
 
-	@Override
-	public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	@Override
-	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
+    @Override
+    public Object clone();
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    @Override
+    public int compareTo(com.liferay.portal.ext.model.FilterScope filterScope);
 
-	@Override
-	public Object clone();
+    @Override
+    public int hashCode();
 
-	@Override
-	public int compareTo(com.liferay.portal.ext.model.FilterScope filterScope);
+    @Override
+    public CacheModel<com.liferay.portal.ext.model.FilterScope> toCacheModel();
 
-	@Override
-	public int hashCode();
+    @Override
+    public com.liferay.portal.ext.model.FilterScope toEscapedModel();
 
-	@Override
-	public CacheModel<com.liferay.portal.ext.model.FilterScope> toCacheModel();
+    @Override
+    public com.liferay.portal.ext.model.FilterScope toUnescapedModel();
 
-	@Override
-	public com.liferay.portal.ext.model.FilterScope toEscapedModel();
+    @Override
+    public String toString();
 
-	@Override
-	public com.liferay.portal.ext.model.FilterScope toUnescapedModel();
-
-	@Override
-	public String toString();
-
-	@Override
-	public String toXmlString();
+    @Override
+    public String toXmlString();
 }

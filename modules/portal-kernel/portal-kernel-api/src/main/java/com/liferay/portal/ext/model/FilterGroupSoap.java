@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.ext.model;
 
 import java.io.Serializable;
@@ -27,129 +13,138 @@ import java.util.List;
  * @generated
  */
 public class FilterGroupSoap implements Serializable {
-	public static FilterGroupSoap toSoapModel(FilterGroup model) {
-		FilterGroupSoap soapModel = new FilterGroupSoap();
+    private String _uuid;
+    private long _filterGroupId;
+    private long _userId;
+    private String _userName;
+    private Date _createDate;
+    private Date _modifiedDate;
+    private long _groupId;
+    private long _filterScopeId;
 
-		soapModel.setFilterGroupId(model.getFilterGroupId());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setUserName(model.getUserName());
-		soapModel.setCreateDate(model.getCreateDate());
-		soapModel.setModifiedDate(model.getModifiedDate());
-		soapModel.setGroupId(model.getGroupId());
-		soapModel.setFilterScopeId(model.getFilterScopeId());
+    public FilterGroupSoap() {
+    }
 
-		return soapModel;
-	}
+    public static FilterGroupSoap toSoapModel(FilterGroup model) {
+        FilterGroupSoap soapModel = new FilterGroupSoap();
 
-	public static FilterGroupSoap[] toSoapModels(FilterGroup[] models) {
-		FilterGroupSoap[] soapModels = new FilterGroupSoap[models.length];
+        soapModel.setUuid(model.getUuid());
+        soapModel.setFilterGroupId(model.getFilterGroupId());
+        soapModel.setUserId(model.getUserId());
+        soapModel.setUserName(model.getUserName());
+        soapModel.setCreateDate(model.getCreateDate());
+        soapModel.setModifiedDate(model.getModifiedDate());
+        soapModel.setGroupId(model.getGroupId());
+        soapModel.setFilterScopeId(model.getFilterScopeId());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static FilterGroupSoap[] toSoapModels(FilterGroup[] models) {
+        FilterGroupSoap[] soapModels = new FilterGroupSoap[models.length];
 
-	public static FilterGroupSoap[][] toSoapModels(FilterGroup[][] models) {
-		FilterGroupSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new FilterGroupSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new FilterGroupSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static FilterGroupSoap[][] toSoapModels(FilterGroup[][] models) {
+        FilterGroupSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new FilterGroupSoap[models.length][models[0].length];
+        } else {
+            soapModels = new FilterGroupSoap[0][0];
+        }
 
-	public static FilterGroupSoap[] toSoapModels(List<FilterGroup> models) {
-		List<FilterGroupSoap> soapModels = new ArrayList<FilterGroupSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (FilterGroup model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new FilterGroupSoap[soapModels.size()]);
-	}
+    public static FilterGroupSoap[] toSoapModels(List<FilterGroup> models) {
+        List<FilterGroupSoap> soapModels = new ArrayList<FilterGroupSoap>(models.size());
 
-	public FilterGroupSoap() {
-	}
+        for (FilterGroup model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _filterGroupId;
-	}
+        return soapModels.toArray(new FilterGroupSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setFilterGroupId(pk);
-	}
+    public long getPrimaryKey() {
+        return _filterGroupId;
+    }
 
-	public long getFilterGroupId() {
-		return _filterGroupId;
-	}
+    public void setPrimaryKey(long pk) {
+        setFilterGroupId(pk);
+    }
 
-	public void setFilterGroupId(long filterGroupId) {
-		_filterGroupId = filterGroupId;
-	}
+    public String getUuid() {
+        return _uuid;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setUuid(String uuid) {
+        _uuid = uuid;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getFilterGroupId() {
+        return _filterGroupId;
+    }
 
-	public String getUserName() {
-		return _userName;
-	}
+    public void setFilterGroupId(long filterGroupId) {
+        _filterGroupId = filterGroupId;
+    }
 
-	public void setUserName(String userName) {
-		_userName = userName;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public Date getCreateDate() {
-		return _createDate;
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setCreateDate(Date createDate) {
-		_createDate = createDate;
-	}
+    public String getUserName() {
+        return _userName;
+    }
 
-	public Date getModifiedDate() {
-		return _modifiedDate;
-	}
+    public void setUserName(String userName) {
+        _userName = userName;
+    }
 
-	public void setModifiedDate(Date modifiedDate) {
-		_modifiedDate = modifiedDate;
-	}
+    public Date getCreateDate() {
+        return _createDate;
+    }
 
-	public long getGroupId() {
-		return _groupId;
-	}
+    public void setCreateDate(Date createDate) {
+        _createDate = createDate;
+    }
 
-	public void setGroupId(long groupId) {
-		_groupId = groupId;
-	}
+    public Date getModifiedDate() {
+        return _modifiedDate;
+    }
 
-	public long getFilterScopeId() {
-		return _filterScopeId;
-	}
+    public void setModifiedDate(Date modifiedDate) {
+        _modifiedDate = modifiedDate;
+    }
 
-	public void setFilterScopeId(long filterScopeId) {
-		_filterScopeId = filterScopeId;
-	}
+    public long getGroupId() {
+        return _groupId;
+    }
 
-	private long _filterGroupId;
-	private long _userId;
-	private String _userName;
-	private Date _createDate;
-	private Date _modifiedDate;
-	private long _groupId;
-	private long _filterScopeId;
+    public void setGroupId(long groupId) {
+        _groupId = groupId;
+    }
+
+    public long getFilterScopeId() {
+        return _filterScopeId;
+    }
+
+    public void setFilterScopeId(long filterScopeId) {
+        _filterScopeId = filterScopeId;
+    }
 }

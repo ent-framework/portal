@@ -121,12 +121,10 @@ public class InvokerFilterChain implements FilterChain {
 						_log.debug("filter name : " + fm.getFilterName() + " is proxy class");
 					}
 				}
-				
-				String contextPath = request.getContextPath();
-				
+
 				if (group!=null) {
 					
-					FilterScope fs = FilterScopeLocalServiceUtil.query(fm.getFilterName(), filterClassName, contextPath);
+					FilterScope fs = FilterScopeLocalServiceUtil.queryOrNew(fm.getFilterName(), filterClassName);
 					if (fs!=null) {
 						inScope = FilterGroupLocalServiceUtil.isInScope(group.getGroupId(), fs.getFilterScopeId());
 					}

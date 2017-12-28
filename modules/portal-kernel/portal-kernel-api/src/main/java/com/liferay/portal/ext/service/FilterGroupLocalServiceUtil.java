@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.ext.service;
 
 import aQute.bnd.annotation.ProviderType;
@@ -35,273 +21,303 @@ import com.liferay.portal.kernel.util.ReferenceRegistry;
  */
 @ProviderType
 public class FilterGroupLocalServiceUtil {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify this class directly. Add custom service methods to {@link com.liferay.portal.ext.service.impl.FilterGroupLocalServiceImpl} and rerun ServiceBuilder to regenerate this class.
-	 */
+    private static FilterGroupLocalService _service;
 
-	/**
-	* Adds the filter group to the database. Also notifies the appropriate model listeners.
-	*
-	* @param filterGroup the filter group
-	* @return the filter group that was added
-	* @throws SystemException if a system exception occurred
-	*/
-	public static com.liferay.portal.ext.model.FilterGroup addFilterGroup(
-		com.liferay.portal.ext.model.FilterGroup filterGroup)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().addFilterGroup(filterGroup);
-	}
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify this class directly. Add custom service methods to {@link com.liferay.portal.ext.service.impl.FilterGroupLocalServiceImpl} and rerun ServiceBuilder to regenerate this class.
+     */
 
-	/**
-	* Creates a new filter group with the primary key. Does not add the filter group to the database.
-	*
-	* @param filterGroupId the primary key for the new filter group
-	* @return the new filter group
-	*/
-	public static com.liferay.portal.ext.model.FilterGroup createFilterGroup(
-		long filterGroupId) {
-		return getService().createFilterGroup(filterGroupId);
-	}
+    /**
+    * Adds the filter group to the database. Also notifies the appropriate model listeners.
+    *
+    * @param filterGroup the filter group
+    * @return the filter group that was added
+    * @throws SystemException if a system exception occurred
+    */
+    public static com.liferay.portal.ext.model.FilterGroup addFilterGroup(
+        com.liferay.portal.ext.model.FilterGroup filterGroup)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getService().addFilterGroup(filterGroup);
+    }
 
-	/**
-	* Deletes the filter group with the primary key from the database. Also notifies the appropriate model listeners.
-	*
-	* @param filterGroupId the primary key of the filter group
-	* @return the filter group that was removed
-	* @throws PortalException if a filter group with the primary key could not be found
-	* @throws SystemException if a system exception occurred
-	*/
-	public static com.liferay.portal.ext.model.FilterGroup deleteFilterGroup(
-		long filterGroupId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return getService().deleteFilterGroup(filterGroupId);
-	}
+    /**
+    * Creates a new filter group with the primary key. Does not add the filter group to the database.
+    *
+    * @param filterGroupId the primary key for the new filter group
+    * @return the new filter group
+    */
+    public static com.liferay.portal.ext.model.FilterGroup createFilterGroup(
+        long filterGroupId) {
+        return getService().createFilterGroup(filterGroupId);
+    }
 
-	/**
-	* Deletes the filter group from the database. Also notifies the appropriate model listeners.
-	*
-	* @param filterGroup the filter group
-	* @return the filter group that was removed
-	* @throws SystemException if a system exception occurred
-	*/
-	public static com.liferay.portal.ext.model.FilterGroup deleteFilterGroup(
-		com.liferay.portal.ext.model.FilterGroup filterGroup)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().deleteFilterGroup(filterGroup);
-	}
+    /**
+    * Deletes the filter group with the primary key from the database. Also notifies the appropriate model listeners.
+    *
+    * @param filterGroupId the primary key of the filter group
+    * @return the filter group that was removed
+    * @throws PortalException if a filter group with the primary key could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public static com.liferay.portal.ext.model.FilterGroup deleteFilterGroup(
+        long filterGroupId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        return getService().deleteFilterGroup(filterGroupId);
+    }
 
-	public static com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery() {
-		return getService().dynamicQuery();
-	}
+    /**
+    * Deletes the filter group from the database. Also notifies the appropriate model listeners.
+    *
+    * @param filterGroup the filter group
+    * @return the filter group that was removed
+    * @throws SystemException if a system exception occurred
+    */
+    public static com.liferay.portal.ext.model.FilterGroup deleteFilterGroup(
+        com.liferay.portal.ext.model.FilterGroup filterGroup)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getService().deleteFilterGroup(filterGroup);
+    }
 
-	/**
-	* Performs a dynamic query on the database and returns the matching rows.
-	*
-	* @param dynamicQuery the dynamic query
-	* @return the matching rows
-	* @throws SystemException if a system exception occurred
-	*/
-	@SuppressWarnings("rawtypes")
-	public static java.util.List dynamicQuery(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().dynamicQuery(dynamicQuery);
-	}
+    public static com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery() {
+        return getService().dynamicQuery();
+    }
 
-	/**
-	* Performs a dynamic query on the database and returns a range of the matching rows.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.portal.ext.model.impl.FilterGroupModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
-	*
-	* @param dynamicQuery the dynamic query
-	* @param start the lower bound of the range of model instances
-	* @param end the upper bound of the range of model instances (not inclusive)
-	* @return the range of matching rows
-	* @throws SystemException if a system exception occurred
-	*/
-	@SuppressWarnings("rawtypes")
-	public static java.util.List dynamicQuery(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
-		int end) throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().dynamicQuery(dynamicQuery, start, end);
-	}
+    /**
+    * Performs a dynamic query on the database and returns the matching rows.
+    *
+    * @param dynamicQuery the dynamic query
+    * @return the matching rows
+    * @throws SystemException if a system exception occurred
+    */
+    @SuppressWarnings("rawtypes")
+    public static java.util.List dynamicQuery(
+        com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getService().dynamicQuery(dynamicQuery);
+    }
 
-	/**
-	* Performs a dynamic query on the database and returns an ordered range of the matching rows.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.portal.ext.model.impl.FilterGroupModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
-	*
-	* @param dynamicQuery the dynamic query
-	* @param start the lower bound of the range of model instances
-	* @param end the upper bound of the range of model instances (not inclusive)
-	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	* @return the ordered range of matching rows
-	* @throws SystemException if a system exception occurred
-	*/
-	@SuppressWarnings("rawtypes")
-	public static java.util.List dynamicQuery(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
-		int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService()
-				   .dynamicQuery(dynamicQuery, start, end, orderByComparator);
-	}
+    /**
+    * Performs a dynamic query on the database and returns a range of the matching rows.
+    *
+    * <p>
+    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.portal.ext.model.impl.FilterGroupModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+    * </p>
+    *
+    * @param dynamicQuery the dynamic query
+    * @param start the lower bound of the range of model instances
+    * @param end the upper bound of the range of model instances (not inclusive)
+    * @return the range of matching rows
+    * @throws SystemException if a system exception occurred
+    */
+    @SuppressWarnings("rawtypes")
+    public static java.util.List dynamicQuery(
+        com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
+        int end) throws com.liferay.portal.kernel.exception.SystemException {
+        return getService().dynamicQuery(dynamicQuery, start, end);
+    }
 
-	/**
-	* Returns the number of rows that match the dynamic query.
-	*
-	* @param dynamicQuery the dynamic query
-	* @return the number of rows that match the dynamic query
-	* @throws SystemException if a system exception occurred
-	*/
-	public static long dynamicQueryCount(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().dynamicQueryCount(dynamicQuery);
-	}
+    /**
+    * Performs a dynamic query on the database and returns an ordered range of the matching rows.
+    *
+    * <p>
+    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.portal.ext.model.impl.FilterGroupModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+    * </p>
+    *
+    * @param dynamicQuery the dynamic query
+    * @param start the lower bound of the range of model instances
+    * @param end the upper bound of the range of model instances (not inclusive)
+    * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+    * @return the ordered range of matching rows
+    * @throws SystemException if a system exception occurred
+    */
+    @SuppressWarnings("rawtypes")
+    public static java.util.List dynamicQuery(
+        com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
+        int end,
+        com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getService()
+                   .dynamicQuery(dynamicQuery, start, end, orderByComparator);
+    }
 
-	/**
-	* Returns the number of rows that match the dynamic query.
-	*
-	* @param dynamicQuery the dynamic query
-	* @param projection the projection to apply to the query
-	* @return the number of rows that match the dynamic query
-	* @throws SystemException if a system exception occurred
-	*/
-	public static long dynamicQueryCount(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery,
-		com.liferay.portal.kernel.dao.orm.Projection projection)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().dynamicQueryCount(dynamicQuery, projection);
-	}
+    /**
+    * Returns the number of rows that match the dynamic query.
+    *
+    * @param dynamicQuery the dynamic query
+    * @return the number of rows that match the dynamic query
+    * @throws SystemException if a system exception occurred
+    */
+    public static long dynamicQueryCount(
+        com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getService().dynamicQueryCount(dynamicQuery);
+    }
 
-	public static com.liferay.portal.ext.model.FilterGroup fetchFilterGroup(
-		long filterGroupId)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().fetchFilterGroup(filterGroupId);
-	}
+    /**
+    * Returns the number of rows that match the dynamic query.
+    *
+    * @param dynamicQuery the dynamic query
+    * @param projection the projection to apply to the query
+    * @return the number of rows that match the dynamic query
+    * @throws SystemException if a system exception occurred
+    */
+    public static long dynamicQueryCount(
+        com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery,
+        com.liferay.portal.kernel.dao.orm.Projection projection)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getService().dynamicQueryCount(dynamicQuery, projection);
+    }
 
-	/**
-	* Returns the filter group with the primary key.
-	*
-	* @param filterGroupId the primary key of the filter group
-	* @return the filter group
-	* @throws PortalException if a filter group with the primary key could not be found
-	* @throws SystemException if a system exception occurred
-	*/
-	public static com.liferay.portal.ext.model.FilterGroup getFilterGroup(
-		long filterGroupId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return getService().getFilterGroup(filterGroupId);
-	}
+    public static com.liferay.portal.ext.model.FilterGroup fetchFilterGroup(
+        long filterGroupId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getService().fetchFilterGroup(filterGroupId);
+    }
 
-	public static com.liferay.portal.model.PersistedModel getPersistedModel(
-		java.io.Serializable primaryKeyObj)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return getService().getPersistedModel(primaryKeyObj);
-	}
+    /**
+    * Returns the filter group matching the UUID and group.
+    *
+    * @param uuid the filter group's UUID
+    * @param groupId the primary key of the group
+    * @return the matching filter group, or <code>null</code> if a matching filter group could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public static com.liferay.portal.ext.model.FilterGroup fetchFilterGroupByUuidAndGroupId(
+        java.lang.String uuid, long groupId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getService().fetchFilterGroupByUuidAndGroupId(uuid, groupId);
+    }
 
-	/**
-	* Returns a range of all the filter groups.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.portal.ext.model.impl.FilterGroupModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
-	*
-	* @param start the lower bound of the range of filter groups
-	* @param end the upper bound of the range of filter groups (not inclusive)
-	* @return the range of filter groups
-	* @throws SystemException if a system exception occurred
-	*/
-	public static java.util.List<com.liferay.portal.ext.model.FilterGroup> getFilterGroups(
-		int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getFilterGroups(start, end);
-	}
+    /**
+    * Returns the filter group with the primary key.
+    *
+    * @param filterGroupId the primary key of the filter group
+    * @return the filter group
+    * @throws PortalException if a filter group with the primary key could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public static com.liferay.portal.ext.model.FilterGroup getFilterGroup(
+        long filterGroupId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        return getService().getFilterGroup(filterGroupId);
+    }
 
-	/**
-	* Returns the number of filter groups.
-	*
-	* @return the number of filter groups
-	* @throws SystemException if a system exception occurred
-	*/
-	public static int getFilterGroupsCount()
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getFilterGroupsCount();
-	}
+    public static com.liferay.portal.model.PersistedModel getPersistedModel(
+        java.io.Serializable primaryKeyObj)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        return getService().getPersistedModel(primaryKeyObj);
+    }
 
-	/**
-	* Updates the filter group in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
-	*
-	* @param filterGroup the filter group
-	* @return the filter group that was updated
-	* @throws SystemException if a system exception occurred
-	*/
-	public static com.liferay.portal.ext.model.FilterGroup updateFilterGroup(
-		com.liferay.portal.ext.model.FilterGroup filterGroup)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().updateFilterGroup(filterGroup);
-	}
+    /**
+    * Returns the filter group matching the UUID and group.
+    *
+    * @param uuid the filter group's UUID
+    * @param groupId the primary key of the group
+    * @return the matching filter group
+    * @throws PortalException if a matching filter group could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public static com.liferay.portal.ext.model.FilterGroup getFilterGroupByUuidAndGroupId(
+        java.lang.String uuid, long groupId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        return getService().getFilterGroupByUuidAndGroupId(uuid, groupId);
+    }
 
-	/**
-	* Returns the Spring bean ID for this bean.
-	*
-	* @return the Spring bean ID for this bean
-	*/
-	public static java.lang.String getBeanIdentifier() {
-		return getService().getBeanIdentifier();
-	}
+    /**
+    * Returns a range of all the filter groups.
+    *
+    * <p>
+    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.portal.ext.model.impl.FilterGroupModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+    * </p>
+    *
+    * @param start the lower bound of the range of filter groups
+    * @param end the upper bound of the range of filter groups (not inclusive)
+    * @return the range of filter groups
+    * @throws SystemException if a system exception occurred
+    */
+    public static java.util.List<com.liferay.portal.ext.model.FilterGroup> getFilterGroups(
+        int start, int end)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getService().getFilterGroups(start, end);
+    }
 
-	/**
-	* Sets the Spring bean ID for this bean.
-	*
-	* @param beanIdentifier the Spring bean ID for this bean
-	*/
-	public static void setBeanIdentifier(java.lang.String beanIdentifier) {
-		getService().setBeanIdentifier(beanIdentifier);
-	}
+    /**
+    * Returns the number of filter groups.
+    *
+    * @return the number of filter groups
+    * @throws SystemException if a system exception occurred
+    */
+    public static int getFilterGroupsCount()
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getService().getFilterGroupsCount();
+    }
 
-	public static boolean isInScope(long groupId, long filterScopeId) {
-		return getService().isInScope(groupId, filterScopeId);
-	}
+    /**
+    * Updates the filter group in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
+    *
+    * @param filterGroup the filter group
+    * @return the filter group that was updated
+    * @throws SystemException if a system exception occurred
+    */
+    public static com.liferay.portal.ext.model.FilterGroup updateFilterGroup(
+        com.liferay.portal.ext.model.FilterGroup filterGroup)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getService().updateFilterGroup(filterGroup);
+    }
 
-	public static void addFilterGroup(long filterScopeId, long[] groupIds)
-		throws java.lang.Exception {
-		getService().addFilterGroup(filterScopeId, groupIds);
-	}
+    /**
+    * Returns the Spring bean ID for this bean.
+    *
+    * @return the Spring bean ID for this bean
+    */
+    public static java.lang.String getBeanIdentifier() {
+        return getService().getBeanIdentifier();
+    }
 
-	public static java.util.List<com.liferay.portal.ext.model.FilterGroup> findByFilterScopeId(
-		long filterScopeId)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().findByFilterScopeId(filterScopeId);
-	}
+    /**
+    * Sets the Spring bean ID for this bean.
+    *
+    * @param beanIdentifier the Spring bean ID for this bean
+    */
+    public static void setBeanIdentifier(java.lang.String beanIdentifier) {
+        getService().setBeanIdentifier(beanIdentifier);
+    }
 
-	public static FilterGroupLocalService getService() {
-		if (_service == null) {
-			_service = (FilterGroupLocalService)PortalBeanLocatorUtil.locate(FilterGroupLocalService.class.getName());
+    public static boolean isInScope(long groupId, long filterScopeId) {
+        return getService().isInScope(groupId, filterScopeId);
+    }
 
-			ReferenceRegistry.registerReference(FilterGroupLocalServiceUtil.class,
-				"_service");
-		}
+    public static void addFilterGroup(long filterScopeId, long[] groupIds)
+        throws java.lang.Exception {
+        getService().addFilterGroup(filterScopeId, groupIds);
+    }
 
-		return _service;
-	}
+    public static java.util.List<com.liferay.portal.ext.model.FilterGroup> findByFilterScopeId(
+        long filterScopeId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getService().findByFilterScopeId(filterScopeId);
+    }
 
-	/**
-	 * @deprecated As of 6.2.0
-	 */
-	public void setService(FilterGroupLocalService service) {
-	}
+    public static FilterGroupLocalService getService() {
+        if (_service == null) {
+            _service = (FilterGroupLocalService) PortalBeanLocatorUtil.locate(FilterGroupLocalService.class.getName());
 
-	private static FilterGroupLocalService _service;
+            ReferenceRegistry.registerReference(FilterGroupLocalServiceUtil.class,
+                "_service");
+        }
+
+        return _service;
+    }
+
+    /**
+     * @deprecated As of 6.2.0
+     */
+    public void setService(FilterGroupLocalService service) {
+    }
 }

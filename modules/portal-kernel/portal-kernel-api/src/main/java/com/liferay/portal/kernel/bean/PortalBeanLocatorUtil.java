@@ -31,6 +31,8 @@ public class PortalBeanLocatorUtil {
 		PortalRuntimePermission.checkGetBeanProperty(
 			PortalBeanLocatorUtil.class);
 
+		System.out.println("getBeanLocator ClassLoader : {}" +  Thread.currentThread().getContextClassLoader());
+
 		return _beanLocator;
 	}
 
@@ -114,8 +116,9 @@ public class PortalBeanLocatorUtil {
 		PortalRuntimePermission.checkSetBeanProperty(
 			PortalBeanLocatorUtil.class);
 
-		System.out.println("setBeanLocator ClassLoader:" + Thread.currentThread().getContextClassLoader().getClass().getName());
-		
+		System.out.println("set ClassLoader : {}" +  Thread.currentThread().getContextClassLoader());
+
+
 		if (_log.isDebugEnabled()) {
 			if (beanLocator == null) {
 				_log.debug("Setting BeanLocator " + beanLocator);

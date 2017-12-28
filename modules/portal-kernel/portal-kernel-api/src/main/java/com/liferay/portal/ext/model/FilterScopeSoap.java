@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.ext.model;
 
 import java.io.Serializable;
@@ -26,99 +12,88 @@ import java.util.List;
  * @generated
  */
 public class FilterScopeSoap implements Serializable {
-	public static FilterScopeSoap toSoapModel(FilterScope model) {
-		FilterScopeSoap soapModel = new FilterScopeSoap();
+    private long _filterScopeId;
+    private String _filterName;
+    private String _className;
 
-		soapModel.setFilterScopeId(model.getFilterScopeId());
-		soapModel.setFilterName(model.getFilterName());
-		soapModel.setClassName(model.getClassName());
-		soapModel.setContextPath(model.getContextPath());
+    public FilterScopeSoap() {
+    }
 
-		return soapModel;
-	}
+    public static FilterScopeSoap toSoapModel(FilterScope model) {
+        FilterScopeSoap soapModel = new FilterScopeSoap();
 
-	public static FilterScopeSoap[] toSoapModels(FilterScope[] models) {
-		FilterScopeSoap[] soapModels = new FilterScopeSoap[models.length];
+        soapModel.setFilterScopeId(model.getFilterScopeId());
+        soapModel.setFilterName(model.getFilterName());
+        soapModel.setClassName(model.getClassName());
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModel(models[i]);
-		}
+        return soapModel;
+    }
 
-		return soapModels;
-	}
+    public static FilterScopeSoap[] toSoapModels(FilterScope[] models) {
+        FilterScopeSoap[] soapModels = new FilterScopeSoap[models.length];
 
-	public static FilterScopeSoap[][] toSoapModels(FilterScope[][] models) {
-		FilterScopeSoap[][] soapModels = null;
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModel(models[i]);
+        }
 
-		if (models.length > 0) {
-			soapModels = new FilterScopeSoap[models.length][models[0].length];
-		}
-		else {
-			soapModels = new FilterScopeSoap[0][0];
-		}
+        return soapModels;
+    }
 
-		for (int i = 0; i < models.length; i++) {
-			soapModels[i] = toSoapModels(models[i]);
-		}
+    public static FilterScopeSoap[][] toSoapModels(FilterScope[][] models) {
+        FilterScopeSoap[][] soapModels = null;
 
-		return soapModels;
-	}
+        if (models.length > 0) {
+            soapModels = new FilterScopeSoap[models.length][models[0].length];
+        } else {
+            soapModels = new FilterScopeSoap[0][0];
+        }
 
-	public static FilterScopeSoap[] toSoapModels(List<FilterScope> models) {
-		List<FilterScopeSoap> soapModels = new ArrayList<FilterScopeSoap>(models.size());
+        for (int i = 0; i < models.length; i++) {
+            soapModels[i] = toSoapModels(models[i]);
+        }
 
-		for (FilterScope model : models) {
-			soapModels.add(toSoapModel(model));
-		}
+        return soapModels;
+    }
 
-		return soapModels.toArray(new FilterScopeSoap[soapModels.size()]);
-	}
+    public static FilterScopeSoap[] toSoapModels(List<FilterScope> models) {
+        List<FilterScopeSoap> soapModels = new ArrayList<FilterScopeSoap>(models.size());
 
-	public FilterScopeSoap() {
-	}
+        for (FilterScope model : models) {
+            soapModels.add(toSoapModel(model));
+        }
 
-	public long getPrimaryKey() {
-		return _filterScopeId;
-	}
+        return soapModels.toArray(new FilterScopeSoap[soapModels.size()]);
+    }
 
-	public void setPrimaryKey(long pk) {
-		setFilterScopeId(pk);
-	}
+    public long getPrimaryKey() {
+        return _filterScopeId;
+    }
 
-	public long getFilterScopeId() {
-		return _filterScopeId;
-	}
+    public void setPrimaryKey(long pk) {
+        setFilterScopeId(pk);
+    }
 
-	public void setFilterScopeId(long filterScopeId) {
-		_filterScopeId = filterScopeId;
-	}
+    public long getFilterScopeId() {
+        return _filterScopeId;
+    }
 
-	public String getFilterName() {
-		return _filterName;
-	}
+    public void setFilterScopeId(long filterScopeId) {
+        _filterScopeId = filterScopeId;
+    }
 
-	public void setFilterName(String filterName) {
-		_filterName = filterName;
-	}
+    public String getFilterName() {
+        return _filterName;
+    }
 
-	public String getClassName() {
-		return _className;
-	}
+    public void setFilterName(String filterName) {
+        _filterName = filterName;
+    }
 
-	public void setClassName(String className) {
-		_className = className;
-	}
+    public String getClassName() {
+        return _className;
+    }
 
-	public String getContextPath() {
-		return _contextPath;
-	}
-
-	public void setContextPath(String contextPath) {
-		_contextPath = contextPath;
-	}
-
-	private long _filterScopeId;
-	private String _filterName;
-	private String _className;
-	private String _contextPath;
+    public void setClassName(String className) {
+        _className = className;
+    }
 }

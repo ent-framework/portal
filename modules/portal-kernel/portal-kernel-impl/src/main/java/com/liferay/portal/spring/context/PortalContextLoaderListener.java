@@ -174,14 +174,14 @@ public class PortalContextLoaderListener extends ContextLoaderListener {
 			throw new RuntimeException(cnfe);
 		}
 		
-		DBFactoryUtil.reset();
-		DeployManagerUtil.reset();
-		InstancePool.reset();
-		MethodCache.reset();
-		PortalBeanLocatorUtil.reset();
-		PortletBagPool.reset();
+		//DBFactoryUtil.reset();
+		//DeployManagerUtil.reset();
+		//InstancePool.reset();
+		//MethodCache.reset();
+		//PortalBeanLocatorUtil.reset();
+		//PortletBagPool.reset();
 
-		ReferenceRegistry.releaseReferences();
+		//ReferenceRegistry.releaseReferences();
 
 		//InitUtil.init();
 

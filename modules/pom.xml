@@ -10,7 +10,6 @@
     <modules>
         <module>portal-kernel</module>
         <module>portal-utils</module>
-        <!--<module>portal-tools</module>-->
         <module>portal-web</module>
     </modules>
 

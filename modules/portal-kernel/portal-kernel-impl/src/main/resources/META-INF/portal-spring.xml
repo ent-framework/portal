@@ -419,4 +419,8 @@
 	<bean id="com.liferay.portlet.trash.service.persistence.TrashEntryPersistence" class="com.liferay.portlet.trash.service.persistence.TrashEntryPersistenceImpl" parent="basePersistence" />
 	<bean id="com.liferay.portlet.trash.service.TrashVersionLocalService" class="com.liferay.portlet.trash.service.impl.TrashVersionLocalServiceImpl" />
 	<bean id="com.liferay.portlet.trash.service.persistence.TrashVersionPersistence" class="com.liferay.portlet.trash.service.persistence.TrashVersionPersistenceImpl" parent="basePersistence" />
+	<bean id="com.liferay.portal.ext.service.FilterGroupLocalService" class="com.liferay.portal.ext.service.impl.FilterGroupLocalServiceImpl" />
+	<bean id="com.liferay.portal.ext.service.persistence.FilterGroupPersistence" class="com.liferay.portal.ext.service.persistence.FilterGroupPersistenceImpl" parent="basePersistence" />
+	<bean id="com.liferay.portal.ext.service.FilterScopeLocalService" class="com.liferay.portal.ext.service.impl.FilterScopeLocalServiceImpl" />
+	<bean id="com.liferay.portal.ext.service.persistence.FilterScopePersistence" class="com.liferay.portal.ext.service.persistence.FilterScopePersistenceImpl" parent="basePersistence" />
 </beans>

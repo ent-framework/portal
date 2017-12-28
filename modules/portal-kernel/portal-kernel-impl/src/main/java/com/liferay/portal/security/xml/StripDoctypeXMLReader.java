@@ -14,21 +14,9 @@
 
 package com.liferay.portal.security.xml;
 
-import java.io.FilterInputStream;
-import java.io.FilterReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.Reader;
+import org.xml.sax.*;
 
-import org.xml.sax.ContentHandler;
-import org.xml.sax.DTDHandler;
-import org.xml.sax.EntityResolver;
-import org.xml.sax.ErrorHandler;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
-import org.xml.sax.SAXNotRecognizedException;
-import org.xml.sax.SAXNotSupportedException;
-import org.xml.sax.XMLReader;
+import java.io.*;
 
 /**
  * @author Tomas Polesovsky

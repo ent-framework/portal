@@ -2,6 +2,9 @@ package com.acn.portal.web.config.portal;
 
 import java.util.List;
 
+import com.liferay.portal.ext.service.FilterScopeLocalService;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.service.UserLocalServiceUtil;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
@@ -27,29 +30,40 @@ public class PortalApplicationContextInitializer implements ApplicationContextIn
     @Override
     public void initialize(ConfigurableApplicationContext applicationContext) {
 
-    		InitUtil.init();
-    		
-    		
-    		BeanLocator beanLocator = new BeanLocatorImpl(ClassLoaderUtil.getPortalClassLoader(), applicationContext);
+        InitUtil.init();
 
-    		PortalBeanLocatorUtil.setBeanLocator(beanLocator);
-    		
-    		List<String> configLocations = ListUtil.fromArray(PropsUtil.getArray(PropsKeys.SPRING_CONFIGS));
-    		
-    		if (StringUtil.equalsIgnoreCase(
-    				PropsValues.PERSISTENCE_PROVIDER, "jpa")) {
 
-    			configLocations.remove("META-INF/hibernate-spring.xml");
-    		}
-    		else {
-    			configLocations.remove("META-INF/jpa-spring.xml");
-    		}
+//    		BeanLocator beanLocator = new BeanLocatorImpl(ClassLoaderUtil.getPortalClassLoader(), applicationContext);
+//
+//    		PortalBeanLocatorUtil.setBeanLocator(beanLocator);
 
-    		AbstractApplicationContext portalContext = new ArrayApplicationContext(configLocations.toArray(new String[configLocations.size()]));
-    		
-    		portalContext.setParent(applicationContext);
+        List<String> configLocations = ListUtil.fromArray(PropsUtil.getArray(PropsKeys.SPRING_CONFIGS));
 
-    		//InitUtil.initWithSpring();
+        if (StringUtil.equalsIgnoreCase(
+            PropsValues.PERSISTENCE_PROVIDER, "jpa")) {
+
+            configLocations.remove("META-INF/hibernate-spring.xml");
+        } else {
+            configLocations.remove("META-INF/jpa-spring.xml");
+        }
+
+        AbstractApplicationContext portalContext = new ArrayApplicationContext(configLocations.toArray(new String[configLocations.size()]));
+
+        portalContext.setParent(applicationContext);
+
+        BeanLocator beanLocator = new BeanLocatorImpl(ClassLoaderUtil.getPortalClassLoader(), portalContext);
+
+        PortalBeanLocatorUtil.setBeanLocator(beanLocator);
+
+        PortalBeanLocatorUtil.locate(FilterScopeLocalService.class.getName());
+
+        try {
+            UserLocalServiceUtil.getUsersCount();
+        } catch (SystemException e) {
+            e.printStackTrace();
+        }
+
+        //InitUtil.initWithSpring();
 
     }
 }

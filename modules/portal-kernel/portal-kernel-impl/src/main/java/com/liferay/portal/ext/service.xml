@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+
+<service-builder package-path="com.liferay.portal.ext">
+	<author>Jeff Qian</author>	
+	<namespace>PortalExt</namespace>
+	<entity name="FilterScope" local-service="true" remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="filterScopeId" type="long" primary="true" />
+
+		<!-- Group instance -->
+
+		<!-- Audit fields -->
+
+		<!-- Other fields -->
+		<column name="filterName" type="String" />
+		<column name="className" type="String" />
+		<!-- Order -->
+
+		<order by="desc">
+			<order-column name="className" />
+		</order>
+
+		<!-- Finder methods -->
+		<finder name="FC" return-type="FilterScope" unique="true">
+			<finder-column name="className" />
+			<finder-column name="filterName" />
+		</finder>
+		
+		<finder name="ClassName" return-type="Collection">
+			<finder-column name="className" />
+		</finder>
+		
+
+	</entity>	
+	<entity name="FilterGroup" uuid="true" local-service="true" remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="filterGroupId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="groupId" type="long" />
+		<column name="filterScopeId" type="long" />
+
+		<!-- Relationships -->
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="createDate" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+		<finder name="FilterScopeId" return-type="Collection">
+			<finder-column name="filterScopeId" />
+		</finder>
+		<finder name="F_G" return-type="FilterGroup" unique="true">
+			<finder-column name="groupId" />
+			<finder-column name="filterScopeId" />
+		</finder>
+	</entity>
+	
+	<!-- entities for build connections for models -->
+	<!-- Service Integration End -->					
+</service-builder>

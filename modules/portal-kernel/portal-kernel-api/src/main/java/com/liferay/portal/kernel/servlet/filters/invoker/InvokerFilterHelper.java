@@ -126,7 +126,7 @@ public class InvokerFilterHelper {
 		}
 		
 		try {
-			FilterScopeLocalServiceUtil.createIfNotExist(filterName, filterClassName, contextPath);
+			FilterScopeLocalServiceUtil.queryOrNew(filterName, filterClassName);
 		} catch (Exception e) {
 			_log.error("error inital filter", e);
 		}

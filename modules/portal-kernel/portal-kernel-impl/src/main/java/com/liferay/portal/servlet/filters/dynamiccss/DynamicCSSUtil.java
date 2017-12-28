@@ -36,7 +36,7 @@ import com.liferay.portal.scripting.ruby.RubyExecutor;
 import com.liferay.portal.service.ThemeLocalServiceUtil;
 import com.liferay.portal.servlet.filters.aggregate.AggregateContext;
 import com.liferay.portal.theme.ThemeDisplay;
-//import com.liferay.portal.tools.SassToCssBuilder;
+import com.liferay.portal.tools.SassToCssBuilder;
 import com.liferay.portal.util.ClassLoaderUtil;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PropsValues;
@@ -168,12 +168,8 @@ public class DynamicCSSUtil {
 			}
 		}
 		else {
-			System.out.println("SassToCssBuilder NOT implemented");
 
-			/*
 			content = SassToCssBuilder.parseStaticTokens(content);
-
-
 
 			String queryString = request.getQueryString();
 
@@ -209,7 +205,7 @@ public class DynamicCSSUtil {
 
 					parsedContent += parsedRtlCustomContent;
 				}
-			}*/
+			}
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(

@@ -2785,4 +2785,25 @@
 			<hint name="max-length">255</hint>
 		</field>
 	</model>
+	<model name="com.liferay.portal.ext.model.FilterGroup">
+		<field name="uuid" type="String" />
+		<field name="filterGroupId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String">
+			<hint name="max-length">255</hint>
+		</field>
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="groupId" type="long" />
+		<field name="filterScopeId" type="long" />
+	</model>
+	<model name="com.liferay.portal.ext.model.FilterScope">
+		<field name="filterScopeId" type="long" />
+		<field name="filterName" type="String">
+			<hint name="max-length">255</hint>
+		</field>
+		<field name="className" type="String">
+			<hint name="max-length">255</hint>
+		</field>
+	</model>
 </model-hints>

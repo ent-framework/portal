@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.ext.model;
 
 import aQute.bnd.annotation.ProviderType;
@@ -43,194 +29,209 @@ import java.util.Date;
  */
 @ProviderType
 public interface FilterGroupModel extends BaseModel<FilterGroup> {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this interface directly. All methods that expect a filter group model instance should use the {@link FilterGroup} interface instead.
-	 */
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this interface directly. All methods that expect a filter group model instance should use the {@link FilterGroup} interface instead.
+     */
 
-	/**
-	 * Returns the primary key of this filter group.
-	 *
-	 * @return the primary key of this filter group
-	 */
-	public long getPrimaryKey();
+    /**
+     * Returns the primary key of this filter group.
+     *
+     * @return the primary key of this filter group
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this filter group.
-	 *
-	 * @param primaryKey the primary key of this filter group
-	 */
-	public void setPrimaryKey(long primaryKey);
+    /**
+     * Sets the primary key of this filter group.
+     *
+     * @param primaryKey the primary key of this filter group
+     */
+    public void setPrimaryKey(long primaryKey);
 
-	/**
-	 * Returns the filter group ID of this filter group.
-	 *
-	 * @return the filter group ID of this filter group
-	 */
-	public long getFilterGroupId();
+    /**
+     * Returns the uuid of this filter group.
+     *
+     * @return the uuid of this filter group
+     */
+    @AutoEscape
+    public String getUuid();
 
-	/**
-	 * Sets the filter group ID of this filter group.
-	 *
-	 * @param filterGroupId the filter group ID of this filter group
-	 */
-	public void setFilterGroupId(long filterGroupId);
+    /**
+     * Sets the uuid of this filter group.
+     *
+     * @param uuid the uuid of this filter group
+     */
+    public void setUuid(String uuid);
 
-	/**
-	 * Returns the user ID of this filter group.
-	 *
-	 * @return the user ID of this filter group
-	 */
-	public long getUserId();
+    /**
+     * Returns the filter group ID of this filter group.
+     *
+     * @return the filter group ID of this filter group
+     */
+    public long getFilterGroupId();
 
-	/**
-	 * Sets the user ID of this filter group.
-	 *
-	 * @param userId the user ID of this filter group
-	 */
-	public void setUserId(long userId);
+    /**
+     * Sets the filter group ID of this filter group.
+     *
+     * @param filterGroupId the filter group ID of this filter group
+     */
+    public void setFilterGroupId(long filterGroupId);
 
-	/**
-	 * Returns the user uuid of this filter group.
-	 *
-	 * @return the user uuid of this filter group
-	 * @throws SystemException if a system exception occurred
-	 */
-	public String getUserUuid() throws SystemException;
+    /**
+     * Returns the user ID of this filter group.
+     *
+     * @return the user ID of this filter group
+     */
+    public long getUserId();
 
-	/**
-	 * Sets the user uuid of this filter group.
-	 *
-	 * @param userUuid the user uuid of this filter group
-	 */
-	public void setUserUuid(String userUuid);
+    /**
+     * Sets the user ID of this filter group.
+     *
+     * @param userId the user ID of this filter group
+     */
+    public void setUserId(long userId);
 
-	/**
-	 * Returns the user name of this filter group.
-	 *
-	 * @return the user name of this filter group
-	 */
-	@AutoEscape
-	public String getUserName();
+    /**
+     * Returns the user uuid of this filter group.
+     *
+     * @return the user uuid of this filter group
+     * @throws SystemException if a system exception occurred
+     */
+    public String getUserUuid() throws SystemException;
 
-	/**
-	 * Sets the user name of this filter group.
-	 *
-	 * @param userName the user name of this filter group
-	 */
-	public void setUserName(String userName);
+    /**
+     * Sets the user uuid of this filter group.
+     *
+     * @param userUuid the user uuid of this filter group
+     */
+    public void setUserUuid(String userUuid);
 
-	/**
-	 * Returns the create date of this filter group.
-	 *
-	 * @return the create date of this filter group
-	 */
-	public Date getCreateDate();
+    /**
+     * Returns the user name of this filter group.
+     *
+     * @return the user name of this filter group
+     */
+    @AutoEscape
+    public String getUserName();
 
-	/**
-	 * Sets the create date of this filter group.
-	 *
-	 * @param createDate the create date of this filter group
-	 */
-	public void setCreateDate(Date createDate);
+    /**
+     * Sets the user name of this filter group.
+     *
+     * @param userName the user name of this filter group
+     */
+    public void setUserName(String userName);
 
-	/**
-	 * Returns the modified date of this filter group.
-	 *
-	 * @return the modified date of this filter group
-	 */
-	public Date getModifiedDate();
+    /**
+     * Returns the create date of this filter group.
+     *
+     * @return the create date of this filter group
+     */
+    public Date getCreateDate();
 
-	/**
-	 * Sets the modified date of this filter group.
-	 *
-	 * @param modifiedDate the modified date of this filter group
-	 */
-	public void setModifiedDate(Date modifiedDate);
+    /**
+     * Sets the create date of this filter group.
+     *
+     * @param createDate the create date of this filter group
+     */
+    public void setCreateDate(Date createDate);
 
-	/**
-	 * Returns the group ID of this filter group.
-	 *
-	 * @return the group ID of this filter group
-	 */
-	public long getGroupId();
+    /**
+     * Returns the modified date of this filter group.
+     *
+     * @return the modified date of this filter group
+     */
+    public Date getModifiedDate();
 
-	/**
-	 * Sets the group ID of this filter group.
-	 *
-	 * @param groupId the group ID of this filter group
-	 */
-	public void setGroupId(long groupId);
+    /**
+     * Sets the modified date of this filter group.
+     *
+     * @param modifiedDate the modified date of this filter group
+     */
+    public void setModifiedDate(Date modifiedDate);
 
-	/**
-	 * Returns the filter scope ID of this filter group.
-	 *
-	 * @return the filter scope ID of this filter group
-	 */
-	public long getFilterScopeId();
+    /**
+     * Returns the group ID of this filter group.
+     *
+     * @return the group ID of this filter group
+     */
+    public long getGroupId();
 
-	/**
-	 * Sets the filter scope ID of this filter group.
-	 *
-	 * @param filterScopeId the filter scope ID of this filter group
-	 */
-	public void setFilterScopeId(long filterScopeId);
+    /**
+     * Sets the group ID of this filter group.
+     *
+     * @param groupId the group ID of this filter group
+     */
+    public void setGroupId(long groupId);
 
-	@Override
-	public boolean isNew();
+    /**
+     * Returns the filter scope ID of this filter group.
+     *
+     * @return the filter scope ID of this filter group
+     */
+    public long getFilterScopeId();
 
-	@Override
-	public void setNew(boolean n);
+    /**
+     * Sets the filter scope ID of this filter group.
+     *
+     * @param filterScopeId the filter scope ID of this filter group
+     */
+    public void setFilterScopeId(long filterScopeId);
 
-	@Override
-	public boolean isCachedModel();
+    @Override
+    public boolean isNew();
 
-	@Override
-	public void setCachedModel(boolean cachedModel);
+    @Override
+    public void setNew(boolean n);
 
-	@Override
-	public boolean isEscapedModel();
+    @Override
+    public boolean isCachedModel();
 
-	@Override
-	public Serializable getPrimaryKeyObj();
+    @Override
+    public void setCachedModel(boolean cachedModel);
 
-	@Override
-	public void setPrimaryKeyObj(Serializable primaryKeyObj);
+    @Override
+    public boolean isEscapedModel();
 
-	@Override
-	public ExpandoBridge getExpandoBridge();
+    @Override
+    public Serializable getPrimaryKeyObj();
 
-	@Override
-	public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
+    @Override
+    public void setPrimaryKeyObj(Serializable primaryKeyObj);
 
-	@Override
-	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
+    @Override
+    public ExpandoBridge getExpandoBridge();
 
-	@Override
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    @Override
+    public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
 
-	@Override
-	public Object clone();
+    @Override
+    public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
 
-	@Override
-	public int compareTo(com.liferay.portal.ext.model.FilterGroup filterGroup);
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	@Override
-	public int hashCode();
+    @Override
+    public Object clone();
 
-	@Override
-	public CacheModel<com.liferay.portal.ext.model.FilterGroup> toCacheModel();
+    @Override
+    public int compareTo(com.liferay.portal.ext.model.FilterGroup filterGroup);
 
-	@Override
-	public com.liferay.portal.ext.model.FilterGroup toEscapedModel();
+    @Override
+    public int hashCode();
 
-	@Override
-	public com.liferay.portal.ext.model.FilterGroup toUnescapedModel();
+    @Override
+    public CacheModel<com.liferay.portal.ext.model.FilterGroup> toCacheModel();
 
-	@Override
-	public String toString();
+    @Override
+    public com.liferay.portal.ext.model.FilterGroup toEscapedModel();
 
-	@Override
-	public String toXmlString();
+    @Override
+    public com.liferay.portal.ext.model.FilterGroup toUnescapedModel();
+
+    @Override
+    public String toString();
+
+    @Override
+    public String toXmlString();
 }

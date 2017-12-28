@@ -12,6 +12,7 @@ import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.servlet.PortalSessionListener;
 import com.liferay.portal.servlet.SharedSessionAttributeListener;
+import com.liferay.portal.servlet.filters.struts2.StrutsPortletFilter;
 import com.liferay.portal.spring.context.ArrayApplicationContext;
 import com.liferay.portal.spring.context.PortalApplicationContext;
 import com.liferay.portal.spring.context.PortalContextLoaderListener;
@@ -79,7 +80,7 @@ public class PortalWebApplicationInitializer implements ServletContextInitialize
 
 
         initPortalListeners(servletContext);
-        initInvokerFilters(servletContext);
+        initInvokerFilters(servletContext, false);
 
         //initServlets(servletContext);
     }
@@ -95,16 +96,17 @@ public class PortalWebApplicationInitializer implements ServletContextInitialize
     @Bean
     public FilterRegistrationBean filterRegistrationBean() {
         FilterRegistrationBean registrationBean = new FilterRegistrationBean();
-        StrutsPrepareAndExecuteFilter struts = new StrutsPrepareAndExecuteFilter();
+        StrutsPrepareAndExecuteFilter struts = new StrutsPortletFilter();
         registrationBean.setFilter(struts);
         registrationBean.setOrder(1);
         List urlPatterns = new ArrayList();
         urlPatterns.add("/c/*");
         registrationBean.setUrlPatterns(urlPatterns);
+        registrationBean.setAsyncSupported(false);
         return registrationBean;
     }
 
-    private void initInvokerFilters(ServletContext servletContext) {
+    private void initInvokerFilters(ServletContext servletContext, boolean asyncSupported) {
         FilterRegistration.Dynamic invokerFilter = servletContext.addFilter("InvokerFilter-ERROR", new InvokerFilter());
         EnumSet<DispatcherType> disps = EnumSet.of(DispatcherType.ERROR,  DispatcherType.ASYNC);
         Map<String, String> parameters = new HashMap<>();
@@ -112,7 +114,7 @@ public class PortalWebApplicationInitializer implements ServletContextInitialize
         parameters.put("dispatcher", "ERROR");
         invokerFilter.setInitParameters(parameters);
         invokerFilter.addMappingForUrlPatterns(disps, true, "/*");
-        invokerFilter.setAsyncSupported(true);
+        invokerFilter.setAsyncSupported(asyncSupported);
 
         invokerFilter = servletContext.addFilter("InvokerFilter-FORWARD", new InvokerFilter());
         disps = EnumSet.of(DispatcherType.FORWARD, DispatcherType.ASYNC);
@@ -121,7 +123,7 @@ public class PortalWebApplicationInitializer implements ServletContextInitialize
         parameters.put("dispatcher", "FORWARD");
         invokerFilter.setInitParameters(parameters);
         invokerFilter.addMappingForUrlPatterns(disps, true, "/*");
-        invokerFilter.setAsyncSupported(true);
+        invokerFilter.setAsyncSupported(asyncSupported);
 
         invokerFilter = servletContext.addFilter("InvokerFilter-INCLUDE", new InvokerFilter());
         disps = EnumSet.of(DispatcherType.INCLUDE,  DispatcherType.ASYNC);
@@ -130,7 +132,7 @@ public class PortalWebApplicationInitializer implements ServletContextInitialize
         parameters.put("dispatcher", "INCLUDE");
         invokerFilter.setInitParameters(parameters);
         invokerFilter.addMappingForUrlPatterns(disps, true, "/*");
-        invokerFilter.setAsyncSupported(true);
+        invokerFilter.setAsyncSupported(asyncSupported);
 
         invokerFilter = servletContext.addFilter("InvokerFilter-REQUEST", new InvokerFilter());
         disps = EnumSet.of(DispatcherType.REQUEST,  DispatcherType.ASYNC);
@@ -139,21 +141,21 @@ public class PortalWebApplicationInitializer implements ServletContextInitialize
         parameters.put("dispatcher", "REQUEST");
         invokerFilter.setInitParameters(parameters);
         invokerFilter.addMappingForUrlPatterns(disps, true, "/*");
-        invokerFilter.setAsyncSupported(true);
+        invokerFilter.setAsyncSupported(asyncSupported);
 
     }
 
     private void initServlets(ServletContext servletContext) {
 
-        ServletRegistration.Dynamic mainServlet = servletContext.addServlet("MainServlet", com.liferay.portal.servlet.MainServlet.class);
-        Map<String, String> parameters = new HashMap<>();
-        parameters.put("config", "struts-config.xml, struts-config-ext.xml");
-        parameters.put("debug", "0");
-        parameters.put("detail", "0");
-        mainServlet.addMapping("/c/*");
-        mainServlet.setInitParameters(parameters);
-        mainServlet.setLoadOnStartup(0);
-        mainServlet.setAsyncSupported(false);
+//        ServletRegistration.Dynamic mainServlet = servletContext.addServlet("MainServlet", com.liferay.portal.servlet.MainServlet.class);
+//        Map<String, String> parameters = new HashMap<>();
+//        parameters.put("config", "struts-config.xml, struts-config-ext.xml");
+//        parameters.put("debug", "0");
+//        parameters.put("detail", "0");
+//        mainServlet.addMapping("/c/*");
+//        mainServlet.setInitParameters(parameters);
+//        mainServlet.setLoadOnStartup(0);
+//        mainServlet.setAsyncSupported(false);
     }
 
 //    @ImportResource({"META-INF/base-spring.xml",
