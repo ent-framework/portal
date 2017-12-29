@@ -202,8 +202,8 @@ public abstract class AbstractTemplate implements Template {
 
 		String errorTemplateId = errorTemplateResource.getTemplateId();
 
-		if (templateManagerName.equals(TemplateConstants.LANG_TYPE_VM)/* &&
-			errorTemplateId.contains(SandboxHandler.SANDBOX_MARKER)*/) {
+		if (templateManagerName.equals(TemplateConstants.LANG_TYPE_VM) &&
+			errorTemplateId.contains(Template.SANDBOX_MARKER)) {
 
 			return;
 		}

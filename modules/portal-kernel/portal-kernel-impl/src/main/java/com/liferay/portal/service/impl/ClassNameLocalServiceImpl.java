@@ -61,7 +61,7 @@ public class ClassNameLocalServiceImpl
 	}
 
 	@Override
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public void checkClassNames() throws SystemException {
 		List<ClassName> classNames = classNamePersistence.findAll();
 

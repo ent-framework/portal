@@ -102,27 +102,27 @@ public class PropsUtil {
 			SystemProperties.set(
 				PropsKeys.DEFAULT_LIFERAY_HOME, _getDefaultLiferayHome());
 
-			// Global shared lib directory
-
-			String globalSharedLibDir = _getLibDir(Servlet.class);
-
-			if (_log.isInfoEnabled()) {
-				_log.info("Global shared lib directory " + globalSharedLibDir);
-			}
-
-			SystemProperties.set(
-				PropsKeys.LIFERAY_LIB_GLOBAL_SHARED_DIR, globalSharedLibDir);
-
-			// Global lib directory
-
-			String globalLibDir = _getLibDir(ReleaseInfo.class);
-
-			if (_log.isInfoEnabled()) {
-				_log.info("Global lib directory " + globalLibDir);
-			}
-
-			SystemProperties.set(
-				PropsKeys.LIFERAY_LIB_GLOBAL_DIR, globalLibDir);
+//			// Global shared lib directory
+//
+//			String globalSharedLibDir = _getLibDir(Servlet.class);
+//
+//			if (_log.isInfoEnabled()) {
+//				_log.info("Global shared lib directory " + globalSharedLibDir);
+//			}
+//
+//			SystemProperties.set(
+//				PropsKeys.LIFERAY_LIB_GLOBAL_SHARED_DIR, globalSharedLibDir);
+//
+//			// Global lib directory
+//
+//			String globalLibDir = _getLibDir(ReleaseInfo.class);
+//
+//			if (_log.isInfoEnabled()) {
+//				_log.info("Global lib directory " + globalLibDir);
+//			}
+//
+//			SystemProperties.set(
+//				PropsKeys.LIFERAY_LIB_GLOBAL_DIR, globalLibDir);
 
 			// Portal lib directory
 
