@@ -331,7 +331,11 @@ public class MDRRuleGroupInstanceModelImpl extends BaseModelImpl<MDRRuleGroupIns
     }
 
     @Override
-    public void setRuleGroupInstanceId(long ruleGroupInstanceId) {
+    public void setRuleGroupInstanceId(Long ruleGroupInstanceId) {
+        if (ruleGroupInstanceId == null) {
+            ruleGroupInstanceId = new Long(0);
+        }
+
         _ruleGroupInstanceId = ruleGroupInstanceId;
     }
 
@@ -342,13 +346,17 @@ public class MDRRuleGroupInstanceModelImpl extends BaseModelImpl<MDRRuleGroupIns
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -365,13 +373,17 @@ public class MDRRuleGroupInstanceModelImpl extends BaseModelImpl<MDRRuleGroupIns
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -388,7 +400,11 @@ public class MDRRuleGroupInstanceModelImpl extends BaseModelImpl<MDRRuleGroupIns
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -466,13 +482,17 @@ public class MDRRuleGroupInstanceModelImpl extends BaseModelImpl<MDRRuleGroupIns
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
         _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
         if (!_setOriginalClassNameId) {
             _setOriginalClassNameId = true;
 
             _originalClassNameId = _classNameId;
+        }
+
+        if (classNameId == null) {
+            classNameId = new Long(0);
         }
 
         _classNameId = classNameId;
@@ -489,13 +509,17 @@ public class MDRRuleGroupInstanceModelImpl extends BaseModelImpl<MDRRuleGroupIns
     }
 
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(Long classPK) {
         _columnBitmask |= CLASSPK_COLUMN_BITMASK;
 
         if (!_setOriginalClassPK) {
             _setOriginalClassPK = true;
 
             _originalClassPK = _classPK;
+        }
+
+        if (classPK == null) {
+            classPK = new Long(0);
         }
 
         _classPK = classPK;
@@ -512,13 +536,17 @@ public class MDRRuleGroupInstanceModelImpl extends BaseModelImpl<MDRRuleGroupIns
     }
 
     @Override
-    public void setRuleGroupId(long ruleGroupId) {
+    public void setRuleGroupId(Long ruleGroupId) {
         _columnBitmask |= RULEGROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalRuleGroupId) {
             _setOriginalRuleGroupId = true;
 
             _originalRuleGroupId = _ruleGroupId;
+        }
+
+        if (ruleGroupId == null) {
+            ruleGroupId = new Long(0);
         }
 
         _ruleGroupId = ruleGroupId;
@@ -535,7 +563,11 @@ public class MDRRuleGroupInstanceModelImpl extends BaseModelImpl<MDRRuleGroupIns
     }
 
     @Override
-    public void setPriority(int priority) {
+    public void setPriority(Integer priority) {
+        if (priority == null) {
+            priority = new Integer(0);
+        }
+
         _priority = priority;
     }
 

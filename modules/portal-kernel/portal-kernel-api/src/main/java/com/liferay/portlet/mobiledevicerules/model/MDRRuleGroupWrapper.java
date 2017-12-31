@@ -175,7 +175,7 @@ public class MDRRuleGroupWrapper implements MDRRuleGroup,
     * @param ruleGroupId the rule group ID of this m d r rule group
     */
     @Override
-    public void setRuleGroupId(long ruleGroupId) {
+    public void setRuleGroupId(java.lang.Long ruleGroupId) {
         _mdrRuleGroup.setRuleGroupId(ruleGroupId);
     }
 
@@ -195,7 +195,7 @@ public class MDRRuleGroupWrapper implements MDRRuleGroup,
     * @param groupId the group ID of this m d r rule group
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _mdrRuleGroup.setGroupId(groupId);
     }
 
@@ -215,7 +215,7 @@ public class MDRRuleGroupWrapper implements MDRRuleGroup,
     * @param companyId the company ID of this m d r rule group
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _mdrRuleGroup.setCompanyId(companyId);
     }
 
@@ -235,7 +235,7 @@ public class MDRRuleGroupWrapper implements MDRRuleGroup,
     * @param userId the user ID of this m d r rule group
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _mdrRuleGroup.setUserId(userId);
     }
 

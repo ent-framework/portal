@@ -314,7 +314,7 @@ public class ContactWrapper implements Contact, ModelWrapper<Contact> {
     * @param contactId the contact ID of this contact
     */
     @Override
-    public void setContactId(long contactId) {
+    public void setContactId(java.lang.Long contactId) {
         _contact.setContactId(contactId);
     }
 
@@ -334,7 +334,7 @@ public class ContactWrapper implements Contact, ModelWrapper<Contact> {
     * @param companyId the company ID of this contact
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _contact.setCompanyId(companyId);
     }
 
@@ -354,7 +354,7 @@ public class ContactWrapper implements Contact, ModelWrapper<Contact> {
     * @param userId the user ID of this contact
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _contact.setUserId(userId);
     }
 
@@ -471,7 +471,7 @@ public class ContactWrapper implements Contact, ModelWrapper<Contact> {
     * @param classNameId the class name ID of this contact
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _contact.setClassNameId(classNameId);
     }
 
@@ -491,7 +491,7 @@ public class ContactWrapper implements Contact, ModelWrapper<Contact> {
     * @param classPK the class p k of this contact
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _contact.setClassPK(classPK);
     }
 
@@ -511,7 +511,7 @@ public class ContactWrapper implements Contact, ModelWrapper<Contact> {
     * @param accountId the account ID of this contact
     */
     @Override
-    public void setAccountId(long accountId) {
+    public void setAccountId(java.lang.Long accountId) {
         _contact.setAccountId(accountId);
     }
 
@@ -531,7 +531,7 @@ public class ContactWrapper implements Contact, ModelWrapper<Contact> {
     * @param parentContactId the parent contact ID of this contact
     */
     @Override
-    public void setParentContactId(long parentContactId) {
+    public void setParentContactId(java.lang.Long parentContactId) {
         _contact.setParentContactId(parentContactId);
     }
 
@@ -631,7 +631,7 @@ public class ContactWrapper implements Contact, ModelWrapper<Contact> {
     * @param prefixId the prefix ID of this contact
     */
     @Override
-    public void setPrefixId(int prefixId) {
+    public void setPrefixId(java.lang.Integer prefixId) {
         _contact.setPrefixId(prefixId);
     }
 
@@ -651,7 +651,7 @@ public class ContactWrapper implements Contact, ModelWrapper<Contact> {
     * @param suffixId the suffix ID of this contact
     */
     @Override
-    public void setSuffixId(int suffixId) {
+    public void setSuffixId(java.lang.Integer suffixId) {
         _contact.setSuffixId(suffixId);
     }
 
@@ -681,7 +681,7 @@ public class ContactWrapper implements Contact, ModelWrapper<Contact> {
     * @param male the male of this contact
     */
     @Override
-    public void setMale(boolean male) {
+    public void setMale(java.lang.Boolean male) {
         _contact.setMale(male);
     }
 

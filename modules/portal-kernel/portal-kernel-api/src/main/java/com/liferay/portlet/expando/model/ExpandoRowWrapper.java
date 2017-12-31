@@ -118,7 +118,7 @@ public class ExpandoRowWrapper implements ExpandoRow, ModelWrapper<ExpandoRow> {
     * @param rowId the row ID of this expando row
     */
     @Override
-    public void setRowId(long rowId) {
+    public void setRowId(java.lang.Long rowId) {
         _expandoRow.setRowId(rowId);
     }
 
@@ -138,7 +138,7 @@ public class ExpandoRowWrapper implements ExpandoRow, ModelWrapper<ExpandoRow> {
     * @param companyId the company ID of this expando row
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _expandoRow.setCompanyId(companyId);
     }
 
@@ -178,7 +178,7 @@ public class ExpandoRowWrapper implements ExpandoRow, ModelWrapper<ExpandoRow> {
     * @param tableId the table ID of this expando row
     */
     @Override
-    public void setTableId(long tableId) {
+    public void setTableId(java.lang.Long tableId) {
         _expandoRow.setTableId(tableId);
     }
 
@@ -198,7 +198,7 @@ public class ExpandoRowWrapper implements ExpandoRow, ModelWrapper<ExpandoRow> {
     * @param classPK the class p k of this expando row
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _expandoRow.setClassPK(classPK);
     }
 

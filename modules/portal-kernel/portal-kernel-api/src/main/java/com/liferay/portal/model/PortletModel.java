@@ -58,7 +58,7 @@ public interface PortletModel extends BaseModel<Portlet> {
      *
      * @param id the ID of this portlet
      */
-    public void setId(long id);
+    public void setId(Long id);
 
     /**
      * Returns the company ID of this portlet.
@@ -72,7 +72,7 @@ public interface PortletModel extends BaseModel<Portlet> {
      *
      * @param companyId the company ID of this portlet
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the portlet ID of this portlet.
@@ -123,7 +123,7 @@ public interface PortletModel extends BaseModel<Portlet> {
      *
      * @param active the active of this portlet
      */
-    public void setActive(boolean active);
+    public void setActive(Boolean active);
 
     @Override
     public boolean isNew();

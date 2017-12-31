@@ -168,7 +168,11 @@ public class ExpandoRowModelImpl extends BaseModelImpl<ExpandoRow>
     }
 
     @Override
-    public void setRowId(long rowId) {
+    public void setRowId(Long rowId) {
+        if (rowId == null) {
+            rowId = new Long(0);
+        }
+
         _rowId = rowId;
     }
 
@@ -178,7 +182,11 @@ public class ExpandoRowModelImpl extends BaseModelImpl<ExpandoRow>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -198,13 +206,17 @@ public class ExpandoRowModelImpl extends BaseModelImpl<ExpandoRow>
     }
 
     @Override
-    public void setTableId(long tableId) {
+    public void setTableId(Long tableId) {
         _columnBitmask |= TABLEID_COLUMN_BITMASK;
 
         if (!_setOriginalTableId) {
             _setOriginalTableId = true;
 
             _originalTableId = _tableId;
+        }
+
+        if (tableId == null) {
+            tableId = new Long(0);
         }
 
         _tableId = tableId;
@@ -220,13 +232,17 @@ public class ExpandoRowModelImpl extends BaseModelImpl<ExpandoRow>
     }
 
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(Long classPK) {
         _columnBitmask |= CLASSPK_COLUMN_BITMASK;
 
         if (!_setOriginalClassPK) {
             _setOriginalClassPK = true;
 
             _originalClassPK = _classPK;
+        }
+
+        if (classPK == null) {
+            classPK = new Long(0);
         }
 
         _classPK = classPK;

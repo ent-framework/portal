@@ -227,7 +227,11 @@ public class AnnouncementsFlagModelImpl extends BaseModelImpl<AnnouncementsFlag>
     }
 
     @Override
-    public void setFlagId(long flagId) {
+    public void setFlagId(Long flagId) {
+        if (flagId == null) {
+            flagId = new Long(0);
+        }
+
         _flagId = flagId;
     }
 
@@ -238,13 +242,17 @@ public class AnnouncementsFlagModelImpl extends BaseModelImpl<AnnouncementsFlag>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask = -1L;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;
@@ -284,13 +292,17 @@ public class AnnouncementsFlagModelImpl extends BaseModelImpl<AnnouncementsFlag>
     }
 
     @Override
-    public void setEntryId(long entryId) {
+    public void setEntryId(Long entryId) {
         _columnBitmask |= ENTRYID_COLUMN_BITMASK;
 
         if (!_setOriginalEntryId) {
             _setOriginalEntryId = true;
 
             _originalEntryId = _entryId;
+        }
+
+        if (entryId == null) {
+            entryId = new Long(0);
         }
 
         _entryId = entryId;
@@ -307,13 +319,17 @@ public class AnnouncementsFlagModelImpl extends BaseModelImpl<AnnouncementsFlag>
     }
 
     @Override
-    public void setValue(int value) {
+    public void setValue(Integer value) {
         _columnBitmask |= VALUE_COLUMN_BITMASK;
 
         if (!_setOriginalValue) {
             _setOriginalValue = true;
 
             _originalValue = _value;
+        }
+
+        if (value == null) {
+            value = new Integer(0);
         }
 
         _value = value;

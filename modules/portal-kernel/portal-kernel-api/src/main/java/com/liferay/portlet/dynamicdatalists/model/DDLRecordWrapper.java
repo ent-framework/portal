@@ -202,7 +202,7 @@ public class DDLRecordWrapper implements DDLRecord, ModelWrapper<DDLRecord> {
     * @param recordId the record ID of this d d l record
     */
     @Override
-    public void setRecordId(long recordId) {
+    public void setRecordId(java.lang.Long recordId) {
         _ddlRecord.setRecordId(recordId);
     }
 
@@ -222,7 +222,7 @@ public class DDLRecordWrapper implements DDLRecord, ModelWrapper<DDLRecord> {
     * @param groupId the group ID of this d d l record
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _ddlRecord.setGroupId(groupId);
     }
 
@@ -242,7 +242,7 @@ public class DDLRecordWrapper implements DDLRecord, ModelWrapper<DDLRecord> {
     * @param companyId the company ID of this d d l record
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _ddlRecord.setCompanyId(companyId);
     }
 
@@ -262,7 +262,7 @@ public class DDLRecordWrapper implements DDLRecord, ModelWrapper<DDLRecord> {
     * @param userId the user ID of this d d l record
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _ddlRecord.setUserId(userId);
     }
 
@@ -324,7 +324,7 @@ public class DDLRecordWrapper implements DDLRecord, ModelWrapper<DDLRecord> {
     * @param versionUserId the version user ID of this d d l record
     */
     @Override
-    public void setVersionUserId(long versionUserId) {
+    public void setVersionUserId(java.lang.Long versionUserId) {
         _ddlRecord.setVersionUserId(versionUserId);
     }
 
@@ -426,7 +426,7 @@ public class DDLRecordWrapper implements DDLRecord, ModelWrapper<DDLRecord> {
     * @param DDMStorageId the d d m storage ID of this d d l record
     */
     @Override
-    public void setDDMStorageId(long DDMStorageId) {
+    public void setDDMStorageId(java.lang.Long DDMStorageId) {
         _ddlRecord.setDDMStorageId(DDMStorageId);
     }
 
@@ -446,7 +446,7 @@ public class DDLRecordWrapper implements DDLRecord, ModelWrapper<DDLRecord> {
     * @param recordSetId the record set ID of this d d l record
     */
     @Override
-    public void setRecordSetId(long recordSetId) {
+    public void setRecordSetId(java.lang.Long recordSetId) {
         _ddlRecord.setRecordSetId(recordSetId);
     }
 
@@ -486,7 +486,7 @@ public class DDLRecordWrapper implements DDLRecord, ModelWrapper<DDLRecord> {
     * @param displayIndex the display index of this d d l record
     */
     @Override
-    public void setDisplayIndex(int displayIndex) {
+    public void setDisplayIndex(java.lang.Integer displayIndex) {
         _ddlRecord.setDisplayIndex(displayIndex);
     }
 

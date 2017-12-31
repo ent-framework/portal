@@ -83,15 +83,15 @@ public class StartupHelper {
 
 			String tablesSQL = StringUtil.read(
 				classLoader,
-				"com/liferay/portal/tools/sql/dependencies/portal-tables.sql");
+				"sql_dependencies/portal-tables.sql");
 
 			String indexesSQL = StringUtil.read(
 				classLoader,
-				"com/liferay/portal/tools/sql/dependencies/indexes.sql");
+				"sql_dependencies/indexes.sql");
 
 			String indexesProperties = StringUtil.read(
 				classLoader,
-				"com/liferay/portal/tools/sql/dependencies/indexes.properties");
+				"sql_dependencies/indexes.properties");
 
 			db.updateIndexes(
 				connection, tablesSQL, indexesSQL, indexesProperties,

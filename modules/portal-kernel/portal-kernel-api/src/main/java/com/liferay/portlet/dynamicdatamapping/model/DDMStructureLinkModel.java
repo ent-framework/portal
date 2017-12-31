@@ -59,7 +59,7 @@ public interface DDMStructureLinkModel extends AttachedModel,
      *
      * @param structureLinkId the structure link ID of this d d m structure link
      */
-    public void setStructureLinkId(long structureLinkId);
+    public void setStructureLinkId(Long structureLinkId);
 
     /**
      * Returns the fully qualified class name of this d d m structure link.
@@ -85,7 +85,7 @@ public interface DDMStructureLinkModel extends AttachedModel,
      * @param classNameId the class name ID of this d d m structure link
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this d d m structure link.
@@ -101,7 +101,7 @@ public interface DDMStructureLinkModel extends AttachedModel,
      * @param classPK the class p k of this d d m structure link
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the structure ID of this d d m structure link.
@@ -115,7 +115,7 @@ public interface DDMStructureLinkModel extends AttachedModel,
      *
      * @param structureId the structure ID of this d d m structure link
      */
-    public void setStructureId(long structureId);
+    public void setStructureId(Long structureId);
 
     @Override
     public boolean isNew();

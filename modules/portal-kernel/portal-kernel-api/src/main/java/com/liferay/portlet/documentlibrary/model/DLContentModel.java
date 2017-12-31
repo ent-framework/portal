@@ -60,7 +60,7 @@ public interface DLContentModel extends BaseModel<DLContent> {
      *
      * @param contentId the content ID of this document library content
      */
-    public void setContentId(long contentId);
+    public void setContentId(Long contentId);
 
     /**
      * Returns the group ID of this document library content.
@@ -74,7 +74,7 @@ public interface DLContentModel extends BaseModel<DLContent> {
      *
      * @param groupId the group ID of this document library content
      */
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this document library content.
@@ -88,7 +88,7 @@ public interface DLContentModel extends BaseModel<DLContent> {
      *
      * @param companyId the company ID of this document library content
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the repository ID of this document library content.
@@ -102,7 +102,7 @@ public interface DLContentModel extends BaseModel<DLContent> {
      *
      * @param repositoryId the repository ID of this document library content
      */
-    public void setRepositoryId(long repositoryId);
+    public void setRepositoryId(Long repositoryId);
 
     /**
      * Returns the path of this document library content.
@@ -160,7 +160,7 @@ public interface DLContentModel extends BaseModel<DLContent> {
      *
      * @param size the size of this document library content
      */
-    public void setSize(long size);
+    public void setSize(Long size);
 
     @Override
     public boolean isNew();

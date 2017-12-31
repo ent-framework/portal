@@ -323,7 +323,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param itemId the item ID of this shopping item
     */
     @Override
-    public void setItemId(long itemId) {
+    public void setItemId(java.lang.Long itemId) {
         _shoppingItem.setItemId(itemId);
     }
 
@@ -343,7 +343,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param groupId the group ID of this shopping item
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _shoppingItem.setGroupId(groupId);
     }
 
@@ -363,7 +363,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param companyId the company ID of this shopping item
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _shoppingItem.setCompanyId(companyId);
     }
 
@@ -383,7 +383,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param userId the user ID of this shopping item
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _shoppingItem.setUserId(userId);
     }
 
@@ -485,7 +485,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param categoryId the category ID of this shopping item
     */
     @Override
-    public void setCategoryId(long categoryId) {
+    public void setCategoryId(java.lang.Long categoryId) {
         _shoppingItem.setCategoryId(categoryId);
     }
 
@@ -595,7 +595,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param fields the fields of this shopping item
     */
     @Override
-    public void setFields(boolean fields) {
+    public void setFields(java.lang.Boolean fields) {
         _shoppingItem.setFields(fields);
     }
 
@@ -635,7 +635,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param minQuantity the min quantity of this shopping item
     */
     @Override
-    public void setMinQuantity(int minQuantity) {
+    public void setMinQuantity(java.lang.Integer minQuantity) {
         _shoppingItem.setMinQuantity(minQuantity);
     }
 
@@ -655,7 +655,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param maxQuantity the max quantity of this shopping item
     */
     @Override
-    public void setMaxQuantity(int maxQuantity) {
+    public void setMaxQuantity(java.lang.Integer maxQuantity) {
         _shoppingItem.setMaxQuantity(maxQuantity);
     }
 
@@ -725,7 +725,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param taxable the taxable of this shopping item
     */
     @Override
-    public void setTaxable(boolean taxable) {
+    public void setTaxable(java.lang.Boolean taxable) {
         _shoppingItem.setTaxable(taxable);
     }
 
@@ -775,7 +775,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param useShippingFormula the use shipping formula of this shopping item
     */
     @Override
-    public void setUseShippingFormula(boolean useShippingFormula) {
+    public void setUseShippingFormula(java.lang.Boolean useShippingFormula) {
         _shoppingItem.setUseShippingFormula(useShippingFormula);
     }
 
@@ -805,7 +805,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param requiresShipping the requires shipping of this shopping item
     */
     @Override
-    public void setRequiresShipping(boolean requiresShipping) {
+    public void setRequiresShipping(java.lang.Boolean requiresShipping) {
         _shoppingItem.setRequiresShipping(requiresShipping);
     }
 
@@ -825,7 +825,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param stockQuantity the stock quantity of this shopping item
     */
     @Override
-    public void setStockQuantity(int stockQuantity) {
+    public void setStockQuantity(java.lang.Integer stockQuantity) {
         _shoppingItem.setStockQuantity(stockQuantity);
     }
 
@@ -855,7 +855,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param featured the featured of this shopping item
     */
     @Override
-    public void setFeatured(boolean featured) {
+    public void setFeatured(java.lang.Boolean featured) {
         _shoppingItem.setFeatured(featured);
     }
 
@@ -885,7 +885,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param sale the sale of this shopping item
     */
     @Override
-    public void setSale(boolean sale) {
+    public void setSale(java.lang.Boolean sale) {
         _shoppingItem.setSale(sale);
     }
 
@@ -915,7 +915,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param smallImage the small image of this shopping item
     */
     @Override
-    public void setSmallImage(boolean smallImage) {
+    public void setSmallImage(java.lang.Boolean smallImage) {
         _shoppingItem.setSmallImage(smallImage);
     }
 
@@ -935,7 +935,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param smallImageId the small image ID of this shopping item
     */
     @Override
-    public void setSmallImageId(long smallImageId) {
+    public void setSmallImageId(java.lang.Long smallImageId) {
         _shoppingItem.setSmallImageId(smallImageId);
     }
 
@@ -985,7 +985,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param mediumImage the medium image of this shopping item
     */
     @Override
-    public void setMediumImage(boolean mediumImage) {
+    public void setMediumImage(java.lang.Boolean mediumImage) {
         _shoppingItem.setMediumImage(mediumImage);
     }
 
@@ -1005,7 +1005,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param mediumImageId the medium image ID of this shopping item
     */
     @Override
-    public void setMediumImageId(long mediumImageId) {
+    public void setMediumImageId(java.lang.Long mediumImageId) {
         _shoppingItem.setMediumImageId(mediumImageId);
     }
 
@@ -1055,7 +1055,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param largeImage the large image of this shopping item
     */
     @Override
-    public void setLargeImage(boolean largeImage) {
+    public void setLargeImage(java.lang.Boolean largeImage) {
         _shoppingItem.setLargeImage(largeImage);
     }
 
@@ -1075,7 +1075,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param largeImageId the large image ID of this shopping item
     */
     @Override
-    public void setLargeImageId(long largeImageId) {
+    public void setLargeImageId(java.lang.Long largeImageId) {
         _shoppingItem.setLargeImageId(largeImageId);
     }
 

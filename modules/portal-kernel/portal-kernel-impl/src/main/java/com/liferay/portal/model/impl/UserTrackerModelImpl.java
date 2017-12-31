@@ -204,7 +204,11 @@ public class UserTrackerModelImpl extends BaseModelImpl<UserTracker>
     }
 
     @Override
-    public void setUserTrackerId(long userTrackerId) {
+    public void setUserTrackerId(Long userTrackerId) {
+        if (userTrackerId == null) {
+            userTrackerId = new Long(0);
+        }
+
         _userTrackerId = userTrackerId;
     }
 
@@ -214,13 +218,17 @@ public class UserTrackerModelImpl extends BaseModelImpl<UserTracker>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -236,13 +244,17 @@ public class UserTrackerModelImpl extends BaseModelImpl<UserTracker>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;

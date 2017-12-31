@@ -370,7 +370,11 @@ public class RoleModelImpl extends BaseModelImpl<Role> implements RoleModel {
     }
 
     @Override
-    public void setRoleId(long roleId) {
+    public void setRoleId(Long roleId) {
+        if (roleId == null) {
+            roleId = new Long(0);
+        }
+
         _roleId = roleId;
     }
 
@@ -381,13 +385,17 @@ public class RoleModelImpl extends BaseModelImpl<Role> implements RoleModel {
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -404,7 +412,11 @@ public class RoleModelImpl extends BaseModelImpl<Role> implements RoleModel {
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -482,13 +494,17 @@ public class RoleModelImpl extends BaseModelImpl<Role> implements RoleModel {
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
         _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
         if (!_setOriginalClassNameId) {
             _setOriginalClassNameId = true;
 
             _originalClassNameId = _classNameId;
+        }
+
+        if (classNameId == null) {
+            classNameId = new Long(0);
         }
 
         _classNameId = classNameId;
@@ -505,13 +521,17 @@ public class RoleModelImpl extends BaseModelImpl<Role> implements RoleModel {
     }
 
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(Long classPK) {
         _columnBitmask |= CLASSPK_COLUMN_BITMASK;
 
         if (!_setOriginalClassPK) {
             _setOriginalClassPK = true;
 
             _originalClassPK = _classPK;
+        }
+
+        if (classPK == null) {
+            classPK = new Long(0);
         }
 
         _classPK = classPK;
@@ -751,13 +771,17 @@ public class RoleModelImpl extends BaseModelImpl<Role> implements RoleModel {
     }
 
     @Override
-    public void setType(int type) {
+    public void setType(Integer type) {
         _columnBitmask |= TYPE_COLUMN_BITMASK;
 
         if (!_setOriginalType) {
             _setOriginalType = true;
 
             _originalType = _type;
+        }
+
+        if (type == null) {
+            type = new Integer(0);
         }
 
         _type = type;

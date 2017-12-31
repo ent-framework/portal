@@ -230,7 +230,11 @@ public class PluginSettingModelImpl extends BaseModelImpl<PluginSetting>
     }
 
     @Override
-    public void setPluginSettingId(long pluginSettingId) {
+    public void setPluginSettingId(Long pluginSettingId) {
+        if (pluginSettingId == null) {
+            pluginSettingId = new Long(0);
+        }
+
         _pluginSettingId = pluginSettingId;
     }
 
@@ -241,13 +245,17 @@ public class PluginSettingModelImpl extends BaseModelImpl<PluginSetting>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -334,7 +342,11 @@ public class PluginSettingModelImpl extends BaseModelImpl<PluginSetting>
     }
 
     @Override
-    public void setActive(boolean active) {
+    public void setActive(Boolean active) {
+        if (active == null) {
+            active = Boolean.FALSE;
+        }
+
         _active = active;
     }
 

@@ -119,7 +119,7 @@ public class AnnouncementsFlagWrapper implements AnnouncementsFlag,
     * @param flagId the flag ID of this announcements flag
     */
     @Override
-    public void setFlagId(long flagId) {
+    public void setFlagId(java.lang.Long flagId) {
         _announcementsFlag.setFlagId(flagId);
     }
 
@@ -139,7 +139,7 @@ public class AnnouncementsFlagWrapper implements AnnouncementsFlag,
     * @param userId the user ID of this announcements flag
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _announcementsFlag.setUserId(userId);
     }
 
@@ -201,7 +201,7 @@ public class AnnouncementsFlagWrapper implements AnnouncementsFlag,
     * @param entryId the entry ID of this announcements flag
     */
     @Override
-    public void setEntryId(long entryId) {
+    public void setEntryId(java.lang.Long entryId) {
         _announcementsFlag.setEntryId(entryId);
     }
 
@@ -221,7 +221,7 @@ public class AnnouncementsFlagWrapper implements AnnouncementsFlag,
     * @param value the value of this announcements flag
     */
     @Override
-    public void setValue(int value) {
+    public void setValue(java.lang.Integer value) {
         _announcementsFlag.setValue(value);
     }
 

@@ -118,7 +118,7 @@ public class UserIdMapperWrapper implements UserIdMapper,
     * @param userIdMapperId the user ID mapper ID of this user ID mapper
     */
     @Override
-    public void setUserIdMapperId(long userIdMapperId) {
+    public void setUserIdMapperId(java.lang.Long userIdMapperId) {
         _userIdMapper.setUserIdMapperId(userIdMapperId);
     }
 
@@ -138,7 +138,7 @@ public class UserIdMapperWrapper implements UserIdMapper,
     * @param userId the user ID of this user ID mapper
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _userIdMapper.setUserId(userId);
     }
 

@@ -58,7 +58,7 @@ public interface CountryModel extends BaseModel<Country> {
      *
      * @param countryId the country ID of this country
      */
-    public void setCountryId(long countryId);
+    public void setCountryId(Long countryId);
 
     /**
      * Returns the name of this country.
@@ -154,7 +154,7 @@ public interface CountryModel extends BaseModel<Country> {
      *
      * @param zipRequired the zip required of this country
      */
-    public void setZipRequired(boolean zipRequired);
+    public void setZipRequired(Boolean zipRequired);
 
     /**
      * Returns the active of this country.
@@ -175,7 +175,7 @@ public interface CountryModel extends BaseModel<Country> {
      *
      * @param active the active of this country
      */
-    public void setActive(boolean active);
+    public void setActive(Boolean active);
 
     @Override
     public boolean isNew();

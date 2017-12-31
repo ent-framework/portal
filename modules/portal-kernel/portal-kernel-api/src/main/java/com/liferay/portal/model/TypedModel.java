@@ -23,6 +23,6 @@ public interface TypedModel {
 
 	public long getClassNameId();
 
-	public void setClassNameId(long classNameId);
+	public void setClassNameId(Long classNameId);
 
 }

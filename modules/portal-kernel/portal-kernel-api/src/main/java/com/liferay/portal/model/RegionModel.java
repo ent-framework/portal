@@ -58,7 +58,7 @@ public interface RegionModel extends BaseModel<Region> {
      *
      * @param regionId the region ID of this region
      */
-    public void setRegionId(long regionId);
+    public void setRegionId(Long regionId);
 
     /**
      * Returns the country ID of this region.
@@ -72,7 +72,7 @@ public interface RegionModel extends BaseModel<Region> {
      *
      * @param countryId the country ID of this region
      */
-    public void setCountryId(long countryId);
+    public void setCountryId(Long countryId);
 
     /**
      * Returns the region code of this region.
@@ -123,7 +123,7 @@ public interface RegionModel extends BaseModel<Region> {
      *
      * @param active the active of this region
      */
-    public void setActive(boolean active);
+    public void setActive(Boolean active);
 
     @Override
     public boolean isNew();

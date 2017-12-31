@@ -81,7 +81,7 @@ public interface AnnouncementsEntryModel extends AttachedModel,
      *
      * @param entryId the entry ID of this announcements entry
      */
-    public void setEntryId(long entryId);
+    public void setEntryId(Long entryId);
 
     /**
      * Returns the company ID of this announcements entry.
@@ -97,7 +97,7 @@ public interface AnnouncementsEntryModel extends AttachedModel,
      * @param companyId the company ID of this announcements entry
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this announcements entry.
@@ -113,7 +113,7 @@ public interface AnnouncementsEntryModel extends AttachedModel,
      * @param userId the user ID of this announcements entry
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this announcements entry.
@@ -205,7 +205,7 @@ public interface AnnouncementsEntryModel extends AttachedModel,
      * @param classNameId the class name ID of this announcements entry
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this announcements entry.
@@ -221,7 +221,7 @@ public interface AnnouncementsEntryModel extends AttachedModel,
      * @param classPK the class p k of this announcements entry
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the title of this announcements entry.
@@ -323,7 +323,7 @@ public interface AnnouncementsEntryModel extends AttachedModel,
      *
      * @param priority the priority of this announcements entry
      */
-    public void setPriority(int priority);
+    public void setPriority(Integer priority);
 
     /**
      * Returns the alert of this announcements entry.
@@ -344,7 +344,7 @@ public interface AnnouncementsEntryModel extends AttachedModel,
      *
      * @param alert the alert of this announcements entry
      */
-    public void setAlert(boolean alert);
+    public void setAlert(Boolean alert);
 
     @Override
     public boolean isNew();

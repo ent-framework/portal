@@ -148,7 +148,7 @@ public class AssetCategoryPropertyWrapper implements AssetCategoryProperty,
     * @param categoryPropertyId the category property ID of this asset category property
     */
     @Override
-    public void setCategoryPropertyId(long categoryPropertyId) {
+    public void setCategoryPropertyId(java.lang.Long categoryPropertyId) {
         _assetCategoryProperty.setCategoryPropertyId(categoryPropertyId);
     }
 
@@ -168,7 +168,7 @@ public class AssetCategoryPropertyWrapper implements AssetCategoryProperty,
     * @param companyId the company ID of this asset category property
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _assetCategoryProperty.setCompanyId(companyId);
     }
 
@@ -188,7 +188,7 @@ public class AssetCategoryPropertyWrapper implements AssetCategoryProperty,
     * @param userId the user ID of this asset category property
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _assetCategoryProperty.setUserId(userId);
     }
 
@@ -290,7 +290,7 @@ public class AssetCategoryPropertyWrapper implements AssetCategoryProperty,
     * @param categoryId the category ID of this asset category property
     */
     @Override
-    public void setCategoryId(long categoryId) {
+    public void setCategoryId(java.lang.Long categoryId) {
         _assetCategoryProperty.setCategoryId(categoryId);
     }
 

@@ -83,7 +83,7 @@ public interface PollsQuestionModel extends BaseModel<PollsQuestion>,
      *
      * @param questionId the question ID of this polls question
      */
-    public void setQuestionId(long questionId);
+    public void setQuestionId(Long questionId);
 
     /**
      * Returns the group ID of this polls question.
@@ -99,7 +99,7 @@ public interface PollsQuestionModel extends BaseModel<PollsQuestion>,
      * @param groupId the group ID of this polls question
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this polls question.
@@ -115,7 +115,7 @@ public interface PollsQuestionModel extends BaseModel<PollsQuestion>,
      * @param companyId the company ID of this polls question
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this polls question.
@@ -131,7 +131,7 @@ public interface PollsQuestionModel extends BaseModel<PollsQuestion>,
      * @param userId the user ID of this polls question
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this polls question.

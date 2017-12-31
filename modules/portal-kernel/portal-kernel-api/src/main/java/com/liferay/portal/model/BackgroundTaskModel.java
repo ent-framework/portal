@@ -63,7 +63,7 @@ public interface BackgroundTaskModel extends BaseModel<BackgroundTask>,
      *
      * @param backgroundTaskId the background task ID of this background task
      */
-    public void setBackgroundTaskId(long backgroundTaskId);
+    public void setBackgroundTaskId(Long backgroundTaskId);
 
     /**
      * Returns the group ID of this background task.
@@ -79,7 +79,7 @@ public interface BackgroundTaskModel extends BaseModel<BackgroundTask>,
      * @param groupId the group ID of this background task
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this background task.
@@ -95,7 +95,7 @@ public interface BackgroundTaskModel extends BaseModel<BackgroundTask>,
      * @param companyId the company ID of this background task
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this background task.
@@ -111,7 +111,7 @@ public interface BackgroundTaskModel extends BaseModel<BackgroundTask>,
      * @param userId the user ID of this background task
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this background task.
@@ -258,7 +258,7 @@ public interface BackgroundTaskModel extends BaseModel<BackgroundTask>,
      *
      * @param completed the completed of this background task
      */
-    public void setCompleted(boolean completed);
+    public void setCompleted(Boolean completed);
 
     /**
      * Returns the completion date of this background task.
@@ -286,7 +286,7 @@ public interface BackgroundTaskModel extends BaseModel<BackgroundTask>,
      *
      * @param status the status of this background task
      */
-    public void setStatus(int status);
+    public void setStatus(Integer status);
 
     /**
      * Returns the status message of this background task.

@@ -59,7 +59,7 @@ public interface PasswordPolicyRelModel extends AttachedModel,
      *
      * @param passwordPolicyRelId the password policy rel ID of this password policy rel
      */
-    public void setPasswordPolicyRelId(long passwordPolicyRelId);
+    public void setPasswordPolicyRelId(Long passwordPolicyRelId);
 
     /**
      * Returns the password policy ID of this password policy rel.
@@ -73,7 +73,7 @@ public interface PasswordPolicyRelModel extends AttachedModel,
      *
      * @param passwordPolicyId the password policy ID of this password policy rel
      */
-    public void setPasswordPolicyId(long passwordPolicyId);
+    public void setPasswordPolicyId(Long passwordPolicyId);
 
     /**
      * Returns the fully qualified class name of this password policy rel.
@@ -99,7 +99,7 @@ public interface PasswordPolicyRelModel extends AttachedModel,
      * @param classNameId the class name ID of this password policy rel
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this password policy rel.
@@ -115,7 +115,7 @@ public interface PasswordPolicyRelModel extends AttachedModel,
      * @param classPK the class p k of this password policy rel
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     @Override
     public boolean isNew();

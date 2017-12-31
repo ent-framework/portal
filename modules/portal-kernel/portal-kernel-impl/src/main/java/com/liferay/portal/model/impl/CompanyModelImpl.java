@@ -273,7 +273,11 @@ public class CompanyModelImpl extends BaseModelImpl<Company>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -284,7 +288,11 @@ public class CompanyModelImpl extends BaseModelImpl<Company>
     }
 
     @Override
-    public void setAccountId(long accountId) {
+    public void setAccountId(Long accountId) {
+        if (accountId == null) {
+            accountId = new Long(0);
+        }
+
         _accountId = accountId;
     }
 
@@ -375,13 +383,17 @@ public class CompanyModelImpl extends BaseModelImpl<Company>
     }
 
     @Override
-    public void setLogoId(long logoId) {
+    public void setLogoId(Long logoId) {
         _columnBitmask |= LOGOID_COLUMN_BITMASK;
 
         if (!_setOriginalLogoId) {
             _setOriginalLogoId = true;
 
             _originalLogoId = _logoId;
+        }
+
+        if (logoId == null) {
+            logoId = new Long(0);
         }
 
         _logoId = logoId;
@@ -403,13 +415,17 @@ public class CompanyModelImpl extends BaseModelImpl<Company>
     }
 
     @Override
-    public void setSystem(boolean system) {
+    public void setSystem(Boolean system) {
         _columnBitmask |= SYSTEM_COLUMN_BITMASK;
 
         if (!_setOriginalSystem) {
             _setOriginalSystem = true;
 
             _originalSystem = _system;
+        }
+
+        if (system == null) {
+            system = Boolean.FALSE;
         }
 
         _system = system;
@@ -426,7 +442,11 @@ public class CompanyModelImpl extends BaseModelImpl<Company>
     }
 
     @Override
-    public void setMaxUsers(int maxUsers) {
+    public void setMaxUsers(Integer maxUsers) {
+        if (maxUsers == null) {
+            maxUsers = new Integer(0);
+        }
+
         _maxUsers = maxUsers;
     }
 
@@ -442,7 +462,11 @@ public class CompanyModelImpl extends BaseModelImpl<Company>
     }
 
     @Override
-    public void setActive(boolean active) {
+    public void setActive(Boolean active) {
+        if (active == null) {
+            active = Boolean.FALSE;
+        }
+
         _active = active;
     }
 

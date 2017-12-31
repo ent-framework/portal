@@ -781,7 +781,7 @@ public class LayoutImpl extends LayoutBaseImpl {
 	}
 
 	@Override
-	public void setGroupId(long groupId) {
+	public void setGroupId(Long groupId) {
 		super.setGroupId(groupId);
 
 		_layoutSet = null;

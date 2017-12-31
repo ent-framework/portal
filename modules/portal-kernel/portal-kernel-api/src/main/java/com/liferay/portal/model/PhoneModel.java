@@ -81,7 +81,7 @@ public interface PhoneModel extends AttachedModel, BaseModel<Phone>,
      *
      * @param phoneId the phone ID of this phone
      */
-    public void setPhoneId(long phoneId);
+    public void setPhoneId(Long phoneId);
 
     /**
      * Returns the company ID of this phone.
@@ -97,7 +97,7 @@ public interface PhoneModel extends AttachedModel, BaseModel<Phone>,
      * @param companyId the company ID of this phone
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this phone.
@@ -113,7 +113,7 @@ public interface PhoneModel extends AttachedModel, BaseModel<Phone>,
      * @param userId the user ID of this phone
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this phone.
@@ -205,7 +205,7 @@ public interface PhoneModel extends AttachedModel, BaseModel<Phone>,
      * @param classNameId the class name ID of this phone
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this phone.
@@ -221,7 +221,7 @@ public interface PhoneModel extends AttachedModel, BaseModel<Phone>,
      * @param classPK the class p k of this phone
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the number of this phone.
@@ -265,7 +265,7 @@ public interface PhoneModel extends AttachedModel, BaseModel<Phone>,
      *
      * @param typeId the type ID of this phone
      */
-    public void setTypeId(int typeId);
+    public void setTypeId(Integer typeId);
 
     /**
      * Returns the primary of this phone.
@@ -286,7 +286,7 @@ public interface PhoneModel extends AttachedModel, BaseModel<Phone>,
      *
      * @param primary the primary of this phone
      */
-    public void setPrimary(boolean primary);
+    public void setPrimary(Boolean primary);
 
     @Override
     public boolean isNew();

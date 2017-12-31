@@ -118,7 +118,7 @@ public class ServiceComponentWrapper implements ServiceComponent,
     * @param serviceComponentId the service component ID of this service component
     */
     @Override
-    public void setServiceComponentId(long serviceComponentId) {
+    public void setServiceComponentId(java.lang.Long serviceComponentId) {
         _serviceComponent.setServiceComponentId(serviceComponentId);
     }
 
@@ -158,7 +158,7 @@ public class ServiceComponentWrapper implements ServiceComponent,
     * @param buildNumber the build number of this service component
     */
     @Override
-    public void setBuildNumber(long buildNumber) {
+    public void setBuildNumber(java.lang.Long buildNumber) {
         _serviceComponent.setBuildNumber(buildNumber);
     }
 
@@ -178,7 +178,7 @@ public class ServiceComponentWrapper implements ServiceComponent,
     * @param buildDate the build date of this service component
     */
     @Override
-    public void setBuildDate(long buildDate) {
+    public void setBuildDate(java.lang.Long buildDate) {
         _serviceComponent.setBuildDate(buildDate);
     }
 

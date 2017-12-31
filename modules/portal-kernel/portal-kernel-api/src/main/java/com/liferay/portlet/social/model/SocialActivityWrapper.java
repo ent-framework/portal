@@ -181,7 +181,7 @@ public class SocialActivityWrapper implements SocialActivity,
     * @param activityId the activity ID of this social activity
     */
     @Override
-    public void setActivityId(long activityId) {
+    public void setActivityId(java.lang.Long activityId) {
         _socialActivity.setActivityId(activityId);
     }
 
@@ -201,7 +201,7 @@ public class SocialActivityWrapper implements SocialActivity,
     * @param groupId the group ID of this social activity
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _socialActivity.setGroupId(groupId);
     }
 
@@ -221,7 +221,7 @@ public class SocialActivityWrapper implements SocialActivity,
     * @param companyId the company ID of this social activity
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _socialActivity.setCompanyId(companyId);
     }
 
@@ -241,7 +241,7 @@ public class SocialActivityWrapper implements SocialActivity,
     * @param userId the user ID of this social activity
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _socialActivity.setUserId(userId);
     }
 
@@ -283,7 +283,7 @@ public class SocialActivityWrapper implements SocialActivity,
     * @param createDate the create date of this social activity
     */
     @Override
-    public void setCreateDate(long createDate) {
+    public void setCreateDate(java.lang.Long createDate) {
         _socialActivity.setCreateDate(createDate);
     }
 
@@ -303,7 +303,7 @@ public class SocialActivityWrapper implements SocialActivity,
     * @param activitySetId the activity set ID of this social activity
     */
     @Override
-    public void setActivitySetId(long activitySetId) {
+    public void setActivitySetId(java.lang.Long activitySetId) {
         _socialActivity.setActivitySetId(activitySetId);
     }
 
@@ -323,7 +323,7 @@ public class SocialActivityWrapper implements SocialActivity,
     * @param mirrorActivityId the mirror activity ID of this social activity
     */
     @Override
-    public void setMirrorActivityId(long mirrorActivityId) {
+    public void setMirrorActivityId(java.lang.Long mirrorActivityId) {
         _socialActivity.setMirrorActivityId(mirrorActivityId);
     }
 
@@ -358,7 +358,7 @@ public class SocialActivityWrapper implements SocialActivity,
     * @param classNameId the class name ID of this social activity
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _socialActivity.setClassNameId(classNameId);
     }
 
@@ -378,7 +378,7 @@ public class SocialActivityWrapper implements SocialActivity,
     * @param classPK the class p k of this social activity
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _socialActivity.setClassPK(classPK);
     }
 
@@ -398,7 +398,7 @@ public class SocialActivityWrapper implements SocialActivity,
     * @param parentClassNameId the parent class name ID of this social activity
     */
     @Override
-    public void setParentClassNameId(long parentClassNameId) {
+    public void setParentClassNameId(java.lang.Long parentClassNameId) {
         _socialActivity.setParentClassNameId(parentClassNameId);
     }
 
@@ -418,7 +418,7 @@ public class SocialActivityWrapper implements SocialActivity,
     * @param parentClassPK the parent class p k of this social activity
     */
     @Override
-    public void setParentClassPK(long parentClassPK) {
+    public void setParentClassPK(java.lang.Long parentClassPK) {
         _socialActivity.setParentClassPK(parentClassPK);
     }
 
@@ -438,7 +438,7 @@ public class SocialActivityWrapper implements SocialActivity,
     * @param type the type of this social activity
     */
     @Override
-    public void setType(int type) {
+    public void setType(java.lang.Integer type) {
         _socialActivity.setType(type);
     }
 
@@ -478,7 +478,7 @@ public class SocialActivityWrapper implements SocialActivity,
     * @param receiverUserId the receiver user ID of this social activity
     */
     @Override
-    public void setReceiverUserId(long receiverUserId) {
+    public void setReceiverUserId(java.lang.Long receiverUserId) {
         _socialActivity.setReceiverUserId(receiverUserId);
     }
 

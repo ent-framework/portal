@@ -302,7 +302,7 @@ public class LayoutRevisionWrapper implements LayoutRevision,
     * @param layoutRevisionId the layout revision ID of this layout revision
     */
     @Override
-    public void setLayoutRevisionId(long layoutRevisionId) {
+    public void setLayoutRevisionId(java.lang.Long layoutRevisionId) {
         _layoutRevision.setLayoutRevisionId(layoutRevisionId);
     }
 
@@ -322,7 +322,7 @@ public class LayoutRevisionWrapper implements LayoutRevision,
     * @param groupId the group ID of this layout revision
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _layoutRevision.setGroupId(groupId);
     }
 
@@ -342,7 +342,7 @@ public class LayoutRevisionWrapper implements LayoutRevision,
     * @param companyId the company ID of this layout revision
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _layoutRevision.setCompanyId(companyId);
     }
 
@@ -362,7 +362,7 @@ public class LayoutRevisionWrapper implements LayoutRevision,
     * @param userId the user ID of this layout revision
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _layoutRevision.setUserId(userId);
     }
 
@@ -464,7 +464,7 @@ public class LayoutRevisionWrapper implements LayoutRevision,
     * @param layoutSetBranchId the layout set branch ID of this layout revision
     */
     @Override
-    public void setLayoutSetBranchId(long layoutSetBranchId) {
+    public void setLayoutSetBranchId(java.lang.Long layoutSetBranchId) {
         _layoutRevision.setLayoutSetBranchId(layoutSetBranchId);
     }
 
@@ -484,7 +484,7 @@ public class LayoutRevisionWrapper implements LayoutRevision,
     * @param layoutBranchId the layout branch ID of this layout revision
     */
     @Override
-    public void setLayoutBranchId(long layoutBranchId) {
+    public void setLayoutBranchId(java.lang.Long layoutBranchId) {
         _layoutRevision.setLayoutBranchId(layoutBranchId);
     }
 
@@ -504,7 +504,7 @@ public class LayoutRevisionWrapper implements LayoutRevision,
     * @param parentLayoutRevisionId the parent layout revision ID of this layout revision
     */
     @Override
-    public void setParentLayoutRevisionId(long parentLayoutRevisionId) {
+    public void setParentLayoutRevisionId(java.lang.Long parentLayoutRevisionId) {
         _layoutRevision.setParentLayoutRevisionId(parentLayoutRevisionId);
     }
 
@@ -534,7 +534,7 @@ public class LayoutRevisionWrapper implements LayoutRevision,
     * @param head the head of this layout revision
     */
     @Override
-    public void setHead(boolean head) {
+    public void setHead(java.lang.Boolean head) {
         _layoutRevision.setHead(head);
     }
 
@@ -564,7 +564,7 @@ public class LayoutRevisionWrapper implements LayoutRevision,
     * @param major the major of this layout revision
     */
     @Override
-    public void setMajor(boolean major) {
+    public void setMajor(java.lang.Boolean major) {
         _layoutRevision.setMajor(major);
     }
 
@@ -584,7 +584,7 @@ public class LayoutRevisionWrapper implements LayoutRevision,
     * @param plid the plid of this layout revision
     */
     @Override
-    public void setPlid(long plid) {
+    public void setPlid(java.lang.Long plid) {
         _layoutRevision.setPlid(plid);
     }
 
@@ -614,7 +614,7 @@ public class LayoutRevisionWrapper implements LayoutRevision,
     * @param privateLayout the private layout of this layout revision
     */
     @Override
-    public void setPrivateLayout(boolean privateLayout) {
+    public void setPrivateLayout(java.lang.Boolean privateLayout) {
         _layoutRevision.setPrivateLayout(privateLayout);
     }
 
@@ -1368,7 +1368,7 @@ public class LayoutRevisionWrapper implements LayoutRevision,
     * @param iconImage the icon image of this layout revision
     */
     @Override
-    public void setIconImage(boolean iconImage) {
+    public void setIconImage(java.lang.Boolean iconImage) {
         _layoutRevision.setIconImage(iconImage);
     }
 
@@ -1388,7 +1388,7 @@ public class LayoutRevisionWrapper implements LayoutRevision,
     * @param iconImageId the icon image ID of this layout revision
     */
     @Override
-    public void setIconImageId(long iconImageId) {
+    public void setIconImageId(java.lang.Long iconImageId) {
         _layoutRevision.setIconImageId(iconImageId);
     }
 
@@ -1508,7 +1508,7 @@ public class LayoutRevisionWrapper implements LayoutRevision,
     * @param status the status of this layout revision
     */
     @Override
-    public void setStatus(int status) {
+    public void setStatus(java.lang.Integer status) {
         _layoutRevision.setStatus(status);
     }
 
@@ -1528,7 +1528,7 @@ public class LayoutRevisionWrapper implements LayoutRevision,
     * @param statusByUserId the status by user ID of this layout revision
     */
     @Override
-    public void setStatusByUserId(long statusByUserId) {
+    public void setStatusByUserId(java.lang.Long statusByUserId) {
         _layoutRevision.setStatusByUserId(statusByUserId);
     }
 

@@ -237,7 +237,7 @@ public class AddressWrapper implements Address, ModelWrapper<Address> {
     * @param addressId the address ID of this address
     */
     @Override
-    public void setAddressId(long addressId) {
+    public void setAddressId(java.lang.Long addressId) {
         _address.setAddressId(addressId);
     }
 
@@ -257,7 +257,7 @@ public class AddressWrapper implements Address, ModelWrapper<Address> {
     * @param companyId the company ID of this address
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _address.setCompanyId(companyId);
     }
 
@@ -277,7 +277,7 @@ public class AddressWrapper implements Address, ModelWrapper<Address> {
     * @param userId the user ID of this address
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _address.setUserId(userId);
     }
 
@@ -394,7 +394,7 @@ public class AddressWrapper implements Address, ModelWrapper<Address> {
     * @param classNameId the class name ID of this address
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _address.setClassNameId(classNameId);
     }
 
@@ -414,7 +414,7 @@ public class AddressWrapper implements Address, ModelWrapper<Address> {
     * @param classPK the class p k of this address
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _address.setClassPK(classPK);
     }
 
@@ -534,7 +534,7 @@ public class AddressWrapper implements Address, ModelWrapper<Address> {
     * @param regionId the region ID of this address
     */
     @Override
-    public void setRegionId(long regionId) {
+    public void setRegionId(java.lang.Long regionId) {
         _address.setRegionId(regionId);
     }
 
@@ -554,7 +554,7 @@ public class AddressWrapper implements Address, ModelWrapper<Address> {
     * @param countryId the country ID of this address
     */
     @Override
-    public void setCountryId(long countryId) {
+    public void setCountryId(java.lang.Long countryId) {
         _address.setCountryId(countryId);
     }
 
@@ -574,7 +574,7 @@ public class AddressWrapper implements Address, ModelWrapper<Address> {
     * @param typeId the type ID of this address
     */
     @Override
-    public void setTypeId(int typeId) {
+    public void setTypeId(java.lang.Integer typeId) {
         _address.setTypeId(typeId);
     }
 
@@ -604,7 +604,7 @@ public class AddressWrapper implements Address, ModelWrapper<Address> {
     * @param mailing the mailing of this address
     */
     @Override
-    public void setMailing(boolean mailing) {
+    public void setMailing(java.lang.Boolean mailing) {
         _address.setMailing(mailing);
     }
 
@@ -634,7 +634,7 @@ public class AddressWrapper implements Address, ModelWrapper<Address> {
     * @param primary the primary of this address
     */
     @Override
-    public void setPrimary(boolean primary) {
+    public void setPrimary(java.lang.Boolean primary) {
         _address.setPrimary(primary);
     }
 

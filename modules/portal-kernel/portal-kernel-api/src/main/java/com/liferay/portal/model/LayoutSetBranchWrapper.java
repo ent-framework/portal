@@ -234,7 +234,7 @@ public class LayoutSetBranchWrapper implements LayoutSetBranch,
     * @param layoutSetBranchId the layout set branch ID of this layout set branch
     */
     @Override
-    public void setLayoutSetBranchId(long layoutSetBranchId) {
+    public void setLayoutSetBranchId(java.lang.Long layoutSetBranchId) {
         _layoutSetBranch.setLayoutSetBranchId(layoutSetBranchId);
     }
 
@@ -254,7 +254,7 @@ public class LayoutSetBranchWrapper implements LayoutSetBranch,
     * @param groupId the group ID of this layout set branch
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _layoutSetBranch.setGroupId(groupId);
     }
 
@@ -274,7 +274,7 @@ public class LayoutSetBranchWrapper implements LayoutSetBranch,
     * @param companyId the company ID of this layout set branch
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _layoutSetBranch.setCompanyId(companyId);
     }
 
@@ -294,7 +294,7 @@ public class LayoutSetBranchWrapper implements LayoutSetBranch,
     * @param userId the user ID of this layout set branch
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _layoutSetBranch.setUserId(userId);
     }
 
@@ -406,7 +406,7 @@ public class LayoutSetBranchWrapper implements LayoutSetBranch,
     * @param privateLayout the private layout of this layout set branch
     */
     @Override
-    public void setPrivateLayout(boolean privateLayout) {
+    public void setPrivateLayout(java.lang.Boolean privateLayout) {
         _layoutSetBranch.setPrivateLayout(privateLayout);
     }
 
@@ -476,7 +476,7 @@ public class LayoutSetBranchWrapper implements LayoutSetBranch,
     * @param master the master of this layout set branch
     */
     @Override
-    public void setMaster(boolean master) {
+    public void setMaster(java.lang.Boolean master) {
         _layoutSetBranch.setMaster(master);
     }
 
@@ -506,7 +506,7 @@ public class LayoutSetBranchWrapper implements LayoutSetBranch,
     * @param logo the logo of this layout set branch
     */
     @Override
-    public void setLogo(boolean logo) {
+    public void setLogo(java.lang.Boolean logo) {
         _layoutSetBranch.setLogo(logo);
     }
 
@@ -526,7 +526,7 @@ public class LayoutSetBranchWrapper implements LayoutSetBranch,
     * @param logoId the logo ID of this layout set branch
     */
     @Override
-    public void setLogoId(long logoId) {
+    public void setLogoId(java.lang.Long logoId) {
         _layoutSetBranch.setLogoId(logoId);
     }
 
@@ -698,7 +698,7 @@ public class LayoutSetBranchWrapper implements LayoutSetBranch,
     */
     @Override
     public void setLayoutSetPrototypeLinkEnabled(
-        boolean layoutSetPrototypeLinkEnabled) {
+        java.lang.Boolean layoutSetPrototypeLinkEnabled) {
         _layoutSetBranch.setLayoutSetPrototypeLinkEnabled(layoutSetPrototypeLinkEnabled);
     }
 

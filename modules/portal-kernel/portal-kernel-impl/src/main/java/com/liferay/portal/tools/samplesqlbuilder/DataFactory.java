@@ -593,7 +593,7 @@ public class DataFactory {
 				AssetTagModel assetTagModel = new AssetTagModelImpl();
 
 				assetTagModel.setTagId(_counter.get());
-				assetTagModel.setGroupId(i);
+				assetTagModel.setGroupId(new Long(i));
 				assetTagModel.setCompanyId(_companyId);
 				assetTagModel.setUserId(_sampleUserId);
 				assetTagModel.setUserName(_SAMPLE_USER_NAME);
@@ -2120,7 +2120,7 @@ public class DataFactory {
 		dlFileEntryModel.setFileEntryTypeId(
 			DLFileEntryTypeConstants.FILE_ENTRY_TYPE_ID_BASIC_DOCUMENT);
 		dlFileEntryModel.setVersion(DLFileEntryConstants.VERSION_DEFAULT);
-		dlFileEntryModel.setSize(_maxDLFileEntrySize);
+		dlFileEntryModel.setSize(new Long(_maxDLFileEntrySize));
 
 		return dlFileEntryModel;
 	}
@@ -2229,7 +2229,7 @@ public class DataFactory {
 		resourcePermissionModel.setPrimKey(primKey);
 		resourcePermissionModel.setRoleId(roleId);
 		resourcePermissionModel.setOwnerId(ownerId);
-		resourcePermissionModel.setActionIds(1);
+		resourcePermissionModel.setActionIds(1l);
 
 		return resourcePermissionModel;
 	}

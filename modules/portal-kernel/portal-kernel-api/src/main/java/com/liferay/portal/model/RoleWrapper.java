@@ -202,7 +202,7 @@ public class RoleWrapper implements Role, ModelWrapper<Role> {
     * @param roleId the role ID of this role
     */
     @Override
-    public void setRoleId(long roleId) {
+    public void setRoleId(java.lang.Long roleId) {
         _role.setRoleId(roleId);
     }
 
@@ -222,7 +222,7 @@ public class RoleWrapper implements Role, ModelWrapper<Role> {
     * @param companyId the company ID of this role
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _role.setCompanyId(companyId);
     }
 
@@ -242,7 +242,7 @@ public class RoleWrapper implements Role, ModelWrapper<Role> {
     * @param userId the user ID of this role
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _role.setUserId(userId);
     }
 
@@ -359,7 +359,7 @@ public class RoleWrapper implements Role, ModelWrapper<Role> {
     * @param classNameId the class name ID of this role
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _role.setClassNameId(classNameId);
     }
 
@@ -379,7 +379,7 @@ public class RoleWrapper implements Role, ModelWrapper<Role> {
     * @param classPK the class p k of this role
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _role.setClassPK(classPK);
     }
 
@@ -701,7 +701,7 @@ public class RoleWrapper implements Role, ModelWrapper<Role> {
     * @param type the type of this role
     */
     @Override
-    public void setType(int type) {
+    public void setType(java.lang.Integer type) {
         _role.setType(type);
     }
 

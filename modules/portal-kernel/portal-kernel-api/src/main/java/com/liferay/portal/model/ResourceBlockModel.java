@@ -58,7 +58,7 @@ public interface ResourceBlockModel extends BaseModel<ResourceBlock> {
      *
      * @param resourceBlockId the resource block ID of this resource block
      */
-    public void setResourceBlockId(long resourceBlockId);
+    public void setResourceBlockId(Long resourceBlockId);
 
     /**
      * Returns the company ID of this resource block.
@@ -72,7 +72,7 @@ public interface ResourceBlockModel extends BaseModel<ResourceBlock> {
      *
      * @param companyId the company ID of this resource block
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the group ID of this resource block.
@@ -86,7 +86,7 @@ public interface ResourceBlockModel extends BaseModel<ResourceBlock> {
      *
      * @param groupId the group ID of this resource block
      */
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the name of this resource block.
@@ -130,7 +130,7 @@ public interface ResourceBlockModel extends BaseModel<ResourceBlock> {
      *
      * @param referenceCount the reference count of this resource block
      */
-    public void setReferenceCount(long referenceCount);
+    public void setReferenceCount(Long referenceCount);
 
     @Override
     public boolean isNew();

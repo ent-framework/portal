@@ -207,7 +207,11 @@ public class ClassNameModelImpl extends BaseModelImpl<ClassName>
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
+        if (classNameId == null) {
+            classNameId = new Long(0);
+        }
+
         _classNameId = classNameId;
     }
 

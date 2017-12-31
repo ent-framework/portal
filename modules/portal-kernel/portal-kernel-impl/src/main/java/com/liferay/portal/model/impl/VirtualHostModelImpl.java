@@ -164,7 +164,11 @@ public class VirtualHostModelImpl extends BaseModelImpl<VirtualHost>
     }
 
     @Override
-    public void setVirtualHostId(long virtualHostId) {
+    public void setVirtualHostId(Long virtualHostId) {
+        if (virtualHostId == null) {
+            virtualHostId = new Long(0);
+        }
+
         _virtualHostId = virtualHostId;
     }
 
@@ -174,13 +178,17 @@ public class VirtualHostModelImpl extends BaseModelImpl<VirtualHost>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -196,13 +204,17 @@ public class VirtualHostModelImpl extends BaseModelImpl<VirtualHost>
     }
 
     @Override
-    public void setLayoutSetId(long layoutSetId) {
+    public void setLayoutSetId(Long layoutSetId) {
         _columnBitmask |= LAYOUTSETID_COLUMN_BITMASK;
 
         if (!_setOriginalLayoutSetId) {
             _setOriginalLayoutSetId = true;
 
             _originalLayoutSetId = _layoutSetId;
+        }
+
+        if (layoutSetId == null) {
+            layoutSetId = new Long(0);
         }
 
         _layoutSetId = layoutSetId;

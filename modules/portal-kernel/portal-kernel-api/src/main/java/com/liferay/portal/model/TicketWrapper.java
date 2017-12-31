@@ -146,7 +146,7 @@ public class TicketWrapper implements Ticket, ModelWrapper<Ticket> {
     * @param ticketId the ticket ID of this ticket
     */
     @Override
-    public void setTicketId(long ticketId) {
+    public void setTicketId(java.lang.Long ticketId) {
         _ticket.setTicketId(ticketId);
     }
 
@@ -166,7 +166,7 @@ public class TicketWrapper implements Ticket, ModelWrapper<Ticket> {
     * @param companyId the company ID of this ticket
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _ticket.setCompanyId(companyId);
     }
 
@@ -221,7 +221,7 @@ public class TicketWrapper implements Ticket, ModelWrapper<Ticket> {
     * @param classNameId the class name ID of this ticket
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _ticket.setClassNameId(classNameId);
     }
 
@@ -241,7 +241,7 @@ public class TicketWrapper implements Ticket, ModelWrapper<Ticket> {
     * @param classPK the class p k of this ticket
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _ticket.setClassPK(classPK);
     }
 
@@ -281,7 +281,7 @@ public class TicketWrapper implements Ticket, ModelWrapper<Ticket> {
     * @param type the type of this ticket
     */
     @Override
-    public void setType(int type) {
+    public void setType(java.lang.Integer type) {
         _ticket.setType(type);
     }
 

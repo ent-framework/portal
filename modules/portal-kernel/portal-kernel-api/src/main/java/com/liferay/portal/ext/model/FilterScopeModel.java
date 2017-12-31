@@ -58,7 +58,7 @@ public interface FilterScopeModel extends BaseModel<FilterScope> {
      *
      * @param filterScopeId the filter scope ID of this filter scope
      */
-    public void setFilterScopeId(long filterScopeId);
+    public void setFilterScopeId(Long filterScopeId);
 
     /**
      * Returns the filter name of this filter scope.

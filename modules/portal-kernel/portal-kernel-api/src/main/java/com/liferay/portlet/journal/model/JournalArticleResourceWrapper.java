@@ -132,7 +132,7 @@ public class JournalArticleResourceWrapper implements JournalArticleResource,
     * @param resourcePrimKey the resource prim key of this journal article resource
     */
     @Override
-    public void setResourcePrimKey(long resourcePrimKey) {
+    public void setResourcePrimKey(java.lang.Long resourcePrimKey) {
         _journalArticleResource.setResourcePrimKey(resourcePrimKey);
     }
 
@@ -152,7 +152,7 @@ public class JournalArticleResourceWrapper implements JournalArticleResource,
     * @param groupId the group ID of this journal article resource
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _journalArticleResource.setGroupId(groupId);
     }
 

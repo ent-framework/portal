@@ -79,7 +79,7 @@ public interface DDLRecordModel extends BaseModel<DDLRecord>, StagedGroupedModel
      *
      * @param recordId the record ID of this d d l record
      */
-    public void setRecordId(long recordId);
+    public void setRecordId(Long recordId);
 
     /**
      * Returns the group ID of this d d l record.
@@ -95,7 +95,7 @@ public interface DDLRecordModel extends BaseModel<DDLRecord>, StagedGroupedModel
      * @param groupId the group ID of this d d l record
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this d d l record.
@@ -111,7 +111,7 @@ public interface DDLRecordModel extends BaseModel<DDLRecord>, StagedGroupedModel
      * @param companyId the company ID of this d d l record
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this d d l record.
@@ -127,7 +127,7 @@ public interface DDLRecordModel extends BaseModel<DDLRecord>, StagedGroupedModel
      * @param userId the user ID of this d d l record
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this d d l record.
@@ -175,7 +175,7 @@ public interface DDLRecordModel extends BaseModel<DDLRecord>, StagedGroupedModel
      *
      * @param versionUserId the version user ID of this d d l record
      */
-    public void setVersionUserId(long versionUserId);
+    public void setVersionUserId(Long versionUserId);
 
     /**
      * Returns the version user uuid of this d d l record.
@@ -251,7 +251,7 @@ public interface DDLRecordModel extends BaseModel<DDLRecord>, StagedGroupedModel
      *
      * @param DDMStorageId the d d m storage ID of this d d l record
      */
-    public void setDDMStorageId(long DDMStorageId);
+    public void setDDMStorageId(Long DDMStorageId);
 
     /**
      * Returns the record set ID of this d d l record.
@@ -265,7 +265,7 @@ public interface DDLRecordModel extends BaseModel<DDLRecord>, StagedGroupedModel
      *
      * @param recordSetId the record set ID of this d d l record
      */
-    public void setRecordSetId(long recordSetId);
+    public void setRecordSetId(Long recordSetId);
 
     /**
      * Returns the version of this d d l record.
@@ -294,7 +294,7 @@ public interface DDLRecordModel extends BaseModel<DDLRecord>, StagedGroupedModel
      *
      * @param displayIndex the display index of this d d l record
      */
-    public void setDisplayIndex(int displayIndex);
+    public void setDisplayIndex(Integer displayIndex);
 
     @Override
     public boolean isNew();

@@ -58,7 +58,7 @@ public interface JournalArticleImageModel extends BaseModel<JournalArticleImage>
      *
      * @param articleImageId the article image ID of this journal article image
      */
-    public void setArticleImageId(long articleImageId);
+    public void setArticleImageId(Long articleImageId);
 
     /**
      * Returns the group ID of this journal article image.
@@ -72,7 +72,7 @@ public interface JournalArticleImageModel extends BaseModel<JournalArticleImage>
      *
      * @param groupId the group ID of this journal article image
      */
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the article ID of this journal article image.
@@ -167,7 +167,7 @@ public interface JournalArticleImageModel extends BaseModel<JournalArticleImage>
      *
      * @param tempImage the temp image of this journal article image
      */
-    public void setTempImage(boolean tempImage);
+    public void setTempImage(Boolean tempImage);
 
     @Override
     public boolean isNew();

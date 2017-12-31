@@ -507,7 +507,11 @@ public class DLFileEntryModelImpl extends BaseModelImpl<DLFileEntry>
     }
 
     @Override
-    public void setFileEntryId(long fileEntryId) {
+    public void setFileEntryId(Long fileEntryId) {
+        if (fileEntryId == null) {
+            fileEntryId = new Long(0);
+        }
+
         _fileEntryId = fileEntryId;
     }
 
@@ -518,13 +522,17 @@ public class DLFileEntryModelImpl extends BaseModelImpl<DLFileEntry>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -541,13 +549,17 @@ public class DLFileEntryModelImpl extends BaseModelImpl<DLFileEntry>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -564,13 +576,17 @@ public class DLFileEntryModelImpl extends BaseModelImpl<DLFileEntry>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;
@@ -654,7 +670,11 @@ public class DLFileEntryModelImpl extends BaseModelImpl<DLFileEntry>
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
+        if (classNameId == null) {
+            classNameId = new Long(0);
+        }
+
         _classNameId = classNameId;
     }
 
@@ -665,7 +685,11 @@ public class DLFileEntryModelImpl extends BaseModelImpl<DLFileEntry>
     }
 
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(Long classPK) {
+        if (classPK == null) {
+            classPK = new Long(0);
+        }
+
         _classPK = classPK;
     }
 
@@ -676,13 +700,17 @@ public class DLFileEntryModelImpl extends BaseModelImpl<DLFileEntry>
     }
 
     @Override
-    public void setRepositoryId(long repositoryId) {
+    public void setRepositoryId(Long repositoryId) {
         _columnBitmask |= REPOSITORYID_COLUMN_BITMASK;
 
         if (!_setOriginalRepositoryId) {
             _setOriginalRepositoryId = true;
 
             _originalRepositoryId = _repositoryId;
+        }
+
+        if (repositoryId == null) {
+            repositoryId = new Long(0);
         }
 
         _repositoryId = repositoryId;
@@ -699,13 +727,17 @@ public class DLFileEntryModelImpl extends BaseModelImpl<DLFileEntry>
     }
 
     @Override
-    public void setFolderId(long folderId) {
+    public void setFolderId(Long folderId) {
         _columnBitmask = -1L;
 
         if (!_setOriginalFolderId) {
             _setOriginalFolderId = true;
 
             _originalFolderId = _folderId;
+        }
+
+        if (folderId == null) {
+            folderId = new Long(0);
         }
 
         _folderId = folderId;
@@ -857,13 +889,17 @@ public class DLFileEntryModelImpl extends BaseModelImpl<DLFileEntry>
     }
 
     @Override
-    public void setFileEntryTypeId(long fileEntryTypeId) {
+    public void setFileEntryTypeId(Long fileEntryTypeId) {
         _columnBitmask |= FILEENTRYTYPEID_COLUMN_BITMASK;
 
         if (!_setOriginalFileEntryTypeId) {
             _setOriginalFileEntryTypeId = true;
 
             _originalFileEntryTypeId = _fileEntryTypeId;
+        }
+
+        if (fileEntryTypeId == null) {
+            fileEntryTypeId = new Long(0);
         }
 
         _fileEntryTypeId = fileEntryTypeId;
@@ -895,7 +931,11 @@ public class DLFileEntryModelImpl extends BaseModelImpl<DLFileEntry>
     }
 
     @Override
-    public void setSize(long size) {
+    public void setSize(Long size) {
+        if (size == null) {
+            size = new Long(0);
+        }
+
         _size = size;
     }
 
@@ -906,7 +946,11 @@ public class DLFileEntryModelImpl extends BaseModelImpl<DLFileEntry>
     }
 
     @Override
-    public void setReadCount(int readCount) {
+    public void setReadCount(Integer readCount) {
+        if (readCount == null) {
+            readCount = new Integer(0);
+        }
+
         _readCount = readCount;
     }
 
@@ -917,7 +961,11 @@ public class DLFileEntryModelImpl extends BaseModelImpl<DLFileEntry>
     }
 
     @Override
-    public void setSmallImageId(long smallImageId) {
+    public void setSmallImageId(Long smallImageId) {
+        if (smallImageId == null) {
+            smallImageId = new Long(0);
+        }
+
         _smallImageId = smallImageId;
     }
 
@@ -928,7 +976,11 @@ public class DLFileEntryModelImpl extends BaseModelImpl<DLFileEntry>
     }
 
     @Override
-    public void setLargeImageId(long largeImageId) {
+    public void setLargeImageId(Long largeImageId) {
+        if (largeImageId == null) {
+            largeImageId = new Long(0);
+        }
+
         _largeImageId = largeImageId;
     }
 
@@ -939,7 +991,11 @@ public class DLFileEntryModelImpl extends BaseModelImpl<DLFileEntry>
     }
 
     @Override
-    public void setCustom1ImageId(long custom1ImageId) {
+    public void setCustom1ImageId(Long custom1ImageId) {
+        if (custom1ImageId == null) {
+            custom1ImageId = new Long(0);
+        }
+
         _custom1ImageId = custom1ImageId;
     }
 
@@ -950,7 +1006,11 @@ public class DLFileEntryModelImpl extends BaseModelImpl<DLFileEntry>
     }
 
     @Override
-    public void setCustom2ImageId(long custom2ImageId) {
+    public void setCustom2ImageId(Long custom2ImageId) {
+        if (custom2ImageId == null) {
+            custom2ImageId = new Long(0);
+        }
+
         _custom2ImageId = custom2ImageId;
     }
 
@@ -966,7 +1026,11 @@ public class DLFileEntryModelImpl extends BaseModelImpl<DLFileEntry>
     }
 
     @Override
-    public void setManualCheckInRequired(boolean manualCheckInRequired) {
+    public void setManualCheckInRequired(Boolean manualCheckInRequired) {
+        if (manualCheckInRequired == null) {
+            manualCheckInRequired = Boolean.FALSE;
+        }
+
         _manualCheckInRequired = manualCheckInRequired;
     }
 

@@ -339,6 +339,50 @@ public class EntityColumn implements Cloneable, Comparable<EntityColumn> {
 		}
 	}
 
+	public String getObjType() {
+		if (isPrimitiveType()) {
+			if (_type.equals("int")) {
+				return "Integer";
+			} else if (_type.equals("long")) {
+				return "Long";
+			} else if (_type.equals("float")) {
+				return "Float";
+			} else if (_type.equals("boolean")) {
+				return "Boolean";
+			} else  {
+				return _type;
+			}
+		}
+		return _type;
+	}
+
+	public String getDefaultValue() {
+		StringBundler sb = new StringBundler();
+
+
+		if (isPrimitiveType()) {
+
+			sb.append("if (");
+			sb.append(_name);
+			sb.append(" == null) ");
+			sb.append(_name);
+			sb.append(" = ");
+
+			if (_type.equals("int")) {
+				sb.append("new Integer(0);");
+			} else if (_type.equals("long")) {
+				sb.append("new Long(0);");
+			} else if (_type.equals("float")) {
+				sb.append("new Float(0);");
+			} else if (_type.equals("boolean")) {
+				sb.append("Boolean.FALSE;");
+			} else {
+				return "";
+			}
+		}
+		return sb.toString();
+	}
+
 	public boolean isUserUuid() {
 		if (_type.equals("long") && _methodName.endsWith("UserId")) {
 			return true;

@@ -175,7 +175,7 @@ public class SocialActivityCounterWrapper implements SocialActivityCounter,
     * @param activityCounterId the activity counter ID of this social activity counter
     */
     @Override
-    public void setActivityCounterId(long activityCounterId) {
+    public void setActivityCounterId(java.lang.Long activityCounterId) {
         _socialActivityCounter.setActivityCounterId(activityCounterId);
     }
 
@@ -195,7 +195,7 @@ public class SocialActivityCounterWrapper implements SocialActivityCounter,
     * @param groupId the group ID of this social activity counter
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _socialActivityCounter.setGroupId(groupId);
     }
 
@@ -215,7 +215,7 @@ public class SocialActivityCounterWrapper implements SocialActivityCounter,
     * @param companyId the company ID of this social activity counter
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _socialActivityCounter.setCompanyId(companyId);
     }
 
@@ -250,7 +250,7 @@ public class SocialActivityCounterWrapper implements SocialActivityCounter,
     * @param classNameId the class name ID of this social activity counter
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _socialActivityCounter.setClassNameId(classNameId);
     }
 
@@ -270,7 +270,7 @@ public class SocialActivityCounterWrapper implements SocialActivityCounter,
     * @param classPK the class p k of this social activity counter
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _socialActivityCounter.setClassPK(classPK);
     }
 
@@ -310,7 +310,7 @@ public class SocialActivityCounterWrapper implements SocialActivityCounter,
     * @param ownerType the owner type of this social activity counter
     */
     @Override
-    public void setOwnerType(int ownerType) {
+    public void setOwnerType(java.lang.Integer ownerType) {
         _socialActivityCounter.setOwnerType(ownerType);
     }
 
@@ -330,7 +330,7 @@ public class SocialActivityCounterWrapper implements SocialActivityCounter,
     * @param currentValue the current value of this social activity counter
     */
     @Override
-    public void setCurrentValue(int currentValue) {
+    public void setCurrentValue(java.lang.Integer currentValue) {
         _socialActivityCounter.setCurrentValue(currentValue);
     }
 
@@ -350,7 +350,7 @@ public class SocialActivityCounterWrapper implements SocialActivityCounter,
     * @param totalValue the total value of this social activity counter
     */
     @Override
-    public void setTotalValue(int totalValue) {
+    public void setTotalValue(java.lang.Integer totalValue) {
         _socialActivityCounter.setTotalValue(totalValue);
     }
 
@@ -370,7 +370,7 @@ public class SocialActivityCounterWrapper implements SocialActivityCounter,
     * @param graceValue the grace value of this social activity counter
     */
     @Override
-    public void setGraceValue(int graceValue) {
+    public void setGraceValue(java.lang.Integer graceValue) {
         _socialActivityCounter.setGraceValue(graceValue);
     }
 
@@ -390,7 +390,7 @@ public class SocialActivityCounterWrapper implements SocialActivityCounter,
     * @param startPeriod the start period of this social activity counter
     */
     @Override
-    public void setStartPeriod(int startPeriod) {
+    public void setStartPeriod(java.lang.Integer startPeriod) {
         _socialActivityCounter.setStartPeriod(startPeriod);
     }
 
@@ -410,7 +410,7 @@ public class SocialActivityCounterWrapper implements SocialActivityCounter,
     * @param endPeriod the end period of this social activity counter
     */
     @Override
-    public void setEndPeriod(int endPeriod) {
+    public void setEndPeriod(java.lang.Integer endPeriod) {
         _socialActivityCounter.setEndPeriod(endPeriod);
     }
 
@@ -440,7 +440,7 @@ public class SocialActivityCounterWrapper implements SocialActivityCounter,
     * @param active the active of this social activity counter
     */
     @Override
-    public void setActive(boolean active) {
+    public void setActive(java.lang.Boolean active) {
         _socialActivityCounter.setActive(active);
     }
 

@@ -318,7 +318,11 @@ public class PollsVoteModelImpl extends BaseModelImpl<PollsVote>
     }
 
     @Override
-    public void setVoteId(long voteId) {
+    public void setVoteId(Long voteId) {
+        if (voteId == null) {
+            voteId = new Long(0);
+        }
+
         _voteId = voteId;
     }
 
@@ -329,13 +333,17 @@ public class PollsVoteModelImpl extends BaseModelImpl<PollsVote>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -352,13 +360,17 @@ public class PollsVoteModelImpl extends BaseModelImpl<PollsVote>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -375,13 +387,17 @@ public class PollsVoteModelImpl extends BaseModelImpl<PollsVote>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;
@@ -445,13 +461,17 @@ public class PollsVoteModelImpl extends BaseModelImpl<PollsVote>
     }
 
     @Override
-    public void setQuestionId(long questionId) {
+    public void setQuestionId(Long questionId) {
         _columnBitmask |= QUESTIONID_COLUMN_BITMASK;
 
         if (!_setOriginalQuestionId) {
             _setOriginalQuestionId = true;
 
             _originalQuestionId = _questionId;
+        }
+
+        if (questionId == null) {
+            questionId = new Long(0);
         }
 
         _questionId = questionId;
@@ -468,13 +488,17 @@ public class PollsVoteModelImpl extends BaseModelImpl<PollsVote>
     }
 
     @Override
-    public void setChoiceId(long choiceId) {
+    public void setChoiceId(Long choiceId) {
         _columnBitmask |= CHOICEID_COLUMN_BITMASK;
 
         if (!_setOriginalChoiceId) {
             _setOriginalChoiceId = true;
 
             _originalChoiceId = _choiceId;
+        }
+
+        if (choiceId == null) {
+            choiceId = new Long(0);
         }
 
         _choiceId = choiceId;

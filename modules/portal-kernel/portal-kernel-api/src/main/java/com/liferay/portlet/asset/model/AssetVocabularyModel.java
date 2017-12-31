@@ -83,7 +83,7 @@ public interface AssetVocabularyModel extends BaseModel<AssetVocabulary>,
      *
      * @param vocabularyId the vocabulary ID of this asset vocabulary
      */
-    public void setVocabularyId(long vocabularyId);
+    public void setVocabularyId(Long vocabularyId);
 
     /**
      * Returns the group ID of this asset vocabulary.
@@ -99,7 +99,7 @@ public interface AssetVocabularyModel extends BaseModel<AssetVocabulary>,
      * @param groupId the group ID of this asset vocabulary
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this asset vocabulary.
@@ -115,7 +115,7 @@ public interface AssetVocabularyModel extends BaseModel<AssetVocabulary>,
      * @param companyId the company ID of this asset vocabulary
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this asset vocabulary.
@@ -131,7 +131,7 @@ public interface AssetVocabularyModel extends BaseModel<AssetVocabulary>,
      * @param userId the user ID of this asset vocabulary
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this asset vocabulary.

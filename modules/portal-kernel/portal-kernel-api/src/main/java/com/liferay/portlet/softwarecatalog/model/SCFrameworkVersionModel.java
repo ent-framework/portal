@@ -63,7 +63,7 @@ public interface SCFrameworkVersionModel extends BaseModel<SCFrameworkVersion>,
      *
      * @param frameworkVersionId the framework version ID of this s c framework version
      */
-    public void setFrameworkVersionId(long frameworkVersionId);
+    public void setFrameworkVersionId(Long frameworkVersionId);
 
     /**
      * Returns the group ID of this s c framework version.
@@ -79,7 +79,7 @@ public interface SCFrameworkVersionModel extends BaseModel<SCFrameworkVersion>,
      * @param groupId the group ID of this s c framework version
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this s c framework version.
@@ -95,7 +95,7 @@ public interface SCFrameworkVersionModel extends BaseModel<SCFrameworkVersion>,
      * @param companyId the company ID of this s c framework version
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this s c framework version.
@@ -111,7 +111,7 @@ public interface SCFrameworkVersionModel extends BaseModel<SCFrameworkVersion>,
      * @param userId the user ID of this s c framework version
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this s c framework version.
@@ -228,7 +228,7 @@ public interface SCFrameworkVersionModel extends BaseModel<SCFrameworkVersion>,
      *
      * @param active the active of this s c framework version
      */
-    public void setActive(boolean active);
+    public void setActive(Boolean active);
 
     /**
      * Returns the priority of this s c framework version.
@@ -242,7 +242,7 @@ public interface SCFrameworkVersionModel extends BaseModel<SCFrameworkVersion>,
      *
      * @param priority the priority of this s c framework version
      */
-    public void setPriority(int priority);
+    public void setPriority(Integer priority);
 
     @Override
     public boolean isNew();

@@ -64,7 +64,7 @@ public interface SubscriptionModel extends AttachedModel, AuditedModel,
      *
      * @param subscriptionId the subscription ID of this subscription
      */
-    public void setSubscriptionId(long subscriptionId);
+    public void setSubscriptionId(Long subscriptionId);
 
     /**
      * Returns the company ID of this subscription.
@@ -80,7 +80,7 @@ public interface SubscriptionModel extends AttachedModel, AuditedModel,
      * @param companyId the company ID of this subscription
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this subscription.
@@ -96,7 +96,7 @@ public interface SubscriptionModel extends AttachedModel, AuditedModel,
      * @param userId the user ID of this subscription
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this subscription.
@@ -188,7 +188,7 @@ public interface SubscriptionModel extends AttachedModel, AuditedModel,
      * @param classNameId the class name ID of this subscription
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this subscription.
@@ -204,7 +204,7 @@ public interface SubscriptionModel extends AttachedModel, AuditedModel,
      * @param classPK the class p k of this subscription
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the frequency of this subscription.

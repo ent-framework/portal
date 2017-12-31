@@ -81,7 +81,7 @@ public interface DLFileVersionModel extends BaseModel<DLFileVersion>,
      *
      * @param fileVersionId the file version ID of this document library file version
      */
-    public void setFileVersionId(long fileVersionId);
+    public void setFileVersionId(Long fileVersionId);
 
     /**
      * Returns the group ID of this document library file version.
@@ -97,7 +97,7 @@ public interface DLFileVersionModel extends BaseModel<DLFileVersion>,
      * @param groupId the group ID of this document library file version
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this document library file version.
@@ -113,7 +113,7 @@ public interface DLFileVersionModel extends BaseModel<DLFileVersion>,
      * @param companyId the company ID of this document library file version
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this document library file version.
@@ -129,7 +129,7 @@ public interface DLFileVersionModel extends BaseModel<DLFileVersion>,
      * @param userId the user ID of this document library file version
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this document library file version.
@@ -209,7 +209,7 @@ public interface DLFileVersionModel extends BaseModel<DLFileVersion>,
      *
      * @param repositoryId the repository ID of this document library file version
      */
-    public void setRepositoryId(long repositoryId);
+    public void setRepositoryId(Long repositoryId);
 
     /**
      * Returns the folder ID of this document library file version.
@@ -223,7 +223,7 @@ public interface DLFileVersionModel extends BaseModel<DLFileVersion>,
      *
      * @param folderId the folder ID of this document library file version
      */
-    public void setFolderId(long folderId);
+    public void setFolderId(Long folderId);
 
     /**
      * Returns the file entry ID of this document library file version.
@@ -237,7 +237,7 @@ public interface DLFileVersionModel extends BaseModel<DLFileVersion>,
      *
      * @param fileEntryId the file entry ID of this document library file version
      */
-    public void setFileEntryId(long fileEntryId);
+    public void setFileEntryId(Long fileEntryId);
 
     /**
      * Returns the tree path of this document library file version.
@@ -356,7 +356,7 @@ public interface DLFileVersionModel extends BaseModel<DLFileVersion>,
      *
      * @param fileEntryTypeId the file entry type ID of this document library file version
      */
-    public void setFileEntryTypeId(long fileEntryTypeId);
+    public void setFileEntryTypeId(Long fileEntryTypeId);
 
     /**
      * Returns the version of this document library file version.
@@ -385,7 +385,7 @@ public interface DLFileVersionModel extends BaseModel<DLFileVersion>,
      *
      * @param size the size of this document library file version
      */
-    public void setSize(long size);
+    public void setSize(Long size);
 
     /**
      * Returns the checksum of this document library file version.
@@ -416,7 +416,7 @@ public interface DLFileVersionModel extends BaseModel<DLFileVersion>,
      * @param status the status of this document library file version
      */
     @Override
-    public void setStatus(int status);
+    public void setStatus(Integer status);
 
     /**
      * Returns the status by user ID of this document library file version.
@@ -432,7 +432,7 @@ public interface DLFileVersionModel extends BaseModel<DLFileVersion>,
      * @param statusByUserId the status by user ID of this document library file version
      */
     @Override
-    public void setStatusByUserId(long statusByUserId);
+    public void setStatusByUserId(Long statusByUserId);
 
     /**
      * Returns the status by user uuid of this document library file version.

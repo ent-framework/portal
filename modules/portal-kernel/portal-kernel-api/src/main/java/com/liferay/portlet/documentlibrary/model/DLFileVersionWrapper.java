@@ -287,7 +287,7 @@ public class DLFileVersionWrapper implements DLFileVersion,
     * @param fileVersionId the file version ID of this document library file version
     */
     @Override
-    public void setFileVersionId(long fileVersionId) {
+    public void setFileVersionId(java.lang.Long fileVersionId) {
         _dlFileVersion.setFileVersionId(fileVersionId);
     }
 
@@ -307,7 +307,7 @@ public class DLFileVersionWrapper implements DLFileVersion,
     * @param groupId the group ID of this document library file version
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _dlFileVersion.setGroupId(groupId);
     }
 
@@ -327,7 +327,7 @@ public class DLFileVersionWrapper implements DLFileVersion,
     * @param companyId the company ID of this document library file version
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _dlFileVersion.setCompanyId(companyId);
     }
 
@@ -347,7 +347,7 @@ public class DLFileVersionWrapper implements DLFileVersion,
     * @param userId the user ID of this document library file version
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _dlFileVersion.setUserId(userId);
     }
 
@@ -449,7 +449,7 @@ public class DLFileVersionWrapper implements DLFileVersion,
     * @param repositoryId the repository ID of this document library file version
     */
     @Override
-    public void setRepositoryId(long repositoryId) {
+    public void setRepositoryId(java.lang.Long repositoryId) {
         _dlFileVersion.setRepositoryId(repositoryId);
     }
 
@@ -469,7 +469,7 @@ public class DLFileVersionWrapper implements DLFileVersion,
     * @param folderId the folder ID of this document library file version
     */
     @Override
-    public void setFolderId(long folderId) {
+    public void setFolderId(java.lang.Long folderId) {
         _dlFileVersion.setFolderId(folderId);
     }
 
@@ -489,7 +489,7 @@ public class DLFileVersionWrapper implements DLFileVersion,
     * @param fileEntryId the file entry ID of this document library file version
     */
     @Override
-    public void setFileEntryId(long fileEntryId) {
+    public void setFileEntryId(java.lang.Long fileEntryId) {
         _dlFileVersion.setFileEntryId(fileEntryId);
     }
 
@@ -649,7 +649,7 @@ public class DLFileVersionWrapper implements DLFileVersion,
     * @param fileEntryTypeId the file entry type ID of this document library file version
     */
     @Override
-    public void setFileEntryTypeId(long fileEntryTypeId) {
+    public void setFileEntryTypeId(java.lang.Long fileEntryTypeId) {
         _dlFileVersion.setFileEntryTypeId(fileEntryTypeId);
     }
 
@@ -689,7 +689,7 @@ public class DLFileVersionWrapper implements DLFileVersion,
     * @param size the size of this document library file version
     */
     @Override
-    public void setSize(long size) {
+    public void setSize(java.lang.Long size) {
         _dlFileVersion.setSize(size);
     }
 
@@ -729,7 +729,7 @@ public class DLFileVersionWrapper implements DLFileVersion,
     * @param status the status of this document library file version
     */
     @Override
-    public void setStatus(int status) {
+    public void setStatus(java.lang.Integer status) {
         _dlFileVersion.setStatus(status);
     }
 
@@ -749,7 +749,7 @@ public class DLFileVersionWrapper implements DLFileVersion,
     * @param statusByUserId the status by user ID of this document library file version
     */
     @Override
-    public void setStatusByUserId(long statusByUserId) {
+    public void setStatusByUserId(java.lang.Long statusByUserId) {
         _dlFileVersion.setStatusByUserId(statusByUserId);
     }
 

@@ -225,7 +225,11 @@ public class PortletItemModelImpl extends BaseModelImpl<PortletItem>
     }
 
     @Override
-    public void setPortletItemId(long portletItemId) {
+    public void setPortletItemId(Long portletItemId) {
+        if (portletItemId == null) {
+            portletItemId = new Long(0);
+        }
+
         _portletItemId = portletItemId;
     }
 
@@ -235,13 +239,17 @@ public class PortletItemModelImpl extends BaseModelImpl<PortletItem>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -257,7 +265,11 @@ public class PortletItemModelImpl extends BaseModelImpl<PortletItem>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -267,7 +279,11 @@ public class PortletItemModelImpl extends BaseModelImpl<PortletItem>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -389,13 +405,17 @@ public class PortletItemModelImpl extends BaseModelImpl<PortletItem>
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
         _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
         if (!_setOriginalClassNameId) {
             _setOriginalClassNameId = true;
 
             _originalClassNameId = _classNameId;
+        }
+
+        if (classNameId == null) {
+            classNameId = new Long(0);
         }
 
         _classNameId = classNameId;

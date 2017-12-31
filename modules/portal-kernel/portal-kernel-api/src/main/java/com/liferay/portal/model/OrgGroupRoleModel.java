@@ -58,7 +58,7 @@ public interface OrgGroupRoleModel extends BaseModel<OrgGroupRole> {
      *
      * @param organizationId the organization ID of this org group role
      */
-    public void setOrganizationId(long organizationId);
+    public void setOrganizationId(Long organizationId);
 
     /**
      * Returns the group ID of this org group role.
@@ -72,7 +72,7 @@ public interface OrgGroupRoleModel extends BaseModel<OrgGroupRole> {
      *
      * @param groupId the group ID of this org group role
      */
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the role ID of this org group role.
@@ -86,7 +86,7 @@ public interface OrgGroupRoleModel extends BaseModel<OrgGroupRole> {
      *
      * @param roleId the role ID of this org group role
      */
-    public void setRoleId(long roleId);
+    public void setRoleId(Long roleId);
 
     @Override
     public boolean isNew();

@@ -154,7 +154,7 @@ public class MembershipRequestWrapper implements MembershipRequest,
     * @param membershipRequestId the membership request ID of this membership request
     */
     @Override
-    public void setMembershipRequestId(long membershipRequestId) {
+    public void setMembershipRequestId(java.lang.Long membershipRequestId) {
         _membershipRequest.setMembershipRequestId(membershipRequestId);
     }
 
@@ -174,7 +174,7 @@ public class MembershipRequestWrapper implements MembershipRequest,
     * @param groupId the group ID of this membership request
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _membershipRequest.setGroupId(groupId);
     }
 
@@ -194,7 +194,7 @@ public class MembershipRequestWrapper implements MembershipRequest,
     * @param companyId the company ID of this membership request
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _membershipRequest.setCompanyId(companyId);
     }
 
@@ -214,7 +214,7 @@ public class MembershipRequestWrapper implements MembershipRequest,
     * @param userId the user ID of this membership request
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _membershipRequest.setUserId(userId);
     }
 
@@ -336,7 +336,7 @@ public class MembershipRequestWrapper implements MembershipRequest,
     * @param replierUserId the replier user ID of this membership request
     */
     @Override
-    public void setReplierUserId(long replierUserId) {
+    public void setReplierUserId(java.lang.Long replierUserId) {
         _membershipRequest.setReplierUserId(replierUserId);
     }
 
@@ -378,7 +378,7 @@ public class MembershipRequestWrapper implements MembershipRequest,
     * @param statusId the status ID of this membership request
     */
     @Override
-    public void setStatusId(int statusId) {
+    public void setStatusId(java.lang.Integer statusId) {
         _membershipRequest.setStatusId(statusId);
     }
 

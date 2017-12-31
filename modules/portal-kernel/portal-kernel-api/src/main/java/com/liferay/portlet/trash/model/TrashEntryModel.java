@@ -63,7 +63,7 @@ public interface TrashEntryModel extends AttachedModel, BaseModel<TrashEntry> {
      *
      * @param entryId the entry ID of this trash entry
      */
-    public void setEntryId(long entryId);
+    public void setEntryId(Long entryId);
 
     /**
      * Returns the group ID of this trash entry.
@@ -77,7 +77,7 @@ public interface TrashEntryModel extends AttachedModel, BaseModel<TrashEntry> {
      *
      * @param groupId the group ID of this trash entry
      */
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this trash entry.
@@ -91,7 +91,7 @@ public interface TrashEntryModel extends AttachedModel, BaseModel<TrashEntry> {
      *
      * @param companyId the company ID of this trash entry
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this trash entry.
@@ -105,7 +105,7 @@ public interface TrashEntryModel extends AttachedModel, BaseModel<TrashEntry> {
      *
      * @param userId the user ID of this trash entry
      */
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this trash entry.
@@ -175,7 +175,7 @@ public interface TrashEntryModel extends AttachedModel, BaseModel<TrashEntry> {
      * @param classNameId the class name ID of this trash entry
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this trash entry.
@@ -191,7 +191,7 @@ public interface TrashEntryModel extends AttachedModel, BaseModel<TrashEntry> {
      * @param classPK the class p k of this trash entry
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the system event set key of this trash entry.
@@ -205,7 +205,7 @@ public interface TrashEntryModel extends AttachedModel, BaseModel<TrashEntry> {
      *
      * @param systemEventSetKey the system event set key of this trash entry
      */
-    public void setSystemEventSetKey(long systemEventSetKey);
+    public void setSystemEventSetKey(Long systemEventSetKey);
 
     /**
      * Returns the type settings of this trash entry.
@@ -234,7 +234,7 @@ public interface TrashEntryModel extends AttachedModel, BaseModel<TrashEntry> {
      *
      * @param status the status of this trash entry
      */
-    public void setStatus(int status);
+    public void setStatus(Integer status);
 
     @Override
     public boolean isNew();

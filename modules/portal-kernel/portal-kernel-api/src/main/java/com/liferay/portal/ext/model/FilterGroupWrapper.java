@@ -160,7 +160,7 @@ public class FilterGroupWrapper implements FilterGroup,
     * @param filterGroupId the filter group ID of this filter group
     */
     @Override
-    public void setFilterGroupId(long filterGroupId) {
+    public void setFilterGroupId(java.lang.Long filterGroupId) {
         _filterGroup.setFilterGroupId(filterGroupId);
     }
 
@@ -180,7 +180,7 @@ public class FilterGroupWrapper implements FilterGroup,
     * @param userId the user ID of this filter group
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _filterGroup.setUserId(userId);
     }
 
@@ -282,7 +282,7 @@ public class FilterGroupWrapper implements FilterGroup,
     * @param groupId the group ID of this filter group
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _filterGroup.setGroupId(groupId);
     }
 
@@ -302,7 +302,7 @@ public class FilterGroupWrapper implements FilterGroup,
     * @param filterScopeId the filter scope ID of this filter group
     */
     @Override
-    public void setFilterScopeId(long filterScopeId) {
+    public void setFilterScopeId(java.lang.Long filterScopeId) {
         _filterGroup.setFilterScopeId(filterScopeId);
     }
 

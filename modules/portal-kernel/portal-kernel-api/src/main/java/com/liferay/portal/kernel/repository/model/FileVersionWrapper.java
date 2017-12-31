@@ -279,7 +279,7 @@ public class FileVersionWrapper
 	}
 
 	@Override
-	public void setCompanyId(long companyId) {
+	public void setCompanyId(Long companyId) {
 		_fileVersion.setCompanyId(companyId);
 	}
 
@@ -289,7 +289,7 @@ public class FileVersionWrapper
 	}
 
 	@Override
-	public void setGroupId(long groupId) {
+	public void setGroupId(Long groupId) {
 		_fileVersion.setGroupId(groupId);
 	}
 
@@ -304,7 +304,7 @@ public class FileVersionWrapper
 	}
 
 	@Override
-	public void setUserId(long userId) {
+	public void setUserId(Long userId) {
 		_fileVersion.setUserId(userId);
 	}
 

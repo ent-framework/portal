@@ -181,7 +181,7 @@ public class PollsVoteWrapper implements PollsVote, ModelWrapper<PollsVote> {
     * @param voteId the vote ID of this polls vote
     */
     @Override
-    public void setVoteId(long voteId) {
+    public void setVoteId(java.lang.Long voteId) {
         _pollsVote.setVoteId(voteId);
     }
 
@@ -201,7 +201,7 @@ public class PollsVoteWrapper implements PollsVote, ModelWrapper<PollsVote> {
     * @param groupId the group ID of this polls vote
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _pollsVote.setGroupId(groupId);
     }
 
@@ -221,7 +221,7 @@ public class PollsVoteWrapper implements PollsVote, ModelWrapper<PollsVote> {
     * @param companyId the company ID of this polls vote
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _pollsVote.setCompanyId(companyId);
     }
 
@@ -241,7 +241,7 @@ public class PollsVoteWrapper implements PollsVote, ModelWrapper<PollsVote> {
     * @param userId the user ID of this polls vote
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _pollsVote.setUserId(userId);
     }
 
@@ -343,7 +343,7 @@ public class PollsVoteWrapper implements PollsVote, ModelWrapper<PollsVote> {
     * @param questionId the question ID of this polls vote
     */
     @Override
-    public void setQuestionId(long questionId) {
+    public void setQuestionId(java.lang.Long questionId) {
         _pollsVote.setQuestionId(questionId);
     }
 
@@ -363,7 +363,7 @@ public class PollsVoteWrapper implements PollsVote, ModelWrapper<PollsVote> {
     * @param choiceId the choice ID of this polls vote
     */
     @Override
-    public void setChoiceId(long choiceId) {
+    public void setChoiceId(java.lang.Long choiceId) {
         _pollsVote.setChoiceId(choiceId);
     }
 

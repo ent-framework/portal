@@ -326,7 +326,7 @@ public class LayoutWrapper implements Layout, ModelWrapper<Layout> {
     * @param plid the plid of this layout
     */
     @Override
-    public void setPlid(long plid) {
+    public void setPlid(java.lang.Long plid) {
         _layout.setPlid(plid);
     }
 
@@ -346,7 +346,7 @@ public class LayoutWrapper implements Layout, ModelWrapper<Layout> {
     * @param groupId the group ID of this layout
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _layout.setGroupId(groupId);
     }
 
@@ -366,7 +366,7 @@ public class LayoutWrapper implements Layout, ModelWrapper<Layout> {
     * @param companyId the company ID of this layout
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _layout.setCompanyId(companyId);
     }
 
@@ -386,7 +386,7 @@ public class LayoutWrapper implements Layout, ModelWrapper<Layout> {
     * @param userId the user ID of this layout
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _layout.setUserId(userId);
     }
 
@@ -518,7 +518,7 @@ public class LayoutWrapper implements Layout, ModelWrapper<Layout> {
     * @param layoutId the layout ID of this layout
     */
     @Override
-    public void setLayoutId(long layoutId) {
+    public void setLayoutId(java.lang.Long layoutId) {
         _layout.setLayoutId(layoutId);
     }
 
@@ -538,7 +538,7 @@ public class LayoutWrapper implements Layout, ModelWrapper<Layout> {
     * @param parentLayoutId the parent layout ID of this layout
     */
     @Override
-    public void setParentLayoutId(long parentLayoutId) {
+    public void setParentLayoutId(java.lang.Long parentLayoutId) {
         _layout.setParentLayoutId(parentLayoutId);
     }
 
@@ -1312,7 +1312,7 @@ public class LayoutWrapper implements Layout, ModelWrapper<Layout> {
     * @param hidden the hidden of this layout
     */
     @Override
-    public void setHidden(boolean hidden) {
+    public void setHidden(java.lang.Boolean hidden) {
         _layout.setHidden(hidden);
     }
 
@@ -1362,7 +1362,7 @@ public class LayoutWrapper implements Layout, ModelWrapper<Layout> {
     * @param iconImage the icon image of this layout
     */
     @Override
-    public void setIconImage(boolean iconImage) {
+    public void setIconImage(java.lang.Boolean iconImage) {
         _layout.setIconImage(iconImage);
     }
 
@@ -1382,7 +1382,7 @@ public class LayoutWrapper implements Layout, ModelWrapper<Layout> {
     * @param iconImageId the icon image ID of this layout
     */
     @Override
-    public void setIconImageId(long iconImageId) {
+    public void setIconImageId(java.lang.Long iconImageId) {
         _layout.setIconImageId(iconImageId);
     }
 
@@ -1502,7 +1502,7 @@ public class LayoutWrapper implements Layout, ModelWrapper<Layout> {
     * @param priority the priority of this layout
     */
     @Override
-    public void setPriority(int priority) {
+    public void setPriority(java.lang.Integer priority) {
         _layout.setPriority(priority);
     }
 
@@ -1553,7 +1553,7 @@ public class LayoutWrapper implements Layout, ModelWrapper<Layout> {
     */
     @Override
     public void setLayoutPrototypeLinkEnabled(
-        boolean layoutPrototypeLinkEnabled) {
+        java.lang.Boolean layoutPrototypeLinkEnabled) {
         _layout.setLayoutPrototypeLinkEnabled(layoutPrototypeLinkEnabled);
     }
 

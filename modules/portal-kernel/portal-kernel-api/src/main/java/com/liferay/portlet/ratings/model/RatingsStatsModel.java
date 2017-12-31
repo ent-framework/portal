@@ -58,7 +58,7 @@ public interface RatingsStatsModel extends AttachedModel, BaseModel<RatingsStats
      *
      * @param statsId the stats ID of this ratings stats
      */
-    public void setStatsId(long statsId);
+    public void setStatsId(Long statsId);
 
     /**
      * Returns the fully qualified class name of this ratings stats.
@@ -84,7 +84,7 @@ public interface RatingsStatsModel extends AttachedModel, BaseModel<RatingsStats
      * @param classNameId the class name ID of this ratings stats
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this ratings stats.
@@ -100,7 +100,7 @@ public interface RatingsStatsModel extends AttachedModel, BaseModel<RatingsStats
      * @param classPK the class p k of this ratings stats
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the total entries of this ratings stats.
@@ -114,7 +114,7 @@ public interface RatingsStatsModel extends AttachedModel, BaseModel<RatingsStats
      *
      * @param totalEntries the total entries of this ratings stats
      */
-    public void setTotalEntries(int totalEntries);
+    public void setTotalEntries(Integer totalEntries);
 
     /**
      * Returns the total score of this ratings stats.

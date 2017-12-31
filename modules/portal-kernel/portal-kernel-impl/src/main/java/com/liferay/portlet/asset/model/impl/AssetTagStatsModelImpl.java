@@ -164,7 +164,11 @@ public class AssetTagStatsModelImpl extends BaseModelImpl<AssetTagStats>
     }
 
     @Override
-    public void setTagStatsId(long tagStatsId) {
+    public void setTagStatsId(Long tagStatsId) {
+        if (tagStatsId == null) {
+            tagStatsId = new Long(0);
+        }
+
         _tagStatsId = tagStatsId;
     }
 
@@ -174,13 +178,17 @@ public class AssetTagStatsModelImpl extends BaseModelImpl<AssetTagStats>
     }
 
     @Override
-    public void setTagId(long tagId) {
+    public void setTagId(Long tagId) {
         _columnBitmask |= TAGID_COLUMN_BITMASK;
 
         if (!_setOriginalTagId) {
             _setOriginalTagId = true;
 
             _originalTagId = _tagId;
+        }
+
+        if (tagId == null) {
+            tagId = new Long(0);
         }
 
         _tagId = tagId;
@@ -216,13 +224,17 @@ public class AssetTagStatsModelImpl extends BaseModelImpl<AssetTagStats>
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
         _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
         if (!_setOriginalClassNameId) {
             _setOriginalClassNameId = true;
 
             _originalClassNameId = _classNameId;
+        }
+
+        if (classNameId == null) {
+            classNameId = new Long(0);
         }
 
         _classNameId = classNameId;
@@ -238,8 +250,12 @@ public class AssetTagStatsModelImpl extends BaseModelImpl<AssetTagStats>
     }
 
     @Override
-    public void setAssetCount(int assetCount) {
+    public void setAssetCount(Integer assetCount) {
         _columnBitmask = -1L;
+
+        if (assetCount == null) {
+            assetCount = new Integer(0);
+        }
 
         _assetCount = assetCount;
     }

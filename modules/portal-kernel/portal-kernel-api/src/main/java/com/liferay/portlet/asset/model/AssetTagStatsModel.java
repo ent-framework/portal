@@ -58,7 +58,7 @@ public interface AssetTagStatsModel extends BaseModel<AssetTagStats>, TypedModel
      *
      * @param tagStatsId the tag stats ID of this asset tag stats
      */
-    public void setTagStatsId(long tagStatsId);
+    public void setTagStatsId(Long tagStatsId);
 
     /**
      * Returns the tag ID of this asset tag stats.
@@ -72,7 +72,7 @@ public interface AssetTagStatsModel extends BaseModel<AssetTagStats>, TypedModel
      *
      * @param tagId the tag ID of this asset tag stats
      */
-    public void setTagId(long tagId);
+    public void setTagId(Long tagId);
 
     /**
      * Returns the fully qualified class name of this asset tag stats.
@@ -98,7 +98,7 @@ public interface AssetTagStatsModel extends BaseModel<AssetTagStats>, TypedModel
      * @param classNameId the class name ID of this asset tag stats
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the asset count of this asset tag stats.
@@ -112,7 +112,7 @@ public interface AssetTagStatsModel extends BaseModel<AssetTagStats>, TypedModel
      *
      * @param assetCount the asset count of this asset tag stats
      */
-    public void setAssetCount(int assetCount);
+    public void setAssetCount(Integer assetCount);
 
     @Override
     public boolean isNew();

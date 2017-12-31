@@ -105,7 +105,7 @@ public class OrgGroupRoleWrapper implements OrgGroupRole,
     * @param organizationId the organization ID of this org group role
     */
     @Override
-    public void setOrganizationId(long organizationId) {
+    public void setOrganizationId(java.lang.Long organizationId) {
         _orgGroupRole.setOrganizationId(organizationId);
     }
 
@@ -125,7 +125,7 @@ public class OrgGroupRoleWrapper implements OrgGroupRole,
     * @param groupId the group ID of this org group role
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _orgGroupRole.setGroupId(groupId);
     }
 
@@ -145,7 +145,7 @@ public class OrgGroupRoleWrapper implements OrgGroupRole,
     * @param roleId the role ID of this org group role
     */
     @Override
-    public void setRoleId(long roleId) {
+    public void setRoleId(java.lang.Long roleId) {
         _orgGroupRole.setRoleId(roleId);
     }
 

@@ -224,7 +224,7 @@ public class DLFileShortcutWrapper implements DLFileShortcut,
     * @param fileShortcutId the file shortcut ID of this document library file shortcut
     */
     @Override
-    public void setFileShortcutId(long fileShortcutId) {
+    public void setFileShortcutId(java.lang.Long fileShortcutId) {
         _dlFileShortcut.setFileShortcutId(fileShortcutId);
     }
 
@@ -244,7 +244,7 @@ public class DLFileShortcutWrapper implements DLFileShortcut,
     * @param groupId the group ID of this document library file shortcut
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _dlFileShortcut.setGroupId(groupId);
     }
 
@@ -264,7 +264,7 @@ public class DLFileShortcutWrapper implements DLFileShortcut,
     * @param companyId the company ID of this document library file shortcut
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _dlFileShortcut.setCompanyId(companyId);
     }
 
@@ -284,7 +284,7 @@ public class DLFileShortcutWrapper implements DLFileShortcut,
     * @param userId the user ID of this document library file shortcut
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _dlFileShortcut.setUserId(userId);
     }
 
@@ -386,7 +386,7 @@ public class DLFileShortcutWrapper implements DLFileShortcut,
     * @param repositoryId the repository ID of this document library file shortcut
     */
     @Override
-    public void setRepositoryId(long repositoryId) {
+    public void setRepositoryId(java.lang.Long repositoryId) {
         _dlFileShortcut.setRepositoryId(repositoryId);
     }
 
@@ -406,7 +406,7 @@ public class DLFileShortcutWrapper implements DLFileShortcut,
     * @param folderId the folder ID of this document library file shortcut
     */
     @Override
-    public void setFolderId(long folderId) {
+    public void setFolderId(java.lang.Long folderId) {
         _dlFileShortcut.setFolderId(folderId);
     }
 
@@ -426,7 +426,7 @@ public class DLFileShortcutWrapper implements DLFileShortcut,
     * @param toFileEntryId the to file entry ID of this document library file shortcut
     */
     @Override
-    public void setToFileEntryId(long toFileEntryId) {
+    public void setToFileEntryId(java.lang.Long toFileEntryId) {
         _dlFileShortcut.setToFileEntryId(toFileEntryId);
     }
 
@@ -476,7 +476,7 @@ public class DLFileShortcutWrapper implements DLFileShortcut,
     * @param active the active of this document library file shortcut
     */
     @Override
-    public void setActive(boolean active) {
+    public void setActive(java.lang.Boolean active) {
         _dlFileShortcut.setActive(active);
     }
 
@@ -496,7 +496,7 @@ public class DLFileShortcutWrapper implements DLFileShortcut,
     * @param status the status of this document library file shortcut
     */
     @Override
-    public void setStatus(int status) {
+    public void setStatus(java.lang.Integer status) {
         _dlFileShortcut.setStatus(status);
     }
 
@@ -516,7 +516,7 @@ public class DLFileShortcutWrapper implements DLFileShortcut,
     * @param statusByUserId the status by user ID of this document library file shortcut
     */
     @Override
-    public void setStatusByUserId(long statusByUserId) {
+    public void setStatusByUserId(java.lang.Long statusByUserId) {
         _dlFileShortcut.setStatusByUserId(statusByUserId);
     }
 

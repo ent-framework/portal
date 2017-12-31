@@ -73,7 +73,7 @@ public interface SocialRelationModel extends BaseModel<SocialRelation> {
      *
      * @param relationId the relation ID of this social relation
      */
-    public void setRelationId(long relationId);
+    public void setRelationId(Long relationId);
 
     /**
      * Returns the company ID of this social relation.
@@ -87,7 +87,7 @@ public interface SocialRelationModel extends BaseModel<SocialRelation> {
      *
      * @param companyId the company ID of this social relation
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the create date of this social relation.
@@ -101,7 +101,7 @@ public interface SocialRelationModel extends BaseModel<SocialRelation> {
      *
      * @param createDate the create date of this social relation
      */
-    public void setCreateDate(long createDate);
+    public void setCreateDate(Long createDate);
 
     /**
      * Returns the user id1 of this social relation.
@@ -115,7 +115,7 @@ public interface SocialRelationModel extends BaseModel<SocialRelation> {
      *
      * @param userId1 the user id1 of this social relation
      */
-    public void setUserId1(long userId1);
+    public void setUserId1(Long userId1);
 
     /**
      * Returns the user id2 of this social relation.
@@ -129,7 +129,7 @@ public interface SocialRelationModel extends BaseModel<SocialRelation> {
      *
      * @param userId2 the user id2 of this social relation
      */
-    public void setUserId2(long userId2);
+    public void setUserId2(Long userId2);
 
     /**
      * Returns the type of this social relation.
@@ -143,7 +143,7 @@ public interface SocialRelationModel extends BaseModel<SocialRelation> {
      *
      * @param type the type of this social relation
      */
-    public void setType(int type);
+    public void setType(Integer type);
 
     @Override
     public boolean isNew();

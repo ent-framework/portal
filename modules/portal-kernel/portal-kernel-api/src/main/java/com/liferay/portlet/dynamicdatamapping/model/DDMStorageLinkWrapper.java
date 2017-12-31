@@ -138,7 +138,7 @@ public class DDMStorageLinkWrapper implements DDMStorageLink,
     * @param storageLinkId the storage link ID of this d d m storage link
     */
     @Override
-    public void setStorageLinkId(long storageLinkId) {
+    public void setStorageLinkId(java.lang.Long storageLinkId) {
         _ddmStorageLink.setStorageLinkId(storageLinkId);
     }
 
@@ -173,7 +173,7 @@ public class DDMStorageLinkWrapper implements DDMStorageLink,
     * @param classNameId the class name ID of this d d m storage link
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _ddmStorageLink.setClassNameId(classNameId);
     }
 
@@ -193,7 +193,7 @@ public class DDMStorageLinkWrapper implements DDMStorageLink,
     * @param classPK the class p k of this d d m storage link
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _ddmStorageLink.setClassPK(classPK);
     }
 
@@ -213,7 +213,7 @@ public class DDMStorageLinkWrapper implements DDMStorageLink,
     * @param structureId the structure ID of this d d m storage link
     */
     @Override
-    public void setStructureId(long structureId) {
+    public void setStructureId(java.lang.Long structureId) {
         _ddmStorageLink.setStructureId(structureId);
     }
 

@@ -528,8 +528,12 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setItemId(long itemId) {
+    public void setItemId(Long itemId) {
         _columnBitmask = -1L;
+
+        if (itemId == null) {
+            itemId = new Long(0);
+        }
 
         _itemId = itemId;
     }
@@ -541,13 +545,17 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -564,13 +572,17 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -587,7 +599,11 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -645,13 +661,17 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setCategoryId(long categoryId) {
+    public void setCategoryId(Long categoryId) {
         _columnBitmask |= CATEGORYID_COLUMN_BITMASK;
 
         if (!_setOriginalCategoryId) {
             _setOriginalCategoryId = true;
 
             _originalCategoryId = _categoryId;
+        }
+
+        if (categoryId == null) {
+            categoryId = new Long(0);
         }
 
         _categoryId = categoryId;
@@ -743,7 +763,11 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setFields(boolean fields) {
+    public void setFields(Boolean fields) {
+        if (fields == null) {
+            fields = Boolean.FALSE;
+        }
+
         _fields = fields;
     }
 
@@ -769,7 +793,11 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setMinQuantity(int minQuantity) {
+    public void setMinQuantity(Integer minQuantity) {
+        if (minQuantity == null) {
+            minQuantity = new Integer(0);
+        }
+
         _minQuantity = minQuantity;
     }
 
@@ -780,7 +808,11 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setMaxQuantity(int maxQuantity) {
+    public void setMaxQuantity(Integer maxQuantity) {
+        if (maxQuantity == null) {
+            maxQuantity = new Integer(0);
+        }
+
         _maxQuantity = maxQuantity;
     }
 
@@ -818,7 +850,11 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setTaxable(boolean taxable) {
+    public void setTaxable(Boolean taxable) {
+        if (taxable == null) {
+            taxable = Boolean.FALSE;
+        }
+
         _taxable = taxable;
     }
 
@@ -845,7 +881,11 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setUseShippingFormula(boolean useShippingFormula) {
+    public void setUseShippingFormula(Boolean useShippingFormula) {
+        if (useShippingFormula == null) {
+            useShippingFormula = Boolean.FALSE;
+        }
+
         _useShippingFormula = useShippingFormula;
     }
 
@@ -861,7 +901,11 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setRequiresShipping(boolean requiresShipping) {
+    public void setRequiresShipping(Boolean requiresShipping) {
+        if (requiresShipping == null) {
+            requiresShipping = Boolean.FALSE;
+        }
+
         _requiresShipping = requiresShipping;
     }
 
@@ -872,7 +916,11 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setStockQuantity(int stockQuantity) {
+    public void setStockQuantity(Integer stockQuantity) {
+        if (stockQuantity == null) {
+            stockQuantity = new Integer(0);
+        }
+
         _stockQuantity = stockQuantity;
     }
 
@@ -888,7 +936,11 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setFeatured(boolean featured) {
+    public void setFeatured(Boolean featured) {
+        if (featured == null) {
+            featured = Boolean.FALSE;
+        }
+
         _featured = featured;
     }
 
@@ -904,7 +956,11 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setSale(boolean sale) {
+    public void setSale(Boolean sale) {
+        if (sale == null) {
+            sale = Boolean.FALSE;
+        }
+
         _sale = sale;
     }
 
@@ -920,7 +976,11 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setSmallImage(boolean smallImage) {
+    public void setSmallImage(Boolean smallImage) {
+        if (smallImage == null) {
+            smallImage = Boolean.FALSE;
+        }
+
         _smallImage = smallImage;
     }
 
@@ -931,13 +991,17 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setSmallImageId(long smallImageId) {
+    public void setSmallImageId(Long smallImageId) {
         _columnBitmask |= SMALLIMAGEID_COLUMN_BITMASK;
 
         if (!_setOriginalSmallImageId) {
             _setOriginalSmallImageId = true;
 
             _originalSmallImageId = _smallImageId;
+        }
+
+        if (smallImageId == null) {
+            smallImageId = new Long(0);
         }
 
         _smallImageId = smallImageId;
@@ -974,7 +1038,11 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setMediumImage(boolean mediumImage) {
+    public void setMediumImage(Boolean mediumImage) {
+        if (mediumImage == null) {
+            mediumImage = Boolean.FALSE;
+        }
+
         _mediumImage = mediumImage;
     }
 
@@ -985,13 +1053,17 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setMediumImageId(long mediumImageId) {
+    public void setMediumImageId(Long mediumImageId) {
         _columnBitmask |= MEDIUMIMAGEID_COLUMN_BITMASK;
 
         if (!_setOriginalMediumImageId) {
             _setOriginalMediumImageId = true;
 
             _originalMediumImageId = _mediumImageId;
+        }
+
+        if (mediumImageId == null) {
+            mediumImageId = new Long(0);
         }
 
         _mediumImageId = mediumImageId;
@@ -1028,7 +1100,11 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setLargeImage(boolean largeImage) {
+    public void setLargeImage(Boolean largeImage) {
+        if (largeImage == null) {
+            largeImage = Boolean.FALSE;
+        }
+
         _largeImage = largeImage;
     }
 
@@ -1039,13 +1115,17 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setLargeImageId(long largeImageId) {
+    public void setLargeImageId(Long largeImageId) {
         _columnBitmask |= LARGEIMAGEID_COLUMN_BITMASK;
 
         if (!_setOriginalLargeImageId) {
             _setOriginalLargeImageId = true;
 
             _originalLargeImageId = _largeImageId;
+        }
+
+        if (largeImageId == null) {
+            largeImageId = new Long(0);
         }
 
         _largeImageId = largeImageId;

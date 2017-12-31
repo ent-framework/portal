@@ -58,7 +58,7 @@ public interface ListTypeModel extends BaseModel<ListType> {
      *
      * @param listTypeId the list type ID of this list type
      */
-    public void setListTypeId(int listTypeId);
+    public void setListTypeId(Integer listTypeId);
 
     /**
      * Returns the name of this list type.

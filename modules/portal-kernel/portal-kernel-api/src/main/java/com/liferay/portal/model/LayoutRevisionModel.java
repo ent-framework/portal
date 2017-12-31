@@ -67,7 +67,7 @@ public interface LayoutRevisionModel extends BaseModel<LayoutRevision>,
      *
      * @param layoutRevisionId the layout revision ID of this layout revision
      */
-    public void setLayoutRevisionId(long layoutRevisionId);
+    public void setLayoutRevisionId(Long layoutRevisionId);
 
     /**
      * Returns the group ID of this layout revision.
@@ -83,7 +83,7 @@ public interface LayoutRevisionModel extends BaseModel<LayoutRevision>,
      * @param groupId the group ID of this layout revision
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this layout revision.
@@ -99,7 +99,7 @@ public interface LayoutRevisionModel extends BaseModel<LayoutRevision>,
      * @param companyId the company ID of this layout revision
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this layout revision.
@@ -115,7 +115,7 @@ public interface LayoutRevisionModel extends BaseModel<LayoutRevision>,
      * @param userId the user ID of this layout revision
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this layout revision.
@@ -195,7 +195,7 @@ public interface LayoutRevisionModel extends BaseModel<LayoutRevision>,
      *
      * @param layoutSetBranchId the layout set branch ID of this layout revision
      */
-    public void setLayoutSetBranchId(long layoutSetBranchId);
+    public void setLayoutSetBranchId(Long layoutSetBranchId);
 
     /**
      * Returns the layout branch ID of this layout revision.
@@ -209,7 +209,7 @@ public interface LayoutRevisionModel extends BaseModel<LayoutRevision>,
      *
      * @param layoutBranchId the layout branch ID of this layout revision
      */
-    public void setLayoutBranchId(long layoutBranchId);
+    public void setLayoutBranchId(Long layoutBranchId);
 
     /**
      * Returns the parent layout revision ID of this layout revision.
@@ -223,7 +223,7 @@ public interface LayoutRevisionModel extends BaseModel<LayoutRevision>,
      *
      * @param parentLayoutRevisionId the parent layout revision ID of this layout revision
      */
-    public void setParentLayoutRevisionId(long parentLayoutRevisionId);
+    public void setParentLayoutRevisionId(Long parentLayoutRevisionId);
 
     /**
      * Returns the head of this layout revision.
@@ -244,7 +244,7 @@ public interface LayoutRevisionModel extends BaseModel<LayoutRevision>,
      *
      * @param head the head of this layout revision
      */
-    public void setHead(boolean head);
+    public void setHead(Boolean head);
 
     /**
      * Returns the major of this layout revision.
@@ -265,7 +265,7 @@ public interface LayoutRevisionModel extends BaseModel<LayoutRevision>,
      *
      * @param major the major of this layout revision
      */
-    public void setMajor(boolean major);
+    public void setMajor(Boolean major);
 
     /**
      * Returns the plid of this layout revision.
@@ -279,7 +279,7 @@ public interface LayoutRevisionModel extends BaseModel<LayoutRevision>,
      *
      * @param plid the plid of this layout revision
      */
-    public void setPlid(long plid);
+    public void setPlid(Long plid);
 
     /**
      * Returns the private layout of this layout revision.
@@ -300,7 +300,7 @@ public interface LayoutRevisionModel extends BaseModel<LayoutRevision>,
      *
      * @param privateLayout the private layout of this layout revision
      */
-    public void setPrivateLayout(boolean privateLayout);
+    public void setPrivateLayout(Boolean privateLayout);
 
     /**
      * Returns the name of this layout revision.
@@ -834,7 +834,7 @@ public interface LayoutRevisionModel extends BaseModel<LayoutRevision>,
      *
      * @param iconImage the icon image of this layout revision
      */
-    public void setIconImage(boolean iconImage);
+    public void setIconImage(Boolean iconImage);
 
     /**
      * Returns the icon image ID of this layout revision.
@@ -848,7 +848,7 @@ public interface LayoutRevisionModel extends BaseModel<LayoutRevision>,
      *
      * @param iconImageId the icon image ID of this layout revision
      */
-    public void setIconImageId(long iconImageId);
+    public void setIconImageId(Long iconImageId);
 
     /**
      * Returns the theme ID of this layout revision.
@@ -939,7 +939,7 @@ public interface LayoutRevisionModel extends BaseModel<LayoutRevision>,
      * @param status the status of this layout revision
      */
     @Override
-    public void setStatus(int status);
+    public void setStatus(Integer status);
 
     /**
      * Returns the status by user ID of this layout revision.
@@ -955,7 +955,7 @@ public interface LayoutRevisionModel extends BaseModel<LayoutRevision>,
      * @param statusByUserId the status by user ID of this layout revision
      */
     @Override
-    public void setStatusByUserId(long statusByUserId);
+    public void setStatusByUserId(Long statusByUserId);
 
     /**
      * Returns the status by user uuid of this layout revision.

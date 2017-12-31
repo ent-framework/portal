@@ -59,7 +59,7 @@ public interface UserIdMapperModel extends BaseModel<UserIdMapper> {
      *
      * @param userIdMapperId the user ID mapper ID of this user ID mapper
      */
-    public void setUserIdMapperId(long userIdMapperId);
+    public void setUserIdMapperId(Long userIdMapperId);
 
     /**
      * Returns the user ID of this user ID mapper.
@@ -73,7 +73,7 @@ public interface UserIdMapperModel extends BaseModel<UserIdMapper> {
      *
      * @param userId the user ID of this user ID mapper
      */
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this user ID mapper.

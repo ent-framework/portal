@@ -140,7 +140,7 @@ public class UserTrackerWrapper implements UserTracker,
     * @param userTrackerId the user tracker ID of this user tracker
     */
     @Override
-    public void setUserTrackerId(long userTrackerId) {
+    public void setUserTrackerId(java.lang.Long userTrackerId) {
         _userTracker.setUserTrackerId(userTrackerId);
     }
 
@@ -160,7 +160,7 @@ public class UserTrackerWrapper implements UserTracker,
     * @param companyId the company ID of this user tracker
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _userTracker.setCompanyId(companyId);
     }
 
@@ -180,7 +180,7 @@ public class UserTrackerWrapper implements UserTracker,
     * @param userId the user ID of this user tracker
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _userTracker.setUserId(userId);
     }
 

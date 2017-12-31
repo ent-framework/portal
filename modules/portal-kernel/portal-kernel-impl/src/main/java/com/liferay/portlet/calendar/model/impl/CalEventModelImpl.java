@@ -373,7 +373,11 @@ public class CalEventModelImpl extends BaseModelImpl<CalEvent>
     }
 
     @Override
-    public void setEventId(long eventId) {
+    public void setEventId(Long eventId) {
+        if (eventId == null) {
+            eventId = new Long(0);
+        }
+
         _eventId = eventId;
     }
 
@@ -383,13 +387,17 @@ public class CalEventModelImpl extends BaseModelImpl<CalEvent>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -405,13 +413,17 @@ public class CalEventModelImpl extends BaseModelImpl<CalEvent>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -427,7 +439,11 @@ public class CalEventModelImpl extends BaseModelImpl<CalEvent>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -547,7 +563,11 @@ public class CalEventModelImpl extends BaseModelImpl<CalEvent>
     }
 
     @Override
-    public void setDurationHour(int durationHour) {
+    public void setDurationHour(Integer durationHour) {
+        if (durationHour == null) {
+            durationHour = new Integer(0);
+        }
+
         _durationHour = durationHour;
     }
 
@@ -557,7 +577,11 @@ public class CalEventModelImpl extends BaseModelImpl<CalEvent>
     }
 
     @Override
-    public void setDurationMinute(int durationMinute) {
+    public void setDurationMinute(Integer durationMinute) {
+        if (durationMinute == null) {
+            durationMinute = new Integer(0);
+        }
+
         _durationMinute = durationMinute;
     }
 
@@ -572,7 +596,11 @@ public class CalEventModelImpl extends BaseModelImpl<CalEvent>
     }
 
     @Override
-    public void setAllDay(boolean allDay) {
+    public void setAllDay(Boolean allDay) {
+        if (allDay == null) {
+            allDay = Boolean.FALSE;
+        }
+
         _allDay = allDay;
     }
 
@@ -587,7 +615,11 @@ public class CalEventModelImpl extends BaseModelImpl<CalEvent>
     }
 
     @Override
-    public void setTimeZoneSensitive(boolean timeZoneSensitive) {
+    public void setTimeZoneSensitive(Boolean timeZoneSensitive) {
+        if (timeZoneSensitive == null) {
+            timeZoneSensitive = Boolean.FALSE;
+        }
+
         _timeZoneSensitive = timeZoneSensitive;
     }
 
@@ -626,13 +658,17 @@ public class CalEventModelImpl extends BaseModelImpl<CalEvent>
     }
 
     @Override
-    public void setRepeating(boolean repeating) {
+    public void setRepeating(Boolean repeating) {
         _columnBitmask |= REPEATING_COLUMN_BITMASK;
 
         if (!_setOriginalRepeating) {
             _setOriginalRepeating = true;
 
             _originalRepeating = _repeating;
+        }
+
+        if (repeating == null) {
+            repeating = Boolean.FALSE;
         }
 
         _repeating = repeating;
@@ -662,13 +698,17 @@ public class CalEventModelImpl extends BaseModelImpl<CalEvent>
     }
 
     @Override
-    public void setRemindBy(int remindBy) {
+    public void setRemindBy(Integer remindBy) {
         _columnBitmask |= REMINDBY_COLUMN_BITMASK;
 
         if (!_setOriginalRemindBy) {
             _setOriginalRemindBy = true;
 
             _originalRemindBy = _remindBy;
+        }
+
+        if (remindBy == null) {
+            remindBy = new Integer(0);
         }
 
         _remindBy = remindBy;
@@ -684,7 +724,11 @@ public class CalEventModelImpl extends BaseModelImpl<CalEvent>
     }
 
     @Override
-    public void setFirstReminder(int firstReminder) {
+    public void setFirstReminder(Integer firstReminder) {
+        if (firstReminder == null) {
+            firstReminder = new Integer(0);
+        }
+
         _firstReminder = firstReminder;
     }
 
@@ -694,7 +738,11 @@ public class CalEventModelImpl extends BaseModelImpl<CalEvent>
     }
 
     @Override
-    public void setSecondReminder(int secondReminder) {
+    public void setSecondReminder(Integer secondReminder) {
+        if (secondReminder == null) {
+            secondReminder = new Integer(0);
+        }
+
         _secondReminder = secondReminder;
     }
 

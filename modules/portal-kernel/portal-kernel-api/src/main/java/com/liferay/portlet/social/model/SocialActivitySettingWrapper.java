@@ -133,7 +133,7 @@ public class SocialActivitySettingWrapper implements SocialActivitySetting,
     * @param activitySettingId the activity setting ID of this social activity setting
     */
     @Override
-    public void setActivitySettingId(long activitySettingId) {
+    public void setActivitySettingId(java.lang.Long activitySettingId) {
         _socialActivitySetting.setActivitySettingId(activitySettingId);
     }
 
@@ -153,7 +153,7 @@ public class SocialActivitySettingWrapper implements SocialActivitySetting,
     * @param groupId the group ID of this social activity setting
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _socialActivitySetting.setGroupId(groupId);
     }
 
@@ -173,7 +173,7 @@ public class SocialActivitySettingWrapper implements SocialActivitySetting,
     * @param companyId the company ID of this social activity setting
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _socialActivitySetting.setCompanyId(companyId);
     }
 
@@ -208,7 +208,7 @@ public class SocialActivitySettingWrapper implements SocialActivitySetting,
     * @param classNameId the class name ID of this social activity setting
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _socialActivitySetting.setClassNameId(classNameId);
     }
 
@@ -228,7 +228,7 @@ public class SocialActivitySettingWrapper implements SocialActivitySetting,
     * @param activityType the activity type of this social activity setting
     */
     @Override
-    public void setActivityType(int activityType) {
+    public void setActivityType(java.lang.Integer activityType) {
         _socialActivitySetting.setActivityType(activityType);
     }
 

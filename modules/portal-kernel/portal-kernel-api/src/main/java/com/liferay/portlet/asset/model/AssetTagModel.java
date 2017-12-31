@@ -62,7 +62,7 @@ public interface AssetTagModel extends BaseModel<AssetTag>, GroupedModel {
      *
      * @param tagId the tag ID of this asset tag
      */
-    public void setTagId(long tagId);
+    public void setTagId(Long tagId);
 
     /**
      * Returns the group ID of this asset tag.
@@ -78,7 +78,7 @@ public interface AssetTagModel extends BaseModel<AssetTag>, GroupedModel {
      * @param groupId the group ID of this asset tag
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this asset tag.
@@ -94,7 +94,7 @@ public interface AssetTagModel extends BaseModel<AssetTag>, GroupedModel {
      * @param companyId the company ID of this asset tag
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this asset tag.
@@ -110,7 +110,7 @@ public interface AssetTagModel extends BaseModel<AssetTag>, GroupedModel {
      * @param userId the user ID of this asset tag
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this asset tag.
@@ -205,7 +205,7 @@ public interface AssetTagModel extends BaseModel<AssetTag>, GroupedModel {
      *
      * @param assetCount the asset count of this asset tag
      */
-    public void setAssetCount(int assetCount);
+    public void setAssetCount(Integer assetCount);
 
     @Override
     public boolean isNew();

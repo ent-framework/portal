@@ -224,7 +224,7 @@ public class AnnouncementsEntryWrapper implements AnnouncementsEntry,
     * @param entryId the entry ID of this announcements entry
     */
     @Override
-    public void setEntryId(long entryId) {
+    public void setEntryId(java.lang.Long entryId) {
         _announcementsEntry.setEntryId(entryId);
     }
 
@@ -244,7 +244,7 @@ public class AnnouncementsEntryWrapper implements AnnouncementsEntry,
     * @param companyId the company ID of this announcements entry
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _announcementsEntry.setCompanyId(companyId);
     }
 
@@ -264,7 +264,7 @@ public class AnnouncementsEntryWrapper implements AnnouncementsEntry,
     * @param userId the user ID of this announcements entry
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _announcementsEntry.setUserId(userId);
     }
 
@@ -381,7 +381,7 @@ public class AnnouncementsEntryWrapper implements AnnouncementsEntry,
     * @param classNameId the class name ID of this announcements entry
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _announcementsEntry.setClassNameId(classNameId);
     }
 
@@ -401,7 +401,7 @@ public class AnnouncementsEntryWrapper implements AnnouncementsEntry,
     * @param classPK the class p k of this announcements entry
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _announcementsEntry.setClassPK(classPK);
     }
 
@@ -541,7 +541,7 @@ public class AnnouncementsEntryWrapper implements AnnouncementsEntry,
     * @param priority the priority of this announcements entry
     */
     @Override
-    public void setPriority(int priority) {
+    public void setPriority(java.lang.Integer priority) {
         _announcementsEntry.setPriority(priority);
     }
 
@@ -571,7 +571,7 @@ public class AnnouncementsEntryWrapper implements AnnouncementsEntry,
     * @param alert the alert of this announcements entry
     */
     @Override
-    public void setAlert(boolean alert) {
+    public void setAlert(java.lang.Boolean alert) {
         _announcementsEntry.setAlert(alert);
     }
 

@@ -58,7 +58,7 @@ public interface VirtualHostModel extends BaseModel<VirtualHost> {
      *
      * @param virtualHostId the virtual host ID of this virtual host
      */
-    public void setVirtualHostId(long virtualHostId);
+    public void setVirtualHostId(Long virtualHostId);
 
     /**
      * Returns the company ID of this virtual host.
@@ -72,7 +72,7 @@ public interface VirtualHostModel extends BaseModel<VirtualHost> {
      *
      * @param companyId the company ID of this virtual host
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the layout set ID of this virtual host.
@@ -86,7 +86,7 @@ public interface VirtualHostModel extends BaseModel<VirtualHost> {
      *
      * @param layoutSetId the layout set ID of this virtual host
      */
-    public void setLayoutSetId(long layoutSetId);
+    public void setLayoutSetId(Long layoutSetId);
 
     /**
      * Returns the hostname of this virtual host.

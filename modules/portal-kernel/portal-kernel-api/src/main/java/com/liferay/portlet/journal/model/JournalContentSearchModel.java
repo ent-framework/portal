@@ -58,7 +58,7 @@ public interface JournalContentSearchModel extends BaseModel<JournalContentSearc
      *
      * @param contentSearchId the content search ID of this journal content search
      */
-    public void setContentSearchId(long contentSearchId);
+    public void setContentSearchId(Long contentSearchId);
 
     /**
      * Returns the group ID of this journal content search.
@@ -72,7 +72,7 @@ public interface JournalContentSearchModel extends BaseModel<JournalContentSearc
      *
      * @param groupId the group ID of this journal content search
      */
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this journal content search.
@@ -86,7 +86,7 @@ public interface JournalContentSearchModel extends BaseModel<JournalContentSearc
      *
      * @param companyId the company ID of this journal content search
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the private layout of this journal content search.
@@ -107,7 +107,7 @@ public interface JournalContentSearchModel extends BaseModel<JournalContentSearc
      *
      * @param privateLayout the private layout of this journal content search
      */
-    public void setPrivateLayout(boolean privateLayout);
+    public void setPrivateLayout(Boolean privateLayout);
 
     /**
      * Returns the layout ID of this journal content search.
@@ -121,7 +121,7 @@ public interface JournalContentSearchModel extends BaseModel<JournalContentSearc
      *
      * @param layoutId the layout ID of this journal content search
      */
-    public void setLayoutId(long layoutId);
+    public void setLayoutId(Long layoutId);
 
     /**
      * Returns the portlet ID of this journal content search.

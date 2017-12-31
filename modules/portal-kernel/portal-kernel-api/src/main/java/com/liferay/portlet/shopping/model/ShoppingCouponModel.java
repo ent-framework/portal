@@ -63,7 +63,7 @@ public interface ShoppingCouponModel extends BaseModel<ShoppingCoupon>,
      *
      * @param couponId the coupon ID of this shopping coupon
      */
-    public void setCouponId(long couponId);
+    public void setCouponId(Long couponId);
 
     /**
      * Returns the group ID of this shopping coupon.
@@ -79,7 +79,7 @@ public interface ShoppingCouponModel extends BaseModel<ShoppingCoupon>,
      * @param groupId the group ID of this shopping coupon
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this shopping coupon.
@@ -95,7 +95,7 @@ public interface ShoppingCouponModel extends BaseModel<ShoppingCoupon>,
      * @param companyId the company ID of this shopping coupon
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this shopping coupon.
@@ -111,7 +111,7 @@ public interface ShoppingCouponModel extends BaseModel<ShoppingCoupon>,
      * @param userId the user ID of this shopping coupon
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this shopping coupon.
@@ -271,7 +271,7 @@ public interface ShoppingCouponModel extends BaseModel<ShoppingCoupon>,
      *
      * @param active the active of this shopping coupon
      */
-    public void setActive(boolean active);
+    public void setActive(Boolean active);
 
     /**
      * Returns the limit categories of this shopping coupon.

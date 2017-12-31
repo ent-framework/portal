@@ -596,7 +596,11 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
     }
 
     @Override
-    public void setId(long id) {
+    public void setId(Long id) {
+        if (id == null) {
+            id = new Long(0);
+        }
+
         _id = id;
     }
 
@@ -607,13 +611,17 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
     }
 
     @Override
-    public void setResourcePrimKey(long resourcePrimKey) {
+    public void setResourcePrimKey(Long resourcePrimKey) {
         _columnBitmask |= RESOURCEPRIMKEY_COLUMN_BITMASK;
 
         if (!_setOriginalResourcePrimKey) {
             _setOriginalResourcePrimKey = true;
 
             _originalResourcePrimKey = _resourcePrimKey;
+        }
+
+        if (resourcePrimKey == null) {
+            resourcePrimKey = new Long(0);
         }
 
         _resourcePrimKey = resourcePrimKey;
@@ -635,13 +643,17 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -658,13 +670,17 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -681,13 +697,17 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;
@@ -751,13 +771,17 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
     }
 
     @Override
-    public void setFolderId(long folderId) {
+    public void setFolderId(Long folderId) {
         _columnBitmask |= FOLDERID_COLUMN_BITMASK;
 
         if (!_setOriginalFolderId) {
             _setOriginalFolderId = true;
 
             _originalFolderId = _folderId;
+        }
+
+        if (folderId == null) {
+            folderId = new Long(0);
         }
 
         _folderId = folderId;
@@ -794,13 +818,17 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
         _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
         if (!_setOriginalClassNameId) {
             _setOriginalClassNameId = true;
 
             _originalClassNameId = _classNameId;
+        }
+
+        if (classNameId == null) {
+            classNameId = new Long(0);
         }
 
         _classNameId = classNameId;
@@ -817,13 +845,17 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
     }
 
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(Long classPK) {
         _columnBitmask |= CLASSPK_COLUMN_BITMASK;
 
         if (!_setOriginalClassPK) {
             _setOriginalClassPK = true;
 
             _originalClassPK = _classPK;
+        }
+
+        if (classPK == null) {
+            classPK = new Long(0);
         }
 
         _classPK = classPK;
@@ -1279,13 +1311,17 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
     }
 
     @Override
-    public void setIndexable(boolean indexable) {
+    public void setIndexable(Boolean indexable) {
         _columnBitmask |= INDEXABLE_COLUMN_BITMASK;
 
         if (!_setOriginalIndexable) {
             _setOriginalIndexable = true;
 
             _originalIndexable = _indexable;
+        }
+
+        if (indexable == null) {
+            indexable = Boolean.FALSE;
         }
 
         _indexable = indexable;
@@ -1307,7 +1343,11 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
     }
 
     @Override
-    public void setSmallImage(boolean smallImage) {
+    public void setSmallImage(Boolean smallImage) {
+        if (smallImage == null) {
+            smallImage = Boolean.FALSE;
+        }
+
         _smallImage = smallImage;
     }
 
@@ -1318,13 +1358,17 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
     }
 
     @Override
-    public void setSmallImageId(long smallImageId) {
+    public void setSmallImageId(Long smallImageId) {
         _columnBitmask |= SMALLIMAGEID_COLUMN_BITMASK;
 
         if (!_setOriginalSmallImageId) {
             _setOriginalSmallImageId = true;
 
             _originalSmallImageId = _smallImageId;
+        }
+
+        if (smallImageId == null) {
+            smallImageId = new Long(0);
         }
 
         _smallImageId = smallImageId;
@@ -1356,13 +1400,17 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
     }
 
     @Override
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         _columnBitmask |= STATUS_COLUMN_BITMASK;
 
         if (!_setOriginalStatus) {
             _setOriginalStatus = true;
 
             _originalStatus = _status;
+        }
+
+        if (status == null) {
+            status = new Integer(0);
         }
 
         _status = status;
@@ -1379,7 +1427,11 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
     }
 
     @Override
-    public void setStatusByUserId(long statusByUserId) {
+    public void setStatusByUserId(Long statusByUserId) {
+        if (statusByUserId == null) {
+            statusByUserId = new Long(0);
+        }
+
         _statusByUserId = statusByUserId;
     }
 

@@ -154,7 +154,7 @@ public class ShoppingCategoryWrapper implements ShoppingCategory,
     * @param categoryId the category ID of this shopping category
     */
     @Override
-    public void setCategoryId(long categoryId) {
+    public void setCategoryId(java.lang.Long categoryId) {
         _shoppingCategory.setCategoryId(categoryId);
     }
 
@@ -174,7 +174,7 @@ public class ShoppingCategoryWrapper implements ShoppingCategory,
     * @param groupId the group ID of this shopping category
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _shoppingCategory.setGroupId(groupId);
     }
 
@@ -194,7 +194,7 @@ public class ShoppingCategoryWrapper implements ShoppingCategory,
     * @param companyId the company ID of this shopping category
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _shoppingCategory.setCompanyId(companyId);
     }
 
@@ -214,7 +214,7 @@ public class ShoppingCategoryWrapper implements ShoppingCategory,
     * @param userId the user ID of this shopping category
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _shoppingCategory.setUserId(userId);
     }
 
@@ -316,7 +316,7 @@ public class ShoppingCategoryWrapper implements ShoppingCategory,
     * @param parentCategoryId the parent category ID of this shopping category
     */
     @Override
-    public void setParentCategoryId(long parentCategoryId) {
+    public void setParentCategoryId(java.lang.Long parentCategoryId) {
         _shoppingCategory.setParentCategoryId(parentCategoryId);
     }
 

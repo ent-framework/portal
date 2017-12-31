@@ -139,7 +139,7 @@ public class JournalArticleImageWrapper implements JournalArticleImage,
     * @param articleImageId the article image ID of this journal article image
     */
     @Override
-    public void setArticleImageId(long articleImageId) {
+    public void setArticleImageId(java.lang.Long articleImageId) {
         _journalArticleImage.setArticleImageId(articleImageId);
     }
 
@@ -159,7 +159,7 @@ public class JournalArticleImageWrapper implements JournalArticleImage,
     * @param groupId the group ID of this journal article image
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _journalArticleImage.setGroupId(groupId);
     }
 
@@ -289,7 +289,7 @@ public class JournalArticleImageWrapper implements JournalArticleImage,
     * @param tempImage the temp image of this journal article image
     */
     @Override
-    public void setTempImage(boolean tempImage) {
+    public void setTempImage(java.lang.Boolean tempImage) {
         _journalArticleImage.setTempImage(tempImage);
     }
 

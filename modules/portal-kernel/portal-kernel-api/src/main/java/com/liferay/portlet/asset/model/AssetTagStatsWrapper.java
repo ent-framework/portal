@@ -111,7 +111,7 @@ public class AssetTagStatsWrapper implements AssetTagStats,
     * @param tagStatsId the tag stats ID of this asset tag stats
     */
     @Override
-    public void setTagStatsId(long tagStatsId) {
+    public void setTagStatsId(java.lang.Long tagStatsId) {
         _assetTagStats.setTagStatsId(tagStatsId);
     }
 
@@ -131,7 +131,7 @@ public class AssetTagStatsWrapper implements AssetTagStats,
     * @param tagId the tag ID of this asset tag stats
     */
     @Override
-    public void setTagId(long tagId) {
+    public void setTagId(java.lang.Long tagId) {
         _assetTagStats.setTagId(tagId);
     }
 
@@ -166,7 +166,7 @@ public class AssetTagStatsWrapper implements AssetTagStats,
     * @param classNameId the class name ID of this asset tag stats
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _assetTagStats.setClassNameId(classNameId);
     }
 
@@ -186,7 +186,7 @@ public class AssetTagStatsWrapper implements AssetTagStats,
     * @param assetCount the asset count of this asset tag stats
     */
     @Override
-    public void setAssetCount(int assetCount) {
+    public void setAssetCount(java.lang.Integer assetCount) {
         _assetTagStats.setAssetCount(assetCount);
     }
 

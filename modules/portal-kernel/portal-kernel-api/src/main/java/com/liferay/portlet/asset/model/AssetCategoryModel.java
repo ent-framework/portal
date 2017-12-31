@@ -83,7 +83,7 @@ public interface AssetCategoryModel extends BaseModel<AssetCategory>,
      *
      * @param categoryId the category ID of this asset category
      */
-    public void setCategoryId(long categoryId);
+    public void setCategoryId(Long categoryId);
 
     /**
      * Returns the group ID of this asset category.
@@ -99,7 +99,7 @@ public interface AssetCategoryModel extends BaseModel<AssetCategory>,
      * @param groupId the group ID of this asset category
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this asset category.
@@ -115,7 +115,7 @@ public interface AssetCategoryModel extends BaseModel<AssetCategory>,
      * @param companyId the company ID of this asset category
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this asset category.
@@ -131,7 +131,7 @@ public interface AssetCategoryModel extends BaseModel<AssetCategory>,
      * @param userId the user ID of this asset category
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this asset category.
@@ -211,7 +211,7 @@ public interface AssetCategoryModel extends BaseModel<AssetCategory>,
      *
      * @param parentCategoryId the parent category ID of this asset category
      */
-    public void setParentCategoryId(long parentCategoryId);
+    public void setParentCategoryId(Long parentCategoryId);
 
     /**
      * Returns the left category ID of this asset category.
@@ -225,7 +225,7 @@ public interface AssetCategoryModel extends BaseModel<AssetCategory>,
      *
      * @param leftCategoryId the left category ID of this asset category
      */
-    public void setLeftCategoryId(long leftCategoryId);
+    public void setLeftCategoryId(Long leftCategoryId);
 
     /**
      * Returns the right category ID of this asset category.
@@ -239,7 +239,7 @@ public interface AssetCategoryModel extends BaseModel<AssetCategory>,
      *
      * @param rightCategoryId the right category ID of this asset category
      */
-    public void setRightCategoryId(long rightCategoryId);
+    public void setRightCategoryId(Long rightCategoryId);
 
     /**
      * Returns the name of this asset category.
@@ -468,7 +468,7 @@ public interface AssetCategoryModel extends BaseModel<AssetCategory>,
      *
      * @param vocabularyId the vocabulary ID of this asset category
      */
-    public void setVocabularyId(long vocabularyId);
+    public void setVocabularyId(Long vocabularyId);
 
     @Override
     public boolean isNew();

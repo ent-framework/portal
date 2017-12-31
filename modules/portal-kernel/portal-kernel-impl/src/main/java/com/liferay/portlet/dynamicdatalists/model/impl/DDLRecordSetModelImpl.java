@@ -350,7 +350,11 @@ public class DDLRecordSetModelImpl extends BaseModelImpl<DDLRecordSet>
     }
 
     @Override
-    public void setRecordSetId(long recordSetId) {
+    public void setRecordSetId(Long recordSetId) {
+        if (recordSetId == null) {
+            recordSetId = new Long(0);
+        }
+
         _recordSetId = recordSetId;
     }
 
@@ -361,13 +365,17 @@ public class DDLRecordSetModelImpl extends BaseModelImpl<DDLRecordSet>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -384,13 +392,17 @@ public class DDLRecordSetModelImpl extends BaseModelImpl<DDLRecordSet>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -407,7 +419,11 @@ public class DDLRecordSetModelImpl extends BaseModelImpl<DDLRecordSet>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -465,7 +481,11 @@ public class DDLRecordSetModelImpl extends BaseModelImpl<DDLRecordSet>
     }
 
     @Override
-    public void setDDMStructureId(long DDMStructureId) {
+    public void setDDMStructureId(Long DDMStructureId) {
+        if (DDMStructureId == null) {
+            DDMStructureId = new Long(0);
+        }
+
         _DDMStructureId = DDMStructureId;
     }
 
@@ -699,7 +719,11 @@ public class DDLRecordSetModelImpl extends BaseModelImpl<DDLRecordSet>
     }
 
     @Override
-    public void setMinDisplayRows(int minDisplayRows) {
+    public void setMinDisplayRows(Integer minDisplayRows) {
+        if (minDisplayRows == null) {
+            minDisplayRows = new Integer(0);
+        }
+
         _minDisplayRows = minDisplayRows;
     }
 
@@ -710,7 +734,11 @@ public class DDLRecordSetModelImpl extends BaseModelImpl<DDLRecordSet>
     }
 
     @Override
-    public void setScope(int scope) {
+    public void setScope(Integer scope) {
+        if (scope == null) {
+            scope = new Integer(0);
+        }
+
         _scope = scope;
     }
 

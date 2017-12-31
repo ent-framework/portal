@@ -60,7 +60,7 @@ public interface ImageModel extends BaseModel<Image> {
      *
      * @param imageId the image ID of this image
      */
-    public void setImageId(long imageId);
+    public void setImageId(Long imageId);
 
     /**
      * Returns the modified date of this image.
@@ -103,7 +103,7 @@ public interface ImageModel extends BaseModel<Image> {
      *
      * @param height the height of this image
      */
-    public void setHeight(int height);
+    public void setHeight(Integer height);
 
     /**
      * Returns the width of this image.
@@ -117,7 +117,7 @@ public interface ImageModel extends BaseModel<Image> {
      *
      * @param width the width of this image
      */
-    public void setWidth(int width);
+    public void setWidth(Integer width);
 
     /**
      * Returns the size of this image.
@@ -131,7 +131,7 @@ public interface ImageModel extends BaseModel<Image> {
      *
      * @param size the size of this image
      */
-    public void setSize(int size);
+    public void setSize(Integer size);
 
     @Override
     public boolean isNew();

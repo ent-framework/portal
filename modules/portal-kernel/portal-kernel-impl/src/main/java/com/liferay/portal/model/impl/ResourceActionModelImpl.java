@@ -160,7 +160,11 @@ public class ResourceActionModelImpl extends BaseModelImpl<ResourceAction>
     }
 
     @Override
-    public void setResourceActionId(long resourceActionId) {
+    public void setResourceActionId(Long resourceActionId) {
+        if (resourceActionId == null) {
+            resourceActionId = new Long(0);
+        }
+
         _resourceActionId = resourceActionId;
     }
 
@@ -218,8 +222,12 @@ public class ResourceActionModelImpl extends BaseModelImpl<ResourceAction>
     }
 
     @Override
-    public void setBitwiseValue(long bitwiseValue) {
+    public void setBitwiseValue(Long bitwiseValue) {
         _columnBitmask = -1L;
+
+        if (bitwiseValue == null) {
+            bitwiseValue = new Long(0);
+        }
 
         _bitwiseValue = bitwiseValue;
     }

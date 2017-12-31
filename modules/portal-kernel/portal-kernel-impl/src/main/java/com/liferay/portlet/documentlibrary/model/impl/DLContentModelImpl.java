@@ -204,7 +204,11 @@ public class DLContentModelImpl extends BaseModelImpl<DLContent>
     }
 
     @Override
-    public void setContentId(long contentId) {
+    public void setContentId(Long contentId) {
+        if (contentId == null) {
+            contentId = new Long(0);
+        }
+
         _contentId = contentId;
     }
 
@@ -214,7 +218,11 @@ public class DLContentModelImpl extends BaseModelImpl<DLContent>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
+        if (groupId == null) {
+            groupId = new Long(0);
+        }
+
         _groupId = groupId;
     }
 
@@ -224,13 +232,17 @@ public class DLContentModelImpl extends BaseModelImpl<DLContent>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -246,13 +258,17 @@ public class DLContentModelImpl extends BaseModelImpl<DLContent>
     }
 
     @Override
-    public void setRepositoryId(long repositoryId) {
+    public void setRepositoryId(Long repositoryId) {
         _columnBitmask |= REPOSITORYID_COLUMN_BITMASK;
 
         if (!_setOriginalRepositoryId) {
             _setOriginalRepositoryId = true;
 
             _originalRepositoryId = _repositoryId;
+        }
+
+        if (repositoryId == null) {
+            repositoryId = new Long(0);
         }
 
         _repositoryId = repositoryId;
@@ -343,7 +359,11 @@ public class DLContentModelImpl extends BaseModelImpl<DLContent>
     }
 
     @Override
-    public void setSize(long size) {
+    public void setSize(Long size) {
+        if (size == null) {
+            size = new Long(0);
+        }
+
         _size = size;
     }
 

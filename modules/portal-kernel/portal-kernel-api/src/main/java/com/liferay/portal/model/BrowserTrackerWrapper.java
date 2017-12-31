@@ -104,7 +104,7 @@ public class BrowserTrackerWrapper implements BrowserTracker,
     * @param browserTrackerId the browser tracker ID of this browser tracker
     */
     @Override
-    public void setBrowserTrackerId(long browserTrackerId) {
+    public void setBrowserTrackerId(java.lang.Long browserTrackerId) {
         _browserTracker.setBrowserTrackerId(browserTrackerId);
     }
 
@@ -124,7 +124,7 @@ public class BrowserTrackerWrapper implements BrowserTracker,
     * @param userId the user ID of this browser tracker
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _browserTracker.setUserId(userId);
     }
 
@@ -166,7 +166,7 @@ public class BrowserTrackerWrapper implements BrowserTracker,
     * @param browserKey the browser key of this browser tracker
     */
     @Override
-    public void setBrowserKey(long browserKey) {
+    public void setBrowserKey(java.lang.Long browserKey) {
         _browserTracker.setBrowserKey(browserKey);
     }
 

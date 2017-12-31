@@ -302,7 +302,7 @@ public class DLFileEntryWrapper implements DLFileEntry,
     * @param fileEntryId the file entry ID of this document library file entry
     */
     @Override
-    public void setFileEntryId(long fileEntryId) {
+    public void setFileEntryId(java.lang.Long fileEntryId) {
         _dlFileEntry.setFileEntryId(fileEntryId);
     }
 
@@ -322,7 +322,7 @@ public class DLFileEntryWrapper implements DLFileEntry,
     * @param groupId the group ID of this document library file entry
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _dlFileEntry.setGroupId(groupId);
     }
 
@@ -342,7 +342,7 @@ public class DLFileEntryWrapper implements DLFileEntry,
     * @param companyId the company ID of this document library file entry
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _dlFileEntry.setCompanyId(companyId);
     }
 
@@ -362,7 +362,7 @@ public class DLFileEntryWrapper implements DLFileEntry,
     * @param userId the user ID of this document library file entry
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _dlFileEntry.setUserId(userId);
     }
 
@@ -479,7 +479,7 @@ public class DLFileEntryWrapper implements DLFileEntry,
     * @param classNameId the class name ID of this document library file entry
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _dlFileEntry.setClassNameId(classNameId);
     }
 
@@ -499,7 +499,7 @@ public class DLFileEntryWrapper implements DLFileEntry,
     * @param classPK the class p k of this document library file entry
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _dlFileEntry.setClassPK(classPK);
     }
 
@@ -519,7 +519,7 @@ public class DLFileEntryWrapper implements DLFileEntry,
     * @param repositoryId the repository ID of this document library file entry
     */
     @Override
-    public void setRepositoryId(long repositoryId) {
+    public void setRepositoryId(java.lang.Long repositoryId) {
         _dlFileEntry.setRepositoryId(repositoryId);
     }
 
@@ -539,7 +539,7 @@ public class DLFileEntryWrapper implements DLFileEntry,
     * @param folderId the folder ID of this document library file entry
     */
     @Override
-    public void setFolderId(long folderId) {
+    public void setFolderId(java.lang.Long folderId) {
         _dlFileEntry.setFolderId(folderId);
     }
 
@@ -699,7 +699,7 @@ public class DLFileEntryWrapper implements DLFileEntry,
     * @param fileEntryTypeId the file entry type ID of this document library file entry
     */
     @Override
-    public void setFileEntryTypeId(long fileEntryTypeId) {
+    public void setFileEntryTypeId(java.lang.Long fileEntryTypeId) {
         _dlFileEntry.setFileEntryTypeId(fileEntryTypeId);
     }
 
@@ -739,7 +739,7 @@ public class DLFileEntryWrapper implements DLFileEntry,
     * @param size the size of this document library file entry
     */
     @Override
-    public void setSize(long size) {
+    public void setSize(java.lang.Long size) {
         _dlFileEntry.setSize(size);
     }
 
@@ -759,7 +759,7 @@ public class DLFileEntryWrapper implements DLFileEntry,
     * @param readCount the read count of this document library file entry
     */
     @Override
-    public void setReadCount(int readCount) {
+    public void setReadCount(java.lang.Integer readCount) {
         _dlFileEntry.setReadCount(readCount);
     }
 
@@ -779,7 +779,7 @@ public class DLFileEntryWrapper implements DLFileEntry,
     * @param smallImageId the small image ID of this document library file entry
     */
     @Override
-    public void setSmallImageId(long smallImageId) {
+    public void setSmallImageId(java.lang.Long smallImageId) {
         _dlFileEntry.setSmallImageId(smallImageId);
     }
 
@@ -799,7 +799,7 @@ public class DLFileEntryWrapper implements DLFileEntry,
     * @param largeImageId the large image ID of this document library file entry
     */
     @Override
-    public void setLargeImageId(long largeImageId) {
+    public void setLargeImageId(java.lang.Long largeImageId) {
         _dlFileEntry.setLargeImageId(largeImageId);
     }
 
@@ -819,7 +819,7 @@ public class DLFileEntryWrapper implements DLFileEntry,
     * @param custom1ImageId the custom1 image ID of this document library file entry
     */
     @Override
-    public void setCustom1ImageId(long custom1ImageId) {
+    public void setCustom1ImageId(java.lang.Long custom1ImageId) {
         _dlFileEntry.setCustom1ImageId(custom1ImageId);
     }
 
@@ -839,7 +839,7 @@ public class DLFileEntryWrapper implements DLFileEntry,
     * @param custom2ImageId the custom2 image ID of this document library file entry
     */
     @Override
-    public void setCustom2ImageId(long custom2ImageId) {
+    public void setCustom2ImageId(java.lang.Long custom2ImageId) {
         _dlFileEntry.setCustom2ImageId(custom2ImageId);
     }
 
@@ -869,7 +869,8 @@ public class DLFileEntryWrapper implements DLFileEntry,
     * @param manualCheckInRequired the manual check in required of this document library file entry
     */
     @Override
-    public void setManualCheckInRequired(boolean manualCheckInRequired) {
+    public void setManualCheckInRequired(
+        java.lang.Boolean manualCheckInRequired) {
         _dlFileEntry.setManualCheckInRequired(manualCheckInRequired);
     }
 

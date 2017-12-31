@@ -175,7 +175,11 @@ public class UserIdMapperModelImpl extends BaseModelImpl<UserIdMapper>
     }
 
     @Override
-    public void setUserIdMapperId(long userIdMapperId) {
+    public void setUserIdMapperId(Long userIdMapperId) {
+        if (userIdMapperId == null) {
+            userIdMapperId = new Long(0);
+        }
+
         _userIdMapperId = userIdMapperId;
     }
 
@@ -185,13 +189,17 @@ public class UserIdMapperModelImpl extends BaseModelImpl<UserIdMapper>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;

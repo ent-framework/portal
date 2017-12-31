@@ -168,7 +168,11 @@ public class ShoppingItemFieldModelImpl extends BaseModelImpl<ShoppingItemField>
     }
 
     @Override
-    public void setItemFieldId(long itemFieldId) {
+    public void setItemFieldId(Long itemFieldId) {
+        if (itemFieldId == null) {
+            itemFieldId = new Long(0);
+        }
+
         _itemFieldId = itemFieldId;
     }
 
@@ -178,13 +182,17 @@ public class ShoppingItemFieldModelImpl extends BaseModelImpl<ShoppingItemField>
     }
 
     @Override
-    public void setItemId(long itemId) {
+    public void setItemId(Long itemId) {
         _columnBitmask = -1L;
 
         if (!_setOriginalItemId) {
             _setOriginalItemId = true;
 
             _originalItemId = _itemId;
+        }
+
+        if (itemId == null) {
+            itemId = new Long(0);
         }
 
         _itemId = itemId;

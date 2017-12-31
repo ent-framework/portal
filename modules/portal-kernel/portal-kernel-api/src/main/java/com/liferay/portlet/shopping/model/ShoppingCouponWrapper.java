@@ -210,7 +210,7 @@ public class ShoppingCouponWrapper implements ShoppingCoupon,
     * @param couponId the coupon ID of this shopping coupon
     */
     @Override
-    public void setCouponId(long couponId) {
+    public void setCouponId(java.lang.Long couponId) {
         _shoppingCoupon.setCouponId(couponId);
     }
 
@@ -230,7 +230,7 @@ public class ShoppingCouponWrapper implements ShoppingCoupon,
     * @param groupId the group ID of this shopping coupon
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _shoppingCoupon.setGroupId(groupId);
     }
 
@@ -250,7 +250,7 @@ public class ShoppingCouponWrapper implements ShoppingCoupon,
     * @param companyId the company ID of this shopping coupon
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _shoppingCoupon.setCompanyId(companyId);
     }
 
@@ -270,7 +270,7 @@ public class ShoppingCouponWrapper implements ShoppingCoupon,
     * @param userId the user ID of this shopping coupon
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _shoppingCoupon.setUserId(userId);
     }
 
@@ -482,7 +482,7 @@ public class ShoppingCouponWrapper implements ShoppingCoupon,
     * @param active the active of this shopping coupon
     */
     @Override
-    public void setActive(boolean active) {
+    public void setActive(java.lang.Boolean active) {
         _shoppingCoupon.setActive(active);
     }
 

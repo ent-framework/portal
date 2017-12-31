@@ -79,7 +79,7 @@ public interface PollsVoteModel extends BaseModel<PollsVote>, StagedGroupedModel
      *
      * @param voteId the vote ID of this polls vote
      */
-    public void setVoteId(long voteId);
+    public void setVoteId(Long voteId);
 
     /**
      * Returns the group ID of this polls vote.
@@ -95,7 +95,7 @@ public interface PollsVoteModel extends BaseModel<PollsVote>, StagedGroupedModel
      * @param groupId the group ID of this polls vote
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this polls vote.
@@ -111,7 +111,7 @@ public interface PollsVoteModel extends BaseModel<PollsVote>, StagedGroupedModel
      * @param companyId the company ID of this polls vote
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this polls vote.
@@ -127,7 +127,7 @@ public interface PollsVoteModel extends BaseModel<PollsVote>, StagedGroupedModel
      * @param userId the user ID of this polls vote
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this polls vote.
@@ -207,7 +207,7 @@ public interface PollsVoteModel extends BaseModel<PollsVote>, StagedGroupedModel
      *
      * @param questionId the question ID of this polls vote
      */
-    public void setQuestionId(long questionId);
+    public void setQuestionId(Long questionId);
 
     /**
      * Returns the choice ID of this polls vote.
@@ -221,7 +221,7 @@ public interface PollsVoteModel extends BaseModel<PollsVote>, StagedGroupedModel
      *
      * @param choiceId the choice ID of this polls vote
      */
-    public void setChoiceId(long choiceId);
+    public void setChoiceId(Long choiceId);
 
     /**
      * Returns the vote date of this polls vote.

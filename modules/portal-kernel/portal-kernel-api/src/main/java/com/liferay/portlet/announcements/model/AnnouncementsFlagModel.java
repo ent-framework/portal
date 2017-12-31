@@ -60,7 +60,7 @@ public interface AnnouncementsFlagModel extends BaseModel<AnnouncementsFlag> {
      *
      * @param flagId the flag ID of this announcements flag
      */
-    public void setFlagId(long flagId);
+    public void setFlagId(Long flagId);
 
     /**
      * Returns the user ID of this announcements flag.
@@ -74,7 +74,7 @@ public interface AnnouncementsFlagModel extends BaseModel<AnnouncementsFlag> {
      *
      * @param userId the user ID of this announcements flag
      */
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this announcements flag.
@@ -117,7 +117,7 @@ public interface AnnouncementsFlagModel extends BaseModel<AnnouncementsFlag> {
      *
      * @param entryId the entry ID of this announcements flag
      */
-    public void setEntryId(long entryId);
+    public void setEntryId(Long entryId);
 
     /**
      * Returns the value of this announcements flag.
@@ -131,7 +131,7 @@ public interface AnnouncementsFlagModel extends BaseModel<AnnouncementsFlag> {
      *
      * @param value the value of this announcements flag
      */
-    public void setValue(int value);
+    public void setValue(Integer value);
 
     @Override
     public boolean isNew();

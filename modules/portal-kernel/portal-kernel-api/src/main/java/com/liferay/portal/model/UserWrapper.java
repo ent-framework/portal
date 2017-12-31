@@ -391,7 +391,7 @@ public class UserWrapper implements User, ModelWrapper<User> {
     * @param userId the user ID of this user
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _user.setUserId(userId);
     }
 
@@ -433,7 +433,7 @@ public class UserWrapper implements User, ModelWrapper<User> {
     * @param companyId the company ID of this user
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _user.setCompanyId(companyId);
     }
 
@@ -503,7 +503,7 @@ public class UserWrapper implements User, ModelWrapper<User> {
     * @param defaultUser the default user of this user
     */
     @Override
-    public void setDefaultUser(boolean defaultUser) {
+    public void setDefaultUser(java.lang.Boolean defaultUser) {
         _user.setDefaultUser(defaultUser);
     }
 
@@ -523,7 +523,7 @@ public class UserWrapper implements User, ModelWrapper<User> {
     * @param contactId the contact ID of this user
     */
     @Override
-    public void setContactId(long contactId) {
+    public void setContactId(java.lang.Long contactId) {
         _user.setContactId(contactId);
     }
 
@@ -573,7 +573,7 @@ public class UserWrapper implements User, ModelWrapper<User> {
     * @param passwordEncrypted the password encrypted of this user
     */
     @Override
-    public void setPasswordEncrypted(boolean passwordEncrypted) {
+    public void setPasswordEncrypted(java.lang.Boolean passwordEncrypted) {
         _user.setPasswordEncrypted(passwordEncrypted);
     }
 
@@ -603,7 +603,7 @@ public class UserWrapper implements User, ModelWrapper<User> {
     * @param passwordReset the password reset of this user
     */
     @Override
-    public void setPasswordReset(boolean passwordReset) {
+    public void setPasswordReset(java.lang.Boolean passwordReset) {
         _user.setPasswordReset(passwordReset);
     }
 
@@ -703,7 +703,7 @@ public class UserWrapper implements User, ModelWrapper<User> {
     * @param graceLoginCount the grace login count of this user
     */
     @Override
-    public void setGraceLoginCount(int graceLoginCount) {
+    public void setGraceLoginCount(java.lang.Integer graceLoginCount) {
         _user.setGraceLoginCount(graceLoginCount);
     }
 
@@ -763,7 +763,7 @@ public class UserWrapper implements User, ModelWrapper<User> {
     * @param facebookId the facebook ID of this user
     */
     @Override
-    public void setFacebookId(long facebookId) {
+    public void setFacebookId(java.lang.Long facebookId) {
         _user.setFacebookId(facebookId);
     }
 
@@ -783,7 +783,7 @@ public class UserWrapper implements User, ModelWrapper<User> {
     * @param ldapServerId the ldap server ID of this user
     */
     @Override
-    public void setLdapServerId(long ldapServerId) {
+    public void setLdapServerId(java.lang.Long ldapServerId) {
         _user.setLdapServerId(ldapServerId);
     }
 
@@ -823,7 +823,7 @@ public class UserWrapper implements User, ModelWrapper<User> {
     * @param portraitId the portrait ID of this user
     */
     @Override
-    public void setPortraitId(long portraitId) {
+    public void setPortraitId(java.lang.Long portraitId) {
         _user.setPortraitId(portraitId);
     }
 
@@ -1103,7 +1103,7 @@ public class UserWrapper implements User, ModelWrapper<User> {
     * @param failedLoginAttempts the failed login attempts of this user
     */
     @Override
-    public void setFailedLoginAttempts(int failedLoginAttempts) {
+    public void setFailedLoginAttempts(java.lang.Integer failedLoginAttempts) {
         _user.setFailedLoginAttempts(failedLoginAttempts);
     }
 
@@ -1133,7 +1133,7 @@ public class UserWrapper implements User, ModelWrapper<User> {
     * @param lockout the lockout of this user
     */
     @Override
-    public void setLockout(boolean lockout) {
+    public void setLockout(java.lang.Boolean lockout) {
         _user.setLockout(lockout);
     }
 
@@ -1183,7 +1183,7 @@ public class UserWrapper implements User, ModelWrapper<User> {
     * @param agreedToTermsOfUse the agreed to terms of use of this user
     */
     @Override
-    public void setAgreedToTermsOfUse(boolean agreedToTermsOfUse) {
+    public void setAgreedToTermsOfUse(java.lang.Boolean agreedToTermsOfUse) {
         _user.setAgreedToTermsOfUse(agreedToTermsOfUse);
     }
 
@@ -1213,7 +1213,7 @@ public class UserWrapper implements User, ModelWrapper<User> {
     * @param emailAddressVerified the email address verified of this user
     */
     @Override
-    public void setEmailAddressVerified(boolean emailAddressVerified) {
+    public void setEmailAddressVerified(java.lang.Boolean emailAddressVerified) {
         _user.setEmailAddressVerified(emailAddressVerified);
     }
 
@@ -1233,7 +1233,7 @@ public class UserWrapper implements User, ModelWrapper<User> {
     * @param status the status of this user
     */
     @Override
-    public void setStatus(int status) {
+    public void setStatus(java.lang.Integer status) {
         _user.setStatus(status);
     }
 

@@ -111,7 +111,7 @@ public class PasswordPolicyRelWrapper implements PasswordPolicyRel,
     * @param passwordPolicyRelId the password policy rel ID of this password policy rel
     */
     @Override
-    public void setPasswordPolicyRelId(long passwordPolicyRelId) {
+    public void setPasswordPolicyRelId(java.lang.Long passwordPolicyRelId) {
         _passwordPolicyRel.setPasswordPolicyRelId(passwordPolicyRelId);
     }
 
@@ -131,7 +131,7 @@ public class PasswordPolicyRelWrapper implements PasswordPolicyRel,
     * @param passwordPolicyId the password policy ID of this password policy rel
     */
     @Override
-    public void setPasswordPolicyId(long passwordPolicyId) {
+    public void setPasswordPolicyId(java.lang.Long passwordPolicyId) {
         _passwordPolicyRel.setPasswordPolicyId(passwordPolicyId);
     }
 
@@ -166,7 +166,7 @@ public class PasswordPolicyRelWrapper implements PasswordPolicyRel,
     * @param classNameId the class name ID of this password policy rel
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _passwordPolicyRel.setClassNameId(classNameId);
     }
 
@@ -186,7 +186,7 @@ public class PasswordPolicyRelWrapper implements PasswordPolicyRel,
     * @param classPK the class p k of this password policy rel
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _passwordPolicyRel.setClassPK(classPK);
     }
 

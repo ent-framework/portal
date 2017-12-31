@@ -563,7 +563,7 @@ public class JournalStructureAdapter implements JournalStructure {
 	@Override
 	public void setParentStructureId(String parentStructureId) {
 		if (parentStructureId == null) {
-			_ddmStructure.setParentStructureId(0);
+			_ddmStructure.setParentStructureId(0l);
 		}
 
 		try {

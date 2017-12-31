@@ -218,7 +218,11 @@ public class PortletModelImpl extends BaseModelImpl<Portlet>
     }
 
     @Override
-    public void setId(long id) {
+    public void setId(Long id) {
+        if (id == null) {
+            id = new Long(0);
+        }
+
         _id = id;
     }
 
@@ -229,13 +233,17 @@ public class PortletModelImpl extends BaseModelImpl<Portlet>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -297,7 +305,11 @@ public class PortletModelImpl extends BaseModelImpl<Portlet>
     }
 
     @Override
-    public void setActive(boolean active) {
+    public void setActive(Boolean active) {
+        if (active == null) {
+            active = Boolean.FALSE;
+        }
+
         _active = active;
     }
 

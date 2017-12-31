@@ -163,7 +163,11 @@ public class ResourceBlockPermissionModelImpl extends BaseModelImpl<ResourceBloc
     }
 
     @Override
-    public void setResourceBlockPermissionId(long resourceBlockPermissionId) {
+    public void setResourceBlockPermissionId(Long resourceBlockPermissionId) {
+        if (resourceBlockPermissionId == null) {
+            resourceBlockPermissionId = new Long(0);
+        }
+
         _resourceBlockPermissionId = resourceBlockPermissionId;
     }
 
@@ -173,13 +177,17 @@ public class ResourceBlockPermissionModelImpl extends BaseModelImpl<ResourceBloc
     }
 
     @Override
-    public void setResourceBlockId(long resourceBlockId) {
+    public void setResourceBlockId(Long resourceBlockId) {
         _columnBitmask |= RESOURCEBLOCKID_COLUMN_BITMASK;
 
         if (!_setOriginalResourceBlockId) {
             _setOriginalResourceBlockId = true;
 
             _originalResourceBlockId = _resourceBlockId;
+        }
+
+        if (resourceBlockId == null) {
+            resourceBlockId = new Long(0);
         }
 
         _resourceBlockId = resourceBlockId;
@@ -195,13 +203,17 @@ public class ResourceBlockPermissionModelImpl extends BaseModelImpl<ResourceBloc
     }
 
     @Override
-    public void setRoleId(long roleId) {
+    public void setRoleId(Long roleId) {
         _columnBitmask |= ROLEID_COLUMN_BITMASK;
 
         if (!_setOriginalRoleId) {
             _setOriginalRoleId = true;
 
             _originalRoleId = _roleId;
+        }
+
+        if (roleId == null) {
+            roleId = new Long(0);
         }
 
         _roleId = roleId;
@@ -217,7 +229,11 @@ public class ResourceBlockPermissionModelImpl extends BaseModelImpl<ResourceBloc
     }
 
     @Override
-    public void setActionIds(long actionIds) {
+    public void setActionIds(Long actionIds) {
+        if (actionIds == null) {
+            actionIds = new Long(0);
+        }
+
         _actionIds = actionIds;
     }
 

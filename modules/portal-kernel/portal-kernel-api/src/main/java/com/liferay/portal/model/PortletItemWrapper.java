@@ -154,7 +154,7 @@ public class PortletItemWrapper implements PortletItem,
     * @param portletItemId the portlet item ID of this portlet item
     */
     @Override
-    public void setPortletItemId(long portletItemId) {
+    public void setPortletItemId(java.lang.Long portletItemId) {
         _portletItem.setPortletItemId(portletItemId);
     }
 
@@ -174,7 +174,7 @@ public class PortletItemWrapper implements PortletItem,
     * @param groupId the group ID of this portlet item
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _portletItem.setGroupId(groupId);
     }
 
@@ -194,7 +194,7 @@ public class PortletItemWrapper implements PortletItem,
     * @param companyId the company ID of this portlet item
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _portletItem.setCompanyId(companyId);
     }
 
@@ -214,7 +214,7 @@ public class PortletItemWrapper implements PortletItem,
     * @param userId the user ID of this portlet item
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _portletItem.setUserId(userId);
     }
 
@@ -371,7 +371,7 @@ public class PortletItemWrapper implements PortletItem,
     * @param classNameId the class name ID of this portlet item
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _portletItem.setClassNameId(classNameId);
     }
 

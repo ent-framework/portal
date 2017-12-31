@@ -252,7 +252,7 @@ public class DDMTemplateWrapper implements DDMTemplate,
     * @param templateId the template ID of this d d m template
     */
     @Override
-    public void setTemplateId(long templateId) {
+    public void setTemplateId(java.lang.Long templateId) {
         _ddmTemplate.setTemplateId(templateId);
     }
 
@@ -272,7 +272,7 @@ public class DDMTemplateWrapper implements DDMTemplate,
     * @param groupId the group ID of this d d m template
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _ddmTemplate.setGroupId(groupId);
     }
 
@@ -292,7 +292,7 @@ public class DDMTemplateWrapper implements DDMTemplate,
     * @param companyId the company ID of this d d m template
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _ddmTemplate.setCompanyId(companyId);
     }
 
@@ -312,7 +312,7 @@ public class DDMTemplateWrapper implements DDMTemplate,
     * @param userId the user ID of this d d m template
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _ddmTemplate.setUserId(userId);
     }
 
@@ -429,7 +429,7 @@ public class DDMTemplateWrapper implements DDMTemplate,
     * @param classNameId the class name ID of this d d m template
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _ddmTemplate.setClassNameId(classNameId);
     }
 
@@ -449,7 +449,7 @@ public class DDMTemplateWrapper implements DDMTemplate,
     * @param classPK the class p k of this d d m template
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _ddmTemplate.setClassPK(classPK);
     }
 
@@ -861,7 +861,7 @@ public class DDMTemplateWrapper implements DDMTemplate,
     * @param cacheable the cacheable of this d d m template
     */
     @Override
-    public void setCacheable(boolean cacheable) {
+    public void setCacheable(java.lang.Boolean cacheable) {
         _ddmTemplate.setCacheable(cacheable);
     }
 
@@ -891,7 +891,7 @@ public class DDMTemplateWrapper implements DDMTemplate,
     * @param smallImage the small image of this d d m template
     */
     @Override
-    public void setSmallImage(boolean smallImage) {
+    public void setSmallImage(java.lang.Boolean smallImage) {
         _ddmTemplate.setSmallImage(smallImage);
     }
 
@@ -911,7 +911,7 @@ public class DDMTemplateWrapper implements DDMTemplate,
     * @param smallImageId the small image ID of this d d m template
     */
     @Override
-    public void setSmallImageId(long smallImageId) {
+    public void setSmallImageId(java.lang.Long smallImageId) {
         _ddmTemplate.setSmallImageId(smallImageId);
     }
 

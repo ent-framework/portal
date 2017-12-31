@@ -250,7 +250,11 @@ public class UserNotificationEventModelImpl extends BaseModelImpl<UserNotificati
     }
 
     @Override
-    public void setUserNotificationEventId(long userNotificationEventId) {
+    public void setUserNotificationEventId(Long userNotificationEventId) {
+        if (userNotificationEventId == null) {
+            userNotificationEventId = new Long(0);
+        }
+
         _userNotificationEventId = userNotificationEventId;
     }
 
@@ -260,13 +264,17 @@ public class UserNotificationEventModelImpl extends BaseModelImpl<UserNotificati
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -282,13 +290,17 @@ public class UserNotificationEventModelImpl extends BaseModelImpl<UserNotificati
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;
@@ -328,8 +340,12 @@ public class UserNotificationEventModelImpl extends BaseModelImpl<UserNotificati
     }
 
     @Override
-    public void setTimestamp(long timestamp) {
+    public void setTimestamp(Long timestamp) {
         _columnBitmask = -1L;
+
+        if (timestamp == null) {
+            timestamp = new Long(0);
+        }
 
         _timestamp = timestamp;
     }
@@ -340,7 +356,11 @@ public class UserNotificationEventModelImpl extends BaseModelImpl<UserNotificati
     }
 
     @Override
-    public void setDeliverBy(long deliverBy) {
+    public void setDeliverBy(Long deliverBy) {
+        if (deliverBy == null) {
+            deliverBy = new Long(0);
+        }
+
         _deliverBy = deliverBy;
     }
 
@@ -355,13 +375,17 @@ public class UserNotificationEventModelImpl extends BaseModelImpl<UserNotificati
     }
 
     @Override
-    public void setDelivered(boolean delivered) {
+    public void setDelivered(Boolean delivered) {
         _columnBitmask |= DELIVERED_COLUMN_BITMASK;
 
         if (!_setOriginalDelivered) {
             _setOriginalDelivered = true;
 
             _originalDelivered = _delivered;
+        }
+
+        if (delivered == null) {
+            delivered = Boolean.FALSE;
         }
 
         _delivered = delivered;
@@ -396,13 +420,17 @@ public class UserNotificationEventModelImpl extends BaseModelImpl<UserNotificati
     }
 
     @Override
-    public void setArchived(boolean archived) {
+    public void setArchived(Boolean archived) {
         _columnBitmask |= ARCHIVED_COLUMN_BITMASK;
 
         if (!_setOriginalArchived) {
             _setOriginalArchived = true;
 
             _originalArchived = _archived;
+        }
+
+        if (archived == null) {
+            archived = Boolean.FALSE;
         }
 
         _archived = archived;

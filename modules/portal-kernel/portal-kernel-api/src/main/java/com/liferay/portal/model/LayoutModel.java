@@ -82,7 +82,7 @@ public interface LayoutModel extends BaseModel<Layout>, StagedGroupedModel {
      *
      * @param plid the plid of this layout
      */
-    public void setPlid(long plid);
+    public void setPlid(Long plid);
 
     /**
      * Returns the group ID of this layout.
@@ -98,7 +98,7 @@ public interface LayoutModel extends BaseModel<Layout>, StagedGroupedModel {
      * @param groupId the group ID of this layout
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this layout.
@@ -114,7 +114,7 @@ public interface LayoutModel extends BaseModel<Layout>, StagedGroupedModel {
      * @param companyId the company ID of this layout
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this layout.
@@ -130,7 +130,7 @@ public interface LayoutModel extends BaseModel<Layout>, StagedGroupedModel {
      * @param userId the user ID of this layout
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this layout.
@@ -231,7 +231,7 @@ public interface LayoutModel extends BaseModel<Layout>, StagedGroupedModel {
      *
      * @param layoutId the layout ID of this layout
      */
-    public void setLayoutId(long layoutId);
+    public void setLayoutId(Long layoutId);
 
     /**
      * Returns the parent layout ID of this layout.
@@ -245,7 +245,7 @@ public interface LayoutModel extends BaseModel<Layout>, StagedGroupedModel {
      *
      * @param parentLayoutId the parent layout ID of this layout
      */
-    public void setParentLayoutId(long parentLayoutId);
+    public void setParentLayoutId(Long parentLayoutId);
 
     /**
      * Returns the name of this layout.
@@ -794,7 +794,7 @@ public interface LayoutModel extends BaseModel<Layout>, StagedGroupedModel {
      *
      * @param hidden the hidden of this layout
      */
-    public void setHidden(boolean hidden);
+    public void setHidden(Boolean hidden);
 
     /**
      * Returns the friendly u r l of this layout.
@@ -830,7 +830,7 @@ public interface LayoutModel extends BaseModel<Layout>, StagedGroupedModel {
      *
      * @param iconImage the icon image of this layout
      */
-    public void setIconImage(boolean iconImage);
+    public void setIconImage(Boolean iconImage);
 
     /**
      * Returns the icon image ID of this layout.
@@ -844,7 +844,7 @@ public interface LayoutModel extends BaseModel<Layout>, StagedGroupedModel {
      *
      * @param iconImageId the icon image ID of this layout
      */
-    public void setIconImageId(long iconImageId);
+    public void setIconImageId(Long iconImageId);
 
     /**
      * Returns the theme ID of this layout.
@@ -933,7 +933,7 @@ public interface LayoutModel extends BaseModel<Layout>, StagedGroupedModel {
      *
      * @param priority the priority of this layout
      */
-    public void setPriority(int priority);
+    public void setPriority(Integer priority);
 
     /**
      * Returns the layout prototype uuid of this layout.
@@ -970,7 +970,7 @@ public interface LayoutModel extends BaseModel<Layout>, StagedGroupedModel {
      * @param layoutPrototypeLinkEnabled the layout prototype link enabled of this layout
      */
     public void setLayoutPrototypeLinkEnabled(
-        boolean layoutPrototypeLinkEnabled);
+        Boolean layoutPrototypeLinkEnabled);
 
     /**
      * Returns the source prototype layout uuid of this layout.

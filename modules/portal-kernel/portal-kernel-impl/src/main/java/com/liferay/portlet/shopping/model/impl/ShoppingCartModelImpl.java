@@ -229,7 +229,11 @@ public class ShoppingCartModelImpl extends BaseModelImpl<ShoppingCart>
     }
 
     @Override
-    public void setCartId(long cartId) {
+    public void setCartId(Long cartId) {
+        if (cartId == null) {
+            cartId = new Long(0);
+        }
+
         _cartId = cartId;
     }
 
@@ -239,13 +243,17 @@ public class ShoppingCartModelImpl extends BaseModelImpl<ShoppingCart>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -261,7 +269,11 @@ public class ShoppingCartModelImpl extends BaseModelImpl<ShoppingCart>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -271,13 +283,17 @@ public class ShoppingCartModelImpl extends BaseModelImpl<ShoppingCart>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;
@@ -365,7 +381,11 @@ public class ShoppingCartModelImpl extends BaseModelImpl<ShoppingCart>
     }
 
     @Override
-    public void setAltShipping(int altShipping) {
+    public void setAltShipping(Integer altShipping) {
+        if (altShipping == null) {
+            altShipping = new Integer(0);
+        }
+
         _altShipping = altShipping;
     }
 
@@ -380,7 +400,11 @@ public class ShoppingCartModelImpl extends BaseModelImpl<ShoppingCart>
     }
 
     @Override
-    public void setInsure(boolean insure) {
+    public void setInsure(Boolean insure) {
+        if (insure == null) {
+            insure = Boolean.FALSE;
+        }
+
         _insure = insure;
     }
 

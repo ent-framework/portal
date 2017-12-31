@@ -339,7 +339,7 @@ public class LiferayFolder extends LiferayModel implements Folder {
 	}
 
 	@Override
-	public void setCompanyId(long companyId) {
+	public void setCompanyId(Long companyId) {
 		_dlFolder.setCompanyId(companyId);
 	}
 
@@ -349,7 +349,7 @@ public class LiferayFolder extends LiferayModel implements Folder {
 	}
 
 	@Override
-	public void setGroupId(long groupId) {
+	public void setGroupId(Long groupId) {
 		_dlFolder.setGroupId(groupId);
 	}
 
@@ -358,7 +358,7 @@ public class LiferayFolder extends LiferayModel implements Folder {
 		_dlFolder.setModifiedDate(date);
 	}
 
-	public void setPrimaryKey(long primaryKey) {
+	public void setPrimaryKey(Long primaryKey) {
 		_dlFolder.setPrimaryKey(primaryKey);
 	}
 
@@ -368,7 +368,7 @@ public class LiferayFolder extends LiferayModel implements Folder {
 	}
 
 	@Override
-	public void setUserId(long userId) {
+	public void setUserId(Long userId) {
 		_dlFolder.setUserId(userId);
 	}
 

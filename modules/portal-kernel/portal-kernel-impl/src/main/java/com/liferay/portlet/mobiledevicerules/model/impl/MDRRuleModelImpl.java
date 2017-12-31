@@ -341,7 +341,11 @@ public class MDRRuleModelImpl extends BaseModelImpl<MDRRule>
     }
 
     @Override
-    public void setRuleId(long ruleId) {
+    public void setRuleId(Long ruleId) {
+        if (ruleId == null) {
+            ruleId = new Long(0);
+        }
+
         _ruleId = ruleId;
     }
 
@@ -352,13 +356,17 @@ public class MDRRuleModelImpl extends BaseModelImpl<MDRRule>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -375,13 +383,17 @@ public class MDRRuleModelImpl extends BaseModelImpl<MDRRule>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -398,7 +410,11 @@ public class MDRRuleModelImpl extends BaseModelImpl<MDRRule>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -456,13 +472,17 @@ public class MDRRuleModelImpl extends BaseModelImpl<MDRRule>
     }
 
     @Override
-    public void setRuleGroupId(long ruleGroupId) {
+    public void setRuleGroupId(Long ruleGroupId) {
         _columnBitmask |= RULEGROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalRuleGroupId) {
             _setOriginalRuleGroupId = true;
 
             _originalRuleGroupId = _ruleGroupId;
+        }
+
+        if (ruleGroupId == null) {
+            ruleGroupId = new Long(0);
         }
 
         _ruleGroupId = ruleGroupId;

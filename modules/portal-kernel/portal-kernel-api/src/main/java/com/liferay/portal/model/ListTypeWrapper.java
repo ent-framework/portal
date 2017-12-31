@@ -103,7 +103,7 @@ public class ListTypeWrapper implements ListType, ModelWrapper<ListType> {
     * @param listTypeId the list type ID of this list type
     */
     @Override
-    public void setListTypeId(int listTypeId) {
+    public void setListTypeId(java.lang.Integer listTypeId) {
         _listType.setListTypeId(listTypeId);
     }
 

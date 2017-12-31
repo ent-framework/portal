@@ -169,7 +169,7 @@ public class SCProductVersionWrapper implements SCProductVersion,
     * @param productVersionId the product version ID of this s c product version
     */
     @Override
-    public void setProductVersionId(long productVersionId) {
+    public void setProductVersionId(java.lang.Long productVersionId) {
         _scProductVersion.setProductVersionId(productVersionId);
     }
 
@@ -189,7 +189,7 @@ public class SCProductVersionWrapper implements SCProductVersion,
     * @param companyId the company ID of this s c product version
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _scProductVersion.setCompanyId(companyId);
     }
 
@@ -209,7 +209,7 @@ public class SCProductVersionWrapper implements SCProductVersion,
     * @param userId the user ID of this s c product version
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _scProductVersion.setUserId(userId);
     }
 
@@ -311,7 +311,7 @@ public class SCProductVersionWrapper implements SCProductVersion,
     * @param productEntryId the product entry ID of this s c product version
     */
     @Override
-    public void setProductEntryId(long productEntryId) {
+    public void setProductEntryId(java.lang.Long productEntryId) {
         _scProductVersion.setProductEntryId(productEntryId);
     }
 
@@ -421,7 +421,7 @@ public class SCProductVersionWrapper implements SCProductVersion,
     * @param repoStoreArtifact the repo store artifact of this s c product version
     */
     @Override
-    public void setRepoStoreArtifact(boolean repoStoreArtifact) {
+    public void setRepoStoreArtifact(java.lang.Boolean repoStoreArtifact) {
         _scProductVersion.setRepoStoreArtifact(repoStoreArtifact);
     }
 

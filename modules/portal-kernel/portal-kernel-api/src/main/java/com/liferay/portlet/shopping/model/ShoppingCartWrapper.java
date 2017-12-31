@@ -161,7 +161,7 @@ public class ShoppingCartWrapper implements ShoppingCart,
     * @param cartId the cart ID of this shopping cart
     */
     @Override
-    public void setCartId(long cartId) {
+    public void setCartId(java.lang.Long cartId) {
         _shoppingCart.setCartId(cartId);
     }
 
@@ -181,7 +181,7 @@ public class ShoppingCartWrapper implements ShoppingCart,
     * @param groupId the group ID of this shopping cart
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _shoppingCart.setGroupId(groupId);
     }
 
@@ -201,7 +201,7 @@ public class ShoppingCartWrapper implements ShoppingCart,
     * @param companyId the company ID of this shopping cart
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _shoppingCart.setCompanyId(companyId);
     }
 
@@ -221,7 +221,7 @@ public class ShoppingCartWrapper implements ShoppingCart,
     * @param userId the user ID of this shopping cart
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _shoppingCart.setUserId(userId);
     }
 
@@ -363,7 +363,7 @@ public class ShoppingCartWrapper implements ShoppingCart,
     * @param altShipping the alt shipping of this shopping cart
     */
     @Override
-    public void setAltShipping(int altShipping) {
+    public void setAltShipping(java.lang.Integer altShipping) {
         _shoppingCart.setAltShipping(altShipping);
     }
 
@@ -393,7 +393,7 @@ public class ShoppingCartWrapper implements ShoppingCart,
     * @param insure the insure of this shopping cart
     */
     @Override
-    public void setInsure(boolean insure) {
+    public void setInsure(java.lang.Boolean insure) {
         _shoppingCart.setInsure(insure);
     }
 

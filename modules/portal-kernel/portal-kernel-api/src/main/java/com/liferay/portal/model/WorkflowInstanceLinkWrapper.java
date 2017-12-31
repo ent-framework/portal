@@ -156,7 +156,7 @@ public class WorkflowInstanceLinkWrapper implements WorkflowInstanceLink,
     * @param workflowInstanceLinkId the workflow instance link ID of this workflow instance link
     */
     @Override
-    public void setWorkflowInstanceLinkId(long workflowInstanceLinkId) {
+    public void setWorkflowInstanceLinkId(java.lang.Long workflowInstanceLinkId) {
         _workflowInstanceLink.setWorkflowInstanceLinkId(workflowInstanceLinkId);
     }
 
@@ -176,7 +176,7 @@ public class WorkflowInstanceLinkWrapper implements WorkflowInstanceLink,
     * @param groupId the group ID of this workflow instance link
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _workflowInstanceLink.setGroupId(groupId);
     }
 
@@ -196,7 +196,7 @@ public class WorkflowInstanceLinkWrapper implements WorkflowInstanceLink,
     * @param companyId the company ID of this workflow instance link
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _workflowInstanceLink.setCompanyId(companyId);
     }
 
@@ -216,7 +216,7 @@ public class WorkflowInstanceLinkWrapper implements WorkflowInstanceLink,
     * @param userId the user ID of this workflow instance link
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _workflowInstanceLink.setUserId(userId);
     }
 
@@ -333,7 +333,7 @@ public class WorkflowInstanceLinkWrapper implements WorkflowInstanceLink,
     * @param classNameId the class name ID of this workflow instance link
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _workflowInstanceLink.setClassNameId(classNameId);
     }
 
@@ -353,7 +353,7 @@ public class WorkflowInstanceLinkWrapper implements WorkflowInstanceLink,
     * @param classPK the class p k of this workflow instance link
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _workflowInstanceLink.setClassPK(classPK);
     }
 
@@ -373,7 +373,7 @@ public class WorkflowInstanceLinkWrapper implements WorkflowInstanceLink,
     * @param workflowInstanceId the workflow instance ID of this workflow instance link
     */
     @Override
-    public void setWorkflowInstanceId(long workflowInstanceId) {
+    public void setWorkflowInstanceId(java.lang.Long workflowInstanceId) {
         _workflowInstanceLink.setWorkflowInstanceId(workflowInstanceId);
     }
 

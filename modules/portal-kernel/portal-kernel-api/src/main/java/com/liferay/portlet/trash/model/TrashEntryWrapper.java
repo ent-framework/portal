@@ -160,7 +160,7 @@ public class TrashEntryWrapper implements TrashEntry, ModelWrapper<TrashEntry> {
     * @param entryId the entry ID of this trash entry
     */
     @Override
-    public void setEntryId(long entryId) {
+    public void setEntryId(java.lang.Long entryId) {
         _trashEntry.setEntryId(entryId);
     }
 
@@ -180,7 +180,7 @@ public class TrashEntryWrapper implements TrashEntry, ModelWrapper<TrashEntry> {
     * @param groupId the group ID of this trash entry
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _trashEntry.setGroupId(groupId);
     }
 
@@ -200,7 +200,7 @@ public class TrashEntryWrapper implements TrashEntry, ModelWrapper<TrashEntry> {
     * @param companyId the company ID of this trash entry
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _trashEntry.setCompanyId(companyId);
     }
 
@@ -220,7 +220,7 @@ public class TrashEntryWrapper implements TrashEntry, ModelWrapper<TrashEntry> {
     * @param userId the user ID of this trash entry
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _trashEntry.setUserId(userId);
     }
 
@@ -317,7 +317,7 @@ public class TrashEntryWrapper implements TrashEntry, ModelWrapper<TrashEntry> {
     * @param classNameId the class name ID of this trash entry
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _trashEntry.setClassNameId(classNameId);
     }
 
@@ -337,7 +337,7 @@ public class TrashEntryWrapper implements TrashEntry, ModelWrapper<TrashEntry> {
     * @param classPK the class p k of this trash entry
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _trashEntry.setClassPK(classPK);
     }
 
@@ -357,7 +357,7 @@ public class TrashEntryWrapper implements TrashEntry, ModelWrapper<TrashEntry> {
     * @param systemEventSetKey the system event set key of this trash entry
     */
     @Override
-    public void setSystemEventSetKey(long systemEventSetKey) {
+    public void setSystemEventSetKey(java.lang.Long systemEventSetKey) {
         _trashEntry.setSystemEventSetKey(systemEventSetKey);
     }
 
@@ -397,7 +397,7 @@ public class TrashEntryWrapper implements TrashEntry, ModelWrapper<TrashEntry> {
     * @param status the status of this trash entry
     */
     @Override
-    public void setStatus(int status) {
+    public void setStatus(java.lang.Integer status) {
         _trashEntry.setStatus(status);
     }
 

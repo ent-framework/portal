@@ -477,7 +477,11 @@ public class DLFileVersionModelImpl extends BaseModelImpl<DLFileVersion>
     }
 
     @Override
-    public void setFileVersionId(long fileVersionId) {
+    public void setFileVersionId(Long fileVersionId) {
+        if (fileVersionId == null) {
+            fileVersionId = new Long(0);
+        }
+
         _fileVersionId = fileVersionId;
     }
 
@@ -488,13 +492,17 @@ public class DLFileVersionModelImpl extends BaseModelImpl<DLFileVersion>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -511,13 +519,17 @@ public class DLFileVersionModelImpl extends BaseModelImpl<DLFileVersion>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -534,7 +546,11 @@ public class DLFileVersionModelImpl extends BaseModelImpl<DLFileVersion>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -594,7 +610,11 @@ public class DLFileVersionModelImpl extends BaseModelImpl<DLFileVersion>
     }
 
     @Override
-    public void setRepositoryId(long repositoryId) {
+    public void setRepositoryId(Long repositoryId) {
+        if (repositoryId == null) {
+            repositoryId = new Long(0);
+        }
+
         _repositoryId = repositoryId;
     }
 
@@ -605,13 +625,17 @@ public class DLFileVersionModelImpl extends BaseModelImpl<DLFileVersion>
     }
 
     @Override
-    public void setFolderId(long folderId) {
+    public void setFolderId(Long folderId) {
         _columnBitmask |= FOLDERID_COLUMN_BITMASK;
 
         if (!_setOriginalFolderId) {
             _setOriginalFolderId = true;
 
             _originalFolderId = _folderId;
+        }
+
+        if (folderId == null) {
+            folderId = new Long(0);
         }
 
         _folderId = folderId;
@@ -628,13 +652,17 @@ public class DLFileVersionModelImpl extends BaseModelImpl<DLFileVersion>
     }
 
     @Override
-    public void setFileEntryId(long fileEntryId) {
+    public void setFileEntryId(Long fileEntryId) {
         _columnBitmask = -1L;
 
         if (!_setOriginalFileEntryId) {
             _setOriginalFileEntryId = true;
 
             _originalFileEntryId = _fileEntryId;
+        }
+
+        if (fileEntryId == null) {
+            fileEntryId = new Long(0);
         }
 
         _fileEntryId = fileEntryId;
@@ -776,7 +804,11 @@ public class DLFileVersionModelImpl extends BaseModelImpl<DLFileVersion>
     }
 
     @Override
-    public void setFileEntryTypeId(long fileEntryTypeId) {
+    public void setFileEntryTypeId(Long fileEntryTypeId) {
+        if (fileEntryTypeId == null) {
+            fileEntryTypeId = new Long(0);
+        }
+
         _fileEntryTypeId = fileEntryTypeId;
     }
 
@@ -812,7 +844,11 @@ public class DLFileVersionModelImpl extends BaseModelImpl<DLFileVersion>
     }
 
     @Override
-    public void setSize(long size) {
+    public void setSize(Long size) {
+        if (size == null) {
+            size = new Long(0);
+        }
+
         _size = size;
     }
 
@@ -838,13 +874,17 @@ public class DLFileVersionModelImpl extends BaseModelImpl<DLFileVersion>
     }
 
     @Override
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         _columnBitmask |= STATUS_COLUMN_BITMASK;
 
         if (!_setOriginalStatus) {
             _setOriginalStatus = true;
 
             _originalStatus = _status;
+        }
+
+        if (status == null) {
+            status = new Integer(0);
         }
 
         _status = status;
@@ -861,7 +901,11 @@ public class DLFileVersionModelImpl extends BaseModelImpl<DLFileVersion>
     }
 
     @Override
-    public void setStatusByUserId(long statusByUserId) {
+    public void setStatusByUserId(Long statusByUserId) {
+        if (statusByUserId == null) {
+            statusByUserId = new Long(0);
+        }
+
         _statusByUserId = statusByUserId;
     }
 

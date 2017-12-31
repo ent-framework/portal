@@ -396,7 +396,7 @@ public class FileEntryProxyBean
 	}
 
 	@Override
-	public void setCompanyId(long companyId) {
+	public void setCompanyId(Long companyId) {
 		_fileEntry.setCompanyId(companyId);
 	}
 
@@ -406,7 +406,7 @@ public class FileEntryProxyBean
 	}
 
 	@Override
-	public void setGroupId(long groupId) {
+	public void setGroupId(Long groupId) {
 		_fileEntry.setGroupId(groupId);
 	}
 
@@ -421,7 +421,7 @@ public class FileEntryProxyBean
 	}
 
 	@Override
-	public void setUserId(long userId) {
+	public void setUserId(Long userId) {
 		_fileEntry.setUserId(userId);
 	}
 

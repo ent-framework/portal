@@ -84,7 +84,7 @@ public interface RoleModel extends AttachedModel, BaseModel<Role>,
      *
      * @param roleId the role ID of this role
      */
-    public void setRoleId(long roleId);
+    public void setRoleId(Long roleId);
 
     /**
      * Returns the company ID of this role.
@@ -100,7 +100,7 @@ public interface RoleModel extends AttachedModel, BaseModel<Role>,
      * @param companyId the company ID of this role
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this role.
@@ -116,7 +116,7 @@ public interface RoleModel extends AttachedModel, BaseModel<Role>,
      * @param userId the user ID of this role
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this role.
@@ -208,7 +208,7 @@ public interface RoleModel extends AttachedModel, BaseModel<Role>,
      * @param classNameId the class name ID of this role
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this role.
@@ -224,7 +224,7 @@ public interface RoleModel extends AttachedModel, BaseModel<Role>,
      * @param classPK the class p k of this role
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the name of this role.
@@ -453,7 +453,7 @@ public interface RoleModel extends AttachedModel, BaseModel<Role>,
      *
      * @param type the type of this role
      */
-    public void setType(int type);
+    public void setType(Integer type);
 
     /**
      * Returns the subtype of this role.

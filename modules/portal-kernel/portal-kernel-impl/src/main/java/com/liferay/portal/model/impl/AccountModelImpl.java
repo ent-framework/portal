@@ -323,7 +323,11 @@ public class AccountModelImpl extends BaseModelImpl<Account>
     }
 
     @Override
-    public void setAccountId(long accountId) {
+    public void setAccountId(Long accountId) {
+        if (accountId == null) {
+            accountId = new Long(0);
+        }
+
         _accountId = accountId;
     }
 
@@ -334,7 +338,11 @@ public class AccountModelImpl extends BaseModelImpl<Account>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -345,7 +353,11 @@ public class AccountModelImpl extends BaseModelImpl<Account>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -403,7 +415,11 @@ public class AccountModelImpl extends BaseModelImpl<Account>
     }
 
     @Override
-    public void setParentAccountId(long parentAccountId) {
+    public void setParentAccountId(Long parentAccountId) {
+        if (parentAccountId == null) {
+            parentAccountId = new Long(0);
+        }
+
         _parentAccountId = parentAccountId;
     }
 

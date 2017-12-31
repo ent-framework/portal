@@ -345,7 +345,11 @@ public class LayoutSetModelImpl extends BaseModelImpl<LayoutSet>
     }
 
     @Override
-    public void setLayoutSetId(long layoutSetId) {
+    public void setLayoutSetId(Long layoutSetId) {
+        if (layoutSetId == null) {
+            layoutSetId = new Long(0);
+        }
+
         _layoutSetId = layoutSetId;
     }
 
@@ -356,13 +360,17 @@ public class LayoutSetModelImpl extends BaseModelImpl<LayoutSet>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -379,7 +387,11 @@ public class LayoutSetModelImpl extends BaseModelImpl<LayoutSet>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -417,13 +429,17 @@ public class LayoutSetModelImpl extends BaseModelImpl<LayoutSet>
     }
 
     @Override
-    public void setPrivateLayout(boolean privateLayout) {
+    public void setPrivateLayout(Boolean privateLayout) {
         _columnBitmask |= PRIVATELAYOUT_COLUMN_BITMASK;
 
         if (!_setOriginalPrivateLayout) {
             _setOriginalPrivateLayout = true;
 
             _originalPrivateLayout = _privateLayout;
+        }
+
+        if (privateLayout == null) {
+            privateLayout = Boolean.FALSE;
         }
 
         _privateLayout = privateLayout;
@@ -445,7 +461,11 @@ public class LayoutSetModelImpl extends BaseModelImpl<LayoutSet>
     }
 
     @Override
-    public void setLogo(boolean logo) {
+    public void setLogo(Boolean logo) {
+        if (logo == null) {
+            logo = Boolean.FALSE;
+        }
+
         _logo = logo;
     }
 
@@ -456,7 +476,11 @@ public class LayoutSetModelImpl extends BaseModelImpl<LayoutSet>
     }
 
     @Override
-    public void setLogoId(long logoId) {
+    public void setLogoId(Long logoId) {
+        if (logoId == null) {
+            logoId = new Long(0);
+        }
+
         _logoId = logoId;
     }
 
@@ -542,7 +566,11 @@ public class LayoutSetModelImpl extends BaseModelImpl<LayoutSet>
     }
 
     @Override
-    public void setPageCount(int pageCount) {
+    public void setPageCount(Integer pageCount) {
+        if (pageCount == null) {
+            pageCount = new Integer(0);
+        }
+
         _pageCount = pageCount;
     }
 
@@ -599,7 +627,11 @@ public class LayoutSetModelImpl extends BaseModelImpl<LayoutSet>
 
     @Override
     public void setLayoutSetPrototypeLinkEnabled(
-        boolean layoutSetPrototypeLinkEnabled) {
+        Boolean layoutSetPrototypeLinkEnabled) {
+        if (layoutSetPrototypeLinkEnabled == null) {
+            layoutSetPrototypeLinkEnabled = Boolean.FALSE;
+        }
+
         _layoutSetPrototypeLinkEnabled = layoutSetPrototypeLinkEnabled;
     }
 

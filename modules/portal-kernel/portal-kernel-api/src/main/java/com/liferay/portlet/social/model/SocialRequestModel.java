@@ -76,7 +76,7 @@ public interface SocialRequestModel extends AttachedModel,
      *
      * @param requestId the request ID of this social request
      */
-    public void setRequestId(long requestId);
+    public void setRequestId(Long requestId);
 
     /**
      * Returns the group ID of this social request.
@@ -90,7 +90,7 @@ public interface SocialRequestModel extends AttachedModel,
      *
      * @param groupId the group ID of this social request
      */
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this social request.
@@ -104,7 +104,7 @@ public interface SocialRequestModel extends AttachedModel,
      *
      * @param companyId the company ID of this social request
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this social request.
@@ -118,7 +118,7 @@ public interface SocialRequestModel extends AttachedModel,
      *
      * @param userId the user ID of this social request
      */
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this social request.
@@ -147,7 +147,7 @@ public interface SocialRequestModel extends AttachedModel,
      *
      * @param createDate the create date of this social request
      */
-    public void setCreateDate(long createDate);
+    public void setCreateDate(Long createDate);
 
     /**
      * Returns the modified date of this social request.
@@ -161,7 +161,7 @@ public interface SocialRequestModel extends AttachedModel,
      *
      * @param modifiedDate the modified date of this social request
      */
-    public void setModifiedDate(long modifiedDate);
+    public void setModifiedDate(Long modifiedDate);
 
     /**
      * Returns the fully qualified class name of this social request.
@@ -187,7 +187,7 @@ public interface SocialRequestModel extends AttachedModel,
      * @param classNameId the class name ID of this social request
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this social request.
@@ -203,7 +203,7 @@ public interface SocialRequestModel extends AttachedModel,
      * @param classPK the class p k of this social request
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the type of this social request.
@@ -217,7 +217,7 @@ public interface SocialRequestModel extends AttachedModel,
      *
      * @param type the type of this social request
      */
-    public void setType(int type);
+    public void setType(Integer type);
 
     /**
      * Returns the extra data of this social request.
@@ -246,7 +246,7 @@ public interface SocialRequestModel extends AttachedModel,
      *
      * @param receiverUserId the receiver user ID of this social request
      */
-    public void setReceiverUserId(long receiverUserId);
+    public void setReceiverUserId(Long receiverUserId);
 
     /**
      * Returns the receiver user uuid of this social request.
@@ -275,7 +275,7 @@ public interface SocialRequestModel extends AttachedModel,
      *
      * @param status the status of this social request
      */
-    public void setStatus(int status);
+    public void setStatus(Integer status);
 
     @Override
     public boolean isNew();

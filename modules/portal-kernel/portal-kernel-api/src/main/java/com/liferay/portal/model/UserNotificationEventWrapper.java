@@ -175,7 +175,8 @@ public class UserNotificationEventWrapper implements UserNotificationEvent,
     * @param userNotificationEventId the user notification event ID of this user notification event
     */
     @Override
-    public void setUserNotificationEventId(long userNotificationEventId) {
+    public void setUserNotificationEventId(
+        java.lang.Long userNotificationEventId) {
         _userNotificationEvent.setUserNotificationEventId(userNotificationEventId);
     }
 
@@ -195,7 +196,7 @@ public class UserNotificationEventWrapper implements UserNotificationEvent,
     * @param companyId the company ID of this user notification event
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _userNotificationEvent.setCompanyId(companyId);
     }
 
@@ -215,7 +216,7 @@ public class UserNotificationEventWrapper implements UserNotificationEvent,
     * @param userId the user ID of this user notification event
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _userNotificationEvent.setUserId(userId);
     }
 
@@ -277,7 +278,7 @@ public class UserNotificationEventWrapper implements UserNotificationEvent,
     * @param timestamp the timestamp of this user notification event
     */
     @Override
-    public void setTimestamp(long timestamp) {
+    public void setTimestamp(java.lang.Long timestamp) {
         _userNotificationEvent.setTimestamp(timestamp);
     }
 
@@ -297,7 +298,7 @@ public class UserNotificationEventWrapper implements UserNotificationEvent,
     * @param deliverBy the deliver by of this user notification event
     */
     @Override
-    public void setDeliverBy(long deliverBy) {
+    public void setDeliverBy(java.lang.Long deliverBy) {
         _userNotificationEvent.setDeliverBy(deliverBy);
     }
 
@@ -327,7 +328,7 @@ public class UserNotificationEventWrapper implements UserNotificationEvent,
     * @param delivered the delivered of this user notification event
     */
     @Override
-    public void setDelivered(boolean delivered) {
+    public void setDelivered(java.lang.Boolean delivered) {
         _userNotificationEvent.setDelivered(delivered);
     }
 
@@ -377,7 +378,7 @@ public class UserNotificationEventWrapper implements UserNotificationEvent,
     * @param archived the archived of this user notification event
     */
     @Override
-    public void setArchived(boolean archived) {
+    public void setArchived(java.lang.Boolean archived) {
         _userNotificationEvent.setArchived(archived);
     }
 

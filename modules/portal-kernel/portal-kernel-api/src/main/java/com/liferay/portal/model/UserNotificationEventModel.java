@@ -74,7 +74,7 @@ public interface UserNotificationEventModel extends BaseModel<UserNotificationEv
      *
      * @param userNotificationEventId the user notification event ID of this user notification event
      */
-    public void setUserNotificationEventId(long userNotificationEventId);
+    public void setUserNotificationEventId(Long userNotificationEventId);
 
     /**
      * Returns the company ID of this user notification event.
@@ -88,7 +88,7 @@ public interface UserNotificationEventModel extends BaseModel<UserNotificationEv
      *
      * @param companyId the company ID of this user notification event
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this user notification event.
@@ -102,7 +102,7 @@ public interface UserNotificationEventModel extends BaseModel<UserNotificationEv
      *
      * @param userId the user ID of this user notification event
      */
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this user notification event.
@@ -146,7 +146,7 @@ public interface UserNotificationEventModel extends BaseModel<UserNotificationEv
      *
      * @param timestamp the timestamp of this user notification event
      */
-    public void setTimestamp(long timestamp);
+    public void setTimestamp(Long timestamp);
 
     /**
      * Returns the deliver by of this user notification event.
@@ -160,7 +160,7 @@ public interface UserNotificationEventModel extends BaseModel<UserNotificationEv
      *
      * @param deliverBy the deliver by of this user notification event
      */
-    public void setDeliverBy(long deliverBy);
+    public void setDeliverBy(Long deliverBy);
 
     /**
      * Returns the delivered of this user notification event.
@@ -181,7 +181,7 @@ public interface UserNotificationEventModel extends BaseModel<UserNotificationEv
      *
      * @param delivered the delivered of this user notification event
      */
-    public void setDelivered(boolean delivered);
+    public void setDelivered(Boolean delivered);
 
     /**
      * Returns the payload of this user notification event.
@@ -217,7 +217,7 @@ public interface UserNotificationEventModel extends BaseModel<UserNotificationEv
      *
      * @param archived the archived of this user notification event
      */
-    public void setArchived(boolean archived);
+    public void setArchived(Boolean archived);
 
     @Override
     public boolean isNew();

@@ -300,7 +300,11 @@ public class SCFrameworkVersionModelImpl extends BaseModelImpl<SCFrameworkVersio
     }
 
     @Override
-    public void setFrameworkVersionId(long frameworkVersionId) {
+    public void setFrameworkVersionId(Long frameworkVersionId) {
+        if (frameworkVersionId == null) {
+            frameworkVersionId = new Long(0);
+        }
+
         _frameworkVersionId = frameworkVersionId;
     }
 
@@ -311,13 +315,17 @@ public class SCFrameworkVersionModelImpl extends BaseModelImpl<SCFrameworkVersio
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -334,13 +342,17 @@ public class SCFrameworkVersionModelImpl extends BaseModelImpl<SCFrameworkVersio
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -357,7 +369,11 @@ public class SCFrameworkVersionModelImpl extends BaseModelImpl<SCFrameworkVersio
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -452,13 +468,17 @@ public class SCFrameworkVersionModelImpl extends BaseModelImpl<SCFrameworkVersio
     }
 
     @Override
-    public void setActive(boolean active) {
+    public void setActive(Boolean active) {
         _columnBitmask |= ACTIVE_COLUMN_BITMASK;
 
         if (!_setOriginalActive) {
             _setOriginalActive = true;
 
             _originalActive = _active;
+        }
+
+        if (active == null) {
+            active = Boolean.FALSE;
         }
 
         _active = active;
@@ -475,7 +495,11 @@ public class SCFrameworkVersionModelImpl extends BaseModelImpl<SCFrameworkVersio
     }
 
     @Override
-    public void setPriority(int priority) {
+    public void setPriority(Integer priority) {
+        if (priority == null) {
+            priority = new Integer(0);
+        }
+
         _priority = priority;
     }
 

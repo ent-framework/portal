@@ -86,7 +86,7 @@ public interface DLFolderModel extends BaseModel<DLFolder>, ContainerModel,
      *
      * @param folderId the folder ID of this document library folder
      */
-    public void setFolderId(long folderId);
+    public void setFolderId(Long folderId);
 
     /**
      * Returns the group ID of this document library folder.
@@ -102,7 +102,7 @@ public interface DLFolderModel extends BaseModel<DLFolder>, ContainerModel,
      * @param groupId the group ID of this document library folder
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this document library folder.
@@ -118,7 +118,7 @@ public interface DLFolderModel extends BaseModel<DLFolder>, ContainerModel,
      * @param companyId the company ID of this document library folder
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this document library folder.
@@ -134,7 +134,7 @@ public interface DLFolderModel extends BaseModel<DLFolder>, ContainerModel,
      * @param userId the user ID of this document library folder
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this document library folder.
@@ -214,7 +214,7 @@ public interface DLFolderModel extends BaseModel<DLFolder>, ContainerModel,
      *
      * @param repositoryId the repository ID of this document library folder
      */
-    public void setRepositoryId(long repositoryId);
+    public void setRepositoryId(Long repositoryId);
 
     /**
      * Returns the mount point of this document library folder.
@@ -235,7 +235,7 @@ public interface DLFolderModel extends BaseModel<DLFolder>, ContainerModel,
      *
      * @param mountPoint the mount point of this document library folder
      */
-    public void setMountPoint(boolean mountPoint);
+    public void setMountPoint(Boolean mountPoint);
 
     /**
      * Returns the parent folder ID of this document library folder.
@@ -249,7 +249,7 @@ public interface DLFolderModel extends BaseModel<DLFolder>, ContainerModel,
      *
      * @param parentFolderId the parent folder ID of this document library folder
      */
-    public void setParentFolderId(long parentFolderId);
+    public void setParentFolderId(Long parentFolderId);
 
     /**
      * Returns the tree path of this document library folder.
@@ -322,7 +322,7 @@ public interface DLFolderModel extends BaseModel<DLFolder>, ContainerModel,
      *
      * @param defaultFileEntryTypeId the default file entry type ID of this document library folder
      */
-    public void setDefaultFileEntryTypeId(long defaultFileEntryTypeId);
+    public void setDefaultFileEntryTypeId(Long defaultFileEntryTypeId);
 
     /**
      * Returns the hidden of this document library folder.
@@ -343,7 +343,7 @@ public interface DLFolderModel extends BaseModel<DLFolder>, ContainerModel,
      *
      * @param hidden the hidden of this document library folder
      */
-    public void setHidden(boolean hidden);
+    public void setHidden(Boolean hidden);
 
     /**
      * Returns the override file entry types of this document library folder.
@@ -364,7 +364,7 @@ public interface DLFolderModel extends BaseModel<DLFolder>, ContainerModel,
      *
      * @param overrideFileEntryTypes the override file entry types of this document library folder
      */
-    public void setOverrideFileEntryTypes(boolean overrideFileEntryTypes);
+    public void setOverrideFileEntryTypes(Boolean overrideFileEntryTypes);
 
     /**
      * Returns the status of this document library folder.
@@ -380,7 +380,7 @@ public interface DLFolderModel extends BaseModel<DLFolder>, ContainerModel,
      * @param status the status of this document library folder
      */
     @Override
-    public void setStatus(int status);
+    public void setStatus(Integer status);
 
     /**
      * Returns the status by user ID of this document library folder.
@@ -396,7 +396,7 @@ public interface DLFolderModel extends BaseModel<DLFolder>, ContainerModel,
      * @param statusByUserId the status by user ID of this document library folder
      */
     @Override
-    public void setStatusByUserId(long statusByUserId);
+    public void setStatusByUserId(Long statusByUserId);
 
     /**
      * Returns the status by user uuid of this document library folder.

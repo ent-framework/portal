@@ -391,7 +391,7 @@ public class OrganizationLocalServiceImpl
 			long logoId = publicLayoutSet.getLogoId();
 
 			publicLayoutSet.setLogo(false);
-			publicLayoutSet.setLogoId(0);
+			publicLayoutSet.setLogoId(0l);
 
 			layoutSetPersistence.update(publicLayoutSet);
 
@@ -405,7 +405,7 @@ public class OrganizationLocalServiceImpl
 			long logoId = privateLayoutSet.getLogoId();
 
 			privateLayoutSet.setLogo(false);
-			privateLayoutSet.setLogoId(0);
+			privateLayoutSet.setLogoId(0l);
 
 			layoutSetPersistence.update(privateLayoutSet);
 

@@ -21,6 +21,6 @@ public interface PermissionedModel extends PersistedModel {
 
 	public long getResourceBlockId();
 
-	public void setResourceBlockId(long resourceBlockId);
+	public void setResourceBlockId(Long resourceBlockId);
 
 }

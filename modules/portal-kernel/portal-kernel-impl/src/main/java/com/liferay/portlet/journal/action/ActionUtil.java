@@ -204,11 +204,11 @@ public class ActionUtil {
 
 			article.setNew(true);
 
-			article.setId(0);
+			article.setId(0l);
 			article.setGroupId(groupId);
 			article.setClassNameId(
 				JournalArticleConstants.CLASSNAME_ID_DEFAULT);
-			article.setClassPK(0);
+			article.setClassPK(0l);
 			article.setArticleId(null);
 			article.setVersion(0);
 		}

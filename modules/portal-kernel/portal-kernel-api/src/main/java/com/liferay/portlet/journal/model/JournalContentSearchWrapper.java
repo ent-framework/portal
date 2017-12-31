@@ -133,7 +133,7 @@ public class JournalContentSearchWrapper implements JournalContentSearch,
     * @param contentSearchId the content search ID of this journal content search
     */
     @Override
-    public void setContentSearchId(long contentSearchId) {
+    public void setContentSearchId(java.lang.Long contentSearchId) {
         _journalContentSearch.setContentSearchId(contentSearchId);
     }
 
@@ -153,7 +153,7 @@ public class JournalContentSearchWrapper implements JournalContentSearch,
     * @param groupId the group ID of this journal content search
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _journalContentSearch.setGroupId(groupId);
     }
 
@@ -173,7 +173,7 @@ public class JournalContentSearchWrapper implements JournalContentSearch,
     * @param companyId the company ID of this journal content search
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _journalContentSearch.setCompanyId(companyId);
     }
 
@@ -203,7 +203,7 @@ public class JournalContentSearchWrapper implements JournalContentSearch,
     * @param privateLayout the private layout of this journal content search
     */
     @Override
-    public void setPrivateLayout(boolean privateLayout) {
+    public void setPrivateLayout(java.lang.Boolean privateLayout) {
         _journalContentSearch.setPrivateLayout(privateLayout);
     }
 
@@ -223,7 +223,7 @@ public class JournalContentSearchWrapper implements JournalContentSearch,
     * @param layoutId the layout ID of this journal content search
     */
     @Override
-    public void setLayoutId(long layoutId) {
+    public void setLayoutId(java.lang.Long layoutId) {
         _journalContentSearch.setLayoutId(layoutId);
     }
 

@@ -147,7 +147,7 @@ public class ReleaseWrapper implements Release, ModelWrapper<Release> {
     * @param releaseId the release ID of this release
     */
     @Override
-    public void setReleaseId(long releaseId) {
+    public void setReleaseId(java.lang.Long releaseId) {
         _release.setReleaseId(releaseId);
     }
 
@@ -227,7 +227,7 @@ public class ReleaseWrapper implements Release, ModelWrapper<Release> {
     * @param buildNumber the build number of this release
     */
     @Override
-    public void setBuildNumber(int buildNumber) {
+    public void setBuildNumber(java.lang.Integer buildNumber) {
         _release.setBuildNumber(buildNumber);
     }
 
@@ -277,7 +277,7 @@ public class ReleaseWrapper implements Release, ModelWrapper<Release> {
     * @param verified the verified of this release
     */
     @Override
-    public void setVerified(boolean verified) {
+    public void setVerified(java.lang.Boolean verified) {
         _release.setVerified(verified);
     }
 
@@ -297,7 +297,7 @@ public class ReleaseWrapper implements Release, ModelWrapper<Release> {
     * @param state the state of this release
     */
     @Override
-    public void setState(int state) {
+    public void setState(java.lang.Integer state) {
         _release.setState(state);
     }
 

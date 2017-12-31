@@ -196,7 +196,11 @@ public class JournalContentSearchModelImpl extends BaseModelImpl<JournalContentS
     }
 
     @Override
-    public void setContentSearchId(long contentSearchId) {
+    public void setContentSearchId(Long contentSearchId) {
+        if (contentSearchId == null) {
+            contentSearchId = new Long(0);
+        }
+
         _contentSearchId = contentSearchId;
     }
 
@@ -206,13 +210,17 @@ public class JournalContentSearchModelImpl extends BaseModelImpl<JournalContentS
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -228,7 +236,11 @@ public class JournalContentSearchModelImpl extends BaseModelImpl<JournalContentS
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -243,13 +255,17 @@ public class JournalContentSearchModelImpl extends BaseModelImpl<JournalContentS
     }
 
     @Override
-    public void setPrivateLayout(boolean privateLayout) {
+    public void setPrivateLayout(Boolean privateLayout) {
         _columnBitmask |= PRIVATELAYOUT_COLUMN_BITMASK;
 
         if (!_setOriginalPrivateLayout) {
             _setOriginalPrivateLayout = true;
 
             _originalPrivateLayout = _privateLayout;
+        }
+
+        if (privateLayout == null) {
+            privateLayout = Boolean.FALSE;
         }
 
         _privateLayout = privateLayout;
@@ -265,13 +281,17 @@ public class JournalContentSearchModelImpl extends BaseModelImpl<JournalContentS
     }
 
     @Override
-    public void setLayoutId(long layoutId) {
+    public void setLayoutId(Long layoutId) {
         _columnBitmask |= LAYOUTID_COLUMN_BITMASK;
 
         if (!_setOriginalLayoutId) {
             _setOriginalLayoutId = true;
 
             _originalLayoutId = _layoutId;
+        }
+
+        if (layoutId == null) {
+            layoutId = new Long(0);
         }
 
         _layoutId = layoutId;

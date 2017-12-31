@@ -58,7 +58,7 @@ public interface PluginSettingModel extends BaseModel<PluginSetting> {
      *
      * @param pluginSettingId the plugin setting ID of this plugin setting
      */
-    public void setPluginSettingId(long pluginSettingId);
+    public void setPluginSettingId(Long pluginSettingId);
 
     /**
      * Returns the company ID of this plugin setting.
@@ -72,7 +72,7 @@ public interface PluginSettingModel extends BaseModel<PluginSetting> {
      *
      * @param companyId the company ID of this plugin setting
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the plugin ID of this plugin setting.
@@ -138,7 +138,7 @@ public interface PluginSettingModel extends BaseModel<PluginSetting> {
      *
      * @param active the active of this plugin setting
      */
-    public void setActive(boolean active);
+    public void setActive(Boolean active);
 
     @Override
     public boolean isNew();

@@ -83,7 +83,7 @@ public interface LayoutSetPrototypeModel extends BaseModel<LayoutSetPrototype>,
      *
      * @param layoutSetPrototypeId the layout set prototype ID of this layout set prototype
      */
-    public void setLayoutSetPrototypeId(long layoutSetPrototypeId);
+    public void setLayoutSetPrototypeId(Long layoutSetPrototypeId);
 
     /**
      * Returns the company ID of this layout set prototype.
@@ -99,7 +99,7 @@ public interface LayoutSetPrototypeModel extends BaseModel<LayoutSetPrototype>,
      * @param companyId the company ID of this layout set prototype
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this layout set prototype.
@@ -115,7 +115,7 @@ public interface LayoutSetPrototypeModel extends BaseModel<LayoutSetPrototype>,
      * @param userId the user ID of this layout set prototype
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this layout set prototype.
@@ -331,7 +331,7 @@ public interface LayoutSetPrototypeModel extends BaseModel<LayoutSetPrototype>,
      *
      * @param active the active of this layout set prototype
      */
-    public void setActive(boolean active);
+    public void setActive(Boolean active);
 
     @Override
     public boolean isNew();

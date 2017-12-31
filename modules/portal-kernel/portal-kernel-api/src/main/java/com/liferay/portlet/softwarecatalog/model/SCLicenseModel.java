@@ -58,7 +58,7 @@ public interface SCLicenseModel extends BaseModel<SCLicense> {
      *
      * @param licenseId the license ID of this s c license
      */
-    public void setLicenseId(long licenseId);
+    public void setLicenseId(Long licenseId);
 
     /**
      * Returns the name of this s c license.
@@ -109,7 +109,7 @@ public interface SCLicenseModel extends BaseModel<SCLicense> {
      *
      * @param openSource the open source of this s c license
      */
-    public void setOpenSource(boolean openSource);
+    public void setOpenSource(Boolean openSource);
 
     /**
      * Returns the active of this s c license.
@@ -130,7 +130,7 @@ public interface SCLicenseModel extends BaseModel<SCLicense> {
      *
      * @param active the active of this s c license
      */
-    public void setActive(boolean active);
+    public void setActive(Boolean active);
 
     /**
      * Returns the recommended of this s c license.
@@ -151,7 +151,7 @@ public interface SCLicenseModel extends BaseModel<SCLicense> {
      *
      * @param recommended the recommended of this s c license
      */
-    public void setRecommended(boolean recommended);
+    public void setRecommended(Boolean recommended);
 
     @Override
     public boolean isNew();

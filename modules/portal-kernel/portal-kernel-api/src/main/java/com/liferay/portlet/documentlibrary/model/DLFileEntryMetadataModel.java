@@ -73,7 +73,7 @@ public interface DLFileEntryMetadataModel extends BaseModel<DLFileEntryMetadata>
      *
      * @param fileEntryMetadataId the file entry metadata ID of this document library file entry metadata
      */
-    public void setFileEntryMetadataId(long fileEntryMetadataId);
+    public void setFileEntryMetadataId(Long fileEntryMetadataId);
 
     /**
      * Returns the d d m storage ID of this document library file entry metadata.
@@ -87,7 +87,7 @@ public interface DLFileEntryMetadataModel extends BaseModel<DLFileEntryMetadata>
      *
      * @param DDMStorageId the d d m storage ID of this document library file entry metadata
      */
-    public void setDDMStorageId(long DDMStorageId);
+    public void setDDMStorageId(Long DDMStorageId);
 
     /**
      * Returns the d d m structure ID of this document library file entry metadata.
@@ -101,7 +101,7 @@ public interface DLFileEntryMetadataModel extends BaseModel<DLFileEntryMetadata>
      *
      * @param DDMStructureId the d d m structure ID of this document library file entry metadata
      */
-    public void setDDMStructureId(long DDMStructureId);
+    public void setDDMStructureId(Long DDMStructureId);
 
     /**
      * Returns the file entry type ID of this document library file entry metadata.
@@ -115,7 +115,7 @@ public interface DLFileEntryMetadataModel extends BaseModel<DLFileEntryMetadata>
      *
      * @param fileEntryTypeId the file entry type ID of this document library file entry metadata
      */
-    public void setFileEntryTypeId(long fileEntryTypeId);
+    public void setFileEntryTypeId(Long fileEntryTypeId);
 
     /**
      * Returns the file entry ID of this document library file entry metadata.
@@ -129,7 +129,7 @@ public interface DLFileEntryMetadataModel extends BaseModel<DLFileEntryMetadata>
      *
      * @param fileEntryId the file entry ID of this document library file entry metadata
      */
-    public void setFileEntryId(long fileEntryId);
+    public void setFileEntryId(Long fileEntryId);
 
     /**
      * Returns the file version ID of this document library file entry metadata.
@@ -143,7 +143,7 @@ public interface DLFileEntryMetadataModel extends BaseModel<DLFileEntryMetadata>
      *
      * @param fileVersionId the file version ID of this document library file entry metadata
      */
-    public void setFileVersionId(long fileVersionId);
+    public void setFileVersionId(Long fileVersionId);
 
     @Override
     public boolean isNew();

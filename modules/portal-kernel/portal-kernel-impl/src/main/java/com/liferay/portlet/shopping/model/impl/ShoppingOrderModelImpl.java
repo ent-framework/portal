@@ -693,7 +693,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
     }
 
     @Override
-    public void setOrderId(long orderId) {
+    public void setOrderId(Long orderId) {
+        if (orderId == null) {
+            orderId = new Long(0);
+        }
+
         _orderId = orderId;
     }
 
@@ -704,13 +708,17 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -727,7 +735,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -738,13 +750,17 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;
@@ -877,7 +893,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
     }
 
     @Override
-    public void setRequiresShipping(boolean requiresShipping) {
+    public void setRequiresShipping(Boolean requiresShipping) {
+        if (requiresShipping == null) {
+            requiresShipping = Boolean.FALSE;
+        }
+
         _requiresShipping = requiresShipping;
     }
 
@@ -893,7 +913,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
     }
 
     @Override
-    public void setInsure(boolean insure) {
+    public void setInsure(Boolean insure) {
+        if (insure == null) {
+            insure = Boolean.FALSE;
+        }
+
         _insure = insure;
     }
 
@@ -1096,7 +1120,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
     }
 
     @Override
-    public void setShipToBilling(boolean shipToBilling) {
+    public void setShipToBilling(Boolean shipToBilling) {
+        if (shipToBilling == null) {
+            shipToBilling = Boolean.FALSE;
+        }
+
         _shipToBilling = shipToBilling;
     }
 
@@ -1302,7 +1330,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
     }
 
     @Override
-    public void setCcExpMonth(int ccExpMonth) {
+    public void setCcExpMonth(Integer ccExpMonth) {
+        if (ccExpMonth == null) {
+            ccExpMonth = new Integer(0);
+        }
+
         _ccExpMonth = ccExpMonth;
     }
 
@@ -1313,7 +1345,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
     }
 
     @Override
-    public void setCcExpYear(int ccExpYear) {
+    public void setCcExpYear(Integer ccExpYear) {
+        if (ccExpYear == null) {
+            ccExpYear = new Integer(0);
+        }
+
         _ccExpYear = ccExpYear;
     }
 
@@ -1450,7 +1486,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
     }
 
     @Override
-    public void setSendOrderEmail(boolean sendOrderEmail) {
+    public void setSendOrderEmail(Boolean sendOrderEmail) {
+        if (sendOrderEmail == null) {
+            sendOrderEmail = Boolean.FALSE;
+        }
+
         _sendOrderEmail = sendOrderEmail;
     }
 
@@ -1466,7 +1506,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
     }
 
     @Override
-    public void setSendShippingEmail(boolean sendShippingEmail) {
+    public void setSendShippingEmail(Boolean sendShippingEmail) {
+        if (sendShippingEmail == null) {
+            sendShippingEmail = Boolean.FALSE;
+        }
+
         _sendShippingEmail = sendShippingEmail;
     }
 

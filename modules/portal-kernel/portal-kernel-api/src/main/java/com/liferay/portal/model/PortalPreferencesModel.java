@@ -58,7 +58,7 @@ public interface PortalPreferencesModel extends BaseModel<PortalPreferences> {
      *
      * @param portalPreferencesId the portal preferences ID of this portal preferences
      */
-    public void setPortalPreferencesId(long portalPreferencesId);
+    public void setPortalPreferencesId(Long portalPreferencesId);
 
     /**
      * Returns the owner ID of this portal preferences.
@@ -72,7 +72,7 @@ public interface PortalPreferencesModel extends BaseModel<PortalPreferences> {
      *
      * @param ownerId the owner ID of this portal preferences
      */
-    public void setOwnerId(long ownerId);
+    public void setOwnerId(Long ownerId);
 
     /**
      * Returns the owner type of this portal preferences.
@@ -86,7 +86,7 @@ public interface PortalPreferencesModel extends BaseModel<PortalPreferences> {
      *
      * @param ownerType the owner type of this portal preferences
      */
-    public void setOwnerType(int ownerType);
+    public void setOwnerType(Integer ownerType);
 
     /**
      * Returns the preferences of this portal preferences.

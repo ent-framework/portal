@@ -138,7 +138,7 @@ public class CountryWrapper implements Country, ModelWrapper<Country> {
     * @param countryId the country ID of this country
     */
     @Override
-    public void setCountryId(long countryId) {
+    public void setCountryId(java.lang.Long countryId) {
         _country.setCountryId(countryId);
     }
 
@@ -268,7 +268,7 @@ public class CountryWrapper implements Country, ModelWrapper<Country> {
     * @param zipRequired the zip required of this country
     */
     @Override
-    public void setZipRequired(boolean zipRequired) {
+    public void setZipRequired(java.lang.Boolean zipRequired) {
         _country.setZipRequired(zipRequired);
     }
 
@@ -298,7 +298,7 @@ public class CountryWrapper implements Country, ModelWrapper<Country> {
     * @param active the active of this country
     */
     @Override
-    public void setActive(boolean active) {
+    public void setActive(java.lang.Boolean active) {
         _country.setActive(active);
     }
 

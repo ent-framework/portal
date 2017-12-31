@@ -58,7 +58,7 @@ public interface PortletPreferencesModel extends BaseModel<PortletPreferences> {
      *
      * @param portletPreferencesId the portlet preferences ID of this portlet preferences
      */
-    public void setPortletPreferencesId(long portletPreferencesId);
+    public void setPortletPreferencesId(Long portletPreferencesId);
 
     /**
      * Returns the owner ID of this portlet preferences.
@@ -72,7 +72,7 @@ public interface PortletPreferencesModel extends BaseModel<PortletPreferences> {
      *
      * @param ownerId the owner ID of this portlet preferences
      */
-    public void setOwnerId(long ownerId);
+    public void setOwnerId(Long ownerId);
 
     /**
      * Returns the owner type of this portlet preferences.
@@ -86,7 +86,7 @@ public interface PortletPreferencesModel extends BaseModel<PortletPreferences> {
      *
      * @param ownerType the owner type of this portlet preferences
      */
-    public void setOwnerType(int ownerType);
+    public void setOwnerType(Integer ownerType);
 
     /**
      * Returns the plid of this portlet preferences.
@@ -100,7 +100,7 @@ public interface PortletPreferencesModel extends BaseModel<PortletPreferences> {
      *
      * @param plid the plid of this portlet preferences
      */
-    public void setPlid(long plid);
+    public void setPlid(Long plid);
 
     /**
      * Returns the portlet ID of this portlet preferences.

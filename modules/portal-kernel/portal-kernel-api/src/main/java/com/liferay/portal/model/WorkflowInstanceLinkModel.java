@@ -64,7 +64,7 @@ public interface WorkflowInstanceLinkModel extends AttachedModel,
      *
      * @param workflowInstanceLinkId the workflow instance link ID of this workflow instance link
      */
-    public void setWorkflowInstanceLinkId(long workflowInstanceLinkId);
+    public void setWorkflowInstanceLinkId(Long workflowInstanceLinkId);
 
     /**
      * Returns the group ID of this workflow instance link.
@@ -80,7 +80,7 @@ public interface WorkflowInstanceLinkModel extends AttachedModel,
      * @param groupId the group ID of this workflow instance link
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this workflow instance link.
@@ -96,7 +96,7 @@ public interface WorkflowInstanceLinkModel extends AttachedModel,
      * @param companyId the company ID of this workflow instance link
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this workflow instance link.
@@ -112,7 +112,7 @@ public interface WorkflowInstanceLinkModel extends AttachedModel,
      * @param userId the user ID of this workflow instance link
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this workflow instance link.
@@ -204,7 +204,7 @@ public interface WorkflowInstanceLinkModel extends AttachedModel,
      * @param classNameId the class name ID of this workflow instance link
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this workflow instance link.
@@ -220,7 +220,7 @@ public interface WorkflowInstanceLinkModel extends AttachedModel,
      * @param classPK the class p k of this workflow instance link
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the workflow instance ID of this workflow instance link.
@@ -234,7 +234,7 @@ public interface WorkflowInstanceLinkModel extends AttachedModel,
      *
      * @param workflowInstanceId the workflow instance ID of this workflow instance link
      */
-    public void setWorkflowInstanceId(long workflowInstanceId);
+    public void setWorkflowInstanceId(Long workflowInstanceId);
 
     @Override
     public boolean isNew();

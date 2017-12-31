@@ -118,7 +118,7 @@ public class ShoppingItemFieldWrapper implements ShoppingItemField,
     * @param itemFieldId the item field ID of this shopping item field
     */
     @Override
-    public void setItemFieldId(long itemFieldId) {
+    public void setItemFieldId(java.lang.Long itemFieldId) {
         _shoppingItemField.setItemFieldId(itemFieldId);
     }
 
@@ -138,7 +138,7 @@ public class ShoppingItemFieldWrapper implements ShoppingItemField,
     * @param itemId the item ID of this shopping item field
     */
     @Override
-    public void setItemId(long itemId) {
+    public void setItemId(java.lang.Long itemId) {
         _shoppingItemField.setItemId(itemId);
     }
 

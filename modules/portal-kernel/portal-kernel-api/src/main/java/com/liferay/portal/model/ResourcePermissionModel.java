@@ -58,7 +58,7 @@ public interface ResourcePermissionModel extends BaseModel<ResourcePermission> {
      *
      * @param resourcePermissionId the resource permission ID of this resource permission
      */
-    public void setResourcePermissionId(long resourcePermissionId);
+    public void setResourcePermissionId(Long resourcePermissionId);
 
     /**
      * Returns the company ID of this resource permission.
@@ -72,7 +72,7 @@ public interface ResourcePermissionModel extends BaseModel<ResourcePermission> {
      *
      * @param companyId the company ID of this resource permission
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the name of this resource permission.
@@ -101,7 +101,7 @@ public interface ResourcePermissionModel extends BaseModel<ResourcePermission> {
      *
      * @param scope the scope of this resource permission
      */
-    public void setScope(int scope);
+    public void setScope(Integer scope);
 
     /**
      * Returns the prim key of this resource permission.
@@ -130,7 +130,7 @@ public interface ResourcePermissionModel extends BaseModel<ResourcePermission> {
      *
      * @param roleId the role ID of this resource permission
      */
-    public void setRoleId(long roleId);
+    public void setRoleId(Long roleId);
 
     /**
      * Returns the owner ID of this resource permission.
@@ -144,7 +144,7 @@ public interface ResourcePermissionModel extends BaseModel<ResourcePermission> {
      *
      * @param ownerId the owner ID of this resource permission
      */
-    public void setOwnerId(long ownerId);
+    public void setOwnerId(Long ownerId);
 
     /**
      * Returns the action IDs of this resource permission.
@@ -158,7 +158,7 @@ public interface ResourcePermissionModel extends BaseModel<ResourcePermission> {
      *
      * @param actionIds the action IDs of this resource permission
      */
-    public void setActionIds(long actionIds);
+    public void setActionIds(Long actionIds);
 
     @Override
     public boolean isNew();

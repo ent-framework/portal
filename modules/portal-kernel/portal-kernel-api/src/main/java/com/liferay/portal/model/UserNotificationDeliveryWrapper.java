@@ -142,7 +142,8 @@ public class UserNotificationDeliveryWrapper implements UserNotificationDelivery
     * @param userNotificationDeliveryId the user notification delivery ID of this user notification delivery
     */
     @Override
-    public void setUserNotificationDeliveryId(long userNotificationDeliveryId) {
+    public void setUserNotificationDeliveryId(
+        java.lang.Long userNotificationDeliveryId) {
         _userNotificationDelivery.setUserNotificationDeliveryId(userNotificationDeliveryId);
     }
 
@@ -162,7 +163,7 @@ public class UserNotificationDeliveryWrapper implements UserNotificationDelivery
     * @param companyId the company ID of this user notification delivery
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _userNotificationDelivery.setCompanyId(companyId);
     }
 
@@ -182,7 +183,7 @@ public class UserNotificationDeliveryWrapper implements UserNotificationDelivery
     * @param userId the user ID of this user notification delivery
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _userNotificationDelivery.setUserId(userId);
     }
 
@@ -259,7 +260,7 @@ public class UserNotificationDeliveryWrapper implements UserNotificationDelivery
     * @param classNameId the class name ID of this user notification delivery
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _userNotificationDelivery.setClassNameId(classNameId);
     }
 
@@ -279,7 +280,7 @@ public class UserNotificationDeliveryWrapper implements UserNotificationDelivery
     * @param notificationType the notification type of this user notification delivery
     */
     @Override
-    public void setNotificationType(int notificationType) {
+    public void setNotificationType(java.lang.Integer notificationType) {
         _userNotificationDelivery.setNotificationType(notificationType);
     }
 
@@ -299,7 +300,7 @@ public class UserNotificationDeliveryWrapper implements UserNotificationDelivery
     * @param deliveryType the delivery type of this user notification delivery
     */
     @Override
-    public void setDeliveryType(int deliveryType) {
+    public void setDeliveryType(java.lang.Integer deliveryType) {
         _userNotificationDelivery.setDeliveryType(deliveryType);
     }
 
@@ -329,7 +330,7 @@ public class UserNotificationDeliveryWrapper implements UserNotificationDelivery
     * @param deliver the deliver of this user notification delivery
     */
     @Override
-    public void setDeliver(boolean deliver) {
+    public void setDeliver(java.lang.Boolean deliver) {
         _userNotificationDelivery.setDeliver(deliver);
     }
 

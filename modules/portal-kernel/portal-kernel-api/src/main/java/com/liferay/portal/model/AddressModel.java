@@ -81,7 +81,7 @@ public interface AddressModel extends AttachedModel, BaseModel<Address>,
      *
      * @param addressId the address ID of this address
      */
-    public void setAddressId(long addressId);
+    public void setAddressId(Long addressId);
 
     /**
      * Returns the company ID of this address.
@@ -97,7 +97,7 @@ public interface AddressModel extends AttachedModel, BaseModel<Address>,
      * @param companyId the company ID of this address
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this address.
@@ -113,7 +113,7 @@ public interface AddressModel extends AttachedModel, BaseModel<Address>,
      * @param userId the user ID of this address
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this address.
@@ -205,7 +205,7 @@ public interface AddressModel extends AttachedModel, BaseModel<Address>,
      * @param classNameId the class name ID of this address
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this address.
@@ -221,7 +221,7 @@ public interface AddressModel extends AttachedModel, BaseModel<Address>,
      * @param classPK the class p k of this address
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the street1 of this address.
@@ -310,7 +310,7 @@ public interface AddressModel extends AttachedModel, BaseModel<Address>,
      *
      * @param regionId the region ID of this address
      */
-    public void setRegionId(long regionId);
+    public void setRegionId(Long regionId);
 
     /**
      * Returns the country ID of this address.
@@ -324,7 +324,7 @@ public interface AddressModel extends AttachedModel, BaseModel<Address>,
      *
      * @param countryId the country ID of this address
      */
-    public void setCountryId(long countryId);
+    public void setCountryId(Long countryId);
 
     /**
      * Returns the type ID of this address.
@@ -338,7 +338,7 @@ public interface AddressModel extends AttachedModel, BaseModel<Address>,
      *
      * @param typeId the type ID of this address
      */
-    public void setTypeId(int typeId);
+    public void setTypeId(Integer typeId);
 
     /**
      * Returns the mailing of this address.
@@ -359,7 +359,7 @@ public interface AddressModel extends AttachedModel, BaseModel<Address>,
      *
      * @param mailing the mailing of this address
      */
-    public void setMailing(boolean mailing);
+    public void setMailing(Boolean mailing);
 
     /**
      * Returns the primary of this address.
@@ -380,7 +380,7 @@ public interface AddressModel extends AttachedModel, BaseModel<Address>,
      *
      * @param primary the primary of this address
      */
-    public void setPrimary(boolean primary);
+    public void setPrimary(Boolean primary);
 
     @Override
     public boolean isNew();

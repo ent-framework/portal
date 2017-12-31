@@ -233,7 +233,11 @@ public class ResourceBlockModelImpl extends BaseModelImpl<ResourceBlock>
     }
 
     @Override
-    public void setResourceBlockId(long resourceBlockId) {
+    public void setResourceBlockId(Long resourceBlockId) {
+        if (resourceBlockId == null) {
+            resourceBlockId = new Long(0);
+        }
+
         _resourceBlockId = resourceBlockId;
     }
 
@@ -244,13 +248,17 @@ public class ResourceBlockModelImpl extends BaseModelImpl<ResourceBlock>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -267,13 +275,17 @@ public class ResourceBlockModelImpl extends BaseModelImpl<ResourceBlock>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -340,7 +352,11 @@ public class ResourceBlockModelImpl extends BaseModelImpl<ResourceBlock>
     }
 
     @Override
-    public void setReferenceCount(long referenceCount) {
+    public void setReferenceCount(Long referenceCount) {
+        if (referenceCount == null) {
+            referenceCount = new Long(0);
+        }
+
         _referenceCount = referenceCount;
     }
 

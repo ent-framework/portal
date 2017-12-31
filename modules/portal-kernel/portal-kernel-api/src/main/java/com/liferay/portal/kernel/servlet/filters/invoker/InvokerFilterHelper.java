@@ -359,7 +359,7 @@ public class InvokerFilterHelper {
 			return;
 		}
 
-		Document document = UnsecureSAXReaderUtil.read(inputStream, true);
+		Document document = UnsecureSAXReaderUtil.read(inputStream, false);
 
 		Element rootElement = document.getRootElement();
 

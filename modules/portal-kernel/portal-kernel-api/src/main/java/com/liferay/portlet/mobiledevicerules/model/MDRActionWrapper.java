@@ -209,7 +209,7 @@ public class MDRActionWrapper implements MDRAction, ModelWrapper<MDRAction> {
     * @param actionId the action ID of this m d r action
     */
     @Override
-    public void setActionId(long actionId) {
+    public void setActionId(java.lang.Long actionId) {
         _mdrAction.setActionId(actionId);
     }
 
@@ -229,7 +229,7 @@ public class MDRActionWrapper implements MDRAction, ModelWrapper<MDRAction> {
     * @param groupId the group ID of this m d r action
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _mdrAction.setGroupId(groupId);
     }
 
@@ -249,7 +249,7 @@ public class MDRActionWrapper implements MDRAction, ModelWrapper<MDRAction> {
     * @param companyId the company ID of this m d r action
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _mdrAction.setCompanyId(companyId);
     }
 
@@ -269,7 +269,7 @@ public class MDRActionWrapper implements MDRAction, ModelWrapper<MDRAction> {
     * @param userId the user ID of this m d r action
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _mdrAction.setUserId(userId);
     }
 
@@ -386,7 +386,7 @@ public class MDRActionWrapper implements MDRAction, ModelWrapper<MDRAction> {
     * @param classNameId the class name ID of this m d r action
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _mdrAction.setClassNameId(classNameId);
     }
 
@@ -406,7 +406,7 @@ public class MDRActionWrapper implements MDRAction, ModelWrapper<MDRAction> {
     * @param classPK the class p k of this m d r action
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _mdrAction.setClassPK(classPK);
     }
 
@@ -426,7 +426,7 @@ public class MDRActionWrapper implements MDRAction, ModelWrapper<MDRAction> {
     * @param ruleGroupInstanceId the rule group instance ID of this m d r action
     */
     @Override
-    public void setRuleGroupInstanceId(long ruleGroupInstanceId) {
+    public void setRuleGroupInstanceId(java.lang.Long ruleGroupInstanceId) {
         _mdrAction.setRuleGroupInstanceId(ruleGroupInstanceId);
     }
 

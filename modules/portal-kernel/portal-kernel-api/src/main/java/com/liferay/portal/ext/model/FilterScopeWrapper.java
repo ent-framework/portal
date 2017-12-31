@@ -104,7 +104,7 @@ public class FilterScopeWrapper implements FilterScope,
     * @param filterScopeId the filter scope ID of this filter scope
     */
     @Override
-    public void setFilterScopeId(long filterScopeId) {
+    public void setFilterScopeId(java.lang.Long filterScopeId) {
         _filterScope.setFilterScopeId(filterScopeId);
     }
 

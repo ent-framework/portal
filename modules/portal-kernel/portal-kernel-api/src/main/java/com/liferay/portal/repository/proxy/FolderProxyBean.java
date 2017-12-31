@@ -270,7 +270,7 @@ public class FolderProxyBean
 	}
 
 	@Override
-	public void setCompanyId(long companyId) {
+	public void setCompanyId(Long companyId) {
 		_folder.setCompanyId(companyId);
 	}
 
@@ -280,7 +280,7 @@ public class FolderProxyBean
 	}
 
 	@Override
-	public void setGroupId(long groupId) {
+	public void setGroupId(Long groupId) {
 		_folder.setGroupId(groupId);
 	}
 
@@ -295,7 +295,7 @@ public class FolderProxyBean
 	}
 
 	@Override
-	public void setUserId(long userId) {
+	public void setUserId(Long userId) {
 		_folder.setUserId(userId);
 	}
 

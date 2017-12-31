@@ -274,7 +274,11 @@ public class TeamModelImpl extends BaseModelImpl<Team> implements TeamModel {
     }
 
     @Override
-    public void setTeamId(long teamId) {
+    public void setTeamId(Long teamId) {
+        if (teamId == null) {
+            teamId = new Long(0);
+        }
+
         _teamId = teamId;
     }
 
@@ -285,7 +289,11 @@ public class TeamModelImpl extends BaseModelImpl<Team> implements TeamModel {
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -296,7 +304,11 @@ public class TeamModelImpl extends BaseModelImpl<Team> implements TeamModel {
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -354,13 +366,17 @@ public class TeamModelImpl extends BaseModelImpl<Team> implements TeamModel {
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;

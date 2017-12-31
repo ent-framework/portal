@@ -190,7 +190,7 @@ public class MDRRuleGroupInstanceWrapper implements MDRRuleGroupInstance,
     * @param ruleGroupInstanceId the rule group instance ID of this m d r rule group instance
     */
     @Override
-    public void setRuleGroupInstanceId(long ruleGroupInstanceId) {
+    public void setRuleGroupInstanceId(java.lang.Long ruleGroupInstanceId) {
         _mdrRuleGroupInstance.setRuleGroupInstanceId(ruleGroupInstanceId);
     }
 
@@ -210,7 +210,7 @@ public class MDRRuleGroupInstanceWrapper implements MDRRuleGroupInstance,
     * @param groupId the group ID of this m d r rule group instance
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _mdrRuleGroupInstance.setGroupId(groupId);
     }
 
@@ -230,7 +230,7 @@ public class MDRRuleGroupInstanceWrapper implements MDRRuleGroupInstance,
     * @param companyId the company ID of this m d r rule group instance
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _mdrRuleGroupInstance.setCompanyId(companyId);
     }
 
@@ -250,7 +250,7 @@ public class MDRRuleGroupInstanceWrapper implements MDRRuleGroupInstance,
     * @param userId the user ID of this m d r rule group instance
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _mdrRuleGroupInstance.setUserId(userId);
     }
 
@@ -367,7 +367,7 @@ public class MDRRuleGroupInstanceWrapper implements MDRRuleGroupInstance,
     * @param classNameId the class name ID of this m d r rule group instance
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _mdrRuleGroupInstance.setClassNameId(classNameId);
     }
 
@@ -387,7 +387,7 @@ public class MDRRuleGroupInstanceWrapper implements MDRRuleGroupInstance,
     * @param classPK the class p k of this m d r rule group instance
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _mdrRuleGroupInstance.setClassPK(classPK);
     }
 
@@ -407,7 +407,7 @@ public class MDRRuleGroupInstanceWrapper implements MDRRuleGroupInstance,
     * @param ruleGroupId the rule group ID of this m d r rule group instance
     */
     @Override
-    public void setRuleGroupId(long ruleGroupId) {
+    public void setRuleGroupId(java.lang.Long ruleGroupId) {
         _mdrRuleGroupInstance.setRuleGroupId(ruleGroupId);
     }
 
@@ -427,7 +427,7 @@ public class MDRRuleGroupInstanceWrapper implements MDRRuleGroupInstance,
     * @param priority the priority of this m d r rule group instance
     */
     @Override
-    public void setPriority(int priority) {
+    public void setPriority(java.lang.Integer priority) {
         _mdrRuleGroupInstance.setPriority(priority);
     }
 

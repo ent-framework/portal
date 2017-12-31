@@ -182,7 +182,11 @@ public class RatingsStatsModelImpl extends BaseModelImpl<RatingsStats>
     }
 
     @Override
-    public void setStatsId(long statsId) {
+    public void setStatsId(Long statsId) {
+        if (statsId == null) {
+            statsId = new Long(0);
+        }
+
         _statsId = statsId;
     }
 
@@ -212,13 +216,17 @@ public class RatingsStatsModelImpl extends BaseModelImpl<RatingsStats>
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
         _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
         if (!_setOriginalClassNameId) {
             _setOriginalClassNameId = true;
 
             _originalClassNameId = _classNameId;
+        }
+
+        if (classNameId == null) {
+            classNameId = new Long(0);
         }
 
         _classNameId = classNameId;
@@ -234,13 +242,17 @@ public class RatingsStatsModelImpl extends BaseModelImpl<RatingsStats>
     }
 
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(Long classPK) {
         _columnBitmask |= CLASSPK_COLUMN_BITMASK;
 
         if (!_setOriginalClassPK) {
             _setOriginalClassPK = true;
 
             _originalClassPK = _classPK;
+        }
+
+        if (classPK == null) {
+            classPK = new Long(0);
         }
 
         _classPK = classPK;
@@ -256,7 +268,11 @@ public class RatingsStatsModelImpl extends BaseModelImpl<RatingsStats>
     }
 
     @Override
-    public void setTotalEntries(int totalEntries) {
+    public void setTotalEntries(Integer totalEntries) {
+        if (totalEntries == null) {
+            totalEntries = new Integer(0);
+        }
+
         _totalEntries = totalEntries;
     }
 

@@ -60,7 +60,7 @@ public interface UserTrackerPathModel extends BaseModel<UserTrackerPath> {
      *
      * @param userTrackerPathId the user tracker path ID of this user tracker path
      */
-    public void setUserTrackerPathId(long userTrackerPathId);
+    public void setUserTrackerPathId(Long userTrackerPathId);
 
     /**
      * Returns the user tracker ID of this user tracker path.
@@ -74,7 +74,7 @@ public interface UserTrackerPathModel extends BaseModel<UserTrackerPath> {
      *
      * @param userTrackerId the user tracker ID of this user tracker path
      */
-    public void setUserTrackerId(long userTrackerId);
+    public void setUserTrackerId(Long userTrackerId);
 
     /**
      * Returns the path of this user tracker path.

@@ -320,7 +320,7 @@ public class LayoutSetLocalServiceImpl extends LayoutSetLocalServiceBaseImpl {
 			}
 		}
 		else {
-			layoutSet.setLogoId(0);
+			layoutSet.setLogoId(0l);
 		}
 
 		if (logo) {

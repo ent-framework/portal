@@ -125,7 +125,7 @@ public class ImageWrapper implements Image, ModelWrapper<Image> {
     * @param imageId the image ID of this image
     */
     @Override
-    public void setImageId(long imageId) {
+    public void setImageId(java.lang.Long imageId) {
         _image.setImageId(imageId);
     }
 
@@ -185,7 +185,7 @@ public class ImageWrapper implements Image, ModelWrapper<Image> {
     * @param height the height of this image
     */
     @Override
-    public void setHeight(int height) {
+    public void setHeight(java.lang.Integer height) {
         _image.setHeight(height);
     }
 
@@ -205,7 +205,7 @@ public class ImageWrapper implements Image, ModelWrapper<Image> {
     * @param width the width of this image
     */
     @Override
-    public void setWidth(int width) {
+    public void setWidth(java.lang.Integer width) {
         _image.setWidth(width);
     }
 
@@ -225,7 +225,7 @@ public class ImageWrapper implements Image, ModelWrapper<Image> {
     * @param size the size of this image
     */
     @Override
-    public void setSize(int size) {
+    public void setSize(java.lang.Integer size) {
         _image.setSize(size);
     }
 

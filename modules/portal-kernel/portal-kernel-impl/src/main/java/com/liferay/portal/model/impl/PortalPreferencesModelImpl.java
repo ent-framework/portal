@@ -162,7 +162,11 @@ public class PortalPreferencesModelImpl extends BaseModelImpl<PortalPreferences>
     }
 
     @Override
-    public void setPortalPreferencesId(long portalPreferencesId) {
+    public void setPortalPreferencesId(Long portalPreferencesId) {
+        if (portalPreferencesId == null) {
+            portalPreferencesId = new Long(0);
+        }
+
         _portalPreferencesId = portalPreferencesId;
     }
 
@@ -172,13 +176,17 @@ public class PortalPreferencesModelImpl extends BaseModelImpl<PortalPreferences>
     }
 
     @Override
-    public void setOwnerId(long ownerId) {
+    public void setOwnerId(Long ownerId) {
         _columnBitmask |= OWNERID_COLUMN_BITMASK;
 
         if (!_setOriginalOwnerId) {
             _setOriginalOwnerId = true;
 
             _originalOwnerId = _ownerId;
+        }
+
+        if (ownerId == null) {
+            ownerId = new Long(0);
         }
 
         _ownerId = ownerId;
@@ -194,13 +202,17 @@ public class PortalPreferencesModelImpl extends BaseModelImpl<PortalPreferences>
     }
 
     @Override
-    public void setOwnerType(int ownerType) {
+    public void setOwnerType(Integer ownerType) {
         _columnBitmask |= OWNERTYPE_COLUMN_BITMASK;
 
         if (!_setOriginalOwnerType) {
             _setOriginalOwnerType = true;
 
             _originalOwnerType = _ownerType;
+        }
+
+        if (ownerType == null) {
+            ownerType = new Integer(0);
         }
 
         _ownerType = ownerType;

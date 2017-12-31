@@ -63,7 +63,7 @@ public interface ShoppingCategoryModel extends BaseModel<ShoppingCategory>,
      *
      * @param categoryId the category ID of this shopping category
      */
-    public void setCategoryId(long categoryId);
+    public void setCategoryId(Long categoryId);
 
     /**
      * Returns the group ID of this shopping category.
@@ -79,7 +79,7 @@ public interface ShoppingCategoryModel extends BaseModel<ShoppingCategory>,
      * @param groupId the group ID of this shopping category
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this shopping category.
@@ -95,7 +95,7 @@ public interface ShoppingCategoryModel extends BaseModel<ShoppingCategory>,
      * @param companyId the company ID of this shopping category
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this shopping category.
@@ -111,7 +111,7 @@ public interface ShoppingCategoryModel extends BaseModel<ShoppingCategory>,
      * @param userId the user ID of this shopping category
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this shopping category.
@@ -191,7 +191,7 @@ public interface ShoppingCategoryModel extends BaseModel<ShoppingCategory>,
      *
      * @param parentCategoryId the parent category ID of this shopping category
      */
-    public void setParentCategoryId(long parentCategoryId);
+    public void setParentCategoryId(Long parentCategoryId);
 
     /**
      * Returns the name of this shopping category.

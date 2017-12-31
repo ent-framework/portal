@@ -86,7 +86,7 @@ public interface BookmarksFolderModel extends BaseModel<BookmarksFolder>,
      *
      * @param folderId the folder ID of this bookmarks folder
      */
-    public void setFolderId(long folderId);
+    public void setFolderId(Long folderId);
 
     /**
      * Returns the group ID of this bookmarks folder.
@@ -102,7 +102,7 @@ public interface BookmarksFolderModel extends BaseModel<BookmarksFolder>,
      * @param groupId the group ID of this bookmarks folder
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this bookmarks folder.
@@ -118,7 +118,7 @@ public interface BookmarksFolderModel extends BaseModel<BookmarksFolder>,
      * @param companyId the company ID of this bookmarks folder
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this bookmarks folder.
@@ -134,7 +134,7 @@ public interface BookmarksFolderModel extends BaseModel<BookmarksFolder>,
      * @param userId the user ID of this bookmarks folder
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this bookmarks folder.
@@ -214,7 +214,7 @@ public interface BookmarksFolderModel extends BaseModel<BookmarksFolder>,
      *
      * @param resourceBlockId the resource block ID of this bookmarks folder
      */
-    public void setResourceBlockId(long resourceBlockId);
+    public void setResourceBlockId(Long resourceBlockId);
 
     /**
      * Returns the parent folder ID of this bookmarks folder.
@@ -228,7 +228,7 @@ public interface BookmarksFolderModel extends BaseModel<BookmarksFolder>,
      *
      * @param parentFolderId the parent folder ID of this bookmarks folder
      */
-    public void setParentFolderId(long parentFolderId);
+    public void setParentFolderId(Long parentFolderId);
 
     /**
      * Returns the tree path of this bookmarks folder.
@@ -289,7 +289,7 @@ public interface BookmarksFolderModel extends BaseModel<BookmarksFolder>,
      * @param status the status of this bookmarks folder
      */
     @Override
-    public void setStatus(int status);
+    public void setStatus(Integer status);
 
     /**
      * Returns the status by user ID of this bookmarks folder.
@@ -305,7 +305,7 @@ public interface BookmarksFolderModel extends BaseModel<BookmarksFolder>,
      * @param statusByUserId the status by user ID of this bookmarks folder
      */
     @Override
-    public void setStatusByUserId(long statusByUserId);
+    public void setStatusByUserId(Long statusByUserId);
 
     /**
      * Returns the status by user uuid of this bookmarks folder.

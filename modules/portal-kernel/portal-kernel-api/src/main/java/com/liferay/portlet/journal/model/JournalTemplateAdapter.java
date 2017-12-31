@@ -660,7 +660,7 @@ public class JournalTemplateAdapter implements JournalTemplate {
 	@Override
 	public void setStructureId(String structureId) {
 		if (Validator.isNull(structureId)) {
-			_ddmTemplate.setClassPK(0);
+			_ddmTemplate.setClassPK(0l);
 
 			return;
 		}

@@ -353,7 +353,11 @@ public class ShoppingCouponModelImpl extends BaseModelImpl<ShoppingCoupon>
     }
 
     @Override
-    public void setCouponId(long couponId) {
+    public void setCouponId(Long couponId) {
+        if (couponId == null) {
+            couponId = new Long(0);
+        }
+
         _couponId = couponId;
     }
 
@@ -364,13 +368,17 @@ public class ShoppingCouponModelImpl extends BaseModelImpl<ShoppingCoupon>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -387,7 +395,11 @@ public class ShoppingCouponModelImpl extends BaseModelImpl<ShoppingCoupon>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -398,7 +410,11 @@ public class ShoppingCouponModelImpl extends BaseModelImpl<ShoppingCoupon>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -540,7 +556,11 @@ public class ShoppingCouponModelImpl extends BaseModelImpl<ShoppingCoupon>
     }
 
     @Override
-    public void setActive(boolean active) {
+    public void setActive(Boolean active) {
+        if (active == null) {
+            active = Boolean.FALSE;
+        }
+
         _active = active;
     }
 

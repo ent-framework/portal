@@ -23,6 +23,6 @@ public interface ResourcedModel {
 
 	public boolean isResourceMain();
 
-	public void setResourcePrimKey(long resourcePrimKey);
+	public void setResourcePrimKey(Long resourcePrimKey);
 
 }

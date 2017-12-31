@@ -4,9 +4,30 @@
 	xmlns:antelope="antlib:ise.antelope.tasks"
 	xmlns:artifact="antlib:org.apache.maven.artifact.ant"
 >
+
+	<path id="ant-ext-tasks.classpath">
+		<fileset dir="../../../tools/ant" includes="*.jar" />
+	</path>
+	<typedef resource="org/apache/maven/artifact/ant/antlib.xml"
+			 uri="antlib:org.apache.maven.artifact.ant"
+			 classpathref="ant-ext-tasks.classpath" />
+
+	<!--<taskdef classpathref="ant-ext-tasks.classpath" resource="com/orangevolt/tools/ant/taskdefs.properties" />-->
+	<taskdef classpathref="ant-ext-tasks.classpath" resource="ise/antelope/tasks/antlib.xml" uri="antlib:ise.antelope.tasks" />
+	<taskdef classpathref="ant-ext-tasks.classpath" resource="net/sf/antcontrib/antlib.xml" />
+	<typedef classpathref="ant-ext-tasks.classpath" resource="org/apache/maven/artifact/ant/antlib.xml" uri="antlib:org.apache.maven.artifact.ant" />
+
+	<artifact:dependencies pathId="project.classpath">
+		<dependency groupId="com.acn.portal.kernel" artifactId="portal-kernel-impl" version="3.0.3"/>
+		<dependency groupId="javax.servlet" artifactId="javax.servlet-api" version="3.1.0"/>
+		<dependency groupId="javax.servlet.jsp" artifactId="jsp-api" version="2.1"/>
+		<dependency groupId="ch.qos.logback" artifactId="logback-core" version="1.1.11"/>
+		<dependency groupId="ch.qos.logback" artifactId="logback-classic" version="1.1.11"/>
+	</artifact:dependencies>
+
 	<property name="test.properties" value="portal-test.properties" />
 
-	<import file="build-common-java.xml" />
+	<!--<import file="build-common-java.xml" />-->
 
 	<property name="deploy.dir" value="${app.server.lib.portal.dir}" />
 	<property name="jar.file" value="${ant.project.name}" />
@@ -833,8 +854,8 @@ public class Creole10Parser]]></replacevalue>
 			<arg value="service.spring.file=${basedir}/src/main/resources/META-INF/portal-spring.xml" />
 			<arg value="service.api.dir=${basedir}/../portal-kernel-api/src/main/java" />
 			<arg value="service.impl.dir=${basedir}/src/main/java" />
-			<arg value="service.remoting.file=${basedir}/../portal-web/docroot/WEB-INF/remoting-servlet.xml" />
-			<arg value="service.sql.dir=${basedir}/../sql" />
+			<arg value="service.remoting.file=${basedir}/src/main/resources/META-INF/remoting-servlet.xml" />
+			<arg value="service.sql.dir=${basedir}/src/main/resources/sql_dependencies" />
 			<arg value="service.sql.file=portal-tables.sql" />
 			<arg value="service.sql.indexes.file=indexes.sql" />
 			<arg value="service.sql.indexes.properties.file=indexes.properties" />

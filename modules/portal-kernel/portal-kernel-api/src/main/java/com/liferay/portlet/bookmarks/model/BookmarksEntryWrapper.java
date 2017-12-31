@@ -245,7 +245,7 @@ public class BookmarksEntryWrapper implements BookmarksEntry,
     * @param entryId the entry ID of this bookmarks entry
     */
     @Override
-    public void setEntryId(long entryId) {
+    public void setEntryId(java.lang.Long entryId) {
         _bookmarksEntry.setEntryId(entryId);
     }
 
@@ -265,7 +265,7 @@ public class BookmarksEntryWrapper implements BookmarksEntry,
     * @param groupId the group ID of this bookmarks entry
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _bookmarksEntry.setGroupId(groupId);
     }
 
@@ -285,7 +285,7 @@ public class BookmarksEntryWrapper implements BookmarksEntry,
     * @param companyId the company ID of this bookmarks entry
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _bookmarksEntry.setCompanyId(companyId);
     }
 
@@ -305,7 +305,7 @@ public class BookmarksEntryWrapper implements BookmarksEntry,
     * @param userId the user ID of this bookmarks entry
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _bookmarksEntry.setUserId(userId);
     }
 
@@ -407,7 +407,7 @@ public class BookmarksEntryWrapper implements BookmarksEntry,
     * @param resourceBlockId the resource block ID of this bookmarks entry
     */
     @Override
-    public void setResourceBlockId(long resourceBlockId) {
+    public void setResourceBlockId(java.lang.Long resourceBlockId) {
         _bookmarksEntry.setResourceBlockId(resourceBlockId);
     }
 
@@ -427,7 +427,7 @@ public class BookmarksEntryWrapper implements BookmarksEntry,
     * @param folderId the folder ID of this bookmarks entry
     */
     @Override
-    public void setFolderId(long folderId) {
+    public void setFolderId(java.lang.Long folderId) {
         _bookmarksEntry.setFolderId(folderId);
     }
 
@@ -527,7 +527,7 @@ public class BookmarksEntryWrapper implements BookmarksEntry,
     * @param visits the visits of this bookmarks entry
     */
     @Override
-    public void setVisits(int visits) {
+    public void setVisits(java.lang.Integer visits) {
         _bookmarksEntry.setVisits(visits);
     }
 
@@ -547,7 +547,7 @@ public class BookmarksEntryWrapper implements BookmarksEntry,
     * @param priority the priority of this bookmarks entry
     */
     @Override
-    public void setPriority(int priority) {
+    public void setPriority(java.lang.Integer priority) {
         _bookmarksEntry.setPriority(priority);
     }
 
@@ -567,7 +567,7 @@ public class BookmarksEntryWrapper implements BookmarksEntry,
     * @param status the status of this bookmarks entry
     */
     @Override
-    public void setStatus(int status) {
+    public void setStatus(java.lang.Integer status) {
         _bookmarksEntry.setStatus(status);
     }
 
@@ -587,7 +587,7 @@ public class BookmarksEntryWrapper implements BookmarksEntry,
     * @param statusByUserId the status by user ID of this bookmarks entry
     */
     @Override
-    public void setStatusByUserId(long statusByUserId) {
+    public void setStatusByUserId(java.lang.Long statusByUserId) {
         _bookmarksEntry.setStatusByUserId(statusByUserId);
     }
 

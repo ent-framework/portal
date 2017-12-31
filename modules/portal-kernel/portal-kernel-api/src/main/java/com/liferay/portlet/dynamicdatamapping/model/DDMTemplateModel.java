@@ -84,7 +84,7 @@ public interface DDMTemplateModel extends AttachedModel, BaseModel<DDMTemplate>,
      *
      * @param templateId the template ID of this d d m template
      */
-    public void setTemplateId(long templateId);
+    public void setTemplateId(Long templateId);
 
     /**
      * Returns the group ID of this d d m template.
@@ -100,7 +100,7 @@ public interface DDMTemplateModel extends AttachedModel, BaseModel<DDMTemplate>,
      * @param groupId the group ID of this d d m template
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this d d m template.
@@ -116,7 +116,7 @@ public interface DDMTemplateModel extends AttachedModel, BaseModel<DDMTemplate>,
      * @param companyId the company ID of this d d m template
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this d d m template.
@@ -132,7 +132,7 @@ public interface DDMTemplateModel extends AttachedModel, BaseModel<DDMTemplate>,
      * @param userId the user ID of this d d m template
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this d d m template.
@@ -224,7 +224,7 @@ public interface DDMTemplateModel extends AttachedModel, BaseModel<DDMTemplate>,
      * @param classNameId the class name ID of this d d m template
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this d d m template.
@@ -240,7 +240,7 @@ public interface DDMTemplateModel extends AttachedModel, BaseModel<DDMTemplate>,
      * @param classPK the class p k of this d d m template
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the template key of this d d m template.
@@ -535,7 +535,7 @@ public interface DDMTemplateModel extends AttachedModel, BaseModel<DDMTemplate>,
      *
      * @param cacheable the cacheable of this d d m template
      */
-    public void setCacheable(boolean cacheable);
+    public void setCacheable(Boolean cacheable);
 
     /**
      * Returns the small image of this d d m template.
@@ -556,7 +556,7 @@ public interface DDMTemplateModel extends AttachedModel, BaseModel<DDMTemplate>,
      *
      * @param smallImage the small image of this d d m template
      */
-    public void setSmallImage(boolean smallImage);
+    public void setSmallImage(Boolean smallImage);
 
     /**
      * Returns the small image ID of this d d m template.
@@ -570,7 +570,7 @@ public interface DDMTemplateModel extends AttachedModel, BaseModel<DDMTemplate>,
      *
      * @param smallImageId the small image ID of this d d m template
      */
-    public void setSmallImageId(long smallImageId);
+    public void setSmallImageId(Long smallImageId);
 
     /**
      * Returns the small image u r l of this d d m template.

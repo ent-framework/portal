@@ -234,7 +234,11 @@ public class ExpandoColumnModelImpl extends BaseModelImpl<ExpandoColumn>
     }
 
     @Override
-    public void setColumnId(long columnId) {
+    public void setColumnId(Long columnId) {
+        if (columnId == null) {
+            columnId = new Long(0);
+        }
+
         _columnId = columnId;
     }
 
@@ -245,7 +249,11 @@ public class ExpandoColumnModelImpl extends BaseModelImpl<ExpandoColumn>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -256,13 +264,17 @@ public class ExpandoColumnModelImpl extends BaseModelImpl<ExpandoColumn>
     }
 
     @Override
-    public void setTableId(long tableId) {
+    public void setTableId(Long tableId) {
         _columnBitmask |= TABLEID_COLUMN_BITMASK;
 
         if (!_setOriginalTableId) {
             _setOriginalTableId = true;
 
             _originalTableId = _tableId;
+        }
+
+        if (tableId == null) {
+            tableId = new Long(0);
         }
 
         _tableId = tableId;
@@ -304,7 +316,11 @@ public class ExpandoColumnModelImpl extends BaseModelImpl<ExpandoColumn>
     }
 
     @Override
-    public void setType(int type) {
+    public void setType(Integer type) {
+        if (type == null) {
+            type = new Integer(0);
+        }
+
         _type = type;
     }
 

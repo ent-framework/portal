@@ -105,7 +105,7 @@ public class UserGroupGroupRoleWrapper implements UserGroupGroupRole,
     * @param userGroupId the user group ID of this user group group role
     */
     @Override
-    public void setUserGroupId(long userGroupId) {
+    public void setUserGroupId(java.lang.Long userGroupId) {
         _userGroupGroupRole.setUserGroupId(userGroupId);
     }
 
@@ -125,7 +125,7 @@ public class UserGroupGroupRoleWrapper implements UserGroupGroupRole,
     * @param groupId the group ID of this user group group role
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _userGroupGroupRole.setGroupId(groupId);
     }
 
@@ -145,7 +145,7 @@ public class UserGroupGroupRoleWrapper implements UserGroupGroupRole,
     * @param roleId the role ID of this user group group role
     */
     @Override
-    public void setRoleId(long roleId) {
+    public void setRoleId(java.lang.Long roleId) {
         _userGroupGroupRole.setRoleId(roleId);
     }
 

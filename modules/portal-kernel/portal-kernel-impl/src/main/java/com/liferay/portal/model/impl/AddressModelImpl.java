@@ -403,7 +403,11 @@ public class AddressModelImpl extends BaseModelImpl<Address>
     }
 
     @Override
-    public void setAddressId(long addressId) {
+    public void setAddressId(Long addressId) {
+        if (addressId == null) {
+            addressId = new Long(0);
+        }
+
         _addressId = addressId;
     }
 
@@ -414,13 +418,17 @@ public class AddressModelImpl extends BaseModelImpl<Address>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -437,13 +445,17 @@ public class AddressModelImpl extends BaseModelImpl<Address>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;
@@ -529,13 +541,17 @@ public class AddressModelImpl extends BaseModelImpl<Address>
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
         _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
         if (!_setOriginalClassNameId) {
             _setOriginalClassNameId = true;
 
             _originalClassNameId = _classNameId;
+        }
+
+        if (classNameId == null) {
+            classNameId = new Long(0);
         }
 
         _classNameId = classNameId;
@@ -552,13 +568,17 @@ public class AddressModelImpl extends BaseModelImpl<Address>
     }
 
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(Long classPK) {
         _columnBitmask |= CLASSPK_COLUMN_BITMASK;
 
         if (!_setOriginalClassPK) {
             _setOriginalClassPK = true;
 
             _originalClassPK = _classPK;
+        }
+
+        if (classPK == null) {
+            classPK = new Long(0);
         }
 
         _classPK = classPK;
@@ -650,7 +670,11 @@ public class AddressModelImpl extends BaseModelImpl<Address>
     }
 
     @Override
-    public void setRegionId(long regionId) {
+    public void setRegionId(Long regionId) {
+        if (regionId == null) {
+            regionId = new Long(0);
+        }
+
         _regionId = regionId;
     }
 
@@ -661,7 +685,11 @@ public class AddressModelImpl extends BaseModelImpl<Address>
     }
 
     @Override
-    public void setCountryId(long countryId) {
+    public void setCountryId(Long countryId) {
+        if (countryId == null) {
+            countryId = new Long(0);
+        }
+
         _countryId = countryId;
     }
 
@@ -672,7 +700,11 @@ public class AddressModelImpl extends BaseModelImpl<Address>
     }
 
     @Override
-    public void setTypeId(int typeId) {
+    public void setTypeId(Integer typeId) {
+        if (typeId == null) {
+            typeId = new Integer(0);
+        }
+
         _typeId = typeId;
     }
 
@@ -688,13 +720,17 @@ public class AddressModelImpl extends BaseModelImpl<Address>
     }
 
     @Override
-    public void setMailing(boolean mailing) {
+    public void setMailing(Boolean mailing) {
         _columnBitmask |= MAILING_COLUMN_BITMASK;
 
         if (!_setOriginalMailing) {
             _setOriginalMailing = true;
 
             _originalMailing = _mailing;
+        }
+
+        if (mailing == null) {
+            mailing = Boolean.FALSE;
         }
 
         _mailing = mailing;
@@ -716,13 +752,17 @@ public class AddressModelImpl extends BaseModelImpl<Address>
     }
 
     @Override
-    public void setPrimary(boolean primary) {
+    public void setPrimary(Boolean primary) {
         _columnBitmask |= PRIMARY_COLUMN_BITMASK;
 
         if (!_setOriginalPrimary) {
             _setOriginalPrimary = true;
 
             _originalPrimary = _primary;
+        }
+
+        if (primary == null) {
+            primary = Boolean.FALSE;
         }
 
         _primary = primary;

@@ -236,7 +236,11 @@ public class PortletPreferencesModelImpl extends BaseModelImpl<PortletPreference
     }
 
     @Override
-    public void setPortletPreferencesId(long portletPreferencesId) {
+    public void setPortletPreferencesId(Long portletPreferencesId) {
+        if (portletPreferencesId == null) {
+            portletPreferencesId = new Long(0);
+        }
+
         _portletPreferencesId = portletPreferencesId;
     }
 
@@ -247,13 +251,17 @@ public class PortletPreferencesModelImpl extends BaseModelImpl<PortletPreference
     }
 
     @Override
-    public void setOwnerId(long ownerId) {
+    public void setOwnerId(Long ownerId) {
         _columnBitmask |= OWNERID_COLUMN_BITMASK;
 
         if (!_setOriginalOwnerId) {
             _setOriginalOwnerId = true;
 
             _originalOwnerId = _ownerId;
+        }
+
+        if (ownerId == null) {
+            ownerId = new Long(0);
         }
 
         _ownerId = ownerId;
@@ -270,13 +278,17 @@ public class PortletPreferencesModelImpl extends BaseModelImpl<PortletPreference
     }
 
     @Override
-    public void setOwnerType(int ownerType) {
+    public void setOwnerType(Integer ownerType) {
         _columnBitmask |= OWNERTYPE_COLUMN_BITMASK;
 
         if (!_setOriginalOwnerType) {
             _setOriginalOwnerType = true;
 
             _originalOwnerType = _ownerType;
+        }
+
+        if (ownerType == null) {
+            ownerType = new Integer(0);
         }
 
         _ownerType = ownerType;
@@ -293,13 +305,17 @@ public class PortletPreferencesModelImpl extends BaseModelImpl<PortletPreference
     }
 
     @Override
-    public void setPlid(long plid) {
+    public void setPlid(Long plid) {
         _columnBitmask |= PLID_COLUMN_BITMASK;
 
         if (!_setOriginalPlid) {
             _setOriginalPlid = true;
 
             _originalPlid = _plid;
+        }
+
+        if (plid == null) {
+            plid = new Long(0);
         }
 
         _plid = plid;

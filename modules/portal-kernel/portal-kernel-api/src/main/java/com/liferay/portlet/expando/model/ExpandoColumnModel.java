@@ -58,7 +58,7 @@ public interface ExpandoColumnModel extends BaseModel<ExpandoColumn> {
      *
      * @param columnId the column ID of this expando column
      */
-    public void setColumnId(long columnId);
+    public void setColumnId(Long columnId);
 
     /**
      * Returns the company ID of this expando column.
@@ -72,7 +72,7 @@ public interface ExpandoColumnModel extends BaseModel<ExpandoColumn> {
      *
      * @param companyId the company ID of this expando column
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the table ID of this expando column.
@@ -86,7 +86,7 @@ public interface ExpandoColumnModel extends BaseModel<ExpandoColumn> {
      *
      * @param tableId the table ID of this expando column
      */
-    public void setTableId(long tableId);
+    public void setTableId(Long tableId);
 
     /**
      * Returns the name of this expando column.
@@ -115,7 +115,7 @@ public interface ExpandoColumnModel extends BaseModel<ExpandoColumn> {
      *
      * @param type the type of this expando column
      */
-    public void setType(int type);
+    public void setType(Integer type);
 
     /**
      * Returns the default data of this expando column.

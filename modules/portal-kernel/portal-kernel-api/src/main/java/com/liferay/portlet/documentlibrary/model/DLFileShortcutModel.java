@@ -85,7 +85,7 @@ public interface DLFileShortcutModel extends BaseModel<DLFileShortcut>,
      *
      * @param fileShortcutId the file shortcut ID of this document library file shortcut
      */
-    public void setFileShortcutId(long fileShortcutId);
+    public void setFileShortcutId(Long fileShortcutId);
 
     /**
      * Returns the group ID of this document library file shortcut.
@@ -101,7 +101,7 @@ public interface DLFileShortcutModel extends BaseModel<DLFileShortcut>,
      * @param groupId the group ID of this document library file shortcut
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this document library file shortcut.
@@ -117,7 +117,7 @@ public interface DLFileShortcutModel extends BaseModel<DLFileShortcut>,
      * @param companyId the company ID of this document library file shortcut
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this document library file shortcut.
@@ -133,7 +133,7 @@ public interface DLFileShortcutModel extends BaseModel<DLFileShortcut>,
      * @param userId the user ID of this document library file shortcut
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this document library file shortcut.
@@ -213,7 +213,7 @@ public interface DLFileShortcutModel extends BaseModel<DLFileShortcut>,
      *
      * @param repositoryId the repository ID of this document library file shortcut
      */
-    public void setRepositoryId(long repositoryId);
+    public void setRepositoryId(Long repositoryId);
 
     /**
      * Returns the folder ID of this document library file shortcut.
@@ -227,7 +227,7 @@ public interface DLFileShortcutModel extends BaseModel<DLFileShortcut>,
      *
      * @param folderId the folder ID of this document library file shortcut
      */
-    public void setFolderId(long folderId);
+    public void setFolderId(Long folderId);
 
     /**
      * Returns the to file entry ID of this document library file shortcut.
@@ -241,7 +241,7 @@ public interface DLFileShortcutModel extends BaseModel<DLFileShortcut>,
      *
      * @param toFileEntryId the to file entry ID of this document library file shortcut
      */
-    public void setToFileEntryId(long toFileEntryId);
+    public void setToFileEntryId(Long toFileEntryId);
 
     /**
      * Returns the tree path of this document library file shortcut.
@@ -277,7 +277,7 @@ public interface DLFileShortcutModel extends BaseModel<DLFileShortcut>,
      *
      * @param active the active of this document library file shortcut
      */
-    public void setActive(boolean active);
+    public void setActive(Boolean active);
 
     /**
      * Returns the status of this document library file shortcut.
@@ -293,7 +293,7 @@ public interface DLFileShortcutModel extends BaseModel<DLFileShortcut>,
      * @param status the status of this document library file shortcut
      */
     @Override
-    public void setStatus(int status);
+    public void setStatus(Integer status);
 
     /**
      * Returns the status by user ID of this document library file shortcut.
@@ -309,7 +309,7 @@ public interface DLFileShortcutModel extends BaseModel<DLFileShortcut>,
      * @param statusByUserId the status by user ID of this document library file shortcut
      */
     @Override
-    public void setStatusByUserId(long statusByUserId);
+    public void setStatusByUserId(Long statusByUserId);
 
     /**
      * Returns the status by user uuid of this document library file shortcut.

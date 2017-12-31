@@ -63,7 +63,7 @@ public interface AssetTagPropertyModel extends AuditedModel,
      *
      * @param tagPropertyId the tag property ID of this asset tag property
      */
-    public void setTagPropertyId(long tagPropertyId);
+    public void setTagPropertyId(Long tagPropertyId);
 
     /**
      * Returns the company ID of this asset tag property.
@@ -79,7 +79,7 @@ public interface AssetTagPropertyModel extends AuditedModel,
      * @param companyId the company ID of this asset tag property
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this asset tag property.
@@ -95,7 +95,7 @@ public interface AssetTagPropertyModel extends AuditedModel,
      * @param userId the user ID of this asset tag property
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this asset tag property.
@@ -175,7 +175,7 @@ public interface AssetTagPropertyModel extends AuditedModel,
      *
      * @param tagId the tag ID of this asset tag property
      */
-    public void setTagId(long tagId);
+    public void setTagId(Long tagId);
 
     /**
      * Returns the key of this asset tag property.

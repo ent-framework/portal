@@ -67,7 +67,7 @@ public interface AssetEntryModel extends AttachedModel, BaseModel<AssetEntry>,
      *
      * @param entryId the entry ID of this asset entry
      */
-    public void setEntryId(long entryId);
+    public void setEntryId(Long entryId);
 
     /**
      * Returns the group ID of this asset entry.
@@ -83,7 +83,7 @@ public interface AssetEntryModel extends AttachedModel, BaseModel<AssetEntry>,
      * @param groupId the group ID of this asset entry
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this asset entry.
@@ -99,7 +99,7 @@ public interface AssetEntryModel extends AttachedModel, BaseModel<AssetEntry>,
      * @param companyId the company ID of this asset entry
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this asset entry.
@@ -115,7 +115,7 @@ public interface AssetEntryModel extends AttachedModel, BaseModel<AssetEntry>,
      * @param userId the user ID of this asset entry
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this asset entry.
@@ -207,7 +207,7 @@ public interface AssetEntryModel extends AttachedModel, BaseModel<AssetEntry>,
      * @param classNameId the class name ID of this asset entry
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this asset entry.
@@ -223,7 +223,7 @@ public interface AssetEntryModel extends AttachedModel, BaseModel<AssetEntry>,
      * @param classPK the class p k of this asset entry
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the class uuid of this asset entry.
@@ -252,7 +252,7 @@ public interface AssetEntryModel extends AttachedModel, BaseModel<AssetEntry>,
      *
      * @param classTypeId the class type ID of this asset entry
      */
-    public void setClassTypeId(long classTypeId);
+    public void setClassTypeId(Long classTypeId);
 
     /**
      * Returns the visible of this asset entry.
@@ -273,7 +273,7 @@ public interface AssetEntryModel extends AttachedModel, BaseModel<AssetEntry>,
      *
      * @param visible the visible of this asset entry
      */
-    public void setVisible(boolean visible);
+    public void setVisible(Boolean visible);
 
     /**
      * Returns the start date of this asset entry.
@@ -688,7 +688,7 @@ public interface AssetEntryModel extends AttachedModel, BaseModel<AssetEntry>,
      *
      * @param height the height of this asset entry
      */
-    public void setHeight(int height);
+    public void setHeight(Integer height);
 
     /**
      * Returns the width of this asset entry.
@@ -702,7 +702,7 @@ public interface AssetEntryModel extends AttachedModel, BaseModel<AssetEntry>,
      *
      * @param width the width of this asset entry
      */
-    public void setWidth(int width);
+    public void setWidth(Integer width);
 
     /**
      * Returns the priority of this asset entry.
@@ -730,7 +730,7 @@ public interface AssetEntryModel extends AttachedModel, BaseModel<AssetEntry>,
      *
      * @param viewCount the view count of this asset entry
      */
-    public void setViewCount(int viewCount);
+    public void setViewCount(Integer viewCount);
 
     @Override
     public boolean isNew();

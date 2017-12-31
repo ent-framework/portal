@@ -125,7 +125,7 @@ public class RatingsStatsWrapper implements RatingsStats,
     * @param statsId the stats ID of this ratings stats
     */
     @Override
-    public void setStatsId(long statsId) {
+    public void setStatsId(java.lang.Long statsId) {
         _ratingsStats.setStatsId(statsId);
     }
 
@@ -160,7 +160,7 @@ public class RatingsStatsWrapper implements RatingsStats,
     * @param classNameId the class name ID of this ratings stats
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _ratingsStats.setClassNameId(classNameId);
     }
 
@@ -180,7 +180,7 @@ public class RatingsStatsWrapper implements RatingsStats,
     * @param classPK the class p k of this ratings stats
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _ratingsStats.setClassPK(classPK);
     }
 
@@ -200,7 +200,7 @@ public class RatingsStatsWrapper implements RatingsStats,
     * @param totalEntries the total entries of this ratings stats
     */
     @Override
-    public void setTotalEntries(int totalEntries) {
+    public void setTotalEntries(java.lang.Integer totalEntries) {
         _ratingsStats.setTotalEntries(totalEntries);
     }
 

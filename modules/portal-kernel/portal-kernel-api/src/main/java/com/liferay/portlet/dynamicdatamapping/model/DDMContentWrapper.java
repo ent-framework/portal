@@ -181,7 +181,7 @@ public class DDMContentWrapper implements DDMContent, ModelWrapper<DDMContent> {
     * @param contentId the content ID of this d d m content
     */
     @Override
-    public void setContentId(long contentId) {
+    public void setContentId(java.lang.Long contentId) {
         _ddmContent.setContentId(contentId);
     }
 
@@ -201,7 +201,7 @@ public class DDMContentWrapper implements DDMContent, ModelWrapper<DDMContent> {
     * @param groupId the group ID of this d d m content
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _ddmContent.setGroupId(groupId);
     }
 
@@ -221,7 +221,7 @@ public class DDMContentWrapper implements DDMContent, ModelWrapper<DDMContent> {
     * @param companyId the company ID of this d d m content
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _ddmContent.setCompanyId(companyId);
     }
 
@@ -241,7 +241,7 @@ public class DDMContentWrapper implements DDMContent, ModelWrapper<DDMContent> {
     * @param userId the user ID of this d d m content
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _ddmContent.setUserId(userId);
     }
 

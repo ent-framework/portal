@@ -183,7 +183,7 @@ public class RepositoryEntryWrapper implements RepositoryEntry,
     * @param repositoryEntryId the repository entry ID of this repository entry
     */
     @Override
-    public void setRepositoryEntryId(long repositoryEntryId) {
+    public void setRepositoryEntryId(java.lang.Long repositoryEntryId) {
         _repositoryEntry.setRepositoryEntryId(repositoryEntryId);
     }
 
@@ -203,7 +203,7 @@ public class RepositoryEntryWrapper implements RepositoryEntry,
     * @param groupId the group ID of this repository entry
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _repositoryEntry.setGroupId(groupId);
     }
 
@@ -223,7 +223,7 @@ public class RepositoryEntryWrapper implements RepositoryEntry,
     * @param companyId the company ID of this repository entry
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _repositoryEntry.setCompanyId(companyId);
     }
 
@@ -243,7 +243,7 @@ public class RepositoryEntryWrapper implements RepositoryEntry,
     * @param userId the user ID of this repository entry
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _repositoryEntry.setUserId(userId);
     }
 
@@ -345,7 +345,7 @@ public class RepositoryEntryWrapper implements RepositoryEntry,
     * @param repositoryId the repository ID of this repository entry
     */
     @Override
-    public void setRepositoryId(long repositoryId) {
+    public void setRepositoryId(java.lang.Long repositoryId) {
         _repositoryEntry.setRepositoryId(repositoryId);
     }
 
@@ -395,7 +395,8 @@ public class RepositoryEntryWrapper implements RepositoryEntry,
     * @param manualCheckInRequired the manual check in required of this repository entry
     */
     @Override
-    public void setManualCheckInRequired(boolean manualCheckInRequired) {
+    public void setManualCheckInRequired(
+        java.lang.Boolean manualCheckInRequired) {
         _repositoryEntry.setManualCheckInRequired(manualCheckInRequired);
     }
 

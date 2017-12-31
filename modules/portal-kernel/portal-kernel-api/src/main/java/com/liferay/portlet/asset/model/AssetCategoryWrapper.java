@@ -210,7 +210,7 @@ public class AssetCategoryWrapper implements AssetCategory,
     * @param categoryId the category ID of this asset category
     */
     @Override
-    public void setCategoryId(long categoryId) {
+    public void setCategoryId(java.lang.Long categoryId) {
         _assetCategory.setCategoryId(categoryId);
     }
 
@@ -230,7 +230,7 @@ public class AssetCategoryWrapper implements AssetCategory,
     * @param groupId the group ID of this asset category
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _assetCategory.setGroupId(groupId);
     }
 
@@ -250,7 +250,7 @@ public class AssetCategoryWrapper implements AssetCategory,
     * @param companyId the company ID of this asset category
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _assetCategory.setCompanyId(companyId);
     }
 
@@ -270,7 +270,7 @@ public class AssetCategoryWrapper implements AssetCategory,
     * @param userId the user ID of this asset category
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _assetCategory.setUserId(userId);
     }
 
@@ -372,7 +372,7 @@ public class AssetCategoryWrapper implements AssetCategory,
     * @param parentCategoryId the parent category ID of this asset category
     */
     @Override
-    public void setParentCategoryId(long parentCategoryId) {
+    public void setParentCategoryId(java.lang.Long parentCategoryId) {
         _assetCategory.setParentCategoryId(parentCategoryId);
     }
 
@@ -392,7 +392,7 @@ public class AssetCategoryWrapper implements AssetCategory,
     * @param leftCategoryId the left category ID of this asset category
     */
     @Override
-    public void setLeftCategoryId(long leftCategoryId) {
+    public void setLeftCategoryId(java.lang.Long leftCategoryId) {
         _assetCategory.setLeftCategoryId(leftCategoryId);
     }
 
@@ -412,7 +412,7 @@ public class AssetCategoryWrapper implements AssetCategory,
     * @param rightCategoryId the right category ID of this asset category
     */
     @Override
-    public void setRightCategoryId(long rightCategoryId) {
+    public void setRightCategoryId(java.lang.Long rightCategoryId) {
         _assetCategory.setRightCategoryId(rightCategoryId);
     }
 
@@ -734,7 +734,7 @@ public class AssetCategoryWrapper implements AssetCategory,
     * @param vocabularyId the vocabulary ID of this asset category
     */
     @Override
-    public void setVocabularyId(long vocabularyId) {
+    public void setVocabularyId(java.lang.Long vocabularyId) {
         _assetCategory.setVocabularyId(vocabularyId);
     }
 

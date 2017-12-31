@@ -237,7 +237,7 @@ public class GroupWrapper implements Group, ModelWrapper<Group> {
     * @param groupId the group ID of this group
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _group.setGroupId(groupId);
     }
 
@@ -257,7 +257,7 @@ public class GroupWrapper implements Group, ModelWrapper<Group> {
     * @param companyId the company ID of this group
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _group.setCompanyId(companyId);
     }
 
@@ -277,7 +277,7 @@ public class GroupWrapper implements Group, ModelWrapper<Group> {
     * @param creatorUserId the creator user ID of this group
     */
     @Override
-    public void setCreatorUserId(long creatorUserId) {
+    public void setCreatorUserId(java.lang.Long creatorUserId) {
         _group.setCreatorUserId(creatorUserId);
     }
 
@@ -334,7 +334,7 @@ public class GroupWrapper implements Group, ModelWrapper<Group> {
     * @param classNameId the class name ID of this group
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _group.setClassNameId(classNameId);
     }
 
@@ -354,7 +354,7 @@ public class GroupWrapper implements Group, ModelWrapper<Group> {
     * @param classPK the class p k of this group
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _group.setClassPK(classPK);
     }
 
@@ -374,7 +374,7 @@ public class GroupWrapper implements Group, ModelWrapper<Group> {
     * @param parentGroupId the parent group ID of this group
     */
     @Override
-    public void setParentGroupId(long parentGroupId) {
+    public void setParentGroupId(java.lang.Long parentGroupId) {
         _group.setParentGroupId(parentGroupId);
     }
 
@@ -394,7 +394,7 @@ public class GroupWrapper implements Group, ModelWrapper<Group> {
     * @param liveGroupId the live group ID of this group
     */
     @Override
-    public void setLiveGroupId(long liveGroupId) {
+    public void setLiveGroupId(java.lang.Long liveGroupId) {
         _group.setLiveGroupId(liveGroupId);
     }
 
@@ -474,7 +474,7 @@ public class GroupWrapper implements Group, ModelWrapper<Group> {
     * @param type the type of this group
     */
     @Override
-    public void setType(int type) {
+    public void setType(java.lang.Integer type) {
         _group.setType(type);
     }
 
@@ -524,7 +524,7 @@ public class GroupWrapper implements Group, ModelWrapper<Group> {
     * @param manualMembership the manual membership of this group
     */
     @Override
-    public void setManualMembership(boolean manualMembership) {
+    public void setManualMembership(java.lang.Boolean manualMembership) {
         _group.setManualMembership(manualMembership);
     }
 
@@ -544,7 +544,8 @@ public class GroupWrapper implements Group, ModelWrapper<Group> {
     * @param membershipRestriction the membership restriction of this group
     */
     @Override
-    public void setMembershipRestriction(int membershipRestriction) {
+    public void setMembershipRestriction(
+        java.lang.Integer membershipRestriction) {
         _group.setMembershipRestriction(membershipRestriction);
     }
 
@@ -594,7 +595,7 @@ public class GroupWrapper implements Group, ModelWrapper<Group> {
     * @param site the site of this group
     */
     @Override
-    public void setSite(boolean site) {
+    public void setSite(java.lang.Boolean site) {
         _group.setSite(site);
     }
 
@@ -614,7 +615,8 @@ public class GroupWrapper implements Group, ModelWrapper<Group> {
     * @param remoteStagingGroupCount the remote staging group count of this group
     */
     @Override
-    public void setRemoteStagingGroupCount(int remoteStagingGroupCount) {
+    public void setRemoteStagingGroupCount(
+        java.lang.Integer remoteStagingGroupCount) {
         _group.setRemoteStagingGroupCount(remoteStagingGroupCount);
     }
 
@@ -644,7 +646,7 @@ public class GroupWrapper implements Group, ModelWrapper<Group> {
     * @param active the active of this group
     */
     @Override
-    public void setActive(boolean active) {
+    public void setActive(java.lang.Boolean active) {
         _group.setActive(active);
     }
 

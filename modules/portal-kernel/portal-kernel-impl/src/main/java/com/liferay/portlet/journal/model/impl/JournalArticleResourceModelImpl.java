@@ -185,7 +185,11 @@ public class JournalArticleResourceModelImpl extends BaseModelImpl<JournalArticl
     }
 
     @Override
-    public void setResourcePrimKey(long resourcePrimKey) {
+    public void setResourcePrimKey(Long resourcePrimKey) {
+        if (resourcePrimKey == null) {
+            resourcePrimKey = new Long(0);
+        }
+
         _resourcePrimKey = resourcePrimKey;
     }
 
@@ -195,13 +199,17 @@ public class JournalArticleResourceModelImpl extends BaseModelImpl<JournalArticl
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;

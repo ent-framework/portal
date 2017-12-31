@@ -183,7 +183,7 @@ public class LayoutSetPrototypeWrapper implements LayoutSetPrototype,
     * @param layoutSetPrototypeId the layout set prototype ID of this layout set prototype
     */
     @Override
-    public void setLayoutSetPrototypeId(long layoutSetPrototypeId) {
+    public void setLayoutSetPrototypeId(java.lang.Long layoutSetPrototypeId) {
         _layoutSetPrototype.setLayoutSetPrototypeId(layoutSetPrototypeId);
     }
 
@@ -203,7 +203,7 @@ public class LayoutSetPrototypeWrapper implements LayoutSetPrototype,
     * @param companyId the company ID of this layout set prototype
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _layoutSetPrototype.setCompanyId(companyId);
     }
 
@@ -223,7 +223,7 @@ public class LayoutSetPrototypeWrapper implements LayoutSetPrototype,
     * @param userId the user ID of this layout set prototype
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _layoutSetPrototype.setUserId(userId);
     }
 
@@ -515,7 +515,7 @@ public class LayoutSetPrototypeWrapper implements LayoutSetPrototype,
     * @param active the active of this layout set prototype
     */
     @Override
-    public void setActive(boolean active) {
+    public void setActive(java.lang.Boolean active) {
         _layoutSetPrototype.setActive(active);
     }
 

@@ -154,7 +154,7 @@ public class ShoppingItemPriceWrapper implements ShoppingItemPrice,
     * @param itemPriceId the item price ID of this shopping item price
     */
     @Override
-    public void setItemPriceId(long itemPriceId) {
+    public void setItemPriceId(java.lang.Long itemPriceId) {
         _shoppingItemPrice.setItemPriceId(itemPriceId);
     }
 
@@ -174,7 +174,7 @@ public class ShoppingItemPriceWrapper implements ShoppingItemPrice,
     * @param itemId the item ID of this shopping item price
     */
     @Override
-    public void setItemId(long itemId) {
+    public void setItemId(java.lang.Long itemId) {
         _shoppingItemPrice.setItemId(itemId);
     }
 
@@ -194,7 +194,7 @@ public class ShoppingItemPriceWrapper implements ShoppingItemPrice,
     * @param minQuantity the min quantity of this shopping item price
     */
     @Override
-    public void setMinQuantity(int minQuantity) {
+    public void setMinQuantity(java.lang.Integer minQuantity) {
         _shoppingItemPrice.setMinQuantity(minQuantity);
     }
 
@@ -214,7 +214,7 @@ public class ShoppingItemPriceWrapper implements ShoppingItemPrice,
     * @param maxQuantity the max quantity of this shopping item price
     */
     @Override
-    public void setMaxQuantity(int maxQuantity) {
+    public void setMaxQuantity(java.lang.Integer maxQuantity) {
         _shoppingItemPrice.setMaxQuantity(maxQuantity);
     }
 
@@ -284,7 +284,7 @@ public class ShoppingItemPriceWrapper implements ShoppingItemPrice,
     * @param taxable the taxable of this shopping item price
     */
     @Override
-    public void setTaxable(boolean taxable) {
+    public void setTaxable(java.lang.Boolean taxable) {
         _shoppingItemPrice.setTaxable(taxable);
     }
 
@@ -334,7 +334,7 @@ public class ShoppingItemPriceWrapper implements ShoppingItemPrice,
     * @param useShippingFormula the use shipping formula of this shopping item price
     */
     @Override
-    public void setUseShippingFormula(boolean useShippingFormula) {
+    public void setUseShippingFormula(java.lang.Boolean useShippingFormula) {
         _shoppingItemPrice.setUseShippingFormula(useShippingFormula);
     }
 
@@ -354,7 +354,7 @@ public class ShoppingItemPriceWrapper implements ShoppingItemPrice,
     * @param status the status of this shopping item price
     */
     @Override
-    public void setStatus(int status) {
+    public void setStatus(java.lang.Integer status) {
         _shoppingItemPrice.setStatus(status);
     }
 

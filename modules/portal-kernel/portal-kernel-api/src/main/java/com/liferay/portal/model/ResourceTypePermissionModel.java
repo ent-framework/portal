@@ -58,7 +58,7 @@ public interface ResourceTypePermissionModel extends BaseModel<ResourceTypePermi
      *
      * @param resourceTypePermissionId the resource type permission ID of this resource type permission
      */
-    public void setResourceTypePermissionId(long resourceTypePermissionId);
+    public void setResourceTypePermissionId(Long resourceTypePermissionId);
 
     /**
      * Returns the company ID of this resource type permission.
@@ -72,7 +72,7 @@ public interface ResourceTypePermissionModel extends BaseModel<ResourceTypePermi
      *
      * @param companyId the company ID of this resource type permission
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the group ID of this resource type permission.
@@ -86,7 +86,7 @@ public interface ResourceTypePermissionModel extends BaseModel<ResourceTypePermi
      *
      * @param groupId the group ID of this resource type permission
      */
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the name of this resource type permission.
@@ -115,7 +115,7 @@ public interface ResourceTypePermissionModel extends BaseModel<ResourceTypePermi
      *
      * @param roleId the role ID of this resource type permission
      */
-    public void setRoleId(long roleId);
+    public void setRoleId(Long roleId);
 
     /**
      * Returns the action IDs of this resource type permission.
@@ -129,7 +129,7 @@ public interface ResourceTypePermissionModel extends BaseModel<ResourceTypePermi
      *
      * @param actionIds the action IDs of this resource type permission
      */
-    public void setActionIds(long actionIds);
+    public void setActionIds(Long actionIds);
 
     @Override
     public boolean isNew();

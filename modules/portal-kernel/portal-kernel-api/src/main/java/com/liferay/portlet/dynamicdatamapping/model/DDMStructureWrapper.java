@@ -217,7 +217,7 @@ public class DDMStructureWrapper implements DDMStructure,
     * @param structureId the structure ID of this d d m structure
     */
     @Override
-    public void setStructureId(long structureId) {
+    public void setStructureId(java.lang.Long structureId) {
         _ddmStructure.setStructureId(structureId);
     }
 
@@ -237,7 +237,7 @@ public class DDMStructureWrapper implements DDMStructure,
     * @param groupId the group ID of this d d m structure
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _ddmStructure.setGroupId(groupId);
     }
 
@@ -257,7 +257,7 @@ public class DDMStructureWrapper implements DDMStructure,
     * @param companyId the company ID of this d d m structure
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _ddmStructure.setCompanyId(companyId);
     }
 
@@ -277,7 +277,7 @@ public class DDMStructureWrapper implements DDMStructure,
     * @param userId the user ID of this d d m structure
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _ddmStructure.setUserId(userId);
     }
 
@@ -379,7 +379,7 @@ public class DDMStructureWrapper implements DDMStructure,
     * @param parentStructureId the parent structure ID of this d d m structure
     */
     @Override
-    public void setParentStructureId(long parentStructureId) {
+    public void setParentStructureId(java.lang.Long parentStructureId) {
         _ddmStructure.setParentStructureId(parentStructureId);
     }
 
@@ -414,7 +414,7 @@ public class DDMStructureWrapper implements DDMStructure,
     * @param classNameId the class name ID of this d d m structure
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _ddmStructure.setClassNameId(classNameId);
     }
 
@@ -776,7 +776,7 @@ public class DDMStructureWrapper implements DDMStructure,
     * @param type the type of this d d m structure
     */
     @Override
-    public void setType(int type) {
+    public void setType(java.lang.Integer type) {
         _ddmStructure.setType(type);
     }
 

@@ -188,7 +188,7 @@ public class WebsiteWrapper implements Website, ModelWrapper<Website> {
     * @param websiteId the website ID of this website
     */
     @Override
-    public void setWebsiteId(long websiteId) {
+    public void setWebsiteId(java.lang.Long websiteId) {
         _website.setWebsiteId(websiteId);
     }
 
@@ -208,7 +208,7 @@ public class WebsiteWrapper implements Website, ModelWrapper<Website> {
     * @param companyId the company ID of this website
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _website.setCompanyId(companyId);
     }
 
@@ -228,7 +228,7 @@ public class WebsiteWrapper implements Website, ModelWrapper<Website> {
     * @param userId the user ID of this website
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _website.setUserId(userId);
     }
 
@@ -345,7 +345,7 @@ public class WebsiteWrapper implements Website, ModelWrapper<Website> {
     * @param classNameId the class name ID of this website
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _website.setClassNameId(classNameId);
     }
 
@@ -365,7 +365,7 @@ public class WebsiteWrapper implements Website, ModelWrapper<Website> {
     * @param classPK the class p k of this website
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _website.setClassPK(classPK);
     }
 
@@ -405,7 +405,7 @@ public class WebsiteWrapper implements Website, ModelWrapper<Website> {
     * @param typeId the type ID of this website
     */
     @Override
-    public void setTypeId(int typeId) {
+    public void setTypeId(java.lang.Integer typeId) {
         _website.setTypeId(typeId);
     }
 
@@ -435,7 +435,7 @@ public class WebsiteWrapper implements Website, ModelWrapper<Website> {
     * @param primary the primary of this website
     */
     @Override
-    public void setPrimary(boolean primary) {
+    public void setPrimary(java.lang.Boolean primary) {
         _website.setPrimary(primary);
     }
 

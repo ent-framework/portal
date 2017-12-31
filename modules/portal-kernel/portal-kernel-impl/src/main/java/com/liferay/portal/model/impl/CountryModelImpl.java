@@ -251,7 +251,11 @@ public class CountryModelImpl extends BaseModelImpl<Country>
     }
 
     @Override
-    public void setCountryId(long countryId) {
+    public void setCountryId(Long countryId) {
+        if (countryId == null) {
+            countryId = new Long(0);
+        }
+
         _countryId = countryId;
     }
 
@@ -372,7 +376,11 @@ public class CountryModelImpl extends BaseModelImpl<Country>
     }
 
     @Override
-    public void setZipRequired(boolean zipRequired) {
+    public void setZipRequired(Boolean zipRequired) {
+        if (zipRequired == null) {
+            zipRequired = Boolean.FALSE;
+        }
+
         _zipRequired = zipRequired;
     }
 
@@ -388,13 +396,17 @@ public class CountryModelImpl extends BaseModelImpl<Country>
     }
 
     @Override
-    public void setActive(boolean active) {
+    public void setActive(Boolean active) {
         _columnBitmask |= ACTIVE_COLUMN_BITMASK;
 
         if (!_setOriginalActive) {
             _setOriginalActive = true;
 
             _originalActive = _active;
+        }
+
+        if (active == null) {
+            active = Boolean.FALSE;
         }
 
         _active = active;

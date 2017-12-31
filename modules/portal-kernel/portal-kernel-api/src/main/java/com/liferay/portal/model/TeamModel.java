@@ -62,7 +62,7 @@ public interface TeamModel extends BaseModel<Team>, GroupedModel {
      *
      * @param teamId the team ID of this team
      */
-    public void setTeamId(long teamId);
+    public void setTeamId(Long teamId);
 
     /**
      * Returns the company ID of this team.
@@ -78,7 +78,7 @@ public interface TeamModel extends BaseModel<Team>, GroupedModel {
      * @param companyId the company ID of this team
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this team.
@@ -94,7 +94,7 @@ public interface TeamModel extends BaseModel<Team>, GroupedModel {
      * @param userId the user ID of this team
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this team.
@@ -176,7 +176,7 @@ public interface TeamModel extends BaseModel<Team>, GroupedModel {
      * @param groupId the group ID of this team
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the name of this team.

@@ -61,7 +61,7 @@ public interface TicketModel extends AttachedModel, BaseModel<Ticket> {
      *
      * @param ticketId the ticket ID of this ticket
      */
-    public void setTicketId(long ticketId);
+    public void setTicketId(Long ticketId);
 
     /**
      * Returns the company ID of this ticket.
@@ -75,7 +75,7 @@ public interface TicketModel extends AttachedModel, BaseModel<Ticket> {
      *
      * @param companyId the company ID of this ticket
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the create date of this ticket.
@@ -115,7 +115,7 @@ public interface TicketModel extends AttachedModel, BaseModel<Ticket> {
      * @param classNameId the class name ID of this ticket
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this ticket.
@@ -131,7 +131,7 @@ public interface TicketModel extends AttachedModel, BaseModel<Ticket> {
      * @param classPK the class p k of this ticket
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the key of this ticket.
@@ -160,7 +160,7 @@ public interface TicketModel extends AttachedModel, BaseModel<Ticket> {
      *
      * @param type the type of this ticket
      */
-    public void setType(int type);
+    public void setType(Integer type);
 
     /**
      * Returns the extra info of this ticket.

@@ -58,7 +58,7 @@ public interface ResourceActionModel extends BaseModel<ResourceAction> {
      *
      * @param resourceActionId the resource action ID of this resource action
      */
-    public void setResourceActionId(long resourceActionId);
+    public void setResourceActionId(Long resourceActionId);
 
     /**
      * Returns the name of this resource action.
@@ -102,7 +102,7 @@ public interface ResourceActionModel extends BaseModel<ResourceAction> {
      *
      * @param bitwiseValue the bitwise value of this resource action
      */
-    public void setBitwiseValue(long bitwiseValue);
+    public void setBitwiseValue(Long bitwiseValue);
 
     @Override
     public boolean isNew();

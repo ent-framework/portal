@@ -62,7 +62,7 @@ public interface ShoppingCartModel extends BaseModel<ShoppingCart>, GroupedModel
      *
      * @param cartId the cart ID of this shopping cart
      */
-    public void setCartId(long cartId);
+    public void setCartId(Long cartId);
 
     /**
      * Returns the group ID of this shopping cart.
@@ -78,7 +78,7 @@ public interface ShoppingCartModel extends BaseModel<ShoppingCart>, GroupedModel
      * @param groupId the group ID of this shopping cart
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this shopping cart.
@@ -94,7 +94,7 @@ public interface ShoppingCartModel extends BaseModel<ShoppingCart>, GroupedModel
      * @param companyId the company ID of this shopping cart
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this shopping cart.
@@ -110,7 +110,7 @@ public interface ShoppingCartModel extends BaseModel<ShoppingCart>, GroupedModel
      * @param userId the user ID of this shopping cart
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this shopping cart.
@@ -220,7 +220,7 @@ public interface ShoppingCartModel extends BaseModel<ShoppingCart>, GroupedModel
      *
      * @param altShipping the alt shipping of this shopping cart
      */
-    public void setAltShipping(int altShipping);
+    public void setAltShipping(Integer altShipping);
 
     /**
      * Returns the insure of this shopping cart.
@@ -241,7 +241,7 @@ public interface ShoppingCartModel extends BaseModel<ShoppingCart>, GroupedModel
      *
      * @param insure the insure of this shopping cart
      */
-    public void setInsure(boolean insure);
+    public void setInsure(Boolean insure);
 
     @Override
     public boolean isNew();

@@ -83,7 +83,7 @@ public interface MDRRuleGroupModel extends BaseModel<MDRRuleGroup>,
      *
      * @param ruleGroupId the rule group ID of this m d r rule group
      */
-    public void setRuleGroupId(long ruleGroupId);
+    public void setRuleGroupId(Long ruleGroupId);
 
     /**
      * Returns the group ID of this m d r rule group.
@@ -99,7 +99,7 @@ public interface MDRRuleGroupModel extends BaseModel<MDRRuleGroup>,
      * @param groupId the group ID of this m d r rule group
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this m d r rule group.
@@ -115,7 +115,7 @@ public interface MDRRuleGroupModel extends BaseModel<MDRRuleGroup>,
      * @param companyId the company ID of this m d r rule group
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this m d r rule group.
@@ -131,7 +131,7 @@ public interface MDRRuleGroupModel extends BaseModel<MDRRuleGroup>,
      * @param userId the user ID of this m d r rule group
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this m d r rule group.

@@ -127,7 +127,8 @@ public class ResourceTypePermissionWrapper implements ResourceTypePermission,
     * @param resourceTypePermissionId the resource type permission ID of this resource type permission
     */
     @Override
-    public void setResourceTypePermissionId(long resourceTypePermissionId) {
+    public void setResourceTypePermissionId(
+        java.lang.Long resourceTypePermissionId) {
         _resourceTypePermission.setResourceTypePermissionId(resourceTypePermissionId);
     }
 
@@ -147,7 +148,7 @@ public class ResourceTypePermissionWrapper implements ResourceTypePermission,
     * @param companyId the company ID of this resource type permission
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _resourceTypePermission.setCompanyId(companyId);
     }
 
@@ -167,7 +168,7 @@ public class ResourceTypePermissionWrapper implements ResourceTypePermission,
     * @param groupId the group ID of this resource type permission
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _resourceTypePermission.setGroupId(groupId);
     }
 
@@ -207,7 +208,7 @@ public class ResourceTypePermissionWrapper implements ResourceTypePermission,
     * @param roleId the role ID of this resource type permission
     */
     @Override
-    public void setRoleId(long roleId) {
+    public void setRoleId(java.lang.Long roleId) {
         _resourceTypePermission.setRoleId(roleId);
     }
 
@@ -227,7 +228,7 @@ public class ResourceTypePermissionWrapper implements ResourceTypePermission,
     * @param actionIds the action IDs of this resource type permission
     */
     @Override
-    public void setActionIds(long actionIds) {
+    public void setActionIds(java.lang.Long actionIds) {
         _resourceTypePermission.setActionIds(actionIds);
     }
 

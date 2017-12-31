@@ -63,7 +63,7 @@ public interface LayoutSetBranchModel extends BaseModel<LayoutSetBranch>,
      *
      * @param layoutSetBranchId the layout set branch ID of this layout set branch
      */
-    public void setLayoutSetBranchId(long layoutSetBranchId);
+    public void setLayoutSetBranchId(Long layoutSetBranchId);
 
     /**
      * Returns the group ID of this layout set branch.
@@ -79,7 +79,7 @@ public interface LayoutSetBranchModel extends BaseModel<LayoutSetBranch>,
      * @param groupId the group ID of this layout set branch
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this layout set branch.
@@ -95,7 +95,7 @@ public interface LayoutSetBranchModel extends BaseModel<LayoutSetBranch>,
      * @param companyId the company ID of this layout set branch
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this layout set branch.
@@ -111,7 +111,7 @@ public interface LayoutSetBranchModel extends BaseModel<LayoutSetBranch>,
      * @param userId the user ID of this layout set branch
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this layout set branch.
@@ -198,7 +198,7 @@ public interface LayoutSetBranchModel extends BaseModel<LayoutSetBranch>,
      *
      * @param privateLayout the private layout of this layout set branch
      */
-    public void setPrivateLayout(boolean privateLayout);
+    public void setPrivateLayout(Boolean privateLayout);
 
     /**
      * Returns the name of this layout set branch.
@@ -249,7 +249,7 @@ public interface LayoutSetBranchModel extends BaseModel<LayoutSetBranch>,
      *
      * @param master the master of this layout set branch
      */
-    public void setMaster(boolean master);
+    public void setMaster(Boolean master);
 
     /**
      * Returns the logo of this layout set branch.
@@ -270,7 +270,7 @@ public interface LayoutSetBranchModel extends BaseModel<LayoutSetBranch>,
      *
      * @param logo the logo of this layout set branch
      */
-    public void setLogo(boolean logo);
+    public void setLogo(Boolean logo);
 
     /**
      * Returns the logo ID of this layout set branch.
@@ -284,7 +284,7 @@ public interface LayoutSetBranchModel extends BaseModel<LayoutSetBranch>,
      *
      * @param logoId the logo ID of this layout set branch
      */
-    public void setLogoId(long logoId);
+    public void setLogoId(Long logoId);
 
     /**
      * Returns the theme ID of this layout set branch.
@@ -411,7 +411,7 @@ public interface LayoutSetBranchModel extends BaseModel<LayoutSetBranch>,
      * @param layoutSetPrototypeLinkEnabled the layout set prototype link enabled of this layout set branch
      */
     public void setLayoutSetPrototypeLinkEnabled(
-        boolean layoutSetPrototypeLinkEnabled);
+        Boolean layoutSetPrototypeLinkEnabled);
 
     @Override
     public boolean isNew();

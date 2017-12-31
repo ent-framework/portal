@@ -205,7 +205,11 @@ public class ReleaseModelImpl extends BaseModelImpl<Release>
     }
 
     @Override
-    public void setReleaseId(long releaseId) {
+    public void setReleaseId(Long releaseId) {
+        if (releaseId == null) {
+            releaseId = new Long(0);
+        }
+
         _releaseId = releaseId;
     }
 
@@ -259,7 +263,11 @@ public class ReleaseModelImpl extends BaseModelImpl<Release>
     }
 
     @Override
-    public void setBuildNumber(int buildNumber) {
+    public void setBuildNumber(Integer buildNumber) {
+        if (buildNumber == null) {
+            buildNumber = new Integer(0);
+        }
+
         _buildNumber = buildNumber;
     }
 
@@ -284,7 +292,11 @@ public class ReleaseModelImpl extends BaseModelImpl<Release>
     }
 
     @Override
-    public void setVerified(boolean verified) {
+    public void setVerified(Boolean verified) {
+        if (verified == null) {
+            verified = Boolean.FALSE;
+        }
+
         _verified = verified;
     }
 
@@ -294,7 +306,11 @@ public class ReleaseModelImpl extends BaseModelImpl<Release>
     }
 
     @Override
-    public void setState(int state) {
+    public void setState(Integer state) {
+        if (state == null) {
+            state = new Integer(0);
+        }
+
         _state = state;
     }
 

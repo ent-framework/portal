@@ -510,7 +510,11 @@ public class ContactModelImpl extends BaseModelImpl<Contact>
     }
 
     @Override
-    public void setContactId(long contactId) {
+    public void setContactId(Long contactId) {
+        if (contactId == null) {
+            contactId = new Long(0);
+        }
+
         _contactId = contactId;
     }
 
@@ -521,13 +525,17 @@ public class ContactModelImpl extends BaseModelImpl<Contact>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -544,7 +552,11 @@ public class ContactModelImpl extends BaseModelImpl<Contact>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -622,13 +634,17 @@ public class ContactModelImpl extends BaseModelImpl<Contact>
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
         _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
         if (!_setOriginalClassNameId) {
             _setOriginalClassNameId = true;
 
             _originalClassNameId = _classNameId;
+        }
+
+        if (classNameId == null) {
+            classNameId = new Long(0);
         }
 
         _classNameId = classNameId;
@@ -645,13 +661,17 @@ public class ContactModelImpl extends BaseModelImpl<Contact>
     }
 
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(Long classPK) {
         _columnBitmask |= CLASSPK_COLUMN_BITMASK;
 
         if (!_setOriginalClassPK) {
             _setOriginalClassPK = true;
 
             _originalClassPK = _classPK;
+        }
+
+        if (classPK == null) {
+            classPK = new Long(0);
         }
 
         _classPK = classPK;
@@ -668,13 +688,17 @@ public class ContactModelImpl extends BaseModelImpl<Contact>
     }
 
     @Override
-    public void setAccountId(long accountId) {
+    public void setAccountId(Long accountId) {
         _columnBitmask |= ACCOUNTID_COLUMN_BITMASK;
 
         if (!_setOriginalAccountId) {
             _setOriginalAccountId = true;
 
             _originalAccountId = _accountId;
+        }
+
+        if (accountId == null) {
+            accountId = new Long(0);
         }
 
         _accountId = accountId;
@@ -691,7 +715,11 @@ public class ContactModelImpl extends BaseModelImpl<Contact>
     }
 
     @Override
-    public void setParentContactId(long parentContactId) {
+    public void setParentContactId(Long parentContactId) {
+        if (parentContactId == null) {
+            parentContactId = new Long(0);
+        }
+
         _parentContactId = parentContactId;
     }
 
@@ -762,7 +790,11 @@ public class ContactModelImpl extends BaseModelImpl<Contact>
     }
 
     @Override
-    public void setPrefixId(int prefixId) {
+    public void setPrefixId(Integer prefixId) {
+        if (prefixId == null) {
+            prefixId = new Integer(0);
+        }
+
         _prefixId = prefixId;
     }
 
@@ -773,7 +805,11 @@ public class ContactModelImpl extends BaseModelImpl<Contact>
     }
 
     @Override
-    public void setSuffixId(int suffixId) {
+    public void setSuffixId(Integer suffixId) {
+        if (suffixId == null) {
+            suffixId = new Integer(0);
+        }
+
         _suffixId = suffixId;
     }
 
@@ -789,7 +825,11 @@ public class ContactModelImpl extends BaseModelImpl<Contact>
     }
 
     @Override
-    public void setMale(boolean male) {
+    public void setMale(Boolean male) {
+        if (male == null) {
+            male = Boolean.FALSE;
+        }
+
         _male = male;
     }
 

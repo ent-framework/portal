@@ -73,7 +73,7 @@ public interface CounterModel extends BaseModel<Counter> {
      *
      * @param currentId the current ID of this counter
      */
-    public void setCurrentId(long currentId);
+    public void setCurrentId(Long currentId);
 
     @Override
     public boolean isNew();

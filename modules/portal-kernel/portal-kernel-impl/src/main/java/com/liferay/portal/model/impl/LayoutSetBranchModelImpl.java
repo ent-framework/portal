@@ -391,7 +391,11 @@ public class LayoutSetBranchModelImpl extends BaseModelImpl<LayoutSetBranch>
     }
 
     @Override
-    public void setLayoutSetBranchId(long layoutSetBranchId) {
+    public void setLayoutSetBranchId(Long layoutSetBranchId) {
+        if (layoutSetBranchId == null) {
+            layoutSetBranchId = new Long(0);
+        }
+
         _layoutSetBranchId = layoutSetBranchId;
     }
 
@@ -402,13 +406,17 @@ public class LayoutSetBranchModelImpl extends BaseModelImpl<LayoutSetBranch>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -425,7 +433,11 @@ public class LayoutSetBranchModelImpl extends BaseModelImpl<LayoutSetBranch>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -436,7 +448,11 @@ public class LayoutSetBranchModelImpl extends BaseModelImpl<LayoutSetBranch>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -499,13 +515,17 @@ public class LayoutSetBranchModelImpl extends BaseModelImpl<LayoutSetBranch>
     }
 
     @Override
-    public void setPrivateLayout(boolean privateLayout) {
+    public void setPrivateLayout(Boolean privateLayout) {
         _columnBitmask |= PRIVATELAYOUT_COLUMN_BITMASK;
 
         if (!_setOriginalPrivateLayout) {
             _setOriginalPrivateLayout = true;
 
             _originalPrivateLayout = _privateLayout;
+        }
+
+        if (privateLayout == null) {
+            privateLayout = Boolean.FALSE;
         }
 
         _privateLayout = privateLayout;
@@ -567,13 +587,17 @@ public class LayoutSetBranchModelImpl extends BaseModelImpl<LayoutSetBranch>
     }
 
     @Override
-    public void setMaster(boolean master) {
+    public void setMaster(Boolean master) {
         _columnBitmask |= MASTER_COLUMN_BITMASK;
 
         if (!_setOriginalMaster) {
             _setOriginalMaster = true;
 
             _originalMaster = _master;
+        }
+
+        if (master == null) {
+            master = Boolean.FALSE;
         }
 
         _master = master;
@@ -595,7 +619,11 @@ public class LayoutSetBranchModelImpl extends BaseModelImpl<LayoutSetBranch>
     }
 
     @Override
-    public void setLogo(boolean logo) {
+    public void setLogo(Boolean logo) {
+        if (logo == null) {
+            logo = Boolean.FALSE;
+        }
+
         _logo = logo;
     }
 
@@ -606,7 +634,11 @@ public class LayoutSetBranchModelImpl extends BaseModelImpl<LayoutSetBranch>
     }
 
     @Override
-    public void setLogoId(long logoId) {
+    public void setLogoId(Long logoId) {
+        if (logoId == null) {
+            logoId = new Long(0);
+        }
+
         _logoId = logoId;
     }
 
@@ -728,7 +760,11 @@ public class LayoutSetBranchModelImpl extends BaseModelImpl<LayoutSetBranch>
 
     @Override
     public void setLayoutSetPrototypeLinkEnabled(
-        boolean layoutSetPrototypeLinkEnabled) {
+        Boolean layoutSetPrototypeLinkEnabled) {
+        if (layoutSetPrototypeLinkEnabled == null) {
+            layoutSetPrototypeLinkEnabled = Boolean.FALSE;
+        }
+
         _layoutSetPrototypeLinkEnabled = layoutSetPrototypeLinkEnabled;
     }
 

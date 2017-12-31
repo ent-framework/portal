@@ -493,7 +493,7 @@ public class LiferayFileEntry extends LiferayModel implements FileEntry {
 	}
 
 	@Override
-	public void setCompanyId(long companyId) {
+	public void setCompanyId(Long companyId) {
 		_dlFileEntry.setCompanyId(companyId);
 	}
 
@@ -503,7 +503,7 @@ public class LiferayFileEntry extends LiferayModel implements FileEntry {
 	}
 
 	@Override
-	public void setGroupId(long groupId) {
+	public void setGroupId(Long groupId) {
 		_dlFileEntry.setGroupId(groupId);
 	}
 
@@ -522,7 +522,7 @@ public class LiferayFileEntry extends LiferayModel implements FileEntry {
 	}
 
 	@Override
-	public void setUserId(long userId) {
+	public void setUserId(Long userId) {
 		_dlFileEntry.setUserId(userId);
 	}
 

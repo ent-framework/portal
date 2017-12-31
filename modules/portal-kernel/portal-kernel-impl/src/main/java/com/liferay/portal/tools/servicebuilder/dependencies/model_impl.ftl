@@ -528,7 +528,7 @@ public class ${entity.name}ModelImpl extends BaseModelImpl<${entity.name}> imple
 		</#if>
 
 		@Override
-		public void set${column.methodName}(${column.type} ${column.name}) {
+		public void set${column.methodName}(${column.objType} ${column.name}) {
 			<#if column.name == "uuid">
 				<#if column.isFinderPath()>
 					if (_originalUuid == null) {
@@ -566,6 +566,7 @@ public class ${entity.name}ModelImpl extends BaseModelImpl<${entity.name}> imple
 						_${column.name}BlobModel.set${column.methodName}Blob(${column.name});
 					}
 				<#else>
+					${column.defaultValue}
 					_${column.name} = ${column.name};
 				</#if>
 			</#if>

@@ -5039,7 +5039,7 @@ public class JournalArticleLocalServiceImpl
 			}
 		}
 		else {
-			article.setSmallImageId(0);
+			article.setSmallImageId(0l);
 		}
 
 		article.setSmallImageURL(smallImageURL);

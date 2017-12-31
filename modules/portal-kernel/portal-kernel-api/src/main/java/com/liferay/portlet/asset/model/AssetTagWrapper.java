@@ -146,7 +146,7 @@ public class AssetTagWrapper implements AssetTag, ModelWrapper<AssetTag> {
     * @param tagId the tag ID of this asset tag
     */
     @Override
-    public void setTagId(long tagId) {
+    public void setTagId(java.lang.Long tagId) {
         _assetTag.setTagId(tagId);
     }
 
@@ -166,7 +166,7 @@ public class AssetTagWrapper implements AssetTag, ModelWrapper<AssetTag> {
     * @param groupId the group ID of this asset tag
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _assetTag.setGroupId(groupId);
     }
 
@@ -186,7 +186,7 @@ public class AssetTagWrapper implements AssetTag, ModelWrapper<AssetTag> {
     * @param companyId the company ID of this asset tag
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _assetTag.setCompanyId(companyId);
     }
 
@@ -206,7 +206,7 @@ public class AssetTagWrapper implements AssetTag, ModelWrapper<AssetTag> {
     * @param userId the user ID of this asset tag
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _assetTag.setUserId(userId);
     }
 
@@ -328,7 +328,7 @@ public class AssetTagWrapper implements AssetTag, ModelWrapper<AssetTag> {
     * @param assetCount the asset count of this asset tag
     */
     @Override
-    public void setAssetCount(int assetCount) {
+    public void setAssetCount(java.lang.Integer assetCount) {
         _assetTag.setAssetCount(assetCount);
     }
 

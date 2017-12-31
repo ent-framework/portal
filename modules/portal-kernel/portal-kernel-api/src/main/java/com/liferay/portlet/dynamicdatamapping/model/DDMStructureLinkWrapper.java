@@ -111,7 +111,7 @@ public class DDMStructureLinkWrapper implements DDMStructureLink,
     * @param structureLinkId the structure link ID of this d d m structure link
     */
     @Override
-    public void setStructureLinkId(long structureLinkId) {
+    public void setStructureLinkId(java.lang.Long structureLinkId) {
         _ddmStructureLink.setStructureLinkId(structureLinkId);
     }
 
@@ -146,7 +146,7 @@ public class DDMStructureLinkWrapper implements DDMStructureLink,
     * @param classNameId the class name ID of this d d m structure link
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _ddmStructureLink.setClassNameId(classNameId);
     }
 
@@ -166,7 +166,7 @@ public class DDMStructureLinkWrapper implements DDMStructureLink,
     * @param classPK the class p k of this d d m structure link
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _ddmStructureLink.setClassPK(classPK);
     }
 
@@ -186,7 +186,7 @@ public class DDMStructureLinkWrapper implements DDMStructureLink,
     * @param structureId the structure ID of this d d m structure link
     */
     @Override
-    public void setStructureId(long structureId) {
+    public void setStructureId(java.lang.Long structureId) {
         _ddmStructureLink.setStructureId(structureId);
     }
 

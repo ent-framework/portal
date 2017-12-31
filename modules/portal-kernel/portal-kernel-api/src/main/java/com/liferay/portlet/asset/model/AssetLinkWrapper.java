@@ -146,7 +146,7 @@ public class AssetLinkWrapper implements AssetLink, ModelWrapper<AssetLink> {
     * @param linkId the link ID of this asset link
     */
     @Override
-    public void setLinkId(long linkId) {
+    public void setLinkId(java.lang.Long linkId) {
         _assetLink.setLinkId(linkId);
     }
 
@@ -166,7 +166,7 @@ public class AssetLinkWrapper implements AssetLink, ModelWrapper<AssetLink> {
     * @param companyId the company ID of this asset link
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _assetLink.setCompanyId(companyId);
     }
 
@@ -186,7 +186,7 @@ public class AssetLinkWrapper implements AssetLink, ModelWrapper<AssetLink> {
     * @param userId the user ID of this asset link
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _assetLink.setUserId(userId);
     }
 
@@ -268,7 +268,7 @@ public class AssetLinkWrapper implements AssetLink, ModelWrapper<AssetLink> {
     * @param entryId1 the entry id1 of this asset link
     */
     @Override
-    public void setEntryId1(long entryId1) {
+    public void setEntryId1(java.lang.Long entryId1) {
         _assetLink.setEntryId1(entryId1);
     }
 
@@ -288,7 +288,7 @@ public class AssetLinkWrapper implements AssetLink, ModelWrapper<AssetLink> {
     * @param entryId2 the entry id2 of this asset link
     */
     @Override
-    public void setEntryId2(long entryId2) {
+    public void setEntryId2(java.lang.Long entryId2) {
         _assetLink.setEntryId2(entryId2);
     }
 
@@ -308,7 +308,7 @@ public class AssetLinkWrapper implements AssetLink, ModelWrapper<AssetLink> {
     * @param type the type of this asset link
     */
     @Override
-    public void setType(int type) {
+    public void setType(java.lang.Integer type) {
         _assetLink.setType(type);
     }
 
@@ -328,7 +328,7 @@ public class AssetLinkWrapper implements AssetLink, ModelWrapper<AssetLink> {
     * @param weight the weight of this asset link
     */
     @Override
-    public void setWeight(int weight) {
+    public void setWeight(java.lang.Integer weight) {
         _assetLink.setWeight(weight);
     }
 

@@ -81,7 +81,7 @@ public interface MDRRuleGroupInstanceModel extends AttachedModel,
      *
      * @param ruleGroupInstanceId the rule group instance ID of this m d r rule group instance
      */
-    public void setRuleGroupInstanceId(long ruleGroupInstanceId);
+    public void setRuleGroupInstanceId(Long ruleGroupInstanceId);
 
     /**
      * Returns the group ID of this m d r rule group instance.
@@ -97,7 +97,7 @@ public interface MDRRuleGroupInstanceModel extends AttachedModel,
      * @param groupId the group ID of this m d r rule group instance
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this m d r rule group instance.
@@ -113,7 +113,7 @@ public interface MDRRuleGroupInstanceModel extends AttachedModel,
      * @param companyId the company ID of this m d r rule group instance
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this m d r rule group instance.
@@ -129,7 +129,7 @@ public interface MDRRuleGroupInstanceModel extends AttachedModel,
      * @param userId the user ID of this m d r rule group instance
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this m d r rule group instance.
@@ -221,7 +221,7 @@ public interface MDRRuleGroupInstanceModel extends AttachedModel,
      * @param classNameId the class name ID of this m d r rule group instance
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this m d r rule group instance.
@@ -237,7 +237,7 @@ public interface MDRRuleGroupInstanceModel extends AttachedModel,
      * @param classPK the class p k of this m d r rule group instance
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the rule group ID of this m d r rule group instance.
@@ -251,7 +251,7 @@ public interface MDRRuleGroupInstanceModel extends AttachedModel,
      *
      * @param ruleGroupId the rule group ID of this m d r rule group instance
      */
-    public void setRuleGroupId(long ruleGroupId);
+    public void setRuleGroupId(Long ruleGroupId);
 
     /**
      * Returns the priority of this m d r rule group instance.
@@ -265,7 +265,7 @@ public interface MDRRuleGroupInstanceModel extends AttachedModel,
      *
      * @param priority the priority of this m d r rule group instance
      */
-    public void setPriority(int priority);
+    public void setPriority(Integer priority);
 
     @Override
     public boolean isNew();

@@ -292,7 +292,11 @@ public class TrashEntryModelImpl extends BaseModelImpl<TrashEntry>
     }
 
     @Override
-    public void setEntryId(long entryId) {
+    public void setEntryId(Long entryId) {
+        if (entryId == null) {
+            entryId = new Long(0);
+        }
+
         _entryId = entryId;
     }
 
@@ -303,13 +307,17 @@ public class TrashEntryModelImpl extends BaseModelImpl<TrashEntry>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -326,13 +334,17 @@ public class TrashEntryModelImpl extends BaseModelImpl<TrashEntry>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -349,7 +361,11 @@ public class TrashEntryModelImpl extends BaseModelImpl<TrashEntry>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -426,13 +442,17 @@ public class TrashEntryModelImpl extends BaseModelImpl<TrashEntry>
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
         _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
         if (!_setOriginalClassNameId) {
             _setOriginalClassNameId = true;
 
             _originalClassNameId = _classNameId;
+        }
+
+        if (classNameId == null) {
+            classNameId = new Long(0);
         }
 
         _classNameId = classNameId;
@@ -449,13 +469,17 @@ public class TrashEntryModelImpl extends BaseModelImpl<TrashEntry>
     }
 
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(Long classPK) {
         _columnBitmask |= CLASSPK_COLUMN_BITMASK;
 
         if (!_setOriginalClassPK) {
             _setOriginalClassPK = true;
 
             _originalClassPK = _classPK;
+        }
+
+        if (classPK == null) {
+            classPK = new Long(0);
         }
 
         _classPK = classPK;
@@ -472,7 +496,11 @@ public class TrashEntryModelImpl extends BaseModelImpl<TrashEntry>
     }
 
     @Override
-    public void setSystemEventSetKey(long systemEventSetKey) {
+    public void setSystemEventSetKey(Long systemEventSetKey) {
+        if (systemEventSetKey == null) {
+            systemEventSetKey = new Long(0);
+        }
+
         _systemEventSetKey = systemEventSetKey;
     }
 
@@ -498,7 +526,11 @@ public class TrashEntryModelImpl extends BaseModelImpl<TrashEntry>
     }
 
     @Override
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
+        if (status == null) {
+            status = new Integer(0);
+        }
+
         _status = status;
     }
 

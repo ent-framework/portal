@@ -462,13 +462,17 @@ public class DLFolderModelImpl extends BaseModelImpl<DLFolder>
     }
 
     @Override
-    public void setFolderId(long folderId) {
+    public void setFolderId(Long folderId) {
         _columnBitmask |= FOLDERID_COLUMN_BITMASK;
 
         if (!_setOriginalFolderId) {
             _setOriginalFolderId = true;
 
             _originalFolderId = _folderId;
+        }
+
+        if (folderId == null) {
+            folderId = new Long(0);
         }
 
         _folderId = folderId;
@@ -485,13 +489,17 @@ public class DLFolderModelImpl extends BaseModelImpl<DLFolder>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -508,13 +516,17 @@ public class DLFolderModelImpl extends BaseModelImpl<DLFolder>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -531,7 +543,11 @@ public class DLFolderModelImpl extends BaseModelImpl<DLFolder>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -589,13 +605,17 @@ public class DLFolderModelImpl extends BaseModelImpl<DLFolder>
     }
 
     @Override
-    public void setRepositoryId(long repositoryId) {
+    public void setRepositoryId(Long repositoryId) {
         _columnBitmask |= REPOSITORYID_COLUMN_BITMASK;
 
         if (!_setOriginalRepositoryId) {
             _setOriginalRepositoryId = true;
 
             _originalRepositoryId = _repositoryId;
+        }
+
+        if (repositoryId == null) {
+            repositoryId = new Long(0);
         }
 
         _repositoryId = repositoryId;
@@ -617,13 +637,17 @@ public class DLFolderModelImpl extends BaseModelImpl<DLFolder>
     }
 
     @Override
-    public void setMountPoint(boolean mountPoint) {
+    public void setMountPoint(Boolean mountPoint) {
         _columnBitmask |= MOUNTPOINT_COLUMN_BITMASK;
 
         if (!_setOriginalMountPoint) {
             _setOriginalMountPoint = true;
 
             _originalMountPoint = _mountPoint;
+        }
+
+        if (mountPoint == null) {
+            mountPoint = Boolean.FALSE;
         }
 
         _mountPoint = mountPoint;
@@ -640,13 +664,17 @@ public class DLFolderModelImpl extends BaseModelImpl<DLFolder>
     }
 
     @Override
-    public void setParentFolderId(long parentFolderId) {
+    public void setParentFolderId(Long parentFolderId) {
         _columnBitmask = -1L;
 
         if (!_setOriginalParentFolderId) {
             _setOriginalParentFolderId = true;
 
             _originalParentFolderId = _parentFolderId;
+        }
+
+        if (parentFolderId == null) {
+            parentFolderId = new Long(0);
         }
 
         _parentFolderId = parentFolderId;
@@ -729,7 +757,11 @@ public class DLFolderModelImpl extends BaseModelImpl<DLFolder>
     }
 
     @Override
-    public void setDefaultFileEntryTypeId(long defaultFileEntryTypeId) {
+    public void setDefaultFileEntryTypeId(Long defaultFileEntryTypeId) {
+        if (defaultFileEntryTypeId == null) {
+            defaultFileEntryTypeId = new Long(0);
+        }
+
         _defaultFileEntryTypeId = defaultFileEntryTypeId;
     }
 
@@ -745,13 +777,17 @@ public class DLFolderModelImpl extends BaseModelImpl<DLFolder>
     }
 
     @Override
-    public void setHidden(boolean hidden) {
+    public void setHidden(Boolean hidden) {
         _columnBitmask |= HIDDEN_COLUMN_BITMASK;
 
         if (!_setOriginalHidden) {
             _setOriginalHidden = true;
 
             _originalHidden = _hidden;
+        }
+
+        if (hidden == null) {
+            hidden = Boolean.FALSE;
         }
 
         _hidden = hidden;
@@ -773,7 +809,11 @@ public class DLFolderModelImpl extends BaseModelImpl<DLFolder>
     }
 
     @Override
-    public void setOverrideFileEntryTypes(boolean overrideFileEntryTypes) {
+    public void setOverrideFileEntryTypes(Boolean overrideFileEntryTypes) {
+        if (overrideFileEntryTypes == null) {
+            overrideFileEntryTypes = Boolean.FALSE;
+        }
+
         _overrideFileEntryTypes = overrideFileEntryTypes;
     }
 
@@ -784,13 +824,17 @@ public class DLFolderModelImpl extends BaseModelImpl<DLFolder>
     }
 
     @Override
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         _columnBitmask |= STATUS_COLUMN_BITMASK;
 
         if (!_setOriginalStatus) {
             _setOriginalStatus = true;
 
             _originalStatus = _status;
+        }
+
+        if (status == null) {
+            status = new Integer(0);
         }
 
         _status = status;
@@ -807,7 +851,11 @@ public class DLFolderModelImpl extends BaseModelImpl<DLFolder>
     }
 
     @Override
-    public void setStatusByUserId(long statusByUserId) {
+    public void setStatusByUserId(Long statusByUserId) {
+        if (statusByUserId == null) {
+            statusByUserId = new Long(0);
+        }
+
         _statusByUserId = statusByUserId;
     }
 

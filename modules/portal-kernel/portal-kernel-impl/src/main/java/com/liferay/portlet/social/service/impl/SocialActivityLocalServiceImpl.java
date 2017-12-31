@@ -125,7 +125,7 @@ public class SocialActivityLocalServiceImpl
 		activity.setCompanyId(user.getCompanyId());
 		activity.setUserId(user.getUserId());
 		activity.setCreateDate(createDate.getTime());
-		activity.setMirrorActivityId(0);
+		activity.setMirrorActivityId(0l);
 		activity.setClassNameId(classNameId);
 		activity.setClassPK(classPK);
 

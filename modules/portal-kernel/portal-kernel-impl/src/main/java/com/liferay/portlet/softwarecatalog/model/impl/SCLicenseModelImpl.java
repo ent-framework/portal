@@ -241,7 +241,11 @@ public class SCLicenseModelImpl extends BaseModelImpl<SCLicense>
     }
 
     @Override
-    public void setLicenseId(long licenseId) {
+    public void setLicenseId(Long licenseId) {
+        if (licenseId == null) {
+            licenseId = new Long(0);
+        }
+
         _licenseId = licenseId;
     }
 
@@ -289,7 +293,11 @@ public class SCLicenseModelImpl extends BaseModelImpl<SCLicense>
     }
 
     @Override
-    public void setOpenSource(boolean openSource) {
+    public void setOpenSource(Boolean openSource) {
+        if (openSource == null) {
+            openSource = Boolean.FALSE;
+        }
+
         _openSource = openSource;
     }
 
@@ -305,13 +313,17 @@ public class SCLicenseModelImpl extends BaseModelImpl<SCLicense>
     }
 
     @Override
-    public void setActive(boolean active) {
+    public void setActive(Boolean active) {
         _columnBitmask |= ACTIVE_COLUMN_BITMASK;
 
         if (!_setOriginalActive) {
             _setOriginalActive = true;
 
             _originalActive = _active;
+        }
+
+        if (active == null) {
+            active = Boolean.FALSE;
         }
 
         _active = active;
@@ -333,13 +345,17 @@ public class SCLicenseModelImpl extends BaseModelImpl<SCLicense>
     }
 
     @Override
-    public void setRecommended(boolean recommended) {
+    public void setRecommended(Boolean recommended) {
         _columnBitmask |= RECOMMENDED_COLUMN_BITMASK;
 
         if (!_setOriginalRecommended) {
             _setOriginalRecommended = true;
 
             _originalRecommended = _recommended;
+        }
+
+        if (recommended == null) {
+            recommended = Boolean.FALSE;
         }
 
         _recommended = recommended;

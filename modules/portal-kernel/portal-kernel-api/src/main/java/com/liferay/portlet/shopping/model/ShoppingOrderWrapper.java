@@ -444,7 +444,7 @@ public class ShoppingOrderWrapper implements ShoppingOrder,
     * @param orderId the order ID of this shopping order
     */
     @Override
-    public void setOrderId(long orderId) {
+    public void setOrderId(java.lang.Long orderId) {
         _shoppingOrder.setOrderId(orderId);
     }
 
@@ -464,7 +464,7 @@ public class ShoppingOrderWrapper implements ShoppingOrder,
     * @param groupId the group ID of this shopping order
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _shoppingOrder.setGroupId(groupId);
     }
 
@@ -484,7 +484,7 @@ public class ShoppingOrderWrapper implements ShoppingOrder,
     * @param companyId the company ID of this shopping order
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _shoppingOrder.setCompanyId(companyId);
     }
 
@@ -504,7 +504,7 @@ public class ShoppingOrderWrapper implements ShoppingOrder,
     * @param userId the user ID of this shopping order
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _shoppingOrder.setUserId(userId);
     }
 
@@ -696,7 +696,7 @@ public class ShoppingOrderWrapper implements ShoppingOrder,
     * @param requiresShipping the requires shipping of this shopping order
     */
     @Override
-    public void setRequiresShipping(boolean requiresShipping) {
+    public void setRequiresShipping(java.lang.Boolean requiresShipping) {
         _shoppingOrder.setRequiresShipping(requiresShipping);
     }
 
@@ -726,7 +726,7 @@ public class ShoppingOrderWrapper implements ShoppingOrder,
     * @param insure the insure of this shopping order
     */
     @Override
-    public void setInsure(boolean insure) {
+    public void setInsure(java.lang.Boolean insure) {
         _shoppingOrder.setInsure(insure);
     }
 
@@ -1016,7 +1016,7 @@ public class ShoppingOrderWrapper implements ShoppingOrder,
     * @param shipToBilling the ship to billing of this shopping order
     */
     @Override
-    public void setShipToBilling(boolean shipToBilling) {
+    public void setShipToBilling(java.lang.Boolean shipToBilling) {
         _shoppingOrder.setShipToBilling(shipToBilling);
     }
 
@@ -1296,7 +1296,7 @@ public class ShoppingOrderWrapper implements ShoppingOrder,
     * @param ccExpMonth the cc exp month of this shopping order
     */
     @Override
-    public void setCcExpMonth(int ccExpMonth) {
+    public void setCcExpMonth(java.lang.Integer ccExpMonth) {
         _shoppingOrder.setCcExpMonth(ccExpMonth);
     }
 
@@ -1316,7 +1316,7 @@ public class ShoppingOrderWrapper implements ShoppingOrder,
     * @param ccExpYear the cc exp year of this shopping order
     */
     @Override
-    public void setCcExpYear(int ccExpYear) {
+    public void setCcExpYear(java.lang.Integer ccExpYear) {
         _shoppingOrder.setCcExpYear(ccExpYear);
     }
 
@@ -1486,7 +1486,7 @@ public class ShoppingOrderWrapper implements ShoppingOrder,
     * @param sendOrderEmail the send order email of this shopping order
     */
     @Override
-    public void setSendOrderEmail(boolean sendOrderEmail) {
+    public void setSendOrderEmail(java.lang.Boolean sendOrderEmail) {
         _shoppingOrder.setSendOrderEmail(sendOrderEmail);
     }
 
@@ -1516,7 +1516,7 @@ public class ShoppingOrderWrapper implements ShoppingOrder,
     * @param sendShippingEmail the send shipping email of this shopping order
     */
     @Override
-    public void setSendShippingEmail(boolean sendShippingEmail) {
+    public void setSendShippingEmail(java.lang.Boolean sendShippingEmail) {
         _shoppingOrder.setSendShippingEmail(sendShippingEmail);
     }
 

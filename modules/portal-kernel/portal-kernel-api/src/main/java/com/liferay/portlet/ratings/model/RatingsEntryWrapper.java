@@ -147,7 +147,7 @@ public class RatingsEntryWrapper implements RatingsEntry,
     * @param entryId the entry ID of this ratings entry
     */
     @Override
-    public void setEntryId(long entryId) {
+    public void setEntryId(java.lang.Long entryId) {
         _ratingsEntry.setEntryId(entryId);
     }
 
@@ -167,7 +167,7 @@ public class RatingsEntryWrapper implements RatingsEntry,
     * @param companyId the company ID of this ratings entry
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _ratingsEntry.setCompanyId(companyId);
     }
 
@@ -187,7 +187,7 @@ public class RatingsEntryWrapper implements RatingsEntry,
     * @param userId the user ID of this ratings entry
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _ratingsEntry.setUserId(userId);
     }
 
@@ -304,7 +304,7 @@ public class RatingsEntryWrapper implements RatingsEntry,
     * @param classNameId the class name ID of this ratings entry
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _ratingsEntry.setClassNameId(classNameId);
     }
 
@@ -324,7 +324,7 @@ public class RatingsEntryWrapper implements RatingsEntry,
     * @param classPK the class p k of this ratings entry
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _ratingsEntry.setClassPK(classPK);
     }
 

@@ -182,7 +182,7 @@ public class UserGroupWrapper implements UserGroup, ModelWrapper<UserGroup> {
     * @param userGroupId the user group ID of this user group
     */
     @Override
-    public void setUserGroupId(long userGroupId) {
+    public void setUserGroupId(java.lang.Long userGroupId) {
         _userGroup.setUserGroupId(userGroupId);
     }
 
@@ -202,7 +202,7 @@ public class UserGroupWrapper implements UserGroup, ModelWrapper<UserGroup> {
     * @param companyId the company ID of this user group
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _userGroup.setCompanyId(companyId);
     }
 
@@ -222,7 +222,7 @@ public class UserGroupWrapper implements UserGroup, ModelWrapper<UserGroup> {
     * @param userId the user ID of this user group
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _userGroup.setUserId(userId);
     }
 
@@ -324,7 +324,7 @@ public class UserGroupWrapper implements UserGroup, ModelWrapper<UserGroup> {
     * @param parentUserGroupId the parent user group ID of this user group
     */
     @Override
-    public void setParentUserGroupId(long parentUserGroupId) {
+    public void setParentUserGroupId(java.lang.Long parentUserGroupId) {
         _userGroup.setParentUserGroupId(parentUserGroupId);
     }
 
@@ -394,7 +394,7 @@ public class UserGroupWrapper implements UserGroup, ModelWrapper<UserGroup> {
     * @param addedByLDAPImport the added by l d a p import of this user group
     */
     @Override
-    public void setAddedByLDAPImport(boolean addedByLDAPImport) {
+    public void setAddedByLDAPImport(java.lang.Boolean addedByLDAPImport) {
         _userGroup.setAddedByLDAPImport(addedByLDAPImport);
     }
 

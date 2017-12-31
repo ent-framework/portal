@@ -80,7 +80,7 @@ public interface OrganizationModel extends BaseModel<Organization>,
      *
      * @param organizationId the organization ID of this organization
      */
-    public void setOrganizationId(long organizationId);
+    public void setOrganizationId(Long organizationId);
 
     /**
      * Returns the company ID of this organization.
@@ -96,7 +96,7 @@ public interface OrganizationModel extends BaseModel<Organization>,
      * @param companyId the company ID of this organization
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this organization.
@@ -112,7 +112,7 @@ public interface OrganizationModel extends BaseModel<Organization>,
      * @param userId the user ID of this organization
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this organization.
@@ -192,7 +192,7 @@ public interface OrganizationModel extends BaseModel<Organization>,
      *
      * @param parentOrganizationId the parent organization ID of this organization
      */
-    public void setParentOrganizationId(long parentOrganizationId);
+    public void setParentOrganizationId(Long parentOrganizationId);
 
     /**
      * Returns the tree path of this organization.
@@ -257,7 +257,7 @@ public interface OrganizationModel extends BaseModel<Organization>,
      *
      * @param recursable the recursable of this organization
      */
-    public void setRecursable(boolean recursable);
+    public void setRecursable(Boolean recursable);
 
     /**
      * Returns the region ID of this organization.
@@ -271,7 +271,7 @@ public interface OrganizationModel extends BaseModel<Organization>,
      *
      * @param regionId the region ID of this organization
      */
-    public void setRegionId(long regionId);
+    public void setRegionId(Long regionId);
 
     /**
      * Returns the country ID of this organization.
@@ -285,7 +285,7 @@ public interface OrganizationModel extends BaseModel<Organization>,
      *
      * @param countryId the country ID of this organization
      */
-    public void setCountryId(long countryId);
+    public void setCountryId(Long countryId);
 
     /**
      * Returns the status ID of this organization.
@@ -299,7 +299,7 @@ public interface OrganizationModel extends BaseModel<Organization>,
      *
      * @param statusId the status ID of this organization
      */
-    public void setStatusId(int statusId);
+    public void setStatusId(Integer statusId);
 
     /**
      * Returns the comments of this organization.

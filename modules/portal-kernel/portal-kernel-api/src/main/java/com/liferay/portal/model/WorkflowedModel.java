@@ -54,9 +54,9 @@ public interface WorkflowedModel {
 
 	public boolean isScheduled();
 
-	public void setStatus(int status);
+	public void setStatus(Integer status);
 
-	public void setStatusByUserId(long statusByUserId);
+	public void setStatusByUserId(Long statusByUserId);
 
 	public void setStatusByUserName(String statusByUserName);
 

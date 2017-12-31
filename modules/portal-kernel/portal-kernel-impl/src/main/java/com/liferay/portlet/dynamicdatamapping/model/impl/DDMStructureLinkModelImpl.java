@@ -167,7 +167,11 @@ public class DDMStructureLinkModelImpl extends BaseModelImpl<DDMStructureLink>
     }
 
     @Override
-    public void setStructureLinkId(long structureLinkId) {
+    public void setStructureLinkId(Long structureLinkId) {
+        if (structureLinkId == null) {
+            structureLinkId = new Long(0);
+        }
+
         _structureLinkId = structureLinkId;
     }
 
@@ -197,13 +201,17 @@ public class DDMStructureLinkModelImpl extends BaseModelImpl<DDMStructureLink>
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
         _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
         if (!_setOriginalClassNameId) {
             _setOriginalClassNameId = true;
 
             _originalClassNameId = _classNameId;
+        }
+
+        if (classNameId == null) {
+            classNameId = new Long(0);
         }
 
         _classNameId = classNameId;
@@ -219,13 +227,17 @@ public class DDMStructureLinkModelImpl extends BaseModelImpl<DDMStructureLink>
     }
 
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(Long classPK) {
         _columnBitmask |= CLASSPK_COLUMN_BITMASK;
 
         if (!_setOriginalClassPK) {
             _setOriginalClassPK = true;
 
             _originalClassPK = _classPK;
+        }
+
+        if (classPK == null) {
+            classPK = new Long(0);
         }
 
         _classPK = classPK;
@@ -241,13 +253,17 @@ public class DDMStructureLinkModelImpl extends BaseModelImpl<DDMStructureLink>
     }
 
     @Override
-    public void setStructureId(long structureId) {
+    public void setStructureId(Long structureId) {
         _columnBitmask |= STRUCTUREID_COLUMN_BITMASK;
 
         if (!_setOriginalStructureId) {
             _setOriginalStructureId = true;
 
             _originalStructureId = _structureId;
+        }
+
+        if (structureId == null) {
+            structureId = new Long(0);
         }
 
         _structureId = structureId;

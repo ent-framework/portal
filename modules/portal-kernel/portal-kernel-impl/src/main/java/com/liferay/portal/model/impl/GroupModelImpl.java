@@ -443,13 +443,17 @@ public class GroupModelImpl extends BaseModelImpl<Group> implements GroupModel {
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -466,13 +470,17 @@ public class GroupModelImpl extends BaseModelImpl<Group> implements GroupModel {
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -489,7 +497,11 @@ public class GroupModelImpl extends BaseModelImpl<Group> implements GroupModel {
     }
 
     @Override
-    public void setCreatorUserId(long creatorUserId) {
+    public void setCreatorUserId(Long creatorUserId) {
+        if (creatorUserId == null) {
+            creatorUserId = new Long(0);
+        }
+
         _creatorUserId = creatorUserId;
     }
 
@@ -531,13 +543,17 @@ public class GroupModelImpl extends BaseModelImpl<Group> implements GroupModel {
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
         _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
         if (!_setOriginalClassNameId) {
             _setOriginalClassNameId = true;
 
             _originalClassNameId = _classNameId;
+        }
+
+        if (classNameId == null) {
+            classNameId = new Long(0);
         }
 
         _classNameId = classNameId;
@@ -554,13 +570,17 @@ public class GroupModelImpl extends BaseModelImpl<Group> implements GroupModel {
     }
 
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(Long classPK) {
         _columnBitmask |= CLASSPK_COLUMN_BITMASK;
 
         if (!_setOriginalClassPK) {
             _setOriginalClassPK = true;
 
             _originalClassPK = _classPK;
+        }
+
+        if (classPK == null) {
+            classPK = new Long(0);
         }
 
         _classPK = classPK;
@@ -577,13 +597,17 @@ public class GroupModelImpl extends BaseModelImpl<Group> implements GroupModel {
     }
 
     @Override
-    public void setParentGroupId(long parentGroupId) {
+    public void setParentGroupId(Long parentGroupId) {
         _columnBitmask |= PARENTGROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalParentGroupId) {
             _setOriginalParentGroupId = true;
 
             _originalParentGroupId = _parentGroupId;
+        }
+
+        if (parentGroupId == null) {
+            parentGroupId = new Long(0);
         }
 
         _parentGroupId = parentGroupId;
@@ -600,13 +624,17 @@ public class GroupModelImpl extends BaseModelImpl<Group> implements GroupModel {
     }
 
     @Override
-    public void setLiveGroupId(long liveGroupId) {
+    public void setLiveGroupId(Long liveGroupId) {
         _columnBitmask |= LIVEGROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalLiveGroupId) {
             _setOriginalLiveGroupId = true;
 
             _originalLiveGroupId = _liveGroupId;
+        }
+
+        if (liveGroupId == null) {
+            liveGroupId = new Long(0);
         }
 
         _liveGroupId = liveGroupId;
@@ -678,13 +706,17 @@ public class GroupModelImpl extends BaseModelImpl<Group> implements GroupModel {
     }
 
     @Override
-    public void setType(int type) {
+    public void setType(Integer type) {
         _columnBitmask |= TYPE_COLUMN_BITMASK;
 
         if (!_setOriginalType) {
             _setOriginalType = true;
 
             _originalType = _type;
+        }
+
+        if (type == null) {
+            type = new Integer(0);
         }
 
         _type = type;
@@ -721,7 +753,11 @@ public class GroupModelImpl extends BaseModelImpl<Group> implements GroupModel {
     }
 
     @Override
-    public void setManualMembership(boolean manualMembership) {
+    public void setManualMembership(Boolean manualMembership) {
+        if (manualMembership == null) {
+            manualMembership = Boolean.FALSE;
+        }
+
         _manualMembership = manualMembership;
     }
 
@@ -732,7 +768,11 @@ public class GroupModelImpl extends BaseModelImpl<Group> implements GroupModel {
     }
 
     @Override
-    public void setMembershipRestriction(int membershipRestriction) {
+    public void setMembershipRestriction(Integer membershipRestriction) {
+        if (membershipRestriction == null) {
+            membershipRestriction = new Integer(0);
+        }
+
         _membershipRestriction = membershipRestriction;
     }
 
@@ -773,13 +813,17 @@ public class GroupModelImpl extends BaseModelImpl<Group> implements GroupModel {
     }
 
     @Override
-    public void setSite(boolean site) {
+    public void setSite(Boolean site) {
         _columnBitmask |= SITE_COLUMN_BITMASK;
 
         if (!_setOriginalSite) {
             _setOriginalSite = true;
 
             _originalSite = _site;
+        }
+
+        if (site == null) {
+            site = Boolean.FALSE;
         }
 
         _site = site;
@@ -796,7 +840,11 @@ public class GroupModelImpl extends BaseModelImpl<Group> implements GroupModel {
     }
 
     @Override
-    public void setRemoteStagingGroupCount(int remoteStagingGroupCount) {
+    public void setRemoteStagingGroupCount(Integer remoteStagingGroupCount) {
+        if (remoteStagingGroupCount == null) {
+            remoteStagingGroupCount = new Integer(0);
+        }
+
         _remoteStagingGroupCount = remoteStagingGroupCount;
     }
 
@@ -812,13 +860,17 @@ public class GroupModelImpl extends BaseModelImpl<Group> implements GroupModel {
     }
 
     @Override
-    public void setActive(boolean active) {
+    public void setActive(Boolean active) {
         _columnBitmask |= ACTIVE_COLUMN_BITMASK;
 
         if (!_setOriginalActive) {
             _setOriginalActive = true;
 
             _originalActive = _active;
+        }
+
+        if (active == null) {
+            active = Boolean.FALSE;
         }
 
         _active = active;

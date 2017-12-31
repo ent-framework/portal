@@ -203,7 +203,7 @@ public class DDLRecordSetWrapper implements DDLRecordSet,
     * @param recordSetId the record set ID of this d d l record set
     */
     @Override
-    public void setRecordSetId(long recordSetId) {
+    public void setRecordSetId(java.lang.Long recordSetId) {
         _ddlRecordSet.setRecordSetId(recordSetId);
     }
 
@@ -223,7 +223,7 @@ public class DDLRecordSetWrapper implements DDLRecordSet,
     * @param groupId the group ID of this d d l record set
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _ddlRecordSet.setGroupId(groupId);
     }
 
@@ -243,7 +243,7 @@ public class DDLRecordSetWrapper implements DDLRecordSet,
     * @param companyId the company ID of this d d l record set
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _ddlRecordSet.setCompanyId(companyId);
     }
 
@@ -263,7 +263,7 @@ public class DDLRecordSetWrapper implements DDLRecordSet,
     * @param userId the user ID of this d d l record set
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _ddlRecordSet.setUserId(userId);
     }
 
@@ -365,7 +365,7 @@ public class DDLRecordSetWrapper implements DDLRecordSet,
     * @param DDMStructureId the d d m structure ID of this d d l record set
     */
     @Override
-    public void setDDMStructureId(long DDMStructureId) {
+    public void setDDMStructureId(java.lang.Long DDMStructureId) {
         _ddlRecordSet.setDDMStructureId(DDMStructureId);
     }
 
@@ -687,7 +687,7 @@ public class DDLRecordSetWrapper implements DDLRecordSet,
     * @param minDisplayRows the min display rows of this d d l record set
     */
     @Override
-    public void setMinDisplayRows(int minDisplayRows) {
+    public void setMinDisplayRows(java.lang.Integer minDisplayRows) {
         _ddlRecordSet.setMinDisplayRows(minDisplayRows);
     }
 
@@ -707,7 +707,7 @@ public class DDLRecordSetWrapper implements DDLRecordSet,
     * @param scope the scope of this d d l record set
     */
     @Override
-    public void setScope(int scope) {
+    public void setScope(java.lang.Integer scope) {
         _ddlRecordSet.setScope(scope);
     }
 

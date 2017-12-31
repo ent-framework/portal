@@ -63,7 +63,7 @@ public interface AssetCategoryPropertyModel extends AuditedModel,
      *
      * @param categoryPropertyId the category property ID of this asset category property
      */
-    public void setCategoryPropertyId(long categoryPropertyId);
+    public void setCategoryPropertyId(Long categoryPropertyId);
 
     /**
      * Returns the company ID of this asset category property.
@@ -79,7 +79,7 @@ public interface AssetCategoryPropertyModel extends AuditedModel,
      * @param companyId the company ID of this asset category property
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this asset category property.
@@ -95,7 +95,7 @@ public interface AssetCategoryPropertyModel extends AuditedModel,
      * @param userId the user ID of this asset category property
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this asset category property.
@@ -175,7 +175,7 @@ public interface AssetCategoryPropertyModel extends AuditedModel,
      *
      * @param categoryId the category ID of this asset category property
      */
-    public void setCategoryId(long categoryId);
+    public void setCategoryId(Long categoryId);
 
     /**
      * Returns the key of this asset category property.

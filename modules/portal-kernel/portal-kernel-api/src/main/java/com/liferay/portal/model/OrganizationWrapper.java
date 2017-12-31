@@ -218,7 +218,7 @@ public class OrganizationWrapper implements Organization,
     * @param organizationId the organization ID of this organization
     */
     @Override
-    public void setOrganizationId(long organizationId) {
+    public void setOrganizationId(java.lang.Long organizationId) {
         _organization.setOrganizationId(organizationId);
     }
 
@@ -238,7 +238,7 @@ public class OrganizationWrapper implements Organization,
     * @param companyId the company ID of this organization
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _organization.setCompanyId(companyId);
     }
 
@@ -258,7 +258,7 @@ public class OrganizationWrapper implements Organization,
     * @param userId the user ID of this organization
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _organization.setUserId(userId);
     }
 
@@ -360,7 +360,7 @@ public class OrganizationWrapper implements Organization,
     * @param parentOrganizationId the parent organization ID of this organization
     */
     @Override
-    public void setParentOrganizationId(long parentOrganizationId) {
+    public void setParentOrganizationId(java.lang.Long parentOrganizationId) {
         _organization.setParentOrganizationId(parentOrganizationId);
     }
 
@@ -450,7 +450,7 @@ public class OrganizationWrapper implements Organization,
     * @param recursable the recursable of this organization
     */
     @Override
-    public void setRecursable(boolean recursable) {
+    public void setRecursable(java.lang.Boolean recursable) {
         _organization.setRecursable(recursable);
     }
 
@@ -470,7 +470,7 @@ public class OrganizationWrapper implements Organization,
     * @param regionId the region ID of this organization
     */
     @Override
-    public void setRegionId(long regionId) {
+    public void setRegionId(java.lang.Long regionId) {
         _organization.setRegionId(regionId);
     }
 
@@ -490,7 +490,7 @@ public class OrganizationWrapper implements Organization,
     * @param countryId the country ID of this organization
     */
     @Override
-    public void setCountryId(long countryId) {
+    public void setCountryId(java.lang.Long countryId) {
         _organization.setCountryId(countryId);
     }
 
@@ -510,7 +510,7 @@ public class OrganizationWrapper implements Organization,
     * @param statusId the status ID of this organization
     */
     @Override
-    public void setStatusId(int statusId) {
+    public void setStatusId(java.lang.Integer statusId) {
         _organization.setStatusId(statusId);
     }
 

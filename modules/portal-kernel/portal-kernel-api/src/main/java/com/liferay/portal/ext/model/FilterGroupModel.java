@@ -76,7 +76,7 @@ public interface FilterGroupModel extends BaseModel<FilterGroup> {
      *
      * @param filterGroupId the filter group ID of this filter group
      */
-    public void setFilterGroupId(long filterGroupId);
+    public void setFilterGroupId(Long filterGroupId);
 
     /**
      * Returns the user ID of this filter group.
@@ -90,7 +90,7 @@ public interface FilterGroupModel extends BaseModel<FilterGroup> {
      *
      * @param userId the user ID of this filter group
      */
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this filter group.
@@ -162,7 +162,7 @@ public interface FilterGroupModel extends BaseModel<FilterGroup> {
      *
      * @param groupId the group ID of this filter group
      */
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the filter scope ID of this filter group.
@@ -176,7 +176,7 @@ public interface FilterGroupModel extends BaseModel<FilterGroup> {
      *
      * @param filterScopeId the filter scope ID of this filter group
      */
-    public void setFilterScopeId(long filterScopeId);
+    public void setFilterScopeId(Long filterScopeId);
 
     @Override
     public boolean isNew();

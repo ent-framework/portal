@@ -125,7 +125,7 @@ public class TrashVersionWrapper implements TrashVersion,
     * @param versionId the version ID of this trash version
     */
     @Override
-    public void setVersionId(long versionId) {
+    public void setVersionId(java.lang.Long versionId) {
         _trashVersion.setVersionId(versionId);
     }
 
@@ -145,7 +145,7 @@ public class TrashVersionWrapper implements TrashVersion,
     * @param entryId the entry ID of this trash version
     */
     @Override
-    public void setEntryId(long entryId) {
+    public void setEntryId(java.lang.Long entryId) {
         _trashVersion.setEntryId(entryId);
     }
 
@@ -180,7 +180,7 @@ public class TrashVersionWrapper implements TrashVersion,
     * @param classNameId the class name ID of this trash version
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _trashVersion.setClassNameId(classNameId);
     }
 
@@ -200,7 +200,7 @@ public class TrashVersionWrapper implements TrashVersion,
     * @param classPK the class p k of this trash version
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _trashVersion.setClassPK(classPK);
     }
 
@@ -240,7 +240,7 @@ public class TrashVersionWrapper implements TrashVersion,
     * @param status the status of this trash version
     */
     @Override
-    public void setStatus(int status) {
+    public void setStatus(java.lang.Integer status) {
         _trashVersion.setStatus(status);
     }
 

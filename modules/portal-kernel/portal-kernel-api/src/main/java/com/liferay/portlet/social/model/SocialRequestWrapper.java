@@ -194,7 +194,7 @@ public class SocialRequestWrapper implements SocialRequest,
     * @param requestId the request ID of this social request
     */
     @Override
-    public void setRequestId(long requestId) {
+    public void setRequestId(java.lang.Long requestId) {
         _socialRequest.setRequestId(requestId);
     }
 
@@ -214,7 +214,7 @@ public class SocialRequestWrapper implements SocialRequest,
     * @param groupId the group ID of this social request
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _socialRequest.setGroupId(groupId);
     }
 
@@ -234,7 +234,7 @@ public class SocialRequestWrapper implements SocialRequest,
     * @param companyId the company ID of this social request
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _socialRequest.setCompanyId(companyId);
     }
 
@@ -254,7 +254,7 @@ public class SocialRequestWrapper implements SocialRequest,
     * @param userId the user ID of this social request
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _socialRequest.setUserId(userId);
     }
 
@@ -296,7 +296,7 @@ public class SocialRequestWrapper implements SocialRequest,
     * @param createDate the create date of this social request
     */
     @Override
-    public void setCreateDate(long createDate) {
+    public void setCreateDate(java.lang.Long createDate) {
         _socialRequest.setCreateDate(createDate);
     }
 
@@ -316,7 +316,7 @@ public class SocialRequestWrapper implements SocialRequest,
     * @param modifiedDate the modified date of this social request
     */
     @Override
-    public void setModifiedDate(long modifiedDate) {
+    public void setModifiedDate(java.lang.Long modifiedDate) {
         _socialRequest.setModifiedDate(modifiedDate);
     }
 
@@ -351,7 +351,7 @@ public class SocialRequestWrapper implements SocialRequest,
     * @param classNameId the class name ID of this social request
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _socialRequest.setClassNameId(classNameId);
     }
 
@@ -371,7 +371,7 @@ public class SocialRequestWrapper implements SocialRequest,
     * @param classPK the class p k of this social request
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _socialRequest.setClassPK(classPK);
     }
 
@@ -391,7 +391,7 @@ public class SocialRequestWrapper implements SocialRequest,
     * @param type the type of this social request
     */
     @Override
-    public void setType(int type) {
+    public void setType(java.lang.Integer type) {
         _socialRequest.setType(type);
     }
 
@@ -431,7 +431,7 @@ public class SocialRequestWrapper implements SocialRequest,
     * @param receiverUserId the receiver user ID of this social request
     */
     @Override
-    public void setReceiverUserId(long receiverUserId) {
+    public void setReceiverUserId(java.lang.Long receiverUserId) {
         _socialRequest.setReceiverUserId(receiverUserId);
     }
 
@@ -473,7 +473,7 @@ public class SocialRequestWrapper implements SocialRequest,
     * @param status the status of this social request
     */
     @Override
-    public void setStatus(int status) {
+    public void setStatus(java.lang.Integer status) {
         _socialRequest.setStatus(status);
     }
 

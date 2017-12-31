@@ -215,7 +215,11 @@ public class ShoppingOrderItemModelImpl extends BaseModelImpl<ShoppingOrderItem>
     }
 
     @Override
-    public void setOrderItemId(long orderItemId) {
+    public void setOrderItemId(Long orderItemId) {
+        if (orderItemId == null) {
+            orderItemId = new Long(0);
+        }
+
         _orderItemId = orderItemId;
     }
 
@@ -225,13 +229,17 @@ public class ShoppingOrderItemModelImpl extends BaseModelImpl<ShoppingOrderItem>
     }
 
     @Override
-    public void setOrderId(long orderId) {
+    public void setOrderId(Long orderId) {
         _columnBitmask |= ORDERID_COLUMN_BITMASK;
 
         if (!_setOriginalOrderId) {
             _setOriginalOrderId = true;
 
             _originalOrderId = _orderId;
+        }
+
+        if (orderId == null) {
+            orderId = new Long(0);
         }
 
         _orderId = orderId;
@@ -331,7 +339,11 @@ public class ShoppingOrderItemModelImpl extends BaseModelImpl<ShoppingOrderItem>
     }
 
     @Override
-    public void setQuantity(int quantity) {
+    public void setQuantity(Integer quantity) {
+        if (quantity == null) {
+            quantity = new Integer(0);
+        }
+
         _quantity = quantity;
     }
 

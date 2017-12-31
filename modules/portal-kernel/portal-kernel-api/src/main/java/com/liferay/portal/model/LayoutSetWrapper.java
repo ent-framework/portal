@@ -205,7 +205,7 @@ public class LayoutSetWrapper implements LayoutSet, ModelWrapper<LayoutSet> {
     * @param layoutSetId the layout set ID of this layout set
     */
     @Override
-    public void setLayoutSetId(long layoutSetId) {
+    public void setLayoutSetId(java.lang.Long layoutSetId) {
         _layoutSet.setLayoutSetId(layoutSetId);
     }
 
@@ -225,7 +225,7 @@ public class LayoutSetWrapper implements LayoutSet, ModelWrapper<LayoutSet> {
     * @param groupId the group ID of this layout set
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _layoutSet.setGroupId(groupId);
     }
 
@@ -245,7 +245,7 @@ public class LayoutSetWrapper implements LayoutSet, ModelWrapper<LayoutSet> {
     * @param companyId the company ID of this layout set
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _layoutSet.setCompanyId(companyId);
     }
 
@@ -315,7 +315,7 @@ public class LayoutSetWrapper implements LayoutSet, ModelWrapper<LayoutSet> {
     * @param privateLayout the private layout of this layout set
     */
     @Override
-    public void setPrivateLayout(boolean privateLayout) {
+    public void setPrivateLayout(java.lang.Boolean privateLayout) {
         _layoutSet.setPrivateLayout(privateLayout);
     }
 
@@ -345,7 +345,7 @@ public class LayoutSetWrapper implements LayoutSet, ModelWrapper<LayoutSet> {
     * @param logo the logo of this layout set
     */
     @Override
-    public void setLogo(boolean logo) {
+    public void setLogo(java.lang.Boolean logo) {
         _layoutSet.setLogo(logo);
     }
 
@@ -365,7 +365,7 @@ public class LayoutSetWrapper implements LayoutSet, ModelWrapper<LayoutSet> {
     * @param logoId the logo ID of this layout set
     */
     @Override
-    public void setLogoId(long logoId) {
+    public void setLogoId(java.lang.Long logoId) {
         _layoutSet.setLogoId(logoId);
     }
 
@@ -485,7 +485,7 @@ public class LayoutSetWrapper implements LayoutSet, ModelWrapper<LayoutSet> {
     * @param pageCount the page count of this layout set
     */
     @Override
-    public void setPageCount(int pageCount) {
+    public void setPageCount(java.lang.Integer pageCount) {
         _layoutSet.setPageCount(pageCount);
     }
 
@@ -557,7 +557,7 @@ public class LayoutSetWrapper implements LayoutSet, ModelWrapper<LayoutSet> {
     */
     @Override
     public void setLayoutSetPrototypeLinkEnabled(
-        boolean layoutSetPrototypeLinkEnabled) {
+        java.lang.Boolean layoutSetPrototypeLinkEnabled) {
         _layoutSet.setLayoutSetPrototypeLinkEnabled(layoutSetPrototypeLinkEnabled);
     }
 

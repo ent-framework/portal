@@ -336,7 +336,11 @@ public class BackgroundTaskModelImpl extends BaseModelImpl<BackgroundTask>
     }
 
     @Override
-    public void setBackgroundTaskId(long backgroundTaskId) {
+    public void setBackgroundTaskId(Long backgroundTaskId) {
+        if (backgroundTaskId == null) {
+            backgroundTaskId = new Long(0);
+        }
+
         _backgroundTaskId = backgroundTaskId;
     }
 
@@ -347,13 +351,17 @@ public class BackgroundTaskModelImpl extends BaseModelImpl<BackgroundTask>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -370,13 +378,17 @@ public class BackgroundTaskModelImpl extends BaseModelImpl<BackgroundTask>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -393,7 +405,11 @@ public class BackgroundTaskModelImpl extends BaseModelImpl<BackgroundTask>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -538,13 +554,17 @@ public class BackgroundTaskModelImpl extends BaseModelImpl<BackgroundTask>
     }
 
     @Override
-    public void setCompleted(boolean completed) {
+    public void setCompleted(Boolean completed) {
         _columnBitmask |= COMPLETED_COLUMN_BITMASK;
 
         if (!_setOriginalCompleted) {
             _setOriginalCompleted = true;
 
             _originalCompleted = _completed;
+        }
+
+        if (completed == null) {
+            completed = Boolean.FALSE;
         }
 
         _completed = completed;
@@ -572,13 +592,17 @@ public class BackgroundTaskModelImpl extends BaseModelImpl<BackgroundTask>
     }
 
     @Override
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         _columnBitmask |= STATUS_COLUMN_BITMASK;
 
         if (!_setOriginalStatus) {
             _setOriginalStatus = true;
 
             _originalStatus = _status;
+        }
+
+        if (status == null) {
+            status = new Integer(0);
         }
 
         _status = status;

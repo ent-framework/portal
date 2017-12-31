@@ -60,7 +60,7 @@ public interface LayoutSetModel extends BaseModel<LayoutSet> {
      *
      * @param layoutSetId the layout set ID of this layout set
      */
-    public void setLayoutSetId(long layoutSetId);
+    public void setLayoutSetId(Long layoutSetId);
 
     /**
      * Returns the group ID of this layout set.
@@ -74,7 +74,7 @@ public interface LayoutSetModel extends BaseModel<LayoutSet> {
      *
      * @param groupId the group ID of this layout set
      */
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this layout set.
@@ -88,7 +88,7 @@ public interface LayoutSetModel extends BaseModel<LayoutSet> {
      *
      * @param companyId the company ID of this layout set
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the create date of this layout set.
@@ -137,7 +137,7 @@ public interface LayoutSetModel extends BaseModel<LayoutSet> {
      *
      * @param privateLayout the private layout of this layout set
      */
-    public void setPrivateLayout(boolean privateLayout);
+    public void setPrivateLayout(Boolean privateLayout);
 
     /**
      * Returns the logo of this layout set.
@@ -158,7 +158,7 @@ public interface LayoutSetModel extends BaseModel<LayoutSet> {
      *
      * @param logo the logo of this layout set
      */
-    public void setLogo(boolean logo);
+    public void setLogo(Boolean logo);
 
     /**
      * Returns the logo ID of this layout set.
@@ -172,7 +172,7 @@ public interface LayoutSetModel extends BaseModel<LayoutSet> {
      *
      * @param logoId the logo ID of this layout set
      */
-    public void setLogoId(long logoId);
+    public void setLogoId(Long logoId);
 
     /**
      * Returns the theme ID of this layout set.
@@ -261,7 +261,7 @@ public interface LayoutSetModel extends BaseModel<LayoutSet> {
      *
      * @param pageCount the page count of this layout set
      */
-    public void setPageCount(int pageCount);
+    public void setPageCount(Integer pageCount);
 
     /**
      * Returns the settings of this layout set.
@@ -313,7 +313,7 @@ public interface LayoutSetModel extends BaseModel<LayoutSet> {
      * @param layoutSetPrototypeLinkEnabled the layout set prototype link enabled of this layout set
      */
     public void setLayoutSetPrototypeLinkEnabled(
-        boolean layoutSetPrototypeLinkEnabled);
+        Boolean layoutSetPrototypeLinkEnabled);
 
     @Override
     public boolean isNew();

@@ -147,7 +147,7 @@ public class SubscriptionWrapper implements Subscription,
     * @param subscriptionId the subscription ID of this subscription
     */
     @Override
-    public void setSubscriptionId(long subscriptionId) {
+    public void setSubscriptionId(java.lang.Long subscriptionId) {
         _subscription.setSubscriptionId(subscriptionId);
     }
 
@@ -167,7 +167,7 @@ public class SubscriptionWrapper implements Subscription,
     * @param companyId the company ID of this subscription
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _subscription.setCompanyId(companyId);
     }
 
@@ -187,7 +187,7 @@ public class SubscriptionWrapper implements Subscription,
     * @param userId the user ID of this subscription
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _subscription.setUserId(userId);
     }
 
@@ -304,7 +304,7 @@ public class SubscriptionWrapper implements Subscription,
     * @param classNameId the class name ID of this subscription
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _subscription.setClassNameId(classNameId);
     }
 
@@ -324,7 +324,7 @@ public class SubscriptionWrapper implements Subscription,
     * @param classPK the class p k of this subscription
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _subscription.setClassPK(classPK);
     }
 

@@ -275,7 +275,11 @@ public class ShoppingCategoryModelImpl extends BaseModelImpl<ShoppingCategory>
     }
 
     @Override
-    public void setCategoryId(long categoryId) {
+    public void setCategoryId(Long categoryId) {
+        if (categoryId == null) {
+            categoryId = new Long(0);
+        }
+
         _categoryId = categoryId;
     }
 
@@ -286,13 +290,17 @@ public class ShoppingCategoryModelImpl extends BaseModelImpl<ShoppingCategory>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -309,7 +317,11 @@ public class ShoppingCategoryModelImpl extends BaseModelImpl<ShoppingCategory>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -320,7 +332,11 @@ public class ShoppingCategoryModelImpl extends BaseModelImpl<ShoppingCategory>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -378,13 +394,17 @@ public class ShoppingCategoryModelImpl extends BaseModelImpl<ShoppingCategory>
     }
 
     @Override
-    public void setParentCategoryId(long parentCategoryId) {
+    public void setParentCategoryId(Long parentCategoryId) {
         _columnBitmask = -1L;
 
         if (!_setOriginalParentCategoryId) {
             _setOriginalParentCategoryId = true;
 
             _originalParentCategoryId = _parentCategoryId;
+        }
+
+        if (parentCategoryId == null) {
+            parentCategoryId = new Long(0);
         }
 
         _parentCategoryId = parentCategoryId;

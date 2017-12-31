@@ -834,7 +834,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 			user.setLdapServerId(ldapServerId);
 		}
 		else {
-			user.setLdapServerId(-1);
+			user.setLdapServerId(-1l);
 		}
 
 		user.setOpenId(openId);
@@ -1793,7 +1793,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		long portraitId = user.getPortraitId();
 
 		if (portraitId > 0) {
-			user.setPortraitId(0);
+			user.setPortraitId(0l);
 
 			userPersistence.update(user);
 

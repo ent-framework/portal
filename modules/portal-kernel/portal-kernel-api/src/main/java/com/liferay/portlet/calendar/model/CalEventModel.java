@@ -79,7 +79,7 @@ public interface CalEventModel extends BaseModel<CalEvent>, StagedGroupedModel {
      *
      * @param eventId the event ID of this cal event
      */
-    public void setEventId(long eventId);
+    public void setEventId(Long eventId);
 
     /**
      * Returns the group ID of this cal event.
@@ -95,7 +95,7 @@ public interface CalEventModel extends BaseModel<CalEvent>, StagedGroupedModel {
      * @param groupId the group ID of this cal event
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this cal event.
@@ -111,7 +111,7 @@ public interface CalEventModel extends BaseModel<CalEvent>, StagedGroupedModel {
      * @param companyId the company ID of this cal event
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this cal event.
@@ -127,7 +127,7 @@ public interface CalEventModel extends BaseModel<CalEvent>, StagedGroupedModel {
      * @param userId the user ID of this cal event
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this cal event.
@@ -280,7 +280,7 @@ public interface CalEventModel extends BaseModel<CalEvent>, StagedGroupedModel {
      *
      * @param durationHour the duration hour of this cal event
      */
-    public void setDurationHour(int durationHour);
+    public void setDurationHour(Integer durationHour);
 
     /**
      * Returns the duration minute of this cal event.
@@ -294,7 +294,7 @@ public interface CalEventModel extends BaseModel<CalEvent>, StagedGroupedModel {
      *
      * @param durationMinute the duration minute of this cal event
      */
-    public void setDurationMinute(int durationMinute);
+    public void setDurationMinute(Integer durationMinute);
 
     /**
      * Returns the all day of this cal event.
@@ -315,7 +315,7 @@ public interface CalEventModel extends BaseModel<CalEvent>, StagedGroupedModel {
      *
      * @param allDay the all day of this cal event
      */
-    public void setAllDay(boolean allDay);
+    public void setAllDay(Boolean allDay);
 
     /**
      * Returns the time zone sensitive of this cal event.
@@ -336,7 +336,7 @@ public interface CalEventModel extends BaseModel<CalEvent>, StagedGroupedModel {
      *
      * @param timeZoneSensitive the time zone sensitive of this cal event
      */
-    public void setTimeZoneSensitive(boolean timeZoneSensitive);
+    public void setTimeZoneSensitive(Boolean timeZoneSensitive);
 
     /**
      * Returns the type of this cal event.
@@ -372,7 +372,7 @@ public interface CalEventModel extends BaseModel<CalEvent>, StagedGroupedModel {
      *
      * @param repeating the repeating of this cal event
      */
-    public void setRepeating(boolean repeating);
+    public void setRepeating(Boolean repeating);
 
     /**
      * Returns the recurrence of this cal event.
@@ -400,7 +400,7 @@ public interface CalEventModel extends BaseModel<CalEvent>, StagedGroupedModel {
      *
      * @param remindBy the remind by of this cal event
      */
-    public void setRemindBy(int remindBy);
+    public void setRemindBy(Integer remindBy);
 
     /**
      * Returns the first reminder of this cal event.
@@ -414,7 +414,7 @@ public interface CalEventModel extends BaseModel<CalEvent>, StagedGroupedModel {
      *
      * @param firstReminder the first reminder of this cal event
      */
-    public void setFirstReminder(int firstReminder);
+    public void setFirstReminder(Integer firstReminder);
 
     /**
      * Returns the second reminder of this cal event.
@@ -428,7 +428,7 @@ public interface CalEventModel extends BaseModel<CalEvent>, StagedGroupedModel {
      *
      * @param secondReminder the second reminder of this cal event
      */
-    public void setSecondReminder(int secondReminder);
+    public void setSecondReminder(Integer secondReminder);
 
     @Override
     public boolean isNew();

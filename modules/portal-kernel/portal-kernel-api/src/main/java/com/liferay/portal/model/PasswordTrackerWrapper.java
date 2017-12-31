@@ -112,7 +112,7 @@ public class PasswordTrackerWrapper implements PasswordTracker,
     * @param passwordTrackerId the password tracker ID of this password tracker
     */
     @Override
-    public void setPasswordTrackerId(long passwordTrackerId) {
+    public void setPasswordTrackerId(java.lang.Long passwordTrackerId) {
         _passwordTracker.setPasswordTrackerId(passwordTrackerId);
     }
 
@@ -132,7 +132,7 @@ public class PasswordTrackerWrapper implements PasswordTracker,
     * @param userId the user ID of this password tracker
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _passwordTracker.setUserId(userId);
     }
 

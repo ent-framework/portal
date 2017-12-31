@@ -140,7 +140,7 @@ public class ResourcePermissionWrapper implements ResourcePermission,
     * @param resourcePermissionId the resource permission ID of this resource permission
     */
     @Override
-    public void setResourcePermissionId(long resourcePermissionId) {
+    public void setResourcePermissionId(java.lang.Long resourcePermissionId) {
         _resourcePermission.setResourcePermissionId(resourcePermissionId);
     }
 
@@ -160,7 +160,7 @@ public class ResourcePermissionWrapper implements ResourcePermission,
     * @param companyId the company ID of this resource permission
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _resourcePermission.setCompanyId(companyId);
     }
 
@@ -200,7 +200,7 @@ public class ResourcePermissionWrapper implements ResourcePermission,
     * @param scope the scope of this resource permission
     */
     @Override
-    public void setScope(int scope) {
+    public void setScope(java.lang.Integer scope) {
         _resourcePermission.setScope(scope);
     }
 
@@ -240,7 +240,7 @@ public class ResourcePermissionWrapper implements ResourcePermission,
     * @param roleId the role ID of this resource permission
     */
     @Override
-    public void setRoleId(long roleId) {
+    public void setRoleId(java.lang.Long roleId) {
         _resourcePermission.setRoleId(roleId);
     }
 
@@ -260,7 +260,7 @@ public class ResourcePermissionWrapper implements ResourcePermission,
     * @param ownerId the owner ID of this resource permission
     */
     @Override
-    public void setOwnerId(long ownerId) {
+    public void setOwnerId(java.lang.Long ownerId) {
         _resourcePermission.setOwnerId(ownerId);
     }
 
@@ -280,7 +280,7 @@ public class ResourcePermissionWrapper implements ResourcePermission,
     * @param actionIds the action IDs of this resource permission
     */
     @Override
-    public void setActionIds(long actionIds) {
+    public void setActionIds(java.lang.Long actionIds) {
         _resourcePermission.setActionIds(actionIds);
     }
 

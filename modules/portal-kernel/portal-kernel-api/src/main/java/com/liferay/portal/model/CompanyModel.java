@@ -58,7 +58,7 @@ public interface CompanyModel extends BaseModel<Company> {
      *
      * @param companyId the company ID of this company
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the account ID of this company.
@@ -72,7 +72,7 @@ public interface CompanyModel extends BaseModel<Company> {
      *
      * @param accountId the account ID of this company
      */
-    public void setAccountId(long accountId);
+    public void setAccountId(Long accountId);
 
     /**
      * Returns the web ID of this company.
@@ -146,7 +146,7 @@ public interface CompanyModel extends BaseModel<Company> {
      *
      * @param logoId the logo ID of this company
      */
-    public void setLogoId(long logoId);
+    public void setLogoId(Long logoId);
 
     /**
      * Returns the system of this company.
@@ -167,7 +167,7 @@ public interface CompanyModel extends BaseModel<Company> {
      *
      * @param system the system of this company
      */
-    public void setSystem(boolean system);
+    public void setSystem(Boolean system);
 
     /**
      * Returns the max users of this company.
@@ -181,7 +181,7 @@ public interface CompanyModel extends BaseModel<Company> {
      *
      * @param maxUsers the max users of this company
      */
-    public void setMaxUsers(int maxUsers);
+    public void setMaxUsers(Integer maxUsers);
 
     /**
      * Returns the active of this company.
@@ -202,7 +202,7 @@ public interface CompanyModel extends BaseModel<Company> {
      *
      * @param active the active of this company
      */
-    public void setActive(boolean active);
+    public void setActive(Boolean active);
 
     @Override
     public boolean isNew();

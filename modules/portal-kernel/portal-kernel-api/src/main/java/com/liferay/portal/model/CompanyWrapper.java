@@ -152,7 +152,7 @@ public class CompanyWrapper implements Company, ModelWrapper<Company> {
     * @param companyId the company ID of this company
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _company.setCompanyId(companyId);
     }
 
@@ -172,7 +172,7 @@ public class CompanyWrapper implements Company, ModelWrapper<Company> {
     * @param accountId the account ID of this company
     */
     @Override
-    public void setAccountId(long accountId) {
+    public void setAccountId(java.lang.Long accountId) {
         _company.setAccountId(accountId);
     }
 
@@ -272,7 +272,7 @@ public class CompanyWrapper implements Company, ModelWrapper<Company> {
     * @param logoId the logo ID of this company
     */
     @Override
-    public void setLogoId(long logoId) {
+    public void setLogoId(java.lang.Long logoId) {
         _company.setLogoId(logoId);
     }
 
@@ -302,7 +302,7 @@ public class CompanyWrapper implements Company, ModelWrapper<Company> {
     * @param system the system of this company
     */
     @Override
-    public void setSystem(boolean system) {
+    public void setSystem(java.lang.Boolean system) {
         _company.setSystem(system);
     }
 
@@ -322,7 +322,7 @@ public class CompanyWrapper implements Company, ModelWrapper<Company> {
     * @param maxUsers the max users of this company
     */
     @Override
-    public void setMaxUsers(int maxUsers) {
+    public void setMaxUsers(java.lang.Integer maxUsers) {
         _company.setMaxUsers(maxUsers);
     }
 
@@ -352,7 +352,7 @@ public class CompanyWrapper implements Company, ModelWrapper<Company> {
     * @param active the active of this company
     */
     @Override
-    public void setActive(boolean active) {
+    public void setActive(java.lang.Boolean active) {
         _company.setActive(active);
     }
 

@@ -62,7 +62,7 @@ public interface SystemEventModel extends AttachedModel, BaseModel<SystemEvent> 
      *
      * @param systemEventId the system event ID of this system event
      */
-    public void setSystemEventId(long systemEventId);
+    public void setSystemEventId(Long systemEventId);
 
     /**
      * Returns the group ID of this system event.
@@ -76,7 +76,7 @@ public interface SystemEventModel extends AttachedModel, BaseModel<SystemEvent> 
      *
      * @param groupId the group ID of this system event
      */
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this system event.
@@ -90,7 +90,7 @@ public interface SystemEventModel extends AttachedModel, BaseModel<SystemEvent> 
      *
      * @param companyId the company ID of this system event
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this system event.
@@ -104,7 +104,7 @@ public interface SystemEventModel extends AttachedModel, BaseModel<SystemEvent> 
      *
      * @param userId the user ID of this system event
      */
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this system event.
@@ -174,7 +174,7 @@ public interface SystemEventModel extends AttachedModel, BaseModel<SystemEvent> 
      * @param classNameId the class name ID of this system event
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this system event.
@@ -190,7 +190,7 @@ public interface SystemEventModel extends AttachedModel, BaseModel<SystemEvent> 
      * @param classPK the class p k of this system event
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the class uuid of this system event.
@@ -219,7 +219,7 @@ public interface SystemEventModel extends AttachedModel, BaseModel<SystemEvent> 
      *
      * @param referrerClassNameId the referrer class name ID of this system event
      */
-    public void setReferrerClassNameId(long referrerClassNameId);
+    public void setReferrerClassNameId(Long referrerClassNameId);
 
     /**
      * Returns the parent system event ID of this system event.
@@ -233,7 +233,7 @@ public interface SystemEventModel extends AttachedModel, BaseModel<SystemEvent> 
      *
      * @param parentSystemEventId the parent system event ID of this system event
      */
-    public void setParentSystemEventId(long parentSystemEventId);
+    public void setParentSystemEventId(Long parentSystemEventId);
 
     /**
      * Returns the system event set key of this system event.
@@ -247,7 +247,7 @@ public interface SystemEventModel extends AttachedModel, BaseModel<SystemEvent> 
      *
      * @param systemEventSetKey the system event set key of this system event
      */
-    public void setSystemEventSetKey(long systemEventSetKey);
+    public void setSystemEventSetKey(Long systemEventSetKey);
 
     /**
      * Returns the type of this system event.
@@ -261,7 +261,7 @@ public interface SystemEventModel extends AttachedModel, BaseModel<SystemEvent> 
      *
      * @param type the type of this system event
      */
-    public void setType(int type);
+    public void setType(Integer type);
 
     /**
      * Returns the extra data of this system event.

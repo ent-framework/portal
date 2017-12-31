@@ -202,7 +202,7 @@ public class RepositoryWrapper implements Repository, ModelWrapper<Repository> {
     * @param repositoryId the repository ID of this repository
     */
     @Override
-    public void setRepositoryId(long repositoryId) {
+    public void setRepositoryId(java.lang.Long repositoryId) {
         _repository.setRepositoryId(repositoryId);
     }
 
@@ -222,7 +222,7 @@ public class RepositoryWrapper implements Repository, ModelWrapper<Repository> {
     * @param groupId the group ID of this repository
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _repository.setGroupId(groupId);
     }
 
@@ -242,7 +242,7 @@ public class RepositoryWrapper implements Repository, ModelWrapper<Repository> {
     * @param companyId the company ID of this repository
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _repository.setCompanyId(companyId);
     }
 
@@ -262,7 +262,7 @@ public class RepositoryWrapper implements Repository, ModelWrapper<Repository> {
     * @param userId the user ID of this repository
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _repository.setUserId(userId);
     }
 
@@ -379,7 +379,7 @@ public class RepositoryWrapper implements Repository, ModelWrapper<Repository> {
     * @param classNameId the class name ID of this repository
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _repository.setClassNameId(classNameId);
     }
 
@@ -479,7 +479,7 @@ public class RepositoryWrapper implements Repository, ModelWrapper<Repository> {
     * @param dlFolderId the dl folder ID of this repository
     */
     @Override
-    public void setDlFolderId(long dlFolderId) {
+    public void setDlFolderId(java.lang.Long dlFolderId) {
         _repository.setDlFolderId(dlFolderId);
     }
 

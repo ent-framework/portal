@@ -209,7 +209,11 @@ public class JournalArticleImageModelImpl extends BaseModelImpl<JournalArticleIm
     }
 
     @Override
-    public void setArticleImageId(long articleImageId) {
+    public void setArticleImageId(Long articleImageId) {
+        if (articleImageId == null) {
+            articleImageId = new Long(0);
+        }
+
         _articleImageId = articleImageId;
     }
 
@@ -219,13 +223,17 @@ public class JournalArticleImageModelImpl extends BaseModelImpl<JournalArticleIm
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -364,13 +372,17 @@ public class JournalArticleImageModelImpl extends BaseModelImpl<JournalArticleIm
     }
 
     @Override
-    public void setTempImage(boolean tempImage) {
+    public void setTempImage(Boolean tempImage) {
         _columnBitmask |= TEMPIMAGE_COLUMN_BITMASK;
 
         if (!_setOriginalTempImage) {
             _setOriginalTempImage = true;
 
             _originalTempImage = _tempImage;
+        }
+
+        if (tempImage == null) {
+            tempImage = Boolean.FALSE;
         }
 
         _tempImage = tempImage;

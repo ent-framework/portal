@@ -227,7 +227,11 @@ public class FilterGroupModelImpl extends BaseModelImpl<FilterGroup>
     }
 
     @Override
-    public void setFilterGroupId(long filterGroupId) {
+    public void setFilterGroupId(Long filterGroupId) {
+        if (filterGroupId == null) {
+            filterGroupId = new Long(0);
+        }
+
         _filterGroupId = filterGroupId;
     }
 
@@ -237,7 +241,11 @@ public class FilterGroupModelImpl extends BaseModelImpl<FilterGroup>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -293,13 +301,17 @@ public class FilterGroupModelImpl extends BaseModelImpl<FilterGroup>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -315,13 +327,17 @@ public class FilterGroupModelImpl extends BaseModelImpl<FilterGroup>
     }
 
     @Override
-    public void setFilterScopeId(long filterScopeId) {
+    public void setFilterScopeId(Long filterScopeId) {
         _columnBitmask |= FILTERSCOPEID_COLUMN_BITMASK;
 
         if (!_setOriginalFilterScopeId) {
             _setOriginalFilterScopeId = true;
 
             _originalFilterScopeId = _filterScopeId;
+        }
+
+        if (filterScopeId == null) {
+            filterScopeId = new Long(0);
         }
 
         _filterScopeId = filterScopeId;

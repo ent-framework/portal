@@ -160,7 +160,7 @@ public class SocialActivitySetWrapper implements SocialActivitySet,
     * @param activitySetId the activity set ID of this social activity set
     */
     @Override
-    public void setActivitySetId(long activitySetId) {
+    public void setActivitySetId(java.lang.Long activitySetId) {
         _socialActivitySet.setActivitySetId(activitySetId);
     }
 
@@ -180,7 +180,7 @@ public class SocialActivitySetWrapper implements SocialActivitySet,
     * @param groupId the group ID of this social activity set
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _socialActivitySet.setGroupId(groupId);
     }
 
@@ -200,7 +200,7 @@ public class SocialActivitySetWrapper implements SocialActivitySet,
     * @param companyId the company ID of this social activity set
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _socialActivitySet.setCompanyId(companyId);
     }
 
@@ -220,7 +220,7 @@ public class SocialActivitySetWrapper implements SocialActivitySet,
     * @param userId the user ID of this social activity set
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _socialActivitySet.setUserId(userId);
     }
 
@@ -262,7 +262,7 @@ public class SocialActivitySetWrapper implements SocialActivitySet,
     * @param createDate the create date of this social activity set
     */
     @Override
-    public void setCreateDate(long createDate) {
+    public void setCreateDate(java.lang.Long createDate) {
         _socialActivitySet.setCreateDate(createDate);
     }
 
@@ -282,7 +282,7 @@ public class SocialActivitySetWrapper implements SocialActivitySet,
     * @param modifiedDate the modified date of this social activity set
     */
     @Override
-    public void setModifiedDate(long modifiedDate) {
+    public void setModifiedDate(java.lang.Long modifiedDate) {
         _socialActivitySet.setModifiedDate(modifiedDate);
     }
 
@@ -317,7 +317,7 @@ public class SocialActivitySetWrapper implements SocialActivitySet,
     * @param classNameId the class name ID of this social activity set
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _socialActivitySet.setClassNameId(classNameId);
     }
 
@@ -337,7 +337,7 @@ public class SocialActivitySetWrapper implements SocialActivitySet,
     * @param classPK the class p k of this social activity set
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _socialActivitySet.setClassPK(classPK);
     }
 
@@ -357,7 +357,7 @@ public class SocialActivitySetWrapper implements SocialActivitySet,
     * @param type the type of this social activity set
     */
     @Override
-    public void setType(int type) {
+    public void setType(java.lang.Integer type) {
         _socialActivitySet.setType(type);
     }
 
@@ -397,7 +397,7 @@ public class SocialActivitySetWrapper implements SocialActivitySet,
     * @param activityCount the activity count of this social activity set
     */
     @Override
-    public void setActivityCount(int activityCount) {
+    public void setActivityCount(java.lang.Integer activityCount) {
         _socialActivitySet.setActivityCount(activityCount);
     }
 

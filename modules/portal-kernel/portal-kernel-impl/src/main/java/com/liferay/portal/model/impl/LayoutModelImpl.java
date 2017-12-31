@@ -544,7 +544,11 @@ public class LayoutModelImpl extends BaseModelImpl<Layout>
     }
 
     @Override
-    public void setPlid(long plid) {
+    public void setPlid(Long plid) {
+        if (plid == null) {
+            plid = new Long(0);
+        }
+
         _plid = plid;
     }
 
@@ -555,13 +559,17 @@ public class LayoutModelImpl extends BaseModelImpl<Layout>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -578,13 +586,17 @@ public class LayoutModelImpl extends BaseModelImpl<Layout>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -601,7 +613,11 @@ public class LayoutModelImpl extends BaseModelImpl<Layout>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -687,13 +703,17 @@ public class LayoutModelImpl extends BaseModelImpl<Layout>
     }
 
     @Override
-    public void setLayoutId(long layoutId) {
+    public void setLayoutId(Long layoutId) {
         _columnBitmask |= LAYOUTID_COLUMN_BITMASK;
 
         if (!_setOriginalLayoutId) {
             _setOriginalLayoutId = true;
 
             _originalLayoutId = _layoutId;
+        }
+
+        if (layoutId == null) {
+            layoutId = new Long(0);
         }
 
         _layoutId = layoutId;
@@ -710,13 +730,17 @@ public class LayoutModelImpl extends BaseModelImpl<Layout>
     }
 
     @Override
-    public void setParentLayoutId(long parentLayoutId) {
+    public void setParentLayoutId(Long parentLayoutId) {
         _columnBitmask = -1L;
 
         if (!_setOriginalParentLayoutId) {
             _setOriginalParentLayoutId = true;
 
             _originalParentLayoutId = _parentLayoutId;
+        }
+
+        if (parentLayoutId == null) {
+            parentLayoutId = new Long(0);
         }
 
         _parentLayoutId = parentLayoutId;
@@ -1269,7 +1293,11 @@ public class LayoutModelImpl extends BaseModelImpl<Layout>
     }
 
     @Override
-    public void setHidden(boolean hidden) {
+    public void setHidden(Boolean hidden) {
+        if (hidden == null) {
+            hidden = Boolean.FALSE;
+        }
+
         _hidden = hidden;
     }
 
@@ -1310,7 +1338,11 @@ public class LayoutModelImpl extends BaseModelImpl<Layout>
     }
 
     @Override
-    public void setIconImage(boolean iconImage) {
+    public void setIconImage(Boolean iconImage) {
+        if (iconImage == null) {
+            iconImage = Boolean.FALSE;
+        }
+
         _iconImage = iconImage;
     }
 
@@ -1321,13 +1353,17 @@ public class LayoutModelImpl extends BaseModelImpl<Layout>
     }
 
     @Override
-    public void setIconImageId(long iconImageId) {
+    public void setIconImageId(Long iconImageId) {
         _columnBitmask |= ICONIMAGEID_COLUMN_BITMASK;
 
         if (!_setOriginalIconImageId) {
             _setOriginalIconImageId = true;
 
             _originalIconImageId = _iconImageId;
+        }
+
+        if (iconImageId == null) {
+            iconImageId = new Long(0);
         }
 
         _iconImageId = iconImageId;
@@ -1419,8 +1455,12 @@ public class LayoutModelImpl extends BaseModelImpl<Layout>
     }
 
     @Override
-    public void setPriority(int priority) {
+    public void setPriority(Integer priority) {
         _columnBitmask = -1L;
+
+        if (priority == null) {
+            priority = new Integer(0);
+        }
 
         _priority = priority;
     }
@@ -1463,7 +1503,11 @@ public class LayoutModelImpl extends BaseModelImpl<Layout>
 
     @Override
     public void setLayoutPrototypeLinkEnabled(
-        boolean layoutPrototypeLinkEnabled) {
+        Boolean layoutPrototypeLinkEnabled) {
+        if (layoutPrototypeLinkEnabled == null) {
+            layoutPrototypeLinkEnabled = Boolean.FALSE;
+        }
+
         _layoutPrototypeLinkEnabled = layoutPrototypeLinkEnabled;
     }
 

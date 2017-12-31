@@ -83,7 +83,7 @@ public interface DDLRecordSetModel extends BaseModel<DDLRecordSet>,
      *
      * @param recordSetId the record set ID of this d d l record set
      */
-    public void setRecordSetId(long recordSetId);
+    public void setRecordSetId(Long recordSetId);
 
     /**
      * Returns the group ID of this d d l record set.
@@ -99,7 +99,7 @@ public interface DDLRecordSetModel extends BaseModel<DDLRecordSet>,
      * @param groupId the group ID of this d d l record set
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this d d l record set.
@@ -115,7 +115,7 @@ public interface DDLRecordSetModel extends BaseModel<DDLRecordSet>,
      * @param companyId the company ID of this d d l record set
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this d d l record set.
@@ -131,7 +131,7 @@ public interface DDLRecordSetModel extends BaseModel<DDLRecordSet>,
      * @param userId the user ID of this d d l record set
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this d d l record set.
@@ -211,7 +211,7 @@ public interface DDLRecordSetModel extends BaseModel<DDLRecordSet>,
      *
      * @param DDMStructureId the d d m structure ID of this d d l record set
      */
-    public void setDDMStructureId(long DDMStructureId);
+    public void setDDMStructureId(Long DDMStructureId);
 
     /**
      * Returns the record set key of this d d l record set.
@@ -439,7 +439,7 @@ public interface DDLRecordSetModel extends BaseModel<DDLRecordSet>,
      *
      * @param minDisplayRows the min display rows of this d d l record set
      */
-    public void setMinDisplayRows(int minDisplayRows);
+    public void setMinDisplayRows(Integer minDisplayRows);
 
     /**
      * Returns the scope of this d d l record set.
@@ -453,7 +453,7 @@ public interface DDLRecordSetModel extends BaseModel<DDLRecordSet>,
      *
      * @param scope the scope of this d d l record set
      */
-    public void setScope(int scope);
+    public void setScope(Integer scope);
 
     @Override
     public boolean isNew();

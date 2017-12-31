@@ -337,7 +337,11 @@ public class PhoneModelImpl extends BaseModelImpl<Phone> implements PhoneModel {
     }
 
     @Override
-    public void setPhoneId(long phoneId) {
+    public void setPhoneId(Long phoneId) {
+        if (phoneId == null) {
+            phoneId = new Long(0);
+        }
+
         _phoneId = phoneId;
     }
 
@@ -348,13 +352,17 @@ public class PhoneModelImpl extends BaseModelImpl<Phone> implements PhoneModel {
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -371,13 +379,17 @@ public class PhoneModelImpl extends BaseModelImpl<Phone> implements PhoneModel {
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;
@@ -463,13 +475,17 @@ public class PhoneModelImpl extends BaseModelImpl<Phone> implements PhoneModel {
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
         _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
         if (!_setOriginalClassNameId) {
             _setOriginalClassNameId = true;
 
             _originalClassNameId = _classNameId;
+        }
+
+        if (classNameId == null) {
+            classNameId = new Long(0);
         }
 
         _classNameId = classNameId;
@@ -486,13 +502,17 @@ public class PhoneModelImpl extends BaseModelImpl<Phone> implements PhoneModel {
     }
 
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(Long classPK) {
         _columnBitmask |= CLASSPK_COLUMN_BITMASK;
 
         if (!_setOriginalClassPK) {
             _setOriginalClassPK = true;
 
             _originalClassPK = _classPK;
+        }
+
+        if (classPK == null) {
+            classPK = new Long(0);
         }
 
         _classPK = classPK;
@@ -539,7 +559,11 @@ public class PhoneModelImpl extends BaseModelImpl<Phone> implements PhoneModel {
     }
 
     @Override
-    public void setTypeId(int typeId) {
+    public void setTypeId(Integer typeId) {
+        if (typeId == null) {
+            typeId = new Integer(0);
+        }
+
         _typeId = typeId;
     }
 
@@ -555,13 +579,17 @@ public class PhoneModelImpl extends BaseModelImpl<Phone> implements PhoneModel {
     }
 
     @Override
-    public void setPrimary(boolean primary) {
+    public void setPrimary(Boolean primary) {
         _columnBitmask |= PRIMARY_COLUMN_BITMASK;
 
         if (!_setOriginalPrimary) {
             _setOriginalPrimary = true;
 
             _originalPrimary = _primary;
+        }
+
+        if (primary == null) {
+            primary = Boolean.FALSE;
         }
 
         _primary = primary;

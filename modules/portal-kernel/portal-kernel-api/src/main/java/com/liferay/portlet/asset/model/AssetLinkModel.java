@@ -61,7 +61,7 @@ public interface AssetLinkModel extends BaseModel<AssetLink> {
      *
      * @param linkId the link ID of this asset link
      */
-    public void setLinkId(long linkId);
+    public void setLinkId(Long linkId);
 
     /**
      * Returns the company ID of this asset link.
@@ -75,7 +75,7 @@ public interface AssetLinkModel extends BaseModel<AssetLink> {
      *
      * @param companyId the company ID of this asset link
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this asset link.
@@ -89,7 +89,7 @@ public interface AssetLinkModel extends BaseModel<AssetLink> {
      *
      * @param userId the user ID of this asset link
      */
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this asset link.
@@ -147,7 +147,7 @@ public interface AssetLinkModel extends BaseModel<AssetLink> {
      *
      * @param entryId1 the entry id1 of this asset link
      */
-    public void setEntryId1(long entryId1);
+    public void setEntryId1(Long entryId1);
 
     /**
      * Returns the entry id2 of this asset link.
@@ -161,7 +161,7 @@ public interface AssetLinkModel extends BaseModel<AssetLink> {
      *
      * @param entryId2 the entry id2 of this asset link
      */
-    public void setEntryId2(long entryId2);
+    public void setEntryId2(Long entryId2);
 
     /**
      * Returns the type of this asset link.
@@ -175,7 +175,7 @@ public interface AssetLinkModel extends BaseModel<AssetLink> {
      *
      * @param type the type of this asset link
      */
-    public void setType(int type);
+    public void setType(Integer type);
 
     /**
      * Returns the weight of this asset link.
@@ -189,7 +189,7 @@ public interface AssetLinkModel extends BaseModel<AssetLink> {
      *
      * @param weight the weight of this asset link
      */
-    public void setWeight(int weight);
+    public void setWeight(Integer weight);
 
     @Override
     public boolean isNew();

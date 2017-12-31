@@ -386,7 +386,7 @@ public class OrganizationStagedModelDataHandler
 			(List<OrgLabor>)portletDataContext.getZipEntryAsObject(path);
 
 		for (OrgLabor orgLabor : orgLabors) {
-			orgLabor.setOrgLaborId(0);
+			orgLabor.setOrgLaborId(0l);
 		}
 
 		UsersAdminUtil.updateOrgLabors(

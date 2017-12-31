@@ -132,7 +132,7 @@ public class ExpandoColumnWrapper implements ExpandoColumn,
     * @param columnId the column ID of this expando column
     */
     @Override
-    public void setColumnId(long columnId) {
+    public void setColumnId(java.lang.Long columnId) {
         _expandoColumn.setColumnId(columnId);
     }
 
@@ -152,7 +152,7 @@ public class ExpandoColumnWrapper implements ExpandoColumn,
     * @param companyId the company ID of this expando column
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _expandoColumn.setCompanyId(companyId);
     }
 
@@ -172,7 +172,7 @@ public class ExpandoColumnWrapper implements ExpandoColumn,
     * @param tableId the table ID of this expando column
     */
     @Override
-    public void setTableId(long tableId) {
+    public void setTableId(java.lang.Long tableId) {
         _expandoColumn.setTableId(tableId);
     }
 
@@ -212,7 +212,7 @@ public class ExpandoColumnWrapper implements ExpandoColumn,
     * @param type the type of this expando column
     */
     @Override
-    public void setType(int type) {
+    public void setType(java.lang.Integer type) {
         _expandoColumn.setType(type);
     }
 

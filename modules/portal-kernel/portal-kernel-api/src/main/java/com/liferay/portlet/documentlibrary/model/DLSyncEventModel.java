@@ -58,7 +58,7 @@ public interface DLSyncEventModel extends BaseModel<DLSyncEvent> {
      *
      * @param syncEventId the sync event ID of this d l sync event
      */
-    public void setSyncEventId(long syncEventId);
+    public void setSyncEventId(Long syncEventId);
 
     /**
      * Returns the modified time of this d l sync event.
@@ -72,7 +72,7 @@ public interface DLSyncEventModel extends BaseModel<DLSyncEvent> {
      *
      * @param modifiedTime the modified time of this d l sync event
      */
-    public void setModifiedTime(long modifiedTime);
+    public void setModifiedTime(Long modifiedTime);
 
     /**
      * Returns the event of this d l sync event.
@@ -116,7 +116,7 @@ public interface DLSyncEventModel extends BaseModel<DLSyncEvent> {
      *
      * @param typePK the type p k of this d l sync event
      */
-    public void setTypePK(long typePK);
+    public void setTypePK(Long typePK);
 
     @Override
     public boolean isNew();

@@ -63,7 +63,7 @@ public interface ShoppingOrderModel extends BaseModel<ShoppingOrder>,
      *
      * @param orderId the order ID of this shopping order
      */
-    public void setOrderId(long orderId);
+    public void setOrderId(Long orderId);
 
     /**
      * Returns the group ID of this shopping order.
@@ -79,7 +79,7 @@ public interface ShoppingOrderModel extends BaseModel<ShoppingOrder>,
      * @param groupId the group ID of this shopping order
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this shopping order.
@@ -95,7 +95,7 @@ public interface ShoppingOrderModel extends BaseModel<ShoppingOrder>,
      * @param companyId the company ID of this shopping order
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this shopping order.
@@ -111,7 +111,7 @@ public interface ShoppingOrderModel extends BaseModel<ShoppingOrder>,
      * @param userId the user ID of this shopping order
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this shopping order.
@@ -256,7 +256,7 @@ public interface ShoppingOrderModel extends BaseModel<ShoppingOrder>,
      *
      * @param requiresShipping the requires shipping of this shopping order
      */
-    public void setRequiresShipping(boolean requiresShipping);
+    public void setRequiresShipping(Boolean requiresShipping);
 
     /**
      * Returns the insure of this shopping order.
@@ -277,7 +277,7 @@ public interface ShoppingOrderModel extends BaseModel<ShoppingOrder>,
      *
      * @param insure the insure of this shopping order
      */
-    public void setInsure(boolean insure);
+    public void setInsure(Boolean insure);
 
     /**
      * Returns the insurance of this shopping order.
@@ -491,7 +491,7 @@ public interface ShoppingOrderModel extends BaseModel<ShoppingOrder>,
      *
      * @param shipToBilling the ship to billing of this shopping order
      */
-    public void setShipToBilling(boolean shipToBilling);
+    public void setShipToBilling(Boolean shipToBilling);
 
     /**
      * Returns the shipping first name of this shopping order.
@@ -700,7 +700,7 @@ public interface ShoppingOrderModel extends BaseModel<ShoppingOrder>,
      *
      * @param ccExpMonth the cc exp month of this shopping order
      */
-    public void setCcExpMonth(int ccExpMonth);
+    public void setCcExpMonth(Integer ccExpMonth);
 
     /**
      * Returns the cc exp year of this shopping order.
@@ -714,7 +714,7 @@ public interface ShoppingOrderModel extends BaseModel<ShoppingOrder>,
      *
      * @param ccExpYear the cc exp year of this shopping order
      */
-    public void setCcExpYear(int ccExpYear);
+    public void setCcExpYear(Integer ccExpYear);
 
     /**
      * Returns the cc ver number of this shopping order.
@@ -839,7 +839,7 @@ public interface ShoppingOrderModel extends BaseModel<ShoppingOrder>,
      *
      * @param sendOrderEmail the send order email of this shopping order
      */
-    public void setSendOrderEmail(boolean sendOrderEmail);
+    public void setSendOrderEmail(Boolean sendOrderEmail);
 
     /**
      * Returns the send shipping email of this shopping order.
@@ -860,7 +860,7 @@ public interface ShoppingOrderModel extends BaseModel<ShoppingOrder>,
      *
      * @param sendShippingEmail the send shipping email of this shopping order
      */
-    public void setSendShippingEmail(boolean sendShippingEmail);
+    public void setSendShippingEmail(Boolean sendShippingEmail);
 
     @Override
     public boolean isNew();

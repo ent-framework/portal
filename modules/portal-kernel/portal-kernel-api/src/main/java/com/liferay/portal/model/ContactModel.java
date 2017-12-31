@@ -64,7 +64,7 @@ public interface ContactModel extends AttachedModel, AuditedModel,
      *
      * @param contactId the contact ID of this contact
      */
-    public void setContactId(long contactId);
+    public void setContactId(Long contactId);
 
     /**
      * Returns the company ID of this contact.
@@ -80,7 +80,7 @@ public interface ContactModel extends AttachedModel, AuditedModel,
      * @param companyId the company ID of this contact
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this contact.
@@ -96,7 +96,7 @@ public interface ContactModel extends AttachedModel, AuditedModel,
      * @param userId the user ID of this contact
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this contact.
@@ -188,7 +188,7 @@ public interface ContactModel extends AttachedModel, AuditedModel,
      * @param classNameId the class name ID of this contact
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this contact.
@@ -204,7 +204,7 @@ public interface ContactModel extends AttachedModel, AuditedModel,
      * @param classPK the class p k of this contact
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the account ID of this contact.
@@ -218,7 +218,7 @@ public interface ContactModel extends AttachedModel, AuditedModel,
      *
      * @param accountId the account ID of this contact
      */
-    public void setAccountId(long accountId);
+    public void setAccountId(Long accountId);
 
     /**
      * Returns the parent contact ID of this contact.
@@ -232,7 +232,7 @@ public interface ContactModel extends AttachedModel, AuditedModel,
      *
      * @param parentContactId the parent contact ID of this contact
      */
-    public void setParentContactId(long parentContactId);
+    public void setParentContactId(Long parentContactId);
 
     /**
      * Returns the email address of this contact.
@@ -306,7 +306,7 @@ public interface ContactModel extends AttachedModel, AuditedModel,
      *
      * @param prefixId the prefix ID of this contact
      */
-    public void setPrefixId(int prefixId);
+    public void setPrefixId(Integer prefixId);
 
     /**
      * Returns the suffix ID of this contact.
@@ -320,7 +320,7 @@ public interface ContactModel extends AttachedModel, AuditedModel,
      *
      * @param suffixId the suffix ID of this contact
      */
-    public void setSuffixId(int suffixId);
+    public void setSuffixId(Integer suffixId);
 
     /**
      * Returns the male of this contact.
@@ -341,7 +341,7 @@ public interface ContactModel extends AttachedModel, AuditedModel,
      *
      * @param male the male of this contact
      */
-    public void setMale(boolean male);
+    public void setMale(Boolean male);
 
     /**
      * Returns the birthday of this contact.

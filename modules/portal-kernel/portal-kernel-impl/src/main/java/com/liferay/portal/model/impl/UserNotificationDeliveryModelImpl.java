@@ -212,7 +212,11 @@ public class UserNotificationDeliveryModelImpl extends BaseModelImpl<UserNotific
     }
 
     @Override
-    public void setUserNotificationDeliveryId(long userNotificationDeliveryId) {
+    public void setUserNotificationDeliveryId(Long userNotificationDeliveryId) {
+        if (userNotificationDeliveryId == null) {
+            userNotificationDeliveryId = new Long(0);
+        }
+
         _userNotificationDeliveryId = userNotificationDeliveryId;
     }
 
@@ -222,7 +226,11 @@ public class UserNotificationDeliveryModelImpl extends BaseModelImpl<UserNotific
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -232,13 +240,17 @@ public class UserNotificationDeliveryModelImpl extends BaseModelImpl<UserNotific
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;
@@ -308,13 +320,17 @@ public class UserNotificationDeliveryModelImpl extends BaseModelImpl<UserNotific
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
         _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
         if (!_setOriginalClassNameId) {
             _setOriginalClassNameId = true;
 
             _originalClassNameId = _classNameId;
+        }
+
+        if (classNameId == null) {
+            classNameId = new Long(0);
         }
 
         _classNameId = classNameId;
@@ -330,13 +346,17 @@ public class UserNotificationDeliveryModelImpl extends BaseModelImpl<UserNotific
     }
 
     @Override
-    public void setNotificationType(int notificationType) {
+    public void setNotificationType(Integer notificationType) {
         _columnBitmask |= NOTIFICATIONTYPE_COLUMN_BITMASK;
 
         if (!_setOriginalNotificationType) {
             _setOriginalNotificationType = true;
 
             _originalNotificationType = _notificationType;
+        }
+
+        if (notificationType == null) {
+            notificationType = new Integer(0);
         }
 
         _notificationType = notificationType;
@@ -352,13 +372,17 @@ public class UserNotificationDeliveryModelImpl extends BaseModelImpl<UserNotific
     }
 
     @Override
-    public void setDeliveryType(int deliveryType) {
+    public void setDeliveryType(Integer deliveryType) {
         _columnBitmask |= DELIVERYTYPE_COLUMN_BITMASK;
 
         if (!_setOriginalDeliveryType) {
             _setOriginalDeliveryType = true;
 
             _originalDeliveryType = _deliveryType;
+        }
+
+        if (deliveryType == null) {
+            deliveryType = new Integer(0);
         }
 
         _deliveryType = deliveryType;
@@ -379,7 +403,11 @@ public class UserNotificationDeliveryModelImpl extends BaseModelImpl<UserNotific
     }
 
     @Override
-    public void setDeliver(boolean deliver) {
+    public void setDeliver(Boolean deliver) {
+        if (deliver == null) {
+            deliver = Boolean.FALSE;
+        }
+
         _deliver = deliver;
     }
 

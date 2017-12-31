@@ -125,7 +125,7 @@ public class ResourceBlockWrapper implements ResourceBlock,
     * @param resourceBlockId the resource block ID of this resource block
     */
     @Override
-    public void setResourceBlockId(long resourceBlockId) {
+    public void setResourceBlockId(java.lang.Long resourceBlockId) {
         _resourceBlock.setResourceBlockId(resourceBlockId);
     }
 
@@ -145,7 +145,7 @@ public class ResourceBlockWrapper implements ResourceBlock,
     * @param companyId the company ID of this resource block
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _resourceBlock.setCompanyId(companyId);
     }
 
@@ -165,7 +165,7 @@ public class ResourceBlockWrapper implements ResourceBlock,
     * @param groupId the group ID of this resource block
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _resourceBlock.setGroupId(groupId);
     }
 
@@ -225,7 +225,7 @@ public class ResourceBlockWrapper implements ResourceBlock,
     * @param referenceCount the reference count of this resource block
     */
     @Override
-    public void setReferenceCount(long referenceCount) {
+    public void setReferenceCount(java.lang.Long referenceCount) {
         _resourceBlock.setReferenceCount(referenceCount);
     }
 

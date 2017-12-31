@@ -111,7 +111,7 @@ public class ClusterGroupWrapper implements ClusterGroup,
     * @param clusterGroupId the cluster group ID of this cluster group
     */
     @Override
-    public void setClusterGroupId(long clusterGroupId) {
+    public void setClusterGroupId(java.lang.Long clusterGroupId) {
         _clusterGroup.setClusterGroupId(clusterGroupId);
     }
 
@@ -181,7 +181,7 @@ public class ClusterGroupWrapper implements ClusterGroup,
     * @param wholeCluster the whole cluster of this cluster group
     */
     @Override
-    public void setWholeCluster(boolean wholeCluster) {
+    public void setWholeCluster(java.lang.Boolean wholeCluster) {
         _clusterGroup.setWholeCluster(wholeCluster);
     }
 

@@ -169,7 +169,11 @@ public class ServiceComponentModelImpl extends BaseModelImpl<ServiceComponent>
     }
 
     @Override
-    public void setServiceComponentId(long serviceComponentId) {
+    public void setServiceComponentId(Long serviceComponentId) {
+        if (serviceComponentId == null) {
+            serviceComponentId = new Long(0);
+        }
+
         _serviceComponentId = serviceComponentId;
     }
 
@@ -203,13 +207,17 @@ public class ServiceComponentModelImpl extends BaseModelImpl<ServiceComponent>
     }
 
     @Override
-    public void setBuildNumber(long buildNumber) {
+    public void setBuildNumber(Long buildNumber) {
         _columnBitmask = -1L;
 
         if (!_setOriginalBuildNumber) {
             _setOriginalBuildNumber = true;
 
             _originalBuildNumber = _buildNumber;
+        }
+
+        if (buildNumber == null) {
+            buildNumber = new Long(0);
         }
 
         _buildNumber = buildNumber;
@@ -225,7 +233,11 @@ public class ServiceComponentModelImpl extends BaseModelImpl<ServiceComponent>
     }
 
     @Override
-    public void setBuildDate(long buildDate) {
+    public void setBuildDate(Long buildDate) {
+        if (buildDate == null) {
+            buildDate = new Long(0);
+        }
+
         _buildDate = buildDate;
     }
 

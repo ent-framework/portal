@@ -57,7 +57,7 @@ public interface ShoppingItemPriceModel extends BaseModel<ShoppingItemPrice> {
      *
      * @param itemPriceId the item price ID of this shopping item price
      */
-    public void setItemPriceId(long itemPriceId);
+    public void setItemPriceId(Long itemPriceId);
 
     /**
      * Returns the item ID of this shopping item price.
@@ -71,7 +71,7 @@ public interface ShoppingItemPriceModel extends BaseModel<ShoppingItemPrice> {
      *
      * @param itemId the item ID of this shopping item price
      */
-    public void setItemId(long itemId);
+    public void setItemId(Long itemId);
 
     /**
      * Returns the min quantity of this shopping item price.
@@ -85,7 +85,7 @@ public interface ShoppingItemPriceModel extends BaseModel<ShoppingItemPrice> {
      *
      * @param minQuantity the min quantity of this shopping item price
      */
-    public void setMinQuantity(int minQuantity);
+    public void setMinQuantity(Integer minQuantity);
 
     /**
      * Returns the max quantity of this shopping item price.
@@ -99,7 +99,7 @@ public interface ShoppingItemPriceModel extends BaseModel<ShoppingItemPrice> {
      *
      * @param maxQuantity the max quantity of this shopping item price
      */
-    public void setMaxQuantity(int maxQuantity);
+    public void setMaxQuantity(Integer maxQuantity);
 
     /**
      * Returns the price of this shopping item price.
@@ -148,7 +148,7 @@ public interface ShoppingItemPriceModel extends BaseModel<ShoppingItemPrice> {
      *
      * @param taxable the taxable of this shopping item price
      */
-    public void setTaxable(boolean taxable);
+    public void setTaxable(Boolean taxable);
 
     /**
      * Returns the shipping of this shopping item price.
@@ -183,7 +183,7 @@ public interface ShoppingItemPriceModel extends BaseModel<ShoppingItemPrice> {
      *
      * @param useShippingFormula the use shipping formula of this shopping item price
      */
-    public void setUseShippingFormula(boolean useShippingFormula);
+    public void setUseShippingFormula(Boolean useShippingFormula);
 
     /**
      * Returns the status of this shopping item price.
@@ -197,7 +197,7 @@ public interface ShoppingItemPriceModel extends BaseModel<ShoppingItemPrice> {
      *
      * @param status the status of this shopping item price
      */
-    public void setStatus(int status);
+    public void setStatus(Integer status);
 
     @Override
     public boolean isNew();

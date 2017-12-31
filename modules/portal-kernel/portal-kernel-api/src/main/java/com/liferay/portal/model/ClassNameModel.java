@@ -71,7 +71,7 @@ public interface ClassNameModel extends BaseModel<ClassName>, TypedModel {
      * @param classNameId the class name ID of this class name
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the value of this class name.

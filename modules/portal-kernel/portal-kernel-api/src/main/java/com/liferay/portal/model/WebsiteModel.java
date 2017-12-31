@@ -81,7 +81,7 @@ public interface WebsiteModel extends AttachedModel, BaseModel<Website>,
      *
      * @param websiteId the website ID of this website
      */
-    public void setWebsiteId(long websiteId);
+    public void setWebsiteId(Long websiteId);
 
     /**
      * Returns the company ID of this website.
@@ -97,7 +97,7 @@ public interface WebsiteModel extends AttachedModel, BaseModel<Website>,
      * @param companyId the company ID of this website
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this website.
@@ -113,7 +113,7 @@ public interface WebsiteModel extends AttachedModel, BaseModel<Website>,
      * @param userId the user ID of this website
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this website.
@@ -205,7 +205,7 @@ public interface WebsiteModel extends AttachedModel, BaseModel<Website>,
      * @param classNameId the class name ID of this website
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this website.
@@ -221,7 +221,7 @@ public interface WebsiteModel extends AttachedModel, BaseModel<Website>,
      * @param classPK the class p k of this website
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the url of this website.
@@ -250,7 +250,7 @@ public interface WebsiteModel extends AttachedModel, BaseModel<Website>,
      *
      * @param typeId the type ID of this website
      */
-    public void setTypeId(int typeId);
+    public void setTypeId(Integer typeId);
 
     /**
      * Returns the primary of this website.
@@ -271,7 +271,7 @@ public interface WebsiteModel extends AttachedModel, BaseModel<Website>,
      *
      * @param primary the primary of this website
      */
-    public void setPrimary(boolean primary);
+    public void setPrimary(Boolean primary);
 
     @Override
     public boolean isNew();

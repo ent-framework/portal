@@ -58,7 +58,7 @@ public interface BrowserTrackerModel extends BaseModel<BrowserTracker> {
      *
      * @param browserTrackerId the browser tracker ID of this browser tracker
      */
-    public void setBrowserTrackerId(long browserTrackerId);
+    public void setBrowserTrackerId(Long browserTrackerId);
 
     /**
      * Returns the user ID of this browser tracker.
@@ -72,7 +72,7 @@ public interface BrowserTrackerModel extends BaseModel<BrowserTracker> {
      *
      * @param userId the user ID of this browser tracker
      */
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this browser tracker.
@@ -101,7 +101,7 @@ public interface BrowserTrackerModel extends BaseModel<BrowserTracker> {
      *
      * @param browserKey the browser key of this browser tracker
      */
-    public void setBrowserKey(long browserKey);
+    public void setBrowserKey(Long browserKey);
 
     @Override
     public boolean isNew();

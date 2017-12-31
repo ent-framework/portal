@@ -259,7 +259,11 @@ public class SocialActivityCounterModelImpl extends BaseModelImpl<SocialActivity
     }
 
     @Override
-    public void setActivityCounterId(long activityCounterId) {
+    public void setActivityCounterId(Long activityCounterId) {
+        if (activityCounterId == null) {
+            activityCounterId = new Long(0);
+        }
+
         _activityCounterId = activityCounterId;
     }
 
@@ -269,13 +273,17 @@ public class SocialActivityCounterModelImpl extends BaseModelImpl<SocialActivity
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -291,7 +299,11 @@ public class SocialActivityCounterModelImpl extends BaseModelImpl<SocialActivity
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -321,13 +333,17 @@ public class SocialActivityCounterModelImpl extends BaseModelImpl<SocialActivity
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
         _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
         if (!_setOriginalClassNameId) {
             _setOriginalClassNameId = true;
 
             _originalClassNameId = _classNameId;
+        }
+
+        if (classNameId == null) {
+            classNameId = new Long(0);
         }
 
         _classNameId = classNameId;
@@ -343,13 +359,17 @@ public class SocialActivityCounterModelImpl extends BaseModelImpl<SocialActivity
     }
 
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(Long classPK) {
         _columnBitmask |= CLASSPK_COLUMN_BITMASK;
 
         if (!_setOriginalClassPK) {
             _setOriginalClassPK = true;
 
             _originalClassPK = _classPK;
+        }
+
+        if (classPK == null) {
+            classPK = new Long(0);
         }
 
         _classPK = classPK;
@@ -389,13 +409,17 @@ public class SocialActivityCounterModelImpl extends BaseModelImpl<SocialActivity
     }
 
     @Override
-    public void setOwnerType(int ownerType) {
+    public void setOwnerType(Integer ownerType) {
         _columnBitmask |= OWNERTYPE_COLUMN_BITMASK;
 
         if (!_setOriginalOwnerType) {
             _setOriginalOwnerType = true;
 
             _originalOwnerType = _ownerType;
+        }
+
+        if (ownerType == null) {
+            ownerType = new Integer(0);
         }
 
         _ownerType = ownerType;
@@ -411,7 +435,11 @@ public class SocialActivityCounterModelImpl extends BaseModelImpl<SocialActivity
     }
 
     @Override
-    public void setCurrentValue(int currentValue) {
+    public void setCurrentValue(Integer currentValue) {
+        if (currentValue == null) {
+            currentValue = new Integer(0);
+        }
+
         _currentValue = currentValue;
     }
 
@@ -421,7 +449,11 @@ public class SocialActivityCounterModelImpl extends BaseModelImpl<SocialActivity
     }
 
     @Override
-    public void setTotalValue(int totalValue) {
+    public void setTotalValue(Integer totalValue) {
+        if (totalValue == null) {
+            totalValue = new Integer(0);
+        }
+
         _totalValue = totalValue;
     }
 
@@ -431,7 +463,11 @@ public class SocialActivityCounterModelImpl extends BaseModelImpl<SocialActivity
     }
 
     @Override
-    public void setGraceValue(int graceValue) {
+    public void setGraceValue(Integer graceValue) {
+        if (graceValue == null) {
+            graceValue = new Integer(0);
+        }
+
         _graceValue = graceValue;
     }
 
@@ -441,13 +477,17 @@ public class SocialActivityCounterModelImpl extends BaseModelImpl<SocialActivity
     }
 
     @Override
-    public void setStartPeriod(int startPeriod) {
+    public void setStartPeriod(Integer startPeriod) {
         _columnBitmask |= STARTPERIOD_COLUMN_BITMASK;
 
         if (!_setOriginalStartPeriod) {
             _setOriginalStartPeriod = true;
 
             _originalStartPeriod = _startPeriod;
+        }
+
+        if (startPeriod == null) {
+            startPeriod = new Integer(0);
         }
 
         _startPeriod = startPeriod;
@@ -463,13 +503,17 @@ public class SocialActivityCounterModelImpl extends BaseModelImpl<SocialActivity
     }
 
     @Override
-    public void setEndPeriod(int endPeriod) {
+    public void setEndPeriod(Integer endPeriod) {
         _columnBitmask |= ENDPERIOD_COLUMN_BITMASK;
 
         if (!_setOriginalEndPeriod) {
             _setOriginalEndPeriod = true;
 
             _originalEndPeriod = _endPeriod;
+        }
+
+        if (endPeriod == null) {
+            endPeriod = new Integer(0);
         }
 
         _endPeriod = endPeriod;
@@ -490,7 +534,11 @@ public class SocialActivityCounterModelImpl extends BaseModelImpl<SocialActivity
     }
 
     @Override
-    public void setActive(boolean active) {
+    public void setActive(Boolean active) {
+        if (active == null) {
+            active = Boolean.FALSE;
+        }
+
         _active = active;
     }
 

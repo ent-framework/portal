@@ -82,7 +82,7 @@ public interface MDRRuleModel extends BaseModel<MDRRule>, StagedGroupedModel {
      *
      * @param ruleId the rule ID of this m d r rule
      */
-    public void setRuleId(long ruleId);
+    public void setRuleId(Long ruleId);
 
     /**
      * Returns the group ID of this m d r rule.
@@ -98,7 +98,7 @@ public interface MDRRuleModel extends BaseModel<MDRRule>, StagedGroupedModel {
      * @param groupId the group ID of this m d r rule
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this m d r rule.
@@ -114,7 +114,7 @@ public interface MDRRuleModel extends BaseModel<MDRRule>, StagedGroupedModel {
      * @param companyId the company ID of this m d r rule
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this m d r rule.
@@ -130,7 +130,7 @@ public interface MDRRuleModel extends BaseModel<MDRRule>, StagedGroupedModel {
      * @param userId the user ID of this m d r rule
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this m d r rule.
@@ -210,7 +210,7 @@ public interface MDRRuleModel extends BaseModel<MDRRule>, StagedGroupedModel {
      *
      * @param ruleGroupId the rule group ID of this m d r rule
      */
-    public void setRuleGroupId(long ruleGroupId);
+    public void setRuleGroupId(Long ruleGroupId);
 
     /**
      * Returns the name of this m d r rule.

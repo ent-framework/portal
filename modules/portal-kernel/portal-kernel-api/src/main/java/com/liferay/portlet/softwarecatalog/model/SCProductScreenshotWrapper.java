@@ -132,7 +132,7 @@ public class SCProductScreenshotWrapper implements SCProductScreenshot,
     * @param productScreenshotId the product screenshot ID of this s c product screenshot
     */
     @Override
-    public void setProductScreenshotId(long productScreenshotId) {
+    public void setProductScreenshotId(java.lang.Long productScreenshotId) {
         _scProductScreenshot.setProductScreenshotId(productScreenshotId);
     }
 
@@ -152,7 +152,7 @@ public class SCProductScreenshotWrapper implements SCProductScreenshot,
     * @param companyId the company ID of this s c product screenshot
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _scProductScreenshot.setCompanyId(companyId);
     }
 
@@ -172,7 +172,7 @@ public class SCProductScreenshotWrapper implements SCProductScreenshot,
     * @param groupId the group ID of this s c product screenshot
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _scProductScreenshot.setGroupId(groupId);
     }
 
@@ -192,7 +192,7 @@ public class SCProductScreenshotWrapper implements SCProductScreenshot,
     * @param productEntryId the product entry ID of this s c product screenshot
     */
     @Override
-    public void setProductEntryId(long productEntryId) {
+    public void setProductEntryId(java.lang.Long productEntryId) {
         _scProductScreenshot.setProductEntryId(productEntryId);
     }
 
@@ -212,7 +212,7 @@ public class SCProductScreenshotWrapper implements SCProductScreenshot,
     * @param thumbnailId the thumbnail ID of this s c product screenshot
     */
     @Override
-    public void setThumbnailId(long thumbnailId) {
+    public void setThumbnailId(java.lang.Long thumbnailId) {
         _scProductScreenshot.setThumbnailId(thumbnailId);
     }
 
@@ -232,7 +232,7 @@ public class SCProductScreenshotWrapper implements SCProductScreenshot,
     * @param fullImageId the full image ID of this s c product screenshot
     */
     @Override
-    public void setFullImageId(long fullImageId) {
+    public void setFullImageId(java.lang.Long fullImageId) {
         _scProductScreenshot.setFullImageId(fullImageId);
     }
 
@@ -252,7 +252,7 @@ public class SCProductScreenshotWrapper implements SCProductScreenshot,
     * @param priority the priority of this s c product screenshot
     */
     @Override
-    public void setPriority(int priority) {
+    public void setPriority(java.lang.Integer priority) {
         _scProductScreenshot.setPriority(priority);
     }
 

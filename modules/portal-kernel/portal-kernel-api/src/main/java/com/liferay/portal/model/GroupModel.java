@@ -75,7 +75,7 @@ public interface GroupModel extends AttachedModel, BaseModel<Group> {
      *
      * @param groupId the group ID of this group
      */
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this group.
@@ -89,7 +89,7 @@ public interface GroupModel extends AttachedModel, BaseModel<Group> {
      *
      * @param companyId the company ID of this group
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the creator user ID of this group.
@@ -103,7 +103,7 @@ public interface GroupModel extends AttachedModel, BaseModel<Group> {
      *
      * @param creatorUserId the creator user ID of this group
      */
-    public void setCreatorUserId(long creatorUserId);
+    public void setCreatorUserId(Long creatorUserId);
 
     /**
      * Returns the creator user uuid of this group.
@@ -144,7 +144,7 @@ public interface GroupModel extends AttachedModel, BaseModel<Group> {
      * @param classNameId the class name ID of this group
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this group.
@@ -160,7 +160,7 @@ public interface GroupModel extends AttachedModel, BaseModel<Group> {
      * @param classPK the class p k of this group
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the parent group ID of this group.
@@ -174,7 +174,7 @@ public interface GroupModel extends AttachedModel, BaseModel<Group> {
      *
      * @param parentGroupId the parent group ID of this group
      */
-    public void setParentGroupId(long parentGroupId);
+    public void setParentGroupId(Long parentGroupId);
 
     /**
      * Returns the live group ID of this group.
@@ -188,7 +188,7 @@ public interface GroupModel extends AttachedModel, BaseModel<Group> {
      *
      * @param liveGroupId the live group ID of this group
      */
-    public void setLiveGroupId(long liveGroupId);
+    public void setLiveGroupId(Long liveGroupId);
 
     /**
      * Returns the tree path of this group.
@@ -247,7 +247,7 @@ public interface GroupModel extends AttachedModel, BaseModel<Group> {
      *
      * @param type the type of this group
      */
-    public void setType(int type);
+    public void setType(Integer type);
 
     /**
      * Returns the type settings of this group.
@@ -283,7 +283,7 @@ public interface GroupModel extends AttachedModel, BaseModel<Group> {
      *
      * @param manualMembership the manual membership of this group
      */
-    public void setManualMembership(boolean manualMembership);
+    public void setManualMembership(Boolean manualMembership);
 
     /**
      * Returns the membership restriction of this group.
@@ -297,7 +297,7 @@ public interface GroupModel extends AttachedModel, BaseModel<Group> {
      *
      * @param membershipRestriction the membership restriction of this group
      */
-    public void setMembershipRestriction(int membershipRestriction);
+    public void setMembershipRestriction(Integer membershipRestriction);
 
     /**
      * Returns the friendly u r l of this group.
@@ -333,7 +333,7 @@ public interface GroupModel extends AttachedModel, BaseModel<Group> {
      *
      * @param site the site of this group
      */
-    public void setSite(boolean site);
+    public void setSite(Boolean site);
 
     /**
      * Returns the remote staging group count of this group.
@@ -347,7 +347,7 @@ public interface GroupModel extends AttachedModel, BaseModel<Group> {
      *
      * @param remoteStagingGroupCount the remote staging group count of this group
      */
-    public void setRemoteStagingGroupCount(int remoteStagingGroupCount);
+    public void setRemoteStagingGroupCount(Integer remoteStagingGroupCount);
 
     /**
      * Returns the active of this group.
@@ -368,7 +368,7 @@ public interface GroupModel extends AttachedModel, BaseModel<Group> {
      *
      * @param active the active of this group
      */
-    public void setActive(boolean active);
+    public void setActive(Boolean active);
 
     @Override
     public boolean isNew();

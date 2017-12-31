@@ -133,7 +133,7 @@ public class AnnouncementsDeliveryWrapper implements AnnouncementsDelivery,
     * @param deliveryId the delivery ID of this announcements delivery
     */
     @Override
-    public void setDeliveryId(long deliveryId) {
+    public void setDeliveryId(java.lang.Long deliveryId) {
         _announcementsDelivery.setDeliveryId(deliveryId);
     }
 
@@ -153,7 +153,7 @@ public class AnnouncementsDeliveryWrapper implements AnnouncementsDelivery,
     * @param companyId the company ID of this announcements delivery
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _announcementsDelivery.setCompanyId(companyId);
     }
 
@@ -173,7 +173,7 @@ public class AnnouncementsDeliveryWrapper implements AnnouncementsDelivery,
     * @param userId the user ID of this announcements delivery
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _announcementsDelivery.setUserId(userId);
     }
 
@@ -245,7 +245,7 @@ public class AnnouncementsDeliveryWrapper implements AnnouncementsDelivery,
     * @param email the email of this announcements delivery
     */
     @Override
-    public void setEmail(boolean email) {
+    public void setEmail(java.lang.Boolean email) {
         _announcementsDelivery.setEmail(email);
     }
 
@@ -275,7 +275,7 @@ public class AnnouncementsDeliveryWrapper implements AnnouncementsDelivery,
     * @param sms the sms of this announcements delivery
     */
     @Override
-    public void setSms(boolean sms) {
+    public void setSms(java.lang.Boolean sms) {
         _announcementsDelivery.setSms(sms);
     }
 
@@ -305,7 +305,7 @@ public class AnnouncementsDeliveryWrapper implements AnnouncementsDelivery,
     * @param website the website of this announcements delivery
     */
     @Override
-    public void setWebsite(boolean website) {
+    public void setWebsite(java.lang.Boolean website) {
         _announcementsDelivery.setWebsite(website);
     }
 

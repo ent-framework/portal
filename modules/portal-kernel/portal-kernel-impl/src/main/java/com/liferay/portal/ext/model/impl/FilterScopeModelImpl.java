@@ -150,7 +150,11 @@ public class FilterScopeModelImpl extends BaseModelImpl<FilterScope>
     }
 
     @Override
-    public void setFilterScopeId(long filterScopeId) {
+    public void setFilterScopeId(Long filterScopeId) {
+        if (filterScopeId == null) {
+            filterScopeId = new Long(0);
+        }
+
         _filterScopeId = filterScopeId;
     }
 

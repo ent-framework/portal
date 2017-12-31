@@ -126,7 +126,7 @@ public class PortletPreferencesWrapper implements PortletPreferences,
     * @param portletPreferencesId the portlet preferences ID of this portlet preferences
     */
     @Override
-    public void setPortletPreferencesId(long portletPreferencesId) {
+    public void setPortletPreferencesId(java.lang.Long portletPreferencesId) {
         _portletPreferences.setPortletPreferencesId(portletPreferencesId);
     }
 
@@ -146,7 +146,7 @@ public class PortletPreferencesWrapper implements PortletPreferences,
     * @param ownerId the owner ID of this portlet preferences
     */
     @Override
-    public void setOwnerId(long ownerId) {
+    public void setOwnerId(java.lang.Long ownerId) {
         _portletPreferences.setOwnerId(ownerId);
     }
 
@@ -166,7 +166,7 @@ public class PortletPreferencesWrapper implements PortletPreferences,
     * @param ownerType the owner type of this portlet preferences
     */
     @Override
-    public void setOwnerType(int ownerType) {
+    public void setOwnerType(java.lang.Integer ownerType) {
         _portletPreferences.setOwnerType(ownerType);
     }
 
@@ -186,7 +186,7 @@ public class PortletPreferencesWrapper implements PortletPreferences,
     * @param plid the plid of this portlet preferences
     */
     @Override
-    public void setPlid(long plid) {
+    public void setPlid(java.lang.Long plid) {
         _portletPreferences.setPlid(plid);
     }
 

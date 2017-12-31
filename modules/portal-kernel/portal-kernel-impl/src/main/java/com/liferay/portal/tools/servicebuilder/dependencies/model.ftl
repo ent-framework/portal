@@ -269,7 +269,7 @@ public interface ${entity.name}Model extends
 		<#if overrideColumnNames?seq_index_of(column.name) != -1>
 			@Override
 		</#if>
-		public void set${column.methodName}(${column.type} ${column.name});
+		public void set${column.methodName}(${column.objType} ${column.name});
 
 		<#if column.localized>
 			/**

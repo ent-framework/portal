@@ -111,7 +111,7 @@ public class ExpandoTableWrapper implements ExpandoTable,
     * @param tableId the table ID of this expando table
     */
     @Override
-    public void setTableId(long tableId) {
+    public void setTableId(java.lang.Long tableId) {
         _expandoTable.setTableId(tableId);
     }
 
@@ -131,7 +131,7 @@ public class ExpandoTableWrapper implements ExpandoTable,
     * @param companyId the company ID of this expando table
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _expandoTable.setCompanyId(companyId);
     }
 
@@ -166,7 +166,7 @@ public class ExpandoTableWrapper implements ExpandoTable,
     * @param classNameId the class name ID of this expando table
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _expandoTable.setClassNameId(classNameId);
     }
 

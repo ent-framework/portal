@@ -219,7 +219,11 @@ public class RegionModelImpl extends BaseModelImpl<Region>
     }
 
     @Override
-    public void setRegionId(long regionId) {
+    public void setRegionId(Long regionId) {
+        if (regionId == null) {
+            regionId = new Long(0);
+        }
+
         _regionId = regionId;
     }
 
@@ -230,13 +234,17 @@ public class RegionModelImpl extends BaseModelImpl<Region>
     }
 
     @Override
-    public void setCountryId(long countryId) {
+    public void setCountryId(Long countryId) {
         _columnBitmask |= COUNTRYID_COLUMN_BITMASK;
 
         if (!_setOriginalCountryId) {
             _setOriginalCountryId = true;
 
             _originalCountryId = _countryId;
+        }
+
+        if (countryId == null) {
+            countryId = new Long(0);
         }
 
         _countryId = countryId;
@@ -300,13 +308,17 @@ public class RegionModelImpl extends BaseModelImpl<Region>
     }
 
     @Override
-    public void setActive(boolean active) {
+    public void setActive(Boolean active) {
         _columnBitmask |= ACTIVE_COLUMN_BITMASK;
 
         if (!_setOriginalActive) {
             _setOriginalActive = true;
 
             _originalActive = _active;
+        }
+
+        if (active == null) {
+            active = Boolean.FALSE;
         }
 
         _active = active;

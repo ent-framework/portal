@@ -279,7 +279,11 @@ public class MembershipRequestModelImpl extends BaseModelImpl<MembershipRequest>
     }
 
     @Override
-    public void setMembershipRequestId(long membershipRequestId) {
+    public void setMembershipRequestId(Long membershipRequestId) {
+        if (membershipRequestId == null) {
+            membershipRequestId = new Long(0);
+        }
+
         _membershipRequestId = membershipRequestId;
     }
 
@@ -290,13 +294,17 @@ public class MembershipRequestModelImpl extends BaseModelImpl<MembershipRequest>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -313,7 +321,11 @@ public class MembershipRequestModelImpl extends BaseModelImpl<MembershipRequest>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -324,13 +336,17 @@ public class MembershipRequestModelImpl extends BaseModelImpl<MembershipRequest>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;
@@ -411,7 +427,11 @@ public class MembershipRequestModelImpl extends BaseModelImpl<MembershipRequest>
     }
 
     @Override
-    public void setReplierUserId(long replierUserId) {
+    public void setReplierUserId(Long replierUserId) {
+        if (replierUserId == null) {
+            replierUserId = new Long(0);
+        }
+
         _replierUserId = replierUserId;
     }
 
@@ -433,13 +453,17 @@ public class MembershipRequestModelImpl extends BaseModelImpl<MembershipRequest>
     }
 
     @Override
-    public void setStatusId(int statusId) {
+    public void setStatusId(Integer statusId) {
         _columnBitmask |= STATUSID_COLUMN_BITMASK;
 
         if (!_setOriginalStatusId) {
             _setOriginalStatusId = true;
 
             _originalStatusId = _statusId;
+        }
+
+        if (statusId == null) {
+            statusId = new Integer(0);
         }
 
         _statusId = statusId;

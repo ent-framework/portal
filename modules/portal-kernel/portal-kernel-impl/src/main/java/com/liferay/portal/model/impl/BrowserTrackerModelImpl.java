@@ -152,7 +152,11 @@ public class BrowserTrackerModelImpl extends BaseModelImpl<BrowserTracker>
     }
 
     @Override
-    public void setBrowserTrackerId(long browserTrackerId) {
+    public void setBrowserTrackerId(Long browserTrackerId) {
+        if (browserTrackerId == null) {
+            browserTrackerId = new Long(0);
+        }
+
         _browserTrackerId = browserTrackerId;
     }
 
@@ -162,13 +166,17 @@ public class BrowserTrackerModelImpl extends BaseModelImpl<BrowserTracker>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;
@@ -194,7 +202,11 @@ public class BrowserTrackerModelImpl extends BaseModelImpl<BrowserTracker>
     }
 
     @Override
-    public void setBrowserKey(long browserKey) {
+    public void setBrowserKey(Long browserKey) {
+        if (browserKey == null) {
+            browserKey = new Long(0);
+        }
+
         _browserKey = browserKey;
     }
 

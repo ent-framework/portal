@@ -60,7 +60,7 @@ public interface ShoppingOrderItemModel extends BaseModel<ShoppingOrderItem> {
      *
      * @param orderItemId the order item ID of this shopping order item
      */
-    public void setOrderItemId(long orderItemId);
+    public void setOrderItemId(Long orderItemId);
 
     /**
      * Returns the order ID of this shopping order item.
@@ -74,7 +74,7 @@ public interface ShoppingOrderItemModel extends BaseModel<ShoppingOrderItem> {
      *
      * @param orderId the order ID of this shopping order item
      */
-    public void setOrderId(long orderId);
+    public void setOrderId(Long orderId);
 
     /**
      * Returns the item ID of this shopping order item.
@@ -177,7 +177,7 @@ public interface ShoppingOrderItemModel extends BaseModel<ShoppingOrderItem> {
      *
      * @param quantity the quantity of this shopping order item
      */
-    public void setQuantity(int quantity);
+    public void setQuantity(Integer quantity);
 
     /**
      * Returns the shipped date of this shopping order item.

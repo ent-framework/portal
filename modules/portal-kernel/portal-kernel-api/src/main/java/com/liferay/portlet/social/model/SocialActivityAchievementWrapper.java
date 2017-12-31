@@ -135,7 +135,7 @@ public class SocialActivityAchievementWrapper
     * @param activityAchievementId the activity achievement ID of this social activity achievement
     */
     @Override
-    public void setActivityAchievementId(long activityAchievementId) {
+    public void setActivityAchievementId(java.lang.Long activityAchievementId) {
         _socialActivityAchievement.setActivityAchievementId(activityAchievementId);
     }
 
@@ -155,7 +155,7 @@ public class SocialActivityAchievementWrapper
     * @param groupId the group ID of this social activity achievement
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _socialActivityAchievement.setGroupId(groupId);
     }
 
@@ -175,7 +175,7 @@ public class SocialActivityAchievementWrapper
     * @param companyId the company ID of this social activity achievement
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _socialActivityAchievement.setCompanyId(companyId);
     }
 
@@ -195,7 +195,7 @@ public class SocialActivityAchievementWrapper
     * @param userId the user ID of this social activity achievement
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _socialActivityAchievement.setUserId(userId);
     }
 
@@ -237,7 +237,7 @@ public class SocialActivityAchievementWrapper
     * @param createDate the create date of this social activity achievement
     */
     @Override
-    public void setCreateDate(long createDate) {
+    public void setCreateDate(java.lang.Long createDate) {
         _socialActivityAchievement.setCreateDate(createDate);
     }
 
@@ -287,7 +287,7 @@ public class SocialActivityAchievementWrapper
     * @param firstInGroup the first in group of this social activity achievement
     */
     @Override
-    public void setFirstInGroup(boolean firstInGroup) {
+    public void setFirstInGroup(java.lang.Boolean firstInGroup) {
         _socialActivityAchievement.setFirstInGroup(firstInGroup);
     }
 

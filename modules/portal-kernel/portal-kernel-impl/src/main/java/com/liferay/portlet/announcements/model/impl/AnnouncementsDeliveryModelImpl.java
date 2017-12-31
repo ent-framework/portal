@@ -243,7 +243,11 @@ public class AnnouncementsDeliveryModelImpl extends BaseModelImpl<AnnouncementsD
     }
 
     @Override
-    public void setDeliveryId(long deliveryId) {
+    public void setDeliveryId(Long deliveryId) {
+        if (deliveryId == null) {
+            deliveryId = new Long(0);
+        }
+
         _deliveryId = deliveryId;
     }
 
@@ -254,7 +258,11 @@ public class AnnouncementsDeliveryModelImpl extends BaseModelImpl<AnnouncementsD
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -265,13 +273,17 @@ public class AnnouncementsDeliveryModelImpl extends BaseModelImpl<AnnouncementsD
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;
@@ -328,7 +340,11 @@ public class AnnouncementsDeliveryModelImpl extends BaseModelImpl<AnnouncementsD
     }
 
     @Override
-    public void setEmail(boolean email) {
+    public void setEmail(Boolean email) {
+        if (email == null) {
+            email = Boolean.FALSE;
+        }
+
         _email = email;
     }
 
@@ -344,7 +360,11 @@ public class AnnouncementsDeliveryModelImpl extends BaseModelImpl<AnnouncementsD
     }
 
     @Override
-    public void setSms(boolean sms) {
+    public void setSms(Boolean sms) {
+        if (sms == null) {
+            sms = Boolean.FALSE;
+        }
+
         _sms = sms;
     }
 
@@ -360,7 +380,11 @@ public class AnnouncementsDeliveryModelImpl extends BaseModelImpl<AnnouncementsD
     }
 
     @Override
-    public void setWebsite(boolean website) {
+    public void setWebsite(Boolean website) {
+        if (website == null) {
+            website = Boolean.FALSE;
+        }
+
         _website = website;
     }
 

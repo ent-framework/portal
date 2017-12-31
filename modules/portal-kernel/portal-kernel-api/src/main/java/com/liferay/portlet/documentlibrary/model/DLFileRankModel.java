@@ -60,7 +60,7 @@ public interface DLFileRankModel extends BaseModel<DLFileRank> {
      *
      * @param fileRankId the file rank ID of this document library file rank
      */
-    public void setFileRankId(long fileRankId);
+    public void setFileRankId(Long fileRankId);
 
     /**
      * Returns the group ID of this document library file rank.
@@ -74,7 +74,7 @@ public interface DLFileRankModel extends BaseModel<DLFileRank> {
      *
      * @param groupId the group ID of this document library file rank
      */
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this document library file rank.
@@ -88,7 +88,7 @@ public interface DLFileRankModel extends BaseModel<DLFileRank> {
      *
      * @param companyId the company ID of this document library file rank
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this document library file rank.
@@ -102,7 +102,7 @@ public interface DLFileRankModel extends BaseModel<DLFileRank> {
      *
      * @param userId the user ID of this document library file rank
      */
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this document library file rank.
@@ -145,7 +145,7 @@ public interface DLFileRankModel extends BaseModel<DLFileRank> {
      *
      * @param fileEntryId the file entry ID of this document library file rank
      */
-    public void setFileEntryId(long fileEntryId);
+    public void setFileEntryId(Long fileEntryId);
 
     /**
      * Returns the active of this document library file rank.
@@ -166,7 +166,7 @@ public interface DLFileRankModel extends BaseModel<DLFileRank> {
      *
      * @param active the active of this document library file rank
      */
-    public void setActive(boolean active);
+    public void setActive(Boolean active);
 
     @Override
     public boolean isNew();

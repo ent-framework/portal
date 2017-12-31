@@ -61,7 +61,7 @@ public interface PasswordTrackerModel extends BaseModel<PasswordTracker> {
      *
      * @param passwordTrackerId the password tracker ID of this password tracker
      */
-    public void setPasswordTrackerId(long passwordTrackerId);
+    public void setPasswordTrackerId(Long passwordTrackerId);
 
     /**
      * Returns the user ID of this password tracker.
@@ -75,7 +75,7 @@ public interface PasswordTrackerModel extends BaseModel<PasswordTracker> {
      *
      * @param userId the user ID of this password tracker
      */
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this password tracker.

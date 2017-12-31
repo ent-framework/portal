@@ -511,7 +511,11 @@ public class LayoutRevisionModelImpl extends BaseModelImpl<LayoutRevision>
     }
 
     @Override
-    public void setLayoutRevisionId(long layoutRevisionId) {
+    public void setLayoutRevisionId(Long layoutRevisionId) {
+        if (layoutRevisionId == null) {
+            layoutRevisionId = new Long(0);
+        }
+
         _layoutRevisionId = layoutRevisionId;
     }
 
@@ -522,7 +526,11 @@ public class LayoutRevisionModelImpl extends BaseModelImpl<LayoutRevision>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
+        if (groupId == null) {
+            groupId = new Long(0);
+        }
+
         _groupId = groupId;
     }
 
@@ -533,7 +541,11 @@ public class LayoutRevisionModelImpl extends BaseModelImpl<LayoutRevision>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -544,7 +556,11 @@ public class LayoutRevisionModelImpl extends BaseModelImpl<LayoutRevision>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -604,13 +620,17 @@ public class LayoutRevisionModelImpl extends BaseModelImpl<LayoutRevision>
     }
 
     @Override
-    public void setLayoutSetBranchId(long layoutSetBranchId) {
+    public void setLayoutSetBranchId(Long layoutSetBranchId) {
         _columnBitmask |= LAYOUTSETBRANCHID_COLUMN_BITMASK;
 
         if (!_setOriginalLayoutSetBranchId) {
             _setOriginalLayoutSetBranchId = true;
 
             _originalLayoutSetBranchId = _layoutSetBranchId;
+        }
+
+        if (layoutSetBranchId == null) {
+            layoutSetBranchId = new Long(0);
         }
 
         _layoutSetBranchId = layoutSetBranchId;
@@ -627,13 +647,17 @@ public class LayoutRevisionModelImpl extends BaseModelImpl<LayoutRevision>
     }
 
     @Override
-    public void setLayoutBranchId(long layoutBranchId) {
+    public void setLayoutBranchId(Long layoutBranchId) {
         _columnBitmask |= LAYOUTBRANCHID_COLUMN_BITMASK;
 
         if (!_setOriginalLayoutBranchId) {
             _setOriginalLayoutBranchId = true;
 
             _originalLayoutBranchId = _layoutBranchId;
+        }
+
+        if (layoutBranchId == null) {
+            layoutBranchId = new Long(0);
         }
 
         _layoutBranchId = layoutBranchId;
@@ -650,13 +674,17 @@ public class LayoutRevisionModelImpl extends BaseModelImpl<LayoutRevision>
     }
 
     @Override
-    public void setParentLayoutRevisionId(long parentLayoutRevisionId) {
+    public void setParentLayoutRevisionId(Long parentLayoutRevisionId) {
         _columnBitmask |= PARENTLAYOUTREVISIONID_COLUMN_BITMASK;
 
         if (!_setOriginalParentLayoutRevisionId) {
             _setOriginalParentLayoutRevisionId = true;
 
             _originalParentLayoutRevisionId = _parentLayoutRevisionId;
+        }
+
+        if (parentLayoutRevisionId == null) {
+            parentLayoutRevisionId = new Long(0);
         }
 
         _parentLayoutRevisionId = parentLayoutRevisionId;
@@ -678,13 +706,17 @@ public class LayoutRevisionModelImpl extends BaseModelImpl<LayoutRevision>
     }
 
     @Override
-    public void setHead(boolean head) {
+    public void setHead(Boolean head) {
         _columnBitmask |= HEAD_COLUMN_BITMASK;
 
         if (!_setOriginalHead) {
             _setOriginalHead = true;
 
             _originalHead = _head;
+        }
+
+        if (head == null) {
+            head = Boolean.FALSE;
         }
 
         _head = head;
@@ -706,7 +738,11 @@ public class LayoutRevisionModelImpl extends BaseModelImpl<LayoutRevision>
     }
 
     @Override
-    public void setMajor(boolean major) {
+    public void setMajor(Boolean major) {
+        if (major == null) {
+            major = Boolean.FALSE;
+        }
+
         _major = major;
     }
 
@@ -717,13 +753,17 @@ public class LayoutRevisionModelImpl extends BaseModelImpl<LayoutRevision>
     }
 
     @Override
-    public void setPlid(long plid) {
+    public void setPlid(Long plid) {
         _columnBitmask |= PLID_COLUMN_BITMASK;
 
         if (!_setOriginalPlid) {
             _setOriginalPlid = true;
 
             _originalPlid = _plid;
+        }
+
+        if (plid == null) {
+            plid = new Long(0);
         }
 
         _plid = plid;
@@ -745,7 +785,11 @@ public class LayoutRevisionModelImpl extends BaseModelImpl<LayoutRevision>
     }
 
     @Override
-    public void setPrivateLayout(boolean privateLayout) {
+    public void setPrivateLayout(Boolean privateLayout) {
+        if (privateLayout == null) {
+            privateLayout = Boolean.FALSE;
+        }
+
         _privateLayout = privateLayout;
     }
 
@@ -1267,7 +1311,11 @@ public class LayoutRevisionModelImpl extends BaseModelImpl<LayoutRevision>
     }
 
     @Override
-    public void setIconImage(boolean iconImage) {
+    public void setIconImage(Boolean iconImage) {
+        if (iconImage == null) {
+            iconImage = Boolean.FALSE;
+        }
+
         _iconImage = iconImage;
     }
 
@@ -1278,7 +1326,11 @@ public class LayoutRevisionModelImpl extends BaseModelImpl<LayoutRevision>
     }
 
     @Override
-    public void setIconImageId(long iconImageId) {
+    public void setIconImageId(Long iconImageId) {
+        if (iconImageId == null) {
+            iconImageId = new Long(0);
+        }
+
         _iconImageId = iconImageId;
     }
 
@@ -1364,13 +1416,17 @@ public class LayoutRevisionModelImpl extends BaseModelImpl<LayoutRevision>
     }
 
     @Override
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         _columnBitmask |= STATUS_COLUMN_BITMASK;
 
         if (!_setOriginalStatus) {
             _setOriginalStatus = true;
 
             _originalStatus = _status;
+        }
+
+        if (status == null) {
+            status = new Integer(0);
         }
 
         _status = status;
@@ -1387,7 +1443,11 @@ public class LayoutRevisionModelImpl extends BaseModelImpl<LayoutRevision>
     }
 
     @Override
-    public void setStatusByUserId(long statusByUserId) {
+    public void setStatusByUserId(Long statusByUserId) {
+        if (statusByUserId == null) {
+            statusByUserId = new Long(0);
+        }
+
         _statusByUserId = statusByUserId;
     }
 

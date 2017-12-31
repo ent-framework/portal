@@ -337,7 +337,11 @@ public class SocialActivityModelImpl extends BaseModelImpl<SocialActivity>
     }
 
     @Override
-    public void setActivityId(long activityId) {
+    public void setActivityId(Long activityId) {
+        if (activityId == null) {
+            activityId = new Long(0);
+        }
+
         _activityId = activityId;
     }
 
@@ -348,13 +352,17 @@ public class SocialActivityModelImpl extends BaseModelImpl<SocialActivity>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -371,13 +379,17 @@ public class SocialActivityModelImpl extends BaseModelImpl<SocialActivity>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -394,13 +406,17 @@ public class SocialActivityModelImpl extends BaseModelImpl<SocialActivity>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;
@@ -427,13 +443,17 @@ public class SocialActivityModelImpl extends BaseModelImpl<SocialActivity>
     }
 
     @Override
-    public void setCreateDate(long createDate) {
+    public void setCreateDate(Long createDate) {
         _columnBitmask = -1L;
 
         if (!_setOriginalCreateDate) {
             _setOriginalCreateDate = true;
 
             _originalCreateDate = _createDate;
+        }
+
+        if (createDate == null) {
+            createDate = new Long(0);
         }
 
         _createDate = createDate;
@@ -450,13 +470,17 @@ public class SocialActivityModelImpl extends BaseModelImpl<SocialActivity>
     }
 
     @Override
-    public void setActivitySetId(long activitySetId) {
+    public void setActivitySetId(Long activitySetId) {
         _columnBitmask |= ACTIVITYSETID_COLUMN_BITMASK;
 
         if (!_setOriginalActivitySetId) {
             _setOriginalActivitySetId = true;
 
             _originalActivitySetId = _activitySetId;
+        }
+
+        if (activitySetId == null) {
+            activitySetId = new Long(0);
         }
 
         _activitySetId = activitySetId;
@@ -473,13 +497,17 @@ public class SocialActivityModelImpl extends BaseModelImpl<SocialActivity>
     }
 
     @Override
-    public void setMirrorActivityId(long mirrorActivityId) {
+    public void setMirrorActivityId(Long mirrorActivityId) {
         _columnBitmask |= MIRRORACTIVITYID_COLUMN_BITMASK;
 
         if (!_setOriginalMirrorActivityId) {
             _setOriginalMirrorActivityId = true;
 
             _originalMirrorActivityId = _mirrorActivityId;
+        }
+
+        if (mirrorActivityId == null) {
+            mirrorActivityId = new Long(0);
         }
 
         _mirrorActivityId = mirrorActivityId;
@@ -516,13 +544,17 @@ public class SocialActivityModelImpl extends BaseModelImpl<SocialActivity>
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
         _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
         if (!_setOriginalClassNameId) {
             _setOriginalClassNameId = true;
 
             _originalClassNameId = _classNameId;
+        }
+
+        if (classNameId == null) {
+            classNameId = new Long(0);
         }
 
         _classNameId = classNameId;
@@ -539,13 +571,17 @@ public class SocialActivityModelImpl extends BaseModelImpl<SocialActivity>
     }
 
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(Long classPK) {
         _columnBitmask |= CLASSPK_COLUMN_BITMASK;
 
         if (!_setOriginalClassPK) {
             _setOriginalClassPK = true;
 
             _originalClassPK = _classPK;
+        }
+
+        if (classPK == null) {
+            classPK = new Long(0);
         }
 
         _classPK = classPK;
@@ -562,7 +598,11 @@ public class SocialActivityModelImpl extends BaseModelImpl<SocialActivity>
     }
 
     @Override
-    public void setParentClassNameId(long parentClassNameId) {
+    public void setParentClassNameId(Long parentClassNameId) {
+        if (parentClassNameId == null) {
+            parentClassNameId = new Long(0);
+        }
+
         _parentClassNameId = parentClassNameId;
     }
 
@@ -573,7 +613,11 @@ public class SocialActivityModelImpl extends BaseModelImpl<SocialActivity>
     }
 
     @Override
-    public void setParentClassPK(long parentClassPK) {
+    public void setParentClassPK(Long parentClassPK) {
+        if (parentClassPK == null) {
+            parentClassPK = new Long(0);
+        }
+
         _parentClassPK = parentClassPK;
     }
 
@@ -584,13 +628,17 @@ public class SocialActivityModelImpl extends BaseModelImpl<SocialActivity>
     }
 
     @Override
-    public void setType(int type) {
+    public void setType(Integer type) {
         _columnBitmask |= TYPE_COLUMN_BITMASK;
 
         if (!_setOriginalType) {
             _setOriginalType = true;
 
             _originalType = _type;
+        }
+
+        if (type == null) {
+            type = new Integer(0);
         }
 
         _type = type;
@@ -622,13 +670,17 @@ public class SocialActivityModelImpl extends BaseModelImpl<SocialActivity>
     }
 
     @Override
-    public void setReceiverUserId(long receiverUserId) {
+    public void setReceiverUserId(Long receiverUserId) {
         _columnBitmask |= RECEIVERUSERID_COLUMN_BITMASK;
 
         if (!_setOriginalReceiverUserId) {
             _setOriginalReceiverUserId = true;
 
             _originalReceiverUserId = _receiverUserId;
+        }
+
+        if (receiverUserId == null) {
+            receiverUserId = new Long(0);
         }
 
         _receiverUserId = receiverUserId;

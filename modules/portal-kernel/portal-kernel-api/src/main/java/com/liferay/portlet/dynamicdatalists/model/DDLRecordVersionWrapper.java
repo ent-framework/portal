@@ -189,7 +189,7 @@ public class DDLRecordVersionWrapper implements DDLRecordVersion,
     * @param recordVersionId the record version ID of this d d l record version
     */
     @Override
-    public void setRecordVersionId(long recordVersionId) {
+    public void setRecordVersionId(java.lang.Long recordVersionId) {
         _ddlRecordVersion.setRecordVersionId(recordVersionId);
     }
 
@@ -209,7 +209,7 @@ public class DDLRecordVersionWrapper implements DDLRecordVersion,
     * @param groupId the group ID of this d d l record version
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _ddlRecordVersion.setGroupId(groupId);
     }
 
@@ -229,7 +229,7 @@ public class DDLRecordVersionWrapper implements DDLRecordVersion,
     * @param companyId the company ID of this d d l record version
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _ddlRecordVersion.setCompanyId(companyId);
     }
 
@@ -249,7 +249,7 @@ public class DDLRecordVersionWrapper implements DDLRecordVersion,
     * @param userId the user ID of this d d l record version
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _ddlRecordVersion.setUserId(userId);
     }
 
@@ -331,7 +331,7 @@ public class DDLRecordVersionWrapper implements DDLRecordVersion,
     * @param DDMStorageId the d d m storage ID of this d d l record version
     */
     @Override
-    public void setDDMStorageId(long DDMStorageId) {
+    public void setDDMStorageId(java.lang.Long DDMStorageId) {
         _ddlRecordVersion.setDDMStorageId(DDMStorageId);
     }
 
@@ -351,7 +351,7 @@ public class DDLRecordVersionWrapper implements DDLRecordVersion,
     * @param recordSetId the record set ID of this d d l record version
     */
     @Override
-    public void setRecordSetId(long recordSetId) {
+    public void setRecordSetId(java.lang.Long recordSetId) {
         _ddlRecordVersion.setRecordSetId(recordSetId);
     }
 
@@ -371,7 +371,7 @@ public class DDLRecordVersionWrapper implements DDLRecordVersion,
     * @param recordId the record ID of this d d l record version
     */
     @Override
-    public void setRecordId(long recordId) {
+    public void setRecordId(java.lang.Long recordId) {
         _ddlRecordVersion.setRecordId(recordId);
     }
 
@@ -411,7 +411,7 @@ public class DDLRecordVersionWrapper implements DDLRecordVersion,
     * @param displayIndex the display index of this d d l record version
     */
     @Override
-    public void setDisplayIndex(int displayIndex) {
+    public void setDisplayIndex(java.lang.Integer displayIndex) {
         _ddlRecordVersion.setDisplayIndex(displayIndex);
     }
 
@@ -431,7 +431,7 @@ public class DDLRecordVersionWrapper implements DDLRecordVersion,
     * @param status the status of this d d l record version
     */
     @Override
-    public void setStatus(int status) {
+    public void setStatus(java.lang.Integer status) {
         _ddlRecordVersion.setStatus(status);
     }
 
@@ -451,7 +451,7 @@ public class DDLRecordVersionWrapper implements DDLRecordVersion,
     * @param statusByUserId the status by user ID of this d d l record version
     */
     @Override
-    public void setStatusByUserId(long statusByUserId) {
+    public void setStatusByUserId(java.lang.Long statusByUserId) {
         _ddlRecordVersion.setStatusByUserId(statusByUserId);
     }
 

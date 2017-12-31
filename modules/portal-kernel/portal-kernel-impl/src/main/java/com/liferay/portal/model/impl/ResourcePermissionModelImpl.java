@@ -258,7 +258,11 @@ public class ResourcePermissionModelImpl extends BaseModelImpl<ResourcePermissio
     }
 
     @Override
-    public void setResourcePermissionId(long resourcePermissionId) {
+    public void setResourcePermissionId(Long resourcePermissionId) {
+        if (resourcePermissionId == null) {
+            resourcePermissionId = new Long(0);
+        }
+
         _resourcePermissionId = resourcePermissionId;
     }
 
@@ -269,13 +273,17 @@ public class ResourcePermissionModelImpl extends BaseModelImpl<ResourcePermissio
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -317,13 +325,17 @@ public class ResourcePermissionModelImpl extends BaseModelImpl<ResourcePermissio
     }
 
     @Override
-    public void setScope(int scope) {
+    public void setScope(Integer scope) {
         _columnBitmask |= SCOPE_COLUMN_BITMASK;
 
         if (!_setOriginalScope) {
             _setOriginalScope = true;
 
             _originalScope = _scope;
+        }
+
+        if (scope == null) {
+            scope = new Integer(0);
         }
 
         _scope = scope;
@@ -365,13 +377,17 @@ public class ResourcePermissionModelImpl extends BaseModelImpl<ResourcePermissio
     }
 
     @Override
-    public void setRoleId(long roleId) {
+    public void setRoleId(Long roleId) {
         _columnBitmask |= ROLEID_COLUMN_BITMASK;
 
         if (!_setOriginalRoleId) {
             _setOriginalRoleId = true;
 
             _originalRoleId = _roleId;
+        }
+
+        if (roleId == null) {
+            roleId = new Long(0);
         }
 
         _roleId = roleId;
@@ -388,7 +404,11 @@ public class ResourcePermissionModelImpl extends BaseModelImpl<ResourcePermissio
     }
 
     @Override
-    public void setOwnerId(long ownerId) {
+    public void setOwnerId(Long ownerId) {
+        if (ownerId == null) {
+            ownerId = new Long(0);
+        }
+
         _ownerId = ownerId;
     }
 
@@ -399,7 +419,11 @@ public class ResourcePermissionModelImpl extends BaseModelImpl<ResourcePermissio
     }
 
     @Override
-    public void setActionIds(long actionIds) {
+    public void setActionIds(Long actionIds) {
+        if (actionIds == null) {
+            actionIds = new Long(0);
+        }
+
         _actionIds = actionIds;
     }
 

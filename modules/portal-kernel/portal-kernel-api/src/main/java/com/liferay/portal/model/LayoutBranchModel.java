@@ -59,7 +59,7 @@ public interface LayoutBranchModel extends BaseModel<LayoutBranch> {
      *
      * @param LayoutBranchId the layout branch ID of this layout branch
      */
-    public void setLayoutBranchId(long LayoutBranchId);
+    public void setLayoutBranchId(Long LayoutBranchId);
 
     /**
      * Returns the group ID of this layout branch.
@@ -73,7 +73,7 @@ public interface LayoutBranchModel extends BaseModel<LayoutBranch> {
      *
      * @param groupId the group ID of this layout branch
      */
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this layout branch.
@@ -87,7 +87,7 @@ public interface LayoutBranchModel extends BaseModel<LayoutBranch> {
      *
      * @param companyId the company ID of this layout branch
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this layout branch.
@@ -101,7 +101,7 @@ public interface LayoutBranchModel extends BaseModel<LayoutBranch> {
      *
      * @param userId the user ID of this layout branch
      */
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this layout branch.
@@ -145,7 +145,7 @@ public interface LayoutBranchModel extends BaseModel<LayoutBranch> {
      *
      * @param layoutSetBranchId the layout set branch ID of this layout branch
      */
-    public void setLayoutSetBranchId(long layoutSetBranchId);
+    public void setLayoutSetBranchId(Long layoutSetBranchId);
 
     /**
      * Returns the plid of this layout branch.
@@ -159,7 +159,7 @@ public interface LayoutBranchModel extends BaseModel<LayoutBranch> {
      *
      * @param plid the plid of this layout branch
      */
-    public void setPlid(long plid);
+    public void setPlid(Long plid);
 
     /**
      * Returns the name of this layout branch.
@@ -210,7 +210,7 @@ public interface LayoutBranchModel extends BaseModel<LayoutBranch> {
      *
      * @param master the master of this layout branch
      */
-    public void setMaster(boolean master);
+    public void setMaster(Boolean master);
 
     @Override
     public boolean isNew();

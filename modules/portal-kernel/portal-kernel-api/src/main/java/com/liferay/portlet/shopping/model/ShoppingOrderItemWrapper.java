@@ -154,7 +154,7 @@ public class ShoppingOrderItemWrapper implements ShoppingOrderItem,
     * @param orderItemId the order item ID of this shopping order item
     */
     @Override
-    public void setOrderItemId(long orderItemId) {
+    public void setOrderItemId(java.lang.Long orderItemId) {
         _shoppingOrderItem.setOrderItemId(orderItemId);
     }
 
@@ -174,7 +174,7 @@ public class ShoppingOrderItemWrapper implements ShoppingOrderItem,
     * @param orderId the order ID of this shopping order item
     */
     @Override
-    public void setOrderId(long orderId) {
+    public void setOrderId(java.lang.Long orderId) {
         _shoppingOrderItem.setOrderId(orderId);
     }
 
@@ -314,7 +314,7 @@ public class ShoppingOrderItemWrapper implements ShoppingOrderItem,
     * @param quantity the quantity of this shopping order item
     */
     @Override
-    public void setQuantity(int quantity) {
+    public void setQuantity(java.lang.Integer quantity) {
         _shoppingOrderItem.setQuantity(quantity);
     }
 

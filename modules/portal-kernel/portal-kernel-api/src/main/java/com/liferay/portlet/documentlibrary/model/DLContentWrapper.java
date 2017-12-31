@@ -140,7 +140,7 @@ public class DLContentWrapper implements DLContent, ModelWrapper<DLContent> {
     * @param contentId the content ID of this document library content
     */
     @Override
-    public void setContentId(long contentId) {
+    public void setContentId(java.lang.Long contentId) {
         _dlContent.setContentId(contentId);
     }
 
@@ -160,7 +160,7 @@ public class DLContentWrapper implements DLContent, ModelWrapper<DLContent> {
     * @param groupId the group ID of this document library content
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _dlContent.setGroupId(groupId);
     }
 
@@ -180,7 +180,7 @@ public class DLContentWrapper implements DLContent, ModelWrapper<DLContent> {
     * @param companyId the company ID of this document library content
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _dlContent.setCompanyId(companyId);
     }
 
@@ -200,7 +200,7 @@ public class DLContentWrapper implements DLContent, ModelWrapper<DLContent> {
     * @param repositoryId the repository ID of this document library content
     */
     @Override
-    public void setRepositoryId(long repositoryId) {
+    public void setRepositoryId(java.lang.Long repositoryId) {
         _dlContent.setRepositoryId(repositoryId);
     }
 
@@ -280,7 +280,7 @@ public class DLContentWrapper implements DLContent, ModelWrapper<DLContent> {
     * @param size the size of this document library content
     */
     @Override
-    public void setSize(long size) {
+    public void setSize(java.lang.Long size) {
         _dlContent.setSize(size);
     }
 

@@ -80,7 +80,7 @@ public interface LayoutFriendlyURLModel extends BaseModel<LayoutFriendlyURL>,
      *
      * @param layoutFriendlyURLId the layout friendly u r l ID of this layout friendly u r l
      */
-    public void setLayoutFriendlyURLId(long layoutFriendlyURLId);
+    public void setLayoutFriendlyURLId(Long layoutFriendlyURLId);
 
     /**
      * Returns the group ID of this layout friendly u r l.
@@ -96,7 +96,7 @@ public interface LayoutFriendlyURLModel extends BaseModel<LayoutFriendlyURL>,
      * @param groupId the group ID of this layout friendly u r l
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this layout friendly u r l.
@@ -112,7 +112,7 @@ public interface LayoutFriendlyURLModel extends BaseModel<LayoutFriendlyURL>,
      * @param companyId the company ID of this layout friendly u r l
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this layout friendly u r l.
@@ -128,7 +128,7 @@ public interface LayoutFriendlyURLModel extends BaseModel<LayoutFriendlyURL>,
      * @param userId the user ID of this layout friendly u r l
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this layout friendly u r l.
@@ -208,7 +208,7 @@ public interface LayoutFriendlyURLModel extends BaseModel<LayoutFriendlyURL>,
      *
      * @param plid the plid of this layout friendly u r l
      */
-    public void setPlid(long plid);
+    public void setPlid(Long plid);
 
     /**
      * Returns the private layout of this layout friendly u r l.
@@ -229,7 +229,7 @@ public interface LayoutFriendlyURLModel extends BaseModel<LayoutFriendlyURL>,
      *
      * @param privateLayout the private layout of this layout friendly u r l
      */
-    public void setPrivateLayout(boolean privateLayout);
+    public void setPrivateLayout(Boolean privateLayout);
 
     /**
      * Returns the friendly u r l of this layout friendly u r l.

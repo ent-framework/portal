@@ -256,7 +256,11 @@ public class WorkflowDefinitionLinkModelImpl extends BaseModelImpl<WorkflowDefin
     }
 
     @Override
-    public void setWorkflowDefinitionLinkId(long workflowDefinitionLinkId) {
+    public void setWorkflowDefinitionLinkId(Long workflowDefinitionLinkId) {
+        if (workflowDefinitionLinkId == null) {
+            workflowDefinitionLinkId = new Long(0);
+        }
+
         _workflowDefinitionLinkId = workflowDefinitionLinkId;
     }
 
@@ -266,13 +270,17 @@ public class WorkflowDefinitionLinkModelImpl extends BaseModelImpl<WorkflowDefin
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -288,13 +296,17 @@ public class WorkflowDefinitionLinkModelImpl extends BaseModelImpl<WorkflowDefin
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -310,7 +322,11 @@ public class WorkflowDefinitionLinkModelImpl extends BaseModelImpl<WorkflowDefin
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -384,13 +400,17 @@ public class WorkflowDefinitionLinkModelImpl extends BaseModelImpl<WorkflowDefin
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
         _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
         if (!_setOriginalClassNameId) {
             _setOriginalClassNameId = true;
 
             _originalClassNameId = _classNameId;
+        }
+
+        if (classNameId == null) {
+            classNameId = new Long(0);
         }
 
         _classNameId = classNameId;
@@ -406,13 +426,17 @@ public class WorkflowDefinitionLinkModelImpl extends BaseModelImpl<WorkflowDefin
     }
 
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(Long classPK) {
         _columnBitmask |= CLASSPK_COLUMN_BITMASK;
 
         if (!_setOriginalClassPK) {
             _setOriginalClassPK = true;
 
             _originalClassPK = _classPK;
+        }
+
+        if (classPK == null) {
+            classPK = new Long(0);
         }
 
         _classPK = classPK;
@@ -428,13 +452,17 @@ public class WorkflowDefinitionLinkModelImpl extends BaseModelImpl<WorkflowDefin
     }
 
     @Override
-    public void setTypePK(long typePK) {
+    public void setTypePK(Long typePK) {
         _columnBitmask |= TYPEPK_COLUMN_BITMASK;
 
         if (!_setOriginalTypePK) {
             _setOriginalTypePK = true;
 
             _originalTypePK = _typePK;
+        }
+
+        if (typePK == null) {
+            typePK = new Long(0);
         }
 
         _typePK = typePK;
@@ -474,13 +502,17 @@ public class WorkflowDefinitionLinkModelImpl extends BaseModelImpl<WorkflowDefin
     }
 
     @Override
-    public void setWorkflowDefinitionVersion(int workflowDefinitionVersion) {
+    public void setWorkflowDefinitionVersion(Integer workflowDefinitionVersion) {
         _columnBitmask |= WORKFLOWDEFINITIONVERSION_COLUMN_BITMASK;
 
         if (!_setOriginalWorkflowDefinitionVersion) {
             _setOriginalWorkflowDefinitionVersion = true;
 
             _originalWorkflowDefinitionVersion = _workflowDefinitionVersion;
+        }
+
+        if (workflowDefinitionVersion == null) {
+            workflowDefinitionVersion = new Integer(0);
         }
 
         _workflowDefinitionVersion = workflowDefinitionVersion;

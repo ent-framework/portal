@@ -147,7 +147,7 @@ public class SocialActivityLimitWrapper implements SocialActivityLimit,
     * @param activityLimitId the activity limit ID of this social activity limit
     */
     @Override
-    public void setActivityLimitId(long activityLimitId) {
+    public void setActivityLimitId(java.lang.Long activityLimitId) {
         _socialActivityLimit.setActivityLimitId(activityLimitId);
     }
 
@@ -167,7 +167,7 @@ public class SocialActivityLimitWrapper implements SocialActivityLimit,
     * @param groupId the group ID of this social activity limit
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _socialActivityLimit.setGroupId(groupId);
     }
 
@@ -187,7 +187,7 @@ public class SocialActivityLimitWrapper implements SocialActivityLimit,
     * @param companyId the company ID of this social activity limit
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _socialActivityLimit.setCompanyId(companyId);
     }
 
@@ -207,7 +207,7 @@ public class SocialActivityLimitWrapper implements SocialActivityLimit,
     * @param userId the user ID of this social activity limit
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _socialActivityLimit.setUserId(userId);
     }
 
@@ -264,7 +264,7 @@ public class SocialActivityLimitWrapper implements SocialActivityLimit,
     * @param classNameId the class name ID of this social activity limit
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _socialActivityLimit.setClassNameId(classNameId);
     }
 
@@ -284,7 +284,7 @@ public class SocialActivityLimitWrapper implements SocialActivityLimit,
     * @param classPK the class p k of this social activity limit
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _socialActivityLimit.setClassPK(classPK);
     }
 
@@ -304,7 +304,7 @@ public class SocialActivityLimitWrapper implements SocialActivityLimit,
     * @param activityType the activity type of this social activity limit
     */
     @Override
-    public void setActivityType(int activityType) {
+    public void setActivityType(java.lang.Integer activityType) {
         _socialActivityLimit.setActivityType(activityType);
     }
 

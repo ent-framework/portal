@@ -170,7 +170,11 @@ public class DLSyncEventModelImpl extends BaseModelImpl<DLSyncEvent>
     }
 
     @Override
-    public void setSyncEventId(long syncEventId) {
+    public void setSyncEventId(Long syncEventId) {
+        if (syncEventId == null) {
+            syncEventId = new Long(0);
+        }
+
         _syncEventId = syncEventId;
     }
 
@@ -180,13 +184,17 @@ public class DLSyncEventModelImpl extends BaseModelImpl<DLSyncEvent>
     }
 
     @Override
-    public void setModifiedTime(long modifiedTime) {
+    public void setModifiedTime(Long modifiedTime) {
         _columnBitmask = -1L;
 
         if (!_setOriginalModifiedTime) {
             _setOriginalModifiedTime = true;
 
             _originalModifiedTime = _modifiedTime;
+        }
+
+        if (modifiedTime == null) {
+            modifiedTime = new Long(0);
         }
 
         _modifiedTime = modifiedTime;
@@ -230,13 +238,17 @@ public class DLSyncEventModelImpl extends BaseModelImpl<DLSyncEvent>
     }
 
     @Override
-    public void setTypePK(long typePK) {
+    public void setTypePK(Long typePK) {
         _columnBitmask |= TYPEPK_COLUMN_BITMASK;
 
         if (!_setOriginalTypePK) {
             _setOriginalTypePK = true;
 
             _originalTypePK = _typePK;
+        }
+
+        if (typePK == null) {
+            typePK = new Long(0);
         }
 
         _typePK = typePK;

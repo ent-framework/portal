@@ -192,7 +192,11 @@ public class WebDAVPropsModelImpl extends BaseModelImpl<WebDAVProps>
     }
 
     @Override
-    public void setWebDavPropsId(long webDavPropsId) {
+    public void setWebDavPropsId(Long webDavPropsId) {
+        if (webDavPropsId == null) {
+            webDavPropsId = new Long(0);
+        }
+
         _webDavPropsId = webDavPropsId;
     }
 
@@ -202,7 +206,11 @@ public class WebDAVPropsModelImpl extends BaseModelImpl<WebDAVProps>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -252,13 +260,17 @@ public class WebDAVPropsModelImpl extends BaseModelImpl<WebDAVProps>
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
         _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
         if (!_setOriginalClassNameId) {
             _setOriginalClassNameId = true;
 
             _originalClassNameId = _classNameId;
+        }
+
+        if (classNameId == null) {
+            classNameId = new Long(0);
         }
 
         _classNameId = classNameId;
@@ -274,13 +286,17 @@ public class WebDAVPropsModelImpl extends BaseModelImpl<WebDAVProps>
     }
 
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(Long classPK) {
         _columnBitmask |= CLASSPK_COLUMN_BITMASK;
 
         if (!_setOriginalClassPK) {
             _setOriginalClassPK = true;
 
             _originalClassPK = _classPK;
+        }
+
+        if (classPK == null) {
+            classPK = new Long(0);
         }
 
         _classPK = classPK;

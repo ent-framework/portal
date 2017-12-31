@@ -214,7 +214,11 @@ public class AssetLinkModelImpl extends BaseModelImpl<AssetLink>
     }
 
     @Override
-    public void setLinkId(long linkId) {
+    public void setLinkId(Long linkId) {
+        if (linkId == null) {
+            linkId = new Long(0);
+        }
+
         _linkId = linkId;
     }
 
@@ -224,7 +228,11 @@ public class AssetLinkModelImpl extends BaseModelImpl<AssetLink>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -234,7 +242,11 @@ public class AssetLinkModelImpl extends BaseModelImpl<AssetLink>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -278,13 +290,17 @@ public class AssetLinkModelImpl extends BaseModelImpl<AssetLink>
     }
 
     @Override
-    public void setEntryId1(long entryId1) {
+    public void setEntryId1(Long entryId1) {
         _columnBitmask |= ENTRYID1_COLUMN_BITMASK;
 
         if (!_setOriginalEntryId1) {
             _setOriginalEntryId1 = true;
 
             _originalEntryId1 = _entryId1;
+        }
+
+        if (entryId1 == null) {
+            entryId1 = new Long(0);
         }
 
         _entryId1 = entryId1;
@@ -300,13 +316,17 @@ public class AssetLinkModelImpl extends BaseModelImpl<AssetLink>
     }
 
     @Override
-    public void setEntryId2(long entryId2) {
+    public void setEntryId2(Long entryId2) {
         _columnBitmask |= ENTRYID2_COLUMN_BITMASK;
 
         if (!_setOriginalEntryId2) {
             _setOriginalEntryId2 = true;
 
             _originalEntryId2 = _entryId2;
+        }
+
+        if (entryId2 == null) {
+            entryId2 = new Long(0);
         }
 
         _entryId2 = entryId2;
@@ -322,13 +342,17 @@ public class AssetLinkModelImpl extends BaseModelImpl<AssetLink>
     }
 
     @Override
-    public void setType(int type) {
+    public void setType(Integer type) {
         _columnBitmask |= TYPE_COLUMN_BITMASK;
 
         if (!_setOriginalType) {
             _setOriginalType = true;
 
             _originalType = _type;
+        }
+
+        if (type == null) {
+            type = new Integer(0);
         }
 
         _type = type;
@@ -344,8 +368,12 @@ public class AssetLinkModelImpl extends BaseModelImpl<AssetLink>
     }
 
     @Override
-    public void setWeight(int weight) {
+    public void setWeight(Integer weight) {
         _columnBitmask = -1L;
+
+        if (weight == null) {
+            weight = new Integer(0);
+        }
 
         _weight = weight;
     }

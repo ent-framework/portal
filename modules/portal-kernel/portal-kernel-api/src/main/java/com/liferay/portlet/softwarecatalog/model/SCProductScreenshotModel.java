@@ -57,7 +57,7 @@ public interface SCProductScreenshotModel extends BaseModel<SCProductScreenshot>
      *
      * @param productScreenshotId the product screenshot ID of this s c product screenshot
      */
-    public void setProductScreenshotId(long productScreenshotId);
+    public void setProductScreenshotId(Long productScreenshotId);
 
     /**
      * Returns the company ID of this s c product screenshot.
@@ -71,7 +71,7 @@ public interface SCProductScreenshotModel extends BaseModel<SCProductScreenshot>
      *
      * @param companyId the company ID of this s c product screenshot
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the group ID of this s c product screenshot.
@@ -85,7 +85,7 @@ public interface SCProductScreenshotModel extends BaseModel<SCProductScreenshot>
      *
      * @param groupId the group ID of this s c product screenshot
      */
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the product entry ID of this s c product screenshot.
@@ -99,7 +99,7 @@ public interface SCProductScreenshotModel extends BaseModel<SCProductScreenshot>
      *
      * @param productEntryId the product entry ID of this s c product screenshot
      */
-    public void setProductEntryId(long productEntryId);
+    public void setProductEntryId(Long productEntryId);
 
     /**
      * Returns the thumbnail ID of this s c product screenshot.
@@ -113,7 +113,7 @@ public interface SCProductScreenshotModel extends BaseModel<SCProductScreenshot>
      *
      * @param thumbnailId the thumbnail ID of this s c product screenshot
      */
-    public void setThumbnailId(long thumbnailId);
+    public void setThumbnailId(Long thumbnailId);
 
     /**
      * Returns the full image ID of this s c product screenshot.
@@ -127,7 +127,7 @@ public interface SCProductScreenshotModel extends BaseModel<SCProductScreenshot>
      *
      * @param fullImageId the full image ID of this s c product screenshot
      */
-    public void setFullImageId(long fullImageId);
+    public void setFullImageId(Long fullImageId);
 
     /**
      * Returns the priority of this s c product screenshot.
@@ -141,7 +141,7 @@ public interface SCProductScreenshotModel extends BaseModel<SCProductScreenshot>
      *
      * @param priority the priority of this s c product screenshot
      */
-    public void setPriority(int priority);
+    public void setPriority(Integer priority);
 
     @Override
     public boolean isNew();

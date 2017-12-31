@@ -238,7 +238,7 @@ public interface ClassNameLocalService extends BaseLocalService,
         java.lang.String value)
         throws com.liferay.portal.kernel.exception.SystemException;
 
-    @com.liferay.portal.kernel.transaction.Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+    @com.liferay.portal.kernel.transaction.Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public void checkClassNames()
         throws com.liferay.portal.kernel.exception.SystemException;
 

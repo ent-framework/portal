@@ -56,6 +56,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class InvokerFilter extends BasePortalLifecycle implements Filter {
 
+
 	@Override
 	public void destroy() {
 		portalDestroy();
@@ -122,6 +123,11 @@ public class InvokerFilter extends BasePortalLifecycle implements Filter {
 			request.removeAttribute(WebKeys.INVOKER_FILTER_URI);
 		}
 	}
+
+	public void init(ServletContext servletContext) throws ServletException {
+
+	}
+
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {

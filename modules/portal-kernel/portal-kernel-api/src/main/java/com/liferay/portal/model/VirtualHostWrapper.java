@@ -111,7 +111,7 @@ public class VirtualHostWrapper implements VirtualHost,
     * @param virtualHostId the virtual host ID of this virtual host
     */
     @Override
-    public void setVirtualHostId(long virtualHostId) {
+    public void setVirtualHostId(java.lang.Long virtualHostId) {
         _virtualHost.setVirtualHostId(virtualHostId);
     }
 
@@ -131,7 +131,7 @@ public class VirtualHostWrapper implements VirtualHost,
     * @param companyId the company ID of this virtual host
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _virtualHost.setCompanyId(companyId);
     }
 
@@ -151,7 +151,7 @@ public class VirtualHostWrapper implements VirtualHost,
     * @param layoutSetId the layout set ID of this virtual host
     */
     @Override
-    public void setLayoutSetId(long layoutSetId) {
+    public void setLayoutSetId(java.lang.Long layoutSetId) {
         _virtualHost.setLayoutSetId(layoutSetId);
     }
 

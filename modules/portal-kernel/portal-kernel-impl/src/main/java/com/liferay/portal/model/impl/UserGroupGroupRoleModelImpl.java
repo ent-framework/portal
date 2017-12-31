@@ -200,13 +200,17 @@ public class UserGroupGroupRoleModelImpl extends BaseModelImpl<UserGroupGroupRol
     }
 
     @Override
-    public void setUserGroupId(long userGroupId) {
+    public void setUserGroupId(Long userGroupId) {
         _columnBitmask |= USERGROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalUserGroupId) {
             _setOriginalUserGroupId = true;
 
             _originalUserGroupId = _userGroupId;
+        }
+
+        if (userGroupId == null) {
+            userGroupId = new Long(0);
         }
 
         _userGroupId = userGroupId;
@@ -223,13 +227,17 @@ public class UserGroupGroupRoleModelImpl extends BaseModelImpl<UserGroupGroupRol
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -246,13 +254,17 @@ public class UserGroupGroupRoleModelImpl extends BaseModelImpl<UserGroupGroupRol
     }
 
     @Override
-    public void setRoleId(long roleId) {
+    public void setRoleId(Long roleId) {
         _columnBitmask |= ROLEID_COLUMN_BITMASK;
 
         if (!_setOriginalRoleId) {
             _setOriginalRoleId = true;
 
             _originalRoleId = _roleId;
+        }
+
+        if (roleId == null) {
+            roleId = new Long(0);
         }
 
         _roleId = roleId;

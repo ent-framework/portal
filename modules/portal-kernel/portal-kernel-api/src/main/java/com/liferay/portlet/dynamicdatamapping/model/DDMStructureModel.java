@@ -84,7 +84,7 @@ public interface DDMStructureModel extends BaseModel<DDMStructure>,
      *
      * @param structureId the structure ID of this d d m structure
      */
-    public void setStructureId(long structureId);
+    public void setStructureId(Long structureId);
 
     /**
      * Returns the group ID of this d d m structure.
@@ -100,7 +100,7 @@ public interface DDMStructureModel extends BaseModel<DDMStructure>,
      * @param groupId the group ID of this d d m structure
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this d d m structure.
@@ -116,7 +116,7 @@ public interface DDMStructureModel extends BaseModel<DDMStructure>,
      * @param companyId the company ID of this d d m structure
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this d d m structure.
@@ -132,7 +132,7 @@ public interface DDMStructureModel extends BaseModel<DDMStructure>,
      * @param userId the user ID of this d d m structure
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this d d m structure.
@@ -212,7 +212,7 @@ public interface DDMStructureModel extends BaseModel<DDMStructure>,
      *
      * @param parentStructureId the parent structure ID of this d d m structure
      */
-    public void setParentStructureId(long parentStructureId);
+    public void setParentStructureId(Long parentStructureId);
 
     /**
      * Returns the fully qualified class name of this d d m structure.
@@ -238,7 +238,7 @@ public interface DDMStructureModel extends BaseModel<DDMStructure>,
      * @param classNameId the class name ID of this d d m structure
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the structure key of this d d m structure.
@@ -496,7 +496,7 @@ public interface DDMStructureModel extends BaseModel<DDMStructure>,
      *
      * @param type the type of this d d m structure
      */
-    public void setType(int type);
+    public void setType(Integer type);
 
     @Override
     public boolean isNew();

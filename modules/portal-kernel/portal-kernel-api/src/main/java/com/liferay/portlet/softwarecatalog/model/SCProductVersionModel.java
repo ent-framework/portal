@@ -63,7 +63,7 @@ public interface SCProductVersionModel extends AuditedModel,
      *
      * @param productVersionId the product version ID of this s c product version
      */
-    public void setProductVersionId(long productVersionId);
+    public void setProductVersionId(Long productVersionId);
 
     /**
      * Returns the company ID of this s c product version.
@@ -79,7 +79,7 @@ public interface SCProductVersionModel extends AuditedModel,
      * @param companyId the company ID of this s c product version
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this s c product version.
@@ -95,7 +95,7 @@ public interface SCProductVersionModel extends AuditedModel,
      * @param userId the user ID of this s c product version
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this s c product version.
@@ -175,7 +175,7 @@ public interface SCProductVersionModel extends AuditedModel,
      *
      * @param productEntryId the product entry ID of this s c product version
      */
-    public void setProductEntryId(long productEntryId);
+    public void setProductEntryId(Long productEntryId);
 
     /**
      * Returns the version of this s c product version.
@@ -256,7 +256,7 @@ public interface SCProductVersionModel extends AuditedModel,
      *
      * @param repoStoreArtifact the repo store artifact of this s c product version
      */
-    public void setRepoStoreArtifact(boolean repoStoreArtifact);
+    public void setRepoStoreArtifact(Boolean repoStoreArtifact);
 
     @Override
     public boolean isNew();

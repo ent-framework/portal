@@ -60,7 +60,7 @@ public interface SocialActivitySettingModel extends BaseModel<SocialActivitySett
      *
      * @param activitySettingId the activity setting ID of this social activity setting
      */
-    public void setActivitySettingId(long activitySettingId);
+    public void setActivitySettingId(Long activitySettingId);
 
     /**
      * Returns the group ID of this social activity setting.
@@ -74,7 +74,7 @@ public interface SocialActivitySettingModel extends BaseModel<SocialActivitySett
      *
      * @param groupId the group ID of this social activity setting
      */
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this social activity setting.
@@ -88,7 +88,7 @@ public interface SocialActivitySettingModel extends BaseModel<SocialActivitySett
      *
      * @param companyId the company ID of this social activity setting
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the fully qualified class name of this social activity setting.
@@ -114,7 +114,7 @@ public interface SocialActivitySettingModel extends BaseModel<SocialActivitySett
      * @param classNameId the class name ID of this social activity setting
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the activity type of this social activity setting.
@@ -128,7 +128,7 @@ public interface SocialActivitySettingModel extends BaseModel<SocialActivitySett
      *
      * @param activityType the activity type of this social activity setting
      */
-    public void setActivityType(int activityType);
+    public void setActivityType(Integer activityType);
 
     /**
      * Returns the name of this social activity setting.

@@ -152,7 +152,7 @@ public class DLFileEntryMetadataWrapper implements DLFileEntryMetadata,
     * @param fileEntryMetadataId the file entry metadata ID of this document library file entry metadata
     */
     @Override
-    public void setFileEntryMetadataId(long fileEntryMetadataId) {
+    public void setFileEntryMetadataId(java.lang.Long fileEntryMetadataId) {
         _dlFileEntryMetadata.setFileEntryMetadataId(fileEntryMetadataId);
     }
 
@@ -172,7 +172,7 @@ public class DLFileEntryMetadataWrapper implements DLFileEntryMetadata,
     * @param DDMStorageId the d d m storage ID of this document library file entry metadata
     */
     @Override
-    public void setDDMStorageId(long DDMStorageId) {
+    public void setDDMStorageId(java.lang.Long DDMStorageId) {
         _dlFileEntryMetadata.setDDMStorageId(DDMStorageId);
     }
 
@@ -192,7 +192,7 @@ public class DLFileEntryMetadataWrapper implements DLFileEntryMetadata,
     * @param DDMStructureId the d d m structure ID of this document library file entry metadata
     */
     @Override
-    public void setDDMStructureId(long DDMStructureId) {
+    public void setDDMStructureId(java.lang.Long DDMStructureId) {
         _dlFileEntryMetadata.setDDMStructureId(DDMStructureId);
     }
 
@@ -212,7 +212,7 @@ public class DLFileEntryMetadataWrapper implements DLFileEntryMetadata,
     * @param fileEntryTypeId the file entry type ID of this document library file entry metadata
     */
     @Override
-    public void setFileEntryTypeId(long fileEntryTypeId) {
+    public void setFileEntryTypeId(java.lang.Long fileEntryTypeId) {
         _dlFileEntryMetadata.setFileEntryTypeId(fileEntryTypeId);
     }
 
@@ -232,7 +232,7 @@ public class DLFileEntryMetadataWrapper implements DLFileEntryMetadata,
     * @param fileEntryId the file entry ID of this document library file entry metadata
     */
     @Override
-    public void setFileEntryId(long fileEntryId) {
+    public void setFileEntryId(java.lang.Long fileEntryId) {
         _dlFileEntryMetadata.setFileEntryId(fileEntryId);
     }
 
@@ -252,7 +252,7 @@ public class DLFileEntryMetadataWrapper implements DLFileEntryMetadata,
     * @param fileVersionId the file version ID of this document library file entry metadata
     */
     @Override
-    public void setFileVersionId(long fileVersionId) {
+    public void setFileVersionId(java.lang.Long fileVersionId) {
         _dlFileEntryMetadata.setFileVersionId(fileVersionId);
     }
 

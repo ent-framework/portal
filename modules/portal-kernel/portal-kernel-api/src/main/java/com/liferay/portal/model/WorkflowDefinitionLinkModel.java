@@ -64,7 +64,7 @@ public interface WorkflowDefinitionLinkModel extends AttachedModel,
      *
      * @param workflowDefinitionLinkId the workflow definition link ID of this workflow definition link
      */
-    public void setWorkflowDefinitionLinkId(long workflowDefinitionLinkId);
+    public void setWorkflowDefinitionLinkId(Long workflowDefinitionLinkId);
 
     /**
      * Returns the group ID of this workflow definition link.
@@ -80,7 +80,7 @@ public interface WorkflowDefinitionLinkModel extends AttachedModel,
      * @param groupId the group ID of this workflow definition link
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this workflow definition link.
@@ -96,7 +96,7 @@ public interface WorkflowDefinitionLinkModel extends AttachedModel,
      * @param companyId the company ID of this workflow definition link
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this workflow definition link.
@@ -112,7 +112,7 @@ public interface WorkflowDefinitionLinkModel extends AttachedModel,
      * @param userId the user ID of this workflow definition link
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this workflow definition link.
@@ -204,7 +204,7 @@ public interface WorkflowDefinitionLinkModel extends AttachedModel,
      * @param classNameId the class name ID of this workflow definition link
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this workflow definition link.
@@ -220,7 +220,7 @@ public interface WorkflowDefinitionLinkModel extends AttachedModel,
      * @param classPK the class p k of this workflow definition link
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the type p k of this workflow definition link.
@@ -234,7 +234,7 @@ public interface WorkflowDefinitionLinkModel extends AttachedModel,
      *
      * @param typePK the type p k of this workflow definition link
      */
-    public void setTypePK(long typePK);
+    public void setTypePK(Long typePK);
 
     /**
      * Returns the workflow definition name of this workflow definition link.
@@ -263,7 +263,7 @@ public interface WorkflowDefinitionLinkModel extends AttachedModel,
      *
      * @param workflowDefinitionVersion the workflow definition version of this workflow definition link
      */
-    public void setWorkflowDefinitionVersion(int workflowDefinitionVersion);
+    public void setWorkflowDefinitionVersion(Integer workflowDefinitionVersion);
 
     @Override
     public boolean isNew();

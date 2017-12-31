@@ -80,7 +80,7 @@ public interface JournalFeedModel extends BaseModel<JournalFeed>,
      *
      * @param id the ID of this journal feed
      */
-    public void setId(long id);
+    public void setId(Long id);
 
     /**
      * Returns the group ID of this journal feed.
@@ -96,7 +96,7 @@ public interface JournalFeedModel extends BaseModel<JournalFeed>,
      * @param groupId the group ID of this journal feed
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this journal feed.
@@ -112,7 +112,7 @@ public interface JournalFeedModel extends BaseModel<JournalFeed>,
      * @param companyId the company ID of this journal feed
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this journal feed.
@@ -128,7 +128,7 @@ public interface JournalFeedModel extends BaseModel<JournalFeed>,
      * @param userId the user ID of this journal feed
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this journal feed.
@@ -310,7 +310,7 @@ public interface JournalFeedModel extends BaseModel<JournalFeed>,
      *
      * @param delta the delta of this journal feed
      */
-    public void setDelta(int delta);
+    public void setDelta(Integer delta);
 
     /**
      * Returns the order by col of this journal feed.

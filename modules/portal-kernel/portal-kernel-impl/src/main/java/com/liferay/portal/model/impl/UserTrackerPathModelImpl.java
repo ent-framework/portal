@@ -160,7 +160,11 @@ public class UserTrackerPathModelImpl extends BaseModelImpl<UserTrackerPath>
     }
 
     @Override
-    public void setUserTrackerPathId(long userTrackerPathId) {
+    public void setUserTrackerPathId(Long userTrackerPathId) {
+        if (userTrackerPathId == null) {
+            userTrackerPathId = new Long(0);
+        }
+
         _userTrackerPathId = userTrackerPathId;
     }
 
@@ -170,13 +174,17 @@ public class UserTrackerPathModelImpl extends BaseModelImpl<UserTrackerPath>
     }
 
     @Override
-    public void setUserTrackerId(long userTrackerId) {
+    public void setUserTrackerId(Long userTrackerId) {
         _columnBitmask |= USERTRACKERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserTrackerId) {
             _setOriginalUserTrackerId = true;
 
             _originalUserTrackerId = _userTrackerId;
+        }
+
+        if (userTrackerId == null) {
+            userTrackerId = new Long(0);
         }
 
         _userTrackerId = userTrackerId;

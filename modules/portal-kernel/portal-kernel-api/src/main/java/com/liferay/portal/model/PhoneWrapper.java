@@ -195,7 +195,7 @@ public class PhoneWrapper implements Phone, ModelWrapper<Phone> {
     * @param phoneId the phone ID of this phone
     */
     @Override
-    public void setPhoneId(long phoneId) {
+    public void setPhoneId(java.lang.Long phoneId) {
         _phone.setPhoneId(phoneId);
     }
 
@@ -215,7 +215,7 @@ public class PhoneWrapper implements Phone, ModelWrapper<Phone> {
     * @param companyId the company ID of this phone
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _phone.setCompanyId(companyId);
     }
 
@@ -235,7 +235,7 @@ public class PhoneWrapper implements Phone, ModelWrapper<Phone> {
     * @param userId the user ID of this phone
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _phone.setUserId(userId);
     }
 
@@ -352,7 +352,7 @@ public class PhoneWrapper implements Phone, ModelWrapper<Phone> {
     * @param classNameId the class name ID of this phone
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _phone.setClassNameId(classNameId);
     }
 
@@ -372,7 +372,7 @@ public class PhoneWrapper implements Phone, ModelWrapper<Phone> {
     * @param classPK the class p k of this phone
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _phone.setClassPK(classPK);
     }
 
@@ -432,7 +432,7 @@ public class PhoneWrapper implements Phone, ModelWrapper<Phone> {
     * @param typeId the type ID of this phone
     */
     @Override
-    public void setTypeId(int typeId) {
+    public void setTypeId(java.lang.Integer typeId) {
         _phone.setTypeId(typeId);
     }
 
@@ -462,7 +462,7 @@ public class PhoneWrapper implements Phone, ModelWrapper<Phone> {
     * @param primary the primary of this phone
     */
     @Override
-    public void setPrimary(boolean primary) {
+    public void setPrimary(java.lang.Boolean primary) {
         _phone.setPrimary(primary);
     }
 

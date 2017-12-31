@@ -260,7 +260,7 @@ public class DLFolderWrapper implements DLFolder, ModelWrapper<DLFolder> {
     * @param folderId the folder ID of this document library folder
     */
     @Override
-    public void setFolderId(long folderId) {
+    public void setFolderId(java.lang.Long folderId) {
         _dlFolder.setFolderId(folderId);
     }
 
@@ -280,7 +280,7 @@ public class DLFolderWrapper implements DLFolder, ModelWrapper<DLFolder> {
     * @param groupId the group ID of this document library folder
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _dlFolder.setGroupId(groupId);
     }
 
@@ -300,7 +300,7 @@ public class DLFolderWrapper implements DLFolder, ModelWrapper<DLFolder> {
     * @param companyId the company ID of this document library folder
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _dlFolder.setCompanyId(companyId);
     }
 
@@ -320,7 +320,7 @@ public class DLFolderWrapper implements DLFolder, ModelWrapper<DLFolder> {
     * @param userId the user ID of this document library folder
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _dlFolder.setUserId(userId);
     }
 
@@ -422,7 +422,7 @@ public class DLFolderWrapper implements DLFolder, ModelWrapper<DLFolder> {
     * @param repositoryId the repository ID of this document library folder
     */
     @Override
-    public void setRepositoryId(long repositoryId) {
+    public void setRepositoryId(java.lang.Long repositoryId) {
         _dlFolder.setRepositoryId(repositoryId);
     }
 
@@ -452,7 +452,7 @@ public class DLFolderWrapper implements DLFolder, ModelWrapper<DLFolder> {
     * @param mountPoint the mount point of this document library folder
     */
     @Override
-    public void setMountPoint(boolean mountPoint) {
+    public void setMountPoint(java.lang.Boolean mountPoint) {
         _dlFolder.setMountPoint(mountPoint);
     }
 
@@ -472,7 +472,7 @@ public class DLFolderWrapper implements DLFolder, ModelWrapper<DLFolder> {
     * @param parentFolderId the parent folder ID of this document library folder
     */
     @Override
-    public void setParentFolderId(long parentFolderId) {
+    public void setParentFolderId(java.lang.Long parentFolderId) {
         _dlFolder.setParentFolderId(parentFolderId);
     }
 
@@ -572,7 +572,7 @@ public class DLFolderWrapper implements DLFolder, ModelWrapper<DLFolder> {
     * @param defaultFileEntryTypeId the default file entry type ID of this document library folder
     */
     @Override
-    public void setDefaultFileEntryTypeId(long defaultFileEntryTypeId) {
+    public void setDefaultFileEntryTypeId(java.lang.Long defaultFileEntryTypeId) {
         _dlFolder.setDefaultFileEntryTypeId(defaultFileEntryTypeId);
     }
 
@@ -602,7 +602,7 @@ public class DLFolderWrapper implements DLFolder, ModelWrapper<DLFolder> {
     * @param hidden the hidden of this document library folder
     */
     @Override
-    public void setHidden(boolean hidden) {
+    public void setHidden(java.lang.Boolean hidden) {
         _dlFolder.setHidden(hidden);
     }
 
@@ -632,7 +632,8 @@ public class DLFolderWrapper implements DLFolder, ModelWrapper<DLFolder> {
     * @param overrideFileEntryTypes the override file entry types of this document library folder
     */
     @Override
-    public void setOverrideFileEntryTypes(boolean overrideFileEntryTypes) {
+    public void setOverrideFileEntryTypes(
+        java.lang.Boolean overrideFileEntryTypes) {
         _dlFolder.setOverrideFileEntryTypes(overrideFileEntryTypes);
     }
 
@@ -652,7 +653,7 @@ public class DLFolderWrapper implements DLFolder, ModelWrapper<DLFolder> {
     * @param status the status of this document library folder
     */
     @Override
-    public void setStatus(int status) {
+    public void setStatus(java.lang.Integer status) {
         _dlFolder.setStatus(status);
     }
 
@@ -672,7 +673,7 @@ public class DLFolderWrapper implements DLFolder, ModelWrapper<DLFolder> {
     * @param statusByUserId the status by user ID of this document library folder
     */
     @Override
-    public void setStatusByUserId(long statusByUserId) {
+    public void setStatusByUserId(java.lang.Long statusByUserId) {
         _dlFolder.setStatusByUserId(statusByUserId);
     }
 

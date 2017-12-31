@@ -667,13 +667,17 @@ public class UserModelImpl extends BaseModelImpl<User> implements UserModel {
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;
@@ -700,13 +704,17 @@ public class UserModelImpl extends BaseModelImpl<User> implements UserModel {
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -770,13 +778,17 @@ public class UserModelImpl extends BaseModelImpl<User> implements UserModel {
     }
 
     @Override
-    public void setDefaultUser(boolean defaultUser) {
+    public void setDefaultUser(Boolean defaultUser) {
         _columnBitmask |= DEFAULTUSER_COLUMN_BITMASK;
 
         if (!_setOriginalDefaultUser) {
             _setOriginalDefaultUser = true;
 
             _originalDefaultUser = _defaultUser;
+        }
+
+        if (defaultUser == null) {
+            defaultUser = Boolean.FALSE;
         }
 
         _defaultUser = defaultUser;
@@ -793,13 +805,17 @@ public class UserModelImpl extends BaseModelImpl<User> implements UserModel {
     }
 
     @Override
-    public void setContactId(long contactId) {
+    public void setContactId(Long contactId) {
         _columnBitmask |= CONTACTID_COLUMN_BITMASK;
 
         if (!_setOriginalContactId) {
             _setOriginalContactId = true;
 
             _originalContactId = _contactId;
+        }
+
+        if (contactId == null) {
+            contactId = new Long(0);
         }
 
         _contactId = contactId;
@@ -836,7 +852,11 @@ public class UserModelImpl extends BaseModelImpl<User> implements UserModel {
     }
 
     @Override
-    public void setPasswordEncrypted(boolean passwordEncrypted) {
+    public void setPasswordEncrypted(Boolean passwordEncrypted) {
+        if (passwordEncrypted == null) {
+            passwordEncrypted = Boolean.FALSE;
+        }
+
         _passwordEncrypted = passwordEncrypted;
     }
 
@@ -852,7 +872,11 @@ public class UserModelImpl extends BaseModelImpl<User> implements UserModel {
     }
 
     @Override
-    public void setPasswordReset(boolean passwordReset) {
+    public void setPasswordReset(Boolean passwordReset) {
+        if (passwordReset == null) {
+            passwordReset = Boolean.FALSE;
+        }
+
         _passwordReset = passwordReset;
     }
 
@@ -919,7 +943,11 @@ public class UserModelImpl extends BaseModelImpl<User> implements UserModel {
     }
 
     @Override
-    public void setGraceLoginCount(int graceLoginCount) {
+    public void setGraceLoginCount(Integer graceLoginCount) {
+        if (graceLoginCount == null) {
+            graceLoginCount = new Integer(0);
+        }
+
         _graceLoginCount = graceLoginCount;
     }
 
@@ -980,13 +1008,17 @@ public class UserModelImpl extends BaseModelImpl<User> implements UserModel {
     }
 
     @Override
-    public void setFacebookId(long facebookId) {
+    public void setFacebookId(Long facebookId) {
         _columnBitmask |= FACEBOOKID_COLUMN_BITMASK;
 
         if (!_setOriginalFacebookId) {
             _setOriginalFacebookId = true;
 
             _originalFacebookId = _facebookId;
+        }
+
+        if (facebookId == null) {
+            facebookId = new Long(0);
         }
 
         _facebookId = facebookId;
@@ -1003,7 +1035,11 @@ public class UserModelImpl extends BaseModelImpl<User> implements UserModel {
     }
 
     @Override
-    public void setLdapServerId(long ldapServerId) {
+    public void setLdapServerId(Long ldapServerId) {
+        if (ldapServerId == null) {
+            ldapServerId = new Long(0);
+        }
+
         _ldapServerId = ldapServerId;
     }
 
@@ -1039,13 +1075,17 @@ public class UserModelImpl extends BaseModelImpl<User> implements UserModel {
     }
 
     @Override
-    public void setPortraitId(long portraitId) {
+    public void setPortraitId(Long portraitId) {
         _columnBitmask |= PORTRAITID_COLUMN_BITMASK;
 
         if (!_setOriginalPortraitId) {
             _setOriginalPortraitId = true;
 
             _originalPortraitId = _portraitId;
+        }
+
+        if (portraitId == null) {
+            portraitId = new Long(0);
         }
 
         _portraitId = portraitId;
@@ -1245,7 +1285,11 @@ public class UserModelImpl extends BaseModelImpl<User> implements UserModel {
     }
 
     @Override
-    public void setFailedLoginAttempts(int failedLoginAttempts) {
+    public void setFailedLoginAttempts(Integer failedLoginAttempts) {
+        if (failedLoginAttempts == null) {
+            failedLoginAttempts = new Integer(0);
+        }
+
         _failedLoginAttempts = failedLoginAttempts;
     }
 
@@ -1261,7 +1305,11 @@ public class UserModelImpl extends BaseModelImpl<User> implements UserModel {
     }
 
     @Override
-    public void setLockout(boolean lockout) {
+    public void setLockout(Boolean lockout) {
+        if (lockout == null) {
+            lockout = Boolean.FALSE;
+        }
+
         _lockout = lockout;
     }
 
@@ -1288,7 +1336,11 @@ public class UserModelImpl extends BaseModelImpl<User> implements UserModel {
     }
 
     @Override
-    public void setAgreedToTermsOfUse(boolean agreedToTermsOfUse) {
+    public void setAgreedToTermsOfUse(Boolean agreedToTermsOfUse) {
+        if (agreedToTermsOfUse == null) {
+            agreedToTermsOfUse = Boolean.FALSE;
+        }
+
         _agreedToTermsOfUse = agreedToTermsOfUse;
     }
 
@@ -1304,7 +1356,11 @@ public class UserModelImpl extends BaseModelImpl<User> implements UserModel {
     }
 
     @Override
-    public void setEmailAddressVerified(boolean emailAddressVerified) {
+    public void setEmailAddressVerified(Boolean emailAddressVerified) {
+        if (emailAddressVerified == null) {
+            emailAddressVerified = Boolean.FALSE;
+        }
+
         _emailAddressVerified = emailAddressVerified;
     }
 
@@ -1315,13 +1371,17 @@ public class UserModelImpl extends BaseModelImpl<User> implements UserModel {
     }
 
     @Override
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         _columnBitmask |= STATUS_COLUMN_BITMASK;
 
         if (!_setOriginalStatus) {
             _setOriginalStatus = true;
 
             _originalStatus = _status;
+        }
+
+        if (status == null) {
+            status = new Integer(0);
         }
 
         _status = status;

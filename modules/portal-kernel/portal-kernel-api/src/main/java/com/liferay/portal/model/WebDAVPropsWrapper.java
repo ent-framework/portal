@@ -133,7 +133,7 @@ public class WebDAVPropsWrapper implements WebDAVProps,
     * @param webDavPropsId the web dav props ID of this web d a v props
     */
     @Override
-    public void setWebDavPropsId(long webDavPropsId) {
+    public void setWebDavPropsId(java.lang.Long webDavPropsId) {
         _webDAVProps.setWebDavPropsId(webDavPropsId);
     }
 
@@ -153,7 +153,7 @@ public class WebDAVPropsWrapper implements WebDAVProps,
     * @param companyId the company ID of this web d a v props
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _webDAVProps.setCompanyId(companyId);
     }
 
@@ -228,7 +228,7 @@ public class WebDAVPropsWrapper implements WebDAVProps,
     * @param classNameId the class name ID of this web d a v props
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _webDAVProps.setClassNameId(classNameId);
     }
 
@@ -248,7 +248,7 @@ public class WebDAVPropsWrapper implements WebDAVProps,
     * @param classPK the class p k of this web d a v props
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _webDAVProps.setClassPK(classPK);
     }
 

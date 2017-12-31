@@ -60,7 +60,7 @@ public interface SocialActivityCounterModel extends AttachedModel,
      *
      * @param activityCounterId the activity counter ID of this social activity counter
      */
-    public void setActivityCounterId(long activityCounterId);
+    public void setActivityCounterId(Long activityCounterId);
 
     /**
      * Returns the group ID of this social activity counter.
@@ -74,7 +74,7 @@ public interface SocialActivityCounterModel extends AttachedModel,
      *
      * @param groupId the group ID of this social activity counter
      */
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this social activity counter.
@@ -88,7 +88,7 @@ public interface SocialActivityCounterModel extends AttachedModel,
      *
      * @param companyId the company ID of this social activity counter
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the fully qualified class name of this social activity counter.
@@ -114,7 +114,7 @@ public interface SocialActivityCounterModel extends AttachedModel,
      * @param classNameId the class name ID of this social activity counter
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this social activity counter.
@@ -130,7 +130,7 @@ public interface SocialActivityCounterModel extends AttachedModel,
      * @param classPK the class p k of this social activity counter
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the name of this social activity counter.
@@ -159,7 +159,7 @@ public interface SocialActivityCounterModel extends AttachedModel,
      *
      * @param ownerType the owner type of this social activity counter
      */
-    public void setOwnerType(int ownerType);
+    public void setOwnerType(Integer ownerType);
 
     /**
      * Returns the current value of this social activity counter.
@@ -173,7 +173,7 @@ public interface SocialActivityCounterModel extends AttachedModel,
      *
      * @param currentValue the current value of this social activity counter
      */
-    public void setCurrentValue(int currentValue);
+    public void setCurrentValue(Integer currentValue);
 
     /**
      * Returns the total value of this social activity counter.
@@ -187,7 +187,7 @@ public interface SocialActivityCounterModel extends AttachedModel,
      *
      * @param totalValue the total value of this social activity counter
      */
-    public void setTotalValue(int totalValue);
+    public void setTotalValue(Integer totalValue);
 
     /**
      * Returns the grace value of this social activity counter.
@@ -201,7 +201,7 @@ public interface SocialActivityCounterModel extends AttachedModel,
      *
      * @param graceValue the grace value of this social activity counter
      */
-    public void setGraceValue(int graceValue);
+    public void setGraceValue(Integer graceValue);
 
     /**
      * Returns the start period of this social activity counter.
@@ -215,7 +215,7 @@ public interface SocialActivityCounterModel extends AttachedModel,
      *
      * @param startPeriod the start period of this social activity counter
      */
-    public void setStartPeriod(int startPeriod);
+    public void setStartPeriod(Integer startPeriod);
 
     /**
      * Returns the end period of this social activity counter.
@@ -229,7 +229,7 @@ public interface SocialActivityCounterModel extends AttachedModel,
      *
      * @param endPeriod the end period of this social activity counter
      */
-    public void setEndPeriod(int endPeriod);
+    public void setEndPeriod(Integer endPeriod);
 
     /**
      * Returns the active of this social activity counter.
@@ -250,7 +250,7 @@ public interface SocialActivityCounterModel extends AttachedModel,
      *
      * @param active the active of this social activity counter
      */
-    public void setActive(boolean active);
+    public void setActive(Boolean active);
 
     @Override
     public boolean isNew();

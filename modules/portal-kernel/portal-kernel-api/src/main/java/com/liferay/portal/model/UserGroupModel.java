@@ -79,7 +79,7 @@ public interface UserGroupModel extends BaseModel<UserGroup>, StagedAuditedModel
      *
      * @param userGroupId the user group ID of this user group
      */
-    public void setUserGroupId(long userGroupId);
+    public void setUserGroupId(Long userGroupId);
 
     /**
      * Returns the company ID of this user group.
@@ -95,7 +95,7 @@ public interface UserGroupModel extends BaseModel<UserGroup>, StagedAuditedModel
      * @param companyId the company ID of this user group
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this user group.
@@ -111,7 +111,7 @@ public interface UserGroupModel extends BaseModel<UserGroup>, StagedAuditedModel
      * @param userId the user ID of this user group
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this user group.
@@ -191,7 +191,7 @@ public interface UserGroupModel extends BaseModel<UserGroup>, StagedAuditedModel
      *
      * @param parentUserGroupId the parent user group ID of this user group
      */
-    public void setParentUserGroupId(long parentUserGroupId);
+    public void setParentUserGroupId(Long parentUserGroupId);
 
     /**
      * Returns the name of this user group.
@@ -242,7 +242,7 @@ public interface UserGroupModel extends BaseModel<UserGroup>, StagedAuditedModel
      *
      * @param addedByLDAPImport the added by l d a p import of this user group
      */
-    public void setAddedByLDAPImport(boolean addedByLDAPImport);
+    public void setAddedByLDAPImport(Boolean addedByLDAPImport);
 
     @Override
     public boolean isNew();

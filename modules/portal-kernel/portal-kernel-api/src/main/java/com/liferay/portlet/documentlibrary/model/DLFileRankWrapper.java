@@ -132,7 +132,7 @@ public class DLFileRankWrapper implements DLFileRank, ModelWrapper<DLFileRank> {
     * @param fileRankId the file rank ID of this document library file rank
     */
     @Override
-    public void setFileRankId(long fileRankId) {
+    public void setFileRankId(java.lang.Long fileRankId) {
         _dlFileRank.setFileRankId(fileRankId);
     }
 
@@ -152,7 +152,7 @@ public class DLFileRankWrapper implements DLFileRank, ModelWrapper<DLFileRank> {
     * @param groupId the group ID of this document library file rank
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _dlFileRank.setGroupId(groupId);
     }
 
@@ -172,7 +172,7 @@ public class DLFileRankWrapper implements DLFileRank, ModelWrapper<DLFileRank> {
     * @param companyId the company ID of this document library file rank
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _dlFileRank.setCompanyId(companyId);
     }
 
@@ -192,7 +192,7 @@ public class DLFileRankWrapper implements DLFileRank, ModelWrapper<DLFileRank> {
     * @param userId the user ID of this document library file rank
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _dlFileRank.setUserId(userId);
     }
 
@@ -254,7 +254,7 @@ public class DLFileRankWrapper implements DLFileRank, ModelWrapper<DLFileRank> {
     * @param fileEntryId the file entry ID of this document library file rank
     */
     @Override
-    public void setFileEntryId(long fileEntryId) {
+    public void setFileEntryId(java.lang.Long fileEntryId) {
         _dlFileRank.setFileEntryId(fileEntryId);
     }
 
@@ -284,7 +284,7 @@ public class DLFileRankWrapper implements DLFileRank, ModelWrapper<DLFileRank> {
     * @param active the active of this document library file rank
     */
     @Override
-    public void setActive(boolean active) {
+    public void setActive(java.lang.Boolean active) {
         _dlFileRank.setActive(active);
     }
 

@@ -146,7 +146,7 @@ public class TeamWrapper implements Team, ModelWrapper<Team> {
     * @param teamId the team ID of this team
     */
     @Override
-    public void setTeamId(long teamId) {
+    public void setTeamId(java.lang.Long teamId) {
         _team.setTeamId(teamId);
     }
 
@@ -166,7 +166,7 @@ public class TeamWrapper implements Team, ModelWrapper<Team> {
     * @param companyId the company ID of this team
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _team.setCompanyId(companyId);
     }
 
@@ -186,7 +186,7 @@ public class TeamWrapper implements Team, ModelWrapper<Team> {
     * @param userId the user ID of this team
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _team.setUserId(userId);
     }
 
@@ -288,7 +288,7 @@ public class TeamWrapper implements Team, ModelWrapper<Team> {
     * @param groupId the group ID of this team
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _team.setGroupId(groupId);
     }
 

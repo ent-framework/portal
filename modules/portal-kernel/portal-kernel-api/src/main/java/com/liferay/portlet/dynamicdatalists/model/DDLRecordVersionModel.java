@@ -63,7 +63,7 @@ public interface DDLRecordVersionModel extends BaseModel<DDLRecordVersion>,
      *
      * @param recordVersionId the record version ID of this d d l record version
      */
-    public void setRecordVersionId(long recordVersionId);
+    public void setRecordVersionId(Long recordVersionId);
 
     /**
      * Returns the group ID of this d d l record version.
@@ -77,7 +77,7 @@ public interface DDLRecordVersionModel extends BaseModel<DDLRecordVersion>,
      *
      * @param groupId the group ID of this d d l record version
      */
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this d d l record version.
@@ -91,7 +91,7 @@ public interface DDLRecordVersionModel extends BaseModel<DDLRecordVersion>,
      *
      * @param companyId the company ID of this d d l record version
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this d d l record version.
@@ -105,7 +105,7 @@ public interface DDLRecordVersionModel extends BaseModel<DDLRecordVersion>,
      *
      * @param userId the user ID of this d d l record version
      */
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this d d l record version.
@@ -163,7 +163,7 @@ public interface DDLRecordVersionModel extends BaseModel<DDLRecordVersion>,
      *
      * @param DDMStorageId the d d m storage ID of this d d l record version
      */
-    public void setDDMStorageId(long DDMStorageId);
+    public void setDDMStorageId(Long DDMStorageId);
 
     /**
      * Returns the record set ID of this d d l record version.
@@ -177,7 +177,7 @@ public interface DDLRecordVersionModel extends BaseModel<DDLRecordVersion>,
      *
      * @param recordSetId the record set ID of this d d l record version
      */
-    public void setRecordSetId(long recordSetId);
+    public void setRecordSetId(Long recordSetId);
 
     /**
      * Returns the record ID of this d d l record version.
@@ -191,7 +191,7 @@ public interface DDLRecordVersionModel extends BaseModel<DDLRecordVersion>,
      *
      * @param recordId the record ID of this d d l record version
      */
-    public void setRecordId(long recordId);
+    public void setRecordId(Long recordId);
 
     /**
      * Returns the version of this d d l record version.
@@ -220,7 +220,7 @@ public interface DDLRecordVersionModel extends BaseModel<DDLRecordVersion>,
      *
      * @param displayIndex the display index of this d d l record version
      */
-    public void setDisplayIndex(int displayIndex);
+    public void setDisplayIndex(Integer displayIndex);
 
     /**
      * Returns the status of this d d l record version.
@@ -236,7 +236,7 @@ public interface DDLRecordVersionModel extends BaseModel<DDLRecordVersion>,
      * @param status the status of this d d l record version
      */
     @Override
-    public void setStatus(int status);
+    public void setStatus(Integer status);
 
     /**
      * Returns the status by user ID of this d d l record version.
@@ -252,7 +252,7 @@ public interface DDLRecordVersionModel extends BaseModel<DDLRecordVersion>,
      * @param statusByUserId the status by user ID of this d d l record version
      */
     @Override
-    public void setStatusByUserId(long statusByUserId);
+    public void setStatusByUserId(Long statusByUserId);
 
     /**
      * Returns the status by user uuid of this d d l record version.

@@ -335,7 +335,11 @@ public class OrgLaborModelImpl extends BaseModelImpl<OrgLabor>
     }
 
     @Override
-    public void setOrgLaborId(long orgLaborId) {
+    public void setOrgLaborId(Long orgLaborId) {
+        if (orgLaborId == null) {
+            orgLaborId = new Long(0);
+        }
+
         _orgLaborId = orgLaborId;
     }
 
@@ -346,13 +350,17 @@ public class OrgLaborModelImpl extends BaseModelImpl<OrgLabor>
     }
 
     @Override
-    public void setOrganizationId(long organizationId) {
+    public void setOrganizationId(Long organizationId) {
         _columnBitmask = -1L;
 
         if (!_setOriginalOrganizationId) {
             _setOriginalOrganizationId = true;
 
             _originalOrganizationId = _organizationId;
+        }
+
+        if (organizationId == null) {
+            organizationId = new Long(0);
         }
 
         _organizationId = organizationId;
@@ -369,8 +377,12 @@ public class OrgLaborModelImpl extends BaseModelImpl<OrgLabor>
     }
 
     @Override
-    public void setTypeId(int typeId) {
+    public void setTypeId(Integer typeId) {
         _columnBitmask = -1L;
+
+        if (typeId == null) {
+            typeId = new Integer(0);
+        }
 
         _typeId = typeId;
     }
@@ -382,7 +394,11 @@ public class OrgLaborModelImpl extends BaseModelImpl<OrgLabor>
     }
 
     @Override
-    public void setSunOpen(int sunOpen) {
+    public void setSunOpen(Integer sunOpen) {
+        if (sunOpen == null) {
+            sunOpen = new Integer(0);
+        }
+
         _sunOpen = sunOpen;
     }
 
@@ -393,7 +409,11 @@ public class OrgLaborModelImpl extends BaseModelImpl<OrgLabor>
     }
 
     @Override
-    public void setSunClose(int sunClose) {
+    public void setSunClose(Integer sunClose) {
+        if (sunClose == null) {
+            sunClose = new Integer(0);
+        }
+
         _sunClose = sunClose;
     }
 
@@ -404,7 +424,11 @@ public class OrgLaborModelImpl extends BaseModelImpl<OrgLabor>
     }
 
     @Override
-    public void setMonOpen(int monOpen) {
+    public void setMonOpen(Integer monOpen) {
+        if (monOpen == null) {
+            monOpen = new Integer(0);
+        }
+
         _monOpen = monOpen;
     }
 
@@ -415,7 +439,11 @@ public class OrgLaborModelImpl extends BaseModelImpl<OrgLabor>
     }
 
     @Override
-    public void setMonClose(int monClose) {
+    public void setMonClose(Integer monClose) {
+        if (monClose == null) {
+            monClose = new Integer(0);
+        }
+
         _monClose = monClose;
     }
 
@@ -426,7 +454,11 @@ public class OrgLaborModelImpl extends BaseModelImpl<OrgLabor>
     }
 
     @Override
-    public void setTueOpen(int tueOpen) {
+    public void setTueOpen(Integer tueOpen) {
+        if (tueOpen == null) {
+            tueOpen = new Integer(0);
+        }
+
         _tueOpen = tueOpen;
     }
 
@@ -437,7 +469,11 @@ public class OrgLaborModelImpl extends BaseModelImpl<OrgLabor>
     }
 
     @Override
-    public void setTueClose(int tueClose) {
+    public void setTueClose(Integer tueClose) {
+        if (tueClose == null) {
+            tueClose = new Integer(0);
+        }
+
         _tueClose = tueClose;
     }
 
@@ -448,7 +484,11 @@ public class OrgLaborModelImpl extends BaseModelImpl<OrgLabor>
     }
 
     @Override
-    public void setWedOpen(int wedOpen) {
+    public void setWedOpen(Integer wedOpen) {
+        if (wedOpen == null) {
+            wedOpen = new Integer(0);
+        }
+
         _wedOpen = wedOpen;
     }
 
@@ -459,7 +499,11 @@ public class OrgLaborModelImpl extends BaseModelImpl<OrgLabor>
     }
 
     @Override
-    public void setWedClose(int wedClose) {
+    public void setWedClose(Integer wedClose) {
+        if (wedClose == null) {
+            wedClose = new Integer(0);
+        }
+
         _wedClose = wedClose;
     }
 
@@ -470,7 +514,11 @@ public class OrgLaborModelImpl extends BaseModelImpl<OrgLabor>
     }
 
     @Override
-    public void setThuOpen(int thuOpen) {
+    public void setThuOpen(Integer thuOpen) {
+        if (thuOpen == null) {
+            thuOpen = new Integer(0);
+        }
+
         _thuOpen = thuOpen;
     }
 
@@ -481,7 +529,11 @@ public class OrgLaborModelImpl extends BaseModelImpl<OrgLabor>
     }
 
     @Override
-    public void setThuClose(int thuClose) {
+    public void setThuClose(Integer thuClose) {
+        if (thuClose == null) {
+            thuClose = new Integer(0);
+        }
+
         _thuClose = thuClose;
     }
 
@@ -492,7 +544,11 @@ public class OrgLaborModelImpl extends BaseModelImpl<OrgLabor>
     }
 
     @Override
-    public void setFriOpen(int friOpen) {
+    public void setFriOpen(Integer friOpen) {
+        if (friOpen == null) {
+            friOpen = new Integer(0);
+        }
+
         _friOpen = friOpen;
     }
 
@@ -503,7 +559,11 @@ public class OrgLaborModelImpl extends BaseModelImpl<OrgLabor>
     }
 
     @Override
-    public void setFriClose(int friClose) {
+    public void setFriClose(Integer friClose) {
+        if (friClose == null) {
+            friClose = new Integer(0);
+        }
+
         _friClose = friClose;
     }
 
@@ -514,7 +574,11 @@ public class OrgLaborModelImpl extends BaseModelImpl<OrgLabor>
     }
 
     @Override
-    public void setSatOpen(int satOpen) {
+    public void setSatOpen(Integer satOpen) {
+        if (satOpen == null) {
+            satOpen = new Integer(0);
+        }
+
         _satOpen = satOpen;
     }
 
@@ -525,7 +589,11 @@ public class OrgLaborModelImpl extends BaseModelImpl<OrgLabor>
     }
 
     @Override
-    public void setSatClose(int satClose) {
+    public void setSatClose(Integer satClose) {
+        if (satClose == null) {
+            satClose = new Integer(0);
+        }
+
         _satClose = satClose;
     }
 

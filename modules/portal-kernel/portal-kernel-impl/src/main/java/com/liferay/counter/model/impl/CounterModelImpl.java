@@ -145,7 +145,11 @@ public class CounterModelImpl extends BaseModelImpl<Counter>
     }
 
     @Override
-    public void setCurrentId(long currentId) {
+    public void setCurrentId(Long currentId) {
+        if (currentId == null) {
+            currentId = new Long(0);
+        }
+
         _currentId = currentId;
     }
 

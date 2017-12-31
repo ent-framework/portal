@@ -59,7 +59,7 @@ public interface ShardModel extends AttachedModel, BaseModel<Shard> {
      *
      * @param shardId the shard ID of this shard
      */
-    public void setShardId(long shardId);
+    public void setShardId(Long shardId);
 
     /**
      * Returns the fully qualified class name of this shard.
@@ -85,7 +85,7 @@ public interface ShardModel extends AttachedModel, BaseModel<Shard> {
      * @param classNameId the class name ID of this shard
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this shard.
@@ -101,7 +101,7 @@ public interface ShardModel extends AttachedModel, BaseModel<Shard> {
      * @param classPK the class p k of this shard
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the name of this shard.

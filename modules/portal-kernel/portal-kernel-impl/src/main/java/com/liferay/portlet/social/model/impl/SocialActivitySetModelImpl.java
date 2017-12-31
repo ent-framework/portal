@@ -238,7 +238,11 @@ public class SocialActivitySetModelImpl extends BaseModelImpl<SocialActivitySet>
     }
 
     @Override
-    public void setActivitySetId(long activitySetId) {
+    public void setActivitySetId(Long activitySetId) {
+        if (activitySetId == null) {
+            activitySetId = new Long(0);
+        }
+
         _activitySetId = activitySetId;
     }
 
@@ -248,13 +252,17 @@ public class SocialActivitySetModelImpl extends BaseModelImpl<SocialActivitySet>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -270,7 +278,11 @@ public class SocialActivitySetModelImpl extends BaseModelImpl<SocialActivitySet>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -280,13 +292,17 @@ public class SocialActivitySetModelImpl extends BaseModelImpl<SocialActivitySet>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;
@@ -312,7 +328,11 @@ public class SocialActivitySetModelImpl extends BaseModelImpl<SocialActivitySet>
     }
 
     @Override
-    public void setCreateDate(long createDate) {
+    public void setCreateDate(Long createDate) {
+        if (createDate == null) {
+            createDate = new Long(0);
+        }
+
         _createDate = createDate;
     }
 
@@ -322,8 +342,12 @@ public class SocialActivitySetModelImpl extends BaseModelImpl<SocialActivitySet>
     }
 
     @Override
-    public void setModifiedDate(long modifiedDate) {
+    public void setModifiedDate(Long modifiedDate) {
         _columnBitmask = -1L;
+
+        if (modifiedDate == null) {
+            modifiedDate = new Long(0);
+        }
 
         _modifiedDate = modifiedDate;
     }
@@ -354,13 +378,17 @@ public class SocialActivitySetModelImpl extends BaseModelImpl<SocialActivitySet>
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
         _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
         if (!_setOriginalClassNameId) {
             _setOriginalClassNameId = true;
 
             _originalClassNameId = _classNameId;
+        }
+
+        if (classNameId == null) {
+            classNameId = new Long(0);
         }
 
         _classNameId = classNameId;
@@ -376,13 +404,17 @@ public class SocialActivitySetModelImpl extends BaseModelImpl<SocialActivitySet>
     }
 
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(Long classPK) {
         _columnBitmask |= CLASSPK_COLUMN_BITMASK;
 
         if (!_setOriginalClassPK) {
             _setOriginalClassPK = true;
 
             _originalClassPK = _classPK;
+        }
+
+        if (classPK == null) {
+            classPK = new Long(0);
         }
 
         _classPK = classPK;
@@ -398,13 +430,17 @@ public class SocialActivitySetModelImpl extends BaseModelImpl<SocialActivitySet>
     }
 
     @Override
-    public void setType(int type) {
+    public void setType(Integer type) {
         _columnBitmask |= TYPE_COLUMN_BITMASK;
 
         if (!_setOriginalType) {
             _setOriginalType = true;
 
             _originalType = _type;
+        }
+
+        if (type == null) {
+            type = new Integer(0);
         }
 
         _type = type;
@@ -434,7 +470,11 @@ public class SocialActivitySetModelImpl extends BaseModelImpl<SocialActivitySet>
     }
 
     @Override
-    public void setActivityCount(int activityCount) {
+    public void setActivityCount(Integer activityCount) {
+        if (activityCount == null) {
+            activityCount = new Integer(0);
+        }
+
         _activityCount = activityCount;
     }
 

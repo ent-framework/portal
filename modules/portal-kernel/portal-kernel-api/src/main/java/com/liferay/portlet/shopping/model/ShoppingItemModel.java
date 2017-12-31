@@ -62,7 +62,7 @@ public interface ShoppingItemModel extends BaseModel<ShoppingItem>, GroupedModel
      *
      * @param itemId the item ID of this shopping item
      */
-    public void setItemId(long itemId);
+    public void setItemId(Long itemId);
 
     /**
      * Returns the group ID of this shopping item.
@@ -78,7 +78,7 @@ public interface ShoppingItemModel extends BaseModel<ShoppingItem>, GroupedModel
      * @param groupId the group ID of this shopping item
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this shopping item.
@@ -94,7 +94,7 @@ public interface ShoppingItemModel extends BaseModel<ShoppingItem>, GroupedModel
      * @param companyId the company ID of this shopping item
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this shopping item.
@@ -110,7 +110,7 @@ public interface ShoppingItemModel extends BaseModel<ShoppingItem>, GroupedModel
      * @param userId the user ID of this shopping item
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this shopping item.
@@ -190,7 +190,7 @@ public interface ShoppingItemModel extends BaseModel<ShoppingItem>, GroupedModel
      *
      * @param categoryId the category ID of this shopping item
      */
-    public void setCategoryId(long categoryId);
+    public void setCategoryId(Long categoryId);
 
     /**
      * Returns the sku of this shopping item.
@@ -271,7 +271,7 @@ public interface ShoppingItemModel extends BaseModel<ShoppingItem>, GroupedModel
      *
      * @param fields the fields of this shopping item
      */
-    public void setFields(boolean fields);
+    public void setFields(Boolean fields);
 
     /**
      * Returns the fields quantities of this shopping item.
@@ -300,7 +300,7 @@ public interface ShoppingItemModel extends BaseModel<ShoppingItem>, GroupedModel
      *
      * @param minQuantity the min quantity of this shopping item
      */
-    public void setMinQuantity(int minQuantity);
+    public void setMinQuantity(Integer minQuantity);
 
     /**
      * Returns the max quantity of this shopping item.
@@ -314,7 +314,7 @@ public interface ShoppingItemModel extends BaseModel<ShoppingItem>, GroupedModel
      *
      * @param maxQuantity the max quantity of this shopping item
      */
-    public void setMaxQuantity(int maxQuantity);
+    public void setMaxQuantity(Integer maxQuantity);
 
     /**
      * Returns the price of this shopping item.
@@ -363,7 +363,7 @@ public interface ShoppingItemModel extends BaseModel<ShoppingItem>, GroupedModel
      *
      * @param taxable the taxable of this shopping item
      */
-    public void setTaxable(boolean taxable);
+    public void setTaxable(Boolean taxable);
 
     /**
      * Returns the shipping of this shopping item.
@@ -398,7 +398,7 @@ public interface ShoppingItemModel extends BaseModel<ShoppingItem>, GroupedModel
      *
      * @param useShippingFormula the use shipping formula of this shopping item
      */
-    public void setUseShippingFormula(boolean useShippingFormula);
+    public void setUseShippingFormula(Boolean useShippingFormula);
 
     /**
      * Returns the requires shipping of this shopping item.
@@ -419,7 +419,7 @@ public interface ShoppingItemModel extends BaseModel<ShoppingItem>, GroupedModel
      *
      * @param requiresShipping the requires shipping of this shopping item
      */
-    public void setRequiresShipping(boolean requiresShipping);
+    public void setRequiresShipping(Boolean requiresShipping);
 
     /**
      * Returns the stock quantity of this shopping item.
@@ -433,7 +433,7 @@ public interface ShoppingItemModel extends BaseModel<ShoppingItem>, GroupedModel
      *
      * @param stockQuantity the stock quantity of this shopping item
      */
-    public void setStockQuantity(int stockQuantity);
+    public void setStockQuantity(Integer stockQuantity);
 
     /**
      * Returns the featured of this shopping item.
@@ -454,7 +454,7 @@ public interface ShoppingItemModel extends BaseModel<ShoppingItem>, GroupedModel
      *
      * @param featured the featured of this shopping item
      */
-    public void setFeatured(boolean featured);
+    public void setFeatured(Boolean featured);
 
     /**
      * Returns the sale of this shopping item.
@@ -475,7 +475,7 @@ public interface ShoppingItemModel extends BaseModel<ShoppingItem>, GroupedModel
      *
      * @param sale the sale of this shopping item
      */
-    public void setSale(boolean sale);
+    public void setSale(Boolean sale);
 
     /**
      * Returns the small image of this shopping item.
@@ -496,7 +496,7 @@ public interface ShoppingItemModel extends BaseModel<ShoppingItem>, GroupedModel
      *
      * @param smallImage the small image of this shopping item
      */
-    public void setSmallImage(boolean smallImage);
+    public void setSmallImage(Boolean smallImage);
 
     /**
      * Returns the small image ID of this shopping item.
@@ -510,7 +510,7 @@ public interface ShoppingItemModel extends BaseModel<ShoppingItem>, GroupedModel
      *
      * @param smallImageId the small image ID of this shopping item
      */
-    public void setSmallImageId(long smallImageId);
+    public void setSmallImageId(Long smallImageId);
 
     /**
      * Returns the small image u r l of this shopping item.
@@ -546,7 +546,7 @@ public interface ShoppingItemModel extends BaseModel<ShoppingItem>, GroupedModel
      *
      * @param mediumImage the medium image of this shopping item
      */
-    public void setMediumImage(boolean mediumImage);
+    public void setMediumImage(Boolean mediumImage);
 
     /**
      * Returns the medium image ID of this shopping item.
@@ -560,7 +560,7 @@ public interface ShoppingItemModel extends BaseModel<ShoppingItem>, GroupedModel
      *
      * @param mediumImageId the medium image ID of this shopping item
      */
-    public void setMediumImageId(long mediumImageId);
+    public void setMediumImageId(Long mediumImageId);
 
     /**
      * Returns the medium image u r l of this shopping item.
@@ -596,7 +596,7 @@ public interface ShoppingItemModel extends BaseModel<ShoppingItem>, GroupedModel
      *
      * @param largeImage the large image of this shopping item
      */
-    public void setLargeImage(boolean largeImage);
+    public void setLargeImage(Boolean largeImage);
 
     /**
      * Returns the large image ID of this shopping item.
@@ -610,7 +610,7 @@ public interface ShoppingItemModel extends BaseModel<ShoppingItem>, GroupedModel
      *
      * @param largeImageId the large image ID of this shopping item
      */
-    public void setLargeImageId(long largeImageId);
+    public void setLargeImageId(Long largeImageId);
 
     /**
      * Returns the large image u r l of this shopping item.

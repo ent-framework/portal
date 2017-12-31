@@ -343,7 +343,7 @@ public class JournalArticleWrapper implements JournalArticle,
     * @param id the ID of this journal article
     */
     @Override
-    public void setId(long id) {
+    public void setId(java.lang.Long id) {
         _journalArticle.setId(id);
     }
 
@@ -363,7 +363,7 @@ public class JournalArticleWrapper implements JournalArticle,
     * @param resourcePrimKey the resource prim key of this journal article
     */
     @Override
-    public void setResourcePrimKey(long resourcePrimKey) {
+    public void setResourcePrimKey(java.lang.Long resourcePrimKey) {
         _journalArticle.setResourcePrimKey(resourcePrimKey);
     }
 
@@ -388,7 +388,7 @@ public class JournalArticleWrapper implements JournalArticle,
     * @param groupId the group ID of this journal article
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _journalArticle.setGroupId(groupId);
     }
 
@@ -408,7 +408,7 @@ public class JournalArticleWrapper implements JournalArticle,
     * @param companyId the company ID of this journal article
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _journalArticle.setCompanyId(companyId);
     }
 
@@ -428,7 +428,7 @@ public class JournalArticleWrapper implements JournalArticle,
     * @param userId the user ID of this journal article
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _journalArticle.setUserId(userId);
     }
 
@@ -530,7 +530,7 @@ public class JournalArticleWrapper implements JournalArticle,
     * @param folderId the folder ID of this journal article
     */
     @Override
-    public void setFolderId(long folderId) {
+    public void setFolderId(java.lang.Long folderId) {
         _journalArticle.setFolderId(folderId);
     }
 
@@ -565,7 +565,7 @@ public class JournalArticleWrapper implements JournalArticle,
     * @param classNameId the class name ID of this journal article
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _journalArticle.setClassNameId(classNameId);
     }
 
@@ -585,7 +585,7 @@ public class JournalArticleWrapper implements JournalArticle,
     * @param classPK the class p k of this journal article
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _journalArticle.setClassPK(classPK);
     }
 
@@ -1137,7 +1137,7 @@ public class JournalArticleWrapper implements JournalArticle,
     * @param indexable the indexable of this journal article
     */
     @Override
-    public void setIndexable(boolean indexable) {
+    public void setIndexable(java.lang.Boolean indexable) {
         _journalArticle.setIndexable(indexable);
     }
 
@@ -1167,7 +1167,7 @@ public class JournalArticleWrapper implements JournalArticle,
     * @param smallImage the small image of this journal article
     */
     @Override
-    public void setSmallImage(boolean smallImage) {
+    public void setSmallImage(java.lang.Boolean smallImage) {
         _journalArticle.setSmallImage(smallImage);
     }
 
@@ -1187,7 +1187,7 @@ public class JournalArticleWrapper implements JournalArticle,
     * @param smallImageId the small image ID of this journal article
     */
     @Override
-    public void setSmallImageId(long smallImageId) {
+    public void setSmallImageId(java.lang.Long smallImageId) {
         _journalArticle.setSmallImageId(smallImageId);
     }
 
@@ -1227,7 +1227,7 @@ public class JournalArticleWrapper implements JournalArticle,
     * @param status the status of this journal article
     */
     @Override
-    public void setStatus(int status) {
+    public void setStatus(java.lang.Integer status) {
         _journalArticle.setStatus(status);
     }
 
@@ -1247,7 +1247,7 @@ public class JournalArticleWrapper implements JournalArticle,
     * @param statusByUserId the status by user ID of this journal article
     */
     @Override
-    public void setStatusByUserId(long statusByUserId) {
+    public void setStatusByUserId(java.lang.Long statusByUserId) {
         _journalArticle.setStatusByUserId(statusByUserId);
     }
 

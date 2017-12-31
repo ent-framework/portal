@@ -201,7 +201,7 @@ public class OrgLaborWrapper implements OrgLabor, ModelWrapper<OrgLabor> {
     * @param orgLaborId the org labor ID of this org labor
     */
     @Override
-    public void setOrgLaborId(long orgLaborId) {
+    public void setOrgLaborId(java.lang.Long orgLaborId) {
         _orgLabor.setOrgLaborId(orgLaborId);
     }
 
@@ -221,7 +221,7 @@ public class OrgLaborWrapper implements OrgLabor, ModelWrapper<OrgLabor> {
     * @param organizationId the organization ID of this org labor
     */
     @Override
-    public void setOrganizationId(long organizationId) {
+    public void setOrganizationId(java.lang.Long organizationId) {
         _orgLabor.setOrganizationId(organizationId);
     }
 
@@ -241,7 +241,7 @@ public class OrgLaborWrapper implements OrgLabor, ModelWrapper<OrgLabor> {
     * @param typeId the type ID of this org labor
     */
     @Override
-    public void setTypeId(int typeId) {
+    public void setTypeId(java.lang.Integer typeId) {
         _orgLabor.setTypeId(typeId);
     }
 
@@ -261,7 +261,7 @@ public class OrgLaborWrapper implements OrgLabor, ModelWrapper<OrgLabor> {
     * @param sunOpen the sun open of this org labor
     */
     @Override
-    public void setSunOpen(int sunOpen) {
+    public void setSunOpen(java.lang.Integer sunOpen) {
         _orgLabor.setSunOpen(sunOpen);
     }
 
@@ -281,7 +281,7 @@ public class OrgLaborWrapper implements OrgLabor, ModelWrapper<OrgLabor> {
     * @param sunClose the sun close of this org labor
     */
     @Override
-    public void setSunClose(int sunClose) {
+    public void setSunClose(java.lang.Integer sunClose) {
         _orgLabor.setSunClose(sunClose);
     }
 
@@ -301,7 +301,7 @@ public class OrgLaborWrapper implements OrgLabor, ModelWrapper<OrgLabor> {
     * @param monOpen the mon open of this org labor
     */
     @Override
-    public void setMonOpen(int monOpen) {
+    public void setMonOpen(java.lang.Integer monOpen) {
         _orgLabor.setMonOpen(monOpen);
     }
 
@@ -321,7 +321,7 @@ public class OrgLaborWrapper implements OrgLabor, ModelWrapper<OrgLabor> {
     * @param monClose the mon close of this org labor
     */
     @Override
-    public void setMonClose(int monClose) {
+    public void setMonClose(java.lang.Integer monClose) {
         _orgLabor.setMonClose(monClose);
     }
 
@@ -341,7 +341,7 @@ public class OrgLaborWrapper implements OrgLabor, ModelWrapper<OrgLabor> {
     * @param tueOpen the tue open of this org labor
     */
     @Override
-    public void setTueOpen(int tueOpen) {
+    public void setTueOpen(java.lang.Integer tueOpen) {
         _orgLabor.setTueOpen(tueOpen);
     }
 
@@ -361,7 +361,7 @@ public class OrgLaborWrapper implements OrgLabor, ModelWrapper<OrgLabor> {
     * @param tueClose the tue close of this org labor
     */
     @Override
-    public void setTueClose(int tueClose) {
+    public void setTueClose(java.lang.Integer tueClose) {
         _orgLabor.setTueClose(tueClose);
     }
 
@@ -381,7 +381,7 @@ public class OrgLaborWrapper implements OrgLabor, ModelWrapper<OrgLabor> {
     * @param wedOpen the wed open of this org labor
     */
     @Override
-    public void setWedOpen(int wedOpen) {
+    public void setWedOpen(java.lang.Integer wedOpen) {
         _orgLabor.setWedOpen(wedOpen);
     }
 
@@ -401,7 +401,7 @@ public class OrgLaborWrapper implements OrgLabor, ModelWrapper<OrgLabor> {
     * @param wedClose the wed close of this org labor
     */
     @Override
-    public void setWedClose(int wedClose) {
+    public void setWedClose(java.lang.Integer wedClose) {
         _orgLabor.setWedClose(wedClose);
     }
 
@@ -421,7 +421,7 @@ public class OrgLaborWrapper implements OrgLabor, ModelWrapper<OrgLabor> {
     * @param thuOpen the thu open of this org labor
     */
     @Override
-    public void setThuOpen(int thuOpen) {
+    public void setThuOpen(java.lang.Integer thuOpen) {
         _orgLabor.setThuOpen(thuOpen);
     }
 
@@ -441,7 +441,7 @@ public class OrgLaborWrapper implements OrgLabor, ModelWrapper<OrgLabor> {
     * @param thuClose the thu close of this org labor
     */
     @Override
-    public void setThuClose(int thuClose) {
+    public void setThuClose(java.lang.Integer thuClose) {
         _orgLabor.setThuClose(thuClose);
     }
 
@@ -461,7 +461,7 @@ public class OrgLaborWrapper implements OrgLabor, ModelWrapper<OrgLabor> {
     * @param friOpen the fri open of this org labor
     */
     @Override
-    public void setFriOpen(int friOpen) {
+    public void setFriOpen(java.lang.Integer friOpen) {
         _orgLabor.setFriOpen(friOpen);
     }
 
@@ -481,7 +481,7 @@ public class OrgLaborWrapper implements OrgLabor, ModelWrapper<OrgLabor> {
     * @param friClose the fri close of this org labor
     */
     @Override
-    public void setFriClose(int friClose) {
+    public void setFriClose(java.lang.Integer friClose) {
         _orgLabor.setFriClose(friClose);
     }
 
@@ -501,7 +501,7 @@ public class OrgLaborWrapper implements OrgLabor, ModelWrapper<OrgLabor> {
     * @param satOpen the sat open of this org labor
     */
     @Override
-    public void setSatOpen(int satOpen) {
+    public void setSatOpen(java.lang.Integer satOpen) {
         _orgLabor.setSatOpen(satOpen);
     }
 
@@ -521,7 +521,7 @@ public class OrgLaborWrapper implements OrgLabor, ModelWrapper<OrgLabor> {
     * @param satClose the sat close of this org labor
     */
     @Override
-    public void setSatClose(int satClose) {
+    public void setSatClose(java.lang.Integer satClose) {
         _orgLabor.setSatClose(satClose);
     }
 

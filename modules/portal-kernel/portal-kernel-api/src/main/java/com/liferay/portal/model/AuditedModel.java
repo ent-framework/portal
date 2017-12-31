@@ -35,13 +35,13 @@ public interface AuditedModel extends ClassedModel {
 
 	public String getUserUuid() throws SystemException;
 
-	public void setCompanyId(long companyId);
+	public void setCompanyId(Long companyId);
 
 	public void setCreateDate(Date date);
 
 	public void setModifiedDate(Date date);
 
-	public void setUserId(long userId);
+	public void setUserId(Long userId);
 
 	public void setUserName(String userName);
 

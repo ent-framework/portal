@@ -198,7 +198,11 @@ public class SocialActivityAchievementModelImpl extends BaseModelImpl<SocialActi
     }
 
     @Override
-    public void setActivityAchievementId(long activityAchievementId) {
+    public void setActivityAchievementId(Long activityAchievementId) {
+        if (activityAchievementId == null) {
+            activityAchievementId = new Long(0);
+        }
+
         _activityAchievementId = activityAchievementId;
     }
 
@@ -208,13 +212,17 @@ public class SocialActivityAchievementModelImpl extends BaseModelImpl<SocialActi
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -230,7 +238,11 @@ public class SocialActivityAchievementModelImpl extends BaseModelImpl<SocialActi
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -240,13 +252,17 @@ public class SocialActivityAchievementModelImpl extends BaseModelImpl<SocialActi
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;
@@ -272,7 +288,11 @@ public class SocialActivityAchievementModelImpl extends BaseModelImpl<SocialActi
     }
 
     @Override
-    public void setCreateDate(long createDate) {
+    public void setCreateDate(Long createDate) {
+        if (createDate == null) {
+            createDate = new Long(0);
+        }
+
         _createDate = createDate;
     }
 
@@ -311,13 +331,17 @@ public class SocialActivityAchievementModelImpl extends BaseModelImpl<SocialActi
     }
 
     @Override
-    public void setFirstInGroup(boolean firstInGroup) {
+    public void setFirstInGroup(Boolean firstInGroup) {
         _columnBitmask |= FIRSTINGROUP_COLUMN_BITMASK;
 
         if (!_setOriginalFirstInGroup) {
             _setOriginalFirstInGroup = true;
 
             _originalFirstInGroup = _firstInGroup;
+        }
+
+        if (firstInGroup == null) {
+            firstInGroup = Boolean.FALSE;
         }
 
         _firstInGroup = firstInGroup;

@@ -112,7 +112,7 @@ public class UserTrackerPathWrapper implements UserTrackerPath,
     * @param userTrackerPathId the user tracker path ID of this user tracker path
     */
     @Override
-    public void setUserTrackerPathId(long userTrackerPathId) {
+    public void setUserTrackerPathId(java.lang.Long userTrackerPathId) {
         _userTrackerPath.setUserTrackerPathId(userTrackerPathId);
     }
 
@@ -132,7 +132,7 @@ public class UserTrackerPathWrapper implements UserTrackerPath,
     * @param userTrackerId the user tracker ID of this user tracker path
     */
     @Override
-    public void setUserTrackerId(long userTrackerId) {
+    public void setUserTrackerId(java.lang.Long userTrackerId) {
         _userTrackerPath.setUserTrackerId(userTrackerId);
     }
 

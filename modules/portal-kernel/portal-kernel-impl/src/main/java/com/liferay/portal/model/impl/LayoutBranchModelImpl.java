@@ -277,7 +277,11 @@ public class LayoutBranchModelImpl extends BaseModelImpl<LayoutBranch>
     }
 
     @Override
-    public void setLayoutBranchId(long LayoutBranchId) {
+    public void setLayoutBranchId(Long LayoutBranchId) {
+        if (LayoutBranchId == null) {
+            LayoutBranchId = new Long(0);
+        }
+
         _LayoutBranchId = LayoutBranchId;
     }
 
@@ -288,7 +292,11 @@ public class LayoutBranchModelImpl extends BaseModelImpl<LayoutBranch>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
+        if (groupId == null) {
+            groupId = new Long(0);
+        }
+
         _groupId = groupId;
     }
 
@@ -299,7 +307,11 @@ public class LayoutBranchModelImpl extends BaseModelImpl<LayoutBranch>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -310,7 +322,11 @@ public class LayoutBranchModelImpl extends BaseModelImpl<LayoutBranch>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -346,13 +362,17 @@ public class LayoutBranchModelImpl extends BaseModelImpl<LayoutBranch>
     }
 
     @Override
-    public void setLayoutSetBranchId(long layoutSetBranchId) {
+    public void setLayoutSetBranchId(Long layoutSetBranchId) {
         _columnBitmask |= LAYOUTSETBRANCHID_COLUMN_BITMASK;
 
         if (!_setOriginalLayoutSetBranchId) {
             _setOriginalLayoutSetBranchId = true;
 
             _originalLayoutSetBranchId = _layoutSetBranchId;
+        }
+
+        if (layoutSetBranchId == null) {
+            layoutSetBranchId = new Long(0);
         }
 
         _layoutSetBranchId = layoutSetBranchId;
@@ -369,13 +389,17 @@ public class LayoutBranchModelImpl extends BaseModelImpl<LayoutBranch>
     }
 
     @Override
-    public void setPlid(long plid) {
+    public void setPlid(Long plid) {
         _columnBitmask |= PLID_COLUMN_BITMASK;
 
         if (!_setOriginalPlid) {
             _setOriginalPlid = true;
 
             _originalPlid = _plid;
+        }
+
+        if (plid == null) {
+            plid = new Long(0);
         }
 
         _plid = plid;
@@ -437,13 +461,17 @@ public class LayoutBranchModelImpl extends BaseModelImpl<LayoutBranch>
     }
 
     @Override
-    public void setMaster(boolean master) {
+    public void setMaster(Boolean master) {
         _columnBitmask |= MASTER_COLUMN_BITMASK;
 
         if (!_setOriginalMaster) {
             _setOriginalMaster = true;
 
             _originalMaster = _master;
+        }
+
+        if (master == null) {
+            master = Boolean.FALSE;
         }
 
         _master = master;

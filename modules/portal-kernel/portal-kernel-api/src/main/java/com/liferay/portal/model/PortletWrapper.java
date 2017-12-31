@@ -117,7 +117,7 @@ public class PortletWrapper implements Portlet, ModelWrapper<Portlet> {
     * @param id the ID of this portlet
     */
     @Override
-    public void setId(long id) {
+    public void setId(java.lang.Long id) {
         _portlet.setId(id);
     }
 
@@ -137,7 +137,7 @@ public class PortletWrapper implements Portlet, ModelWrapper<Portlet> {
     * @param companyId the company ID of this portlet
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _portlet.setCompanyId(companyId);
     }
 
@@ -207,7 +207,7 @@ public class PortletWrapper implements Portlet, ModelWrapper<Portlet> {
     * @param active the active of this portlet
     */
     @Override
-    public void setActive(boolean active) {
+    public void setActive(java.lang.Boolean active) {
         _portlet.setActive(active);
     }
 

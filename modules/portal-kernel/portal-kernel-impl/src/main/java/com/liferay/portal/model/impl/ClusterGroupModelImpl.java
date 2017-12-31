@@ -152,7 +152,11 @@ public class ClusterGroupModelImpl extends BaseModelImpl<ClusterGroup>
     }
 
     @Override
-    public void setClusterGroupId(long clusterGroupId) {
+    public void setClusterGroupId(Long clusterGroupId) {
+        if (clusterGroupId == null) {
+            clusterGroupId = new Long(0);
+        }
+
         _clusterGroupId = clusterGroupId;
     }
 
@@ -195,7 +199,11 @@ public class ClusterGroupModelImpl extends BaseModelImpl<ClusterGroup>
     }
 
     @Override
-    public void setWholeCluster(boolean wholeCluster) {
+    public void setWholeCluster(Boolean wholeCluster) {
+        if (wholeCluster == null) {
+            wholeCluster = Boolean.FALSE;
+        }
+
         _wholeCluster = wholeCluster;
     }
 

@@ -61,7 +61,7 @@ public interface WebDAVPropsModel extends AttachedModel, BaseModel<WebDAVProps> 
      *
      * @param webDavPropsId the web dav props ID of this web d a v props
      */
-    public void setWebDavPropsId(long webDavPropsId);
+    public void setWebDavPropsId(Long webDavPropsId);
 
     /**
      * Returns the company ID of this web d a v props.
@@ -75,7 +75,7 @@ public interface WebDAVPropsModel extends AttachedModel, BaseModel<WebDAVProps> 
      *
      * @param companyId the company ID of this web d a v props
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the create date of this web d a v props.
@@ -129,7 +129,7 @@ public interface WebDAVPropsModel extends AttachedModel, BaseModel<WebDAVProps> 
      * @param classNameId the class name ID of this web d a v props
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this web d a v props.
@@ -145,7 +145,7 @@ public interface WebDAVPropsModel extends AttachedModel, BaseModel<WebDAVProps> 
      * @param classPK the class p k of this web d a v props
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the props of this web d a v props.

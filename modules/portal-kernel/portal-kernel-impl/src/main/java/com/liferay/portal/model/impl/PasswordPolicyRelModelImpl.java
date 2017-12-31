@@ -167,7 +167,11 @@ public class PasswordPolicyRelModelImpl extends BaseModelImpl<PasswordPolicyRel>
     }
 
     @Override
-    public void setPasswordPolicyRelId(long passwordPolicyRelId) {
+    public void setPasswordPolicyRelId(Long passwordPolicyRelId) {
+        if (passwordPolicyRelId == null) {
+            passwordPolicyRelId = new Long(0);
+        }
+
         _passwordPolicyRelId = passwordPolicyRelId;
     }
 
@@ -177,13 +181,17 @@ public class PasswordPolicyRelModelImpl extends BaseModelImpl<PasswordPolicyRel>
     }
 
     @Override
-    public void setPasswordPolicyId(long passwordPolicyId) {
+    public void setPasswordPolicyId(Long passwordPolicyId) {
         _columnBitmask |= PASSWORDPOLICYID_COLUMN_BITMASK;
 
         if (!_setOriginalPasswordPolicyId) {
             _setOriginalPasswordPolicyId = true;
 
             _originalPasswordPolicyId = _passwordPolicyId;
+        }
+
+        if (passwordPolicyId == null) {
+            passwordPolicyId = new Long(0);
         }
 
         _passwordPolicyId = passwordPolicyId;
@@ -219,13 +227,17 @@ public class PasswordPolicyRelModelImpl extends BaseModelImpl<PasswordPolicyRel>
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
         _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
         if (!_setOriginalClassNameId) {
             _setOriginalClassNameId = true;
 
             _originalClassNameId = _classNameId;
+        }
+
+        if (classNameId == null) {
+            classNameId = new Long(0);
         }
 
         _classNameId = classNameId;
@@ -241,13 +253,17 @@ public class PasswordPolicyRelModelImpl extends BaseModelImpl<PasswordPolicyRel>
     }
 
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(Long classPK) {
         _columnBitmask |= CLASSPK_COLUMN_BITMASK;
 
         if (!_setOriginalClassPK) {
             _setOriginalClassPK = true;
 
             _originalClassPK = _classPK;
+        }
+
+        if (classPK == null) {
+            classPK = new Long(0);
         }
 
         _classPK = classPK;

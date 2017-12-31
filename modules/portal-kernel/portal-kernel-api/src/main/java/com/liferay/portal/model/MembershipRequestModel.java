@@ -61,7 +61,7 @@ public interface MembershipRequestModel extends BaseModel<MembershipRequest> {
      *
      * @param membershipRequestId the membership request ID of this membership request
      */
-    public void setMembershipRequestId(long membershipRequestId);
+    public void setMembershipRequestId(Long membershipRequestId);
 
     /**
      * Returns the group ID of this membership request.
@@ -75,7 +75,7 @@ public interface MembershipRequestModel extends BaseModel<MembershipRequest> {
      *
      * @param groupId the group ID of this membership request
      */
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this membership request.
@@ -89,7 +89,7 @@ public interface MembershipRequestModel extends BaseModel<MembershipRequest> {
      *
      * @param companyId the company ID of this membership request
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this membership request.
@@ -103,7 +103,7 @@ public interface MembershipRequestModel extends BaseModel<MembershipRequest> {
      *
      * @param userId the user ID of this membership request
      */
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this membership request.
@@ -190,7 +190,7 @@ public interface MembershipRequestModel extends BaseModel<MembershipRequest> {
      *
      * @param replierUserId the replier user ID of this membership request
      */
-    public void setReplierUserId(long replierUserId);
+    public void setReplierUserId(Long replierUserId);
 
     /**
      * Returns the replier user uuid of this membership request.
@@ -219,7 +219,7 @@ public interface MembershipRequestModel extends BaseModel<MembershipRequest> {
      *
      * @param statusId the status ID of this membership request
      */
-    public void setStatusId(int statusId);
+    public void setStatusId(Integer statusId);
 
     @Override
     public boolean isNew();

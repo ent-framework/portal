@@ -347,8 +347,12 @@ public class SocialRequestModelImpl extends BaseModelImpl<SocialRequest>
     }
 
     @Override
-    public void setRequestId(long requestId) {
+    public void setRequestId(Long requestId) {
         _columnBitmask = -1L;
+
+        if (requestId == null) {
+            requestId = new Long(0);
+        }
 
         _requestId = requestId;
     }
@@ -360,13 +364,17 @@ public class SocialRequestModelImpl extends BaseModelImpl<SocialRequest>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -383,13 +391,17 @@ public class SocialRequestModelImpl extends BaseModelImpl<SocialRequest>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -406,13 +418,17 @@ public class SocialRequestModelImpl extends BaseModelImpl<SocialRequest>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;
@@ -439,7 +455,11 @@ public class SocialRequestModelImpl extends BaseModelImpl<SocialRequest>
     }
 
     @Override
-    public void setCreateDate(long createDate) {
+    public void setCreateDate(Long createDate) {
+        if (createDate == null) {
+            createDate = new Long(0);
+        }
+
         _createDate = createDate;
     }
 
@@ -450,7 +470,11 @@ public class SocialRequestModelImpl extends BaseModelImpl<SocialRequest>
     }
 
     @Override
-    public void setModifiedDate(long modifiedDate) {
+    public void setModifiedDate(Long modifiedDate) {
+        if (modifiedDate == null) {
+            modifiedDate = new Long(0);
+        }
+
         _modifiedDate = modifiedDate;
     }
 
@@ -481,13 +505,17 @@ public class SocialRequestModelImpl extends BaseModelImpl<SocialRequest>
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
         _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
         if (!_setOriginalClassNameId) {
             _setOriginalClassNameId = true;
 
             _originalClassNameId = _classNameId;
+        }
+
+        if (classNameId == null) {
+            classNameId = new Long(0);
         }
 
         _classNameId = classNameId;
@@ -504,13 +532,17 @@ public class SocialRequestModelImpl extends BaseModelImpl<SocialRequest>
     }
 
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(Long classPK) {
         _columnBitmask |= CLASSPK_COLUMN_BITMASK;
 
         if (!_setOriginalClassPK) {
             _setOriginalClassPK = true;
 
             _originalClassPK = _classPK;
+        }
+
+        if (classPK == null) {
+            classPK = new Long(0);
         }
 
         _classPK = classPK;
@@ -527,13 +559,17 @@ public class SocialRequestModelImpl extends BaseModelImpl<SocialRequest>
     }
 
     @Override
-    public void setType(int type) {
+    public void setType(Integer type) {
         _columnBitmask |= TYPE_COLUMN_BITMASK;
 
         if (!_setOriginalType) {
             _setOriginalType = true;
 
             _originalType = _type;
+        }
+
+        if (type == null) {
+            type = new Integer(0);
         }
 
         _type = type;
@@ -565,13 +601,17 @@ public class SocialRequestModelImpl extends BaseModelImpl<SocialRequest>
     }
 
     @Override
-    public void setReceiverUserId(long receiverUserId) {
+    public void setReceiverUserId(Long receiverUserId) {
         _columnBitmask |= RECEIVERUSERID_COLUMN_BITMASK;
 
         if (!_setOriginalReceiverUserId) {
             _setOriginalReceiverUserId = true;
 
             _originalReceiverUserId = _receiverUserId;
+        }
+
+        if (receiverUserId == null) {
+            receiverUserId = new Long(0);
         }
 
         _receiverUserId = receiverUserId;
@@ -599,13 +639,17 @@ public class SocialRequestModelImpl extends BaseModelImpl<SocialRequest>
     }
 
     @Override
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         _columnBitmask |= STATUS_COLUMN_BITMASK;
 
         if (!_setOriginalStatus) {
             _setOriginalStatus = true;
 
             _originalStatus = _status;
+        }
+
+        if (status == null) {
+            status = new Integer(0);
         }
 
         _status = status;

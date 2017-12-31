@@ -382,13 +382,17 @@ public class OrganizationModelImpl extends BaseModelImpl<Organization>
     }
 
     @Override
-    public void setOrganizationId(long organizationId) {
+    public void setOrganizationId(Long organizationId) {
         _columnBitmask |= ORGANIZATIONID_COLUMN_BITMASK;
 
         if (!_setOriginalOrganizationId) {
             _setOriginalOrganizationId = true;
 
             _originalOrganizationId = _organizationId;
+        }
+
+        if (organizationId == null) {
+            organizationId = new Long(0);
         }
 
         _organizationId = organizationId;
@@ -405,13 +409,17 @@ public class OrganizationModelImpl extends BaseModelImpl<Organization>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -428,7 +436,11 @@ public class OrganizationModelImpl extends BaseModelImpl<Organization>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -486,13 +498,17 @@ public class OrganizationModelImpl extends BaseModelImpl<Organization>
     }
 
     @Override
-    public void setParentOrganizationId(long parentOrganizationId) {
+    public void setParentOrganizationId(Long parentOrganizationId) {
         _columnBitmask |= PARENTORGANIZATIONID_COLUMN_BITMASK;
 
         if (!_setOriginalParentOrganizationId) {
             _setOriginalParentOrganizationId = true;
 
             _originalParentOrganizationId = _parentOrganizationId;
+        }
+
+        if (parentOrganizationId == null) {
+            parentOrganizationId = new Long(0);
         }
 
         _parentOrganizationId = parentOrganizationId;
@@ -579,7 +595,11 @@ public class OrganizationModelImpl extends BaseModelImpl<Organization>
     }
 
     @Override
-    public void setRecursable(boolean recursable) {
+    public void setRecursable(Boolean recursable) {
+        if (recursable == null) {
+            recursable = Boolean.FALSE;
+        }
+
         _recursable = recursable;
     }
 
@@ -590,7 +610,11 @@ public class OrganizationModelImpl extends BaseModelImpl<Organization>
     }
 
     @Override
-    public void setRegionId(long regionId) {
+    public void setRegionId(Long regionId) {
+        if (regionId == null) {
+            regionId = new Long(0);
+        }
+
         _regionId = regionId;
     }
 
@@ -601,7 +625,11 @@ public class OrganizationModelImpl extends BaseModelImpl<Organization>
     }
 
     @Override
-    public void setCountryId(long countryId) {
+    public void setCountryId(Long countryId) {
+        if (countryId == null) {
+            countryId = new Long(0);
+        }
+
         _countryId = countryId;
     }
 
@@ -612,7 +640,11 @@ public class OrganizationModelImpl extends BaseModelImpl<Organization>
     }
 
     @Override
-    public void setStatusId(int statusId) {
+    public void setStatusId(Integer statusId) {
+        if (statusId == null) {
+            statusId = new Integer(0);
+        }
+
         _statusId = statusId;
     }
 

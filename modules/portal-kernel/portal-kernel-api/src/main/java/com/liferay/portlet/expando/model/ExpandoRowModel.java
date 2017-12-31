@@ -59,7 +59,7 @@ public interface ExpandoRowModel extends BaseModel<ExpandoRow> {
      *
      * @param rowId the row ID of this expando row
      */
-    public void setRowId(long rowId);
+    public void setRowId(Long rowId);
 
     /**
      * Returns the company ID of this expando row.
@@ -73,7 +73,7 @@ public interface ExpandoRowModel extends BaseModel<ExpandoRow> {
      *
      * @param companyId the company ID of this expando row
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the modified date of this expando row.
@@ -101,7 +101,7 @@ public interface ExpandoRowModel extends BaseModel<ExpandoRow> {
      *
      * @param tableId the table ID of this expando row
      */
-    public void setTableId(long tableId);
+    public void setTableId(Long tableId);
 
     /**
      * Returns the class p k of this expando row.
@@ -115,7 +115,7 @@ public interface ExpandoRowModel extends BaseModel<ExpandoRow> {
      *
      * @param classPK the class p k of this expando row
      */
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     @Override
     public boolean isNew();

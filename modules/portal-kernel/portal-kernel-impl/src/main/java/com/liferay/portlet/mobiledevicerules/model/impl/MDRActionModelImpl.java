@@ -361,7 +361,11 @@ public class MDRActionModelImpl extends BaseModelImpl<MDRAction>
     }
 
     @Override
-    public void setActionId(long actionId) {
+    public void setActionId(Long actionId) {
+        if (actionId == null) {
+            actionId = new Long(0);
+        }
+
         _actionId = actionId;
     }
 
@@ -372,13 +376,17 @@ public class MDRActionModelImpl extends BaseModelImpl<MDRAction>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -395,13 +403,17 @@ public class MDRActionModelImpl extends BaseModelImpl<MDRAction>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -418,7 +430,11 @@ public class MDRActionModelImpl extends BaseModelImpl<MDRAction>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -496,7 +512,11 @@ public class MDRActionModelImpl extends BaseModelImpl<MDRAction>
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
+        if (classNameId == null) {
+            classNameId = new Long(0);
+        }
+
         _classNameId = classNameId;
     }
 
@@ -507,7 +527,11 @@ public class MDRActionModelImpl extends BaseModelImpl<MDRAction>
     }
 
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(Long classPK) {
+        if (classPK == null) {
+            classPK = new Long(0);
+        }
+
         _classPK = classPK;
     }
 
@@ -518,13 +542,17 @@ public class MDRActionModelImpl extends BaseModelImpl<MDRAction>
     }
 
     @Override
-    public void setRuleGroupInstanceId(long ruleGroupInstanceId) {
+    public void setRuleGroupInstanceId(Long ruleGroupInstanceId) {
         _columnBitmask |= RULEGROUPINSTANCEID_COLUMN_BITMASK;
 
         if (!_setOriginalRuleGroupInstanceId) {
             _setOriginalRuleGroupInstanceId = true;
 
             _originalRuleGroupInstanceId = _ruleGroupInstanceId;
+        }
+
+        if (ruleGroupInstanceId == null) {
+            ruleGroupInstanceId = new Long(0);
         }
 
         _ruleGroupInstanceId = ruleGroupInstanceId;

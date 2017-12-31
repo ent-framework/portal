@@ -318,7 +318,11 @@ public class LayoutPrototypeModelImpl extends BaseModelImpl<LayoutPrototype>
     }
 
     @Override
-    public void setLayoutPrototypeId(long layoutPrototypeId) {
+    public void setLayoutPrototypeId(Long layoutPrototypeId) {
+        if (layoutPrototypeId == null) {
+            layoutPrototypeId = new Long(0);
+        }
+
         _layoutPrototypeId = layoutPrototypeId;
     }
 
@@ -329,13 +333,17 @@ public class LayoutPrototypeModelImpl extends BaseModelImpl<LayoutPrototype>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -352,7 +360,11 @@ public class LayoutPrototypeModelImpl extends BaseModelImpl<LayoutPrototype>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -542,13 +554,17 @@ public class LayoutPrototypeModelImpl extends BaseModelImpl<LayoutPrototype>
     }
 
     @Override
-    public void setActive(boolean active) {
+    public void setActive(Boolean active) {
         _columnBitmask |= ACTIVE_COLUMN_BITMASK;
 
         if (!_setOriginalActive) {
             _setOriginalActive = true;
 
             _originalActive = _active;
+        }
+
+        if (active == null) {
+            active = Boolean.FALSE;
         }
 
         _active = active;

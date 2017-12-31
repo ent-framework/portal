@@ -354,7 +354,11 @@ public class SCProductEntryModelImpl extends BaseModelImpl<SCProductEntry>
     }
 
     @Override
-    public void setProductEntryId(long productEntryId) {
+    public void setProductEntryId(Long productEntryId) {
+        if (productEntryId == null) {
+            productEntryId = new Long(0);
+        }
+
         _productEntryId = productEntryId;
     }
 
@@ -365,13 +369,17 @@ public class SCProductEntryModelImpl extends BaseModelImpl<SCProductEntry>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -388,13 +396,17 @@ public class SCProductEntryModelImpl extends BaseModelImpl<SCProductEntry>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -411,13 +423,17 @@ public class SCProductEntryModelImpl extends BaseModelImpl<SCProductEntry>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;

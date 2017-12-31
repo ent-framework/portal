@@ -185,7 +185,11 @@ public class TrashVersionModelImpl extends BaseModelImpl<TrashVersion>
     }
 
     @Override
-    public void setVersionId(long versionId) {
+    public void setVersionId(Long versionId) {
+        if (versionId == null) {
+            versionId = new Long(0);
+        }
+
         _versionId = versionId;
     }
 
@@ -195,13 +199,17 @@ public class TrashVersionModelImpl extends BaseModelImpl<TrashVersion>
     }
 
     @Override
-    public void setEntryId(long entryId) {
+    public void setEntryId(Long entryId) {
         _columnBitmask |= ENTRYID_COLUMN_BITMASK;
 
         if (!_setOriginalEntryId) {
             _setOriginalEntryId = true;
 
             _originalEntryId = _entryId;
+        }
+
+        if (entryId == null) {
+            entryId = new Long(0);
         }
 
         _entryId = entryId;
@@ -237,13 +245,17 @@ public class TrashVersionModelImpl extends BaseModelImpl<TrashVersion>
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
         _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
         if (!_setOriginalClassNameId) {
             _setOriginalClassNameId = true;
 
             _originalClassNameId = _classNameId;
+        }
+
+        if (classNameId == null) {
+            classNameId = new Long(0);
         }
 
         _classNameId = classNameId;
@@ -259,13 +271,17 @@ public class TrashVersionModelImpl extends BaseModelImpl<TrashVersion>
     }
 
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(Long classPK) {
         _columnBitmask |= CLASSPK_COLUMN_BITMASK;
 
         if (!_setOriginalClassPK) {
             _setOriginalClassPK = true;
 
             _originalClassPK = _classPK;
+        }
+
+        if (classPK == null) {
+            classPK = new Long(0);
         }
 
         _classPK = classPK;
@@ -295,7 +311,11 @@ public class TrashVersionModelImpl extends BaseModelImpl<TrashVersion>
     }
 
     @Override
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
+        if (status == null) {
+            status = new Integer(0);
+        }
+
         _status = status;
     }
 

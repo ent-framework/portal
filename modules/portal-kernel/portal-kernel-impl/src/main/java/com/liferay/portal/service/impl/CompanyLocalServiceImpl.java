@@ -500,7 +500,7 @@ public class CompanyLocalServiceImpl extends CompanyLocalServiceBaseImpl {
 		long logoId = company.getLogoId();
 
 		if (logoId > 0) {
-			company.setLogoId(0);
+			company.setLogoId(0l);
 
 			companyPersistence.update(company);
 
@@ -1428,7 +1428,7 @@ public class CompanyLocalServiceImpl extends CompanyLocalServiceBaseImpl {
 
 			account.setCompanyId(company.getCompanyId());
 			account.setCreateDate(now);
-			account.setUserId(0);
+			account.setUserId(0l);
 			account.setUserName(StringPool.BLANK);
 
 			company.setAccountId(accountId);

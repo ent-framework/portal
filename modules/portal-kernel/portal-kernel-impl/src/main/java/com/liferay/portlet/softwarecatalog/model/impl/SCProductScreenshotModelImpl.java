@@ -193,7 +193,11 @@ public class SCProductScreenshotModelImpl extends BaseModelImpl<SCProductScreens
     }
 
     @Override
-    public void setProductScreenshotId(long productScreenshotId) {
+    public void setProductScreenshotId(Long productScreenshotId) {
+        if (productScreenshotId == null) {
+            productScreenshotId = new Long(0);
+        }
+
         _productScreenshotId = productScreenshotId;
     }
 
@@ -203,7 +207,11 @@ public class SCProductScreenshotModelImpl extends BaseModelImpl<SCProductScreens
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -213,7 +221,11 @@ public class SCProductScreenshotModelImpl extends BaseModelImpl<SCProductScreens
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
+        if (groupId == null) {
+            groupId = new Long(0);
+        }
+
         _groupId = groupId;
     }
 
@@ -223,13 +235,17 @@ public class SCProductScreenshotModelImpl extends BaseModelImpl<SCProductScreens
     }
 
     @Override
-    public void setProductEntryId(long productEntryId) {
+    public void setProductEntryId(Long productEntryId) {
         _columnBitmask = -1L;
 
         if (!_setOriginalProductEntryId) {
             _setOriginalProductEntryId = true;
 
             _originalProductEntryId = _productEntryId;
+        }
+
+        if (productEntryId == null) {
+            productEntryId = new Long(0);
         }
 
         _productEntryId = productEntryId;
@@ -245,13 +261,17 @@ public class SCProductScreenshotModelImpl extends BaseModelImpl<SCProductScreens
     }
 
     @Override
-    public void setThumbnailId(long thumbnailId) {
+    public void setThumbnailId(Long thumbnailId) {
         _columnBitmask |= THUMBNAILID_COLUMN_BITMASK;
 
         if (!_setOriginalThumbnailId) {
             _setOriginalThumbnailId = true;
 
             _originalThumbnailId = _thumbnailId;
+        }
+
+        if (thumbnailId == null) {
+            thumbnailId = new Long(0);
         }
 
         _thumbnailId = thumbnailId;
@@ -267,13 +287,17 @@ public class SCProductScreenshotModelImpl extends BaseModelImpl<SCProductScreens
     }
 
     @Override
-    public void setFullImageId(long fullImageId) {
+    public void setFullImageId(Long fullImageId) {
         _columnBitmask |= FULLIMAGEID_COLUMN_BITMASK;
 
         if (!_setOriginalFullImageId) {
             _setOriginalFullImageId = true;
 
             _originalFullImageId = _fullImageId;
+        }
+
+        if (fullImageId == null) {
+            fullImageId = new Long(0);
         }
 
         _fullImageId = fullImageId;
@@ -289,13 +313,17 @@ public class SCProductScreenshotModelImpl extends BaseModelImpl<SCProductScreens
     }
 
     @Override
-    public void setPriority(int priority) {
+    public void setPriority(Integer priority) {
         _columnBitmask = -1L;
 
         if (!_setOriginalPriority) {
             _setOriginalPriority = true;
 
             _originalPriority = _priority;
+        }
+
+        if (priority == null) {
+            priority = new Integer(0);
         }
 
         _priority = priority;

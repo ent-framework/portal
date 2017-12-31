@@ -248,7 +248,11 @@ public class SocialActivitySettingModelImpl extends BaseModelImpl<SocialActivity
     }
 
     @Override
-    public void setActivitySettingId(long activitySettingId) {
+    public void setActivitySettingId(Long activitySettingId) {
+        if (activitySettingId == null) {
+            activitySettingId = new Long(0);
+        }
+
         _activitySettingId = activitySettingId;
     }
 
@@ -259,13 +263,17 @@ public class SocialActivitySettingModelImpl extends BaseModelImpl<SocialActivity
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -282,7 +290,11 @@ public class SocialActivitySettingModelImpl extends BaseModelImpl<SocialActivity
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -313,13 +325,17 @@ public class SocialActivitySettingModelImpl extends BaseModelImpl<SocialActivity
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
         _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
         if (!_setOriginalClassNameId) {
             _setOriginalClassNameId = true;
 
             _originalClassNameId = _classNameId;
+        }
+
+        if (classNameId == null) {
+            classNameId = new Long(0);
         }
 
         _classNameId = classNameId;
@@ -336,13 +352,17 @@ public class SocialActivitySettingModelImpl extends BaseModelImpl<SocialActivity
     }
 
     @Override
-    public void setActivityType(int activityType) {
+    public void setActivityType(Integer activityType) {
         _columnBitmask |= ACTIVITYTYPE_COLUMN_BITMASK;
 
         if (!_setOriginalActivityType) {
             _setOriginalActivityType = true;
 
             _originalActivityType = _activityType;
+        }
+
+        if (activityType == null) {
+            activityType = new Integer(0);
         }
 
         _activityType = activityType;

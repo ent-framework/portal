@@ -219,7 +219,11 @@ public class DLFileEntryMetadataModelImpl extends BaseModelImpl<DLFileEntryMetad
     }
 
     @Override
-    public void setFileEntryMetadataId(long fileEntryMetadataId) {
+    public void setFileEntryMetadataId(Long fileEntryMetadataId) {
+        if (fileEntryMetadataId == null) {
+            fileEntryMetadataId = new Long(0);
+        }
+
         _fileEntryMetadataId = fileEntryMetadataId;
     }
 
@@ -229,7 +233,11 @@ public class DLFileEntryMetadataModelImpl extends BaseModelImpl<DLFileEntryMetad
     }
 
     @Override
-    public void setDDMStorageId(long DDMStorageId) {
+    public void setDDMStorageId(Long DDMStorageId) {
+        if (DDMStorageId == null) {
+            DDMStorageId = new Long(0);
+        }
+
         _DDMStorageId = DDMStorageId;
     }
 
@@ -239,13 +247,17 @@ public class DLFileEntryMetadataModelImpl extends BaseModelImpl<DLFileEntryMetad
     }
 
     @Override
-    public void setDDMStructureId(long DDMStructureId) {
+    public void setDDMStructureId(Long DDMStructureId) {
         _columnBitmask |= DDMSTRUCTUREID_COLUMN_BITMASK;
 
         if (!_setOriginalDDMStructureId) {
             _setOriginalDDMStructureId = true;
 
             _originalDDMStructureId = _DDMStructureId;
+        }
+
+        if (DDMStructureId == null) {
+            DDMStructureId = new Long(0);
         }
 
         _DDMStructureId = DDMStructureId;
@@ -261,13 +273,17 @@ public class DLFileEntryMetadataModelImpl extends BaseModelImpl<DLFileEntryMetad
     }
 
     @Override
-    public void setFileEntryTypeId(long fileEntryTypeId) {
+    public void setFileEntryTypeId(Long fileEntryTypeId) {
         _columnBitmask |= FILEENTRYTYPEID_COLUMN_BITMASK;
 
         if (!_setOriginalFileEntryTypeId) {
             _setOriginalFileEntryTypeId = true;
 
             _originalFileEntryTypeId = _fileEntryTypeId;
+        }
+
+        if (fileEntryTypeId == null) {
+            fileEntryTypeId = new Long(0);
         }
 
         _fileEntryTypeId = fileEntryTypeId;
@@ -283,13 +299,17 @@ public class DLFileEntryMetadataModelImpl extends BaseModelImpl<DLFileEntryMetad
     }
 
     @Override
-    public void setFileEntryId(long fileEntryId) {
+    public void setFileEntryId(Long fileEntryId) {
         _columnBitmask |= FILEENTRYID_COLUMN_BITMASK;
 
         if (!_setOriginalFileEntryId) {
             _setOriginalFileEntryId = true;
 
             _originalFileEntryId = _fileEntryId;
+        }
+
+        if (fileEntryId == null) {
+            fileEntryId = new Long(0);
         }
 
         _fileEntryId = fileEntryId;
@@ -305,13 +325,17 @@ public class DLFileEntryMetadataModelImpl extends BaseModelImpl<DLFileEntryMetad
     }
 
     @Override
-    public void setFileVersionId(long fileVersionId) {
+    public void setFileVersionId(Long fileVersionId) {
         _columnBitmask |= FILEVERSIONID_COLUMN_BITMASK;
 
         if (!_setOriginalFileVersionId) {
             _setOriginalFileVersionId = true;
 
             _originalFileVersionId = _fileVersionId;
+        }
+
+        if (fileVersionId == null) {
+            fileVersionId = new Long(0);
         }
 
         _fileVersionId = fileVersionId;

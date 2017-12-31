@@ -49,7 +49,7 @@ public class UserJSONTransformer extends FlexjsonObjectJSONTransformer {
 			user.setReminderQueryQuestion(StringPool.BLANK);
 			user.setReminderQueryAnswer(StringPool.BLANK);
 			user.setEmailAddress(StringPool.BLANK);
-			user.setFacebookId(0);
+			user.setFacebookId(0l);
 			user.setComments(StringPool.BLANK);
 		}
 

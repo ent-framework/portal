@@ -147,7 +147,7 @@ public class AssetTagPropertyWrapper implements AssetTagProperty,
     * @param tagPropertyId the tag property ID of this asset tag property
     */
     @Override
-    public void setTagPropertyId(long tagPropertyId) {
+    public void setTagPropertyId(java.lang.Long tagPropertyId) {
         _assetTagProperty.setTagPropertyId(tagPropertyId);
     }
 
@@ -167,7 +167,7 @@ public class AssetTagPropertyWrapper implements AssetTagProperty,
     * @param companyId the company ID of this asset tag property
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _assetTagProperty.setCompanyId(companyId);
     }
 
@@ -187,7 +187,7 @@ public class AssetTagPropertyWrapper implements AssetTagProperty,
     * @param userId the user ID of this asset tag property
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _assetTagProperty.setUserId(userId);
     }
 
@@ -289,7 +289,7 @@ public class AssetTagPropertyWrapper implements AssetTagProperty,
     * @param tagId the tag ID of this asset tag property
     */
     @Override
-    public void setTagId(long tagId) {
+    public void setTagId(java.lang.Long tagId) {
         _assetTagProperty.setTagId(tagId);
     }
 

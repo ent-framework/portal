@@ -173,7 +173,8 @@ public class WorkflowDefinitionLinkWrapper implements WorkflowDefinitionLink,
     * @param workflowDefinitionLinkId the workflow definition link ID of this workflow definition link
     */
     @Override
-    public void setWorkflowDefinitionLinkId(long workflowDefinitionLinkId) {
+    public void setWorkflowDefinitionLinkId(
+        java.lang.Long workflowDefinitionLinkId) {
         _workflowDefinitionLink.setWorkflowDefinitionLinkId(workflowDefinitionLinkId);
     }
 
@@ -193,7 +194,7 @@ public class WorkflowDefinitionLinkWrapper implements WorkflowDefinitionLink,
     * @param groupId the group ID of this workflow definition link
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _workflowDefinitionLink.setGroupId(groupId);
     }
 
@@ -213,7 +214,7 @@ public class WorkflowDefinitionLinkWrapper implements WorkflowDefinitionLink,
     * @param companyId the company ID of this workflow definition link
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _workflowDefinitionLink.setCompanyId(companyId);
     }
 
@@ -233,7 +234,7 @@ public class WorkflowDefinitionLinkWrapper implements WorkflowDefinitionLink,
     * @param userId the user ID of this workflow definition link
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _workflowDefinitionLink.setUserId(userId);
     }
 
@@ -350,7 +351,7 @@ public class WorkflowDefinitionLinkWrapper implements WorkflowDefinitionLink,
     * @param classNameId the class name ID of this workflow definition link
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _workflowDefinitionLink.setClassNameId(classNameId);
     }
 
@@ -370,7 +371,7 @@ public class WorkflowDefinitionLinkWrapper implements WorkflowDefinitionLink,
     * @param classPK the class p k of this workflow definition link
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _workflowDefinitionLink.setClassPK(classPK);
     }
 
@@ -390,7 +391,7 @@ public class WorkflowDefinitionLinkWrapper implements WorkflowDefinitionLink,
     * @param typePK the type p k of this workflow definition link
     */
     @Override
-    public void setTypePK(long typePK) {
+    public void setTypePK(java.lang.Long typePK) {
         _workflowDefinitionLink.setTypePK(typePK);
     }
 
@@ -431,7 +432,8 @@ public class WorkflowDefinitionLinkWrapper implements WorkflowDefinitionLink,
     * @param workflowDefinitionVersion the workflow definition version of this workflow definition link
     */
     @Override
-    public void setWorkflowDefinitionVersion(int workflowDefinitionVersion) {
+    public void setWorkflowDefinitionVersion(
+        java.lang.Integer workflowDefinitionVersion) {
         _workflowDefinitionLink.setWorkflowDefinitionVersion(workflowDefinitionVersion);
     }
 

@@ -377,7 +377,11 @@ public class AssetCategoryModelImpl extends BaseModelImpl<AssetCategory>
     }
 
     @Override
-    public void setCategoryId(long categoryId) {
+    public void setCategoryId(Long categoryId) {
+        if (categoryId == null) {
+            categoryId = new Long(0);
+        }
+
         _categoryId = categoryId;
     }
 
@@ -388,13 +392,17 @@ public class AssetCategoryModelImpl extends BaseModelImpl<AssetCategory>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -411,13 +419,17 @@ public class AssetCategoryModelImpl extends BaseModelImpl<AssetCategory>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -434,7 +446,11 @@ public class AssetCategoryModelImpl extends BaseModelImpl<AssetCategory>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -492,13 +508,17 @@ public class AssetCategoryModelImpl extends BaseModelImpl<AssetCategory>
     }
 
     @Override
-    public void setParentCategoryId(long parentCategoryId) {
+    public void setParentCategoryId(Long parentCategoryId) {
         _columnBitmask |= PARENTCATEGORYID_COLUMN_BITMASK;
 
         if (!_setOriginalParentCategoryId) {
             _setOriginalParentCategoryId = true;
 
             _originalParentCategoryId = _parentCategoryId;
+        }
+
+        if (parentCategoryId == null) {
+            parentCategoryId = new Long(0);
         }
 
         _parentCategoryId = parentCategoryId;
@@ -515,7 +535,11 @@ public class AssetCategoryModelImpl extends BaseModelImpl<AssetCategory>
     }
 
     @Override
-    public void setLeftCategoryId(long leftCategoryId) {
+    public void setLeftCategoryId(Long leftCategoryId) {
+        if (leftCategoryId == null) {
+            leftCategoryId = new Long(0);
+        }
+
         _leftCategoryId = leftCategoryId;
     }
 
@@ -526,7 +550,11 @@ public class AssetCategoryModelImpl extends BaseModelImpl<AssetCategory>
     }
 
     @Override
-    public void setRightCategoryId(long rightCategoryId) {
+    public void setRightCategoryId(Long rightCategoryId) {
+        if (rightCategoryId == null) {
+            rightCategoryId = new Long(0);
+        }
+
         _rightCategoryId = rightCategoryId;
     }
 
@@ -760,13 +788,17 @@ public class AssetCategoryModelImpl extends BaseModelImpl<AssetCategory>
     }
 
     @Override
-    public void setVocabularyId(long vocabularyId) {
+    public void setVocabularyId(Long vocabularyId) {
         _columnBitmask |= VOCABULARYID_COLUMN_BITMASK;
 
         if (!_setOriginalVocabularyId) {
             _setOriginalVocabularyId = true;
 
             _originalVocabularyId = _vocabularyId;
+        }
+
+        if (vocabularyId == null) {
+            vocabularyId = new Long(0);
         }
 
         _vocabularyId = vocabularyId;

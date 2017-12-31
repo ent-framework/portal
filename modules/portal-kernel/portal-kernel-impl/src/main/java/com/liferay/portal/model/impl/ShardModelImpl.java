@@ -163,7 +163,11 @@ public class ShardModelImpl extends BaseModelImpl<Shard> implements ShardModel {
     }
 
     @Override
-    public void setShardId(long shardId) {
+    public void setShardId(Long shardId) {
+        if (shardId == null) {
+            shardId = new Long(0);
+        }
+
         _shardId = shardId;
     }
 
@@ -193,13 +197,17 @@ public class ShardModelImpl extends BaseModelImpl<Shard> implements ShardModel {
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
         _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
         if (!_setOriginalClassNameId) {
             _setOriginalClassNameId = true;
 
             _originalClassNameId = _classNameId;
+        }
+
+        if (classNameId == null) {
+            classNameId = new Long(0);
         }
 
         _classNameId = classNameId;
@@ -215,13 +223,17 @@ public class ShardModelImpl extends BaseModelImpl<Shard> implements ShardModel {
     }
 
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(Long classPK) {
         _columnBitmask |= CLASSPK_COLUMN_BITMASK;
 
         if (!_setOriginalClassPK) {
             _setOriginalClassPK = true;
 
             _originalClassPK = _classPK;
+        }
+
+        if (classPK == null) {
+            classPK = new Long(0);
         }
 
         _classPK = classPK;

@@ -61,7 +61,7 @@ public interface UserNotificationDeliveryModel extends BaseModel<UserNotificatio
      *
      * @param userNotificationDeliveryId the user notification delivery ID of this user notification delivery
      */
-    public void setUserNotificationDeliveryId(long userNotificationDeliveryId);
+    public void setUserNotificationDeliveryId(Long userNotificationDeliveryId);
 
     /**
      * Returns the company ID of this user notification delivery.
@@ -75,7 +75,7 @@ public interface UserNotificationDeliveryModel extends BaseModel<UserNotificatio
      *
      * @param companyId the company ID of this user notification delivery
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this user notification delivery.
@@ -89,7 +89,7 @@ public interface UserNotificationDeliveryModel extends BaseModel<UserNotificatio
      *
      * @param userId the user ID of this user notification delivery
      */
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this user notification delivery.
@@ -145,7 +145,7 @@ public interface UserNotificationDeliveryModel extends BaseModel<UserNotificatio
      * @param classNameId the class name ID of this user notification delivery
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the notification type of this user notification delivery.
@@ -159,7 +159,7 @@ public interface UserNotificationDeliveryModel extends BaseModel<UserNotificatio
      *
      * @param notificationType the notification type of this user notification delivery
      */
-    public void setNotificationType(int notificationType);
+    public void setNotificationType(Integer notificationType);
 
     /**
      * Returns the delivery type of this user notification delivery.
@@ -173,7 +173,7 @@ public interface UserNotificationDeliveryModel extends BaseModel<UserNotificatio
      *
      * @param deliveryType the delivery type of this user notification delivery
      */
-    public void setDeliveryType(int deliveryType);
+    public void setDeliveryType(Integer deliveryType);
 
     /**
      * Returns the deliver of this user notification delivery.
@@ -194,7 +194,7 @@ public interface UserNotificationDeliveryModel extends BaseModel<UserNotificatio
      *
      * @param deliver the deliver of this user notification delivery
      */
-    public void setDeliver(boolean deliver);
+    public void setDeliver(Boolean deliver);
 
     @Override
     public boolean isNew();

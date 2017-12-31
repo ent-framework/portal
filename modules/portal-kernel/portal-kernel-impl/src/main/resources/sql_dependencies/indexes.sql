@@ -340,6 +340,15 @@ create index IX_CA9AFB7C on ExpandoValue (tableId, columnId);
 create unique index IX_D27B03E7 on ExpandoValue (tableId, columnId, classPK);
 create index IX_B71E92D5 on ExpandoValue (tableId, rowId_);
 
+create index IX_33C6DF7A on FilterGroup (filterScopeId);
+create index IX_A7906F7D on FilterGroup (groupId);
+create unique index IX_D87995CA on FilterGroup (groupId, filterScopeId);
+create index IX_A05BD47 on FilterGroup (uuid_);
+create unique index IX_702B743 on FilterGroup (uuid_, groupId);
+
+create index IX_BAA8B371 on FilterScope (className);
+create unique index IX_D76605C8 on FilterScope (className, filterName);
+
 create index IX_ABA5CEC2 on Group_ (companyId);
 create index IX_B584B5CC on Group_ (companyId, classNameId);
 create unique index IX_D0D5E397 on Group_ (companyId, classNameId, classPK);

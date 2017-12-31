@@ -189,7 +189,7 @@ public class EmailAddressWrapper implements EmailAddress,
     * @param emailAddressId the email address ID of this email address
     */
     @Override
-    public void setEmailAddressId(long emailAddressId) {
+    public void setEmailAddressId(java.lang.Long emailAddressId) {
         _emailAddress.setEmailAddressId(emailAddressId);
     }
 
@@ -209,7 +209,7 @@ public class EmailAddressWrapper implements EmailAddress,
     * @param companyId the company ID of this email address
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _emailAddress.setCompanyId(companyId);
     }
 
@@ -229,7 +229,7 @@ public class EmailAddressWrapper implements EmailAddress,
     * @param userId the user ID of this email address
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _emailAddress.setUserId(userId);
     }
 
@@ -346,7 +346,7 @@ public class EmailAddressWrapper implements EmailAddress,
     * @param classNameId the class name ID of this email address
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _emailAddress.setClassNameId(classNameId);
     }
 
@@ -366,7 +366,7 @@ public class EmailAddressWrapper implements EmailAddress,
     * @param classPK the class p k of this email address
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _emailAddress.setClassPK(classPK);
     }
 
@@ -406,7 +406,7 @@ public class EmailAddressWrapper implements EmailAddress,
     * @param typeId the type ID of this email address
     */
     @Override
-    public void setTypeId(int typeId) {
+    public void setTypeId(java.lang.Integer typeId) {
         _emailAddress.setTypeId(typeId);
     }
 
@@ -436,7 +436,7 @@ public class EmailAddressWrapper implements EmailAddress,
     * @param primary the primary of this email address
     */
     @Override
-    public void setPrimary(boolean primary) {
+    public void setPrimary(java.lang.Boolean primary) {
         _emailAddress.setPrimary(primary);
     }
 

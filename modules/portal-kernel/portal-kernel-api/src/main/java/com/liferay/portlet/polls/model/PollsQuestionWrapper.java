@@ -189,7 +189,7 @@ public class PollsQuestionWrapper implements PollsQuestion,
     * @param questionId the question ID of this polls question
     */
     @Override
-    public void setQuestionId(long questionId) {
+    public void setQuestionId(java.lang.Long questionId) {
         _pollsQuestion.setQuestionId(questionId);
     }
 
@@ -209,7 +209,7 @@ public class PollsQuestionWrapper implements PollsQuestion,
     * @param groupId the group ID of this polls question
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _pollsQuestion.setGroupId(groupId);
     }
 
@@ -229,7 +229,7 @@ public class PollsQuestionWrapper implements PollsQuestion,
     * @param companyId the company ID of this polls question
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _pollsQuestion.setCompanyId(companyId);
     }
 
@@ -249,7 +249,7 @@ public class PollsQuestionWrapper implements PollsQuestion,
     * @param userId the user ID of this polls question
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _pollsQuestion.setUserId(userId);
     }
 

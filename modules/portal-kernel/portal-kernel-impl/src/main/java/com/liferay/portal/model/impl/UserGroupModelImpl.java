@@ -335,7 +335,11 @@ public class UserGroupModelImpl extends BaseModelImpl<UserGroup>
     }
 
     @Override
-    public void setUserGroupId(long userGroupId) {
+    public void setUserGroupId(Long userGroupId) {
+        if (userGroupId == null) {
+            userGroupId = new Long(0);
+        }
+
         _userGroupId = userGroupId;
     }
 
@@ -346,13 +350,17 @@ public class UserGroupModelImpl extends BaseModelImpl<UserGroup>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -369,7 +377,11 @@ public class UserGroupModelImpl extends BaseModelImpl<UserGroup>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -427,13 +439,17 @@ public class UserGroupModelImpl extends BaseModelImpl<UserGroup>
     }
 
     @Override
-    public void setParentUserGroupId(long parentUserGroupId) {
+    public void setParentUserGroupId(Long parentUserGroupId) {
         _columnBitmask |= PARENTUSERGROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalParentUserGroupId) {
             _setOriginalParentUserGroupId = true;
 
             _originalParentUserGroupId = _parentUserGroupId;
+        }
+
+        if (parentUserGroupId == null) {
+            parentUserGroupId = new Long(0);
         }
 
         _parentUserGroupId = parentUserGroupId;
@@ -495,7 +511,11 @@ public class UserGroupModelImpl extends BaseModelImpl<UserGroup>
     }
 
     @Override
-    public void setAddedByLDAPImport(boolean addedByLDAPImport) {
+    public void setAddedByLDAPImport(Boolean addedByLDAPImport) {
+        if (addedByLDAPImport == null) {
+            addedByLDAPImport = Boolean.FALSE;
+        }
+
         _addedByLDAPImport = addedByLDAPImport;
     }
 

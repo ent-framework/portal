@@ -79,7 +79,7 @@ public interface UserModel extends BaseModel<User>, StagedModel {
      *
      * @param userId the user ID of this user
      */
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this user.
@@ -110,7 +110,7 @@ public interface UserModel extends BaseModel<User>, StagedModel {
      * @param companyId the company ID of this user
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the create date of this user.
@@ -163,7 +163,7 @@ public interface UserModel extends BaseModel<User>, StagedModel {
      *
      * @param defaultUser the default user of this user
      */
-    public void setDefaultUser(boolean defaultUser);
+    public void setDefaultUser(Boolean defaultUser);
 
     /**
      * Returns the contact ID of this user.
@@ -177,7 +177,7 @@ public interface UserModel extends BaseModel<User>, StagedModel {
      *
      * @param contactId the contact ID of this user
      */
-    public void setContactId(long contactId);
+    public void setContactId(Long contactId);
 
     /**
      * Returns the password of this user.
@@ -213,7 +213,7 @@ public interface UserModel extends BaseModel<User>, StagedModel {
      *
      * @param passwordEncrypted the password encrypted of this user
      */
-    public void setPasswordEncrypted(boolean passwordEncrypted);
+    public void setPasswordEncrypted(Boolean passwordEncrypted);
 
     /**
      * Returns the password reset of this user.
@@ -234,7 +234,7 @@ public interface UserModel extends BaseModel<User>, StagedModel {
      *
      * @param passwordReset the password reset of this user
      */
-    public void setPasswordReset(boolean passwordReset);
+    public void setPasswordReset(Boolean passwordReset);
 
     /**
      * Returns the password modified date of this user.
@@ -307,7 +307,7 @@ public interface UserModel extends BaseModel<User>, StagedModel {
      *
      * @param graceLoginCount the grace login count of this user
      */
-    public void setGraceLoginCount(int graceLoginCount);
+    public void setGraceLoginCount(Integer graceLoginCount);
 
     /**
      * Returns the screen name of this user.
@@ -351,7 +351,7 @@ public interface UserModel extends BaseModel<User>, StagedModel {
      *
      * @param facebookId the facebook ID of this user
      */
-    public void setFacebookId(long facebookId);
+    public void setFacebookId(Long facebookId);
 
     /**
      * Returns the ldap server ID of this user.
@@ -365,7 +365,7 @@ public interface UserModel extends BaseModel<User>, StagedModel {
      *
      * @param ldapServerId the ldap server ID of this user
      */
-    public void setLdapServerId(long ldapServerId);
+    public void setLdapServerId(Long ldapServerId);
 
     /**
      * Returns the open ID of this user.
@@ -394,7 +394,7 @@ public interface UserModel extends BaseModel<User>, StagedModel {
      *
      * @param portraitId the portrait ID of this user
      */
-    public void setPortraitId(long portraitId);
+    public void setPortraitId(Long portraitId);
 
     /**
      * Returns the language ID of this user.
@@ -600,7 +600,7 @@ public interface UserModel extends BaseModel<User>, StagedModel {
      *
      * @param failedLoginAttempts the failed login attempts of this user
      */
-    public void setFailedLoginAttempts(int failedLoginAttempts);
+    public void setFailedLoginAttempts(Integer failedLoginAttempts);
 
     /**
      * Returns the lockout of this user.
@@ -621,7 +621,7 @@ public interface UserModel extends BaseModel<User>, StagedModel {
      *
      * @param lockout the lockout of this user
      */
-    public void setLockout(boolean lockout);
+    public void setLockout(Boolean lockout);
 
     /**
      * Returns the lockout date of this user.
@@ -656,7 +656,7 @@ public interface UserModel extends BaseModel<User>, StagedModel {
      *
      * @param agreedToTermsOfUse the agreed to terms of use of this user
      */
-    public void setAgreedToTermsOfUse(boolean agreedToTermsOfUse);
+    public void setAgreedToTermsOfUse(Boolean agreedToTermsOfUse);
 
     /**
      * Returns the email address verified of this user.
@@ -677,7 +677,7 @@ public interface UserModel extends BaseModel<User>, StagedModel {
      *
      * @param emailAddressVerified the email address verified of this user
      */
-    public void setEmailAddressVerified(boolean emailAddressVerified);
+    public void setEmailAddressVerified(Boolean emailAddressVerified);
 
     /**
      * Returns the status of this user.
@@ -691,7 +691,7 @@ public interface UserModel extends BaseModel<User>, StagedModel {
      *
      * @param status the status of this user
      */
-    public void setStatus(int status);
+    public void setStatus(Integer status);
 
     @Override
     public boolean isNew();

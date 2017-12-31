@@ -260,7 +260,11 @@ public class RepositoryEntryModelImpl extends BaseModelImpl<RepositoryEntry>
     }
 
     @Override
-    public void setRepositoryEntryId(long repositoryEntryId) {
+    public void setRepositoryEntryId(Long repositoryEntryId) {
+        if (repositoryEntryId == null) {
+            repositoryEntryId = new Long(0);
+        }
+
         _repositoryEntryId = repositoryEntryId;
     }
 
@@ -270,13 +274,17 @@ public class RepositoryEntryModelImpl extends BaseModelImpl<RepositoryEntry>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -292,13 +300,17 @@ public class RepositoryEntryModelImpl extends BaseModelImpl<RepositoryEntry>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -314,7 +326,11 @@ public class RepositoryEntryModelImpl extends BaseModelImpl<RepositoryEntry>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -368,13 +384,17 @@ public class RepositoryEntryModelImpl extends BaseModelImpl<RepositoryEntry>
     }
 
     @Override
-    public void setRepositoryId(long repositoryId) {
+    public void setRepositoryId(Long repositoryId) {
         _columnBitmask |= REPOSITORYID_COLUMN_BITMASK;
 
         if (!_setOriginalRepositoryId) {
             _setOriginalRepositoryId = true;
 
             _originalRepositoryId = _repositoryId;
+        }
+
+        if (repositoryId == null) {
+            repositoryId = new Long(0);
         }
 
         _repositoryId = repositoryId;
@@ -419,7 +439,11 @@ public class RepositoryEntryModelImpl extends BaseModelImpl<RepositoryEntry>
     }
 
     @Override
-    public void setManualCheckInRequired(boolean manualCheckInRequired) {
+    public void setManualCheckInRequired(Boolean manualCheckInRequired) {
+        if (manualCheckInRequired == null) {
+            manualCheckInRequired = Boolean.FALSE;
+        }
+
         _manualCheckInRequired = manualCheckInRequired;
     }
 

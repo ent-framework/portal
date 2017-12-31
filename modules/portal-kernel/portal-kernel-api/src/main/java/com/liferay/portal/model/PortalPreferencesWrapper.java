@@ -111,7 +111,7 @@ public class PortalPreferencesWrapper implements PortalPreferences,
     * @param portalPreferencesId the portal preferences ID of this portal preferences
     */
     @Override
-    public void setPortalPreferencesId(long portalPreferencesId) {
+    public void setPortalPreferencesId(java.lang.Long portalPreferencesId) {
         _portalPreferences.setPortalPreferencesId(portalPreferencesId);
     }
 
@@ -131,7 +131,7 @@ public class PortalPreferencesWrapper implements PortalPreferences,
     * @param ownerId the owner ID of this portal preferences
     */
     @Override
-    public void setOwnerId(long ownerId) {
+    public void setOwnerId(java.lang.Long ownerId) {
         _portalPreferences.setOwnerId(ownerId);
     }
 
@@ -151,7 +151,7 @@ public class PortalPreferencesWrapper implements PortalPreferences,
     * @param ownerType the owner type of this portal preferences
     */
     @Override
-    public void setOwnerType(int ownerType) {
+    public void setOwnerType(java.lang.Integer ownerType) {
         _portalPreferences.setOwnerType(ownerType);
     }
 

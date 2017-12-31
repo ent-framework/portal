@@ -57,7 +57,7 @@ public interface ResourceBlockPermissionModel extends BaseModel<ResourceBlockPer
      *
      * @param resourceBlockPermissionId the resource block permission ID of this resource block permission
      */
-    public void setResourceBlockPermissionId(long resourceBlockPermissionId);
+    public void setResourceBlockPermissionId(Long resourceBlockPermissionId);
 
     /**
      * Returns the resource block ID of this resource block permission.
@@ -71,7 +71,7 @@ public interface ResourceBlockPermissionModel extends BaseModel<ResourceBlockPer
      *
      * @param resourceBlockId the resource block ID of this resource block permission
      */
-    public void setResourceBlockId(long resourceBlockId);
+    public void setResourceBlockId(Long resourceBlockId);
 
     /**
      * Returns the role ID of this resource block permission.
@@ -85,7 +85,7 @@ public interface ResourceBlockPermissionModel extends BaseModel<ResourceBlockPer
      *
      * @param roleId the role ID of this resource block permission
      */
-    public void setRoleId(long roleId);
+    public void setRoleId(Long roleId);
 
     /**
      * Returns the action IDs of this resource block permission.
@@ -99,7 +99,7 @@ public interface ResourceBlockPermissionModel extends BaseModel<ResourceBlockPer
      *
      * @param actionIds the action IDs of this resource block permission
      */
-    public void setActionIds(long actionIds);
+    public void setActionIds(Long actionIds);
 
     @Override
     public boolean isNew();

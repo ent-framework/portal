@@ -63,7 +63,7 @@ public interface SCProductEntryModel extends BaseModel<SCProductEntry>,
      *
      * @param productEntryId the product entry ID of this s c product entry
      */
-    public void setProductEntryId(long productEntryId);
+    public void setProductEntryId(Long productEntryId);
 
     /**
      * Returns the group ID of this s c product entry.
@@ -79,7 +79,7 @@ public interface SCProductEntryModel extends BaseModel<SCProductEntry>,
      * @param groupId the group ID of this s c product entry
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this s c product entry.
@@ -95,7 +95,7 @@ public interface SCProductEntryModel extends BaseModel<SCProductEntry>,
      * @param companyId the company ID of this s c product entry
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this s c product entry.
@@ -111,7 +111,7 @@ public interface SCProductEntryModel extends BaseModel<SCProductEntry>,
      * @param userId the user ID of this s c product entry
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this s c product entry.

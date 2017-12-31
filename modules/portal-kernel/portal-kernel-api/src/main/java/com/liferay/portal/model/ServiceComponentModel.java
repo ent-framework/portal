@@ -58,7 +58,7 @@ public interface ServiceComponentModel extends BaseModel<ServiceComponent> {
      *
      * @param serviceComponentId the service component ID of this service component
      */
-    public void setServiceComponentId(long serviceComponentId);
+    public void setServiceComponentId(Long serviceComponentId);
 
     /**
      * Returns the build namespace of this service component.
@@ -87,7 +87,7 @@ public interface ServiceComponentModel extends BaseModel<ServiceComponent> {
      *
      * @param buildNumber the build number of this service component
      */
-    public void setBuildNumber(long buildNumber);
+    public void setBuildNumber(Long buildNumber);
 
     /**
      * Returns the build date of this service component.
@@ -101,7 +101,7 @@ public interface ServiceComponentModel extends BaseModel<ServiceComponent> {
      *
      * @param buildDate the build date of this service component
      */
-    public void setBuildDate(long buildDate);
+    public void setBuildDate(Long buildDate);
 
     /**
      * Returns the data of this service component.

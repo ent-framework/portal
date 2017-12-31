@@ -117,7 +117,7 @@ public class RegionWrapper implements Region, ModelWrapper<Region> {
     * @param regionId the region ID of this region
     */
     @Override
-    public void setRegionId(long regionId) {
+    public void setRegionId(java.lang.Long regionId) {
         _region.setRegionId(regionId);
     }
 
@@ -137,7 +137,7 @@ public class RegionWrapper implements Region, ModelWrapper<Region> {
     * @param countryId the country ID of this region
     */
     @Override
-    public void setCountryId(long countryId) {
+    public void setCountryId(java.lang.Long countryId) {
         _region.setCountryId(countryId);
     }
 
@@ -207,7 +207,7 @@ public class RegionWrapper implements Region, ModelWrapper<Region> {
     * @param active the active of this region
     */
     @Override
-    public void setActive(boolean active) {
+    public void setActive(java.lang.Boolean active) {
         _region.setActive(active);
     }
 

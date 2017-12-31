@@ -224,8 +224,12 @@ public class ImageModelImpl extends BaseModelImpl<Image> implements ImageModel {
     }
 
     @Override
-    public void setImageId(long imageId) {
+    public void setImageId(Long imageId) {
         _columnBitmask = -1L;
+
+        if (imageId == null) {
+            imageId = new Long(0);
+        }
 
         _imageId = imageId;
     }
@@ -263,7 +267,11 @@ public class ImageModelImpl extends BaseModelImpl<Image> implements ImageModel {
     }
 
     @Override
-    public void setHeight(int height) {
+    public void setHeight(Integer height) {
+        if (height == null) {
+            height = new Integer(0);
+        }
+
         _height = height;
     }
 
@@ -274,7 +282,11 @@ public class ImageModelImpl extends BaseModelImpl<Image> implements ImageModel {
     }
 
     @Override
-    public void setWidth(int width) {
+    public void setWidth(Integer width) {
+        if (width == null) {
+            width = new Integer(0);
+        }
+
         _width = width;
     }
 
@@ -285,13 +297,17 @@ public class ImageModelImpl extends BaseModelImpl<Image> implements ImageModel {
     }
 
     @Override
-    public void setSize(int size) {
+    public void setSize(Integer size) {
         _columnBitmask |= SIZE_COLUMN_BITMASK;
 
         if (!_setOriginalSize) {
             _setOriginalSize = true;
 
             _originalSize = _size;
+        }
+
+        if (size == null) {
+            size = new Integer(0);
         }
 
         _size = size;

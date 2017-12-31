@@ -21,6 +21,6 @@ public interface AttachedModel extends TypedModel {
 
 	public long getClassPK();
 
-	public void setClassPK(long classPK);
+	public void setClassPK(Long classPK);
 
 }

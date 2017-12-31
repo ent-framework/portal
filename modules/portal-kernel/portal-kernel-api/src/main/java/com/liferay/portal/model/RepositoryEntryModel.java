@@ -80,7 +80,7 @@ public interface RepositoryEntryModel extends BaseModel<RepositoryEntry>,
      *
      * @param repositoryEntryId the repository entry ID of this repository entry
      */
-    public void setRepositoryEntryId(long repositoryEntryId);
+    public void setRepositoryEntryId(Long repositoryEntryId);
 
     /**
      * Returns the group ID of this repository entry.
@@ -96,7 +96,7 @@ public interface RepositoryEntryModel extends BaseModel<RepositoryEntry>,
      * @param groupId the group ID of this repository entry
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this repository entry.
@@ -112,7 +112,7 @@ public interface RepositoryEntryModel extends BaseModel<RepositoryEntry>,
      * @param companyId the company ID of this repository entry
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this repository entry.
@@ -128,7 +128,7 @@ public interface RepositoryEntryModel extends BaseModel<RepositoryEntry>,
      * @param userId the user ID of this repository entry
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this repository entry.
@@ -208,7 +208,7 @@ public interface RepositoryEntryModel extends BaseModel<RepositoryEntry>,
      *
      * @param repositoryId the repository ID of this repository entry
      */
-    public void setRepositoryId(long repositoryId);
+    public void setRepositoryId(Long repositoryId);
 
     /**
      * Returns the mapped ID of this repository entry.
@@ -244,7 +244,7 @@ public interface RepositoryEntryModel extends BaseModel<RepositoryEntry>,
      *
      * @param manualCheckInRequired the manual check in required of this repository entry
      */
-    public void setManualCheckInRequired(boolean manualCheckInRequired);
+    public void setManualCheckInRequired(Boolean manualCheckInRequired);
 
     @Override
     public boolean isNew();

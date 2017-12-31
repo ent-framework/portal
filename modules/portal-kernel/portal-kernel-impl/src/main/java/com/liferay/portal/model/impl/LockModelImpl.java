@@ -253,7 +253,11 @@ public class LockModelImpl extends BaseModelImpl<Lock> implements LockModel {
     }
 
     @Override
-    public void setLockId(long lockId) {
+    public void setLockId(Long lockId) {
+        if (lockId == null) {
+            lockId = new Long(0);
+        }
+
         _lockId = lockId;
     }
 
@@ -263,13 +267,17 @@ public class LockModelImpl extends BaseModelImpl<Lock> implements LockModel {
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -285,7 +293,11 @@ public class LockModelImpl extends BaseModelImpl<Lock> implements LockModel {
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -396,7 +408,11 @@ public class LockModelImpl extends BaseModelImpl<Lock> implements LockModel {
     }
 
     @Override
-    public void setInheritable(boolean inheritable) {
+    public void setInheritable(Boolean inheritable) {
+        if (inheritable == null) {
+            inheritable = Boolean.FALSE;
+        }
+
         _inheritable = inheritable;
     }
 

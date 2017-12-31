@@ -80,7 +80,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param passwordPolicyId the password policy ID of this password policy
      */
-    public void setPasswordPolicyId(long passwordPolicyId);
+    public void setPasswordPolicyId(Long passwordPolicyId);
 
     /**
      * Returns the company ID of this password policy.
@@ -96,7 +96,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      * @param companyId the company ID of this password policy
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this password policy.
@@ -112,7 +112,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      * @param userId the user ID of this password policy
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this password policy.
@@ -199,7 +199,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param defaultPolicy the default policy of this password policy
      */
-    public void setDefaultPolicy(boolean defaultPolicy);
+    public void setDefaultPolicy(Boolean defaultPolicy);
 
     /**
      * Returns the name of this password policy.
@@ -250,7 +250,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param changeable the changeable of this password policy
      */
-    public void setChangeable(boolean changeable);
+    public void setChangeable(Boolean changeable);
 
     /**
      * Returns the change required of this password policy.
@@ -271,7 +271,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param changeRequired the change required of this password policy
      */
-    public void setChangeRequired(boolean changeRequired);
+    public void setChangeRequired(Boolean changeRequired);
 
     /**
      * Returns the min age of this password policy.
@@ -285,7 +285,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param minAge the min age of this password policy
      */
-    public void setMinAge(long minAge);
+    public void setMinAge(Long minAge);
 
     /**
      * Returns the check syntax of this password policy.
@@ -306,7 +306,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param checkSyntax the check syntax of this password policy
      */
-    public void setCheckSyntax(boolean checkSyntax);
+    public void setCheckSyntax(Boolean checkSyntax);
 
     /**
      * Returns the allow dictionary words of this password policy.
@@ -327,7 +327,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param allowDictionaryWords the allow dictionary words of this password policy
      */
-    public void setAllowDictionaryWords(boolean allowDictionaryWords);
+    public void setAllowDictionaryWords(Boolean allowDictionaryWords);
 
     /**
      * Returns the min alphanumeric of this password policy.
@@ -341,7 +341,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param minAlphanumeric the min alphanumeric of this password policy
      */
-    public void setMinAlphanumeric(int minAlphanumeric);
+    public void setMinAlphanumeric(Integer minAlphanumeric);
 
     /**
      * Returns the min length of this password policy.
@@ -355,7 +355,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param minLength the min length of this password policy
      */
-    public void setMinLength(int minLength);
+    public void setMinLength(Integer minLength);
 
     /**
      * Returns the min lower case of this password policy.
@@ -369,7 +369,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param minLowerCase the min lower case of this password policy
      */
-    public void setMinLowerCase(int minLowerCase);
+    public void setMinLowerCase(Integer minLowerCase);
 
     /**
      * Returns the min numbers of this password policy.
@@ -383,7 +383,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param minNumbers the min numbers of this password policy
      */
-    public void setMinNumbers(int minNumbers);
+    public void setMinNumbers(Integer minNumbers);
 
     /**
      * Returns the min symbols of this password policy.
@@ -397,7 +397,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param minSymbols the min symbols of this password policy
      */
-    public void setMinSymbols(int minSymbols);
+    public void setMinSymbols(Integer minSymbols);
 
     /**
      * Returns the min upper case of this password policy.
@@ -411,7 +411,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param minUpperCase the min upper case of this password policy
      */
-    public void setMinUpperCase(int minUpperCase);
+    public void setMinUpperCase(Integer minUpperCase);
 
     /**
      * Returns the regex of this password policy.
@@ -447,7 +447,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param history the history of this password policy
      */
-    public void setHistory(boolean history);
+    public void setHistory(Boolean history);
 
     /**
      * Returns the history count of this password policy.
@@ -461,7 +461,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param historyCount the history count of this password policy
      */
-    public void setHistoryCount(int historyCount);
+    public void setHistoryCount(Integer historyCount);
 
     /**
      * Returns the expireable of this password policy.
@@ -482,7 +482,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param expireable the expireable of this password policy
      */
-    public void setExpireable(boolean expireable);
+    public void setExpireable(Boolean expireable);
 
     /**
      * Returns the max age of this password policy.
@@ -496,7 +496,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param maxAge the max age of this password policy
      */
-    public void setMaxAge(long maxAge);
+    public void setMaxAge(Long maxAge);
 
     /**
      * Returns the warning time of this password policy.
@@ -510,7 +510,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param warningTime the warning time of this password policy
      */
-    public void setWarningTime(long warningTime);
+    public void setWarningTime(Long warningTime);
 
     /**
      * Returns the grace limit of this password policy.
@@ -524,7 +524,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param graceLimit the grace limit of this password policy
      */
-    public void setGraceLimit(int graceLimit);
+    public void setGraceLimit(Integer graceLimit);
 
     /**
      * Returns the lockout of this password policy.
@@ -545,7 +545,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param lockout the lockout of this password policy
      */
-    public void setLockout(boolean lockout);
+    public void setLockout(Boolean lockout);
 
     /**
      * Returns the max failure of this password policy.
@@ -559,7 +559,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param maxFailure the max failure of this password policy
      */
-    public void setMaxFailure(int maxFailure);
+    public void setMaxFailure(Integer maxFailure);
 
     /**
      * Returns the lockout duration of this password policy.
@@ -573,7 +573,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param lockoutDuration the lockout duration of this password policy
      */
-    public void setLockoutDuration(long lockoutDuration);
+    public void setLockoutDuration(Long lockoutDuration);
 
     /**
      * Returns the require unlock of this password policy.
@@ -594,7 +594,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param requireUnlock the require unlock of this password policy
      */
-    public void setRequireUnlock(boolean requireUnlock);
+    public void setRequireUnlock(Boolean requireUnlock);
 
     /**
      * Returns the reset failure count of this password policy.
@@ -608,7 +608,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param resetFailureCount the reset failure count of this password policy
      */
-    public void setResetFailureCount(long resetFailureCount);
+    public void setResetFailureCount(Long resetFailureCount);
 
     /**
      * Returns the reset ticket max age of this password policy.
@@ -622,7 +622,7 @@ public interface PasswordPolicyModel extends BaseModel<PasswordPolicy>,
      *
      * @param resetTicketMaxAge the reset ticket max age of this password policy
      */
-    public void setResetTicketMaxAge(long resetTicketMaxAge);
+    public void setResetTicketMaxAge(Long resetTicketMaxAge);
 
     @Override
     public boolean isNew();

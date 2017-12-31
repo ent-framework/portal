@@ -224,7 +224,7 @@ public class BookmarksFolderWrapper implements BookmarksFolder,
     * @param folderId the folder ID of this bookmarks folder
     */
     @Override
-    public void setFolderId(long folderId) {
+    public void setFolderId(java.lang.Long folderId) {
         _bookmarksFolder.setFolderId(folderId);
     }
 
@@ -244,7 +244,7 @@ public class BookmarksFolderWrapper implements BookmarksFolder,
     * @param groupId the group ID of this bookmarks folder
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _bookmarksFolder.setGroupId(groupId);
     }
 
@@ -264,7 +264,7 @@ public class BookmarksFolderWrapper implements BookmarksFolder,
     * @param companyId the company ID of this bookmarks folder
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _bookmarksFolder.setCompanyId(companyId);
     }
 
@@ -284,7 +284,7 @@ public class BookmarksFolderWrapper implements BookmarksFolder,
     * @param userId the user ID of this bookmarks folder
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _bookmarksFolder.setUserId(userId);
     }
 
@@ -386,7 +386,7 @@ public class BookmarksFolderWrapper implements BookmarksFolder,
     * @param resourceBlockId the resource block ID of this bookmarks folder
     */
     @Override
-    public void setResourceBlockId(long resourceBlockId) {
+    public void setResourceBlockId(java.lang.Long resourceBlockId) {
         _bookmarksFolder.setResourceBlockId(resourceBlockId);
     }
 
@@ -406,7 +406,7 @@ public class BookmarksFolderWrapper implements BookmarksFolder,
     * @param parentFolderId the parent folder ID of this bookmarks folder
     */
     @Override
-    public void setParentFolderId(long parentFolderId) {
+    public void setParentFolderId(java.lang.Long parentFolderId) {
         _bookmarksFolder.setParentFolderId(parentFolderId);
     }
 
@@ -486,7 +486,7 @@ public class BookmarksFolderWrapper implements BookmarksFolder,
     * @param status the status of this bookmarks folder
     */
     @Override
-    public void setStatus(int status) {
+    public void setStatus(java.lang.Integer status) {
         _bookmarksFolder.setStatus(status);
     }
 
@@ -506,7 +506,7 @@ public class BookmarksFolderWrapper implements BookmarksFolder,
     * @param statusByUserId the status by user ID of this bookmarks folder
     */
     @Override
-    public void setStatusByUserId(long statusByUserId) {
+    public void setStatusByUserId(java.lang.Long statusByUserId) {
         _bookmarksFolder.setStatusByUserId(statusByUserId);
     }
 

@@ -125,7 +125,7 @@ public class PluginSettingWrapper implements PluginSetting,
     * @param pluginSettingId the plugin setting ID of this plugin setting
     */
     @Override
-    public void setPluginSettingId(long pluginSettingId) {
+    public void setPluginSettingId(java.lang.Long pluginSettingId) {
         _pluginSetting.setPluginSettingId(pluginSettingId);
     }
 
@@ -145,7 +145,7 @@ public class PluginSettingWrapper implements PluginSetting,
     * @param companyId the company ID of this plugin setting
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _pluginSetting.setCompanyId(companyId);
     }
 
@@ -235,7 +235,7 @@ public class PluginSettingWrapper implements PluginSetting,
     * @param active the active of this plugin setting
     */
     @Override
-    public void setActive(boolean active) {
+    public void setActive(java.lang.Boolean active) {
         _pluginSetting.setActive(active);
     }
 

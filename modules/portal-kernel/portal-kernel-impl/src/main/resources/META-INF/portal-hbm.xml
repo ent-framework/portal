@@ -36,10 +36,12 @@
 	<import class="com.liferay.portal.model.Permission" />
 	<import class="com.liferay.portal.model.Phone" />
 	<import class="com.liferay.portal.model.PluginSetting" />
+	<import class="com.liferay.portal.model.Portal" />
 	<import class="com.liferay.portal.model.PortalPreferences" />
 	<import class="com.liferay.portal.model.Portlet" />
 	<import class="com.liferay.portal.model.PortletItem" />
 	<import class="com.liferay.portal.model.PortletPreferences" />
+	<import class="com.liferay.portal.model.Quartz" />
 	<import class="com.liferay.portal.model.Region" />
 	<import class="com.liferay.portal.model.Release" />
 	<import class="com.liferay.portal.model.Repository" />
@@ -53,6 +55,7 @@
 	<import class="com.liferay.portal.model.Role" />
 	<import class="com.liferay.portal.model.ServiceComponent" />
 	<import class="com.liferay.portal.model.Shard" />
+	<import class="com.liferay.portal.model.Staging" />
 	<import class="com.liferay.portal.model.Subscription" />
 	<import class="com.liferay.portal.model.SystemEvent" />
 	<import class="com.liferay.portal.model.Team" />
@@ -81,11 +84,14 @@
 	<import class="com.liferay.portlet.asset.model.AssetLink" />
 	<import class="com.liferay.portlet.asset.model.AssetTag" />
 	<import class="com.liferay.portlet.asset.model.AssetTagProperty" />
+	<import class="com.liferay.portlet.asset.model.AssetTagPropertyKey" />
 	<import class="com.liferay.portlet.asset.model.AssetTagStats" />
 	<import class="com.liferay.portlet.asset.model.AssetVocabulary" />
 	<import class="com.liferay.portlet.bookmarks.model.BookmarksEntry" />
 	<import class="com.liferay.portlet.bookmarks.model.BookmarksFolder" />
 	<import class="com.liferay.portlet.calendar.model.CalEvent" />
+	<import class="com.liferay.portlet.documentlibrary.model.DLApp" />
+	<import class="com.liferay.portlet.documentlibrary.model.DLAppHelper" />
 	<import class="com.liferay.portlet.documentlibrary.model.DLContent" />
 	<import class="com.liferay.portlet.documentlibrary.model.DLFileEntry" />
 	<import class="com.liferay.portlet.documentlibrary.model.DLFileEntryMetadata" />
@@ -151,6 +157,7 @@
 	<import class="com.liferay.portlet.trash.model.TrashVersion" />
 	<import class="com.liferay.portal.ext.model.FilterGroup" />
 	<import class="com.liferay.portal.ext.model.FilterScope" />
+	<import class="com.liferay.portlet.flags.model.FlagsEntry" />
 	<class name="com.liferay.counter.model.impl.CounterImpl" table="Counter">
 		<id name="name" type="java.lang.String">
 			<generator class="assigned" />
@@ -1449,8 +1456,7 @@
 		<property name="repositoryId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="path" type="com.liferay.portal.dao.orm.hibernate.StringType" column="path_" />
 		<property name="version" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<!--<one-to-one name="dataBlobModel"  access="com.liferay.portal.dao.orm.hibernate.PrivatePropertyAccessor" class="com.liferay.portlet.documentlibrary.model.DLContentDataBlobModel" cascade="save-update" outer-join="false" constrained="true" />-->
-		<one-to-one name="data" class="com.liferay.portlet.documentlibrary.model.DLContentDataBlobModel" cascade="save-update" outer-join="false" constrained="true" />
+		<one-to-one name="dataBlobModel" access="com.liferay.portal.dao.orm.hibernate.PrivatePropertyAccessor" class="com.liferay.portlet.documentlibrary.model.DLContentDataBlobModel" cascade="save-update" outer-join="false" constrained="true" />
 		<property name="size" type="com.liferay.portal.dao.orm.hibernate.LongType" column="size_" />
 	</class>
 	<class name="com.liferay.portlet.documentlibrary.model.DLContentDataBlobModel" table="DLContent" lazy="true">

@@ -73,7 +73,7 @@ public interface JournalArticleResourceModel extends BaseModel<JournalArticleRes
      *
      * @param resourcePrimKey the resource prim key of this journal article resource
      */
-    public void setResourcePrimKey(long resourcePrimKey);
+    public void setResourcePrimKey(Long resourcePrimKey);
 
     /**
      * Returns the group ID of this journal article resource.
@@ -87,7 +87,7 @@ public interface JournalArticleResourceModel extends BaseModel<JournalArticleRes
      *
      * @param groupId the group ID of this journal article resource
      */
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the article ID of this journal article resource.

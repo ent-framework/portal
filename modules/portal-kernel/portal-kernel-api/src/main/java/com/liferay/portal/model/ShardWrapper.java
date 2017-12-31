@@ -110,7 +110,7 @@ public class ShardWrapper implements Shard, ModelWrapper<Shard> {
     * @param shardId the shard ID of this shard
     */
     @Override
-    public void setShardId(long shardId) {
+    public void setShardId(java.lang.Long shardId) {
         _shard.setShardId(shardId);
     }
 
@@ -145,7 +145,7 @@ public class ShardWrapper implements Shard, ModelWrapper<Shard> {
     * @param classNameId the class name ID of this shard
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _shard.setClassNameId(classNameId);
     }
 
@@ -165,7 +165,7 @@ public class ShardWrapper implements Shard, ModelWrapper<Shard> {
     * @param classPK the class p k of this shard
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _shard.setClassPK(classPK);
     }
 

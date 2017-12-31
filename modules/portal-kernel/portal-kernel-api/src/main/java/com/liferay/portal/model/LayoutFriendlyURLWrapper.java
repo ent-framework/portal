@@ -189,7 +189,7 @@ public class LayoutFriendlyURLWrapper implements LayoutFriendlyURL,
     * @param layoutFriendlyURLId the layout friendly u r l ID of this layout friendly u r l
     */
     @Override
-    public void setLayoutFriendlyURLId(long layoutFriendlyURLId) {
+    public void setLayoutFriendlyURLId(java.lang.Long layoutFriendlyURLId) {
         _layoutFriendlyURL.setLayoutFriendlyURLId(layoutFriendlyURLId);
     }
 
@@ -209,7 +209,7 @@ public class LayoutFriendlyURLWrapper implements LayoutFriendlyURL,
     * @param groupId the group ID of this layout friendly u r l
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _layoutFriendlyURL.setGroupId(groupId);
     }
 
@@ -229,7 +229,7 @@ public class LayoutFriendlyURLWrapper implements LayoutFriendlyURL,
     * @param companyId the company ID of this layout friendly u r l
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _layoutFriendlyURL.setCompanyId(companyId);
     }
 
@@ -249,7 +249,7 @@ public class LayoutFriendlyURLWrapper implements LayoutFriendlyURL,
     * @param userId the user ID of this layout friendly u r l
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _layoutFriendlyURL.setUserId(userId);
     }
 
@@ -351,7 +351,7 @@ public class LayoutFriendlyURLWrapper implements LayoutFriendlyURL,
     * @param plid the plid of this layout friendly u r l
     */
     @Override
-    public void setPlid(long plid) {
+    public void setPlid(java.lang.Long plid) {
         _layoutFriendlyURL.setPlid(plid);
     }
 
@@ -381,7 +381,7 @@ public class LayoutFriendlyURLWrapper implements LayoutFriendlyURL,
     * @param privateLayout the private layout of this layout friendly u r l
     */
     @Override
-    public void setPrivateLayout(boolean privateLayout) {
+    public void setPrivateLayout(java.lang.Boolean privateLayout) {
         _layoutFriendlyURL.setPrivateLayout(privateLayout);
     }
 

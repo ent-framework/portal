@@ -344,7 +344,11 @@ public class RepositoryModelImpl extends BaseModelImpl<Repository>
     }
 
     @Override
-    public void setRepositoryId(long repositoryId) {
+    public void setRepositoryId(Long repositoryId) {
+        if (repositoryId == null) {
+            repositoryId = new Long(0);
+        }
+
         _repositoryId = repositoryId;
     }
 
@@ -355,13 +359,17 @@ public class RepositoryModelImpl extends BaseModelImpl<Repository>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -378,13 +386,17 @@ public class RepositoryModelImpl extends BaseModelImpl<Repository>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -401,7 +413,11 @@ public class RepositoryModelImpl extends BaseModelImpl<Repository>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -479,7 +495,11 @@ public class RepositoryModelImpl extends BaseModelImpl<Repository>
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
+        if (classNameId == null) {
+            classNameId = new Long(0);
+        }
+
         _classNameId = classNameId;
     }
 
@@ -570,7 +590,11 @@ public class RepositoryModelImpl extends BaseModelImpl<Repository>
     }
 
     @Override
-    public void setDlFolderId(long dlFolderId) {
+    public void setDlFolderId(Long dlFolderId) {
+        if (dlFolderId == null) {
+            dlFolderId = new Long(0);
+        }
+
         _dlFolderId = dlFolderId;
     }
 

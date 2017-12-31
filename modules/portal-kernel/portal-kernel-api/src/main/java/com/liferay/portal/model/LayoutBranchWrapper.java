@@ -153,7 +153,7 @@ public class LayoutBranchWrapper implements LayoutBranch,
     * @param LayoutBranchId the layout branch ID of this layout branch
     */
     @Override
-    public void setLayoutBranchId(long LayoutBranchId) {
+    public void setLayoutBranchId(java.lang.Long LayoutBranchId) {
         _layoutBranch.setLayoutBranchId(LayoutBranchId);
     }
 
@@ -173,7 +173,7 @@ public class LayoutBranchWrapper implements LayoutBranch,
     * @param groupId the group ID of this layout branch
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _layoutBranch.setGroupId(groupId);
     }
 
@@ -193,7 +193,7 @@ public class LayoutBranchWrapper implements LayoutBranch,
     * @param companyId the company ID of this layout branch
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _layoutBranch.setCompanyId(companyId);
     }
 
@@ -213,7 +213,7 @@ public class LayoutBranchWrapper implements LayoutBranch,
     * @param userId the user ID of this layout branch
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _layoutBranch.setUserId(userId);
     }
 
@@ -275,7 +275,7 @@ public class LayoutBranchWrapper implements LayoutBranch,
     * @param layoutSetBranchId the layout set branch ID of this layout branch
     */
     @Override
-    public void setLayoutSetBranchId(long layoutSetBranchId) {
+    public void setLayoutSetBranchId(java.lang.Long layoutSetBranchId) {
         _layoutBranch.setLayoutSetBranchId(layoutSetBranchId);
     }
 
@@ -295,7 +295,7 @@ public class LayoutBranchWrapper implements LayoutBranch,
     * @param plid the plid of this layout branch
     */
     @Override
-    public void setPlid(long plid) {
+    public void setPlid(java.lang.Long plid) {
         _layoutBranch.setPlid(plid);
     }
 
@@ -365,7 +365,7 @@ public class LayoutBranchWrapper implements LayoutBranch,
     * @param master the master of this layout branch
     */
     @Override
-    public void setMaster(boolean master) {
+    public void setMaster(java.lang.Boolean master) {
         _layoutBranch.setMaster(master);
     }
 

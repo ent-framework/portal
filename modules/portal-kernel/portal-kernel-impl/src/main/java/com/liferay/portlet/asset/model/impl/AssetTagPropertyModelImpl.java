@@ -265,7 +265,11 @@ public class AssetTagPropertyModelImpl extends BaseModelImpl<AssetTagProperty>
     }
 
     @Override
-    public void setTagPropertyId(long tagPropertyId) {
+    public void setTagPropertyId(Long tagPropertyId) {
+        if (tagPropertyId == null) {
+            tagPropertyId = new Long(0);
+        }
+
         _tagPropertyId = tagPropertyId;
     }
 
@@ -276,13 +280,17 @@ public class AssetTagPropertyModelImpl extends BaseModelImpl<AssetTagProperty>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -299,7 +307,11 @@ public class AssetTagPropertyModelImpl extends BaseModelImpl<AssetTagProperty>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -357,13 +369,17 @@ public class AssetTagPropertyModelImpl extends BaseModelImpl<AssetTagProperty>
     }
 
     @Override
-    public void setTagId(long tagId) {
+    public void setTagId(Long tagId) {
         _columnBitmask |= TAGID_COLUMN_BITMASK;
 
         if (!_setOriginalTagId) {
             _setOriginalTagId = true;
 
             _originalTagId = _tagId;
+        }
+
+        if (tagId == null) {
+            tagId = new Long(0);
         }
 
         _tagId = tagId;

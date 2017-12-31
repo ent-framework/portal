@@ -84,7 +84,7 @@ public interface MDRActionModel extends AttachedModel, BaseModel<MDRAction>,
      *
      * @param actionId the action ID of this m d r action
      */
-    public void setActionId(long actionId);
+    public void setActionId(Long actionId);
 
     /**
      * Returns the group ID of this m d r action.
@@ -100,7 +100,7 @@ public interface MDRActionModel extends AttachedModel, BaseModel<MDRAction>,
      * @param groupId the group ID of this m d r action
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this m d r action.
@@ -116,7 +116,7 @@ public interface MDRActionModel extends AttachedModel, BaseModel<MDRAction>,
      * @param companyId the company ID of this m d r action
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this m d r action.
@@ -132,7 +132,7 @@ public interface MDRActionModel extends AttachedModel, BaseModel<MDRAction>,
      * @param userId the user ID of this m d r action
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this m d r action.
@@ -224,7 +224,7 @@ public interface MDRActionModel extends AttachedModel, BaseModel<MDRAction>,
      * @param classNameId the class name ID of this m d r action
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this m d r action.
@@ -240,7 +240,7 @@ public interface MDRActionModel extends AttachedModel, BaseModel<MDRAction>,
      * @param classPK the class p k of this m d r action
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the rule group instance ID of this m d r action.
@@ -254,7 +254,7 @@ public interface MDRActionModel extends AttachedModel, BaseModel<MDRAction>,
      *
      * @param ruleGroupInstanceId the rule group instance ID of this m d r action
      */
-    public void setRuleGroupInstanceId(long ruleGroupInstanceId);
+    public void setRuleGroupInstanceId(Long ruleGroupInstanceId);
 
     /**
      * Returns the name of this m d r action.

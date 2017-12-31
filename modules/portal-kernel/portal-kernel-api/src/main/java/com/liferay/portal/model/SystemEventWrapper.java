@@ -182,7 +182,7 @@ public class SystemEventWrapper implements SystemEvent,
     * @param systemEventId the system event ID of this system event
     */
     @Override
-    public void setSystemEventId(long systemEventId) {
+    public void setSystemEventId(java.lang.Long systemEventId) {
         _systemEvent.setSystemEventId(systemEventId);
     }
 
@@ -202,7 +202,7 @@ public class SystemEventWrapper implements SystemEvent,
     * @param groupId the group ID of this system event
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _systemEvent.setGroupId(groupId);
     }
 
@@ -222,7 +222,7 @@ public class SystemEventWrapper implements SystemEvent,
     * @param companyId the company ID of this system event
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _systemEvent.setCompanyId(companyId);
     }
 
@@ -242,7 +242,7 @@ public class SystemEventWrapper implements SystemEvent,
     * @param userId the user ID of this system event
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _systemEvent.setUserId(userId);
     }
 
@@ -339,7 +339,7 @@ public class SystemEventWrapper implements SystemEvent,
     * @param classNameId the class name ID of this system event
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _systemEvent.setClassNameId(classNameId);
     }
 
@@ -359,7 +359,7 @@ public class SystemEventWrapper implements SystemEvent,
     * @param classPK the class p k of this system event
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _systemEvent.setClassPK(classPK);
     }
 
@@ -399,7 +399,7 @@ public class SystemEventWrapper implements SystemEvent,
     * @param referrerClassNameId the referrer class name ID of this system event
     */
     @Override
-    public void setReferrerClassNameId(long referrerClassNameId) {
+    public void setReferrerClassNameId(java.lang.Long referrerClassNameId) {
         _systemEvent.setReferrerClassNameId(referrerClassNameId);
     }
 
@@ -419,7 +419,7 @@ public class SystemEventWrapper implements SystemEvent,
     * @param parentSystemEventId the parent system event ID of this system event
     */
     @Override
-    public void setParentSystemEventId(long parentSystemEventId) {
+    public void setParentSystemEventId(java.lang.Long parentSystemEventId) {
         _systemEvent.setParentSystemEventId(parentSystemEventId);
     }
 
@@ -439,7 +439,7 @@ public class SystemEventWrapper implements SystemEvent,
     * @param systemEventSetKey the system event set key of this system event
     */
     @Override
-    public void setSystemEventSetKey(long systemEventSetKey) {
+    public void setSystemEventSetKey(java.lang.Long systemEventSetKey) {
         _systemEvent.setSystemEventSetKey(systemEventSetKey);
     }
 
@@ -459,7 +459,7 @@ public class SystemEventWrapper implements SystemEvent,
     * @param type the type of this system event
     */
     @Override
-    public void setType(int type) {
+    public void setType(java.lang.Integer type) {
         _systemEvent.setType(type);
     }
 

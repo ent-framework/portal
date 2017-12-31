@@ -218,7 +218,11 @@ public class SubscriptionModelImpl extends BaseModelImpl<Subscription>
     }
 
     @Override
-    public void setSubscriptionId(long subscriptionId) {
+    public void setSubscriptionId(Long subscriptionId) {
+        if (subscriptionId == null) {
+            subscriptionId = new Long(0);
+        }
+
         _subscriptionId = subscriptionId;
     }
 
@@ -228,13 +232,17 @@ public class SubscriptionModelImpl extends BaseModelImpl<Subscription>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -250,13 +258,17 @@ public class SubscriptionModelImpl extends BaseModelImpl<Subscription>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;
@@ -336,13 +348,17 @@ public class SubscriptionModelImpl extends BaseModelImpl<Subscription>
     }
 
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(Long classNameId) {
         _columnBitmask |= CLASSNAMEID_COLUMN_BITMASK;
 
         if (!_setOriginalClassNameId) {
             _setOriginalClassNameId = true;
 
             _originalClassNameId = _classNameId;
+        }
+
+        if (classNameId == null) {
+            classNameId = new Long(0);
         }
 
         _classNameId = classNameId;
@@ -358,13 +374,17 @@ public class SubscriptionModelImpl extends BaseModelImpl<Subscription>
     }
 
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(Long classPK) {
         _columnBitmask |= CLASSPK_COLUMN_BITMASK;
 
         if (!_setOriginalClassPK) {
             _setOriginalClassPK = true;
 
             _originalClassPK = _classPK;
+        }
+
+        if (classPK == null) {
+            classPK = new Long(0);
         }
 
         _classPK = classPK;

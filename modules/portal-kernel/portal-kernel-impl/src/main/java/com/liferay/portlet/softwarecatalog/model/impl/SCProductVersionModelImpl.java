@@ -308,7 +308,11 @@ public class SCProductVersionModelImpl extends BaseModelImpl<SCProductVersion>
     }
 
     @Override
-    public void setProductVersionId(long productVersionId) {
+    public void setProductVersionId(Long productVersionId) {
+        if (productVersionId == null) {
+            productVersionId = new Long(0);
+        }
+
         _productVersionId = productVersionId;
     }
 
@@ -319,7 +323,11 @@ public class SCProductVersionModelImpl extends BaseModelImpl<SCProductVersion>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
+        if (companyId == null) {
+            companyId = new Long(0);
+        }
+
         _companyId = companyId;
     }
 
@@ -330,7 +338,11 @@ public class SCProductVersionModelImpl extends BaseModelImpl<SCProductVersion>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -390,13 +402,17 @@ public class SCProductVersionModelImpl extends BaseModelImpl<SCProductVersion>
     }
 
     @Override
-    public void setProductEntryId(long productEntryId) {
+    public void setProductEntryId(Long productEntryId) {
         _columnBitmask |= PRODUCTENTRYID_COLUMN_BITMASK;
 
         if (!_setOriginalProductEntryId) {
             _setOriginalProductEntryId = true;
 
             _originalProductEntryId = _productEntryId;
+        }
+
+        if (productEntryId == null) {
+            productEntryId = new Long(0);
         }
 
         _productEntryId = productEntryId;
@@ -488,7 +504,11 @@ public class SCProductVersionModelImpl extends BaseModelImpl<SCProductVersion>
     }
 
     @Override
-    public void setRepoStoreArtifact(boolean repoStoreArtifact) {
+    public void setRepoStoreArtifact(Boolean repoStoreArtifact) {
+        if (repoStoreArtifact == null) {
+            repoStoreArtifact = Boolean.FALSE;
+        }
+
         _repoStoreArtifact = repoStoreArtifact;
     }
 

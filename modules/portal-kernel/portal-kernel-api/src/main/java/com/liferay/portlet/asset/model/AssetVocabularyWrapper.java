@@ -189,7 +189,7 @@ public class AssetVocabularyWrapper implements AssetVocabulary,
     * @param vocabularyId the vocabulary ID of this asset vocabulary
     */
     @Override
-    public void setVocabularyId(long vocabularyId) {
+    public void setVocabularyId(java.lang.Long vocabularyId) {
         _assetVocabulary.setVocabularyId(vocabularyId);
     }
 
@@ -209,7 +209,7 @@ public class AssetVocabularyWrapper implements AssetVocabulary,
     * @param groupId the group ID of this asset vocabulary
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _assetVocabulary.setGroupId(groupId);
     }
 
@@ -229,7 +229,7 @@ public class AssetVocabularyWrapper implements AssetVocabulary,
     * @param companyId the company ID of this asset vocabulary
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _assetVocabulary.setCompanyId(companyId);
     }
 
@@ -249,7 +249,7 @@ public class AssetVocabularyWrapper implements AssetVocabulary,
     * @param userId the user ID of this asset vocabulary
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _assetVocabulary.setUserId(userId);
     }
 

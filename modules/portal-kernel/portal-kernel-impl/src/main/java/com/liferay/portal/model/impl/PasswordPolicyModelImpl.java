@@ -542,7 +542,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setPasswordPolicyId(long passwordPolicyId) {
+    public void setPasswordPolicyId(Long passwordPolicyId) {
+        if (passwordPolicyId == null) {
+            passwordPolicyId = new Long(0);
+        }
+
         _passwordPolicyId = passwordPolicyId;
     }
 
@@ -553,13 +557,17 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -576,7 +584,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -639,13 +651,17 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setDefaultPolicy(boolean defaultPolicy) {
+    public void setDefaultPolicy(Boolean defaultPolicy) {
         _columnBitmask |= DEFAULTPOLICY_COLUMN_BITMASK;
 
         if (!_setOriginalDefaultPolicy) {
             _setOriginalDefaultPolicy = true;
 
             _originalDefaultPolicy = _defaultPolicy;
+        }
+
+        if (defaultPolicy == null) {
+            defaultPolicy = Boolean.FALSE;
         }
 
         _defaultPolicy = defaultPolicy;
@@ -707,7 +723,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setChangeable(boolean changeable) {
+    public void setChangeable(Boolean changeable) {
+        if (changeable == null) {
+            changeable = Boolean.FALSE;
+        }
+
         _changeable = changeable;
     }
 
@@ -723,7 +743,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setChangeRequired(boolean changeRequired) {
+    public void setChangeRequired(Boolean changeRequired) {
+        if (changeRequired == null) {
+            changeRequired = Boolean.FALSE;
+        }
+
         _changeRequired = changeRequired;
     }
 
@@ -734,7 +758,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setMinAge(long minAge) {
+    public void setMinAge(Long minAge) {
+        if (minAge == null) {
+            minAge = new Long(0);
+        }
+
         _minAge = minAge;
     }
 
@@ -750,7 +778,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setCheckSyntax(boolean checkSyntax) {
+    public void setCheckSyntax(Boolean checkSyntax) {
+        if (checkSyntax == null) {
+            checkSyntax = Boolean.FALSE;
+        }
+
         _checkSyntax = checkSyntax;
     }
 
@@ -766,7 +798,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setAllowDictionaryWords(boolean allowDictionaryWords) {
+    public void setAllowDictionaryWords(Boolean allowDictionaryWords) {
+        if (allowDictionaryWords == null) {
+            allowDictionaryWords = Boolean.FALSE;
+        }
+
         _allowDictionaryWords = allowDictionaryWords;
     }
 
@@ -777,7 +813,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setMinAlphanumeric(int minAlphanumeric) {
+    public void setMinAlphanumeric(Integer minAlphanumeric) {
+        if (minAlphanumeric == null) {
+            minAlphanumeric = new Integer(0);
+        }
+
         _minAlphanumeric = minAlphanumeric;
     }
 
@@ -788,7 +828,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setMinLength(int minLength) {
+    public void setMinLength(Integer minLength) {
+        if (minLength == null) {
+            minLength = new Integer(0);
+        }
+
         _minLength = minLength;
     }
 
@@ -799,7 +843,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setMinLowerCase(int minLowerCase) {
+    public void setMinLowerCase(Integer minLowerCase) {
+        if (minLowerCase == null) {
+            minLowerCase = new Integer(0);
+        }
+
         _minLowerCase = minLowerCase;
     }
 
@@ -810,7 +858,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setMinNumbers(int minNumbers) {
+    public void setMinNumbers(Integer minNumbers) {
+        if (minNumbers == null) {
+            minNumbers = new Integer(0);
+        }
+
         _minNumbers = minNumbers;
     }
 
@@ -821,7 +873,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setMinSymbols(int minSymbols) {
+    public void setMinSymbols(Integer minSymbols) {
+        if (minSymbols == null) {
+            minSymbols = new Integer(0);
+        }
+
         _minSymbols = minSymbols;
     }
 
@@ -832,7 +888,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setMinUpperCase(int minUpperCase) {
+    public void setMinUpperCase(Integer minUpperCase) {
+        if (minUpperCase == null) {
+            minUpperCase = new Integer(0);
+        }
+
         _minUpperCase = minUpperCase;
     }
 
@@ -863,7 +923,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setHistory(boolean history) {
+    public void setHistory(Boolean history) {
+        if (history == null) {
+            history = Boolean.FALSE;
+        }
+
         _history = history;
     }
 
@@ -874,7 +938,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setHistoryCount(int historyCount) {
+    public void setHistoryCount(Integer historyCount) {
+        if (historyCount == null) {
+            historyCount = new Integer(0);
+        }
+
         _historyCount = historyCount;
     }
 
@@ -890,7 +958,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setExpireable(boolean expireable) {
+    public void setExpireable(Boolean expireable) {
+        if (expireable == null) {
+            expireable = Boolean.FALSE;
+        }
+
         _expireable = expireable;
     }
 
@@ -901,7 +973,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setMaxAge(long maxAge) {
+    public void setMaxAge(Long maxAge) {
+        if (maxAge == null) {
+            maxAge = new Long(0);
+        }
+
         _maxAge = maxAge;
     }
 
@@ -912,7 +988,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setWarningTime(long warningTime) {
+    public void setWarningTime(Long warningTime) {
+        if (warningTime == null) {
+            warningTime = new Long(0);
+        }
+
         _warningTime = warningTime;
     }
 
@@ -923,7 +1003,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setGraceLimit(int graceLimit) {
+    public void setGraceLimit(Integer graceLimit) {
+        if (graceLimit == null) {
+            graceLimit = new Integer(0);
+        }
+
         _graceLimit = graceLimit;
     }
 
@@ -939,7 +1023,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setLockout(boolean lockout) {
+    public void setLockout(Boolean lockout) {
+        if (lockout == null) {
+            lockout = Boolean.FALSE;
+        }
+
         _lockout = lockout;
     }
 
@@ -950,7 +1038,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setMaxFailure(int maxFailure) {
+    public void setMaxFailure(Integer maxFailure) {
+        if (maxFailure == null) {
+            maxFailure = new Integer(0);
+        }
+
         _maxFailure = maxFailure;
     }
 
@@ -961,7 +1053,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setLockoutDuration(long lockoutDuration) {
+    public void setLockoutDuration(Long lockoutDuration) {
+        if (lockoutDuration == null) {
+            lockoutDuration = new Long(0);
+        }
+
         _lockoutDuration = lockoutDuration;
     }
 
@@ -977,7 +1073,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setRequireUnlock(boolean requireUnlock) {
+    public void setRequireUnlock(Boolean requireUnlock) {
+        if (requireUnlock == null) {
+            requireUnlock = Boolean.FALSE;
+        }
+
         _requireUnlock = requireUnlock;
     }
 
@@ -988,7 +1088,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setResetFailureCount(long resetFailureCount) {
+    public void setResetFailureCount(Long resetFailureCount) {
+        if (resetFailureCount == null) {
+            resetFailureCount = new Long(0);
+        }
+
         _resetFailureCount = resetFailureCount;
     }
 
@@ -999,7 +1103,11 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setResetTicketMaxAge(long resetTicketMaxAge) {
+    public void setResetTicketMaxAge(Long resetTicketMaxAge) {
+        if (resetTicketMaxAge == null) {
+            resetTicketMaxAge = new Long(0);
+        }
+
         _resetTicketMaxAge = resetTicketMaxAge;
     }
 

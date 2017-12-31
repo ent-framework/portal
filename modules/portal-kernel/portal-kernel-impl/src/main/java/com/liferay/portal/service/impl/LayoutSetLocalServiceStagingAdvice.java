@@ -203,7 +203,7 @@ public class LayoutSetLocalServiceStagingAdvice
 			}
 		}
 		else {
-			layoutSet.setLogoId(0);
+			layoutSet.setLogoId(0l);
 		}
 
 		layoutSetBranchPersistence.update(layoutSetBranch);

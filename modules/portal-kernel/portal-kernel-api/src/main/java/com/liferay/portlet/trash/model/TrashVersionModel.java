@@ -59,7 +59,7 @@ public interface TrashVersionModel extends AttachedModel, BaseModel<TrashVersion
      *
      * @param versionId the version ID of this trash version
      */
-    public void setVersionId(long versionId);
+    public void setVersionId(Long versionId);
 
     /**
      * Returns the entry ID of this trash version.
@@ -73,7 +73,7 @@ public interface TrashVersionModel extends AttachedModel, BaseModel<TrashVersion
      *
      * @param entryId the entry ID of this trash version
      */
-    public void setEntryId(long entryId);
+    public void setEntryId(Long entryId);
 
     /**
      * Returns the fully qualified class name of this trash version.
@@ -99,7 +99,7 @@ public interface TrashVersionModel extends AttachedModel, BaseModel<TrashVersion
      * @param classNameId the class name ID of this trash version
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this trash version.
@@ -115,7 +115,7 @@ public interface TrashVersionModel extends AttachedModel, BaseModel<TrashVersion
      * @param classPK the class p k of this trash version
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the type settings of this trash version.
@@ -144,7 +144,7 @@ public interface TrashVersionModel extends AttachedModel, BaseModel<TrashVersion
      *
      * @param status the status of this trash version
      */
-    public void setStatus(int status);
+    public void setStatus(Integer status);
 
     @Override
     public boolean isNew();

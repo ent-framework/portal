@@ -64,7 +64,7 @@ public interface RatingsEntryModel extends AttachedModel, AuditedModel,
      *
      * @param entryId the entry ID of this ratings entry
      */
-    public void setEntryId(long entryId);
+    public void setEntryId(Long entryId);
 
     /**
      * Returns the company ID of this ratings entry.
@@ -80,7 +80,7 @@ public interface RatingsEntryModel extends AttachedModel, AuditedModel,
      * @param companyId the company ID of this ratings entry
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this ratings entry.
@@ -96,7 +96,7 @@ public interface RatingsEntryModel extends AttachedModel, AuditedModel,
      * @param userId the user ID of this ratings entry
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this ratings entry.
@@ -188,7 +188,7 @@ public interface RatingsEntryModel extends AttachedModel, AuditedModel,
      * @param classNameId the class name ID of this ratings entry
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this ratings entry.
@@ -204,7 +204,7 @@ public interface RatingsEntryModel extends AttachedModel, AuditedModel,
      * @param classPK the class p k of this ratings entry
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the score of this ratings entry.

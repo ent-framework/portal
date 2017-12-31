@@ -273,7 +273,11 @@ public class LayoutFriendlyURLModelImpl extends BaseModelImpl<LayoutFriendlyURL>
     }
 
     @Override
-    public void setLayoutFriendlyURLId(long layoutFriendlyURLId) {
+    public void setLayoutFriendlyURLId(Long layoutFriendlyURLId) {
+        if (layoutFriendlyURLId == null) {
+            layoutFriendlyURLId = new Long(0);
+        }
+
         _layoutFriendlyURLId = layoutFriendlyURLId;
     }
 
@@ -283,13 +287,17 @@ public class LayoutFriendlyURLModelImpl extends BaseModelImpl<LayoutFriendlyURL>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -305,13 +313,17 @@ public class LayoutFriendlyURLModelImpl extends BaseModelImpl<LayoutFriendlyURL>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -327,7 +339,11 @@ public class LayoutFriendlyURLModelImpl extends BaseModelImpl<LayoutFriendlyURL>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -381,13 +397,17 @@ public class LayoutFriendlyURLModelImpl extends BaseModelImpl<LayoutFriendlyURL>
     }
 
     @Override
-    public void setPlid(long plid) {
+    public void setPlid(Long plid) {
         _columnBitmask |= PLID_COLUMN_BITMASK;
 
         if (!_setOriginalPlid) {
             _setOriginalPlid = true;
 
             _originalPlid = _plid;
+        }
+
+        if (plid == null) {
+            plid = new Long(0);
         }
 
         _plid = plid;
@@ -408,13 +428,17 @@ public class LayoutFriendlyURLModelImpl extends BaseModelImpl<LayoutFriendlyURL>
     }
 
     @Override
-    public void setPrivateLayout(boolean privateLayout) {
+    public void setPrivateLayout(Boolean privateLayout) {
         _columnBitmask |= PRIVATELAYOUT_COLUMN_BITMASK;
 
         if (!_setOriginalPrivateLayout) {
             _setOriginalPrivateLayout = true;
 
             _originalPrivateLayout = _privateLayout;
+        }
+
+        if (privateLayout == null) {
+            privateLayout = Boolean.FALSE;
         }
 
         _privateLayout = privateLayout;

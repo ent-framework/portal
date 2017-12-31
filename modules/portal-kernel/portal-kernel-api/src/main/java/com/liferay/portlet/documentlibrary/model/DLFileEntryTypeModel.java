@@ -83,7 +83,7 @@ public interface DLFileEntryTypeModel extends BaseModel<DLFileEntryType>,
      *
      * @param fileEntryTypeId the file entry type ID of this document library file entry type
      */
-    public void setFileEntryTypeId(long fileEntryTypeId);
+    public void setFileEntryTypeId(Long fileEntryTypeId);
 
     /**
      * Returns the group ID of this document library file entry type.
@@ -99,7 +99,7 @@ public interface DLFileEntryTypeModel extends BaseModel<DLFileEntryType>,
      * @param groupId the group ID of this document library file entry type
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this document library file entry type.
@@ -115,7 +115,7 @@ public interface DLFileEntryTypeModel extends BaseModel<DLFileEntryType>,
      * @param companyId the company ID of this document library file entry type
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this document library file entry type.
@@ -131,7 +131,7 @@ public interface DLFileEntryTypeModel extends BaseModel<DLFileEntryType>,
      * @param userId the user ID of this document library file entry type
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this document library file entry type.

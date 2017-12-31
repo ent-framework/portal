@@ -64,7 +64,7 @@ public interface PortletItemModel extends BaseModel<PortletItem>, GroupedModel,
      *
      * @param portletItemId the portlet item ID of this portlet item
      */
-    public void setPortletItemId(long portletItemId);
+    public void setPortletItemId(Long portletItemId);
 
     /**
      * Returns the group ID of this portlet item.
@@ -80,7 +80,7 @@ public interface PortletItemModel extends BaseModel<PortletItem>, GroupedModel,
      * @param groupId the group ID of this portlet item
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this portlet item.
@@ -96,7 +96,7 @@ public interface PortletItemModel extends BaseModel<PortletItem>, GroupedModel,
      * @param companyId the company ID of this portlet item
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this portlet item.
@@ -112,7 +112,7 @@ public interface PortletItemModel extends BaseModel<PortletItem>, GroupedModel,
      * @param userId the user ID of this portlet item
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this portlet item.
@@ -234,7 +234,7 @@ public interface PortletItemModel extends BaseModel<PortletItem>, GroupedModel,
      * @param classNameId the class name ID of this portlet item
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     @Override
     public boolean isNew();

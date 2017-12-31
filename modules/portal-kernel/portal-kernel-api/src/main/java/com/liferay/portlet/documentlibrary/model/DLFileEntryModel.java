@@ -85,7 +85,7 @@ public interface DLFileEntryModel extends AttachedModel, BaseModel<DLFileEntry>,
      *
      * @param fileEntryId the file entry ID of this document library file entry
      */
-    public void setFileEntryId(long fileEntryId);
+    public void setFileEntryId(Long fileEntryId);
 
     /**
      * Returns the group ID of this document library file entry.
@@ -101,7 +101,7 @@ public interface DLFileEntryModel extends AttachedModel, BaseModel<DLFileEntry>,
      * @param groupId the group ID of this document library file entry
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this document library file entry.
@@ -117,7 +117,7 @@ public interface DLFileEntryModel extends AttachedModel, BaseModel<DLFileEntry>,
      * @param companyId the company ID of this document library file entry
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this document library file entry.
@@ -133,7 +133,7 @@ public interface DLFileEntryModel extends AttachedModel, BaseModel<DLFileEntry>,
      * @param userId the user ID of this document library file entry
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this document library file entry.
@@ -225,7 +225,7 @@ public interface DLFileEntryModel extends AttachedModel, BaseModel<DLFileEntry>,
      * @param classNameId the class name ID of this document library file entry
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this document library file entry.
@@ -241,7 +241,7 @@ public interface DLFileEntryModel extends AttachedModel, BaseModel<DLFileEntry>,
      * @param classPK the class p k of this document library file entry
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the repository ID of this document library file entry.
@@ -255,7 +255,7 @@ public interface DLFileEntryModel extends AttachedModel, BaseModel<DLFileEntry>,
      *
      * @param repositoryId the repository ID of this document library file entry
      */
-    public void setRepositoryId(long repositoryId);
+    public void setRepositoryId(Long repositoryId);
 
     /**
      * Returns the folder ID of this document library file entry.
@@ -269,7 +269,7 @@ public interface DLFileEntryModel extends AttachedModel, BaseModel<DLFileEntry>,
      *
      * @param folderId the folder ID of this document library file entry
      */
-    public void setFolderId(long folderId);
+    public void setFolderId(Long folderId);
 
     /**
      * Returns the tree path of this document library file entry.
@@ -388,7 +388,7 @@ public interface DLFileEntryModel extends AttachedModel, BaseModel<DLFileEntry>,
      *
      * @param fileEntryTypeId the file entry type ID of this document library file entry
      */
-    public void setFileEntryTypeId(long fileEntryTypeId);
+    public void setFileEntryTypeId(Long fileEntryTypeId);
 
     /**
      * Returns the version of this document library file entry.
@@ -417,7 +417,7 @@ public interface DLFileEntryModel extends AttachedModel, BaseModel<DLFileEntry>,
      *
      * @param size the size of this document library file entry
      */
-    public void setSize(long size);
+    public void setSize(Long size);
 
     /**
      * Returns the read count of this document library file entry.
@@ -431,7 +431,7 @@ public interface DLFileEntryModel extends AttachedModel, BaseModel<DLFileEntry>,
      *
      * @param readCount the read count of this document library file entry
      */
-    public void setReadCount(int readCount);
+    public void setReadCount(Integer readCount);
 
     /**
      * Returns the small image ID of this document library file entry.
@@ -445,7 +445,7 @@ public interface DLFileEntryModel extends AttachedModel, BaseModel<DLFileEntry>,
      *
      * @param smallImageId the small image ID of this document library file entry
      */
-    public void setSmallImageId(long smallImageId);
+    public void setSmallImageId(Long smallImageId);
 
     /**
      * Returns the large image ID of this document library file entry.
@@ -459,7 +459,7 @@ public interface DLFileEntryModel extends AttachedModel, BaseModel<DLFileEntry>,
      *
      * @param largeImageId the large image ID of this document library file entry
      */
-    public void setLargeImageId(long largeImageId);
+    public void setLargeImageId(Long largeImageId);
 
     /**
      * Returns the custom1 image ID of this document library file entry.
@@ -473,7 +473,7 @@ public interface DLFileEntryModel extends AttachedModel, BaseModel<DLFileEntry>,
      *
      * @param custom1ImageId the custom1 image ID of this document library file entry
      */
-    public void setCustom1ImageId(long custom1ImageId);
+    public void setCustom1ImageId(Long custom1ImageId);
 
     /**
      * Returns the custom2 image ID of this document library file entry.
@@ -487,7 +487,7 @@ public interface DLFileEntryModel extends AttachedModel, BaseModel<DLFileEntry>,
      *
      * @param custom2ImageId the custom2 image ID of this document library file entry
      */
-    public void setCustom2ImageId(long custom2ImageId);
+    public void setCustom2ImageId(Long custom2ImageId);
 
     /**
      * Returns the manual check in required of this document library file entry.
@@ -508,7 +508,7 @@ public interface DLFileEntryModel extends AttachedModel, BaseModel<DLFileEntry>,
      *
      * @param manualCheckInRequired the manual check in required of this document library file entry
      */
-    public void setManualCheckInRequired(boolean manualCheckInRequired);
+    public void setManualCheckInRequired(Boolean manualCheckInRequired);
 
     /**
      * Returns the status of this document library file entry.

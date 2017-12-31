@@ -58,7 +58,7 @@ public interface ClusterGroupModel extends BaseModel<ClusterGroup> {
      *
      * @param clusterGroupId the cluster group ID of this cluster group
      */
-    public void setClusterGroupId(long clusterGroupId);
+    public void setClusterGroupId(Long clusterGroupId);
 
     /**
      * Returns the name of this cluster group.
@@ -109,7 +109,7 @@ public interface ClusterGroupModel extends BaseModel<ClusterGroup> {
      *
      * @param wholeCluster the whole cluster of this cluster group
      */
-    public void setWholeCluster(boolean wholeCluster);
+    public void setWholeCluster(Boolean wholeCluster);
 
     @Override
     public boolean isNew();

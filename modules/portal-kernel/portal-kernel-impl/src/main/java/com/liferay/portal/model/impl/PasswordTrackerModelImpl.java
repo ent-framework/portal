@@ -164,7 +164,11 @@ public class PasswordTrackerModelImpl extends BaseModelImpl<PasswordTracker>
     }
 
     @Override
-    public void setPasswordTrackerId(long passwordTrackerId) {
+    public void setPasswordTrackerId(Long passwordTrackerId) {
+        if (passwordTrackerId == null) {
+            passwordTrackerId = new Long(0);
+        }
+
         _passwordTrackerId = passwordTrackerId;
     }
 
@@ -174,13 +178,17 @@ public class PasswordTrackerModelImpl extends BaseModelImpl<PasswordTracker>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask = -1L;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;

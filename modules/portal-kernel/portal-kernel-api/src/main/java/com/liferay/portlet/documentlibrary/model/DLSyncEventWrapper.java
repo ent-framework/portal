@@ -118,7 +118,7 @@ public class DLSyncEventWrapper implements DLSyncEvent,
     * @param syncEventId the sync event ID of this d l sync event
     */
     @Override
-    public void setSyncEventId(long syncEventId) {
+    public void setSyncEventId(java.lang.Long syncEventId) {
         _dlSyncEvent.setSyncEventId(syncEventId);
     }
 
@@ -138,7 +138,7 @@ public class DLSyncEventWrapper implements DLSyncEvent,
     * @param modifiedTime the modified time of this d l sync event
     */
     @Override
-    public void setModifiedTime(long modifiedTime) {
+    public void setModifiedTime(java.lang.Long modifiedTime) {
         _dlSyncEvent.setModifiedTime(modifiedTime);
     }
 
@@ -198,7 +198,7 @@ public class DLSyncEventWrapper implements DLSyncEvent,
     * @param typePK the type p k of this d l sync event
     */
     @Override
-    public void setTypePK(long typePK) {
+    public void setTypePK(java.lang.Long typePK) {
         _dlSyncEvent.setTypePK(typePK);
     }
 

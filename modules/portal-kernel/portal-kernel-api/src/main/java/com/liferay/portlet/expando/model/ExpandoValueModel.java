@@ -59,7 +59,7 @@ public interface ExpandoValueModel extends AttachedModel, BaseModel<ExpandoValue
      *
      * @param valueId the value ID of this expando value
      */
-    public void setValueId(long valueId);
+    public void setValueId(Long valueId);
 
     /**
      * Returns the company ID of this expando value.
@@ -73,7 +73,7 @@ public interface ExpandoValueModel extends AttachedModel, BaseModel<ExpandoValue
      *
      * @param companyId the company ID of this expando value
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the table ID of this expando value.
@@ -87,7 +87,7 @@ public interface ExpandoValueModel extends AttachedModel, BaseModel<ExpandoValue
      *
      * @param tableId the table ID of this expando value
      */
-    public void setTableId(long tableId);
+    public void setTableId(Long tableId);
 
     /**
      * Returns the column ID of this expando value.
@@ -101,7 +101,7 @@ public interface ExpandoValueModel extends AttachedModel, BaseModel<ExpandoValue
      *
      * @param columnId the column ID of this expando value
      */
-    public void setColumnId(long columnId);
+    public void setColumnId(Long columnId);
 
     /**
      * Returns the row ID of this expando value.
@@ -115,7 +115,7 @@ public interface ExpandoValueModel extends AttachedModel, BaseModel<ExpandoValue
      *
      * @param rowId the row ID of this expando value
      */
-    public void setRowId(long rowId);
+    public void setRowId(Long rowId);
 
     /**
      * Returns the fully qualified class name of this expando value.
@@ -141,7 +141,7 @@ public interface ExpandoValueModel extends AttachedModel, BaseModel<ExpandoValue
      * @param classNameId the class name ID of this expando value
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this expando value.
@@ -157,7 +157,7 @@ public interface ExpandoValueModel extends AttachedModel, BaseModel<ExpandoValue
      * @param classPK the class p k of this expando value
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the data of this expando value.

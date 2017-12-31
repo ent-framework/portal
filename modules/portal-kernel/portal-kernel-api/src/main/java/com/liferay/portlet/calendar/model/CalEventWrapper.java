@@ -266,7 +266,7 @@ public class CalEventWrapper implements CalEvent, ModelWrapper<CalEvent> {
     * @param eventId the event ID of this cal event
     */
     @Override
-    public void setEventId(long eventId) {
+    public void setEventId(java.lang.Long eventId) {
         _calEvent.setEventId(eventId);
     }
 
@@ -286,7 +286,7 @@ public class CalEventWrapper implements CalEvent, ModelWrapper<CalEvent> {
     * @param groupId the group ID of this cal event
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _calEvent.setGroupId(groupId);
     }
 
@@ -306,7 +306,7 @@ public class CalEventWrapper implements CalEvent, ModelWrapper<CalEvent> {
     * @param companyId the company ID of this cal event
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _calEvent.setCompanyId(companyId);
     }
 
@@ -326,7 +326,7 @@ public class CalEventWrapper implements CalEvent, ModelWrapper<CalEvent> {
     * @param userId the user ID of this cal event
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _calEvent.setUserId(userId);
     }
 
@@ -528,7 +528,7 @@ public class CalEventWrapper implements CalEvent, ModelWrapper<CalEvent> {
     * @param durationHour the duration hour of this cal event
     */
     @Override
-    public void setDurationHour(int durationHour) {
+    public void setDurationHour(java.lang.Integer durationHour) {
         _calEvent.setDurationHour(durationHour);
     }
 
@@ -548,7 +548,7 @@ public class CalEventWrapper implements CalEvent, ModelWrapper<CalEvent> {
     * @param durationMinute the duration minute of this cal event
     */
     @Override
-    public void setDurationMinute(int durationMinute) {
+    public void setDurationMinute(java.lang.Integer durationMinute) {
         _calEvent.setDurationMinute(durationMinute);
     }
 
@@ -578,7 +578,7 @@ public class CalEventWrapper implements CalEvent, ModelWrapper<CalEvent> {
     * @param allDay the all day of this cal event
     */
     @Override
-    public void setAllDay(boolean allDay) {
+    public void setAllDay(java.lang.Boolean allDay) {
         _calEvent.setAllDay(allDay);
     }
 
@@ -608,7 +608,7 @@ public class CalEventWrapper implements CalEvent, ModelWrapper<CalEvent> {
     * @param timeZoneSensitive the time zone sensitive of this cal event
     */
     @Override
-    public void setTimeZoneSensitive(boolean timeZoneSensitive) {
+    public void setTimeZoneSensitive(java.lang.Boolean timeZoneSensitive) {
         _calEvent.setTimeZoneSensitive(timeZoneSensitive);
     }
 
@@ -658,7 +658,7 @@ public class CalEventWrapper implements CalEvent, ModelWrapper<CalEvent> {
     * @param repeating the repeating of this cal event
     */
     @Override
-    public void setRepeating(boolean repeating) {
+    public void setRepeating(java.lang.Boolean repeating) {
         _calEvent.setRepeating(repeating);
     }
 
@@ -698,7 +698,7 @@ public class CalEventWrapper implements CalEvent, ModelWrapper<CalEvent> {
     * @param remindBy the remind by of this cal event
     */
     @Override
-    public void setRemindBy(int remindBy) {
+    public void setRemindBy(java.lang.Integer remindBy) {
         _calEvent.setRemindBy(remindBy);
     }
 
@@ -718,7 +718,7 @@ public class CalEventWrapper implements CalEvent, ModelWrapper<CalEvent> {
     * @param firstReminder the first reminder of this cal event
     */
     @Override
-    public void setFirstReminder(int firstReminder) {
+    public void setFirstReminder(java.lang.Integer firstReminder) {
         _calEvent.setFirstReminder(firstReminder);
     }
 
@@ -738,7 +738,7 @@ public class CalEventWrapper implements CalEvent, ModelWrapper<CalEvent> {
     * @param secondReminder the second reminder of this cal event
     */
     @Override
-    public void setSecondReminder(int secondReminder) {
+    public void setSecondReminder(java.lang.Integer secondReminder) {
         _calEvent.setSecondReminder(secondReminder);
     }
 

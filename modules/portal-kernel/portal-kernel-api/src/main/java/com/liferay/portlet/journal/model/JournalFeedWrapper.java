@@ -268,7 +268,7 @@ public class JournalFeedWrapper implements JournalFeed,
     * @param id the ID of this journal feed
     */
     @Override
-    public void setId(long id) {
+    public void setId(java.lang.Long id) {
         _journalFeed.setId(id);
     }
 
@@ -288,7 +288,7 @@ public class JournalFeedWrapper implements JournalFeed,
     * @param groupId the group ID of this journal feed
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _journalFeed.setGroupId(groupId);
     }
 
@@ -308,7 +308,7 @@ public class JournalFeedWrapper implements JournalFeed,
     * @param companyId the company ID of this journal feed
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _journalFeed.setCompanyId(companyId);
     }
 
@@ -328,7 +328,7 @@ public class JournalFeedWrapper implements JournalFeed,
     * @param userId the user ID of this journal feed
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _journalFeed.setUserId(userId);
     }
 
@@ -570,7 +570,7 @@ public class JournalFeedWrapper implements JournalFeed,
     * @param delta the delta of this journal feed
     */
     @Override
-    public void setDelta(int delta) {
+    public void setDelta(java.lang.Integer delta) {
         _journalFeed.setDelta(delta);
     }
 

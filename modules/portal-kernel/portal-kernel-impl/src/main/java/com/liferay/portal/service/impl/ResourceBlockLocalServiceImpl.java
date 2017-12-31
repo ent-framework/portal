@@ -197,7 +197,7 @@ public class ResourceBlockLocalServiceImpl
 		resourceBlock.setGroupId(groupId);
 		resourceBlock.setName(name);
 		resourceBlock.setPermissionsHash(permissionsHash);
-		resourceBlock.setReferenceCount(1);
+		resourceBlock.setReferenceCount(1l);
 
 		updateResourceBlock(resourceBlock);
 

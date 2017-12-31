@@ -61,7 +61,7 @@ public interface UserTrackerModel extends BaseModel<UserTracker> {
      *
      * @param userTrackerId the user tracker ID of this user tracker
      */
-    public void setUserTrackerId(long userTrackerId);
+    public void setUserTrackerId(Long userTrackerId);
 
     /**
      * Returns the company ID of this user tracker.
@@ -75,7 +75,7 @@ public interface UserTrackerModel extends BaseModel<UserTracker> {
      *
      * @param companyId the company ID of this user tracker
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this user tracker.
@@ -89,7 +89,7 @@ public interface UserTrackerModel extends BaseModel<UserTracker> {
      *
      * @param userId the user ID of this user tracker
      */
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this user tracker.

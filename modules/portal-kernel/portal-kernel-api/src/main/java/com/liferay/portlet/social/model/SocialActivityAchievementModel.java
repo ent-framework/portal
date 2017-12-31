@@ -59,7 +59,7 @@ public interface SocialActivityAchievementModel extends BaseModel<SocialActivity
      *
      * @param activityAchievementId the activity achievement ID of this social activity achievement
      */
-    public void setActivityAchievementId(long activityAchievementId);
+    public void setActivityAchievementId(Long activityAchievementId);
 
     /**
      * Returns the group ID of this social activity achievement.
@@ -73,7 +73,7 @@ public interface SocialActivityAchievementModel extends BaseModel<SocialActivity
      *
      * @param groupId the group ID of this social activity achievement
      */
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this social activity achievement.
@@ -87,7 +87,7 @@ public interface SocialActivityAchievementModel extends BaseModel<SocialActivity
      *
      * @param companyId the company ID of this social activity achievement
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this social activity achievement.
@@ -101,7 +101,7 @@ public interface SocialActivityAchievementModel extends BaseModel<SocialActivity
      *
      * @param userId the user ID of this social activity achievement
      */
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this social activity achievement.
@@ -130,7 +130,7 @@ public interface SocialActivityAchievementModel extends BaseModel<SocialActivity
      *
      * @param createDate the create date of this social activity achievement
      */
-    public void setCreateDate(long createDate);
+    public void setCreateDate(Long createDate);
 
     /**
      * Returns the name of this social activity achievement.
@@ -166,7 +166,7 @@ public interface SocialActivityAchievementModel extends BaseModel<SocialActivity
      *
      * @param firstInGroup the first in group of this social activity achievement
      */
-    public void setFirstInGroup(boolean firstInGroup);
+    public void setFirstInGroup(Boolean firstInGroup);
 
     @Override
     public boolean isNew();

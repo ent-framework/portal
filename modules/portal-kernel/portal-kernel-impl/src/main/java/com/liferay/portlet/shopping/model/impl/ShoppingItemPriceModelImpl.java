@@ -213,8 +213,12 @@ public class ShoppingItemPriceModelImpl extends BaseModelImpl<ShoppingItemPrice>
     }
 
     @Override
-    public void setItemPriceId(long itemPriceId) {
+    public void setItemPriceId(Long itemPriceId) {
         _columnBitmask = -1L;
+
+        if (itemPriceId == null) {
+            itemPriceId = new Long(0);
+        }
 
         _itemPriceId = itemPriceId;
     }
@@ -225,13 +229,17 @@ public class ShoppingItemPriceModelImpl extends BaseModelImpl<ShoppingItemPrice>
     }
 
     @Override
-    public void setItemId(long itemId) {
+    public void setItemId(Long itemId) {
         _columnBitmask = -1L;
 
         if (!_setOriginalItemId) {
             _setOriginalItemId = true;
 
             _originalItemId = _itemId;
+        }
+
+        if (itemId == null) {
+            itemId = new Long(0);
         }
 
         _itemId = itemId;
@@ -247,7 +255,11 @@ public class ShoppingItemPriceModelImpl extends BaseModelImpl<ShoppingItemPrice>
     }
 
     @Override
-    public void setMinQuantity(int minQuantity) {
+    public void setMinQuantity(Integer minQuantity) {
+        if (minQuantity == null) {
+            minQuantity = new Integer(0);
+        }
+
         _minQuantity = minQuantity;
     }
 
@@ -257,7 +269,11 @@ public class ShoppingItemPriceModelImpl extends BaseModelImpl<ShoppingItemPrice>
     }
 
     @Override
-    public void setMaxQuantity(int maxQuantity) {
+    public void setMaxQuantity(Integer maxQuantity) {
+        if (maxQuantity == null) {
+            maxQuantity = new Integer(0);
+        }
+
         _maxQuantity = maxQuantity;
     }
 
@@ -292,7 +308,11 @@ public class ShoppingItemPriceModelImpl extends BaseModelImpl<ShoppingItemPrice>
     }
 
     @Override
-    public void setTaxable(boolean taxable) {
+    public void setTaxable(Boolean taxable) {
+        if (taxable == null) {
+            taxable = Boolean.FALSE;
+        }
+
         _taxable = taxable;
     }
 
@@ -317,7 +337,11 @@ public class ShoppingItemPriceModelImpl extends BaseModelImpl<ShoppingItemPrice>
     }
 
     @Override
-    public void setUseShippingFormula(boolean useShippingFormula) {
+    public void setUseShippingFormula(Boolean useShippingFormula) {
+        if (useShippingFormula == null) {
+            useShippingFormula = Boolean.FALSE;
+        }
+
         _useShippingFormula = useShippingFormula;
     }
 
@@ -327,7 +351,11 @@ public class ShoppingItemPriceModelImpl extends BaseModelImpl<ShoppingItemPrice>
     }
 
     @Override
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
+        if (status == null) {
+            status = new Integer(0);
+        }
+
         _status = status;
     }
 

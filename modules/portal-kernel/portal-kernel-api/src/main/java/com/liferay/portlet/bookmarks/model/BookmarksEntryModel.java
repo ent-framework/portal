@@ -85,7 +85,7 @@ public interface BookmarksEntryModel extends BaseModel<BookmarksEntry>,
      *
      * @param entryId the entry ID of this bookmarks entry
      */
-    public void setEntryId(long entryId);
+    public void setEntryId(Long entryId);
 
     /**
      * Returns the group ID of this bookmarks entry.
@@ -101,7 +101,7 @@ public interface BookmarksEntryModel extends BaseModel<BookmarksEntry>,
      * @param groupId the group ID of this bookmarks entry
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this bookmarks entry.
@@ -117,7 +117,7 @@ public interface BookmarksEntryModel extends BaseModel<BookmarksEntry>,
      * @param companyId the company ID of this bookmarks entry
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this bookmarks entry.
@@ -133,7 +133,7 @@ public interface BookmarksEntryModel extends BaseModel<BookmarksEntry>,
      * @param userId the user ID of this bookmarks entry
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this bookmarks entry.
@@ -213,7 +213,7 @@ public interface BookmarksEntryModel extends BaseModel<BookmarksEntry>,
      *
      * @param resourceBlockId the resource block ID of this bookmarks entry
      */
-    public void setResourceBlockId(long resourceBlockId);
+    public void setResourceBlockId(Long resourceBlockId);
 
     /**
      * Returns the folder ID of this bookmarks entry.
@@ -227,7 +227,7 @@ public interface BookmarksEntryModel extends BaseModel<BookmarksEntry>,
      *
      * @param folderId the folder ID of this bookmarks entry
      */
-    public void setFolderId(long folderId);
+    public void setFolderId(Long folderId);
 
     /**
      * Returns the tree path of this bookmarks entry.
@@ -301,7 +301,7 @@ public interface BookmarksEntryModel extends BaseModel<BookmarksEntry>,
      *
      * @param visits the visits of this bookmarks entry
      */
-    public void setVisits(int visits);
+    public void setVisits(Integer visits);
 
     /**
      * Returns the priority of this bookmarks entry.
@@ -315,7 +315,7 @@ public interface BookmarksEntryModel extends BaseModel<BookmarksEntry>,
      *
      * @param priority the priority of this bookmarks entry
      */
-    public void setPriority(int priority);
+    public void setPriority(Integer priority);
 
     /**
      * Returns the status of this bookmarks entry.
@@ -331,7 +331,7 @@ public interface BookmarksEntryModel extends BaseModel<BookmarksEntry>,
      * @param status the status of this bookmarks entry
      */
     @Override
-    public void setStatus(int status);
+    public void setStatus(Integer status);
 
     /**
      * Returns the status by user ID of this bookmarks entry.
@@ -347,7 +347,7 @@ public interface BookmarksEntryModel extends BaseModel<BookmarksEntry>,
      * @param statusByUserId the status by user ID of this bookmarks entry
      */
     @Override
-    public void setStatusByUserId(long statusByUserId);
+    public void setStatusByUserId(Long statusByUserId);
 
     /**
      * Returns the status by user uuid of this bookmarks entry.

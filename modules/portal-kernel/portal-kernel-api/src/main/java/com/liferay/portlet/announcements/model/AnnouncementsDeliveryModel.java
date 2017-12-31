@@ -59,7 +59,7 @@ public interface AnnouncementsDeliveryModel extends BaseModel<AnnouncementsDeliv
      *
      * @param deliveryId the delivery ID of this announcements delivery
      */
-    public void setDeliveryId(long deliveryId);
+    public void setDeliveryId(Long deliveryId);
 
     /**
      * Returns the company ID of this announcements delivery.
@@ -73,7 +73,7 @@ public interface AnnouncementsDeliveryModel extends BaseModel<AnnouncementsDeliv
      *
      * @param companyId the company ID of this announcements delivery
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this announcements delivery.
@@ -87,7 +87,7 @@ public interface AnnouncementsDeliveryModel extends BaseModel<AnnouncementsDeliv
      *
      * @param userId the user ID of this announcements delivery
      */
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this announcements delivery.
@@ -138,7 +138,7 @@ public interface AnnouncementsDeliveryModel extends BaseModel<AnnouncementsDeliv
      *
      * @param email the email of this announcements delivery
      */
-    public void setEmail(boolean email);
+    public void setEmail(Boolean email);
 
     /**
      * Returns the sms of this announcements delivery.
@@ -159,7 +159,7 @@ public interface AnnouncementsDeliveryModel extends BaseModel<AnnouncementsDeliv
      *
      * @param sms the sms of this announcements delivery
      */
-    public void setSms(boolean sms);
+    public void setSms(Boolean sms);
 
     /**
      * Returns the website of this announcements delivery.
@@ -180,7 +180,7 @@ public interface AnnouncementsDeliveryModel extends BaseModel<AnnouncementsDeliv
      *
      * @param website the website of this announcements delivery
      */
-    public void setWebsite(boolean website);
+    public void setWebsite(Boolean website);
 
     @Override
     public boolean isNew();

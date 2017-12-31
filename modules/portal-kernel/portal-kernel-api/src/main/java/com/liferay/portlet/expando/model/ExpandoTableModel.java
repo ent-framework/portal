@@ -59,7 +59,7 @@ public interface ExpandoTableModel extends BaseModel<ExpandoTable>, TypedModel {
      *
      * @param tableId the table ID of this expando table
      */
-    public void setTableId(long tableId);
+    public void setTableId(Long tableId);
 
     /**
      * Returns the company ID of this expando table.
@@ -73,7 +73,7 @@ public interface ExpandoTableModel extends BaseModel<ExpandoTable>, TypedModel {
      *
      * @param companyId the company ID of this expando table
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the fully qualified class name of this expando table.
@@ -99,7 +99,7 @@ public interface ExpandoTableModel extends BaseModel<ExpandoTable>, TypedModel {
      * @param classNameId the class name ID of this expando table
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the name of this expando table.

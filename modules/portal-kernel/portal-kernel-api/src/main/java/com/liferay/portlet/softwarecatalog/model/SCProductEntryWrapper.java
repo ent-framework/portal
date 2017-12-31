@@ -196,7 +196,7 @@ public class SCProductEntryWrapper implements SCProductEntry,
     * @param productEntryId the product entry ID of this s c product entry
     */
     @Override
-    public void setProductEntryId(long productEntryId) {
+    public void setProductEntryId(java.lang.Long productEntryId) {
         _scProductEntry.setProductEntryId(productEntryId);
     }
 
@@ -216,7 +216,7 @@ public class SCProductEntryWrapper implements SCProductEntry,
     * @param groupId the group ID of this s c product entry
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _scProductEntry.setGroupId(groupId);
     }
 
@@ -236,7 +236,7 @@ public class SCProductEntryWrapper implements SCProductEntry,
     * @param companyId the company ID of this s c product entry
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _scProductEntry.setCompanyId(companyId);
     }
 
@@ -256,7 +256,7 @@ public class SCProductEntryWrapper implements SCProductEntry,
     * @param userId the user ID of this s c product entry
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _scProductEntry.setUserId(userId);
     }
 

@@ -83,7 +83,7 @@ public interface PollsChoiceModel extends BaseModel<PollsChoice>,
      *
      * @param choiceId the choice ID of this polls choice
      */
-    public void setChoiceId(long choiceId);
+    public void setChoiceId(Long choiceId);
 
     /**
      * Returns the group ID of this polls choice.
@@ -99,7 +99,7 @@ public interface PollsChoiceModel extends BaseModel<PollsChoice>,
      * @param groupId the group ID of this polls choice
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this polls choice.
@@ -115,7 +115,7 @@ public interface PollsChoiceModel extends BaseModel<PollsChoice>,
      * @param companyId the company ID of this polls choice
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this polls choice.
@@ -131,7 +131,7 @@ public interface PollsChoiceModel extends BaseModel<PollsChoice>,
      * @param userId the user ID of this polls choice
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this polls choice.
@@ -211,7 +211,7 @@ public interface PollsChoiceModel extends BaseModel<PollsChoice>,
      *
      * @param questionId the question ID of this polls choice
      */
-    public void setQuestionId(long questionId);
+    public void setQuestionId(Long questionId);
 
     /**
      * Returns the name of this polls choice.

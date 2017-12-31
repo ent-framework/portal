@@ -91,7 +91,7 @@ public interface JournalArticleModel extends AttachedModel,
      *
      * @param id the ID of this journal article
      */
-    public void setId(long id);
+    public void setId(Long id);
 
     /**
      * Returns the resource prim key of this journal article.
@@ -107,7 +107,7 @@ public interface JournalArticleModel extends AttachedModel,
      * @param resourcePrimKey the resource prim key of this journal article
      */
     @Override
-    public void setResourcePrimKey(long resourcePrimKey);
+    public void setResourcePrimKey(Long resourcePrimKey);
 
     @Override
     public boolean isResourceMain();
@@ -126,7 +126,7 @@ public interface JournalArticleModel extends AttachedModel,
      * @param groupId the group ID of this journal article
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this journal article.
@@ -142,7 +142,7 @@ public interface JournalArticleModel extends AttachedModel,
      * @param companyId the company ID of this journal article
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this journal article.
@@ -158,7 +158,7 @@ public interface JournalArticleModel extends AttachedModel,
      * @param userId the user ID of this journal article
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this journal article.
@@ -238,7 +238,7 @@ public interface JournalArticleModel extends AttachedModel,
      *
      * @param folderId the folder ID of this journal article
      */
-    public void setFolderId(long folderId);
+    public void setFolderId(Long folderId);
 
     /**
      * Returns the fully qualified class name of this journal article.
@@ -264,7 +264,7 @@ public interface JournalArticleModel extends AttachedModel,
      * @param classNameId the class name ID of this journal article
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this journal article.
@@ -280,7 +280,7 @@ public interface JournalArticleModel extends AttachedModel,
      * @param classPK the class p k of this journal article
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the tree path of this journal article.
@@ -675,7 +675,7 @@ public interface JournalArticleModel extends AttachedModel,
      *
      * @param indexable the indexable of this journal article
      */
-    public void setIndexable(boolean indexable);
+    public void setIndexable(Boolean indexable);
 
     /**
      * Returns the small image of this journal article.
@@ -696,7 +696,7 @@ public interface JournalArticleModel extends AttachedModel,
      *
      * @param smallImage the small image of this journal article
      */
-    public void setSmallImage(boolean smallImage);
+    public void setSmallImage(Boolean smallImage);
 
     /**
      * Returns the small image ID of this journal article.
@@ -710,7 +710,7 @@ public interface JournalArticleModel extends AttachedModel,
      *
      * @param smallImageId the small image ID of this journal article
      */
-    public void setSmallImageId(long smallImageId);
+    public void setSmallImageId(Long smallImageId);
 
     /**
      * Returns the small image u r l of this journal article.
@@ -741,7 +741,7 @@ public interface JournalArticleModel extends AttachedModel,
      * @param status the status of this journal article
      */
     @Override
-    public void setStatus(int status);
+    public void setStatus(Integer status);
 
     /**
      * Returns the status by user ID of this journal article.
@@ -757,7 +757,7 @@ public interface JournalArticleModel extends AttachedModel,
      * @param statusByUserId the status by user ID of this journal article
      */
     @Override
-    public void setStatusByUserId(long statusByUserId);
+    public void setStatusByUserId(Long statusByUserId);
 
     /**
      * Returns the status by user uuid of this journal article.

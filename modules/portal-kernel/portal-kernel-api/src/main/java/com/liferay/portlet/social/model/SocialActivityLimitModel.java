@@ -61,7 +61,7 @@ public interface SocialActivityLimitModel extends AttachedModel,
      *
      * @param activityLimitId the activity limit ID of this social activity limit
      */
-    public void setActivityLimitId(long activityLimitId);
+    public void setActivityLimitId(Long activityLimitId);
 
     /**
      * Returns the group ID of this social activity limit.
@@ -75,7 +75,7 @@ public interface SocialActivityLimitModel extends AttachedModel,
      *
      * @param groupId the group ID of this social activity limit
      */
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this social activity limit.
@@ -89,7 +89,7 @@ public interface SocialActivityLimitModel extends AttachedModel,
      *
      * @param companyId the company ID of this social activity limit
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this social activity limit.
@@ -103,7 +103,7 @@ public interface SocialActivityLimitModel extends AttachedModel,
      *
      * @param userId the user ID of this social activity limit
      */
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this social activity limit.
@@ -144,7 +144,7 @@ public interface SocialActivityLimitModel extends AttachedModel,
      * @param classNameId the class name ID of this social activity limit
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this social activity limit.
@@ -160,7 +160,7 @@ public interface SocialActivityLimitModel extends AttachedModel,
      * @param classPK the class p k of this social activity limit
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the activity type of this social activity limit.
@@ -174,7 +174,7 @@ public interface SocialActivityLimitModel extends AttachedModel,
      *
      * @param activityType the activity type of this social activity limit
      */
-    public void setActivityType(int activityType);
+    public void setActivityType(Integer activityType);
 
     /**
      * Returns the activity counter name of this social activity limit.

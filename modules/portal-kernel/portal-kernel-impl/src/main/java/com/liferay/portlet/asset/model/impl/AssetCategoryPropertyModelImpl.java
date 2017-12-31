@@ -266,7 +266,11 @@ public class AssetCategoryPropertyModelImpl extends BaseModelImpl<AssetCategoryP
     }
 
     @Override
-    public void setCategoryPropertyId(long categoryPropertyId) {
+    public void setCategoryPropertyId(Long categoryPropertyId) {
+        if (categoryPropertyId == null) {
+            categoryPropertyId = new Long(0);
+        }
+
         _categoryPropertyId = categoryPropertyId;
     }
 
@@ -277,13 +281,17 @@ public class AssetCategoryPropertyModelImpl extends BaseModelImpl<AssetCategoryP
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -300,7 +308,11 @@ public class AssetCategoryPropertyModelImpl extends BaseModelImpl<AssetCategoryP
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
+        if (userId == null) {
+            userId = new Long(0);
+        }
+
         _userId = userId;
     }
 
@@ -358,13 +370,17 @@ public class AssetCategoryPropertyModelImpl extends BaseModelImpl<AssetCategoryP
     }
 
     @Override
-    public void setCategoryId(long categoryId) {
+    public void setCategoryId(Long categoryId) {
         _columnBitmask |= CATEGORYID_COLUMN_BITMASK;
 
         if (!_setOriginalCategoryId) {
             _setOriginalCategoryId = true;
 
             _originalCategoryId = _categoryId;
+        }
+
+        if (categoryId == null) {
+            categoryId = new Long(0);
         }
 
         _categoryId = categoryId;

@@ -180,7 +180,7 @@ public class LockWrapper implements Lock, ModelWrapper<Lock> {
     * @param lockId the lock ID of this lock
     */
     @Override
-    public void setLockId(long lockId) {
+    public void setLockId(java.lang.Long lockId) {
         _lock.setLockId(lockId);
     }
 
@@ -200,7 +200,7 @@ public class LockWrapper implements Lock, ModelWrapper<Lock> {
     * @param companyId the company ID of this lock
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _lock.setCompanyId(companyId);
     }
 
@@ -220,7 +220,7 @@ public class LockWrapper implements Lock, ModelWrapper<Lock> {
     * @param userId the user ID of this lock
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _lock.setUserId(userId);
     }
 
@@ -372,7 +372,7 @@ public class LockWrapper implements Lock, ModelWrapper<Lock> {
     * @param inheritable the inheritable of this lock
     */
     @Override
-    public void setInheritable(boolean inheritable) {
+    public void setInheritable(java.lang.Boolean inheritable) {
         _lock.setInheritable(inheritable);
     }
 

@@ -161,7 +161,7 @@ public class SCFrameworkVersionWrapper implements SCFrameworkVersion,
     * @param frameworkVersionId the framework version ID of this s c framework version
     */
     @Override
-    public void setFrameworkVersionId(long frameworkVersionId) {
+    public void setFrameworkVersionId(java.lang.Long frameworkVersionId) {
         _scFrameworkVersion.setFrameworkVersionId(frameworkVersionId);
     }
 
@@ -181,7 +181,7 @@ public class SCFrameworkVersionWrapper implements SCFrameworkVersion,
     * @param groupId the group ID of this s c framework version
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _scFrameworkVersion.setGroupId(groupId);
     }
 
@@ -201,7 +201,7 @@ public class SCFrameworkVersionWrapper implements SCFrameworkVersion,
     * @param companyId the company ID of this s c framework version
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _scFrameworkVersion.setCompanyId(companyId);
     }
 
@@ -221,7 +221,7 @@ public class SCFrameworkVersionWrapper implements SCFrameworkVersion,
     * @param userId the user ID of this s c framework version
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _scFrameworkVersion.setUserId(userId);
     }
 
@@ -373,7 +373,7 @@ public class SCFrameworkVersionWrapper implements SCFrameworkVersion,
     * @param active the active of this s c framework version
     */
     @Override
-    public void setActive(boolean active) {
+    public void setActive(java.lang.Boolean active) {
         _scFrameworkVersion.setActive(active);
     }
 
@@ -393,7 +393,7 @@ public class SCFrameworkVersionWrapper implements SCFrameworkVersion,
     * @param priority the priority of this s c framework version
     */
     @Override
-    public void setPriority(int priority) {
+    public void setPriority(java.lang.Integer priority) {
         _scFrameworkVersion.setPriority(priority);
     }
 

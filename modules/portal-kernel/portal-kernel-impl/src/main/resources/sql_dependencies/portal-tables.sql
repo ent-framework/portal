@@ -769,6 +769,23 @@ create table ExpandoValue (
 	data_ STRING null
 );
 
+create table FilterGroup (
+	uuid_ VARCHAR(75) null,
+	filterGroupId LONG not null primary key,
+	userId LONG,
+	userName VARCHAR(255) null,
+	createDate DATE null,
+	modifiedDate DATE null,
+	groupId LONG,
+	filterScopeId LONG
+);
+
+create table FilterScope (
+	filterScopeId LONG not null primary key,
+	filterName VARCHAR(255) null,
+	className VARCHAR(255) null
+);
+
 create table Group_ (
 	uuid_ VARCHAR(75) null,
 	groupId LONG not null primary key,

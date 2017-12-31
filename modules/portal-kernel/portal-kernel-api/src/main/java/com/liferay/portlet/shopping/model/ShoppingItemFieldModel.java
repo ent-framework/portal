@@ -58,7 +58,7 @@ public interface ShoppingItemFieldModel extends BaseModel<ShoppingItemField> {
      *
      * @param itemFieldId the item field ID of this shopping item field
      */
-    public void setItemFieldId(long itemFieldId);
+    public void setItemFieldId(Long itemFieldId);
 
     /**
      * Returns the item ID of this shopping item field.
@@ -72,7 +72,7 @@ public interface ShoppingItemFieldModel extends BaseModel<ShoppingItemField> {
      *
      * @param itemId the item ID of this shopping item field
      */
-    public void setItemId(long itemId);
+    public void setItemId(Long itemId);
 
     /**
      * Returns the name of this shopping item field.

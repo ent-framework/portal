@@ -59,7 +59,7 @@ public interface UserGroupRoleModel extends BaseModel<UserGroupRole> {
      *
      * @param userId the user ID of this user group role
      */
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this user group role.
@@ -88,7 +88,7 @@ public interface UserGroupRoleModel extends BaseModel<UserGroupRole> {
      *
      * @param groupId the group ID of this user group role
      */
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the role ID of this user group role.
@@ -102,7 +102,7 @@ public interface UserGroupRoleModel extends BaseModel<UserGroupRole> {
      *
      * @param roleId the role ID of this user group role
      */
-    public void setRoleId(long roleId);
+    public void setRoleId(Long roleId);
 
     @Override
     public boolean isNew();

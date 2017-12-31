@@ -111,7 +111,7 @@ public class ResourceActionWrapper implements ResourceAction,
     * @param resourceActionId the resource action ID of this resource action
     */
     @Override
-    public void setResourceActionId(long resourceActionId) {
+    public void setResourceActionId(java.lang.Long resourceActionId) {
         _resourceAction.setResourceActionId(resourceActionId);
     }
 
@@ -171,7 +171,7 @@ public class ResourceActionWrapper implements ResourceAction,
     * @param bitwiseValue the bitwise value of this resource action
     */
     @Override
-    public void setBitwiseValue(long bitwiseValue) {
+    public void setBitwiseValue(java.lang.Long bitwiseValue) {
         _resourceAction.setBitwiseValue(bitwiseValue);
     }
 

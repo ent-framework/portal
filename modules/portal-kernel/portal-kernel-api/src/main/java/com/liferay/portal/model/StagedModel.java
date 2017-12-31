@@ -35,7 +35,7 @@ public interface StagedModel extends ClassedModel {
 
 	public String getUuid();
 
-	public void setCompanyId(long companyId);
+	public void setCompanyId(Long companyId);
 
 	public void setCreateDate(Date date);
 

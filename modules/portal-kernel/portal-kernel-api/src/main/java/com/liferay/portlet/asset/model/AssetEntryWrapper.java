@@ -265,7 +265,7 @@ public class AssetEntryWrapper implements AssetEntry, ModelWrapper<AssetEntry> {
     * @param entryId the entry ID of this asset entry
     */
     @Override
-    public void setEntryId(long entryId) {
+    public void setEntryId(java.lang.Long entryId) {
         _assetEntry.setEntryId(entryId);
     }
 
@@ -285,7 +285,7 @@ public class AssetEntryWrapper implements AssetEntry, ModelWrapper<AssetEntry> {
     * @param groupId the group ID of this asset entry
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _assetEntry.setGroupId(groupId);
     }
 
@@ -305,7 +305,7 @@ public class AssetEntryWrapper implements AssetEntry, ModelWrapper<AssetEntry> {
     * @param companyId the company ID of this asset entry
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _assetEntry.setCompanyId(companyId);
     }
 
@@ -325,7 +325,7 @@ public class AssetEntryWrapper implements AssetEntry, ModelWrapper<AssetEntry> {
     * @param userId the user ID of this asset entry
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _assetEntry.setUserId(userId);
     }
 
@@ -442,7 +442,7 @@ public class AssetEntryWrapper implements AssetEntry, ModelWrapper<AssetEntry> {
     * @param classNameId the class name ID of this asset entry
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _assetEntry.setClassNameId(classNameId);
     }
 
@@ -462,7 +462,7 @@ public class AssetEntryWrapper implements AssetEntry, ModelWrapper<AssetEntry> {
     * @param classPK the class p k of this asset entry
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _assetEntry.setClassPK(classPK);
     }
 
@@ -502,7 +502,7 @@ public class AssetEntryWrapper implements AssetEntry, ModelWrapper<AssetEntry> {
     * @param classTypeId the class type ID of this asset entry
     */
     @Override
-    public void setClassTypeId(long classTypeId) {
+    public void setClassTypeId(java.lang.Long classTypeId) {
         _assetEntry.setClassTypeId(classTypeId);
     }
 
@@ -532,7 +532,7 @@ public class AssetEntryWrapper implements AssetEntry, ModelWrapper<AssetEntry> {
     * @param visible the visible of this asset entry
     */
     @Override
-    public void setVisible(boolean visible) {
+    public void setVisible(java.lang.Boolean visible) {
         _assetEntry.setVisible(visible);
     }
 
@@ -1115,7 +1115,7 @@ public class AssetEntryWrapper implements AssetEntry, ModelWrapper<AssetEntry> {
     * @param height the height of this asset entry
     */
     @Override
-    public void setHeight(int height) {
+    public void setHeight(java.lang.Integer height) {
         _assetEntry.setHeight(height);
     }
 
@@ -1135,7 +1135,7 @@ public class AssetEntryWrapper implements AssetEntry, ModelWrapper<AssetEntry> {
     * @param width the width of this asset entry
     */
     @Override
-    public void setWidth(int width) {
+    public void setWidth(java.lang.Integer width) {
         _assetEntry.setWidth(width);
     }
 
@@ -1175,7 +1175,7 @@ public class AssetEntryWrapper implements AssetEntry, ModelWrapper<AssetEntry> {
     * @param viewCount the view count of this asset entry
     */
     @Override
-    public void setViewCount(int viewCount) {
+    public void setViewCount(java.lang.Integer viewCount) {
         _assetEntry.setViewCount(viewCount);
     }
 

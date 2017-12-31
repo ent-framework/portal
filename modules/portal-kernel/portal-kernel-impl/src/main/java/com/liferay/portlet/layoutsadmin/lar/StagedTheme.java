@@ -88,7 +88,7 @@ public class StagedTheme extends ThemeImpl implements StagedModel {
 	}
 
 	@Override
-	public void setCompanyId(long companyId) {
+	public void setCompanyId(Long companyId) {
 		throw new UnsupportedOperationException();
 	}
 

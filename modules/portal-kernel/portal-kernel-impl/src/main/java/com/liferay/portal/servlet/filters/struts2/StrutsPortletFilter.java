@@ -70,6 +70,10 @@ import java.util.Set;
 
 public class StrutsPortletFilter extends StrutsPrepareAndExecuteFilter {
 
+    public StrutsPortletFilter(ServletContext servletContext ) {
+        init(servletContext);
+    }
+
     @Override
     public void destroy() {
         if (_log.isDebugEnabled()) {
@@ -120,14 +124,10 @@ public class StrutsPortletFilter extends StrutsPrepareAndExecuteFilter {
         super.destroy();
     }
 
-    @Override
-    public void postInit(Dispatcher dispatcher, FilterConfig filterConfig) {
+    private void init(ServletContext servletContext) {
         if (_log.isDebugEnabled()) {
             _log.debug("Initialize");
         }
-
-
-        ServletContext servletContext = filterConfig.getServletContext();
 
         servletContext.setAttribute(MainServlet.class.getName(), Boolean.TRUE);
 
@@ -181,7 +181,7 @@ public class StrutsPortletFilter extends StrutsPrepareAndExecuteFilter {
         }
 
         try {
-            initServerDetector(filterConfig);
+            initServerDetector(servletContext);
         }
         catch (Exception e) {
             _log.error(e, e);
@@ -194,7 +194,7 @@ public class StrutsPortletFilter extends StrutsPrepareAndExecuteFilter {
         PluginPackage pluginPackage = null;
 
         try {
-            pluginPackage = initPluginPackage(filterConfig);
+            pluginPackage = initPluginPackage(servletContext);
         }
         catch (Exception e) {
             _log.error(e, e);
@@ -207,7 +207,7 @@ public class StrutsPortletFilter extends StrutsPrepareAndExecuteFilter {
         List<Portlet> portlets = new ArrayList<Portlet>();
 
         try {
-            portlets.addAll(initPortlets(pluginPackage, filterConfig));
+            portlets.addAll(initPortlets(pluginPackage, servletContext));
         }
         catch (Exception e) {
             _log.error(e, e);
@@ -218,7 +218,7 @@ public class StrutsPortletFilter extends StrutsPrepareAndExecuteFilter {
         }
 
         try {
-            initLayoutTemplates(pluginPackage, portlets, filterConfig);
+            initLayoutTemplates(pluginPackage, portlets, servletContext);
         }
         catch (Exception e) {
             _log.error(e, e);
@@ -229,7 +229,7 @@ public class StrutsPortletFilter extends StrutsPrepareAndExecuteFilter {
         }
 
         try {
-            initSocial(pluginPackage, filterConfig);
+            initSocial(pluginPackage, servletContext);
         }
         catch (Exception e) {
             _log.error(e, e);
@@ -240,7 +240,7 @@ public class StrutsPortletFilter extends StrutsPrepareAndExecuteFilter {
         }
 
         try {
-            initThemes(pluginPackage, portlets, filterConfig);
+            initThemes(pluginPackage, portlets, servletContext);
         }
         catch (Exception e) {
             _log.error(e, e);
@@ -251,7 +251,7 @@ public class StrutsPortletFilter extends StrutsPrepareAndExecuteFilter {
         }
 
         try {
-           // initWebSettings();
+            // initWebSettings();
         }
         catch (Exception e) {
             _log.error(e, e);
@@ -262,7 +262,7 @@ public class StrutsPortletFilter extends StrutsPrepareAndExecuteFilter {
         }
 
         try {
-            initExt(filterConfig);
+            initExt(servletContext);
         }
         catch (Exception e) {
             _log.error(e, e);
@@ -295,7 +295,7 @@ public class StrutsPortletFilter extends StrutsPrepareAndExecuteFilter {
         }
 
         try {
-            initCompanies(filterConfig);
+            initCompanies(servletContext);
         }
         catch (Exception e) {
             _log.error(e, e);
@@ -683,9 +683,7 @@ public class StrutsPortletFilter extends StrutsPrepareAndExecuteFilter {
         }
     }
 
-    protected void initCompanies(FilterConfig filterConfig) throws Exception {
-        ServletContext servletContext = filterConfig.getServletContext();
-
+    protected void initCompanies(ServletContext servletContext) throws Exception {
         try {
             String[] webIds = PortalInstances.getWebIds();
 
@@ -707,17 +705,13 @@ public class StrutsPortletFilter extends StrutsPrepareAndExecuteFilter {
         }
     }
 
-    protected void initExt(FilterConfig filterConfig) throws Exception {
-        ServletContext servletContext = filterConfig.getServletContext();
-
+    protected void initExt(ServletContext servletContext) throws Exception {
         ExtRegistry.registerPortal(servletContext);
     }
 
     protected void initLayoutTemplates(
-            PluginPackage pluginPackage, List<Portlet> portlets, FilterConfig filterConfig)
+            PluginPackage pluginPackage, List<Portlet> portlets, ServletContext servletContext)
             throws Exception {
-
-        ServletContext servletContext = filterConfig.getServletContext();
 
         String[] xmls = new String[] {
                 HttpUtil.URLtoString(
@@ -740,9 +734,7 @@ public class StrutsPortletFilter extends StrutsPrepareAndExecuteFilter {
         SerializableSessionAttributeListener.initialize();
     }
 
-    protected PluginPackage initPluginPackage(FilterConfig filterConfig) throws Exception {
-        ServletContext servletContext = filterConfig.getServletContext();
-
+    protected PluginPackage initPluginPackage(ServletContext servletContext) throws Exception {
         return PluginPackageUtil.readPluginPackageServletContext(
                 servletContext);
     }
@@ -787,10 +779,8 @@ public class StrutsPortletFilter extends StrutsPrepareAndExecuteFilter {
         }
     }
 
-    protected List<Portlet> initPortlets(PluginPackage pluginPackage, FilterConfig filterConfig)
+    protected List<Portlet> initPortlets(PluginPackage pluginPackage, ServletContext servletContext)
             throws Exception {
-
-        ServletContext servletContext = filterConfig.getServletContext();
 
         String[] xmls = new String[] {
                 HttpUtil.URLtoString(
@@ -856,14 +846,12 @@ public class StrutsPortletFilter extends StrutsPrepareAndExecuteFilter {
         }
     }
 
-    protected void initServerDetector(FilterConfig filterConfig) throws Exception {
-        ServerCapabilitiesUtil.determineServerCapabilities(filterConfig.getServletContext());
+    protected void initServerDetector(ServletContext servletContext) throws Exception {
+        ServerCapabilitiesUtil.determineServerCapabilities(servletContext);
     }
 
-    protected void initSocial(PluginPackage pluginPackage, FilterConfig filterConfig) throws Exception {
+    protected void initSocial(PluginPackage pluginPackage, ServletContext servletContext) throws Exception {
         ClassLoader classLoader = ClassLoaderUtil.getPortalClassLoader();
-
-        ServletContext servletContext = filterConfig.getServletContext();
 
         String[] xmls = new String[] {
                 HttpUtil.URLtoString(
@@ -876,10 +864,8 @@ public class StrutsPortletFilter extends StrutsPrepareAndExecuteFilter {
     }
 
     protected void initThemes(
-            PluginPackage pluginPackage, List<Portlet> portlets, FilterConfig filterConfig)
+            PluginPackage pluginPackage, List<Portlet> portlets, ServletContext servletContext)
             throws Exception {
-
-        ServletContext servletContext = filterConfig.getServletContext();
 
         String[] xmls = new String[] {
                 HttpUtil.URLtoString(

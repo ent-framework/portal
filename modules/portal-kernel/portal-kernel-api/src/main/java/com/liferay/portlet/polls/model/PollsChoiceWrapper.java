@@ -182,7 +182,7 @@ public class PollsChoiceWrapper implements PollsChoice,
     * @param choiceId the choice ID of this polls choice
     */
     @Override
-    public void setChoiceId(long choiceId) {
+    public void setChoiceId(java.lang.Long choiceId) {
         _pollsChoice.setChoiceId(choiceId);
     }
 
@@ -202,7 +202,7 @@ public class PollsChoiceWrapper implements PollsChoice,
     * @param groupId the group ID of this polls choice
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _pollsChoice.setGroupId(groupId);
     }
 
@@ -222,7 +222,7 @@ public class PollsChoiceWrapper implements PollsChoice,
     * @param companyId the company ID of this polls choice
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _pollsChoice.setCompanyId(companyId);
     }
 
@@ -242,7 +242,7 @@ public class PollsChoiceWrapper implements PollsChoice,
     * @param userId the user ID of this polls choice
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _pollsChoice.setUserId(userId);
     }
 
@@ -344,7 +344,7 @@ public class PollsChoiceWrapper implements PollsChoice,
     * @param questionId the question ID of this polls choice
     */
     @Override
-    public void setQuestionId(long questionId) {
+    public void setQuestionId(java.lang.Long questionId) {
         _pollsChoice.setQuestionId(questionId);
     }
 

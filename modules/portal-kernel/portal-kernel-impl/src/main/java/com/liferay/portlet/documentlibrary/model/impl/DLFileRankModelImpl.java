@@ -202,7 +202,11 @@ public class DLFileRankModelImpl extends BaseModelImpl<DLFileRank>
     }
 
     @Override
-    public void setFileRankId(long fileRankId) {
+    public void setFileRankId(Long fileRankId) {
+        if (fileRankId == null) {
+            fileRankId = new Long(0);
+        }
+
         _fileRankId = fileRankId;
     }
 
@@ -212,13 +216,17 @@ public class DLFileRankModelImpl extends BaseModelImpl<DLFileRank>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -234,13 +242,17 @@ public class DLFileRankModelImpl extends BaseModelImpl<DLFileRank>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -256,13 +268,17 @@ public class DLFileRankModelImpl extends BaseModelImpl<DLFileRank>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;
@@ -300,13 +316,17 @@ public class DLFileRankModelImpl extends BaseModelImpl<DLFileRank>
     }
 
     @Override
-    public void setFileEntryId(long fileEntryId) {
+    public void setFileEntryId(Long fileEntryId) {
         _columnBitmask |= FILEENTRYID_COLUMN_BITMASK;
 
         if (!_setOriginalFileEntryId) {
             _setOriginalFileEntryId = true;
 
             _originalFileEntryId = _fileEntryId;
+        }
+
+        if (fileEntryId == null) {
+            fileEntryId = new Long(0);
         }
 
         _fileEntryId = fileEntryId;
@@ -327,13 +347,17 @@ public class DLFileRankModelImpl extends BaseModelImpl<DLFileRank>
     }
 
     @Override
-    public void setActive(boolean active) {
+    public void setActive(Boolean active) {
         _columnBitmask |= ACTIVE_COLUMN_BITMASK;
 
         if (!_setOriginalActive) {
             _setOriginalActive = true;
 
             _originalActive = _active;
+        }
+
+        if (active == null) {
+            active = Boolean.FALSE;
         }
 
         _active = active;

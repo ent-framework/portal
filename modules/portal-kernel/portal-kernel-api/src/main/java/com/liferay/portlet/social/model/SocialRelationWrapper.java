@@ -152,7 +152,7 @@ public class SocialRelationWrapper implements SocialRelation,
     * @param relationId the relation ID of this social relation
     */
     @Override
-    public void setRelationId(long relationId) {
+    public void setRelationId(java.lang.Long relationId) {
         _socialRelation.setRelationId(relationId);
     }
 
@@ -172,7 +172,7 @@ public class SocialRelationWrapper implements SocialRelation,
     * @param companyId the company ID of this social relation
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _socialRelation.setCompanyId(companyId);
     }
 
@@ -192,7 +192,7 @@ public class SocialRelationWrapper implements SocialRelation,
     * @param createDate the create date of this social relation
     */
     @Override
-    public void setCreateDate(long createDate) {
+    public void setCreateDate(java.lang.Long createDate) {
         _socialRelation.setCreateDate(createDate);
     }
 
@@ -212,7 +212,7 @@ public class SocialRelationWrapper implements SocialRelation,
     * @param userId1 the user id1 of this social relation
     */
     @Override
-    public void setUserId1(long userId1) {
+    public void setUserId1(java.lang.Long userId1) {
         _socialRelation.setUserId1(userId1);
     }
 
@@ -232,7 +232,7 @@ public class SocialRelationWrapper implements SocialRelation,
     * @param userId2 the user id2 of this social relation
     */
     @Override
-    public void setUserId2(long userId2) {
+    public void setUserId2(java.lang.Long userId2) {
         _socialRelation.setUserId2(userId2);
     }
 
@@ -252,7 +252,7 @@ public class SocialRelationWrapper implements SocialRelation,
     * @param type the type of this social relation
     */
     @Override
-    public void setType(int type) {
+    public void setType(java.lang.Integer type) {
         _socialRelation.setType(type);
     }
 

@@ -191,7 +191,11 @@ public class ListTypeModelImpl extends BaseModelImpl<ListType>
     }
 
     @Override
-    public void setListTypeId(int listTypeId) {
+    public void setListTypeId(Integer listTypeId) {
+        if (listTypeId == null) {
+            listTypeId = new Integer(0);
+        }
+
         _listTypeId = listTypeId;
     }
 

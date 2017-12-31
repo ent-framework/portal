@@ -219,7 +219,11 @@ public class SocialRelationModelImpl extends BaseModelImpl<SocialRelation>
     }
 
     @Override
-    public void setRelationId(long relationId) {
+    public void setRelationId(Long relationId) {
+        if (relationId == null) {
+            relationId = new Long(0);
+        }
+
         _relationId = relationId;
     }
 
@@ -229,13 +233,17 @@ public class SocialRelationModelImpl extends BaseModelImpl<SocialRelation>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -251,7 +259,11 @@ public class SocialRelationModelImpl extends BaseModelImpl<SocialRelation>
     }
 
     @Override
-    public void setCreateDate(long createDate) {
+    public void setCreateDate(Long createDate) {
+        if (createDate == null) {
+            createDate = new Long(0);
+        }
+
         _createDate = createDate;
     }
 
@@ -261,13 +273,17 @@ public class SocialRelationModelImpl extends BaseModelImpl<SocialRelation>
     }
 
     @Override
-    public void setUserId1(long userId1) {
+    public void setUserId1(Long userId1) {
         _columnBitmask |= USERID1_COLUMN_BITMASK;
 
         if (!_setOriginalUserId1) {
             _setOriginalUserId1 = true;
 
             _originalUserId1 = _userId1;
+        }
+
+        if (userId1 == null) {
+            userId1 = new Long(0);
         }
 
         _userId1 = userId1;
@@ -283,13 +299,17 @@ public class SocialRelationModelImpl extends BaseModelImpl<SocialRelation>
     }
 
     @Override
-    public void setUserId2(long userId2) {
+    public void setUserId2(Long userId2) {
         _columnBitmask |= USERID2_COLUMN_BITMASK;
 
         if (!_setOriginalUserId2) {
             _setOriginalUserId2 = true;
 
             _originalUserId2 = _userId2;
+        }
+
+        if (userId2 == null) {
+            userId2 = new Long(0);
         }
 
         _userId2 = userId2;
@@ -305,13 +325,17 @@ public class SocialRelationModelImpl extends BaseModelImpl<SocialRelation>
     }
 
     @Override
-    public void setType(int type) {
+    public void setType(Integer type) {
         _columnBitmask |= TYPE_COLUMN_BITMASK;
 
         if (!_setOriginalType) {
             _setOriginalType = true;
 
             _originalType = _type;
+        }
+
+        if (type == null) {
+            type = new Integer(0);
         }
 
         _type = type;

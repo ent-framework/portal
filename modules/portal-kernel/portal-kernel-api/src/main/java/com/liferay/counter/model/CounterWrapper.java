@@ -116,7 +116,7 @@ public class CounterWrapper implements Counter, ModelWrapper<Counter> {
     * @param currentId the current ID of this counter
     */
     @Override
-    public void setCurrentId(long currentId) {
+    public void setCurrentId(java.lang.Long currentId) {
         _counter.setCurrentId(currentId);
     }
 

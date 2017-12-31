@@ -81,7 +81,7 @@ public interface RepositoryModel extends BaseModel<Repository>,
      *
      * @param repositoryId the repository ID of this repository
      */
-    public void setRepositoryId(long repositoryId);
+    public void setRepositoryId(Long repositoryId);
 
     /**
      * Returns the group ID of this repository.
@@ -97,7 +97,7 @@ public interface RepositoryModel extends BaseModel<Repository>,
      * @param groupId the group ID of this repository
      */
     @Override
-    public void setGroupId(long groupId);
+    public void setGroupId(Long groupId);
 
     /**
      * Returns the company ID of this repository.
@@ -113,7 +113,7 @@ public interface RepositoryModel extends BaseModel<Repository>,
      * @param companyId the company ID of this repository
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this repository.
@@ -129,7 +129,7 @@ public interface RepositoryModel extends BaseModel<Repository>,
      * @param userId the user ID of this repository
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this repository.
@@ -221,7 +221,7 @@ public interface RepositoryModel extends BaseModel<Repository>,
      * @param classNameId the class name ID of this repository
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the name of this repository.
@@ -295,7 +295,7 @@ public interface RepositoryModel extends BaseModel<Repository>,
      *
      * @param dlFolderId the dl folder ID of this repository
      */
-    public void setDlFolderId(long dlFolderId);
+    public void setDlFolderId(Long dlFolderId);
 
     @Override
     public boolean isNew();

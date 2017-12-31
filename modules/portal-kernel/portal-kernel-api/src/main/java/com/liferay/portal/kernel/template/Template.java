@@ -23,6 +23,8 @@ import javax.servlet.http.HttpServletRequest;
  */
 public interface Template {
 
+	public static final String SANDBOX_MARKER = "-SANDBOX-";
+
 	public Object get(String key);
 
 	public String[] getKeys();

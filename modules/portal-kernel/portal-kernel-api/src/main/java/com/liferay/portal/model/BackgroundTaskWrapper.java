@@ -191,7 +191,7 @@ public class BackgroundTaskWrapper implements BackgroundTask,
     * @param backgroundTaskId the background task ID of this background task
     */
     @Override
-    public void setBackgroundTaskId(long backgroundTaskId) {
+    public void setBackgroundTaskId(java.lang.Long backgroundTaskId) {
         _backgroundTask.setBackgroundTaskId(backgroundTaskId);
     }
 
@@ -211,7 +211,7 @@ public class BackgroundTaskWrapper implements BackgroundTask,
     * @param groupId the group ID of this background task
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _backgroundTask.setGroupId(groupId);
     }
 
@@ -231,7 +231,7 @@ public class BackgroundTaskWrapper implements BackgroundTask,
     * @param companyId the company ID of this background task
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _backgroundTask.setCompanyId(companyId);
     }
 
@@ -251,7 +251,7 @@ public class BackgroundTaskWrapper implements BackgroundTask,
     * @param userId the user ID of this background task
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _backgroundTask.setUserId(userId);
     }
 
@@ -443,7 +443,7 @@ public class BackgroundTaskWrapper implements BackgroundTask,
     * @param completed the completed of this background task
     */
     @Override
-    public void setCompleted(boolean completed) {
+    public void setCompleted(java.lang.Boolean completed) {
         _backgroundTask.setCompleted(completed);
     }
 
@@ -483,7 +483,7 @@ public class BackgroundTaskWrapper implements BackgroundTask,
     * @param status the status of this background task
     */
     @Override
-    public void setStatus(int status) {
+    public void setStatus(java.lang.Integer status) {
         _backgroundTask.setStatus(status);
     }
 

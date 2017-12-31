@@ -111,7 +111,7 @@ public class ClassNameWrapper implements ClassName, ModelWrapper<ClassName> {
     * @param classNameId the class name ID of this class name
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _className.setClassNameId(classNameId);
     }
 

@@ -182,7 +182,7 @@ public class DLFileEntryTypeWrapper implements DLFileEntryType,
     * @param fileEntryTypeId the file entry type ID of this document library file entry type
     */
     @Override
-    public void setFileEntryTypeId(long fileEntryTypeId) {
+    public void setFileEntryTypeId(java.lang.Long fileEntryTypeId) {
         _dlFileEntryType.setFileEntryTypeId(fileEntryTypeId);
     }
 
@@ -202,7 +202,7 @@ public class DLFileEntryTypeWrapper implements DLFileEntryType,
     * @param groupId the group ID of this document library file entry type
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _dlFileEntryType.setGroupId(groupId);
     }
 
@@ -222,7 +222,7 @@ public class DLFileEntryTypeWrapper implements DLFileEntryType,
     * @param companyId the company ID of this document library file entry type
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _dlFileEntryType.setCompanyId(companyId);
     }
 
@@ -242,7 +242,7 @@ public class DLFileEntryTypeWrapper implements DLFileEntryType,
     * @param userId the user ID of this document library file entry type
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _dlFileEntryType.setUserId(userId);
     }
 

@@ -59,7 +59,7 @@ public class DLContentLocalServiceImpl extends DLContentLocalServiceBaseImpl {
 
 		dlContent.setData(dataOutputBlob);
 
-		dlContent.setSize(bytes.length);
+		dlContent.setSize(new Long(bytes.length));
 
 		dlContentPersistence.update(dlContent);
 

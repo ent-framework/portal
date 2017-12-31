@@ -346,7 +346,11 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
     }
 
     @Override
-    public void setRecordId(long recordId) {
+    public void setRecordId(Long recordId) {
+        if (recordId == null) {
+            recordId = new Long(0);
+        }
+
         _recordId = recordId;
     }
 
@@ -357,13 +361,17 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
     }
 
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
         if (!_setOriginalGroupId) {
             _setOriginalGroupId = true;
 
             _originalGroupId = _groupId;
+        }
+
+        if (groupId == null) {
+            groupId = new Long(0);
         }
 
         _groupId = groupId;
@@ -380,13 +388,17 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
     }
 
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         _columnBitmask |= COMPANYID_COLUMN_BITMASK;
 
         if (!_setOriginalCompanyId) {
             _setOriginalCompanyId = true;
 
             _originalCompanyId = _companyId;
+        }
+
+        if (companyId == null) {
+            companyId = new Long(0);
         }
 
         _companyId = companyId;
@@ -403,13 +415,17 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
     }
 
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
             _setOriginalUserId = true;
 
             _originalUserId = _userId;
+        }
+
+        if (userId == null) {
+            userId = new Long(0);
         }
 
         _userId = userId;
@@ -451,7 +467,11 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
     }
 
     @Override
-    public void setVersionUserId(long versionUserId) {
+    public void setVersionUserId(Long versionUserId) {
+        if (versionUserId == null) {
+            versionUserId = new Long(0);
+        }
+
         _versionUserId = versionUserId;
     }
 
@@ -510,7 +530,11 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
     }
 
     @Override
-    public void setDDMStorageId(long DDMStorageId) {
+    public void setDDMStorageId(Long DDMStorageId) {
+        if (DDMStorageId == null) {
+            DDMStorageId = new Long(0);
+        }
+
         _DDMStorageId = DDMStorageId;
     }
 
@@ -521,13 +545,17 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
     }
 
     @Override
-    public void setRecordSetId(long recordSetId) {
+    public void setRecordSetId(Long recordSetId) {
         _columnBitmask |= RECORDSETID_COLUMN_BITMASK;
 
         if (!_setOriginalRecordSetId) {
             _setOriginalRecordSetId = true;
 
             _originalRecordSetId = _recordSetId;
+        }
+
+        if (recordSetId == null) {
+            recordSetId = new Long(0);
         }
 
         _recordSetId = recordSetId;
@@ -559,7 +587,11 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
     }
 
     @Override
-    public void setDisplayIndex(int displayIndex) {
+    public void setDisplayIndex(Integer displayIndex) {
+        if (displayIndex == null) {
+            displayIndex = new Integer(0);
+        }
+
         _displayIndex = displayIndex;
     }
 

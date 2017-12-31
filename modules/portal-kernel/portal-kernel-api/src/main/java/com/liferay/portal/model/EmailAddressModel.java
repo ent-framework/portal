@@ -81,7 +81,7 @@ public interface EmailAddressModel extends AttachedModel, BaseModel<EmailAddress
      *
      * @param emailAddressId the email address ID of this email address
      */
-    public void setEmailAddressId(long emailAddressId);
+    public void setEmailAddressId(Long emailAddressId);
 
     /**
      * Returns the company ID of this email address.
@@ -97,7 +97,7 @@ public interface EmailAddressModel extends AttachedModel, BaseModel<EmailAddress
      * @param companyId the company ID of this email address
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this email address.
@@ -113,7 +113,7 @@ public interface EmailAddressModel extends AttachedModel, BaseModel<EmailAddress
      * @param userId the user ID of this email address
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this email address.
@@ -205,7 +205,7 @@ public interface EmailAddressModel extends AttachedModel, BaseModel<EmailAddress
      * @param classNameId the class name ID of this email address
      */
     @Override
-    public void setClassNameId(long classNameId);
+    public void setClassNameId(Long classNameId);
 
     /**
      * Returns the class p k of this email address.
@@ -221,7 +221,7 @@ public interface EmailAddressModel extends AttachedModel, BaseModel<EmailAddress
      * @param classPK the class p k of this email address
      */
     @Override
-    public void setClassPK(long classPK);
+    public void setClassPK(Long classPK);
 
     /**
      * Returns the address of this email address.
@@ -250,7 +250,7 @@ public interface EmailAddressModel extends AttachedModel, BaseModel<EmailAddress
      *
      * @param typeId the type ID of this email address
      */
-    public void setTypeId(int typeId);
+    public void setTypeId(Integer typeId);
 
     /**
      * Returns the primary of this email address.
@@ -271,7 +271,7 @@ public interface EmailAddressModel extends AttachedModel, BaseModel<EmailAddress
      *
      * @param primary the primary of this email address
      */
-    public void setPrimary(boolean primary);
+    public void setPrimary(Boolean primary);
 
     @Override
     public boolean isNew();

@@ -217,7 +217,7 @@ public class JournalFolderWrapper implements JournalFolder,
     * @param folderId the folder ID of this journal folder
     */
     @Override
-    public void setFolderId(long folderId) {
+    public void setFolderId(java.lang.Long folderId) {
         _journalFolder.setFolderId(folderId);
     }
 
@@ -237,7 +237,7 @@ public class JournalFolderWrapper implements JournalFolder,
     * @param groupId the group ID of this journal folder
     */
     @Override
-    public void setGroupId(long groupId) {
+    public void setGroupId(java.lang.Long groupId) {
         _journalFolder.setGroupId(groupId);
     }
 
@@ -257,7 +257,7 @@ public class JournalFolderWrapper implements JournalFolder,
     * @param companyId the company ID of this journal folder
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _journalFolder.setCompanyId(companyId);
     }
 
@@ -277,7 +277,7 @@ public class JournalFolderWrapper implements JournalFolder,
     * @param userId the user ID of this journal folder
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _journalFolder.setUserId(userId);
     }
 
@@ -379,7 +379,7 @@ public class JournalFolderWrapper implements JournalFolder,
     * @param parentFolderId the parent folder ID of this journal folder
     */
     @Override
-    public void setParentFolderId(long parentFolderId) {
+    public void setParentFolderId(java.lang.Long parentFolderId) {
         _journalFolder.setParentFolderId(parentFolderId);
     }
 
@@ -459,7 +459,7 @@ public class JournalFolderWrapper implements JournalFolder,
     * @param status the status of this journal folder
     */
     @Override
-    public void setStatus(int status) {
+    public void setStatus(java.lang.Integer status) {
         _journalFolder.setStatus(status);
     }
 
@@ -479,7 +479,7 @@ public class JournalFolderWrapper implements JournalFolder,
     * @param statusByUserId the status by user ID of this journal folder
     */
     @Override
-    public void setStatusByUserId(long statusByUserId) {
+    public void setStatusByUserId(java.lang.Long statusByUserId) {
         _journalFolder.setStatusByUserId(statusByUserId);
     }
 

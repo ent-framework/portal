@@ -139,7 +139,7 @@ public class ExpandoValueWrapper implements ExpandoValue,
     * @param valueId the value ID of this expando value
     */
     @Override
-    public void setValueId(long valueId) {
+    public void setValueId(java.lang.Long valueId) {
         _expandoValue.setValueId(valueId);
     }
 
@@ -159,7 +159,7 @@ public class ExpandoValueWrapper implements ExpandoValue,
     * @param companyId the company ID of this expando value
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _expandoValue.setCompanyId(companyId);
     }
 
@@ -179,7 +179,7 @@ public class ExpandoValueWrapper implements ExpandoValue,
     * @param tableId the table ID of this expando value
     */
     @Override
-    public void setTableId(long tableId) {
+    public void setTableId(java.lang.Long tableId) {
         _expandoValue.setTableId(tableId);
     }
 
@@ -199,7 +199,7 @@ public class ExpandoValueWrapper implements ExpandoValue,
     * @param columnId the column ID of this expando value
     */
     @Override
-    public void setColumnId(long columnId) {
+    public void setColumnId(java.lang.Long columnId) {
         _expandoValue.setColumnId(columnId);
     }
 
@@ -219,7 +219,7 @@ public class ExpandoValueWrapper implements ExpandoValue,
     * @param rowId the row ID of this expando value
     */
     @Override
-    public void setRowId(long rowId) {
+    public void setRowId(java.lang.Long rowId) {
         _expandoValue.setRowId(rowId);
     }
 
@@ -254,7 +254,7 @@ public class ExpandoValueWrapper implements ExpandoValue,
     * @param classNameId the class name ID of this expando value
     */
     @Override
-    public void setClassNameId(long classNameId) {
+    public void setClassNameId(java.lang.Long classNameId) {
         _expandoValue.setClassNameId(classNameId);
     }
 
@@ -274,7 +274,7 @@ public class ExpandoValueWrapper implements ExpandoValue,
     * @param classPK the class p k of this expando value
     */
     @Override
-    public void setClassPK(long classPK) {
+    public void setClassPK(java.lang.Long classPK) {
         _expandoValue.setClassPK(classPK);
     }
 

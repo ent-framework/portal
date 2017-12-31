@@ -60,7 +60,7 @@ public interface ReleaseModel extends BaseModel<Release> {
      *
      * @param releaseId the release ID of this release
      */
-    public void setReleaseId(long releaseId);
+    public void setReleaseId(Long releaseId);
 
     /**
      * Returns the create date of this release.
@@ -117,7 +117,7 @@ public interface ReleaseModel extends BaseModel<Release> {
      *
      * @param buildNumber the build number of this release
      */
-    public void setBuildNumber(int buildNumber);
+    public void setBuildNumber(Integer buildNumber);
 
     /**
      * Returns the build date of this release.
@@ -152,7 +152,7 @@ public interface ReleaseModel extends BaseModel<Release> {
      *
      * @param verified the verified of this release
      */
-    public void setVerified(boolean verified);
+    public void setVerified(Boolean verified);
 
     /**
      * Returns the state of this release.
@@ -166,7 +166,7 @@ public interface ReleaseModel extends BaseModel<Release> {
      *
      * @param state the state of this release
      */
-    public void setState(int state);
+    public void setState(Integer state);
 
     /**
      * Returns the test string of this release.

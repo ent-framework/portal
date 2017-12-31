@@ -76,7 +76,7 @@ public interface LockModel extends BaseModel<Lock> {
      *
      * @param lockId the lock ID of this lock
      */
-    public void setLockId(long lockId);
+    public void setLockId(Long lockId);
 
     /**
      * Returns the company ID of this lock.
@@ -90,7 +90,7 @@ public interface LockModel extends BaseModel<Lock> {
      *
      * @param companyId the company ID of this lock
      */
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this lock.
@@ -104,7 +104,7 @@ public interface LockModel extends BaseModel<Lock> {
      *
      * @param userId the user ID of this lock
      */
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this lock.
@@ -214,7 +214,7 @@ public interface LockModel extends BaseModel<Lock> {
      *
      * @param inheritable the inheritable of this lock
      */
-    public void setInheritable(boolean inheritable);
+    public void setInheritable(Boolean inheritable);
 
     /**
      * Returns the expiration date of this lock.

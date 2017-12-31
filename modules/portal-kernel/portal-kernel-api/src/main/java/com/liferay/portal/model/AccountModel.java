@@ -62,7 +62,7 @@ public interface AccountModel extends AuditedModel, BaseModel<Account> {
      *
      * @param accountId the account ID of this account
      */
-    public void setAccountId(long accountId);
+    public void setAccountId(Long accountId);
 
     /**
      * Returns the company ID of this account.
@@ -78,7 +78,7 @@ public interface AccountModel extends AuditedModel, BaseModel<Account> {
      * @param companyId the company ID of this account
      */
     @Override
-    public void setCompanyId(long companyId);
+    public void setCompanyId(Long companyId);
 
     /**
      * Returns the user ID of this account.
@@ -94,7 +94,7 @@ public interface AccountModel extends AuditedModel, BaseModel<Account> {
      * @param userId the user ID of this account
      */
     @Override
-    public void setUserId(long userId);
+    public void setUserId(Long userId);
 
     /**
      * Returns the user uuid of this account.
@@ -174,7 +174,7 @@ public interface AccountModel extends AuditedModel, BaseModel<Account> {
      *
      * @param parentAccountId the parent account ID of this account
      */
-    public void setParentAccountId(long parentAccountId);
+    public void setParentAccountId(Long parentAccountId);
 
     /**
      * Returns the name of this account.

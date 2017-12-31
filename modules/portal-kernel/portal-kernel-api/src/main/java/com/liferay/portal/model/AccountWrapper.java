@@ -195,7 +195,7 @@ public class AccountWrapper implements Account, ModelWrapper<Account> {
     * @param accountId the account ID of this account
     */
     @Override
-    public void setAccountId(long accountId) {
+    public void setAccountId(java.lang.Long accountId) {
         _account.setAccountId(accountId);
     }
 
@@ -215,7 +215,7 @@ public class AccountWrapper implements Account, ModelWrapper<Account> {
     * @param companyId the company ID of this account
     */
     @Override
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(java.lang.Long companyId) {
         _account.setCompanyId(companyId);
     }
 
@@ -235,7 +235,7 @@ public class AccountWrapper implements Account, ModelWrapper<Account> {
     * @param userId the user ID of this account
     */
     @Override
-    public void setUserId(long userId) {
+    public void setUserId(java.lang.Long userId) {
         _account.setUserId(userId);
     }
 
@@ -337,7 +337,7 @@ public class AccountWrapper implements Account, ModelWrapper<Account> {
     * @param parentAccountId the parent account ID of this account
     */
     @Override
-    public void setParentAccountId(long parentAccountId) {
+    public void setParentAccountId(java.lang.Long parentAccountId) {
         _account.setParentAccountId(parentAccountId);
     }
 
