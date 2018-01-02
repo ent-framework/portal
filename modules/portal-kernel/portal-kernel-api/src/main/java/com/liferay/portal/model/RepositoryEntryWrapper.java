@@ -395,8 +395,7 @@ public class RepositoryEntryWrapper implements RepositoryEntry,
     * @param manualCheckInRequired the manual check in required of this repository entry
     */
     @Override
-    public void setManualCheckInRequired(
-        java.lang.Boolean manualCheckInRequired) {
+    public void setManualCheckInRequired(boolean manualCheckInRequired) {
         _repositoryEntry.setManualCheckInRequired(manualCheckInRequired);
     }
 

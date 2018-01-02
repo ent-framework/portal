@@ -482,7 +482,7 @@ public class ShoppingCouponWrapper implements ShoppingCoupon,
     * @param active the active of this shopping coupon
     */
     @Override
-    public void setActive(java.lang.Boolean active) {
+    public void setActive(boolean active) {
         _shoppingCoupon.setActive(active);
     }
 

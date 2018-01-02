@@ -235,7 +235,7 @@ public class PluginSettingWrapper implements PluginSetting,
     * @param active the active of this plugin setting
     */
     @Override
-    public void setActive(java.lang.Boolean active) {
+    public void setActive(boolean active) {
         _pluginSetting.setActive(active);
     }
 

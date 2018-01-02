@@ -1293,11 +1293,7 @@ public class LayoutModelImpl extends BaseModelImpl<Layout>
     }
 
     @Override
-    public void setHidden(Boolean hidden) {
-        if (hidden == null) {
-            hidden = Boolean.FALSE;
-        }
-
+    public void setHidden(boolean hidden) {
         _hidden = hidden;
     }
 
@@ -1338,11 +1334,7 @@ public class LayoutModelImpl extends BaseModelImpl<Layout>
     }
 
     @Override
-    public void setIconImage(Boolean iconImage) {
-        if (iconImage == null) {
-            iconImage = Boolean.FALSE;
-        }
-
+    public void setIconImage(boolean iconImage) {
         _iconImage = iconImage;
     }
 
@@ -1503,11 +1495,7 @@ public class LayoutModelImpl extends BaseModelImpl<Layout>
 
     @Override
     public void setLayoutPrototypeLinkEnabled(
-        Boolean layoutPrototypeLinkEnabled) {
-        if (layoutPrototypeLinkEnabled == null) {
-            layoutPrototypeLinkEnabled = Boolean.FALSE;
-        }
-
+        boolean layoutPrototypeLinkEnabled) {
         _layoutPrototypeLinkEnabled = layoutPrototypeLinkEnabled;
     }
 

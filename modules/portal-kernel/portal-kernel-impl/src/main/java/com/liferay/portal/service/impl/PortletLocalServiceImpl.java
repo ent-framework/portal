@@ -35,14 +35,7 @@ import com.liferay.portal.kernel.scheduler.TriggerType;
 import com.liferay.portal.kernel.servlet.ServletContextUtil;
 import com.liferay.portal.kernel.spring.aop.Skip;
 import com.liferay.portal.kernel.transaction.Transactional;
-import com.liferay.portal.kernel.util.CharPool;
-import com.liferay.portal.kernel.util.ContentTypes;
-import com.liferay.portal.kernel.util.ContextPathUtil;
-import com.liferay.portal.kernel.util.GetterUtil;
-import com.liferay.portal.kernel.util.ListUtil;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.kernel.util.StringUtil;
-import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.QName;
@@ -86,6 +79,7 @@ import com.liferay.portlet.UndeployedPortlet;
 import com.liferay.portlet.expando.model.CustomAttributesDisplay;
 import com.liferay.util.ContentUtil;
 
+import java.io.InputStream;
 import java.net.URL;
 
 import java.util.ArrayList;
@@ -688,7 +682,9 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 		Map<String, Portlet> portletsPool = _getPortletsPool();
 
 		try {
-			Set<String> servletURLPatterns = _readWebXML(xmls[4]);
+			//Set<String> servletURLPatterns = _readWebXML(xmls[4]);
+
+			Set<String> servletURLPatterns = new HashSet<String>();
 
 			Set<String> portletIds = _readPortletXML(
 				servletContext, xmls[0], portletsPool, servletURLPatterns,
@@ -1121,7 +1117,7 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 
 		if (xml == null) {
 			xml = ContentUtil.get(
-				"com/liferay/portal/deploy/dependencies/liferay-display.xml");
+				"dependencies/portal/liferay-display.xml");
 		}
 
 		Document document = UnsecureSAXReaderUtil.read(xml, true);
@@ -1800,7 +1796,13 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 			return liferayPortletIds;
 		}
 
-		Document document = UnsecureSAXReaderUtil.read(xml, true);
+		InputStream stream = Thread.currentThread().getContextClassLoader().getResourceAsStream(xml);
+
+		if (stream == null) {
+			return liferayPortletIds;
+		}
+
+		Document document = UnsecureSAXReaderUtil.read(stream, true);
 
 		Element rootElement = document.getRootElement();
 
@@ -1838,6 +1840,8 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 				servletContextName, servletContext, portletsPool,
 				liferayPortletIds, roleMappers, portletElement);
 		}
+
+		StreamUtil.cleanUp(stream);
 
 		return liferayPortletIds;
 	}
@@ -2151,8 +2155,14 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 			return portletIds;
 		}
 
-		Document document = UnsecureSAXReaderUtil.read(
-			xml, PropsValues.PORTLET_XML_VALIDATE);
+		InputStream stream = Thread.currentThread().getContextClassLoader().getResourceAsStream(xml);
+
+		if (stream == null) {
+			return portletIds;
+		}
+
+		//Document document = UnsecureSAXReaderUtil.read(xml, PropsValues.PORTLET_XML_VALIDATE);
+		Document document = UnsecureSAXReaderUtil.read(stream, PropsValues.PORTLET_XML_VALIDATE);
 
 		Element rootElement = document.getRootElement();
 
@@ -2327,6 +2337,8 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 
 			portletApp.addPortletURLListener(portletURLListener);
 		}
+
+		StreamUtil.cleanUp(stream);
 
 		return portletIds;
 	}

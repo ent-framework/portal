@@ -109,7 +109,7 @@ public interface ClusterGroupModel extends BaseModel<ClusterGroup> {
      *
      * @param wholeCluster the whole cluster of this cluster group
      */
-    public void setWholeCluster(Boolean wholeCluster);
+    public void setWholeCluster(boolean wholeCluster);
 
     @Override
     public boolean isNew();

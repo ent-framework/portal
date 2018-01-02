@@ -869,8 +869,7 @@ public class DLFileEntryWrapper implements DLFileEntry,
     * @param manualCheckInRequired the manual check in required of this document library file entry
     */
     @Override
-    public void setManualCheckInRequired(
-        java.lang.Boolean manualCheckInRequired) {
+    public void setManualCheckInRequired(boolean manualCheckInRequired) {
         _dlFileEntry.setManualCheckInRequired(manualCheckInRequired);
     }
 

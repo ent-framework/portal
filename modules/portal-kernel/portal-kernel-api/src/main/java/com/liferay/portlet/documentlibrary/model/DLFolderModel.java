@@ -235,7 +235,7 @@ public interface DLFolderModel extends BaseModel<DLFolder>, ContainerModel,
      *
      * @param mountPoint the mount point of this document library folder
      */
-    public void setMountPoint(Boolean mountPoint);
+    public void setMountPoint(boolean mountPoint);
 
     /**
      * Returns the parent folder ID of this document library folder.
@@ -343,7 +343,7 @@ public interface DLFolderModel extends BaseModel<DLFolder>, ContainerModel,
      *
      * @param hidden the hidden of this document library folder
      */
-    public void setHidden(Boolean hidden);
+    public void setHidden(boolean hidden);
 
     /**
      * Returns the override file entry types of this document library folder.
@@ -364,7 +364,7 @@ public interface DLFolderModel extends BaseModel<DLFolder>, ContainerModel,
      *
      * @param overrideFileEntryTypes the override file entry types of this document library folder
      */
-    public void setOverrideFileEntryTypes(Boolean overrideFileEntryTypes);
+    public void setOverrideFileEntryTypes(boolean overrideFileEntryTypes);
 
     /**
      * Returns the status of this document library folder.

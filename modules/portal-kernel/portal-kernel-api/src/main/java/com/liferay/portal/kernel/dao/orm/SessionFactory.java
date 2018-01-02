@@ -23,6 +23,8 @@ public interface SessionFactory {
 
 	public void closeSession(Session session) throws ORMException;
 
+	public void flushAndCloseSession(Session session) throws ORMException;
+
 	public Session getCurrentSession() throws ORMException;
 
 	public Dialect getDialect() throws ORMException;

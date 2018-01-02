@@ -39,6 +39,13 @@ public class SessionFactoryImpl implements SessionFactory {
 	}
 
 	@Override
+	public void flushAndCloseSession(Session session) throws ORMException {
+		if (session != null) {
+			session.close();
+		}
+	}
+
+	@Override
 	public Session getCurrentSession() {
 		return _session;
 	}

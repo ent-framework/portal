@@ -258,7 +258,7 @@ public interface BackgroundTaskModel extends BaseModel<BackgroundTask>,
      *
      * @param completed the completed of this background task
      */
-    public void setCompleted(Boolean completed);
+    public void setCompleted(boolean completed);
 
     /**
      * Returns the completion date of this background task.

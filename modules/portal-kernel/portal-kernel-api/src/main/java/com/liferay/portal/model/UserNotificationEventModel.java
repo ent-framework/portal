@@ -181,7 +181,7 @@ public interface UserNotificationEventModel extends BaseModel<UserNotificationEv
      *
      * @param delivered the delivered of this user notification event
      */
-    public void setDelivered(Boolean delivered);
+    public void setDelivered(boolean delivered);
 
     /**
      * Returns the payload of this user notification event.
@@ -217,7 +217,7 @@ public interface UserNotificationEventModel extends BaseModel<UserNotificationEv
      *
      * @param archived the archived of this user notification event
      */
-    public void setArchived(Boolean archived);
+    public void setArchived(boolean archived);
 
     @Override
     public boolean isNew();

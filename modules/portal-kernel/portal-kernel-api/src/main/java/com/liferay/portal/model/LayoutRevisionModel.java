@@ -244,7 +244,7 @@ public interface LayoutRevisionModel extends BaseModel<LayoutRevision>,
      *
      * @param head the head of this layout revision
      */
-    public void setHead(Boolean head);
+    public void setHead(boolean head);
 
     /**
      * Returns the major of this layout revision.
@@ -265,7 +265,7 @@ public interface LayoutRevisionModel extends BaseModel<LayoutRevision>,
      *
      * @param major the major of this layout revision
      */
-    public void setMajor(Boolean major);
+    public void setMajor(boolean major);
 
     /**
      * Returns the plid of this layout revision.
@@ -300,7 +300,7 @@ public interface LayoutRevisionModel extends BaseModel<LayoutRevision>,
      *
      * @param privateLayout the private layout of this layout revision
      */
-    public void setPrivateLayout(Boolean privateLayout);
+    public void setPrivateLayout(boolean privateLayout);
 
     /**
      * Returns the name of this layout revision.
@@ -834,7 +834,7 @@ public interface LayoutRevisionModel extends BaseModel<LayoutRevision>,
      *
      * @param iconImage the icon image of this layout revision
      */
-    public void setIconImage(Boolean iconImage);
+    public void setIconImage(boolean iconImage);
 
     /**
      * Returns the icon image ID of this layout revision.

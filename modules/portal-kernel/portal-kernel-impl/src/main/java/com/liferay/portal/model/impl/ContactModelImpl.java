@@ -825,11 +825,7 @@ public class ContactModelImpl extends BaseModelImpl<Contact>
     }
 
     @Override
-    public void setMale(Boolean male) {
-        if (male == null) {
-            male = Boolean.FALSE;
-        }
-
+    public void setMale(boolean male) {
         _male = male;
     }
 

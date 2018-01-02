@@ -596,11 +596,7 @@ public class CalEventModelImpl extends BaseModelImpl<CalEvent>
     }
 
     @Override
-    public void setAllDay(Boolean allDay) {
-        if (allDay == null) {
-            allDay = Boolean.FALSE;
-        }
-
+    public void setAllDay(boolean allDay) {
         _allDay = allDay;
     }
 
@@ -615,11 +611,7 @@ public class CalEventModelImpl extends BaseModelImpl<CalEvent>
     }
 
     @Override
-    public void setTimeZoneSensitive(Boolean timeZoneSensitive) {
-        if (timeZoneSensitive == null) {
-            timeZoneSensitive = Boolean.FALSE;
-        }
-
+    public void setTimeZoneSensitive(boolean timeZoneSensitive) {
         _timeZoneSensitive = timeZoneSensitive;
     }
 
@@ -658,17 +650,13 @@ public class CalEventModelImpl extends BaseModelImpl<CalEvent>
     }
 
     @Override
-    public void setRepeating(Boolean repeating) {
+    public void setRepeating(boolean repeating) {
         _columnBitmask |= REPEATING_COLUMN_BITMASK;
 
         if (!_setOriginalRepeating) {
             _setOriginalRepeating = true;
 
             _originalRepeating = _repeating;
-        }
-
-        if (repeating == null) {
-            repeating = Boolean.FALSE;
         }
 
         _repeating = repeating;

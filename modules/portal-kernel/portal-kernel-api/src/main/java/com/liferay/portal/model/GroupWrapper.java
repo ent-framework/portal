@@ -524,7 +524,7 @@ public class GroupWrapper implements Group, ModelWrapper<Group> {
     * @param manualMembership the manual membership of this group
     */
     @Override
-    public void setManualMembership(java.lang.Boolean manualMembership) {
+    public void setManualMembership(boolean manualMembership) {
         _group.setManualMembership(manualMembership);
     }
 
@@ -595,7 +595,7 @@ public class GroupWrapper implements Group, ModelWrapper<Group> {
     * @param site the site of this group
     */
     @Override
-    public void setSite(java.lang.Boolean site) {
+    public void setSite(boolean site) {
         _group.setSite(site);
     }
 
@@ -646,7 +646,7 @@ public class GroupWrapper implements Group, ModelWrapper<Group> {
     * @param active the active of this group
     */
     @Override
-    public void setActive(java.lang.Boolean active) {
+    public void setActive(boolean active) {
         _group.setActive(active);
     }
 

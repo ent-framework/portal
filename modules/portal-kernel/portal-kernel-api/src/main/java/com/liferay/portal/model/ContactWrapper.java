@@ -681,7 +681,7 @@ public class ContactWrapper implements Contact, ModelWrapper<Contact> {
     * @param male the male of this contact
     */
     @Override
-    public void setMale(java.lang.Boolean male) {
+    public void setMale(boolean male) {
         _contact.setMale(male);
     }
 

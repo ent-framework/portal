@@ -578,7 +578,7 @@ public class CalEventWrapper implements CalEvent, ModelWrapper<CalEvent> {
     * @param allDay the all day of this cal event
     */
     @Override
-    public void setAllDay(java.lang.Boolean allDay) {
+    public void setAllDay(boolean allDay) {
         _calEvent.setAllDay(allDay);
     }
 
@@ -608,7 +608,7 @@ public class CalEventWrapper implements CalEvent, ModelWrapper<CalEvent> {
     * @param timeZoneSensitive the time zone sensitive of this cal event
     */
     @Override
-    public void setTimeZoneSensitive(java.lang.Boolean timeZoneSensitive) {
+    public void setTimeZoneSensitive(boolean timeZoneSensitive) {
         _calEvent.setTimeZoneSensitive(timeZoneSensitive);
     }
 
@@ -658,7 +658,7 @@ public class CalEventWrapper implements CalEvent, ModelWrapper<CalEvent> {
     * @param repeating the repeating of this cal event
     */
     @Override
-    public void setRepeating(java.lang.Boolean repeating) {
+    public void setRepeating(boolean repeating) {
         _calEvent.setRepeating(repeating);
     }
 

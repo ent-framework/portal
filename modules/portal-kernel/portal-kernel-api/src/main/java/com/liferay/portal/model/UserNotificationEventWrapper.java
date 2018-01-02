@@ -328,7 +328,7 @@ public class UserNotificationEventWrapper implements UserNotificationEvent,
     * @param delivered the delivered of this user notification event
     */
     @Override
-    public void setDelivered(java.lang.Boolean delivered) {
+    public void setDelivered(boolean delivered) {
         _userNotificationEvent.setDelivered(delivered);
     }
 
@@ -378,7 +378,7 @@ public class UserNotificationEventWrapper implements UserNotificationEvent,
     * @param archived the archived of this user notification event
     */
     @Override
-    public void setArchived(java.lang.Boolean archived) {
+    public void setArchived(boolean archived) {
         _userNotificationEvent.setArchived(archived);
     }
 

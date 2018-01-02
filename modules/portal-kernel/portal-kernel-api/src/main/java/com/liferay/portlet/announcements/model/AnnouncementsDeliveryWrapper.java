@@ -245,7 +245,7 @@ public class AnnouncementsDeliveryWrapper implements AnnouncementsDelivery,
     * @param email the email of this announcements delivery
     */
     @Override
-    public void setEmail(java.lang.Boolean email) {
+    public void setEmail(boolean email) {
         _announcementsDelivery.setEmail(email);
     }
 
@@ -275,7 +275,7 @@ public class AnnouncementsDeliveryWrapper implements AnnouncementsDelivery,
     * @param sms the sms of this announcements delivery
     */
     @Override
-    public void setSms(java.lang.Boolean sms) {
+    public void setSms(boolean sms) {
         _announcementsDelivery.setSms(sms);
     }
 
@@ -305,7 +305,7 @@ public class AnnouncementsDeliveryWrapper implements AnnouncementsDelivery,
     * @param website the website of this announcements delivery
     */
     @Override
-    public void setWebsite(java.lang.Boolean website) {
+    public void setWebsite(boolean website) {
         _announcementsDelivery.setWebsite(website);
     }
 

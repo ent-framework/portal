@@ -271,7 +271,7 @@ public interface ShoppingCouponModel extends BaseModel<ShoppingCoupon>,
      *
      * @param active the active of this shopping coupon
      */
-    public void setActive(Boolean active);
+    public void setActive(boolean active);
 
     /**
      * Returns the limit categories of this shopping coupon.

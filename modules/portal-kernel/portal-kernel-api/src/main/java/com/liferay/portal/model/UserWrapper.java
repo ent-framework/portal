@@ -503,7 +503,7 @@ public class UserWrapper implements User, ModelWrapper<User> {
     * @param defaultUser the default user of this user
     */
     @Override
-    public void setDefaultUser(java.lang.Boolean defaultUser) {
+    public void setDefaultUser(boolean defaultUser) {
         _user.setDefaultUser(defaultUser);
     }
 
@@ -573,7 +573,7 @@ public class UserWrapper implements User, ModelWrapper<User> {
     * @param passwordEncrypted the password encrypted of this user
     */
     @Override
-    public void setPasswordEncrypted(java.lang.Boolean passwordEncrypted) {
+    public void setPasswordEncrypted(boolean passwordEncrypted) {
         _user.setPasswordEncrypted(passwordEncrypted);
     }
 
@@ -603,7 +603,7 @@ public class UserWrapper implements User, ModelWrapper<User> {
     * @param passwordReset the password reset of this user
     */
     @Override
-    public void setPasswordReset(java.lang.Boolean passwordReset) {
+    public void setPasswordReset(boolean passwordReset) {
         _user.setPasswordReset(passwordReset);
     }
 
@@ -1133,7 +1133,7 @@ public class UserWrapper implements User, ModelWrapper<User> {
     * @param lockout the lockout of this user
     */
     @Override
-    public void setLockout(java.lang.Boolean lockout) {
+    public void setLockout(boolean lockout) {
         _user.setLockout(lockout);
     }
 
@@ -1183,7 +1183,7 @@ public class UserWrapper implements User, ModelWrapper<User> {
     * @param agreedToTermsOfUse the agreed to terms of use of this user
     */
     @Override
-    public void setAgreedToTermsOfUse(java.lang.Boolean agreedToTermsOfUse) {
+    public void setAgreedToTermsOfUse(boolean agreedToTermsOfUse) {
         _user.setAgreedToTermsOfUse(agreedToTermsOfUse);
     }
 
@@ -1213,7 +1213,7 @@ public class UserWrapper implements User, ModelWrapper<User> {
     * @param emailAddressVerified the email address verified of this user
     */
     @Override
-    public void setEmailAddressVerified(java.lang.Boolean emailAddressVerified) {
+    public void setEmailAddressVerified(boolean emailAddressVerified) {
         _user.setEmailAddressVerified(emailAddressVerified);
     }
 

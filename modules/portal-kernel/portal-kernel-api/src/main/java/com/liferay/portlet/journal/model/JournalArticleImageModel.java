@@ -167,7 +167,7 @@ public interface JournalArticleImageModel extends BaseModel<JournalArticleImage>
      *
      * @param tempImage the temp image of this journal article image
      */
-    public void setTempImage(Boolean tempImage);
+    public void setTempImage(boolean tempImage);
 
     @Override
     public boolean isNew();

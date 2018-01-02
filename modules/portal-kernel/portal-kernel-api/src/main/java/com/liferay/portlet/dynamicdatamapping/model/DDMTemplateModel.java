@@ -535,7 +535,7 @@ public interface DDMTemplateModel extends AttachedModel, BaseModel<DDMTemplate>,
      *
      * @param cacheable the cacheable of this d d m template
      */
-    public void setCacheable(Boolean cacheable);
+    public void setCacheable(boolean cacheable);
 
     /**
      * Returns the small image of this d d m template.
@@ -556,7 +556,7 @@ public interface DDMTemplateModel extends AttachedModel, BaseModel<DDMTemplate>,
      *
      * @param smallImage the small image of this d d m template
      */
-    public void setSmallImage(Boolean smallImage);
+    public void setSmallImage(boolean smallImage);
 
     /**
      * Returns the small image ID of this d d m template.

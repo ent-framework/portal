@@ -277,7 +277,7 @@ public interface DLFileShortcutModel extends BaseModel<DLFileShortcut>,
      *
      * @param active the active of this document library file shortcut
      */
-    public void setActive(Boolean active);
+    public void setActive(boolean active);
 
     /**
      * Returns the status of this document library file shortcut.

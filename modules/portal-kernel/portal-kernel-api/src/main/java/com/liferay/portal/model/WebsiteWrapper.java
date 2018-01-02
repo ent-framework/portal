@@ -435,7 +435,7 @@ public class WebsiteWrapper implements Website, ModelWrapper<Website> {
     * @param primary the primary of this website
     */
     @Override
-    public void setPrimary(java.lang.Boolean primary) {
+    public void setPrimary(boolean primary) {
         _website.setPrimary(primary);
     }
 

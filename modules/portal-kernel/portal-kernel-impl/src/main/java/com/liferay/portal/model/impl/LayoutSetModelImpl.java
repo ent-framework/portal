@@ -429,17 +429,13 @@ public class LayoutSetModelImpl extends BaseModelImpl<LayoutSet>
     }
 
     @Override
-    public void setPrivateLayout(Boolean privateLayout) {
+    public void setPrivateLayout(boolean privateLayout) {
         _columnBitmask |= PRIVATELAYOUT_COLUMN_BITMASK;
 
         if (!_setOriginalPrivateLayout) {
             _setOriginalPrivateLayout = true;
 
             _originalPrivateLayout = _privateLayout;
-        }
-
-        if (privateLayout == null) {
-            privateLayout = Boolean.FALSE;
         }
 
         _privateLayout = privateLayout;
@@ -461,11 +457,7 @@ public class LayoutSetModelImpl extends BaseModelImpl<LayoutSet>
     }
 
     @Override
-    public void setLogo(Boolean logo) {
-        if (logo == null) {
-            logo = Boolean.FALSE;
-        }
-
+    public void setLogo(boolean logo) {
         _logo = logo;
     }
 
@@ -627,11 +619,7 @@ public class LayoutSetModelImpl extends BaseModelImpl<LayoutSet>
 
     @Override
     public void setLayoutSetPrototypeLinkEnabled(
-        Boolean layoutSetPrototypeLinkEnabled) {
-        if (layoutSetPrototypeLinkEnabled == null) {
-            layoutSetPrototypeLinkEnabled = Boolean.FALSE;
-        }
-
+        boolean layoutSetPrototypeLinkEnabled) {
         _layoutSetPrototypeLinkEnabled = layoutSetPrototypeLinkEnabled;
     }
 

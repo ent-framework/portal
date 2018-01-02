@@ -152,7 +152,7 @@ public interface ReleaseModel extends BaseModel<Release> {
      *
      * @param verified the verified of this release
      */
-    public void setVerified(Boolean verified);
+    public void setVerified(boolean verified);
 
     /**
      * Returns the state of this release.

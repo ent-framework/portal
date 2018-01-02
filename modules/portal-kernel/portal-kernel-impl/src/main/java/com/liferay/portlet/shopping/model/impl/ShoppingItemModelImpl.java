@@ -763,11 +763,7 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setFields(Boolean fields) {
-        if (fields == null) {
-            fields = Boolean.FALSE;
-        }
-
+    public void setFields(boolean fields) {
         _fields = fields;
     }
 
@@ -850,11 +846,7 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setTaxable(Boolean taxable) {
-        if (taxable == null) {
-            taxable = Boolean.FALSE;
-        }
-
+    public void setTaxable(boolean taxable) {
         _taxable = taxable;
     }
 
@@ -881,11 +873,7 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setUseShippingFormula(Boolean useShippingFormula) {
-        if (useShippingFormula == null) {
-            useShippingFormula = Boolean.FALSE;
-        }
-
+    public void setUseShippingFormula(boolean useShippingFormula) {
         _useShippingFormula = useShippingFormula;
     }
 
@@ -901,11 +889,7 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setRequiresShipping(Boolean requiresShipping) {
-        if (requiresShipping == null) {
-            requiresShipping = Boolean.FALSE;
-        }
-
+    public void setRequiresShipping(boolean requiresShipping) {
         _requiresShipping = requiresShipping;
     }
 
@@ -936,11 +920,7 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setFeatured(Boolean featured) {
-        if (featured == null) {
-            featured = Boolean.FALSE;
-        }
-
+    public void setFeatured(boolean featured) {
         _featured = featured;
     }
 
@@ -956,11 +936,7 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setSale(Boolean sale) {
-        if (sale == null) {
-            sale = Boolean.FALSE;
-        }
-
+    public void setSale(boolean sale) {
         _sale = sale;
     }
 
@@ -976,11 +952,7 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setSmallImage(Boolean smallImage) {
-        if (smallImage == null) {
-            smallImage = Boolean.FALSE;
-        }
-
+    public void setSmallImage(boolean smallImage) {
         _smallImage = smallImage;
     }
 
@@ -1038,11 +1010,7 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setMediumImage(Boolean mediumImage) {
-        if (mediumImage == null) {
-            mediumImage = Boolean.FALSE;
-        }
-
+    public void setMediumImage(boolean mediumImage) {
         _mediumImage = mediumImage;
     }
 
@@ -1100,11 +1068,7 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
     }
 
     @Override
-    public void setLargeImage(Boolean largeImage) {
-        if (largeImage == null) {
-            largeImage = Boolean.FALSE;
-        }
-
+    public void setLargeImage(boolean largeImage) {
         _largeImage = largeImage;
     }
 

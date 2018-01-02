@@ -229,7 +229,7 @@ public interface LayoutFriendlyURLModel extends BaseModel<LayoutFriendlyURL>,
      *
      * @param privateLayout the private layout of this layout friendly u r l
      */
-    public void setPrivateLayout(Boolean privateLayout);
+    public void setPrivateLayout(boolean privateLayout);
 
     /**
      * Returns the friendly u r l of this layout friendly u r l.

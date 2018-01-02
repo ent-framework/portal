@@ -228,7 +228,7 @@ public interface SCFrameworkVersionModel extends BaseModel<SCFrameworkVersion>,
      *
      * @param active the active of this s c framework version
      */
-    public void setActive(Boolean active);
+    public void setActive(boolean active);
 
     /**
      * Returns the priority of this s c framework version.

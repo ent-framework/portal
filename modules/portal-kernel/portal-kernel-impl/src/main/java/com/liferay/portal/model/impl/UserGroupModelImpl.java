@@ -511,11 +511,7 @@ public class UserGroupModelImpl extends BaseModelImpl<UserGroup>
     }
 
     @Override
-    public void setAddedByLDAPImport(Boolean addedByLDAPImport) {
-        if (addedByLDAPImport == null) {
-            addedByLDAPImport = Boolean.FALSE;
-        }
-
+    public void setAddedByLDAPImport(boolean addedByLDAPImport) {
         _addedByLDAPImport = addedByLDAPImport;
     }
 

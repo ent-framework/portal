@@ -207,7 +207,7 @@ public class PortletWrapper implements Portlet, ModelWrapper<Portlet> {
     * @param active the active of this portlet
     */
     @Override
-    public void setActive(java.lang.Boolean active) {
+    public void setActive(boolean active) {
         _portlet.setActive(active);
     }
 

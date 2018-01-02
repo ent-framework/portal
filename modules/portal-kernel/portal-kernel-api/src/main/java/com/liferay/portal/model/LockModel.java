@@ -214,7 +214,7 @@ public interface LockModel extends BaseModel<Lock> {
      *
      * @param inheritable the inheritable of this lock
      */
-    public void setInheritable(Boolean inheritable);
+    public void setInheritable(boolean inheritable);
 
     /**
      * Returns the expiration date of this lock.

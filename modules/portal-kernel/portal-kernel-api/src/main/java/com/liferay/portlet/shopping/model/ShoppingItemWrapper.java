@@ -595,7 +595,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param fields the fields of this shopping item
     */
     @Override
-    public void setFields(java.lang.Boolean fields) {
+    public void setFields(boolean fields) {
         _shoppingItem.setFields(fields);
     }
 
@@ -725,7 +725,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param taxable the taxable of this shopping item
     */
     @Override
-    public void setTaxable(java.lang.Boolean taxable) {
+    public void setTaxable(boolean taxable) {
         _shoppingItem.setTaxable(taxable);
     }
 
@@ -775,7 +775,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param useShippingFormula the use shipping formula of this shopping item
     */
     @Override
-    public void setUseShippingFormula(java.lang.Boolean useShippingFormula) {
+    public void setUseShippingFormula(boolean useShippingFormula) {
         _shoppingItem.setUseShippingFormula(useShippingFormula);
     }
 
@@ -805,7 +805,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param requiresShipping the requires shipping of this shopping item
     */
     @Override
-    public void setRequiresShipping(java.lang.Boolean requiresShipping) {
+    public void setRequiresShipping(boolean requiresShipping) {
         _shoppingItem.setRequiresShipping(requiresShipping);
     }
 
@@ -855,7 +855,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param featured the featured of this shopping item
     */
     @Override
-    public void setFeatured(java.lang.Boolean featured) {
+    public void setFeatured(boolean featured) {
         _shoppingItem.setFeatured(featured);
     }
 
@@ -885,7 +885,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param sale the sale of this shopping item
     */
     @Override
-    public void setSale(java.lang.Boolean sale) {
+    public void setSale(boolean sale) {
         _shoppingItem.setSale(sale);
     }
 
@@ -915,7 +915,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param smallImage the small image of this shopping item
     */
     @Override
-    public void setSmallImage(java.lang.Boolean smallImage) {
+    public void setSmallImage(boolean smallImage) {
         _shoppingItem.setSmallImage(smallImage);
     }
 
@@ -985,7 +985,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param mediumImage the medium image of this shopping item
     */
     @Override
-    public void setMediumImage(java.lang.Boolean mediumImage) {
+    public void setMediumImage(boolean mediumImage) {
         _shoppingItem.setMediumImage(mediumImage);
     }
 
@@ -1055,7 +1055,7 @@ public class ShoppingItemWrapper implements ShoppingItem,
     * @param largeImage the large image of this shopping item
     */
     @Override
-    public void setLargeImage(java.lang.Boolean largeImage) {
+    public void setLargeImage(boolean largeImage) {
         _shoppingItem.setLargeImage(largeImage);
     }
 

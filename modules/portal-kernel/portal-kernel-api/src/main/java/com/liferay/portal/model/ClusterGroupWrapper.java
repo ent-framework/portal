@@ -181,7 +181,7 @@ public class ClusterGroupWrapper implements ClusterGroup,
     * @param wholeCluster the whole cluster of this cluster group
     */
     @Override
-    public void setWholeCluster(java.lang.Boolean wholeCluster) {
+    public void setWholeCluster(boolean wholeCluster) {
         _clusterGroup.setWholeCluster(wholeCluster);
     }
 

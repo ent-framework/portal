@@ -440,7 +440,7 @@ public class SocialActivityCounterWrapper implements SocialActivityCounter,
     * @param active the active of this social activity counter
     */
     @Override
-    public void setActive(java.lang.Boolean active) {
+    public void setActive(boolean active) {
         _socialActivityCounter.setActive(active);
     }
 

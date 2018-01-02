@@ -514,7 +514,7 @@ public class LayoutPrototypeWrapper implements LayoutPrototype,
     * @param active the active of this layout prototype
     */
     @Override
-    public void setActive(java.lang.Boolean active) {
+    public void setActive(boolean active) {
         _layoutPrototype.setActive(active);
     }
 

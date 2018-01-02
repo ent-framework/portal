@@ -1312,7 +1312,7 @@ public class LayoutWrapper implements Layout, ModelWrapper<Layout> {
     * @param hidden the hidden of this layout
     */
     @Override
-    public void setHidden(java.lang.Boolean hidden) {
+    public void setHidden(boolean hidden) {
         _layout.setHidden(hidden);
     }
 
@@ -1362,7 +1362,7 @@ public class LayoutWrapper implements Layout, ModelWrapper<Layout> {
     * @param iconImage the icon image of this layout
     */
     @Override
-    public void setIconImage(java.lang.Boolean iconImage) {
+    public void setIconImage(boolean iconImage) {
         _layout.setIconImage(iconImage);
     }
 
@@ -1553,7 +1553,7 @@ public class LayoutWrapper implements Layout, ModelWrapper<Layout> {
     */
     @Override
     public void setLayoutPrototypeLinkEnabled(
-        java.lang.Boolean layoutPrototypeLinkEnabled) {
+        boolean layoutPrototypeLinkEnabled) {
         _layout.setLayoutPrototypeLinkEnabled(layoutPrototypeLinkEnabled);
     }
 

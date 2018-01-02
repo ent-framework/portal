@@ -167,7 +167,7 @@ public interface CompanyModel extends BaseModel<Company> {
      *
      * @param system the system of this company
      */
-    public void setSystem(Boolean system);
+    public void setSystem(boolean system);
 
     /**
      * Returns the max users of this company.
@@ -202,7 +202,7 @@ public interface CompanyModel extends BaseModel<Company> {
      *
      * @param active the active of this company
      */
-    public void setActive(Boolean active);
+    public void setActive(boolean active);
 
     @Override
     public boolean isNew();

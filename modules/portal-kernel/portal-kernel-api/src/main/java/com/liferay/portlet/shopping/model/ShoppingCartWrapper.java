@@ -393,7 +393,7 @@ public class ShoppingCartWrapper implements ShoppingCart,
     * @param insure the insure of this shopping cart
     */
     @Override
-    public void setInsure(java.lang.Boolean insure) {
+    public void setInsure(boolean insure) {
         _shoppingCart.setInsure(insure);
     }
 

@@ -123,7 +123,7 @@ public interface RegionModel extends BaseModel<Region> {
      *
      * @param active the active of this region
      */
-    public void setActive(Boolean active);
+    public void setActive(boolean active);
 
     @Override
     public boolean isNew();

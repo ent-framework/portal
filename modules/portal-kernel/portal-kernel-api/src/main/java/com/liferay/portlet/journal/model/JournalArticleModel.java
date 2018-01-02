@@ -675,7 +675,7 @@ public interface JournalArticleModel extends AttachedModel,
      *
      * @param indexable the indexable of this journal article
      */
-    public void setIndexable(Boolean indexable);
+    public void setIndexable(boolean indexable);
 
     /**
      * Returns the small image of this journal article.
@@ -696,7 +696,7 @@ public interface JournalArticleModel extends AttachedModel,
      *
      * @param smallImage the small image of this journal article
      */
-    public void setSmallImage(Boolean smallImage);
+    public void setSmallImage(boolean smallImage);
 
     /**
      * Returns the small image ID of this journal article.

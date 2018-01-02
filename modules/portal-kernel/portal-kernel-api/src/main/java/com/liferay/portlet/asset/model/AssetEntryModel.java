@@ -273,7 +273,7 @@ public interface AssetEntryModel extends AttachedModel, BaseModel<AssetEntry>,
      *
      * @param visible the visible of this asset entry
      */
-    public void setVisible(Boolean visible);
+    public void setVisible(boolean visible);
 
     /**
      * Returns the start date of this asset entry.

@@ -292,11 +292,7 @@ public class ReleaseModelImpl extends BaseModelImpl<Release>
     }
 
     @Override
-    public void setVerified(Boolean verified) {
-        if (verified == null) {
-            verified = Boolean.FALSE;
-        }
-
+    public void setVerified(boolean verified) {
         _verified = verified;
     }
 

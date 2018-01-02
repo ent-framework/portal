@@ -534,11 +534,7 @@ public class SocialActivityCounterModelImpl extends BaseModelImpl<SocialActivity
     }
 
     @Override
-    public void setActive(Boolean active) {
-        if (active == null) {
-            active = Boolean.FALSE;
-        }
-
+    public void setActive(boolean active) {
         _active = active;
     }
 

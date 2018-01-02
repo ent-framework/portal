@@ -373,7 +373,7 @@ public class SCFrameworkVersionWrapper implements SCFrameworkVersion,
     * @param active the active of this s c framework version
     */
     @Override
-    public void setActive(java.lang.Boolean active) {
+    public void setActive(boolean active) {
         _scFrameworkVersion.setActive(active);
     }
 

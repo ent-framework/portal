@@ -115,7 +115,7 @@ public class ResourceBlockPermissionWrapper implements ResourceBlockPermission,
     */
     @Override
     public void setResourceBlockPermissionId(
-        Long resourceBlockPermissionId) {
+        java.lang.Long resourceBlockPermissionId) {
         _resourceBlockPermission.setResourceBlockPermissionId(resourceBlockPermissionId);
     }
 
@@ -135,7 +135,7 @@ public class ResourceBlockPermissionWrapper implements ResourceBlockPermission,
     * @param resourceBlockId the resource block ID of this resource block permission
     */
     @Override
-    public void setResourceBlockId(Long resourceBlockId) {
+    public void setResourceBlockId(java.lang.Long resourceBlockId) {
         _resourceBlockPermission.setResourceBlockId(resourceBlockId);
     }
 

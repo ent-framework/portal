@@ -107,7 +107,7 @@ public interface JournalContentSearchModel extends BaseModel<JournalContentSearc
      *
      * @param privateLayout the private layout of this journal content search
      */
-    public void setPrivateLayout(Boolean privateLayout);
+    public void setPrivateLayout(boolean privateLayout);
 
     /**
      * Returns the layout ID of this journal content search.

@@ -257,7 +257,7 @@ public interface OrganizationModel extends BaseModel<Organization>,
      *
      * @param recursable the recursable of this organization
      */
-    public void setRecursable(Boolean recursable);
+    public void setRecursable(boolean recursable);
 
     /**
      * Returns the region ID of this organization.

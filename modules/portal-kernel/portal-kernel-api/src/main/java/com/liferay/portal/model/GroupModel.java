@@ -283,7 +283,7 @@ public interface GroupModel extends AttachedModel, BaseModel<Group> {
      *
      * @param manualMembership the manual membership of this group
      */
-    public void setManualMembership(Boolean manualMembership);
+    public void setManualMembership(boolean manualMembership);
 
     /**
      * Returns the membership restriction of this group.
@@ -333,7 +333,7 @@ public interface GroupModel extends AttachedModel, BaseModel<Group> {
      *
      * @param site the site of this group
      */
-    public void setSite(Boolean site);
+    public void setSite(boolean site);
 
     /**
      * Returns the remote staging group count of this group.
@@ -368,7 +368,7 @@ public interface GroupModel extends AttachedModel, BaseModel<Group> {
      *
      * @param active the active of this group
      */
-    public void setActive(Boolean active);
+    public void setActive(boolean active);
 
     @Override
     public boolean isNew();

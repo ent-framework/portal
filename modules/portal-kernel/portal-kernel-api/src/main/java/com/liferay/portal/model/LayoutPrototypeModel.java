@@ -331,7 +331,7 @@ public interface LayoutPrototypeModel extends BaseModel<LayoutPrototype>,
      *
      * @param active the active of this layout prototype
      */
-    public void setActive(Boolean active);
+    public void setActive(boolean active);
 
     @Override
     public boolean isNew();

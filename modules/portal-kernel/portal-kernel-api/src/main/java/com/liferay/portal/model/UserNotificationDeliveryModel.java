@@ -194,7 +194,7 @@ public interface UserNotificationDeliveryModel extends BaseModel<UserNotificatio
      *
      * @param deliver the deliver of this user notification delivery
      */
-    public void setDeliver(Boolean deliver);
+    public void setDeliver(boolean deliver);
 
     @Override
     public boolean isNew();

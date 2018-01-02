@@ -330,7 +330,7 @@ public class UserNotificationDeliveryWrapper implements UserNotificationDelivery
     * @param deliver the deliver of this user notification delivery
     */
     @Override
-    public void setDeliver(java.lang.Boolean deliver) {
+    public void setDeliver(boolean deliver) {
         _userNotificationDelivery.setDeliver(deliver);
     }
 

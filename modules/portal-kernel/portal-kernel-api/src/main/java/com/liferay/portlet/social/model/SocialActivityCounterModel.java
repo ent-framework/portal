@@ -250,7 +250,7 @@ public interface SocialActivityCounterModel extends AttachedModel,
      *
      * @param active the active of this social activity counter
      */
-    public void setActive(Boolean active);
+    public void setActive(boolean active);
 
     @Override
     public boolean isNew();

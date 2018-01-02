@@ -256,7 +256,7 @@ public interface SCProductVersionModel extends AuditedModel,
      *
      * @param repoStoreArtifact the repo store artifact of this s c product version
      */
-    public void setRepoStoreArtifact(Boolean repoStoreArtifact);
+    public void setRepoStoreArtifact(boolean repoStoreArtifact);
 
     @Override
     public boolean isNew();

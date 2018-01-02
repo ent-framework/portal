@@ -421,7 +421,7 @@ public class SCProductVersionWrapper implements SCProductVersion,
     * @param repoStoreArtifact the repo store artifact of this s c product version
     */
     @Override
-    public void setRepoStoreArtifact(java.lang.Boolean repoStoreArtifact) {
+    public void setRepoStoreArtifact(boolean repoStoreArtifact) {
         _scProductVersion.setRepoStoreArtifact(repoStoreArtifact);
     }
 

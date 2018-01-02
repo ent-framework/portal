@@ -571,7 +571,7 @@ public class AnnouncementsEntryWrapper implements AnnouncementsEntry,
     * @param alert the alert of this announcements entry
     */
     @Override
-    public void setAlert(java.lang.Boolean alert) {
+    public void setAlert(boolean alert) {
         _announcementsEntry.setAlert(alert);
     }
 

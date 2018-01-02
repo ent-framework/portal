@@ -226,6 +226,8 @@ public class SessionImpl implements Session {
 		}
 	}
 
+
+
 	private org.hibernate.Session _session;
 
 }

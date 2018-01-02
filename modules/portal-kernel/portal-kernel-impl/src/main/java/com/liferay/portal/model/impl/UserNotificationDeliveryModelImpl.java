@@ -403,11 +403,7 @@ public class UserNotificationDeliveryModelImpl extends BaseModelImpl<UserNotific
     }
 
     @Override
-    public void setDeliver(Boolean deliver) {
-        if (deliver == null) {
-            deliver = Boolean.FALSE;
-        }
-
+    public void setDeliver(boolean deliver) {
         _deliver = deliver;
     }
 

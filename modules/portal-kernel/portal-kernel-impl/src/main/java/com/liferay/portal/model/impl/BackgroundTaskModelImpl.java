@@ -554,17 +554,13 @@ public class BackgroundTaskModelImpl extends BaseModelImpl<BackgroundTask>
     }
 
     @Override
-    public void setCompleted(Boolean completed) {
+    public void setCompleted(boolean completed) {
         _columnBitmask |= COMPLETED_COLUMN_BITMASK;
 
         if (!_setOriginalCompleted) {
             _setOriginalCompleted = true;
 
             _originalCompleted = _completed;
-        }
-
-        if (completed == null) {
-            completed = Boolean.FALSE;
         }
 
         _completed = completed;

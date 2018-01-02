@@ -1026,11 +1026,7 @@ public class DLFileEntryModelImpl extends BaseModelImpl<DLFileEntry>
     }
 
     @Override
-    public void setManualCheckInRequired(Boolean manualCheckInRequired) {
-        if (manualCheckInRequired == null) {
-            manualCheckInRequired = Boolean.FALSE;
-        }
-
+    public void setManualCheckInRequired(boolean manualCheckInRequired) {
         _manualCheckInRequired = manualCheckInRequired;
     }
 

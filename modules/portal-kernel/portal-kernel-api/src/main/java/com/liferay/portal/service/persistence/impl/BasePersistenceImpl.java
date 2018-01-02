@@ -84,6 +84,11 @@ public class BasePersistenceImpl<T extends BaseModel<T>>
 	}
 
 	@Override
+	public void flushAndCloseSession(Session session) {
+		_sessionFactory.closeSession(session);
+	}
+
+	@Override
 	public long countWithDynamicQuery(DynamicQuery dynamicQuery)
 		throws SystemException {
 

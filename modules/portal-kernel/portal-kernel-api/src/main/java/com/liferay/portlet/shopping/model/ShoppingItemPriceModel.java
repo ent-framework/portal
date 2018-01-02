@@ -148,7 +148,7 @@ public interface ShoppingItemPriceModel extends BaseModel<ShoppingItemPrice> {
      *
      * @param taxable the taxable of this shopping item price
      */
-    public void setTaxable(Boolean taxable);
+    public void setTaxable(boolean taxable);
 
     /**
      * Returns the shipping of this shopping item price.
@@ -183,7 +183,7 @@ public interface ShoppingItemPriceModel extends BaseModel<ShoppingItemPrice> {
      *
      * @param useShippingFormula the use shipping formula of this shopping item price
      */
-    public void setUseShippingFormula(Boolean useShippingFormula);
+    public void setUseShippingFormula(boolean useShippingFormula);
 
     /**
      * Returns the status of this shopping item price.

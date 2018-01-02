@@ -861,7 +861,7 @@ public class DDMTemplateWrapper implements DDMTemplate,
     * @param cacheable the cacheable of this d d m template
     */
     @Override
-    public void setCacheable(java.lang.Boolean cacheable) {
+    public void setCacheable(boolean cacheable) {
         _ddmTemplate.setCacheable(cacheable);
     }
 
@@ -891,7 +891,7 @@ public class DDMTemplateWrapper implements DDMTemplate,
     * @param smallImage the small image of this d d m template
     */
     @Override
-    public void setSmallImage(java.lang.Boolean smallImage) {
+    public void setSmallImage(boolean smallImage) {
         _ddmTemplate.setSmallImage(smallImage);
     }
 

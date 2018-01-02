@@ -331,17 +331,13 @@ public class SocialActivityAchievementModelImpl extends BaseModelImpl<SocialActi
     }
 
     @Override
-    public void setFirstInGroup(Boolean firstInGroup) {
+    public void setFirstInGroup(boolean firstInGroup) {
         _columnBitmask |= FIRSTINGROUP_COLUMN_BITMASK;
 
         if (!_setOriginalFirstInGroup) {
             _setOriginalFirstInGroup = true;
 
             _originalFirstInGroup = _firstInGroup;
-        }
-
-        if (firstInGroup == null) {
-            firstInGroup = Boolean.FALSE;
         }
 
         _firstInGroup = firstInGroup;

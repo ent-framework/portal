@@ -415,17 +415,13 @@ public class CompanyModelImpl extends BaseModelImpl<Company>
     }
 
     @Override
-    public void setSystem(Boolean system) {
+    public void setSystem(boolean system) {
         _columnBitmask |= SYSTEM_COLUMN_BITMASK;
 
         if (!_setOriginalSystem) {
             _setOriginalSystem = true;
 
             _originalSystem = _system;
-        }
-
-        if (system == null) {
-            system = Boolean.FALSE;
         }
 
         _system = system;
@@ -462,11 +458,7 @@ public class CompanyModelImpl extends BaseModelImpl<Company>
     }
 
     @Override
-    public void setActive(Boolean active) {
-        if (active == null) {
-            active = Boolean.FALSE;
-        }
-
+    public void setActive(boolean active) {
         _active = active;
     }
 

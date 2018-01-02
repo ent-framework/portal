@@ -461,17 +461,13 @@ public class LayoutBranchModelImpl extends BaseModelImpl<LayoutBranch>
     }
 
     @Override
-    public void setMaster(Boolean master) {
+    public void setMaster(boolean master) {
         _columnBitmask |= MASTER_COLUMN_BITMASK;
 
         if (!_setOriginalMaster) {
             _setOriginalMaster = true;
 
             _originalMaster = _master;
-        }
-
-        if (master == null) {
-            master = Boolean.FALSE;
         }
 
         _master = master;

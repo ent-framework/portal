@@ -194,7 +194,7 @@ public class SCLicenseWrapper implements SCLicense, ModelWrapper<SCLicense> {
     * @param openSource the open source of this s c license
     */
     @Override
-    public void setOpenSource(java.lang.Boolean openSource) {
+    public void setOpenSource(boolean openSource) {
         _scLicense.setOpenSource(openSource);
     }
 
@@ -224,7 +224,7 @@ public class SCLicenseWrapper implements SCLicense, ModelWrapper<SCLicense> {
     * @param active the active of this s c license
     */
     @Override
-    public void setActive(java.lang.Boolean active) {
+    public void setActive(boolean active) {
         _scLicense.setActive(active);
     }
 
@@ -254,7 +254,7 @@ public class SCLicenseWrapper implements SCLicense, ModelWrapper<SCLicense> {
     * @param recommended the recommended of this s c license
     */
     @Override
-    public void setRecommended(java.lang.Boolean recommended) {
+    public void setRecommended(boolean recommended) {
         _scLicense.setRecommended(recommended);
     }
 

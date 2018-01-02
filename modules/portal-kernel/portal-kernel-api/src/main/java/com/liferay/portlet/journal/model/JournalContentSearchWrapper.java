@@ -203,7 +203,7 @@ public class JournalContentSearchWrapper implements JournalContentSearch,
     * @param privateLayout the private layout of this journal content search
     */
     @Override
-    public void setPrivateLayout(java.lang.Boolean privateLayout) {
+    public void setPrivateLayout(boolean privateLayout) {
         _journalContentSearch.setPrivateLayout(privateLayout);
     }
 

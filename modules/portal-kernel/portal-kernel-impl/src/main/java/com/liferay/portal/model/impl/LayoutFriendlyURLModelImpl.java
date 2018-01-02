@@ -428,17 +428,13 @@ public class LayoutFriendlyURLModelImpl extends BaseModelImpl<LayoutFriendlyURL>
     }
 
     @Override
-    public void setPrivateLayout(Boolean privateLayout) {
+    public void setPrivateLayout(boolean privateLayout) {
         _columnBitmask |= PRIVATELAYOUT_COLUMN_BITMASK;
 
         if (!_setOriginalPrivateLayout) {
             _setOriginalPrivateLayout = true;
 
             _originalPrivateLayout = _privateLayout;
-        }
-
-        if (privateLayout == null) {
-            privateLayout = Boolean.FALSE;
         }
 
         _privateLayout = privateLayout;

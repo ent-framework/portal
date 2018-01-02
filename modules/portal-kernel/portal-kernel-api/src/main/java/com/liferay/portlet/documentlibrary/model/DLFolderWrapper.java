@@ -452,7 +452,7 @@ public class DLFolderWrapper implements DLFolder, ModelWrapper<DLFolder> {
     * @param mountPoint the mount point of this document library folder
     */
     @Override
-    public void setMountPoint(java.lang.Boolean mountPoint) {
+    public void setMountPoint(boolean mountPoint) {
         _dlFolder.setMountPoint(mountPoint);
     }
 
@@ -602,7 +602,7 @@ public class DLFolderWrapper implements DLFolder, ModelWrapper<DLFolder> {
     * @param hidden the hidden of this document library folder
     */
     @Override
-    public void setHidden(java.lang.Boolean hidden) {
+    public void setHidden(boolean hidden) {
         _dlFolder.setHidden(hidden);
     }
 
@@ -632,8 +632,7 @@ public class DLFolderWrapper implements DLFolder, ModelWrapper<DLFolder> {
     * @param overrideFileEntryTypes the override file entry types of this document library folder
     */
     @Override
-    public void setOverrideFileEntryTypes(
-        java.lang.Boolean overrideFileEntryTypes) {
+    public void setOverrideFileEntryTypes(boolean overrideFileEntryTypes) {
         _dlFolder.setOverrideFileEntryTypes(overrideFileEntryTypes);
     }
 

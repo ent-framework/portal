@@ -753,11 +753,7 @@ public class GroupModelImpl extends BaseModelImpl<Group> implements GroupModel {
     }
 
     @Override
-    public void setManualMembership(Boolean manualMembership) {
-        if (manualMembership == null) {
-            manualMembership = Boolean.FALSE;
-        }
-
+    public void setManualMembership(boolean manualMembership) {
         _manualMembership = manualMembership;
     }
 
@@ -813,17 +809,13 @@ public class GroupModelImpl extends BaseModelImpl<Group> implements GroupModel {
     }
 
     @Override
-    public void setSite(Boolean site) {
+    public void setSite(boolean site) {
         _columnBitmask |= SITE_COLUMN_BITMASK;
 
         if (!_setOriginalSite) {
             _setOriginalSite = true;
 
             _originalSite = _site;
-        }
-
-        if (site == null) {
-            site = Boolean.FALSE;
         }
 
         _site = site;
@@ -860,17 +852,13 @@ public class GroupModelImpl extends BaseModelImpl<Group> implements GroupModel {
     }
 
     @Override
-    public void setActive(Boolean active) {
+    public void setActive(boolean active) {
         _columnBitmask |= ACTIVE_COLUMN_BITMASK;
 
         if (!_setOriginalActive) {
             _setOriginalActive = true;
 
             _originalActive = _active;
-        }
-
-        if (active == null) {
-            active = Boolean.FALSE;
         }
 
         _active = active;

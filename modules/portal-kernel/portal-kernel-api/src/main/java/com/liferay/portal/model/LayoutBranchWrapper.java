@@ -365,7 +365,7 @@ public class LayoutBranchWrapper implements LayoutBranch,
     * @param master the master of this layout branch
     */
     @Override
-    public void setMaster(java.lang.Boolean master) {
+    public void setMaster(boolean master) {
         _layoutBranch.setMaster(master);
     }
 

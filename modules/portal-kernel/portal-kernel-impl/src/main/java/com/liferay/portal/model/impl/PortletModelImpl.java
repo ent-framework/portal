@@ -305,11 +305,7 @@ public class PortletModelImpl extends BaseModelImpl<Portlet>
     }
 
     @Override
-    public void setActive(Boolean active) {
-        if (active == null) {
-            active = Boolean.FALSE;
-        }
-
+    public void setActive(boolean active) {
         _active = active;
     }
 

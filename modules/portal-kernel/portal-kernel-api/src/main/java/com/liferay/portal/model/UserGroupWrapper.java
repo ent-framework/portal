@@ -394,7 +394,7 @@ public class UserGroupWrapper implements UserGroup, ModelWrapper<UserGroup> {
     * @param addedByLDAPImport the added by l d a p import of this user group
     */
     @Override
-    public void setAddedByLDAPImport(java.lang.Boolean addedByLDAPImport) {
+    public void setAddedByLDAPImport(boolean addedByLDAPImport) {
         _userGroup.setAddedByLDAPImport(addedByLDAPImport);
     }
 

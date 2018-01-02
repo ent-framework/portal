@@ -372,17 +372,13 @@ public class JournalArticleImageModelImpl extends BaseModelImpl<JournalArticleIm
     }
 
     @Override
-    public void setTempImage(Boolean tempImage) {
+    public void setTempImage(boolean tempImage) {
         _columnBitmask |= TEMPIMAGE_COLUMN_BITMASK;
 
         if (!_setOriginalTempImage) {
             _setOriginalTempImage = true;
 
             _originalTempImage = _tempImage;
-        }
-
-        if (tempImage == null) {
-            tempImage = Boolean.FALSE;
         }
 
         _tempImage = tempImage;

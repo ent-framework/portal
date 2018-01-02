@@ -166,7 +166,7 @@ public interface SocialActivityAchievementModel extends BaseModel<SocialActivity
      *
      * @param firstInGroup the first in group of this social activity achievement
      */
-    public void setFirstInGroup(Boolean firstInGroup);
+    public void setFirstInGroup(boolean firstInGroup);
 
     @Override
     public boolean isNew();

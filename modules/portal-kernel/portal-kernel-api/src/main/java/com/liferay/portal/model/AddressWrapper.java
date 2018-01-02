@@ -604,7 +604,7 @@ public class AddressWrapper implements Address, ModelWrapper<Address> {
     * @param mailing the mailing of this address
     */
     @Override
-    public void setMailing(java.lang.Boolean mailing) {
+    public void setMailing(boolean mailing) {
         _address.setMailing(mailing);
     }
 
@@ -634,7 +634,7 @@ public class AddressWrapper implements Address, ModelWrapper<Address> {
     * @param primary the primary of this address
     */
     @Override
-    public void setPrimary(java.lang.Boolean primary) {
+    public void setPrimary(boolean primary) {
         _address.setPrimary(primary);
     }
 

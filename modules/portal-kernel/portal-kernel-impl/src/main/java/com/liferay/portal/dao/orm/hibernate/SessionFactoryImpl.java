@@ -48,6 +48,14 @@ public class SessionFactoryImpl implements SessionFactory {
 	public void closeSession(Session session) throws ORMException {
 		if ((session != null) &&
 			!PropsValues.SPRING_HIBERNATE_SESSION_DELEGATED) {
+			session.close();
+		}
+	}
+
+	@Override
+	public void flushAndCloseSession(Session session) throws ORMException {
+		if ((session != null) &&
+				!PropsValues.SPRING_HIBERNATE_SESSION_DELEGATED) {
 
 			session.flush();
 			session.close();

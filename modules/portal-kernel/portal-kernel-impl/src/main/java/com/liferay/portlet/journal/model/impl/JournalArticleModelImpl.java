@@ -1311,17 +1311,13 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
     }
 
     @Override
-    public void setIndexable(Boolean indexable) {
+    public void setIndexable(boolean indexable) {
         _columnBitmask |= INDEXABLE_COLUMN_BITMASK;
 
         if (!_setOriginalIndexable) {
             _setOriginalIndexable = true;
 
             _originalIndexable = _indexable;
-        }
-
-        if (indexable == null) {
-            indexable = Boolean.FALSE;
         }
 
         _indexable = indexable;
@@ -1343,11 +1339,7 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
     }
 
     @Override
-    public void setSmallImage(Boolean smallImage) {
-        if (smallImage == null) {
-            smallImage = Boolean.FALSE;
-        }
-
+    public void setSmallImage(boolean smallImage) {
         _smallImage = smallImage;
     }
 

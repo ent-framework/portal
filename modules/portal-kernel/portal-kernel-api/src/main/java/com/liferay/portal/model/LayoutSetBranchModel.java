@@ -198,7 +198,7 @@ public interface LayoutSetBranchModel extends BaseModel<LayoutSetBranch>,
      *
      * @param privateLayout the private layout of this layout set branch
      */
-    public void setPrivateLayout(Boolean privateLayout);
+    public void setPrivateLayout(boolean privateLayout);
 
     /**
      * Returns the name of this layout set branch.
@@ -249,7 +249,7 @@ public interface LayoutSetBranchModel extends BaseModel<LayoutSetBranch>,
      *
      * @param master the master of this layout set branch
      */
-    public void setMaster(Boolean master);
+    public void setMaster(boolean master);
 
     /**
      * Returns the logo of this layout set branch.
@@ -270,7 +270,7 @@ public interface LayoutSetBranchModel extends BaseModel<LayoutSetBranch>,
      *
      * @param logo the logo of this layout set branch
      */
-    public void setLogo(Boolean logo);
+    public void setLogo(boolean logo);
 
     /**
      * Returns the logo ID of this layout set branch.
@@ -411,7 +411,7 @@ public interface LayoutSetBranchModel extends BaseModel<LayoutSetBranch>,
      * @param layoutSetPrototypeLinkEnabled the layout set prototype link enabled of this layout set branch
      */
     public void setLayoutSetPrototypeLinkEnabled(
-        Boolean layoutSetPrototypeLinkEnabled);
+        boolean layoutSetPrototypeLinkEnabled);
 
     @Override
     public boolean isNew();

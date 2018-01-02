@@ -496,7 +496,7 @@ public class PasswordPolicyWrapper implements PasswordPolicy,
     * @param defaultPolicy the default policy of this password policy
     */
     @Override
-    public void setDefaultPolicy(java.lang.Boolean defaultPolicy) {
+    public void setDefaultPolicy(boolean defaultPolicy) {
         _passwordPolicy.setDefaultPolicy(defaultPolicy);
     }
 
@@ -566,7 +566,7 @@ public class PasswordPolicyWrapper implements PasswordPolicy,
     * @param changeable the changeable of this password policy
     */
     @Override
-    public void setChangeable(java.lang.Boolean changeable) {
+    public void setChangeable(boolean changeable) {
         _passwordPolicy.setChangeable(changeable);
     }
 
@@ -596,7 +596,7 @@ public class PasswordPolicyWrapper implements PasswordPolicy,
     * @param changeRequired the change required of this password policy
     */
     @Override
-    public void setChangeRequired(java.lang.Boolean changeRequired) {
+    public void setChangeRequired(boolean changeRequired) {
         _passwordPolicy.setChangeRequired(changeRequired);
     }
 
@@ -646,7 +646,7 @@ public class PasswordPolicyWrapper implements PasswordPolicy,
     * @param checkSyntax the check syntax of this password policy
     */
     @Override
-    public void setCheckSyntax(java.lang.Boolean checkSyntax) {
+    public void setCheckSyntax(boolean checkSyntax) {
         _passwordPolicy.setCheckSyntax(checkSyntax);
     }
 
@@ -676,7 +676,7 @@ public class PasswordPolicyWrapper implements PasswordPolicy,
     * @param allowDictionaryWords the allow dictionary words of this password policy
     */
     @Override
-    public void setAllowDictionaryWords(java.lang.Boolean allowDictionaryWords) {
+    public void setAllowDictionaryWords(boolean allowDictionaryWords) {
         _passwordPolicy.setAllowDictionaryWords(allowDictionaryWords);
     }
 
@@ -846,7 +846,7 @@ public class PasswordPolicyWrapper implements PasswordPolicy,
     * @param history the history of this password policy
     */
     @Override
-    public void setHistory(java.lang.Boolean history) {
+    public void setHistory(boolean history) {
         _passwordPolicy.setHistory(history);
     }
 
@@ -896,7 +896,7 @@ public class PasswordPolicyWrapper implements PasswordPolicy,
     * @param expireable the expireable of this password policy
     */
     @Override
-    public void setExpireable(java.lang.Boolean expireable) {
+    public void setExpireable(boolean expireable) {
         _passwordPolicy.setExpireable(expireable);
     }
 
@@ -986,7 +986,7 @@ public class PasswordPolicyWrapper implements PasswordPolicy,
     * @param lockout the lockout of this password policy
     */
     @Override
-    public void setLockout(java.lang.Boolean lockout) {
+    public void setLockout(boolean lockout) {
         _passwordPolicy.setLockout(lockout);
     }
 
@@ -1056,7 +1056,7 @@ public class PasswordPolicyWrapper implements PasswordPolicy,
     * @param requireUnlock the require unlock of this password policy
     */
     @Override
-    public void setRequireUnlock(java.lang.Boolean requireUnlock) {
+    public void setRequireUnlock(boolean requireUnlock) {
         _passwordPolicy.setRequireUnlock(requireUnlock);
     }
 

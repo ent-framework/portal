@@ -289,7 +289,7 @@ public class JournalArticleImageWrapper implements JournalArticleImage,
     * @param tempImage the temp image of this journal article image
     */
     @Override
-    public void setTempImage(java.lang.Boolean tempImage) {
+    public void setTempImage(boolean tempImage) {
         _journalArticleImage.setTempImage(tempImage);
     }
 

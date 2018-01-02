@@ -271,7 +271,7 @@ public interface WebsiteModel extends AttachedModel, BaseModel<Website>,
      *
      * @param primary the primary of this website
      */
-    public void setPrimary(Boolean primary);
+    public void setPrimary(boolean primary);
 
     @Override
     public boolean isNew();

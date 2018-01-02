@@ -637,17 +637,13 @@ public class DLFolderModelImpl extends BaseModelImpl<DLFolder>
     }
 
     @Override
-    public void setMountPoint(Boolean mountPoint) {
+    public void setMountPoint(boolean mountPoint) {
         _columnBitmask |= MOUNTPOINT_COLUMN_BITMASK;
 
         if (!_setOriginalMountPoint) {
             _setOriginalMountPoint = true;
 
             _originalMountPoint = _mountPoint;
-        }
-
-        if (mountPoint == null) {
-            mountPoint = Boolean.FALSE;
         }
 
         _mountPoint = mountPoint;
@@ -777,17 +773,13 @@ public class DLFolderModelImpl extends BaseModelImpl<DLFolder>
     }
 
     @Override
-    public void setHidden(Boolean hidden) {
+    public void setHidden(boolean hidden) {
         _columnBitmask |= HIDDEN_COLUMN_BITMASK;
 
         if (!_setOriginalHidden) {
             _setOriginalHidden = true;
 
             _originalHidden = _hidden;
-        }
-
-        if (hidden == null) {
-            hidden = Boolean.FALSE;
         }
 
         _hidden = hidden;
@@ -809,11 +801,7 @@ public class DLFolderModelImpl extends BaseModelImpl<DLFolder>
     }
 
     @Override
-    public void setOverrideFileEntryTypes(Boolean overrideFileEntryTypes) {
-        if (overrideFileEntryTypes == null) {
-            overrideFileEntryTypes = Boolean.FALSE;
-        }
-
+    public void setOverrideFileEntryTypes(boolean overrideFileEntryTypes) {
         _overrideFileEntryTypes = overrideFileEntryTypes;
     }
 

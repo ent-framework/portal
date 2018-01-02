@@ -284,7 +284,7 @@ public class DLFileRankWrapper implements DLFileRank, ModelWrapper<DLFileRank> {
     * @param active the active of this document library file rank
     */
     @Override
-    public void setActive(java.lang.Boolean active) {
+    public void setActive(boolean active) {
         _dlFileRank.setActive(active);
     }
 

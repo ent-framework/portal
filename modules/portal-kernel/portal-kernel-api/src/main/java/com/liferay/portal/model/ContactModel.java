@@ -341,7 +341,7 @@ public interface ContactModel extends AttachedModel, AuditedModel,
      *
      * @param male the male of this contact
      */
-    public void setMale(Boolean male);
+    public void setMale(boolean male);
 
     /**
      * Returns the birthday of this contact.

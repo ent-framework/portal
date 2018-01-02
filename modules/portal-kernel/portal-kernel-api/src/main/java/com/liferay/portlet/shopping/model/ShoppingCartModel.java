@@ -241,7 +241,7 @@ public interface ShoppingCartModel extends BaseModel<ShoppingCart>, GroupedModel
      *
      * @param insure the insure of this shopping cart
      */
-    public void setInsure(Boolean insure);
+    public void setInsure(boolean insure);
 
     @Override
     public boolean isNew();

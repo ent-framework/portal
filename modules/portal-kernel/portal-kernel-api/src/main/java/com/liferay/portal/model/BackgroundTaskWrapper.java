@@ -443,7 +443,7 @@ public class BackgroundTaskWrapper implements BackgroundTask,
     * @param completed the completed of this background task
     */
     @Override
-    public void setCompleted(java.lang.Boolean completed) {
+    public void setCompleted(boolean completed) {
         _backgroundTask.setCompleted(completed);
     }
 

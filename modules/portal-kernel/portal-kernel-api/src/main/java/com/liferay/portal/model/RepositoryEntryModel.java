@@ -244,7 +244,7 @@ public interface RepositoryEntryModel extends BaseModel<RepositoryEntry>,
      *
      * @param manualCheckInRequired the manual check in required of this repository entry
      */
-    public void setManualCheckInRequired(Boolean manualCheckInRequired);
+    public void setManualCheckInRequired(boolean manualCheckInRequired);
 
     @Override
     public boolean isNew();

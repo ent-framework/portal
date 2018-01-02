@@ -893,11 +893,7 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
     }
 
     @Override
-    public void setRequiresShipping(Boolean requiresShipping) {
-        if (requiresShipping == null) {
-            requiresShipping = Boolean.FALSE;
-        }
-
+    public void setRequiresShipping(boolean requiresShipping) {
         _requiresShipping = requiresShipping;
     }
 
@@ -913,11 +909,7 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
     }
 
     @Override
-    public void setInsure(Boolean insure) {
-        if (insure == null) {
-            insure = Boolean.FALSE;
-        }
-
+    public void setInsure(boolean insure) {
         _insure = insure;
     }
 
@@ -1120,11 +1112,7 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
     }
 
     @Override
-    public void setShipToBilling(Boolean shipToBilling) {
-        if (shipToBilling == null) {
-            shipToBilling = Boolean.FALSE;
-        }
-
+    public void setShipToBilling(boolean shipToBilling) {
         _shipToBilling = shipToBilling;
     }
 
@@ -1486,11 +1474,7 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
     }
 
     @Override
-    public void setSendOrderEmail(Boolean sendOrderEmail) {
-        if (sendOrderEmail == null) {
-            sendOrderEmail = Boolean.FALSE;
-        }
-
+    public void setSendOrderEmail(boolean sendOrderEmail) {
         _sendOrderEmail = sendOrderEmail;
     }
 
@@ -1506,11 +1490,7 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
     }
 
     @Override
-    public void setSendShippingEmail(Boolean sendShippingEmail) {
-        if (sendShippingEmail == null) {
-            sendShippingEmail = Boolean.FALSE;
-        }
-
+    public void setSendShippingEmail(boolean sendShippingEmail) {
         _sendShippingEmail = sendShippingEmail;
     }
 

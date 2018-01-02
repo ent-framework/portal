@@ -286,7 +286,7 @@ public interface PhoneModel extends AttachedModel, BaseModel<Phone>,
      *
      * @param primary the primary of this phone
      */
-    public void setPrimary(Boolean primary);
+    public void setPrimary(boolean primary);
 
     @Override
     public boolean isNew();

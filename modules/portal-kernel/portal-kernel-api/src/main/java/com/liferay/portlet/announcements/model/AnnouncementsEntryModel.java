@@ -344,7 +344,7 @@ public interface AnnouncementsEntryModel extends AttachedModel,
      *
      * @param alert the alert of this announcements entry
      */
-    public void setAlert(Boolean alert);
+    public void setAlert(boolean alert);
 
     @Override
     public boolean isNew();

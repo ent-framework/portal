@@ -450,7 +450,7 @@ public class OrganizationWrapper implements Organization,
     * @param recursable the recursable of this organization
     */
     @Override
-    public void setRecursable(java.lang.Boolean recursable) {
+    public void setRecursable(boolean recursable) {
         _organization.setRecursable(recursable);
     }
 

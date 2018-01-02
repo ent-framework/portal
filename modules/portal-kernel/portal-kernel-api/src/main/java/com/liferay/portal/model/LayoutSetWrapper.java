@@ -315,7 +315,7 @@ public class LayoutSetWrapper implements LayoutSet, ModelWrapper<LayoutSet> {
     * @param privateLayout the private layout of this layout set
     */
     @Override
-    public void setPrivateLayout(java.lang.Boolean privateLayout) {
+    public void setPrivateLayout(boolean privateLayout) {
         _layoutSet.setPrivateLayout(privateLayout);
     }
 
@@ -345,7 +345,7 @@ public class LayoutSetWrapper implements LayoutSet, ModelWrapper<LayoutSet> {
     * @param logo the logo of this layout set
     */
     @Override
-    public void setLogo(java.lang.Boolean logo) {
+    public void setLogo(boolean logo) {
         _layoutSet.setLogo(logo);
     }
 
@@ -557,7 +557,7 @@ public class LayoutSetWrapper implements LayoutSet, ModelWrapper<LayoutSet> {
     */
     @Override
     public void setLayoutSetPrototypeLinkEnabled(
-        java.lang.Boolean layoutSetPrototypeLinkEnabled) {
+        boolean layoutSetPrototypeLinkEnabled) {
         _layoutSet.setLayoutSetPrototypeLinkEnabled(layoutSetPrototypeLinkEnabled);
     }
 

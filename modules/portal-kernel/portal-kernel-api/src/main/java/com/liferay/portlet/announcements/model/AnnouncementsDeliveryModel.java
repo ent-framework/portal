@@ -138,7 +138,7 @@ public interface AnnouncementsDeliveryModel extends BaseModel<AnnouncementsDeliv
      *
      * @param email the email of this announcements delivery
      */
-    public void setEmail(Boolean email);
+    public void setEmail(boolean email);
 
     /**
      * Returns the sms of this announcements delivery.
@@ -159,7 +159,7 @@ public interface AnnouncementsDeliveryModel extends BaseModel<AnnouncementsDeliv
      *
      * @param sms the sms of this announcements delivery
      */
-    public void setSms(Boolean sms);
+    public void setSms(boolean sms);
 
     /**
      * Returns the website of this announcements delivery.
@@ -180,7 +180,7 @@ public interface AnnouncementsDeliveryModel extends BaseModel<AnnouncementsDeliv
      *
      * @param website the website of this announcements delivery
      */
-    public void setWebsite(Boolean website);
+    public void setWebsite(boolean website);
 
     @Override
     public boolean isNew();

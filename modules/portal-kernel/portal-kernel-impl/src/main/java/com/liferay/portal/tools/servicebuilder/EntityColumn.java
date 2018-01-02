@@ -347,8 +347,6 @@ public class EntityColumn implements Cloneable, Comparable<EntityColumn> {
 				return "Long";
 			} else if (_type.equals("float")) {
 				return "Float";
-			} else if (_type.equals("boolean")) {
-				return "Boolean";
 			} else  {
 				return _type;
 			}
@@ -374,8 +372,6 @@ public class EntityColumn implements Cloneable, Comparable<EntityColumn> {
 				sb.append("new Long(0);");
 			} else if (_type.equals("float")) {
 				sb.append("new Float(0);");
-			} else if (_type.equals("boolean")) {
-				sb.append("Boolean.FALSE;");
 			} else {
 				return "";
 			}

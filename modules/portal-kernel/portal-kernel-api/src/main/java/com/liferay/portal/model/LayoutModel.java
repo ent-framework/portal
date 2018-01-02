@@ -794,7 +794,7 @@ public interface LayoutModel extends BaseModel<Layout>, StagedGroupedModel {
      *
      * @param hidden the hidden of this layout
      */
-    public void setHidden(Boolean hidden);
+    public void setHidden(boolean hidden);
 
     /**
      * Returns the friendly u r l of this layout.
@@ -830,7 +830,7 @@ public interface LayoutModel extends BaseModel<Layout>, StagedGroupedModel {
      *
      * @param iconImage the icon image of this layout
      */
-    public void setIconImage(Boolean iconImage);
+    public void setIconImage(boolean iconImage);
 
     /**
      * Returns the icon image ID of this layout.
@@ -970,7 +970,7 @@ public interface LayoutModel extends BaseModel<Layout>, StagedGroupedModel {
      * @param layoutPrototypeLinkEnabled the layout prototype link enabled of this layout
      */
     public void setLayoutPrototypeLinkEnabled(
-        Boolean layoutPrototypeLinkEnabled);
+        boolean layoutPrototypeLinkEnabled);
 
     /**
      * Returns the source prototype layout uuid of this layout.

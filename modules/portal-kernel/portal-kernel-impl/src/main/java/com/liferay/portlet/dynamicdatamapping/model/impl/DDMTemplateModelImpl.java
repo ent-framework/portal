@@ -958,11 +958,7 @@ public class DDMTemplateModelImpl extends BaseModelImpl<DDMTemplate>
     }
 
     @Override
-    public void setCacheable(Boolean cacheable) {
-        if (cacheable == null) {
-            cacheable = Boolean.FALSE;
-        }
-
+    public void setCacheable(boolean cacheable) {
         _cacheable = cacheable;
     }
 
@@ -978,11 +974,7 @@ public class DDMTemplateModelImpl extends BaseModelImpl<DDMTemplate>
     }
 
     @Override
-    public void setSmallImage(Boolean smallImage) {
-        if (smallImage == null) {
-            smallImage = Boolean.FALSE;
-        }
-
+    public void setSmallImage(boolean smallImage) {
         _smallImage = smallImage;
     }
 

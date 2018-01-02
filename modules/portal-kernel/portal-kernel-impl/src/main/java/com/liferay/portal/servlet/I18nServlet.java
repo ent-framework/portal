@@ -51,10 +51,17 @@ import org.apache.struts.Globals;
  */
 public class I18nServlet extends HttpServlet {
 
+	public I18nServlet() {
+		_languageIds = new HashSet<String>();
+		_languageIds.add("en_US");
+		_languageIds.add("zh_CN");
+	}
+
 	public static Set<String> getLanguageIds() {
 		return _languageIds;
 	}
 
+	@Deprecated
 	public static void setLanguageIds(Element root) {
 		_languageIds = new HashSet<String>();
 

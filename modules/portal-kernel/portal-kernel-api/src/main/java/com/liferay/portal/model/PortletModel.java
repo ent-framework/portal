@@ -123,7 +123,7 @@ public interface PortletModel extends BaseModel<Portlet> {
      *
      * @param active the active of this portlet
      */
-    public void setActive(Boolean active);
+    public void setActive(boolean active);
 
     @Override
     public boolean isNew();

@@ -340,11 +340,7 @@ public class AnnouncementsDeliveryModelImpl extends BaseModelImpl<AnnouncementsD
     }
 
     @Override
-    public void setEmail(Boolean email) {
-        if (email == null) {
-            email = Boolean.FALSE;
-        }
-
+    public void setEmail(boolean email) {
         _email = email;
     }
 
@@ -360,11 +356,7 @@ public class AnnouncementsDeliveryModelImpl extends BaseModelImpl<AnnouncementsD
     }
 
     @Override
-    public void setSms(Boolean sms) {
-        if (sms == null) {
-            sms = Boolean.FALSE;
-        }
-
+    public void setSms(boolean sms) {
         _sms = sms;
     }
 
@@ -380,11 +372,7 @@ public class AnnouncementsDeliveryModelImpl extends BaseModelImpl<AnnouncementsD
     }
 
     @Override
-    public void setWebsite(Boolean website) {
-        if (website == null) {
-            website = Boolean.FALSE;
-        }
-
+    public void setWebsite(boolean website) {
         _website = website;
     }
 

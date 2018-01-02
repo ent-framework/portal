@@ -138,7 +138,7 @@ public interface PluginSettingModel extends BaseModel<PluginSetting> {
      *
      * @param active the active of this plugin setting
      */
-    public void setActive(Boolean active);
+    public void setActive(boolean active);
 
     @Override
     public boolean isNew();

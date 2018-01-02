@@ -678,17 +678,13 @@ public class AnnouncementsEntryModelImpl extends BaseModelImpl<AnnouncementsEntr
     }
 
     @Override
-    public void setAlert(Boolean alert) {
+    public void setAlert(boolean alert) {
         _columnBitmask |= ALERT_COLUMN_BITMASK;
 
         if (!_setOriginalAlert) {
             _setOriginalAlert = true;
 
             _originalAlert = _alert;
-        }
-
-        if (alert == null) {
-            alert = Boolean.FALSE;
         }
 
         _alert = alert;

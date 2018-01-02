@@ -242,7 +242,7 @@ public interface UserGroupModel extends BaseModel<UserGroup>, StagedAuditedModel
      *
      * @param addedByLDAPImport the added by l d a p import of this user group
      */
-    public void setAddedByLDAPImport(Boolean addedByLDAPImport);
+    public void setAddedByLDAPImport(boolean addedByLDAPImport);
 
     @Override
     public boolean isNew();

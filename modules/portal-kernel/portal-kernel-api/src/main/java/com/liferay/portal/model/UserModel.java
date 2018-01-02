@@ -163,7 +163,7 @@ public interface UserModel extends BaseModel<User>, StagedModel {
      *
      * @param defaultUser the default user of this user
      */
-    public void setDefaultUser(Boolean defaultUser);
+    public void setDefaultUser(boolean defaultUser);
 
     /**
      * Returns the contact ID of this user.
@@ -213,7 +213,7 @@ public interface UserModel extends BaseModel<User>, StagedModel {
      *
      * @param passwordEncrypted the password encrypted of this user
      */
-    public void setPasswordEncrypted(Boolean passwordEncrypted);
+    public void setPasswordEncrypted(boolean passwordEncrypted);
 
     /**
      * Returns the password reset of this user.
@@ -234,7 +234,7 @@ public interface UserModel extends BaseModel<User>, StagedModel {
      *
      * @param passwordReset the password reset of this user
      */
-    public void setPasswordReset(Boolean passwordReset);
+    public void setPasswordReset(boolean passwordReset);
 
     /**
      * Returns the password modified date of this user.
@@ -621,7 +621,7 @@ public interface UserModel extends BaseModel<User>, StagedModel {
      *
      * @param lockout the lockout of this user
      */
-    public void setLockout(Boolean lockout);
+    public void setLockout(boolean lockout);
 
     /**
      * Returns the lockout date of this user.
@@ -656,7 +656,7 @@ public interface UserModel extends BaseModel<User>, StagedModel {
      *
      * @param agreedToTermsOfUse the agreed to terms of use of this user
      */
-    public void setAgreedToTermsOfUse(Boolean agreedToTermsOfUse);
+    public void setAgreedToTermsOfUse(boolean agreedToTermsOfUse);
 
     /**
      * Returns the email address verified of this user.
@@ -677,7 +677,7 @@ public interface UserModel extends BaseModel<User>, StagedModel {
      *
      * @param emailAddressVerified the email address verified of this user
      */
-    public void setEmailAddressVerified(Boolean emailAddressVerified);
+    public void setEmailAddressVerified(boolean emailAddressVerified);
 
     /**
      * Returns the status of this user.

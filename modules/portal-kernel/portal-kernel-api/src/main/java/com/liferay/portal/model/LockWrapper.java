@@ -372,7 +372,7 @@ public class LockWrapper implements Lock, ModelWrapper<Lock> {
     * @param inheritable the inheritable of this lock
     */
     @Override
-    public void setInheritable(java.lang.Boolean inheritable) {
+    public void setInheritable(boolean inheritable) {
         _lock.setInheritable(inheritable);
     }
 

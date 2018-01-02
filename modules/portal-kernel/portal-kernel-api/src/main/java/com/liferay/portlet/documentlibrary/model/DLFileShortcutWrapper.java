@@ -476,7 +476,7 @@ public class DLFileShortcutWrapper implements DLFileShortcut,
     * @param active the active of this document library file shortcut
     */
     @Override
-    public void setActive(java.lang.Boolean active) {
+    public void setActive(boolean active) {
         _dlFileShortcut.setActive(active);
     }
 

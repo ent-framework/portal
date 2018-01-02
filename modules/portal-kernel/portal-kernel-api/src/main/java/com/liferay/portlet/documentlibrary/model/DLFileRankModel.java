@@ -166,7 +166,7 @@ public interface DLFileRankModel extends BaseModel<DLFileRank> {
      *
      * @param active the active of this document library file rank
      */
-    public void setActive(Boolean active);
+    public void setActive(boolean active);
 
     @Override
     public boolean isNew();

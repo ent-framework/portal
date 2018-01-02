@@ -287,7 +287,7 @@ public class SocialActivityAchievementWrapper
     * @param firstInGroup the first in group of this social activity achievement
     */
     @Override
-    public void setFirstInGroup(java.lang.Boolean firstInGroup) {
+    public void setFirstInGroup(boolean firstInGroup) {
         _socialActivityAchievement.setFirstInGroup(firstInGroup);
     }
 

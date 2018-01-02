@@ -284,7 +284,7 @@ public class ShoppingItemPriceWrapper implements ShoppingItemPrice,
     * @param taxable the taxable of this shopping item price
     */
     @Override
-    public void setTaxable(java.lang.Boolean taxable) {
+    public void setTaxable(boolean taxable) {
         _shoppingItemPrice.setTaxable(taxable);
     }
 
@@ -334,7 +334,7 @@ public class ShoppingItemPriceWrapper implements ShoppingItemPrice,
     * @param useShippingFormula the use shipping formula of this shopping item price
     */
     @Override
-    public void setUseShippingFormula(java.lang.Boolean useShippingFormula) {
+    public void setUseShippingFormula(boolean useShippingFormula) {
         _shoppingItemPrice.setUseShippingFormula(useShippingFormula);
     }
 

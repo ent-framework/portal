@@ -508,7 +508,7 @@ public interface DLFileEntryModel extends AttachedModel, BaseModel<DLFileEntry>,
      *
      * @param manualCheckInRequired the manual check in required of this document library file entry
      */
-    public void setManualCheckInRequired(Boolean manualCheckInRequired);
+    public void setManualCheckInRequired(boolean manualCheckInRequired);
 
     /**
      * Returns the status of this document library file entry.

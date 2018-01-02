@@ -504,11 +504,7 @@ public class SCProductVersionModelImpl extends BaseModelImpl<SCProductVersion>
     }
 
     @Override
-    public void setRepoStoreArtifact(Boolean repoStoreArtifact) {
-        if (repoStoreArtifact == null) {
-            repoStoreArtifact = Boolean.FALSE;
-        }
-
+    public void setRepoStoreArtifact(boolean repoStoreArtifact) {
         _repoStoreArtifact = repoStoreArtifact;
     }
 

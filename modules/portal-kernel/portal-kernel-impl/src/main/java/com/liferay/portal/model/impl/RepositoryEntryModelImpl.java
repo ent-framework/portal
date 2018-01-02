@@ -439,11 +439,7 @@ public class RepositoryEntryModelImpl extends BaseModelImpl<RepositoryEntry>
     }
 
     @Override
-    public void setManualCheckInRequired(Boolean manualCheckInRequired) {
-        if (manualCheckInRequired == null) {
-            manualCheckInRequired = Boolean.FALSE;
-        }
-
+    public void setManualCheckInRequired(boolean manualCheckInRequired) {
         _manualCheckInRequired = manualCheckInRequired;
     }
 

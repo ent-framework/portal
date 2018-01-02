@@ -256,7 +256,7 @@ public interface ShoppingOrderModel extends BaseModel<ShoppingOrder>,
      *
      * @param requiresShipping the requires shipping of this shopping order
      */
-    public void setRequiresShipping(Boolean requiresShipping);
+    public void setRequiresShipping(boolean requiresShipping);
 
     /**
      * Returns the insure of this shopping order.
@@ -277,7 +277,7 @@ public interface ShoppingOrderModel extends BaseModel<ShoppingOrder>,
      *
      * @param insure the insure of this shopping order
      */
-    public void setInsure(Boolean insure);
+    public void setInsure(boolean insure);
 
     /**
      * Returns the insurance of this shopping order.
@@ -491,7 +491,7 @@ public interface ShoppingOrderModel extends BaseModel<ShoppingOrder>,
      *
      * @param shipToBilling the ship to billing of this shopping order
      */
-    public void setShipToBilling(Boolean shipToBilling);
+    public void setShipToBilling(boolean shipToBilling);
 
     /**
      * Returns the shipping first name of this shopping order.
@@ -839,7 +839,7 @@ public interface ShoppingOrderModel extends BaseModel<ShoppingOrder>,
      *
      * @param sendOrderEmail the send order email of this shopping order
      */
-    public void setSendOrderEmail(Boolean sendOrderEmail);
+    public void setSendOrderEmail(boolean sendOrderEmail);
 
     /**
      * Returns the send shipping email of this shopping order.
@@ -860,7 +860,7 @@ public interface ShoppingOrderModel extends BaseModel<ShoppingOrder>,
      *
      * @param sendShippingEmail the send shipping email of this shopping order
      */
-    public void setSendShippingEmail(Boolean sendShippingEmail);
+    public void setSendShippingEmail(boolean sendShippingEmail);
 
     @Override
     public boolean isNew();

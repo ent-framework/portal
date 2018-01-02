@@ -534,7 +534,7 @@ public class LayoutRevisionWrapper implements LayoutRevision,
     * @param head the head of this layout revision
     */
     @Override
-    public void setHead(java.lang.Boolean head) {
+    public void setHead(boolean head) {
         _layoutRevision.setHead(head);
     }
 
@@ -564,7 +564,7 @@ public class LayoutRevisionWrapper implements LayoutRevision,
     * @param major the major of this layout revision
     */
     @Override
-    public void setMajor(java.lang.Boolean major) {
+    public void setMajor(boolean major) {
         _layoutRevision.setMajor(major);
     }
 
@@ -614,7 +614,7 @@ public class LayoutRevisionWrapper implements LayoutRevision,
     * @param privateLayout the private layout of this layout revision
     */
     @Override
-    public void setPrivateLayout(java.lang.Boolean privateLayout) {
+    public void setPrivateLayout(boolean privateLayout) {
         _layoutRevision.setPrivateLayout(privateLayout);
     }
 
@@ -1368,7 +1368,7 @@ public class LayoutRevisionWrapper implements LayoutRevision,
     * @param iconImage the icon image of this layout revision
     */
     @Override
-    public void setIconImage(java.lang.Boolean iconImage) {
+    public void setIconImage(boolean iconImage) {
         _layoutRevision.setIconImage(iconImage);
     }
 

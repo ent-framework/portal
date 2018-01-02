@@ -207,7 +207,7 @@ public class RegionWrapper implements Region, ModelWrapper<Region> {
     * @param active the active of this region
     */
     @Override
-    public void setActive(java.lang.Boolean active) {
+    public void setActive(boolean active) {
         _region.setActive(active);
     }
 

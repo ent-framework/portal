@@ -154,7 +154,7 @@ public interface CountryModel extends BaseModel<Country> {
      *
      * @param zipRequired the zip required of this country
      */
-    public void setZipRequired(Boolean zipRequired);
+    public void setZipRequired(boolean zipRequired);
 
     /**
      * Returns the active of this country.
@@ -175,7 +175,7 @@ public interface CountryModel extends BaseModel<Country> {
      *
      * @param active the active of this country
      */
-    public void setActive(Boolean active);
+    public void setActive(boolean active);
 
     @Override
     public boolean isNew();

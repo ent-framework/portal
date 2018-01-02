@@ -359,7 +359,7 @@ public interface AddressModel extends AttachedModel, BaseModel<Address>,
      *
      * @param mailing the mailing of this address
      */
-    public void setMailing(Boolean mailing);
+    public void setMailing(boolean mailing);
 
     /**
      * Returns the primary of this address.
@@ -380,7 +380,7 @@ public interface AddressModel extends AttachedModel, BaseModel<Address>,
      *
      * @param primary the primary of this address
      */
-    public void setPrimary(Boolean primary);
+    public void setPrimary(boolean primary);
 
     @Override
     public boolean isNew();

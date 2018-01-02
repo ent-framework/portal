@@ -342,11 +342,7 @@ public class PluginSettingModelImpl extends BaseModelImpl<PluginSetting>
     }
 
     @Override
-    public void setActive(Boolean active) {
-        if (active == null) {
-            active = Boolean.FALSE;
-        }
-
+    public void setActive(boolean active) {
         _active = active;
     }
 

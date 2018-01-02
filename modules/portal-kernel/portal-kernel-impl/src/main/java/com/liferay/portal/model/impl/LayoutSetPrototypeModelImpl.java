@@ -555,17 +555,13 @@ public class LayoutSetPrototypeModelImpl extends BaseModelImpl<LayoutSetPrototyp
     }
 
     @Override
-    public void setActive(Boolean active) {
+    public void setActive(boolean active) {
         _columnBitmask |= ACTIVE_COLUMN_BITMASK;
 
         if (!_setOriginalActive) {
             _setOriginalActive = true;
 
             _originalActive = _active;
-        }
-
-        if (active == null) {
-            active = Boolean.FALSE;
         }
 
         _active = active;

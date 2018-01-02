@@ -579,17 +579,13 @@ public class PhoneModelImpl extends BaseModelImpl<Phone> implements PhoneModel {
     }
 
     @Override
-    public void setPrimary(Boolean primary) {
+    public void setPrimary(boolean primary) {
         _columnBitmask |= PRIMARY_COLUMN_BITMASK;
 
         if (!_setOriginalPrimary) {
             _setOriginalPrimary = true;
 
             _originalPrimary = _primary;
-        }
-
-        if (primary == null) {
-            primary = Boolean.FALSE;
         }
 
         _primary = primary;

@@ -400,11 +400,7 @@ public class ShoppingCartModelImpl extends BaseModelImpl<ShoppingCart>
     }
 
     @Override
-    public void setInsure(Boolean insure) {
-        if (insure == null) {
-            insure = Boolean.FALSE;
-        }
-
+    public void setInsure(boolean insure) {
         _insure = insure;
     }
 

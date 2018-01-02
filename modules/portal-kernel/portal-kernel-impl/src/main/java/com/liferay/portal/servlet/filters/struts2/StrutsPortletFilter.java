@@ -782,26 +782,34 @@ public class StrutsPortletFilter extends StrutsPrepareAndExecuteFilter {
     protected List<Portlet> initPortlets(PluginPackage pluginPackage, ServletContext servletContext)
             throws Exception {
 
-        String[] xmls = new String[] {
+/*        String[] xmls = new String[] {
                 HttpUtil.URLtoString(
                         servletContext.getResource(
-                                "/WEB-INF/" + Portal.PORTLET_XML_FILE_NAME_CUSTOM)),
+                                "portal-config/" + Portal.PORTLET_XML_FILE_NAME_CUSTOM)),
                 HttpUtil.URLtoString(
-                        servletContext.getResource("/WEB-INF/portlet-ext.xml")),
+                        servletContext.getResource("portal-config/portlet-ext.xml")),
                 HttpUtil.URLtoString(
-                        servletContext.getResource("/WEB-INF/liferay-portlet.xml")),
+                        servletContext.getResource("portal-config/liferay-portlet.xml")),
                 HttpUtil.URLtoString(
-                        servletContext.getResource("/WEB-INF/liferay-portlet-ext.xml")),
+                        servletContext.getResource("portal-config/liferay-portlet-ext.xml"))
                 HttpUtil.URLtoString(
                         servletContext.getResource("/WEB-INF/web.xml"))
+        };*/
+
+        String[] xmls = new String[]{
+                "portal-config/" + Portal.PORTLET_XML_FILE_NAME_CUSTOM,
+                "portal-config/portlet-ext.xml",
+                "portal-config/liferay-portlet.xml",
+                "portal-config/liferay-portlet-ext.xml"
+//                HttpUtil.URLtoString(
+//                        servletContext.getResource("/WEB-INF/web.xml"))
         };
 
         PortletLocalServiceUtil.initEAR(servletContext, xmls, pluginPackage);
 
         PortletBagFactory portletBagFactory = new PortletBagFactory();
 
-        portletBagFactory.setClassLoader(
-                ClassLoaderUtil.getPortalClassLoader());
+        portletBagFactory.setClassLoader(ClassLoaderUtil.getPortalClassLoader());
         portletBagFactory.setServletContext(servletContext);
         portletBagFactory.setWARFile(false);
 
@@ -869,11 +877,9 @@ public class StrutsPortletFilter extends StrutsPrepareAndExecuteFilter {
 
         String[] xmls = new String[] {
                 HttpUtil.URLtoString(
-                        servletContext.getResource(
-                                "/WEB-INF/liferay-look-and-feel.xml")),
+                        PortalClassLoaderUtil.getClassLoader().getResource("portal-config/liferay-look-and-feel.xml")),
                 HttpUtil.URLtoString(
-                        servletContext.getResource(
-                                "/WEB-INF/liferay-look-and-feel-ext.xml"))
+                        PortalClassLoaderUtil.getClassLoader().getResource("portal-config/liferay-look-and-feel-ext.xml"))
         };
 
         List<Theme> themes = ThemeLocalServiceUtil.init(

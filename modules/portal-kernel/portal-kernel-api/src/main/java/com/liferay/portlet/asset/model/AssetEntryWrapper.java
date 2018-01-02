@@ -532,7 +532,7 @@ public class AssetEntryWrapper implements AssetEntry, ModelWrapper<AssetEntry> {
     * @param visible the visible of this asset entry
     */
     @Override
-    public void setVisible(java.lang.Boolean visible) {
+    public void setVisible(boolean visible) {
         _assetEntry.setVisible(visible);
     }
 

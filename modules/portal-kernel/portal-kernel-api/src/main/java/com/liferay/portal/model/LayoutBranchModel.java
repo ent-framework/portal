@@ -210,7 +210,7 @@ public interface LayoutBranchModel extends BaseModel<LayoutBranch> {
      *
      * @param master the master of this layout branch
      */
-    public void setMaster(Boolean master);
+    public void setMaster(boolean master);
 
     @Override
     public boolean isNew();

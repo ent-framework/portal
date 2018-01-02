@@ -376,11 +376,7 @@ public class CountryModelImpl extends BaseModelImpl<Country>
     }
 
     @Override
-    public void setZipRequired(Boolean zipRequired) {
-        if (zipRequired == null) {
-            zipRequired = Boolean.FALSE;
-        }
-
+    public void setZipRequired(boolean zipRequired) {
         _zipRequired = zipRequired;
     }
 
@@ -396,17 +392,13 @@ public class CountryModelImpl extends BaseModelImpl<Country>
     }
 
     @Override
-    public void setActive(Boolean active) {
+    public void setActive(boolean active) {
         _columnBitmask |= ACTIVE_COLUMN_BITMASK;
 
         if (!_setOriginalActive) {
             _setOriginalActive = true;
 
             _originalActive = _active;
-        }
-
-        if (active == null) {
-            active = Boolean.FALSE;
         }
 
         _active = active;

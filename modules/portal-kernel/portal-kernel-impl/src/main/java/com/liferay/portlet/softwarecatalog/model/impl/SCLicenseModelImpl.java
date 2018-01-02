@@ -293,11 +293,7 @@ public class SCLicenseModelImpl extends BaseModelImpl<SCLicense>
     }
 
     @Override
-    public void setOpenSource(Boolean openSource) {
-        if (openSource == null) {
-            openSource = Boolean.FALSE;
-        }
-
+    public void setOpenSource(boolean openSource) {
         _openSource = openSource;
     }
 
@@ -313,17 +309,13 @@ public class SCLicenseModelImpl extends BaseModelImpl<SCLicense>
     }
 
     @Override
-    public void setActive(Boolean active) {
+    public void setActive(boolean active) {
         _columnBitmask |= ACTIVE_COLUMN_BITMASK;
 
         if (!_setOriginalActive) {
             _setOriginalActive = true;
 
             _originalActive = _active;
-        }
-
-        if (active == null) {
-            active = Boolean.FALSE;
         }
 
         _active = active;
@@ -345,17 +337,13 @@ public class SCLicenseModelImpl extends BaseModelImpl<SCLicense>
     }
 
     @Override
-    public void setRecommended(Boolean recommended) {
+    public void setRecommended(boolean recommended) {
         _columnBitmask |= RECOMMENDED_COLUMN_BITMASK;
 
         if (!_setOriginalRecommended) {
             _setOriginalRecommended = true;
 
             _originalRecommended = _recommended;
-        }
-
-        if (recommended == null) {
-            recommended = Boolean.FALSE;
         }
 
         _recommended = recommended;

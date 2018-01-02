@@ -731,17 +731,13 @@ public class AssetEntryModelImpl extends BaseModelImpl<AssetEntry>
     }
 
     @Override
-    public void setVisible(Boolean visible) {
+    public void setVisible(boolean visible) {
         _columnBitmask |= VISIBLE_COLUMN_BITMASK;
 
         if (!_setOriginalVisible) {
             _setOriginalVisible = true;
 
             _originalVisible = _visible;
-        }
-
-        if (visible == null) {
-            visible = Boolean.FALSE;
         }
 
         _visible = visible;

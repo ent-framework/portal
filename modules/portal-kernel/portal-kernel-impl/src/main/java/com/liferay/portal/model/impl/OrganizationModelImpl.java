@@ -595,11 +595,7 @@ public class OrganizationModelImpl extends BaseModelImpl<Organization>
     }
 
     @Override
-    public void setRecursable(Boolean recursable) {
-        if (recursable == null) {
-            recursable = Boolean.FALSE;
-        }
-
+    public void setRecursable(boolean recursable) {
         _recursable = recursable;
     }
 

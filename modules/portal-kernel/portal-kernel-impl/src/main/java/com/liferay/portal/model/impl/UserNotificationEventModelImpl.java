@@ -375,17 +375,13 @@ public class UserNotificationEventModelImpl extends BaseModelImpl<UserNotificati
     }
 
     @Override
-    public void setDelivered(Boolean delivered) {
+    public void setDelivered(boolean delivered) {
         _columnBitmask |= DELIVERED_COLUMN_BITMASK;
 
         if (!_setOriginalDelivered) {
             _setOriginalDelivered = true;
 
             _originalDelivered = _delivered;
-        }
-
-        if (delivered == null) {
-            delivered = Boolean.FALSE;
         }
 
         _delivered = delivered;
@@ -420,17 +416,13 @@ public class UserNotificationEventModelImpl extends BaseModelImpl<UserNotificati
     }
 
     @Override
-    public void setArchived(Boolean archived) {
+    public void setArchived(boolean archived) {
         _columnBitmask |= ARCHIVED_COLUMN_BITMASK;
 
         if (!_setOriginalArchived) {
             _setOriginalArchived = true;
 
             _originalArchived = _archived;
-        }
-
-        if (archived == null) {
-            archived = Boolean.FALSE;
         }
 
         _archived = archived;

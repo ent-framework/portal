@@ -315,7 +315,7 @@ public interface CalEventModel extends BaseModel<CalEvent>, StagedGroupedModel {
      *
      * @param allDay the all day of this cal event
      */
-    public void setAllDay(Boolean allDay);
+    public void setAllDay(boolean allDay);
 
     /**
      * Returns the time zone sensitive of this cal event.
@@ -336,7 +336,7 @@ public interface CalEventModel extends BaseModel<CalEvent>, StagedGroupedModel {
      *
      * @param timeZoneSensitive the time zone sensitive of this cal event
      */
-    public void setTimeZoneSensitive(Boolean timeZoneSensitive);
+    public void setTimeZoneSensitive(boolean timeZoneSensitive);
 
     /**
      * Returns the type of this cal event.
@@ -372,7 +372,7 @@ public interface CalEventModel extends BaseModel<CalEvent>, StagedGroupedModel {
      *
      * @param repeating the repeating of this cal event
      */
-    public void setRepeating(Boolean repeating);
+    public void setRepeating(boolean repeating);
 
     /**
      * Returns the recurrence of this cal event.

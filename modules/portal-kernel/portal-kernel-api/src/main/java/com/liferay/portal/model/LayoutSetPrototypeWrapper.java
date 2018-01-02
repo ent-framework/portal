@@ -515,7 +515,7 @@ public class LayoutSetPrototypeWrapper implements LayoutSetPrototype,
     * @param active the active of this layout set prototype
     */
     @Override
-    public void setActive(java.lang.Boolean active) {
+    public void setActive(boolean active) {
         _layoutSetPrototype.setActive(active);
     }
 

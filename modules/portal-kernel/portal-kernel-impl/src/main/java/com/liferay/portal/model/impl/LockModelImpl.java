@@ -408,11 +408,7 @@ public class LockModelImpl extends BaseModelImpl<Lock> implements LockModel {
     }
 
     @Override
-    public void setInheritable(Boolean inheritable) {
-        if (inheritable == null) {
-            inheritable = Boolean.FALSE;
-        }
-
+    public void setInheritable(boolean inheritable) {
         _inheritable = inheritable;
     }
 

@@ -778,17 +778,13 @@ public class UserModelImpl extends BaseModelImpl<User> implements UserModel {
     }
 
     @Override
-    public void setDefaultUser(Boolean defaultUser) {
+    public void setDefaultUser(boolean defaultUser) {
         _columnBitmask |= DEFAULTUSER_COLUMN_BITMASK;
 
         if (!_setOriginalDefaultUser) {
             _setOriginalDefaultUser = true;
 
             _originalDefaultUser = _defaultUser;
-        }
-
-        if (defaultUser == null) {
-            defaultUser = Boolean.FALSE;
         }
 
         _defaultUser = defaultUser;
@@ -852,11 +848,7 @@ public class UserModelImpl extends BaseModelImpl<User> implements UserModel {
     }
 
     @Override
-    public void setPasswordEncrypted(Boolean passwordEncrypted) {
-        if (passwordEncrypted == null) {
-            passwordEncrypted = Boolean.FALSE;
-        }
-
+    public void setPasswordEncrypted(boolean passwordEncrypted) {
         _passwordEncrypted = passwordEncrypted;
     }
 
@@ -872,11 +864,7 @@ public class UserModelImpl extends BaseModelImpl<User> implements UserModel {
     }
 
     @Override
-    public void setPasswordReset(Boolean passwordReset) {
-        if (passwordReset == null) {
-            passwordReset = Boolean.FALSE;
-        }
-
+    public void setPasswordReset(boolean passwordReset) {
         _passwordReset = passwordReset;
     }
 
@@ -1305,11 +1293,7 @@ public class UserModelImpl extends BaseModelImpl<User> implements UserModel {
     }
 
     @Override
-    public void setLockout(Boolean lockout) {
-        if (lockout == null) {
-            lockout = Boolean.FALSE;
-        }
-
+    public void setLockout(boolean lockout) {
         _lockout = lockout;
     }
 
@@ -1336,11 +1320,7 @@ public class UserModelImpl extends BaseModelImpl<User> implements UserModel {
     }
 
     @Override
-    public void setAgreedToTermsOfUse(Boolean agreedToTermsOfUse) {
-        if (agreedToTermsOfUse == null) {
-            agreedToTermsOfUse = Boolean.FALSE;
-        }
-
+    public void setAgreedToTermsOfUse(boolean agreedToTermsOfUse) {
         _agreedToTermsOfUse = agreedToTermsOfUse;
     }
 
@@ -1356,11 +1336,7 @@ public class UserModelImpl extends BaseModelImpl<User> implements UserModel {
     }
 
     @Override
-    public void setEmailAddressVerified(Boolean emailAddressVerified) {
-        if (emailAddressVerified == null) {
-            emailAddressVerified = Boolean.FALSE;
-        }
-
+    public void setEmailAddressVerified(boolean emailAddressVerified) {
         _emailAddressVerified = emailAddressVerified;
     }
 

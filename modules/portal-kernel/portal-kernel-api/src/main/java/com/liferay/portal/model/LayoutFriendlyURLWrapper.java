@@ -381,7 +381,7 @@ public class LayoutFriendlyURLWrapper implements LayoutFriendlyURL,
     * @param privateLayout the private layout of this layout friendly u r l
     */
     @Override
-    public void setPrivateLayout(java.lang.Boolean privateLayout) {
+    public void setPrivateLayout(boolean privateLayout) {
         _layoutFriendlyURL.setPrivateLayout(privateLayout);
     }
 

@@ -706,17 +706,13 @@ public class LayoutRevisionModelImpl extends BaseModelImpl<LayoutRevision>
     }
 
     @Override
-    public void setHead(Boolean head) {
+    public void setHead(boolean head) {
         _columnBitmask |= HEAD_COLUMN_BITMASK;
 
         if (!_setOriginalHead) {
             _setOriginalHead = true;
 
             _originalHead = _head;
-        }
-
-        if (head == null) {
-            head = Boolean.FALSE;
         }
 
         _head = head;
@@ -738,11 +734,7 @@ public class LayoutRevisionModelImpl extends BaseModelImpl<LayoutRevision>
     }
 
     @Override
-    public void setMajor(Boolean major) {
-        if (major == null) {
-            major = Boolean.FALSE;
-        }
-
+    public void setMajor(boolean major) {
         _major = major;
     }
 
@@ -785,11 +777,7 @@ public class LayoutRevisionModelImpl extends BaseModelImpl<LayoutRevision>
     }
 
     @Override
-    public void setPrivateLayout(Boolean privateLayout) {
-        if (privateLayout == null) {
-            privateLayout = Boolean.FALSE;
-        }
-
+    public void setPrivateLayout(boolean privateLayout) {
         _privateLayout = privateLayout;
     }
 
@@ -1311,11 +1299,7 @@ public class LayoutRevisionModelImpl extends BaseModelImpl<LayoutRevision>
     }
 
     @Override
-    public void setIconImage(Boolean iconImage) {
-        if (iconImage == null) {
-            iconImage = Boolean.FALSE;
-        }
-
+    public void setIconImage(boolean iconImage) {
         _iconImage = iconImage;
     }
 

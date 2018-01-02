@@ -1137,7 +1137,7 @@ public class JournalArticleWrapper implements JournalArticle,
     * @param indexable the indexable of this journal article
     */
     @Override
-    public void setIndexable(java.lang.Boolean indexable) {
+    public void setIndexable(boolean indexable) {
         _journalArticle.setIndexable(indexable);
     }
 
@@ -1167,7 +1167,7 @@ public class JournalArticleWrapper implements JournalArticle,
     * @param smallImage the small image of this journal article
     */
     @Override
-    public void setSmallImage(java.lang.Boolean smallImage) {
+    public void setSmallImage(boolean smallImage) {
         _journalArticle.setSmallImage(smallImage);
     }
 

@@ -696,7 +696,7 @@ public class ShoppingOrderWrapper implements ShoppingOrder,
     * @param requiresShipping the requires shipping of this shopping order
     */
     @Override
-    public void setRequiresShipping(java.lang.Boolean requiresShipping) {
+    public void setRequiresShipping(boolean requiresShipping) {
         _shoppingOrder.setRequiresShipping(requiresShipping);
     }
 
@@ -726,7 +726,7 @@ public class ShoppingOrderWrapper implements ShoppingOrder,
     * @param insure the insure of this shopping order
     */
     @Override
-    public void setInsure(java.lang.Boolean insure) {
+    public void setInsure(boolean insure) {
         _shoppingOrder.setInsure(insure);
     }
 
@@ -1016,7 +1016,7 @@ public class ShoppingOrderWrapper implements ShoppingOrder,
     * @param shipToBilling the ship to billing of this shopping order
     */
     @Override
-    public void setShipToBilling(java.lang.Boolean shipToBilling) {
+    public void setShipToBilling(boolean shipToBilling) {
         _shoppingOrder.setShipToBilling(shipToBilling);
     }
 
@@ -1486,7 +1486,7 @@ public class ShoppingOrderWrapper implements ShoppingOrder,
     * @param sendOrderEmail the send order email of this shopping order
     */
     @Override
-    public void setSendOrderEmail(java.lang.Boolean sendOrderEmail) {
+    public void setSendOrderEmail(boolean sendOrderEmail) {
         _shoppingOrder.setSendOrderEmail(sendOrderEmail);
     }
 
@@ -1516,7 +1516,7 @@ public class ShoppingOrderWrapper implements ShoppingOrder,
     * @param sendShippingEmail the send shipping email of this shopping order
     */
     @Override
-    public void setSendShippingEmail(java.lang.Boolean sendShippingEmail) {
+    public void setSendShippingEmail(boolean sendShippingEmail) {
         _shoppingOrder.setSendShippingEmail(sendShippingEmail);
     }
 

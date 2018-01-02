@@ -436,7 +436,7 @@ public class EmailAddressWrapper implements EmailAddress,
     * @param primary the primary of this email address
     */
     @Override
-    public void setPrimary(java.lang.Boolean primary) {
+    public void setPrimary(boolean primary) {
         _emailAddress.setPrimary(primary);
     }
 

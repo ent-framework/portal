@@ -308,11 +308,7 @@ public class ShoppingItemPriceModelImpl extends BaseModelImpl<ShoppingItemPrice>
     }
 
     @Override
-    public void setTaxable(Boolean taxable) {
-        if (taxable == null) {
-            taxable = Boolean.FALSE;
-        }
-
+    public void setTaxable(boolean taxable) {
         _taxable = taxable;
     }
 
@@ -337,11 +333,7 @@ public class ShoppingItemPriceModelImpl extends BaseModelImpl<ShoppingItemPrice>
     }
 
     @Override
-    public void setUseShippingFormula(Boolean useShippingFormula) {
-        if (useShippingFormula == null) {
-            useShippingFormula = Boolean.FALSE;
-        }
-
+    public void setUseShippingFormula(boolean useShippingFormula) {
         _useShippingFormula = useShippingFormula;
     }
 

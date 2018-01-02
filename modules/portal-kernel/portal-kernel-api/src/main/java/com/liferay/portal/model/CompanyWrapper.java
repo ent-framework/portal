@@ -302,7 +302,7 @@ public class CompanyWrapper implements Company, ModelWrapper<Company> {
     * @param system the system of this company
     */
     @Override
-    public void setSystem(java.lang.Boolean system) {
+    public void setSystem(boolean system) {
         _company.setSystem(system);
     }
 
@@ -352,7 +352,7 @@ public class CompanyWrapper implements Company, ModelWrapper<Company> {
     * @param active the active of this company
     */
     @Override
-    public void setActive(java.lang.Boolean active) {
+    public void setActive(boolean active) {
         _company.setActive(active);
     }
 

@@ -651,17 +651,13 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setDefaultPolicy(Boolean defaultPolicy) {
+    public void setDefaultPolicy(boolean defaultPolicy) {
         _columnBitmask |= DEFAULTPOLICY_COLUMN_BITMASK;
 
         if (!_setOriginalDefaultPolicy) {
             _setOriginalDefaultPolicy = true;
 
             _originalDefaultPolicy = _defaultPolicy;
-        }
-
-        if (defaultPolicy == null) {
-            defaultPolicy = Boolean.FALSE;
         }
 
         _defaultPolicy = defaultPolicy;
@@ -723,11 +719,7 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setChangeable(Boolean changeable) {
-        if (changeable == null) {
-            changeable = Boolean.FALSE;
-        }
-
+    public void setChangeable(boolean changeable) {
         _changeable = changeable;
     }
 
@@ -743,11 +735,7 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setChangeRequired(Boolean changeRequired) {
-        if (changeRequired == null) {
-            changeRequired = Boolean.FALSE;
-        }
-
+    public void setChangeRequired(boolean changeRequired) {
         _changeRequired = changeRequired;
     }
 
@@ -778,11 +766,7 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setCheckSyntax(Boolean checkSyntax) {
-        if (checkSyntax == null) {
-            checkSyntax = Boolean.FALSE;
-        }
-
+    public void setCheckSyntax(boolean checkSyntax) {
         _checkSyntax = checkSyntax;
     }
 
@@ -798,11 +782,7 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setAllowDictionaryWords(Boolean allowDictionaryWords) {
-        if (allowDictionaryWords == null) {
-            allowDictionaryWords = Boolean.FALSE;
-        }
-
+    public void setAllowDictionaryWords(boolean allowDictionaryWords) {
         _allowDictionaryWords = allowDictionaryWords;
     }
 
@@ -923,11 +903,7 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setHistory(Boolean history) {
-        if (history == null) {
-            history = Boolean.FALSE;
-        }
-
+    public void setHistory(boolean history) {
         _history = history;
     }
 
@@ -958,11 +934,7 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setExpireable(Boolean expireable) {
-        if (expireable == null) {
-            expireable = Boolean.FALSE;
-        }
-
+    public void setExpireable(boolean expireable) {
         _expireable = expireable;
     }
 
@@ -1023,11 +995,7 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setLockout(Boolean lockout) {
-        if (lockout == null) {
-            lockout = Boolean.FALSE;
-        }
-
+    public void setLockout(boolean lockout) {
         _lockout = lockout;
     }
 
@@ -1073,11 +1041,7 @@ public class PasswordPolicyModelImpl extends BaseModelImpl<PasswordPolicy>
     }
 
     @Override
-    public void setRequireUnlock(Boolean requireUnlock) {
-        if (requireUnlock == null) {
-            requireUnlock = Boolean.FALSE;
-        }
-
+    public void setRequireUnlock(boolean requireUnlock) {
         _requireUnlock = requireUnlock;
     }
 

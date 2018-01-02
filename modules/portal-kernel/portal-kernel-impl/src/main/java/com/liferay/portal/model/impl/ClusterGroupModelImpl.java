@@ -199,11 +199,7 @@ public class ClusterGroupModelImpl extends BaseModelImpl<ClusterGroup>
     }
 
     @Override
-    public void setWholeCluster(Boolean wholeCluster) {
-        if (wholeCluster == null) {
-            wholeCluster = Boolean.FALSE;
-        }
-
+    public void setWholeCluster(boolean wholeCluster) {
         _wholeCluster = wholeCluster;
     }
 

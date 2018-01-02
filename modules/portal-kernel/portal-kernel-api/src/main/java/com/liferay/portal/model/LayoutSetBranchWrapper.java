@@ -406,7 +406,7 @@ public class LayoutSetBranchWrapper implements LayoutSetBranch,
     * @param privateLayout the private layout of this layout set branch
     */
     @Override
-    public void setPrivateLayout(java.lang.Boolean privateLayout) {
+    public void setPrivateLayout(boolean privateLayout) {
         _layoutSetBranch.setPrivateLayout(privateLayout);
     }
 
@@ -476,7 +476,7 @@ public class LayoutSetBranchWrapper implements LayoutSetBranch,
     * @param master the master of this layout set branch
     */
     @Override
-    public void setMaster(java.lang.Boolean master) {
+    public void setMaster(boolean master) {
         _layoutSetBranch.setMaster(master);
     }
 
@@ -506,7 +506,7 @@ public class LayoutSetBranchWrapper implements LayoutSetBranch,
     * @param logo the logo of this layout set branch
     */
     @Override
-    public void setLogo(java.lang.Boolean logo) {
+    public void setLogo(boolean logo) {
         _layoutSetBranch.setLogo(logo);
     }
 
@@ -698,7 +698,7 @@ public class LayoutSetBranchWrapper implements LayoutSetBranch,
     */
     @Override
     public void setLayoutSetPrototypeLinkEnabled(
-        java.lang.Boolean layoutSetPrototypeLinkEnabled) {
+        boolean layoutSetPrototypeLinkEnabled) {
         _layoutSetBranch.setLayoutSetPrototypeLinkEnabled(layoutSetPrototypeLinkEnabled);
     }
 

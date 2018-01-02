@@ -277,7 +277,7 @@ public class ReleaseWrapper implements Release, ModelWrapper<Release> {
     * @param verified the verified of this release
     */
     @Override
-    public void setVerified(java.lang.Boolean verified) {
+    public void setVerified(boolean verified) {
         _release.setVerified(verified);
     }
 

@@ -137,7 +137,7 @@ public interface LayoutSetModel extends BaseModel<LayoutSet> {
      *
      * @param privateLayout the private layout of this layout set
      */
-    public void setPrivateLayout(Boolean privateLayout);
+    public void setPrivateLayout(boolean privateLayout);
 
     /**
      * Returns the logo of this layout set.
@@ -158,7 +158,7 @@ public interface LayoutSetModel extends BaseModel<LayoutSet> {
      *
      * @param logo the logo of this layout set
      */
-    public void setLogo(Boolean logo);
+    public void setLogo(boolean logo);
 
     /**
      * Returns the logo ID of this layout set.
@@ -313,7 +313,7 @@ public interface LayoutSetModel extends BaseModel<LayoutSet> {
      * @param layoutSetPrototypeLinkEnabled the layout set prototype link enabled of this layout set
      */
     public void setLayoutSetPrototypeLinkEnabled(
-        Boolean layoutSetPrototypeLinkEnabled);
+        boolean layoutSetPrototypeLinkEnabled);
 
     @Override
     public boolean isNew();
