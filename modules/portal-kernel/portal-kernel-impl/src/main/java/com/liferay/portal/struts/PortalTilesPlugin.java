@@ -24,6 +24,7 @@ public class PortalTilesPlugin extends TilesPlugin {
 
 	@Override
 	protected void initRequestProcessorClass(ModuleConfig moduleConfig) {
+
 	}
 
 }

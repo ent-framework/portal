@@ -15,7 +15,7 @@
 
 logging:
     level:
-        ROOT: DEBUG
+        ROOT: INFO
         com.acn.portal.web: DEBUG
         io.github.jhipster: DEBUG
 

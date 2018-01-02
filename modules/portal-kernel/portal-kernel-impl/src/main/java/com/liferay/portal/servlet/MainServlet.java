@@ -32,19 +32,7 @@ import com.liferay.portal.kernel.plugin.PluginPackage;
 import com.liferay.portal.kernel.servlet.DynamicServletRequest;
 import com.liferay.portal.kernel.servlet.PortalSessionThreadLocal;
 import com.liferay.portal.kernel.servlet.SerializableSessionAttributeListener;
-import com.liferay.portal.kernel.util.ContentTypes;
-import com.liferay.portal.kernel.util.GetterUtil;
-import com.liferay.portal.kernel.util.HttpUtil;
-import com.liferay.portal.kernel.util.InfrastructureUtil;
-import com.liferay.portal.kernel.util.InstanceFactory;
-import com.liferay.portal.kernel.util.LocaleUtil;
-import com.liferay.portal.kernel.util.ParamUtil;
-import com.liferay.portal.kernel.util.PortalLifecycleUtil;
-import com.liferay.portal.kernel.util.PropsKeys;
-import com.liferay.portal.kernel.util.ReleaseInfo;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.kernel.util.StringUtil;
-import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.DocumentException;
 import com.liferay.portal.kernel.xml.Element;
@@ -99,8 +87,11 @@ import com.liferay.util.ContentUtil;
 import com.liferay.util.servlet.EncryptedServletRequest;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -113,17 +104,21 @@ import javax.portlet.PortletException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.UnavailableException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.PageContext;
 
+import org.apache.commons.digester.Digester;
 import org.apache.struts.Globals;
 import org.apache.struts.action.ActionServlet;
 import org.apache.struts.action.RequestProcessor;
 import org.apache.struts.config.ControllerConfig;
 import org.apache.struts.config.ModuleConfig;
 import org.apache.struts.tiles.TilesUtilImpl;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 /**
  * @author Brian Wing Shun Chan
@@ -180,6 +175,11 @@ public class MainServlet extends ActionServlet {
 		}
 
 		callParentDestroy();
+	}
+
+	@Override
+	protected void initServlet() throws ServletException {
+		//
 	}
 
 	@Override
@@ -313,12 +313,12 @@ public class MainServlet extends ActionServlet {
 			_log.debug("Initialize web settings");
 		}
 
-		try {
-			initWebSettings();
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-		}
+//		try {
+//			initWebSettings();
+//		}
+//		catch (Exception e) {
+//			_log.error(e, e);
+//		}
 
 		if (_log.isDebugEnabled()) {
 			_log.debug("Initialize extension environment");
@@ -796,12 +796,8 @@ public class MainServlet extends ActionServlet {
 		ServletContext servletContext = getServletContext();
 
 		String[] xmls = new String[] {
-			HttpUtil.URLtoString(
-				servletContext.getResource(
-					"/WEB-INF/liferay-layout-templates.xml")),
-			HttpUtil.URLtoString(
-				servletContext.getResource(
-					"/WEB-INF/liferay-layout-templates-ext.xml"))
+			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/iferay-layout-templates.xml")),
+			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/iferay-layout-templates-ext.xml"))
 		};
 
 		List<LayoutTemplate> layoutTemplates =
@@ -869,17 +865,10 @@ public class MainServlet extends ActionServlet {
 		ServletContext servletContext = getServletContext();
 
 		String[] xmls = new String[] {
-			HttpUtil.URLtoString(
-				servletContext.getResource(
-					"/WEB-INF/" + Portal.PORTLET_XML_FILE_NAME_CUSTOM)),
-			HttpUtil.URLtoString(
-				servletContext.getResource("/WEB-INF/portlet-ext.xml")),
-			HttpUtil.URLtoString(
-				servletContext.getResource("/WEB-INF/liferay-portlet.xml")),
-			HttpUtil.URLtoString(
-				servletContext.getResource("/WEB-INF/liferay-portlet-ext.xml")),
-			HttpUtil.URLtoString(
-				servletContext.getResource("/WEB-INF/web.xml"))
+			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/"+ Portal.PORTLET_XML_FILE_NAME_CUSTOM)),
+			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/portlet.xml")),
+			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/portlet-ext.xml")),
+			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/liferay-portlet-ext.xml"))
 		};
 
 		PortletLocalServiceUtil.initEAR(servletContext, xmls, pluginPackage);
@@ -958,12 +947,8 @@ public class MainServlet extends ActionServlet {
 		ServletContext servletContext = getServletContext();
 
 		String[] xmls = new String[] {
-			HttpUtil.URLtoString(
-				servletContext.getResource(
-					"/WEB-INF/liferay-look-and-feel.xml")),
-			HttpUtil.URLtoString(
-				servletContext.getResource(
-					"/WEB-INF/liferay-look-and-feel-ext.xml"))
+			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/liferay-look-and-feel.xml")),
+			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/liferay-look-and-feel-ext.xml"))
 		};
 
 		List<Theme> themes = ThemeLocalServiceUtil.init(
@@ -1244,6 +1229,46 @@ public class MainServlet extends ActionServlet {
 		StartupAction startupAction = new StartupAction();
 
 		startupAction.run(null);
+	}
+
+	@Override
+	protected void parseModuleConfigFile(Digester digester, String path) throws UnavailableException {
+		InputStream input = null;
+		try {
+			URL url = PortalClassLoaderUtil.getClassLoader().getResource(path);
+
+			// If the config isn't in the servlet context, try the class loader
+			// which allows the config files to be stored in a jar
+			if (url == null) {
+				url = getClass().getResource(path);
+			}
+
+			if (url == null) {
+				String msg = internal.getMessage("configMissing", path);
+				log.error(msg);
+				throw new UnavailableException(msg);
+			}
+
+			InputSource is = new InputSource(url.toExternalForm());
+			input = url.openStream();
+			is.setByteStream(input);
+			digester.parse(is);
+
+		} catch (MalformedURLException e) {
+			throw new UnavailableException(e.getMessage());
+		} catch (IOException e) {
+			throw new UnavailableException(e.getMessage());
+		} catch (SAXException e) {
+			throw new UnavailableException(e.getMessage());
+		} finally {
+			if (input != null) {
+				try {
+					input.close();
+				} catch (IOException e) {
+					throw new UnavailableException(e.getMessage());
+				}
+			}
+		}
 	}
 
 	protected void sendError(

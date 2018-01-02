@@ -10,17 +10,13 @@ import com.liferay.portal.kernel.servlet.filters.invoker.InvokerFilter;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringUtil;
-import com.liferay.portal.servlet.PortalSessionListener;
-import com.liferay.portal.servlet.SharedSessionAttributeListener;
-import com.liferay.portal.servlet.filters.struts2.StrutsPortletFilter;
+import com.liferay.portal.servlet.*;
 import com.liferay.portal.spring.context.ArrayApplicationContext;
 import com.liferay.portal.spring.context.PortalApplicationContext;
 import com.liferay.portal.spring.context.PortalContextLoaderListener;
 import com.liferay.portal.util.ClassLoaderUtil;
 import com.liferay.portal.util.PropsUtil;
 import com.liferay.portal.util.PropsValues;
-
-import org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,8 +77,7 @@ public class PortalWebApplicationInitializer implements ServletContextInitialize
 
         initPortalListeners(servletContext);
         initInvokerFilters(servletContext, false);
-
-        //initServlets(servletContext);
+        initServlets(servletContext);
     }
 
     private void initPortalListeners(ServletContext servletContext) {
@@ -91,19 +86,6 @@ public class PortalWebApplicationInitializer implements ServletContextInitialize
         servletContext.addListener(new PortletSessionListenerManager());
         servletContext.addListener(new SerializableSessionAttributeListener());
         servletContext.addListener(new SharedSessionAttributeListener());
-    }
-
-    @Bean
-    public FilterRegistrationBean filterRegistrationBean() {
-        FilterRegistrationBean registrationBean = new FilterRegistrationBean();
-        StrutsPrepareAndExecuteFilter struts = new StrutsPortletFilter();
-        registrationBean.setFilter(struts);
-        registrationBean.setOrder(1);
-        List urlPatterns = new ArrayList();
-        urlPatterns.add("/c/*");
-        registrationBean.setUrlPatterns(urlPatterns);
-        registrationBean.setAsyncSupported(false);
-        return registrationBean;
     }
 
     private void initInvokerFilters(ServletContext servletContext, boolean asyncSupported) {
@@ -115,6 +97,7 @@ public class PortalWebApplicationInitializer implements ServletContextInitialize
         invokerFilter.setInitParameters(parameters);
         invokerFilter.addMappingForUrlPatterns(disps, true, "/*");
         invokerFilter.setAsyncSupported(asyncSupported);
+
 
         invokerFilter = servletContext.addFilter("InvokerFilter-FORWARD", new InvokerFilter());
         disps = EnumSet.of(DispatcherType.FORWARD, DispatcherType.ASYNC);
@@ -147,15 +130,50 @@ public class PortalWebApplicationInitializer implements ServletContextInitialize
 
     private void initServlets(ServletContext servletContext) {
 
-//        ServletRegistration.Dynamic mainServlet = servletContext.addServlet("MainServlet", com.liferay.portal.servlet.MainServlet.class);
-//        Map<String, String> parameters = new HashMap<>();
-//        parameters.put("config", "struts-config.xml, struts-config-ext.xml");
-//        parameters.put("debug", "0");
-//        parameters.put("detail", "0");
-//        mainServlet.addMapping("/c/*");
-//        mainServlet.setInitParameters(parameters);
-//        mainServlet.setLoadOnStartup(0);
-//        mainServlet.setAsyncSupported(false);
+        ServletRegistration.Dynamic mainServlet = servletContext.addServlet("MainServlet", new MainServlet());
+        Map<String, String> parameters = new HashMap<>();
+        parameters.put("config", "portal-config/struts-config.xml, portal-config/struts-config-ext.xml");
+        parameters.put("debug", "0");
+        parameters.put("detail", "0");
+        mainServlet.addMapping("/c/*");
+        mainServlet.setInitParameters(parameters);
+        mainServlet.setLoadOnStartup(0);
+        mainServlet.setAsyncSupported(false);
+
+        ServletRegistration.Dynamic i18nServlet = servletContext.addServlet("I18nServlet", new I18nServlet());
+        Set<String> languageIds = I18nServlet.getLanguageIds();
+        for (String lang : languageIds) {
+            i18nServlet.addMapping("/" + lang + "/*");
+        }
+        i18nServlet.setLoadOnStartup(1);
+        i18nServlet.setAsyncSupported(false);
+
+        ServletRegistration.Dynamic privateGroupFriendlyURLServlet = servletContext.addServlet("PrivateGroupFriendlyURLServlet", new FriendlyURLServlet());
+        parameters = new HashMap<>();
+        parameters.put("private", "true");
+        parameters.put("user", "false");
+        privateGroupFriendlyURLServlet.setInitParameters(parameters);
+        privateGroupFriendlyURLServlet.addMapping("/group/*");
+        privateGroupFriendlyURLServlet.setLoadOnStartup(1);
+        privateGroupFriendlyURLServlet.setAsyncSupported(false);
+
+        ServletRegistration.Dynamic privateUserFriendlyURLServlet = servletContext.addServlet("PrivateUserFriendlyURLServlet", new FriendlyURLServlet());
+        parameters = new HashMap<>();
+        parameters.put("private", "true");
+        parameters.put("user", "true");
+        privateUserFriendlyURLServlet.setInitParameters(parameters);
+        privateUserFriendlyURLServlet.addMapping("/user/*");
+        privateUserFriendlyURLServlet.setLoadOnStartup(1);
+        privateUserFriendlyURLServlet.setAsyncSupported(false);
+
+        ServletRegistration.Dynamic publicFriendlyURLServlet = servletContext.addServlet("PublicFriendlyURLServlet", new FriendlyURLServlet());
+        parameters = new HashMap<>();
+        parameters.put("private", "false");
+        publicFriendlyURLServlet.setInitParameters(parameters);
+        publicFriendlyURLServlet.addMapping("/web/*");
+        publicFriendlyURLServlet.setLoadOnStartup(1);
+        publicFriendlyURLServlet.setAsyncSupported(false);
+
     }
 
 //    @ImportResource({"META-INF/base-spring.xml",

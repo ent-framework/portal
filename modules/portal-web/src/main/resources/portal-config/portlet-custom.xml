@@ -189,57 +189,6 @@
 		</security-role-ref>
 	</portlet>
 	<portlet>
-		<portlet-name>19</portlet-name>
-		<display-name>Message Boards</display-name>
-		<portlet-class>com.liferay.portlet.StrutsPortlet</portlet-class>
-		<init-param>
-			<name>config-template</name>
-			<value>/html/portlet/message_boards/configuration.jsp</value>
-		</init-param>
-		<init-param>
-			<name>template-path</name>
-			<value>/html/portlet/message_boards/</value>
-		</init-param>
-		<init-param>
-			<name>view-action</name>
-			<value>/message_boards/view</value>
-		</init-param>
-		<expiration-cache>0</expiration-cache>
-		<supports>
-			<mime-type>text/html</mime-type>
-		</supports>
-		<resource-bundle>com.liferay.portlet.StrutsResourceBundle</resource-bundle>
-		<portlet-preferences>
-			<preference>
-				<name>priorities</name>
-				<value>Urgent,/message_boards/priority_urgent.png,3.0</value>
-				<value>Sticky,/message_boards/priority_sticky.png,2.0</value>
-				<value>Announcement,/message_boards/priority_announcement.png,1.0</value>
-			</preference>
-			<preference>
-				<name>ranks</name>
-				<value>Youngling=0</value>
-				<value>Padawan=25</value>
-				<value>Jedi Knight=100</value>
-				<value>Jedi Master=250</value>
-				<value>Jedi Council Member=500</value>
-				<value>Yoda=1000</value>
-				<value>Moderator=organization:Message Boards Administrator</value>
-				<value>Moderator=organization-role:Message Boards Administrator</value>
-				<value>Moderator=regular-role:Message Boards Administrator</value>
-				<value>Moderator=site-role:Message Boards Administrator</value>
-				<value>Moderator=user-group:Message Boards Administrator</value>
-			</preference>
-		</portlet-preferences>
-		<security-role-ref>
-			<role-name>power-user</role-name>
-		</security-role-ref>
-		<security-role-ref>
-			<role-name>user</role-name>
-		</security-role-ref>
-		<supported-public-render-parameter>tag</supported-public-render-parameter>
-	</portlet>
-	<portlet>
 		<portlet-name>20</portlet-name>
 		<display-name>Documents and Media</display-name>
 		<portlet-class>com.liferay.portlet.StrutsPortlet</portlet-class>
@@ -483,40 +432,6 @@
 		<supported-public-render-parameter>tag</supported-public-render-parameter>
 	</portlet>
 	<portlet>
-		<portlet-name>33</portlet-name>
-		<display-name>Blogs</display-name>
-		<portlet-class>com.liferay.portlet.StrutsPortlet</portlet-class>
-		<init-param>
-			<name>config-template</name>
-			<value>/html/portlet/blogs/configuration.jsp</value>
-		</init-param>
-		<init-param>
-			<name>template-path</name>
-			<value>/html/portlet/blogs/</value>
-		</init-param>
-		<init-param>
-			<name>view-action</name>
-			<value>/blogs/view</value>
-		</init-param>
-		<expiration-cache>0</expiration-cache>
-		<supports>
-			<mime-type>text/html</mime-type>
-		</supports>
-		<resource-bundle>com.liferay.portlet.StrutsResourceBundle</resource-bundle>
-		<security-role-ref>
-			<role-name>guest</role-name>
-		</security-role-ref>
-		<security-role-ref>
-			<role-name>power-user</role-name>
-		</security-role-ref>
-		<security-role-ref>
-			<role-name>user</role-name>
-		</security-role-ref>
-		<supported-public-render-parameter>categoryId</supported-public-render-parameter>
-		<supported-public-render-parameter>resetCur</supported-public-render-parameter>
-		<supported-public-render-parameter>tag</supported-public-render-parameter>
-	</portlet>
-	<portlet>
 		<portlet-name>34</portlet-name>
 		<display-name>Shopping</display-name>
 		<portlet-class>com.liferay.portlet.StrutsPortlet</portlet-class>
@@ -543,40 +458,6 @@
 		<security-role-ref>
 			<role-name>user</role-name>
 		</security-role-ref>
-	</portlet>
-	<portlet>
-		<portlet-name>36</portlet-name>
-		<display-name>Wiki</display-name>
-		<portlet-class>com.liferay.portlet.StrutsPortlet</portlet-class>
-		<init-param>
-			<name>config-template</name>
-			<value>/html/portlet/wiki/configuration.jsp</value>
-		</init-param>
-		<init-param>
-			<name>template-path</name>
-			<value>/html/portlet/wiki/</value>
-		</init-param>
-		<init-param>
-			<name>view-action</name>
-			<value>/wiki/view</value>
-		</init-param>
-		<expiration-cache>0</expiration-cache>
-		<supports>
-			<mime-type>text/html</mime-type>
-		</supports>
-		<resource-bundle>com.liferay.portlet.StrutsResourceBundle</resource-bundle>
-		<security-role-ref>
-			<role-name>power-user</role-name>
-		</security-role-ref>
-		<security-role-ref>
-			<role-name>user</role-name>
-		</security-role-ref>
-		<supported-public-render-parameter>categoryId</supported-public-render-parameter>
-		<supported-public-render-parameter>nodeId</supported-public-render-parameter>
-		<supported-public-render-parameter>nodeName</supported-public-render-parameter>
-		<supported-public-render-parameter>resetCur</supported-public-render-parameter>
-		<supported-public-render-parameter>tag</supported-public-render-parameter>
-		<supported-public-render-parameter>title</supported-public-render-parameter>
 	</portlet>
 	<portlet>
 		<portlet-name>39</portlet-name>
@@ -740,34 +621,6 @@
 		<security-role-ref>
 			<role-name>guest</role-name>
 		</security-role-ref>
-		<security-role-ref>
-			<role-name>power-user</role-name>
-		</security-role-ref>
-		<security-role-ref>
-			<role-name>user</role-name>
-		</security-role-ref>
-	</portlet>
-	<portlet>
-		<portlet-name>54</portlet-name>
-		<display-name>Wiki Display</display-name>
-		<portlet-class>com.liferay.portlet.StrutsPortlet</portlet-class>
-		<init-param>
-			<name>config-template</name>
-			<value>/html/portlet/wiki_display/configuration.jsp</value>
-		</init-param>
-		<init-param>
-			<name>template-path</name>
-			<value>/html/portlet/wiki_display/</value>
-		</init-param>
-		<init-param>
-			<name>view-action</name>
-			<value>/wiki_display/view</value>
-		</init-param>
-		<expiration-cache>0</expiration-cache>
-		<supports>
-			<mime-type>text/html</mime-type>
-		</supports>
-		<resource-bundle>com.liferay.portlet.StrutsResourceBundle</resource-bundle>
 		<security-role-ref>
 			<role-name>power-user</role-name>
 		</security-role-ref>
@@ -940,118 +793,6 @@
 		<security-role-ref>
 			<role-name>guest</role-name>
 		</security-role-ref>
-		<security-role-ref>
-			<role-name>power-user</role-name>
-		</security-role-ref>
-		<security-role-ref>
-			<role-name>user</role-name>
-		</security-role-ref>
-	</portlet>
-	<portlet>
-		<portlet-name>66</portlet-name>
-		<display-name>Web Proxy</display-name>
-		<portlet-class>com.liferay.portlet.webproxy.WebProxyPortlet</portlet-class>
-		<init-param>
-			<name>authenticatorClassName</name>
-			<value>org.portletbridge.portlet.DefaultBridgeAuthenticator</value>
-		</init-param>
-		<init-param>
-			<name>config-template</name>
-			<value>/html/portlet/web_proxy/configuration.jsp</value>
-		</init-param>
-		<init-param>
-			<name>cssRegex</name>
-			<value>(?:url\((?:'|")?(.*?)(?:'|")?\))|(?:@import\s+[^url](?:'|")?(.*?)(?:'|")|;|\s+|$)</value>
-		</init-param>
-		<init-param>
-			<name>editStylesheet</name>
-			<value>classpath:/org/portletbridge/xsl/pages/edit.xsl</value>
-		</init-param>
-		<init-param>
-			<name>errorStylesheet</name>
-			<value>classpath:/org/portletbridge/xsl/pages/error.xsl</value>
-		</init-param>
-		<init-param>
-			<name>helpStylesheet</name>
-			<value>classpath:/org/portletbridge/xsl/pages/help.xsl</value>
-		</init-param>
-		<init-param>
-			<name>idParamKey</name>
-			<value>id</value>
-		</init-param>
-		<init-param>
-			<name>jsRegex</name>
-			<value>open\('([^']*)'|open\("([^\"]*)"</value>
-		</init-param>
-		<init-param>
-			<name>mementoSessionKey</name>
-			<value>mementoSessionKey</value>
-		</init-param>
-		<init-param>
-			<name>parserClassName</name>
-			<value>org.cyberneko.html.parsers.SAXParser</value>
-		</init-param>
-		<init-param>
-			<name>servletName</name>
-			<value>pbhs</value>
-		</init-param>
-		<init-param>
-			<name>stylesheetUrl</name>
-			<value>classpath:/org/portletbridge/xsl/default.xsl</value>
-		</init-param>
-		<expiration-cache>0</expiration-cache>
-		<supports>
-			<mime-type>text/html</mime-type>
-		</supports>
-		<resource-bundle>com.liferay.portlet.StrutsResourceBundle</resource-bundle>
-		<portlet-preferences>
-			<preference>
-				<name>initUrl</name>
-				<value/>
-			</preference>
-			<preference>
-				<name>proxyAuthentication</name>
-				<value>none</value>
-			</preference>
-			<preference>
-				<name>proxyAuthenticationDomain</name>
-				<value/>
-			</preference>
-			<preference>
-				<name>proxyAuthenticationHost</name>
-				<value/>
-			</preference>
-			<preference>
-				<name>proxyAuthenticationPassword</name>
-				<value/>
-			</preference>
-			<preference>
-				<name>proxyAuthenticationUsername</name>
-				<value/>
-			</preference>
-			<preference>
-				<name>proxyHost</name>
-				<value/>
-			</preference>
-			<preference>
-				<name>proxyPort</name>
-				<value/>
-			</preference>
-			<preference>
-				<name>scope</name>
-				<value>.*</value>
-			</preference>
-			<preference>
-				<name>secureEdit</name>
-				<value>false</value>
-				<read-only>true</read-only>
-			</preference>
-			<preference>
-				<name>stylesheet</name>
-				<value/>
-			</preference>
-			<preferences-validator>org.portletbridge.portlet.PortletBridgePortletValidator</preferences-validator>
-		</portlet-preferences>
 		<security-role-ref>
 			<role-name>power-user</role-name>
 		</security-role-ref>
@@ -1677,68 +1418,6 @@
 			<mime-type>text/html</mime-type>
 		</supports>
 		<resource-bundle>com.liferay.portlet.StrutsResourceBundle</resource-bundle>
-	</portlet>
-	<portlet>
-		<portlet-name>114</portlet-name>
-		<display-name>Recent Bloggers</display-name>
-		<portlet-class>com.liferay.util.bridges.mvc.MVCPortlet</portlet-class>
-		<init-param>
-			<name>config-template</name>
-			<value>/html/portlet/recent_bloggers/configuration.jsp</value>
-		</init-param>
-		<init-param>
-			<name>template-path</name>
-			<value>/html/portlet/recent_bloggers/</value>
-		</init-param>
-		<init-param>
-			<name>view-template</name>
-			<value>/html/portlet/recent_bloggers/view.jsp</value>
-		</init-param>
-		<expiration-cache>0</expiration-cache>
-		<supports>
-			<mime-type>text/html</mime-type>
-		</supports>
-		<resource-bundle>com.liferay.portlet.StrutsResourceBundle</resource-bundle>
-		<security-role-ref>
-			<role-name>guest</role-name>
-		</security-role-ref>
-		<security-role-ref>
-			<role-name>power-user</role-name>
-		</security-role-ref>
-		<security-role-ref>
-			<role-name>user</role-name>
-		</security-role-ref>
-	</portlet>
-	<portlet>
-		<portlet-name>115</portlet-name>
-		<display-name>Blogs Aggregator</display-name>
-		<portlet-class>com.liferay.portlet.StrutsPortlet</portlet-class>
-		<init-param>
-			<name>config-template</name>
-			<value>/html/portlet/blogs_aggregator/configuration.jsp</value>
-		</init-param>
-		<init-param>
-			<name>template-path</name>
-			<value>/html/portlet/blogs_aggregator/</value>
-		</init-param>
-		<init-param>
-			<name>view-action</name>
-			<value>/blogs_aggregator/view</value>
-		</init-param>
-		<expiration-cache>0</expiration-cache>
-		<supports>
-			<mime-type>text/html</mime-type>
-		</supports>
-		<resource-bundle>com.liferay.portlet.StrutsResourceBundle</resource-bundle>
-		<security-role-ref>
-			<role-name>guest</role-name>
-		</security-role-ref>
-		<security-role-ref>
-			<role-name>power-user</role-name>
-		</security-role-ref>
-		<security-role-ref>
-			<role-name>user</role-name>
-		</security-role-ref>
 	</portlet>
 	<portlet>
 		<portlet-name>116</portlet-name>
@@ -2490,31 +2169,6 @@
 		</security-role-ref>
 	</portlet>
 	<portlet>
-		<portlet-name>154</portlet-name>
-		<display-name>Wiki Admin</display-name>
-		<portlet-class>com.liferay.portlet.StrutsPortlet</portlet-class>
-		<init-param>
-			<name>config-template</name>
-			<value>/html/portlet/wiki/configuration.jsp</value>
-		</init-param>
-		<init-param>
-			<name>template-path</name>
-			<value>/html/portlet/wiki/</value>
-		</init-param>
-		<init-param>
-			<name>view-action</name>
-			<value>/wiki_admin/view_nodes</value>
-		</init-param>
-		<expiration-cache>0</expiration-cache>
-		<supports>
-			<mime-type>text/html</mime-type>
-		</supports>
-		<resource-bundle>com.liferay.portlet.StrutsResourceBundle</resource-bundle>
-		<security-role-ref>
-			<role-name>administrator</role-name>
-		</security-role-ref>
-	</portlet>
-	<portlet>
 		<portlet-name>156</portlet-name>
 		<display-name>Group Pages</display-name>
 		<portlet-class>com.liferay.portlet.StrutsPortlet</portlet-class>
@@ -2597,48 +2251,6 @@
 			<mime-type>text/html</mime-type>
 		</supports>
 		<resource-bundle>com.liferay.portlet.StrutsResourceBundle</resource-bundle>
-	</portlet>
-	<portlet>
-		<portlet-name>161</portlet-name>
-		<display-name>Blogs</display-name>
-		<portlet-class>com.liferay.portlet.StrutsPortlet</portlet-class>
-		<init-param>
-			<name>template-path</name>
-			<value>/html/portlet/blogs_admin/</value>
-		</init-param>
-		<init-param>
-			<name>view-action</name>
-			<value>/blogs_admin/view</value>
-		</init-param>
-		<expiration-cache>0</expiration-cache>
-		<supports>
-			<mime-type>text/html</mime-type>
-		</supports>
-		<resource-bundle>com.liferay.portlet.StrutsResourceBundle</resource-bundle>
-		<security-role-ref>
-			<role-name>administrator</role-name>
-		</security-role-ref>
-	</portlet>
-	<portlet>
-		<portlet-name>162</portlet-name>
-		<display-name>Message Boards Admin</display-name>
-		<portlet-class>com.liferay.portlet.StrutsPortlet</portlet-class>
-		<init-param>
-			<name>template-path</name>
-			<value>/html/portlet/message_boards_admin/</value>
-		</init-param>
-		<init-param>
-			<name>view-action</name>
-			<value>/message_boards_admin/view</value>
-		</init-param>
-		<expiration-cache>0</expiration-cache>
-		<supports>
-			<mime-type>text/html</mime-type>
-		</supports>
-		<resource-bundle>com.liferay.portlet.StrutsResourceBundle</resource-bundle>
-		<security-role-ref>
-			<role-name>administrator</role-name>
-		</security-role-ref>
 	</portlet>
 	<portlet>
 		<portlet-name>164</portlet-name>

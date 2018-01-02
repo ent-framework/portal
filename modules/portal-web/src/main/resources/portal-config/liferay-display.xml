@@ -26,11 +26,6 @@
 		<portlet id="194" />
 	</category>
 	<category name="category.collaboration">
-		<portlet id="19" />
-		<portlet id="33" />
-		<portlet id="36" />
-		<portlet id="114" />
-		<portlet id="115" />
 		<portlet id="169" />
 	</category>
 	<category name="category.community">
@@ -76,11 +71,8 @@
 		<portlet id="151" />
 		<portlet id="152" />
 		<portlet id="153" />
-		<portlet id="154" />
 		<portlet id="157" />
 		<portlet id="158" />
-		<portlet id="161" />
-		<portlet id="162" />
 		<portlet id="164" />
 		<portlet id="166" />
 		<portlet id="167" />
@@ -102,7 +94,6 @@
 		<portlet id="47" />
 		<portlet id="48" />
 		<portlet id="50" />
-		<portlet id="66" />
 	</category>
 	<category name="category.shopping">
 		<portlet id="34" />
@@ -129,6 +120,5 @@
 	</category>
 	<category name="category.wiki">
 		<portlet id="36" />
-		<portlet id="54" />
 	</category>
 </display>

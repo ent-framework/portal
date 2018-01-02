@@ -136,7 +136,7 @@ public class WebConfigurer implements ServletContextInitializer, EmbeddedServlet
         mappings.add("json", MediaType.TEXT_HTML_VALUE + ";charset=utf-8");
         container.setMimeMappings(mappings);
         // When running in an IDE or with ./mvnw spring-boot:run, set location of the static web assets.
-        setLocationForStaticAssets(container);
+        //setLocationForStaticAssets(container);
 
         /*
          * Enable HTTP/2 for Undertow - https://twitter.com/ankinson/status/829256167700492288

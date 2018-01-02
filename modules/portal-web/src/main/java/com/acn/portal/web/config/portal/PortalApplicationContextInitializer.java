@@ -2,8 +2,11 @@ package com.acn.portal.web.config.portal;
 
 import java.util.List;
 
+import com.liferay.counter.service.CounterLocalServiceUtil;
 import com.liferay.portal.ext.service.FilterScopeLocalService;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.model.User;
+import com.liferay.portal.service.ClassNameLocalServiceUtil;
 import com.liferay.portal.service.UserLocalServiceUtil;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -58,7 +61,12 @@ public class PortalApplicationContextInitializer implements ApplicationContextIn
         PortalBeanLocatorUtil.locate(FilterScopeLocalService.class.getName());
 
         try {
-            UserLocalServiceUtil.getUsersCount();
+//            UserLocalServiceUtil.getUsersCount();
+//
+//            ClassNameLocalServiceUtil.checkClassNames();
+
+            CounterLocalServiceUtil.increment(User.class.getName());
+
         } catch (SystemException e) {
             e.printStackTrace();
         }

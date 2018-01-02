@@ -46,6 +46,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -71,10 +72,6 @@
     <orderEntry type="library" name="Maven: org.incava:java-diff:1.1" level="project" />
     <orderEntry type="module" module-name="portal-util-taglib" />
     <orderEntry type="library" name="Maven: org.json:json:20160810" level="project" />
-    <orderEntry type="library" name="Maven: struts:struts:1.2.9" level="project" />
-    <orderEntry type="library" name="Maven: struts:struts-el:1.2.9" level="project" />
-    <orderEntry type="library" name="Maven: taglibs:standard:1.0.6" level="project" />
-    <orderEntry type="library" name="Maven: javax.servlet:jstl:1.0.6" level="project" />
     <orderEntry type="module" module-name="portal-util-bridges" />
     <orderEntry type="library" name="Maven: org.apache.portals.bridges:portals-bridges-common:2.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.portals.bridges:portals-bridges-struts-1.2.7:1.0.4" level="project" />
@@ -91,7 +88,6 @@
     <orderEntry type="library" name="Maven: org.antlr:antlr-runtime:3.5.2" level="project" />
     <orderEntry type="library" name="Maven: org.im4java:im4java:1.4.0" level="project" />
     <orderEntry type="library" name="Maven: easyconf:easyconf:0.9.5" level="project" />
-    <orderEntry type="library" name="Maven: xml-apis:xml-apis:1.0.b2" level="project" />
     <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils-bean-collections:1.7.0" level="project" />
     <orderEntry type="library" name="Maven: mx4j:mx4j-jmx:2.1.1" level="project" />
     <orderEntry type="library" name="Maven: mx4j:mx4j-impl:2.1.1" level="project" />
@@ -135,16 +131,16 @@
     <orderEntry type="library" name="Maven: com.mchange:mchange-commons-java:0.2.11" level="project" />
     <orderEntry type="library" name="Maven: javax.portlet:portlet-api:2.0" level="project" />
     <orderEntry type="library" name="Maven: biz.aQute:annotation:1.50.0" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.struts:struts-core:1.3.10" level="project" />
-    <orderEntry type="library" name="Maven: commons-chain:commons-chain:1.2" level="project" />
-    <orderEntry type="library" name="Maven: oro:oro:2.0.8" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.struts:struts-tiles:1.3.10" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.struts:struts-taglib:1.3.10" level="project" />
+    <orderEntry type="library" name="Maven: struts:struts:1.2.9" level="project" />
+    <orderEntry type="library" name="Maven: oro:oro:2.0.7" level="project" />
+    <orderEntry type="library" name="Maven: xalan:xalan:2.5.1" level="project" />
+    <orderEntry type="library" name="Maven: struts:struts-el:1.2.9" level="project" />
+    <orderEntry type="library" name="Maven: taglibs:standard:1.0.6" level="project" />
+    <orderEntry type="library" name="Maven: javax.servlet:jstl:1.0.6" level="project" />
     <orderEntry type="library" name="Maven: org.jfree:jfreechart:1.0.19" level="project" />
     <orderEntry type="library" name="Maven: org.jfree:jcommon:1.0.23" level="project" />
     <orderEntry type="library" name="Maven: org.apache.velocity:velocity:1.6.4" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.velocity:velocity-tools:2.0" level="project" />
-    <orderEntry type="library" name="Maven: sslext:sslext:1.2-0" level="project" />
+    <orderEntry type="library" name="Maven: velocity-tools:velocity-tools:1.4" level="project" />
     <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.17" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tika:tika-parsers:1.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tika:tika-core:1.3" level="project" />
@@ -246,7 +242,6 @@
     <orderEntry type="library" name="Maven: org.apache.ibatis:ibatis-sqlmap:2.3.0" level="project" />
     <orderEntry type="library" name="Maven: xml-security:xmlsec:1.3.0" level="project" />
     <orderEntry type="library" name="Maven: bouncycastle:bcprov-jdk15:124" level="project" />
-    <orderEntry type="library" name="Maven: xalan:xalan:2.7.0" level="project" />
     <orderEntry type="library" name="Maven: nu.validator.htmlparser:htmlparser:1.0.5" level="project" />
     <orderEntry type="library" name="Maven: net.sf.json-lib:json-lib:jdk15:2.2.2" level="project" />
     <orderEntry type="library" name="Maven: net.sf.ezmorph:ezmorph:1.0.4" level="project" />
@@ -274,11 +269,7 @@
     <orderEntry type="library" name="Maven: com.yahoo.platform.yui:yuicompressor:2.4.8" level="project" />
     <orderEntry type="library" name="Maven: rhino:js:1.7R2" level="project" />
     <orderEntry type="library" name="Maven: org.tuckey:urlrewritefilter:4.0.4" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.struts:struts2-core:2.5.14.1" level="project" />
-    <orderEntry type="library" name="Maven: ognl:ognl:3.1.15" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.9.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.6" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.struts:struts2-portlet-plugin:2.5.14.1" level="project" />
+    <orderEntry type="library" name="Maven: xml-apis:xml-apis:1.4.01" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:4.3.13.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.12" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
