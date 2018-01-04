@@ -3,7 +3,7 @@ package com.liferay.alloy.tools.tagbuilder;
 import com.liferay.alloy.tools.model.Attribute;
 import com.liferay.alloy.tools.model.Component;
 import com.liferay.alloy.util.TypeUtil;
-import com.liferay.portal.kernel.freemarker.FreeMarkerUtil;
+import com.liferay.portal.util.FreeMarkerUtil;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringUtil;

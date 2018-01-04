@@ -19,41 +19,25 @@ import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.dao.shard.ShardUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.kernel.util.ArrayUtil;
+import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.kernel.util.CookieKeys;
-import com.liferay.portal.kernel.util.GetterUtil;
-import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
-import com.liferay.portal.kernel.util.SetUtil;
-import com.liferay.portal.kernel.util.Validator;
-import com.liferay.portal.model.Company;
-import com.liferay.portal.model.Group;
-import com.liferay.portal.model.LayoutSet;
-import com.liferay.portal.model.PortletCategory;
-import com.liferay.portal.model.User;
-import com.liferay.portal.model.VirtualHost;
+import com.liferay.portal.model.*;
 import com.liferay.portal.search.lucene.LuceneHelperUtil;
 import com.liferay.portal.security.auth.CompanyThreadLocal;
 import com.liferay.portal.security.auth.PrincipalThreadLocal;
-import com.liferay.portal.service.CompanyLocalServiceUtil;
-import com.liferay.portal.service.GroupLocalServiceUtil;
-import com.liferay.portal.service.LayoutSetLocalServiceUtil;
-import com.liferay.portal.service.PortletLocalServiceUtil;
-import com.liferay.portal.service.UserLocalServiceUtil;
-import com.liferay.portal.service.VirtualHostLocalServiceUtil;
+import com.liferay.portal.service.*;
 import com.liferay.portlet.journal.service.JournalContentSearchLocalServiceUtil;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author Brian Wing Shun Chan

@@ -16,10 +16,8 @@ package com.liferay.portal.util;
 
 import com.liferay.portal.kernel.configuration.Filter;
 import com.liferay.portal.kernel.util.CookieKeys;
-import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.kernel.util.PropsKeys;
-import com.liferay.portal.kernel.util.StringUtil;
-import com.liferay.portal.kernel.util.Time;
 
 /**
  * @author Brian Wing Shun Chan

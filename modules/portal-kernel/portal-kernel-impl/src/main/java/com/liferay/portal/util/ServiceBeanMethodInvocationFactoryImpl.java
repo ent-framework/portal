@@ -20,15 +20,13 @@ import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.ServiceBeanMethodInvocationFactory;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.spring.aop.ServiceBeanMethodInvocation;
+import org.aopalliance.intercept.MethodInterceptor;
 
 import java.lang.reflect.Method;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.aopalliance.intercept.MethodInterceptor;
 
 /**
  * @author Brian Wing Shun Chan

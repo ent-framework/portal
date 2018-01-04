@@ -24,24 +24,16 @@ import com.liferay.portal.kernel.dao.db.DBFactoryUtil;
 import com.liferay.portal.kernel.dao.jdbc.DataSourceFactoryUtil;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.log.SanitizerLogWrapper;
-import com.liferay.portal.kernel.util.GetterUtil;
-import com.liferay.portal.kernel.util.JavaDetector;
-import com.liferay.portal.kernel.util.LocaleUtil;
-import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.kernel.util.SystemProperties;
-import com.liferay.portal.kernel.util.TimeZoneUtil;
+import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.log.Log4jLogFactoryImpl;
 import com.liferay.portal.security.lang.DoPrivilegedUtil;
 import com.liferay.portal.security.lang.SecurityManagerUtil;
 import com.liferay.portal.spring.util.SpringUtil;
 import com.liferay.util.log4j.Log4JUtil;
-
 import com.sun.syndication.io.XmlReader;
+import org.apache.commons.lang.time.StopWatch;
 
 import java.util.List;
-
-import org.apache.commons.lang.time.StopWatch;
 
 /**
  * @author Brian Wing Shun Chan

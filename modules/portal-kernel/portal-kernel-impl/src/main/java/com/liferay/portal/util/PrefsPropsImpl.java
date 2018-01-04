@@ -18,9 +18,8 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.PrefsProps;
 
-import java.util.Properties;
-
 import javax.portlet.PortletPreferences;
+import java.util.Properties;
 
 /**
  * @author Brian Wing Shun Chan

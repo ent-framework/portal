@@ -8,10 +8,11 @@
     <version>6.3.0</version>
 
     <modules>
+        <module>portal-parent</module>
         <module>portal-kernel</module>
         <module>portal-utils</module>
         <module>portal-web</module>
-        <module>portal-parent</module>
+        <module>portal-tools</module>
         <module>maven-support</module>
     </modules>
 

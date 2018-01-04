@@ -21,82 +21,34 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.upload.ProgressInputStream;
-import com.liferay.portal.kernel.util.ArrayUtil;
-import com.liferay.portal.kernel.util.CharPool;
-import com.liferay.portal.kernel.util.ContentTypes;
-import com.liferay.portal.kernel.util.FileUtil;
-import com.liferay.portal.kernel.util.GetterUtil;
-import com.liferay.portal.kernel.util.Http;
-import com.liferay.portal.kernel.util.StringBundler;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.kernel.util.StringUtil;
-import com.liferay.portal.kernel.util.SystemProperties;
-import com.liferay.portal.kernel.util.URLCodec;
-import com.liferay.portal.kernel.util.Validator;
-
-import java.io.IOException;
-import java.io.InputStream;
-
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
-import java.net.Socket;
-import java.net.SocketAddress;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.UnknownHostException;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import javax.net.SocketFactory;
-
-import javax.portlet.ActionRequest;
-import javax.portlet.PortletRequest;
-import javax.portlet.RenderRequest;
-
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
-import org.apache.commons.httpclient.ConnectTimeoutException;
-import org.apache.commons.httpclient.Credentials;
-import org.apache.commons.httpclient.Header;
-import org.apache.commons.httpclient.HostConfiguration;
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.HttpConnectionManager;
-import org.apache.commons.httpclient.HttpMethod;
-import org.apache.commons.httpclient.HttpState;
-import org.apache.commons.httpclient.MultiThreadedHttpConnectionManager;
-import org.apache.commons.httpclient.NTCredentials;
+import com.liferay.portal.kernel.util.*;
+import org.apache.commons.httpclient.*;
 import org.apache.commons.httpclient.URI;
-import org.apache.commons.httpclient.UsernamePasswordCredentials;
 import org.apache.commons.httpclient.auth.AuthPolicy;
 import org.apache.commons.httpclient.auth.AuthScope;
 import org.apache.commons.httpclient.cookie.CookiePolicy;
-import org.apache.commons.httpclient.methods.DeleteMethod;
-import org.apache.commons.httpclient.methods.EntityEnclosingMethod;
-import org.apache.commons.httpclient.methods.GetMethod;
-import org.apache.commons.httpclient.methods.HeadMethod;
-import org.apache.commons.httpclient.methods.PostMethod;
-import org.apache.commons.httpclient.methods.PutMethod;
-import org.apache.commons.httpclient.methods.RequestEntity;
-import org.apache.commons.httpclient.methods.StringRequestEntity;
+import org.apache.commons.httpclient.methods.*;
 import org.apache.commons.httpclient.methods.multipart.ByteArrayPartSource;
 import org.apache.commons.httpclient.methods.multipart.MultipartRequestEntity;
 import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.methods.multipart.StringPart;
-import org.apache.commons.httpclient.params.HostParams;
-import org.apache.commons.httpclient.params.HttpClientParams;
-import org.apache.commons.httpclient.params.HttpConnectionManagerParams;
-import org.apache.commons.httpclient.params.HttpConnectionParams;
-import org.apache.commons.httpclient.params.HttpMethodParams;
+import org.apache.commons.httpclient.params.*;
 import org.apache.commons.httpclient.protocol.DefaultProtocolSocketFactory;
 import org.apache.commons.httpclient.protocol.Protocol;
+
+import javax.net.SocketFactory;
+import javax.portlet.ActionRequest;
+import javax.portlet.PortletRequest;
+import javax.portlet.RenderRequest;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.*;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author Brian Wing Shun Chan
@@ -1091,7 +1043,7 @@ public class HttpImpl implements Http {
 	}
 
 	@Override
-	public byte[] URLtoByteArray(Http.Options options) throws IOException {
+	public byte[] URLtoByteArray(Options options) throws IOException {
 		return URLtoByteArray(
 			options.getLocation(), options.getMethod(), options.getHeaders(),
 			options.getCookies(), options.getAuth(), options.getBody(),
@@ -1102,7 +1054,7 @@ public class HttpImpl implements Http {
 
 	@Override
 	public byte[] URLtoByteArray(String location) throws IOException {
-		Http.Options options = new Http.Options();
+		Options options = new Options();
 
 		options.setLocation(location);
 
@@ -1113,7 +1065,7 @@ public class HttpImpl implements Http {
 	public byte[] URLtoByteArray(String location, boolean post)
 		throws IOException {
 
-		Http.Options options = new Http.Options();
+		Options options = new Options();
 
 		options.setLocation(location);
 		options.setPost(post);
@@ -1122,7 +1074,7 @@ public class HttpImpl implements Http {
 	}
 
 	@Override
-	public String URLtoString(Http.Options options) throws IOException {
+	public String URLtoString(Options options) throws IOException {
 		return new String(URLtoByteArray(options));
 	}
 
@@ -1208,7 +1160,7 @@ public class HttpImpl implements Http {
 	}
 
 	protected void processPostMethod(
-		PostMethod postMethod, List<Http.FilePart> fileParts,
+		PostMethod postMethod, List<FilePart> fileParts,
 		Map<String, String> parts) {
 
 		if ((fileParts == null) || fileParts.isEmpty()) {
@@ -1238,7 +1190,7 @@ public class HttpImpl implements Http {
 				}
 			}
 
-			for (Http.FilePart filePart : fileParts) {
+			for (FilePart filePart : fileParts) {
 				partsList.add(toCommonsFilePart(filePart));
 			}
 
@@ -1282,7 +1234,7 @@ public class HttpImpl implements Http {
 	}
 
 	protected org.apache.commons.httpclient.methods.multipart.FilePart
-		toCommonsFilePart(Http.FilePart filePart) {
+		toCommonsFilePart(FilePart filePart) {
 
 		return new org.apache.commons.httpclient.methods.multipart.FilePart(
 			filePart.getName(),
@@ -1347,10 +1299,10 @@ public class HttpImpl implements Http {
 	}
 
 	protected byte[] URLtoByteArray(
-			String location, Http.Method method, Map<String, String> headers,
-			Cookie[] cookies, Http.Auth auth, Http.Body body,
-			List<Http.FilePart> fileParts, Map<String, String> parts,
-			Http.Response response, boolean followRedirects, String progressId,
+			String location, Method method, Map<String, String> headers,
+			Cookie[] cookies, Auth auth, Body body,
+			List<FilePart> fileParts, Map<String, String> parts,
+			Response response, boolean followRedirects, String progressId,
 			PortletRequest portletRequest)
 		throws IOException {
 
@@ -1376,10 +1328,10 @@ public class HttpImpl implements Http {
 
 			HttpClient httpClient = getClient(hostConfiguration);
 
-			if (method.equals(Http.Method.POST) ||
-				method.equals(Http.Method.PUT)) {
+			if (method.equals(Method.POST) ||
+				method.equals(Method.PUT)) {
 
-				if (method.equals(Http.Method.POST)) {
+				if (method.equals(Method.POST)) {
 					httpMethod = new PostMethod(location);
 				}
 				else {
@@ -1396,7 +1348,7 @@ public class HttpImpl implements Http {
 
 					entityEnclosingMethod.setRequestEntity(requestEntity);
 				}
-				else if (method.equals(Http.Method.POST)) {
+				else if (method.equals(Method.POST)) {
 					PostMethod postMethod = (PostMethod)httpMethod;
 
 					if (!hasRequestHeader(
@@ -1413,10 +1365,10 @@ public class HttpImpl implements Http {
 					processPostMethod(postMethod, fileParts, parts);
 				}
 			}
-			else if (method.equals(Http.Method.DELETE)) {
+			else if (method.equals(Method.DELETE)) {
 				httpMethod = new DeleteMethod(location);
 			}
-			else if (method.equals(Http.Method.HEAD)) {
+			else if (method.equals(Method.HEAD)) {
 				httpMethod = new HeadMethod(location);
 			}
 			else {
@@ -1430,8 +1382,8 @@ public class HttpImpl implements Http {
 				}
 			}
 
-			if ((method.equals(Http.Method.POST) ||
-				 method.equals(Http.Method.PUT)) &&
+			if ((method.equals(Method.POST) ||
+				 method.equals(Method.PUT)) &&
 				((body != null) ||
 				 ((fileParts != null) && !fileParts.isEmpty()) ||
 				 ((parts != null) && !parts.isEmpty()))) {
@@ -1485,7 +1437,7 @@ public class HttpImpl implements Http {
 
 				if (followRedirects) {
 					return URLtoByteArray(
-						redirect, Http.Method.GET, headers, cookies, auth, body,
+						redirect, Method.GET, headers, cookies, auth, body,
 						fileParts, parts, response, followRedirects, progressId,
 						portletRequest);
 				}

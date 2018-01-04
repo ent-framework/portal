@@ -17,28 +17,7 @@ package com.liferay.portal.util;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.kernel.util.ContentTypes;
-import com.liferay.portal.kernel.util.GetterUtil;
-import com.liferay.portal.kernel.util.MimeTypes;
-import com.liferay.portal.kernel.util.SetUtil;
-import com.liferay.portal.kernel.util.StreamUtil;
-import com.liferay.portal.kernel.util.Validator;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-
-import java.net.URL;
-
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
+import com.liferay.portal.kernel.util.*;
 import org.apache.tika.detect.DefaultDetector;
 import org.apache.tika.detect.Detector;
 import org.apache.tika.io.CloseShieldInputStream;
@@ -46,13 +25,19 @@ import org.apache.tika.io.TikaInputStream;
 import org.apache.tika.metadata.Metadata;
 import org.apache.tika.mime.MediaType;
 import org.apache.tika.mime.MimeTypesReaderMetKeys;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
 import org.xml.sax.InputSource;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.*;
 
 /**
  * @author Jorge Ferrer

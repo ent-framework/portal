@@ -17,22 +17,15 @@ package com.liferay.portal.util;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
-import com.liferay.portal.kernel.util.Base64;
-import com.liferay.portal.kernel.util.Digester;
-import com.liferay.portal.kernel.util.StreamUtil;
-import com.liferay.portal.kernel.util.StringBundler;
-import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.*;
+import org.apache.commons.codec.binary.Hex;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
-
 import java.nio.ByteBuffer;
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
-import org.apache.commons.codec.binary.Hex;
 
 /**
  * @author Brian Wing Shun Chan

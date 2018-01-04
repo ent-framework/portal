@@ -52,7 +52,7 @@ import com.liferay.portal.plugin.PluginPackageIndexer;
 import com.liferay.portal.security.lang.DoPrivilegedUtil;
 import com.liferay.portal.service.BackgroundTaskLocalServiceUtil;
 import com.liferay.portal.service.LockLocalServiceUtil;
-import com.liferay.portal.tools.DBUpgrader;
+import com.liferay.portal.util.DBUpgrader;
 import com.liferay.portal.util.WebKeys;
 //import com.liferay.portlet.messageboards.util.MBMessageIndexer;
 

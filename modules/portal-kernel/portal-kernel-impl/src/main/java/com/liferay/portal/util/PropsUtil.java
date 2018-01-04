@@ -20,24 +20,14 @@ import com.liferay.portal.kernel.configuration.Filter;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.servlet.WebDirDetector;
-import com.liferay.portal.kernel.util.CharPool;
-import com.liferay.portal.kernel.util.ClassUtil;
-import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.kernel.util.PropsKeys;
-import com.liferay.portal.kernel.util.ReleaseInfo;
-import com.liferay.portal.kernel.util.ServerDetector;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.kernel.util.StringUtil;
-import com.liferay.portal.kernel.util.SystemProperties;
-import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.model.CompanyConstants;
 import com.liferay.portal.security.auth.CompanyThreadLocal;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-
-import javax.servlet.Servlet;
 
 /**
  * @author Brian Wing Shun Chan

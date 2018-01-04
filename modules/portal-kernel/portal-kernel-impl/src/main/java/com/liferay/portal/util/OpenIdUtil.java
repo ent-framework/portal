@@ -19,7 +19,6 @@ import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
-
 import org.openid4java.consumer.ConsumerManager;
 import org.openid4java.consumer.InMemoryConsumerAssociationStore;
 import org.openid4java.consumer.InMemoryNonceVerifier;

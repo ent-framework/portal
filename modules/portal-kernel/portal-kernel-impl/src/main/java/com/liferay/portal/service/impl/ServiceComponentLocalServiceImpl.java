@@ -41,7 +41,6 @@ import com.liferay.portal.kernel.xml.UnsecureSAXReaderUtil;
 import com.liferay.portal.model.ModelHintsUtil;
 import com.liferay.portal.model.ServiceComponent;
 import com.liferay.portal.service.base.ServiceComponentLocalServiceBaseImpl;
-import com.liferay.portal.tools.servicebuilder.Entity;
 import com.liferay.portal.util.PropsUtil;
 
 import java.io.IOException;
@@ -510,7 +509,7 @@ public class ServiceComponentLocalServiceImpl
 
 			String dataSource = (String)dataSourceField.get(null);
 
-			if (!dataSource.equals(Entity.DEFAULT_DATA_SOURCE)) {
+			if (!dataSource.equals("liferayDataSource")) {
 				continue;
 			}
 

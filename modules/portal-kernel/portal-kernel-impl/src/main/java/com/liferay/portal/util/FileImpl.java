@@ -25,42 +25,9 @@ import com.liferay.portal.kernel.process.ProcessCallable;
 import com.liferay.portal.kernel.process.ProcessException;
 import com.liferay.portal.kernel.process.ProcessExecutor;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
-import com.liferay.portal.kernel.util.ArrayUtil;
-import com.liferay.portal.kernel.util.CharPool;
-import com.liferay.portal.kernel.util.Digester;
-import com.liferay.portal.kernel.util.DigesterUtil;
-import com.liferay.portal.kernel.util.FileComparator;
-import com.liferay.portal.kernel.util.ReflectionUtil;
-import com.liferay.portal.kernel.util.StreamUtil;
-import com.liferay.portal.kernel.util.StringBundler;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.kernel.util.StringUtil;
-import com.liferay.portal.kernel.util.SystemProperties;
-import com.liferay.portal.kernel.util.Time;
-import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.kernel.util.*;
 import com.liferay.util.PwdGenerator;
 import com.liferay.util.ant.ExpandTask;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStreamWriter;
-import java.io.RandomAccessFile;
-import java.io.Reader;
-import java.io.Writer;
-
-import java.nio.ByteBuffer;
-import java.nio.channels.FileChannel;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Properties;
-import java.util.concurrent.Future;
-
 import org.apache.commons.compress.archivers.zip.UnsupportedZipFeatureException;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.exception.ExceptionUtils;
@@ -69,9 +36,18 @@ import org.apache.poi.EncryptedDocumentException;
 import org.apache.tika.Tika;
 import org.apache.tika.exception.TikaException;
 import org.apache.tools.ant.DirectoryScanner;
-
 import org.mozilla.intl.chardet.nsDetector;
 import org.mozilla.intl.chardet.nsPSMDetector;
+
+import java.io.File;
+import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Properties;
+import java.util.concurrent.Future;
 
 /**
  * @author Brian Wing Shun Chan

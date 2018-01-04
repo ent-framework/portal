@@ -21,39 +21,21 @@ import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
-import com.liferay.portal.kernel.util.ArrayUtil;
-import com.liferay.portal.kernel.util.LocaleUtil;
-import com.liferay.portal.kernel.util.Localization;
-import com.liferay.portal.kernel.util.ParamUtil;
-import com.liferay.portal.kernel.util.PrefsParamUtil;
-import com.liferay.portal.kernel.util.StringBundler;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.kernel.util.StringUtil;
-import com.liferay.portal.kernel.util.Tuple;
-import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.language.LanguageResources;
 import com.liferay.portal.security.xml.SecureXMLFactoryProviderUtil;
+import org.apache.commons.collections.map.ReferenceMap;
 
+import javax.portlet.PortletPreferences;
+import javax.portlet.PortletRequest;
+import javax.servlet.http.HttpServletRequest;
+import javax.xml.stream.*;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
-
-import javax.portlet.PortletPreferences;
-import javax.portlet.PortletRequest;
-
-import javax.servlet.http.HttpServletRequest;
-
-import javax.xml.stream.XMLInputFactory;
-import javax.xml.stream.XMLOutputFactory;
-import javax.xml.stream.XMLStreamConstants;
-import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.XMLStreamReader;
-import javax.xml.stream.XMLStreamWriter;
-
-import org.apache.commons.collections.map.ReferenceMap;
 
 /**
  * @author Alexander Chow

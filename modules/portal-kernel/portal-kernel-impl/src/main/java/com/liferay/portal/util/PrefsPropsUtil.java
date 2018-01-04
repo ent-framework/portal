@@ -25,10 +25,9 @@ import com.liferay.portlet.PortalPreferencesWrapper;
 import com.liferay.portlet.PortalPreferencesWrapperCacheUtil;
 import com.liferay.util.ContentUtil;
 
+import javax.portlet.PortletPreferences;
 import java.util.Enumeration;
 import java.util.Properties;
-
-import javax.portlet.PortletPreferences;
 
 /**
  * @author Brian Wing Shun Chan
