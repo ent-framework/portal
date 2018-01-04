@@ -43,10 +43,9 @@ import javax.servlet.ServletContext;
  */
 public class ServletContextUtil {
 
-	public static final String PATH_WEB_XML = "/WEB-INF/web.xml";
+	public static final String PATH_WEB_XML = "/WEB-INF/";
 
-	public static final String URI_ATTRIBUTE =
-		ServletContextUtil.class.getName().concat(".rootURI");
+	public static final String URI_ATTRIBUTE = ServletContextUtil.class.getName().concat(".rootURI");
 
 	public static Set<String> getClassNames(ServletContext servletContext)
 		throws IOException {

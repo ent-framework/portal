@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.9.RELEASE</version>
+    </parent>
+
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.acn.portal.parent</groupId>
     <artifactId>portal-parent</artifactId>
@@ -25,33 +31,39 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <aspectj.version>1.6.12</aspectj.version>
-        <commons-beanutils.version>1.9.3</commons-beanutils.version>
-        <commons-collections.version>3.2.2</commons-collections.version>
-        <commons-codec.version>1.10</commons-codec.version>
-        <commons-dbcp.version>1.4</commons-dbcp.version>
-        <commons-dbcp2.version>2.1.1</commons-dbcp2.version>
-        <commons-digester.version>2.1</commons-digester.version>
-        <commons-pool.version>1.6</commons-pool.version>
-        <commons-pool2.version>2.4.3</commons-pool2.version>
-        <commons-fileupload.version>1.2.2</commons-fileupload.version>
-        <!--<hibernate.version>5.2.12.Final</hibernate.version>-->
-        <ehcache.version>2.8.3</ehcache.version>
-        <ehcache3.version>3.2.3</ehcache3.version>
-        <!--<hibernate.version>3.6.10.Final</hibernate.version>-->
+        <aspectj.version>1.6.12</aspectj.version> <!-- 1.8.3 -->
+        <!--<commons-beanutils.version>1.9.3</commons-beanutils.version>-->
+        <!--<commons-codec.version>1.10</commons-codec.version>-->
+        <!--<commons-dbcp.version>1.4</commons-dbcp.version>-->
+        <!--<commons-dbcp2.version>2.1.1</commons-dbcp2.version>-->
+        <!--<commons-digester.version>2.1</commons-digester.version>-->
+        <!--<commons-pool.version>1.6</commons-pool.version>-->
+        <!--<commons-pool2.version>2.4.3</commons-pool2.version>-->
+        <commons-fileupload.version>1.2.2</commons-fileupload.version> <!--update to 1.3.3 -->
+        <!--&lt;!&ndash;<hibernate.version>5.2.12.Final</hibernate.version>&ndash;&gt;-->
+        <!--<dom4j.version>1.6.1</dom4j.version>-->
+        <!--<ehcache.version>2.8.3</ehcache.version>-->
+        <!--<ehcache3.version>3.2.3</ehcache3.version>-->
+        <!--<freemarker.version>2.3.17</freemarker.version>-->
+        <!--&lt;!&ndash;<hibernate.version>3.6.10.Final</hibernate.version>&ndash;&gt;-->
         <hibernate.version>5.2.12.Final</hibernate.version>
+        <hibernate.validator.version>5.3.6.Final</hibernate.validator.version>
+        <javassist.version>3.20.0-GA</javassist.version>
+        <hazelcast-hibernate52.version>1.2.2</hazelcast-hibernate52.version>
+        <logstash-logback-encoder.version>4.11</logstash-logback-encoder.version>
         <java.version>1.8</java.version>
-        <junit.version>4.12</junit.version>
-        <javax-mail.version>1.5.6</javax-mail.version>
-        <logback.version>1.1.11</logback.version>
-        <portlet-api.version>2.0</portlet-api.version>
+        <!--<junit.version>4.12</junit.version>-->
+        <!--<javax-mail.version>1.5.6</javax-mail.version>-->
+        <javax-el.version>2.2.5</javax-el.version>
+        <!--<logback.version>1.1.11</logback.version>-->
+
         <quartz.version>2.1.6</quartz.version>
         <spymemcached.version>2.12.3</spymemcached.version>
-        <servlet.api.version>3.1.0</servlet.api.version>
-        <servlet.jsp.api.version>2.1</servlet.jsp.api.version>
-        <servlet.jstl.version>1.2</servlet.jstl.version>
-        <spring.version>4.3.13.RELEASE</spring.version>
+
+        <javax-jsp.version>2.3.2-b02</javax-jsp.version>
+        <struts.version>1.2.9</struts.version>
         <xstream.version>1.4.7</xstream.version>
+        <portlet-api.version>2.0</portlet-api.version>
     </properties>
 
     <dependencyManagement>
@@ -61,6 +73,93 @@
                 <artifactId>portlet-api</artifactId>
                 <version>${portlet-api.version}</version>
             </dependency>
+            <dependency>
+                <groupId>struts</groupId>
+                <artifactId>struts</artifactId>
+                <version>${struts.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>struts</groupId>
+                <artifactId>struts-el</artifactId>
+                <version>${struts.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>struts</groupId>
+                        <artifactId>struts</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tika</groupId>
+                <artifactId>tika-parsers</artifactId>
+                <version>1.3</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>asm</groupId>
+                        <artifactId>asm</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.groovy</groupId>
+                <artifactId>groovy</artifactId>
+                <version>1.7.11</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>asm</groupId>
+                        <artifactId>asm</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>asm</groupId>
+                        <artifactId>asm-util</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>asm</groupId>
+                        <artifactId>asm-commons</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>asm</groupId>
+                        <artifactId>asm-analysis</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>asm</groupId>
+                        <artifactId>asm-tree</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- Servlet -->
+            <!-- JSP -->
+
+            <dependency>
+                <groupId>javax.el</groupId>
+                <artifactId>javax.el-api</artifactId>
+                <version>${javax-el.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${servlet-api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet.jsp</groupId>
+                <artifactId>javax.servlet.jsp-api</artifactId>
+                <version>${javax-jsp.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jstl</artifactId>
+                <version>${jstl.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -137,32 +236,6 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-source-plugin</artifactId>-->
-                <!--<version>2.2.1</version>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<id>validate</id>-->
-                        <!--<goals>-->
-                            <!--<goal>jar</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-            <!--</plugin>-->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-javadoc-plugin</artifactId>-->
-                <!--<version>2.9</version>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<id>attach-javadocs</id>-->
-                        <!--<goals>-->
-                            <!--<goal>jar</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-            <!--</plugin>-->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>buildnumber-maven-plugin</artifactId>
@@ -277,38 +350,6 @@
                 <!--</plugins>-->
             <!--</build>-->
         <!--</profile>-->
-        <profile>
-            <id>release-sign-artifacts</id>
-            <activation>
-                <property>
-                    <name>performRelease</name>
-                    <value>true</value>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-deploy-plugin</artifactId>
-                        <version>2.7</version>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.4</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
     </profiles>
 
     <distributionManagement>

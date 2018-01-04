@@ -828,8 +828,7 @@ public class MainServlet extends ActionServlet {
 		// has initialized.
 
 		if (SetupWizardUtil.isSetupFinished()) {
-			HotDeployUtil.setCapturePrematureEvents(false);
-
+			//HotDeployUtil.setCapturePrematureEvents(false);
 			PortalLifecycleUtil.flushInits();
 		}
 	}
@@ -866,8 +865,8 @@ public class MainServlet extends ActionServlet {
 
 		String[] xmls = new String[] {
 			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/"+ Portal.PORTLET_XML_FILE_NAME_CUSTOM)),
-			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/portlet.xml")),
 			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/portlet-ext.xml")),
+			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/liferay-portlet.xml")),
 			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/liferay-portlet-ext.xml"))
 		};
 

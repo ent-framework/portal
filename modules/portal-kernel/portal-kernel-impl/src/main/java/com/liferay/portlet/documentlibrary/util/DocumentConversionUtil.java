@@ -308,8 +308,7 @@ public class DocumentConversionUtil {
 	private void _populateConversionsMap(String documentFamily) {
 		Filter filter = new Filter(documentFamily);
 
-		DocumentFormatRegistry documentFormatRegistry =
-			new DefaultDocumentFormatRegistry();
+		DocumentFormatRegistry documentFormatRegistry = new DefaultDocumentFormatRegistry();
 
 		String[] sourceExtensions = PropsUtil.getArray(
 			PropsKeys.OPENOFFICE_CONVERSION_SOURCE_EXTENSIONS, filter);
@@ -319,9 +318,7 @@ public class DocumentConversionUtil {
 		for (String sourceExtension : sourceExtensions) {
 			List<String> conversions = new SortedArrayList<String>();
 
-			DocumentFormat sourceDocumentFormat =
-				documentFormatRegistry.getFormatByFileExtension(
-					sourceExtension);
+			DocumentFormat sourceDocumentFormat = documentFormatRegistry.getFormatByFileExtension(sourceExtension);
 
 			if (sourceDocumentFormat == null) {
 				if (_log.isWarnEnabled()) {

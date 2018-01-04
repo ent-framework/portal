@@ -1,30 +1,25 @@
 package com.acn.portal.web.config.portal;
 
-import java.util.List;
-
 import com.liferay.counter.service.CounterLocalServiceUtil;
-import com.liferay.portal.ext.service.FilterScopeLocalService;
-import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.model.User;
-import com.liferay.portal.service.ClassNameLocalServiceUtil;
-import com.liferay.portal.service.UserLocalServiceUtil;
-import org.springframework.context.ApplicationContextInitializer;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.web.context.support.XmlWebApplicationContext;
-
 import com.liferay.portal.bean.BeanLocatorImpl;
+import com.liferay.portal.ext.service.FilterScopeLocalService;
 import com.liferay.portal.kernel.bean.BeanLocator;
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.model.User;
 import com.liferay.portal.spring.context.ArrayApplicationContext;
-import com.liferay.portal.spring.context.PortalApplicationContext;
 import com.liferay.portal.util.ClassLoaderUtil;
 import com.liferay.portal.util.InitUtil;
 import com.liferay.portal.util.PropsUtil;
 import com.liferay.portal.util.PropsValues;
+import org.springframework.context.ApplicationContextInitializer;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
+
+import java.util.List;
 
 /**
  * Created by jeff on 26/12/2017.

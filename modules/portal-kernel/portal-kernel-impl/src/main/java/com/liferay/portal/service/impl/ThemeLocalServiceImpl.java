@@ -268,8 +268,7 @@ public class ThemeLocalServiceImpl extends ThemeLocalServiceBaseImpl {
 
 		try {
 			for (String xml : xmls) {
-				themes.addAll(
-					_readThemes(
+				themes.addAll(_readThemes(
 						servletContextName, servletContext, themesPath,
 						loadFromServletContext, xml, pluginPackage));
 			}
@@ -773,8 +772,10 @@ public class ThemeLocalServiceImpl extends ThemeLocalServiceBaseImpl {
 			PropsValues.SPRITE_FILE_NAME);
 		String spritePropertiesFileName = resourcePath.concat(
 			PropsValues.SPRITE_PROPERTIES_FILE_NAME);
-		String rootPath = ServletContextUtil.getRootPath(servletContext);
-
+		//String rootPath = ServletContextUtil.getRootPath(servletContext);
+		//TODO fix
+		String rootPath = "";
+		
 		Properties spriteProperties = SpriteProcessorUtil.generate(
 			servletContext, imageURLs, spriteRootDirName, spriteFileName,
 			spritePropertiesFileName, rootPath, 16, 16, 10240);

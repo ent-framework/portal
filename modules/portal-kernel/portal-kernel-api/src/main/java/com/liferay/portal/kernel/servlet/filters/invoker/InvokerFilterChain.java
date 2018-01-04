@@ -266,6 +266,8 @@ public class InvokerFilterChain implements FilterChain {
 
 		try {
 			filter.doFilter(servletRequest, servletResponse, this);
+		} catch (Exception e) {
+			_log.error(e.getMessage());
 		}
 		finally {
 			currentThread.setContextClassLoader(contextClassLoader);

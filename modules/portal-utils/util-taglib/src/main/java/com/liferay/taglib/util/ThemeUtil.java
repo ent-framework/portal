@@ -14,32 +14,50 @@
 
 package com.liferay.taglib.util;
 
+import java.io.IOException;
+import java.io.Writer;
+
+import javax.servlet.GenericServlet;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.Servlet;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.jsp.PageContext;
+
+import org.apache.struts.taglib.tiles.ComponentConstants;
+import org.apache.struts.tiles.ComponentContext;
+
 import com.liferay.portal.kernel.io.unsync.UnsyncStringWriter;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.servlet.PipingServletResponse;
 import com.liferay.portal.kernel.servlet.PluginContextListener;
 import com.liferay.portal.kernel.servlet.ServletContextPool;
-import com.liferay.portal.kernel.template.*;
-import com.liferay.portal.kernel.util.*;
+import com.liferay.portal.kernel.template.Template;
+import com.liferay.portal.kernel.template.TemplateConstants;
+import com.liferay.portal.kernel.template.TemplateManagerUtil;
+import com.liferay.portal.kernel.template.TemplateResource;
+import com.liferay.portal.kernel.template.TemplateResourceLoaderUtil;
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.ThemeHelper;
+import com.liferay.portal.kernel.util.UnsyncPrintWriterPool;
+import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.model.PortletConstants;
 import com.liferay.portal.model.Theme;
 import com.liferay.portal.theme.PortletDisplay;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.util.freemarker.FreeMarkerTaglibFactoryUtil;
+
 import freemarker.ext.servlet.HttpRequestHashModel;
 import freemarker.ext.servlet.ServletContextHashModel;
 import freemarker.template.ObjectWrapper;
 import freemarker.template.TemplateHashModel;
-import org.apache.struts.taglib.tiles.ComponentConstants;
-import org.apache.struts.tiles.ComponentContext;
-
-import javax.servlet.*;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.jsp.PageContext;
-import java.io.IOException;
-import java.io.Writer;
 
 /**
  * @author Brian Wing Shun Chan

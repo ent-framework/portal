@@ -19,22 +19,16 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.scripting.BaseScriptingExecutor;
 import com.liferay.portal.kernel.scripting.ExecutionException;
 import com.liferay.portal.kernel.scripting.ScriptingException;
-import com.liferay.portal.kernel.util.AggregateClassLoader;
-import com.liferay.portal.kernel.util.ArrayUtil;
-import com.liferay.portal.kernel.util.FileUtil;
-import com.liferay.portal.kernel.util.NamedThreadFactory;
-import com.liferay.portal.kernel.util.ReflectionUtil;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.kernel.util.SystemProperties;
+import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.util.ClassLoaderUtil;
 import com.liferay.portal.util.PropsValues;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
 
+import java.io.File;
 import java.lang.reflect.Field;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -46,6 +40,8 @@ import java.util.concurrent.ThreadFactory;
 
 import jodd.io.ZipUtil;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.jruby.Ruby;
 import org.jruby.RubyInstanceConfig;
 import org.jruby.RubyInstanceConfig.CompileMode;
@@ -53,6 +49,8 @@ import org.jruby.embed.LocalContextScope;
 import org.jruby.embed.ScriptingContainer;
 import org.jruby.embed.internal.LocalContextProvider;
 import org.jruby.exceptions.RaiseException;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
 /**
  * @author Alberto Montero
@@ -256,18 +254,35 @@ public class RubyExecutor extends BaseScriptingExecutor {
 	}
 
 	protected void initRubyGems() throws Exception {
-		File rubyGemsJarFile = new File(
-			PropsValues.LIFERAY_LIB_PORTAL_DIR, "ruby-gems.jar");
+		//File rubyGemsJarFile = new File(PropsValues.LIFERAY_LIB_PORTAL_DIR, "ruby-gems.jar");
+
+		InputStream inputStream = PortalClassLoaderUtil.getClassLoader().getResourceAsStream("dependencies/ruby/ruby-gems.jar");
+
+		if (inputStream==null) {
+			if (_log.isWarnEnabled()) {
+				_log.warn("dependencies/ruby/ruby-gems.jar  does not exist");
+			}
+			return;
+		}
+
+		String tmpDir = SystemProperties.get(SystemProperties.TMP_DIR);
+
+		File rubyGemsJarFile = new File(tmpDir + "ruby-gems.jar");
+
+		try {
+			byte[] buffer = new byte[inputStream.available()];
+			IOUtils.read(inputStream, buffer);
+			FileUtils.writeByteArrayToFile(rubyGemsJarFile, buffer);
+		} finally {
+			IOUtils.closeQuietly(inputStream);
+		}
 
 		if (!rubyGemsJarFile.exists()) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(rubyGemsJarFile + " does not exist");
 			}
-
 			return;
 		}
-
-		String tmpDir = SystemProperties.get(SystemProperties.TMP_DIR);
 
 		File rubyDir = new File(tmpDir + "/liferay/ruby");
 
@@ -282,6 +297,10 @@ public class RubyExecutor extends BaseScriptingExecutor {
 
 			rubyDir.setLastModified(rubyGemsJarFile.lastModified());
 		}
+
+		try {
+			FileUtils.deleteQuietly(rubyGemsJarFile);
+		} catch (Exception e){}
 	}
 
 	private static final String _COMPILE_MODE_FORCE = "force";

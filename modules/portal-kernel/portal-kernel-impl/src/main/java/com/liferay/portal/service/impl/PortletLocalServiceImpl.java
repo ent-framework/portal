@@ -1796,13 +1796,7 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 			return liferayPortletIds;
 		}
 
-		InputStream stream = Thread.currentThread().getContextClassLoader().getResourceAsStream(xml);
-
-		if (stream == null) {
-			return liferayPortletIds;
-		}
-
-		Document document = UnsecureSAXReaderUtil.read(stream, true);
+		Document document = UnsecureSAXReaderUtil.read(xml, true);
 
 		Element rootElement = document.getRootElement();
 
@@ -1840,8 +1834,6 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 				servletContextName, servletContext, portletsPool,
 				liferayPortletIds, roleMappers, portletElement);
 		}
-
-		StreamUtil.cleanUp(stream);
 
 		return liferayPortletIds;
 	}
@@ -2155,14 +2147,7 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 			return portletIds;
 		}
 
-		InputStream stream = Thread.currentThread().getContextClassLoader().getResourceAsStream(xml);
-
-		if (stream == null) {
-			return portletIds;
-		}
-
-		//Document document = UnsecureSAXReaderUtil.read(xml, PropsValues.PORTLET_XML_VALIDATE);
-		Document document = UnsecureSAXReaderUtil.read(stream, PropsValues.PORTLET_XML_VALIDATE);
+		Document document = UnsecureSAXReaderUtil.read(xml, PropsValues.PORTLET_XML_VALIDATE);
 
 		Element rootElement = document.getRootElement();
 
@@ -2337,8 +2322,6 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 
 			portletApp.addPortletURLListener(portletURLListener);
 		}
-
-		StreamUtil.cleanUp(stream);
 
 		return portletIds;
 	}

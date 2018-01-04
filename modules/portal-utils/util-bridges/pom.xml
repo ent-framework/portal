@@ -44,6 +44,25 @@
             <groupId>org.apache.portals.bridges</groupId>
             <artifactId>portals-bridges-struts-1.2.7</artifactId>
             <version>1.0.4</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>struts</groupId>
+                    <artifactId>struts</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>struts</groupId>
+                    <artifactId>struts-el</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>struts</groupId>
+            <artifactId>struts</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>struts</groupId>
+            <artifactId>struts-el</artifactId>
         </dependency>
 
         <dependency>
@@ -80,6 +99,7 @@
         <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
+            <version>${commons-beanutils.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.liferay/com.liferay.ibm.icu.icu4j -->
@@ -127,11 +147,13 @@
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
+            <version>${freemarker.version}</version>
         </dependency>
 
         <dependency>
             <groupId>dom4j</groupId>
             <artifactId>dom4j</artifactId>
+            <version>${dom4j.version}</version>
         </dependency>
 
 
@@ -139,12 +161,6 @@
             <groupId>javax.portlet</groupId>
             <artifactId>portlet-api</artifactId>
             <version>${portlet-api.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>biz.aQute</groupId>
-            <artifactId>annotation</artifactId>
-            <version>1.50.0</version>
         </dependency>
 
         <dependency>
@@ -171,36 +187,18 @@
         <!-- Servlet -->
         <!-- JSP -->
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${servlet.api.version}</version>
-            <scope>provided</scope>
+            <groupId>javax.el</groupId>
+            <artifactId>javax.el-api</artifactId>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/net.sf.jazzy/jazzy -->
         <dependency>
-            <groupId>net.sf.jazzy</groupId>
-            <artifactId>jazzy</artifactId>
-            <version>0.5.2-rtext-1.4.1-2</version>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
         </dependency>
 
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
-            <artifactId>jsp-api</artifactId>
-            <version>${servlet.jsp.api.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet.jsp.jstl</groupId>
-            <artifactId>jstl-api</artifactId>
-            <version>${servlet.jstl.version}</version>
-            <exclusions>
-                <!-- Exclude Commons Logging in favor of SLF4j -->
-                <exclusion>
-                    <groupId>javax.servlet</groupId>
-                    <artifactId>servlet-api</artifactId>
-                </exclusion>
-            </exclusions>
+            <artifactId>javax.servlet.jsp-api</artifactId>
         </dependency>
 
         <dependency>
@@ -257,10 +255,12 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-envers</artifactId>
+            <version>${hibernate.version}</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->

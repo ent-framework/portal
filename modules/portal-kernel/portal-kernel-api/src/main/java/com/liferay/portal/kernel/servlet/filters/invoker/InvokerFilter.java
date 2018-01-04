@@ -118,8 +118,10 @@ public class InvokerFilter extends BasePortalLifecycle implements Filter {
 			invokerFilterChain.setContextClassLoader(contextClassLoader);
 
 			invokerFilterChain.doFilter(request, response);
-		}
-		finally {
+		} catch (Exception e) {
+			e.printStackTrace();
+			_log.error(" invoke filter error {}" +e.getMessage());
+		} finally {
 			request.removeAttribute(WebKeys.INVOKER_FILTER_URI);
 		}
 	}

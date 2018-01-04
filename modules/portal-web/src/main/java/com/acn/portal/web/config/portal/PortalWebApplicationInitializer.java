@@ -1,42 +1,23 @@
 package com.acn.portal.web.config.portal;
 
-import com.acn.portal.web.config.WebConfigurer;
-import com.liferay.portal.bean.BeanLocatorImpl;
-import com.liferay.portal.kernel.bean.BeanLocator;
-import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.servlet.PortletSessionListenerManager;
 import com.liferay.portal.kernel.servlet.SerializableSessionAttributeListener;
 import com.liferay.portal.kernel.servlet.filters.invoker.InvokerFilter;
-import com.liferay.portal.kernel.util.ListUtil;
-import com.liferay.portal.kernel.util.PropsKeys;
-import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.servlet.*;
-import com.liferay.portal.spring.context.ArrayApplicationContext;
-import com.liferay.portal.spring.context.PortalApplicationContext;
 import com.liferay.portal.spring.context.PortalContextLoaderListener;
-import com.liferay.portal.util.ClassLoaderUtil;
-import com.liferay.portal.util.PropsUtil;
-import com.liferay.portal.util.PropsValues;
+import com.liferay.portal.webserver.DynamicResourceServlet;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
-import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
-import org.springframework.web.WebApplicationInitializer;
-import org.springframework.web.context.support.WebApplicationContextUtils;
-import org.springframework.web.context.support.XmlWebApplicationContext;
-
-import java.util.*;
 
 import javax.servlet.*;
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 
 /**
@@ -50,9 +31,9 @@ public class PortalWebApplicationInitializer implements ServletContextInitialize
 
     public void onStartup(ServletContext servletContext) throws ServletException {
 
-    		//servletContext.setInitParameter("contextClass", "com.liferay.portal.spring.context.PortalApplicationContext");
+        //servletContext.setInitParameter("contextClass", "com.liferay.portal.spring.context.PortalApplicationContext");
 
-		log.info("PortalWebApplicationInitializer Start Up");
+        log.info("PortalWebApplicationInitializer Start Up");
 //
 //		ApplicationContext applicationContext = WebApplicationContextUtils.getWebApplicationContext(servletContext);
 //
@@ -90,9 +71,9 @@ public class PortalWebApplicationInitializer implements ServletContextInitialize
 
     private void initInvokerFilters(ServletContext servletContext, boolean asyncSupported) {
         FilterRegistration.Dynamic invokerFilter = servletContext.addFilter("InvokerFilter-ERROR", new InvokerFilter());
-        EnumSet<DispatcherType> disps = EnumSet.of(DispatcherType.ERROR,  DispatcherType.ASYNC);
+        EnumSet<DispatcherType> disps = EnumSet.of(DispatcherType.ERROR, DispatcherType.ASYNC);
         Map<String, String> parameters = new HashMap<>();
-        parameters.put("register-portal-lifecycle","false");
+        parameters.put("register-portal-lifecycle", "false");
         parameters.put("dispatcher", "ERROR");
         invokerFilter.setInitParameters(parameters);
         invokerFilter.addMappingForUrlPatterns(disps, true, "/*");
@@ -102,25 +83,25 @@ public class PortalWebApplicationInitializer implements ServletContextInitialize
         invokerFilter = servletContext.addFilter("InvokerFilter-FORWARD", new InvokerFilter());
         disps = EnumSet.of(DispatcherType.FORWARD, DispatcherType.ASYNC);
         parameters = new HashMap<>();
-        parameters.put("register-portal-lifecycle","false");
+        parameters.put("register-portal-lifecycle", "false");
         parameters.put("dispatcher", "FORWARD");
         invokerFilter.setInitParameters(parameters);
         invokerFilter.addMappingForUrlPatterns(disps, true, "/*");
         invokerFilter.setAsyncSupported(asyncSupported);
 
         invokerFilter = servletContext.addFilter("InvokerFilter-INCLUDE", new InvokerFilter());
-        disps = EnumSet.of(DispatcherType.INCLUDE,  DispatcherType.ASYNC);
+        disps = EnumSet.of(DispatcherType.INCLUDE, DispatcherType.ASYNC);
         parameters = new HashMap<>();
-        parameters.put("register-portal-lifecycle","false");
+        parameters.put("register-portal-lifecycle", "false");
         parameters.put("dispatcher", "INCLUDE");
         invokerFilter.setInitParameters(parameters);
         invokerFilter.addMappingForUrlPatterns(disps, true, "/*");
         invokerFilter.setAsyncSupported(asyncSupported);
 
         invokerFilter = servletContext.addFilter("InvokerFilter-REQUEST", new InvokerFilter());
-        disps = EnumSet.of(DispatcherType.REQUEST,  DispatcherType.ASYNC);
+        disps = EnumSet.of(DispatcherType.REQUEST, DispatcherType.ASYNC);
         parameters = new HashMap<>();
-        parameters.put("register-portal-lifecycle","false");
+        parameters.put("register-portal-lifecycle", "false");
         parameters.put("dispatcher", "REQUEST");
         invokerFilter.setInitParameters(parameters);
         invokerFilter.addMappingForUrlPatterns(disps, true, "/*");
@@ -174,9 +155,19 @@ public class PortalWebApplicationInitializer implements ServletContextInitialize
         publicFriendlyURLServlet.setLoadOnStartup(1);
         publicFriendlyURLServlet.setAsyncSupported(false);
 
+        ServletRegistration.Dynamic comboServlet = servletContext.addServlet("ComboServlet", new ComboServlet());
+        comboServlet.addMapping("/combo/*");
+        comboServlet.setLoadOnStartup(1);
+        comboServlet.setAsyncSupported(false);
+        
+        ServletRegistration.Dynamic dynamicResourceServlet = servletContext.addServlet("DynamicResourceServlet", new DynamicResourceServlet());
+        dynamicResourceServlet.addMapping("/sprite/*");
+        dynamicResourceServlet.setLoadOnStartup(1);
+        dynamicResourceServlet.setAsyncSupported(false);
+        
     }
 
-//    @ImportResource({"META-INF/base-spring.xml",
+    //    @ImportResource({"META-INF/base-spring.xml",
 //        "META-INF/hibernate-spring.xml",
 //        "META-INF/infrastructure-spring.xml",
 //        "META-INF/management-spring.xml",
@@ -209,5 +200,6 @@ public class PortalWebApplicationInitializer implements ServletContextInitialize
 //        "META-INF/memcached-spring.xml",
 //        "classpath*:META-INF/ext-spring.xml"
 //    })
-    class PortalSpringConfigs {}
+    class PortalSpringConfigs {
+    }
 }

@@ -63,7 +63,7 @@ public class GlobalShutdownAction extends SimpleAction {
 
 		// Hot deploy
 
-		HotDeployUtil.unregisterListeners();
+		//HotDeployUtil.unregisterListeners();
 
 		// Sandbox deploy
 

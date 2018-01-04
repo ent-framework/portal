@@ -141,12 +141,12 @@ public class PortalContextLoaderListener extends ContextLoaderListener {
 			_log.error(e, e);
 		}
 
-		try {
-			HotDeployUtil.reset();
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-		}
+//		try {
+//			HotDeployUtil.reset();
+//		}
+//		catch (Exception e) {
+//			_log.error(e, e);
+//		}
 
 		try {
 			PortalLifecycleUtil.reset();

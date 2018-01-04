@@ -163,13 +163,6 @@
             <artifactId>jodconverter</artifactId>
             <version>2.2.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.outerj.daisy/daisydiff -->
-        <!--<dependency>-->
-            <!--<groupId>org.outerj.daisy</groupId>-->
-            <!--<artifactId>daisydiff</artifactId>-->
-            <!--<version>1.1-atlassian-5</version>-->
-        <!--</dependency>-->
-
 
         <!-- Spring -->
         <dependency>
@@ -249,12 +242,10 @@
         <dependency>
             <groupId>struts</groupId>
             <artifactId>struts</artifactId>
-            <version>${struts.version}</version>
         </dependency>
         <dependency>
             <groupId>struts</groupId>
             <artifactId>struts-el</artifactId>
-            <version>${struts.version}</version>
         </dependency>
 
         <dependency>
@@ -293,31 +284,19 @@
         <!-- Servlet -->
         <!-- JSP -->
         <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>javax.el-api</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>${servlet.api.version}</version>
-            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
-            <artifactId>jsp-api</artifactId>
-            <version>${servlet.jsp.api.version}</version>
-            <scope>provided</scope>
+            <artifactId>javax.servlet.jsp-api</artifactId>
         </dependency>
-        <dependency>
-            <groupId>javax.servlet.jsp.jstl</groupId>
-            <artifactId>jstl-api</artifactId>
-            <version>${servlet.jstl.version}</version>
-            <exclusions>
-                <!-- Exclude Commons Logging in favor of SLF4j -->
-                <exclusion>
-                    <groupId>javax.servlet</groupId>
-                    <artifactId>servlet-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
 
         <dependency>
             <groupId>javax.mail</groupId>
@@ -337,12 +316,6 @@
             <version>${xstream.version}</version>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>org.ehcache</groupId>-->
-            <!--<artifactId>ehcache</artifactId>-->
-            <!--<version>${ehcache3.version}</version>-->
-        <!--</dependency>-->
-
         <dependency>
             <groupId>net.sf.ehcache</groupId>
             <artifactId>ehcache</artifactId>
@@ -351,15 +324,21 @@
 
         <dependency>
             <groupId>org.jruby</groupId>
-            <artifactId>jruby</artifactId>
-            <version>1.7.27</version>
+            <artifactId>jruby-complete</artifactId>
+            <version>1.6.5</version>
         </dependency>
+
+        <dependency>
+            <groupId>asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>3.3</version>
+        </dependency>
+
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy</artifactId>
             <version>1.7.11</version>
         </dependency>
-
 
         <dependency>
             <groupId>org.apache.lucene</groupId>
@@ -505,28 +484,6 @@
             <version>3.2.0.LIFERAY-PATCHED-1</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.sun.media/jai-codec -->
-        <!--<dependency>-->
-            <!--<groupId>javax.media</groupId>-->
-            <!--<artifactId>jai_core</artifactId>-->
-            <!--<version>1.1.2_01</version>-->
-        <!--</dependency>-->
-
-        <!-- https://mvnrepository.com/artifact/com.sun.media/jai-codec -->
-        <!--<dependency>-->
-            <!--<groupId>com.sun.media</groupId>-->
-            <!--<artifactId>jai-codec</artifactId>-->
-            <!--<version>1.1.3</version>-->
-        <!--</dependency>-->
-
-
-        <!-- https://mvnrepository.com/artifact/com.sun.media/rc-jai-codec -->
-        <!--<dependency>-->
-            <!--<groupId>com.sun.media</groupId>-->
-            <!--<artifactId>rc-jai-codec</artifactId>-->
-            <!--<version>1.1.3.3</version>-->
-        <!--</dependency>-->
-
         <dependency>
             <groupId>xuggle</groupId>
             <artifactId>xuggle-xuggler</artifactId>
@@ -557,19 +514,12 @@
             <version>1.0</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.yahoo.platform.yui/yuicompressor -->
         <dependency>
             <groupId>com.yahoo.platform.yui</groupId>
             <artifactId>yuicompressor</artifactId>
             <version>2.4.8</version>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>org.mozilla.javascript</groupId>-->
-            <!--<artifactId>javascript</artifactId>-->
-            <!--<version>1.0</version>-->
-        <!--</dependency>-->
 
-        <!-- https://mvnrepository.com/artifact/org.tuckey/urlrewrite -->
         <dependency>
             <groupId>org.tuckey</groupId>
             <artifactId>urlrewritefilter</artifactId>
@@ -656,14 +606,6 @@
                 <configuration>
                     <mainClass>com.liferay.portal.tools.servicebuilder.ServiceBuilder</mainClass>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>javax.servlet</groupId>
-                        <artifactId>javax.servlet-api</artifactId>
-                        <version>${servlet.api.version}</version>
-                        <scope>runtime</scope>
-                    </dependency>
-                </dependencies>
             </plugin>
         </plugins>
     </build>

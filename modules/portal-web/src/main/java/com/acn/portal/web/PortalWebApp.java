@@ -2,21 +2,23 @@ package com.acn.portal.web;
 
 import com.acn.portal.web.config.ApplicationProperties;
 import com.acn.portal.web.config.DefaultProfileUtil;
-
 import com.acn.portal.web.config.portal.PortalApplicationContextInitializer;
-import io.github.jhipster.config.JHipsterConstants;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.actuate.autoconfigure.*;
+import org.springframework.boot.actuate.autoconfigure.MetricFilterAutoConfiguration;
+import org.springframework.boot.actuate.autoconfigure.MetricRepositoryAutoConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration;
 import org.springframework.boot.autoconfigure.hazelcast.HazelcastAutoConfiguration;
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.Environment;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.annotation.PostConstruct;
 import java.net.InetAddress;
@@ -25,9 +27,10 @@ import java.util.Arrays;
 import java.util.Collection;
 
 @ComponentScan
-@EnableAutoConfiguration(exclude = {MetricFilterAutoConfiguration.class, MetricRepositoryAutoConfiguration.class, HazelcastAutoConfiguration.class})
+@EnableAutoConfiguration(exclude = {MetricFilterAutoConfiguration.class, MetricRepositoryAutoConfiguration.class,
+    HazelcastAutoConfiguration.class, SecurityAutoConfiguration.class, FreeMarkerAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 @EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class})
-public class PortalWebApp {
+public class PortalWebApp extends SpringBootServletInitializer {
 
     private static final Logger log = LoggerFactory.getLogger(PortalWebApp.class);
 
@@ -37,6 +40,11 @@ public class PortalWebApp {
         this.env = env;
     }
 
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(PortalWebApp.class);
+    }
+
     /**
      * Initializes portal_web.
      * <p>
@@ -44,7 +52,7 @@ public class PortalWebApp {
      * <p>
      * You can find more information on how profiles work with JHipster on <a href="http://www.jhipster.tech/profiles/">http://www.jhipster.tech/profiles/</a>.
      */
-    @PostConstruct
+/*    @PostConstruct
     public void initApplication() {
         Collection<String> activeProfiles = Arrays.asList(env.getActiveProfiles());
         if (activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_DEVELOPMENT) && activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_PRODUCTION)) {
@@ -55,7 +63,7 @@ public class PortalWebApp {
             log.error("You have misconfigured your application! It should not " +
                 "run with both the 'dev' and 'cloud' profiles at the same time.");
         }
-    }
+    }*/
 
     /**
      * Main method, used to run the application.

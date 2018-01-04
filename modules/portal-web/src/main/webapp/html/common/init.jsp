@@ -14,17 +14,15 @@
  */
 --%>
 
-<%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x" %>
 
-<%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
+<%@ taglib uri="http://java.sun.com/portlet" prefix="portlet" %>
 
-<%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %>
+<%@ taglib uri="http://alloy.liferay.com/tld/aui" prefix="aui" %>
 <%@ taglib uri="http://liferay.com/tld/ddm" prefix="liferay-ddm" %>
 <%@ taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %>
 <%@ taglib uri="http://liferay.com/tld/security" prefix="liferay-security" %>
@@ -231,7 +229,6 @@ page import="com.liferay.portlet.asset.service.AssetVocabularyLocalServiceUtil" 
 page import="com.liferay.portlet.asset.service.AssetVocabularyServiceUtil" %><%@
 page import="com.liferay.portlet.asset.service.persistence.AssetEntryQuery" %><%@
 page import="com.liferay.portlet.asset.util.AssetUtil" %><%@
-page import="com.liferay.portlet.blogs.model.BlogsEntry" %><%@
 page import="com.liferay.portlet.documentlibrary.FileSizeException" %><%@
 page import="com.liferay.portlet.documentlibrary.model.DLFileEntry" %><%@
 page import="com.liferay.portlet.documentlibrary.model.DLFileEntryConstants" %><%@
@@ -254,8 +251,6 @@ page import="com.liferay.portlet.journal.search.ArticleSearchTerms" %><%@
 page import="com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil" %><%@
 page import="com.liferay.portlet.journal.service.JournalArticleServiceUtil" %><%@
 page import="com.liferay.portlet.journalcontent.util.JournalContentUtil" %><%@
-page import="com.liferay.portlet.messageboards.model.MBMessage" %><%@
-page import="com.liferay.portlet.messageboards.service.MBMessageLocalServiceUtil" %><%@
 page import="com.liferay.portlet.portletconfiguration.util.PortletConfigurationUtil" %><%@
 page import="com.liferay.portlet.portletdisplaytemplate.util.PortletDisplayTemplateUtil" %><%@
 page import="com.liferay.portlet.rolesadmin.util.RolesAdminUtil" %><%@
