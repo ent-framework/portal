@@ -257,50 +257,6 @@ public interface PropsKeys {
 
 	public static final String BASIC_AUTH_PASSWORD_REQUIRED = "basic.auth.password.required";
 
-	public static final String BLOGS_DISPLAY_TEMPLATES_CONFIG = "blogs.display.templates.config";
-
-	public static final String BLOGS_EMAIL_ENTRY_ADDED_BODY = "blogs.email.entry.added.body";
-
-	public static final String BLOGS_EMAIL_ENTRY_ADDED_ENABLED = "blogs.email.entry.added.enabled";
-
-	public static final String BLOGS_EMAIL_ENTRY_ADDED_SUBJECT = "blogs.email.entry.added.subject";
-
-	public static final String BLOGS_EMAIL_ENTRY_UPDATED_BODY = "blogs.email.entry.updated.body";
-
-	public static final String BLOGS_EMAIL_ENTRY_UPDATED_ENABLED = "blogs.email.entry.updated.enabled";
-
-	public static final String BLOGS_EMAIL_ENTRY_UPDATED_SUBJECT = "blogs.email.entry.updated.subject";
-
-	public static final String BLOGS_EMAIL_FROM_ADDRESS = "blogs.email.from.address";
-
-	public static final String BLOGS_EMAIL_FROM_NAME = "blogs.email.from.name";
-
-	public static final String BLOGS_ENTRY_COMMENTS_ENABLED = "blogs.entry.comments.enabled";
-
-	public static final String BLOGS_ENTRY_PAGE_DELTA_VALUES = "blogs.entry.page.delta.values";
-
-	public static final String BLOGS_ENTRY_PREVIOUS_AND_NEXT_NAVIGATION_ENABLED = "blogs.entry.previous.and.next.navigation.enabled";
-
-	public static final String BLOGS_IMAGE_EXTENSIONS = "blogs.image.extensions";
-
-	public static final String BLOGS_IMAGE_SMALL_MAX_SIZE = "blogs.image.small.max.size";
-
-	public static final String BLOGS_LINKBACK_EXCERPT_LENGTH = "blogs.linkback.excerpt.length";
-
-	public static final String BLOGS_LINKBACK_JOB_INTERVAL = "blogs.linkback.job.interval";
-
-	public static final String BLOGS_PAGE_ABSTRACT_LENGTH = "blogs.page.abstract.length";
-
-	public static final String BLOGS_PING_GOOGLE_ENABLED = "blogs.ping.google.enabled";
-
-	public static final String BLOGS_PINGBACK_ENABLED = "blogs.pingback.enabled";
-
-	public static final String BLOGS_PUBLISH_TO_LIVE_BY_DEFAULT = "blogs.publish.to.live.by.default";
-
-	public static final String BLOGS_RSS_ABSTRACT_LENGTH = "blogs.rss.abstract.length";
-
-	public static final String BLOGS_TRACKBACK_ENABLED = "blogs.trackback.enabled";
-
 	public static final String BOOKMARKS_EMAIL_ENTRY_ADDED_BODY = "bookmarks.email.entry.added.body";
 
 	public static final String BOOKMARKS_EMAIL_ENTRY_ADDED_ENABLED = "bookmarks.email.entry.added.enabled";
@@ -793,12 +749,6 @@ public interface PropsKeys {
 
 	public static final String DL_STORE_JCR_MOVE_VERSION_LABELS = "dl.store.jcr.move.version.labels";
 
-	public static final String DL_STORE_S3_ACCESS_KEY = "dl.store.s3.access.key";
-
-	public static final String DL_STORE_S3_BUCKET_NAME = "dl.store.s3.bucket.name";
-
-	public static final String DL_STORE_S3_SECRET_KEY = "dl.store.s3.secret.key";
-
 	public static final String DL_STORE_S3_TEMP_DIR_CLEAN_UP_EXPUNGE = "dl.store.s3.temp.dir.clean.up.expunge";
 
 	public static final String DL_STORE_S3_TEMP_DIR_CLEAN_UP_FREQUENCY = "dl.store.s3.temp.dir.clean.up.frequency";
@@ -1118,24 +1068,6 @@ public interface PropsKeys {
 	public static final String JAVASCRIPT_FAST_LOAD = "javascript.fast.load";
 
 	public static final String JAVASCRIPT_LOG_ENABLED = "javascript.log.enabled";
-
-	public static final String JCR_INITIALIZE_ON_STARTUP = "jcr.initialize.on.startup";
-
-	public static final String JCR_JACKRABBIT_CONFIG_FILE_PATH = "jcr.jackrabbit.config.file.path";
-
-	public static final String JCR_JACKRABBIT_CREDENTIALS_PASSWORD = "jcr.jackrabbit.credentials.password";
-
-	public static final String JCR_JACKRABBIT_CREDENTIALS_USERNAME = "jcr.jackrabbit.credentials.username";
-
-	public static final String JCR_JACKRABBIT_REPOSITORY_HOME = "jcr.jackrabbit.repository.home";
-
-	public static final String JCR_JACKRABBIT_REPOSITORY_ROOT = "jcr.jackrabbit.repository.root";
-
-	public static final String JCR_NODE_DOCUMENTLIBRARY = "jcr.node.documentlibrary";
-
-	public static final String JCR_WORKSPACE_NAME = "jcr.workspace.name";
-
-	public static final String JCR_WRAP_SESSION = "jcr.wrap.session";
 
 	public static final String JDBC_DEFAULT_DRIVER_CLASS_NAME = "jdbc.default.driverClassName";
 
@@ -2287,18 +2219,6 @@ public interface PropsKeys {
 
 	public static final String SESSION_VERIFY_SERIALIZABLE_ATTRIBUTE = "session.verify.serializable.attribute";
 
-	public static final String SETUP_DATABASE_DRIVER_CLASS_NAME = "setup.database.driverClassName";
-
-	public static final String SETUP_DATABASE_JAR_NAME = "setup.database.jar.name";
-
-	public static final String SETUP_DATABASE_JAR_URL = "setup.database.jar.url";
-
-	public static final String SETUP_DATABASE_TYPES = "setup.database.types";
-
-	public static final String SETUP_DATABASE_URL = "setup.database.url";
-
-	public static final String SETUP_WIZARD_ENABLED = "setup.wizard.enabled";
-
 	public static final String SHARD_DEFAULT_NAME = "shard.default.name";
 
 	public static final String SHARD_SELECTOR = "shard.selector";
@@ -2728,68 +2648,6 @@ public interface PropsKeys {
 	public static final String WEBLOGIC_REQUEST_WRAP_NON_SERIALIZABLE = "weblogic.request.wrap.non.serializable";
 
 	public static final String WIDGET_SERVLET_MAPPING = "widget.servlet.mapping";
-
-	public static final String WIKI_DISPLAY_TEMPLATES_CONFIG = "wiki.display.templates.config";
-
-	public static final String WIKI_EMAIL_FROM_ADDRESS = "wiki.email.from.address";
-
-	public static final String WIKI_EMAIL_FROM_NAME = "wiki.email.from.name";
-
-	public static final String WIKI_EMAIL_PAGE_ADDED_BODY = "wiki.email.page.added.body";
-
-	public static final String WIKI_EMAIL_PAGE_ADDED_ENABLED = "wiki.email.page.added.enabled";
-
-	public static final String WIKI_EMAIL_PAGE_ADDED_SIGNATURE = "wiki.email.page.added.signature";
-
-	public static final String WIKI_EMAIL_PAGE_ADDED_SUBJECT = "wiki.email.page.added.subject";
-
-	public static final String WIKI_EMAIL_PAGE_UPDATED_BODY = "wiki.email.page.updated.body";
-
-	public static final String WIKI_EMAIL_PAGE_UPDATED_ENABLED = "wiki.email.page.updated.enabled";
-
-	public static final String WIKI_EMAIL_PAGE_UPDATED_SIGNATURE = "wiki.email.page.updated.signature";
-
-	public static final String WIKI_EMAIL_PAGE_UPDATED_SUBJECT = "wiki.email.page.updated.subject";
-
-	public static final String WIKI_FORMATS = "wiki.formats";
-
-	public static final String WIKI_FORMATS_CONFIGURATION_INTERWIKI = "wiki.formats.configuration.interwiki";
-
-	public static final String WIKI_FORMATS_CONFIGURATION_MAIN = "wiki.formats.configuration.main";
-
-	public static final String WIKI_FORMATS_DEFAULT = "wiki.formats.default";
-
-	public static final String WIKI_FORMATS_EDIT_PAGE = "wiki.formats.edit.page";
-
-	public static final String WIKI_FORMATS_ENGINE = "wiki.formats.engine";
-
-	public static final String WIKI_FORMATS_HELP_PAGE = "wiki.formats.help.page";
-
-	public static final String WIKI_FORMATS_HELP_URL = "wiki.formats.help.url";
-
-	public static final String WIKI_FRONT_PAGE_NAME = "wiki.front.page.name";
-
-	public static final String WIKI_IMPORTERS = "wiki.importers";
-
-	public static final String WIKI_IMPORTERS_CLASS = "wiki.importers.class";
-
-	public static final String WIKI_IMPORTERS_PAGE = "wiki.importers.page";
-
-	public static final String WIKI_INITIAL_NODE_NAME = "wiki.initial.node.name";
-
-	public static final String WIKI_PAGE_COMMENTS_ENABLED = "wiki.page.comments.enabled";
-
-	public static final String WIKI_PAGE_MINOR_EDIT_ADD_SOCIAL_ACTIVITY = "wiki.page.minor.edit.add.social.activity";
-
-	public static final String WIKI_PAGE_MINOR_EDIT_SEND_EMAIL = "wiki.page.minor.edit.send.email";
-
-	public static final String WIKI_PAGE_RATINGS_ENABLED = "wiki.page.ratings.enabled";
-
-	public static final String WIKI_PAGE_TITLES_REGEXP = "wiki.page.titles.regexp";
-
-	public static final String WIKI_PAGE_TITLES_REMOVE_REGEXP = "wiki.page.titles.remove.regexp";
-
-	public static final String WIKI_RSS_ABSTRACT_LENGTH = "wiki.rss.abstract.length";
 
 	public static final String XML_SECURITY_ENABLED = "xml.security.enabled";
 

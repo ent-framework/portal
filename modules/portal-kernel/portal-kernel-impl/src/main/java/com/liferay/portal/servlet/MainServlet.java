@@ -64,7 +64,6 @@ import com.liferay.portal.service.ThemeLocalServiceUtil;
 import com.liferay.portal.service.UserLocalServiceUtil;
 import com.liferay.portal.servlet.filters.absoluteredirects.AbsoluteRedirectsResponse;
 import com.liferay.portal.servlet.filters.i18n.I18nFilter;
-import com.liferay.portal.setup.SetupWizardUtil;
 import com.liferay.portal.struts.PortletRequestProcessor;
 import com.liferay.portal.struts.StrutsUtil;
 import com.liferay.portal.util.ClassLoaderUtil;
@@ -796,8 +795,8 @@ public class MainServlet extends ActionServlet {
 		ServletContext servletContext = getServletContext();
 
 		String[] xmls = new String[] {
-			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/iferay-layout-templates.xml")),
-			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/iferay-layout-templates-ext.xml"))
+			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/liferay-layout-templates.xml")),
+			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/liferay-layout-templates-ext.xml"))
 		};
 
 		List<LayoutTemplate> layoutTemplates =
@@ -827,10 +826,11 @@ public class MainServlet extends ActionServlet {
 		// See LEP-2885. Don't flush hot deploy events until after the portal
 		// has initialized.
 
-		if (SetupWizardUtil.isSetupFinished()) {
+		//if (SetupWizardUtil.isSetupFinished()) {
 			//HotDeployUtil.setCapturePrematureEvents(false);
-			PortalLifecycleUtil.flushInits();
-		}
+			//PortalLifecycleUtil.flushInits();
+		//}
+		PortalLifecycleUtil.flushInits();
 	}
 
 	protected void initPortletApp(

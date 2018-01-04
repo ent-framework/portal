@@ -120,8 +120,6 @@ public class DataSourceFactoryImpl implements DataSourceFactory {
 			_log.debug(PropertiesUtil.toString(sortedProperties));
 		}
 
-		testClassForName(properties);
-
 		DataSource dataSource = null;
 
 		String liferayPoolProvider =
@@ -360,45 +358,7 @@ public class DataSourceFactoryImpl implements DataSourceFactory {
 
 		return false;
 	}
-
-	protected void testClassForName(Properties properties) throws Exception {
-		String driverClassName = properties.getProperty("driverClassName");
-
-		try {
-			Class.forName(driverClassName);
-		}
-		catch (ClassNotFoundException cnfe) {
-			if (!ServerDetector.isGeronimo() && !ServerDetector.isJetty() &&
-				!ServerDetector.isTomcat()) {
-
-				throw cnfe;
-			}
-
-			String url = PropsUtil.get(
-				PropsKeys.SETUP_DATABASE_JAR_URL, new Filter(driverClassName));
-			String name = PropsUtil.get(
-				PropsKeys.SETUP_DATABASE_JAR_NAME, new Filter(driverClassName));
-
-			if (Validator.isNull(url) || Validator.isNull(name)) {
-				throw cnfe;
-			}
-
-			if (HttpUtil.getHttp() == null) {
-				HttpUtil httpUtil = new HttpUtil();
-
-				httpUtil.setHttp(new HttpImpl());
-			}
-
-			if (FileUtil.getFile() == null) {
-				FileUtil fileUtil = new FileUtil();
-
-				fileUtil.setFile(new FileImpl());
-			}
-
-			JarUtil.downloadAndInstallJar(true, url, name, null);
-		}
-	}
-
+	
 	private static final String _TOMCAT_JDBC_POOL_OBJECT_NAME_PREFIX =
 		"TomcatJDBCPool:type=ConnectionPool,name=";
 

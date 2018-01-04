@@ -2,24 +2,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <parent>
-        <groupId>com.acn.portal.parent</groupId>
+        <groupId>com.liferay.portal.parent</groupId>
         <artifactId>portal-parent</artifactId>
-        <version>3.0.3</version>
+        <version>6.3.0</version>
         <relativePath>../</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.acn.portal.web</groupId>
+    <groupId>com.liferay.portal.web</groupId>
     <artifactId>portal-web</artifactId>
-    <version>3.0.3</version>
+    <version>6.3.0</version>
     <packaging>war</packaging>
     <name>Portal Web</name>
 
     <properties>
         <!-- Build properties -->
         <maven.version>3.0.0</maven.version>
-        <start-class>com.acn.portal.web.PortalWebApp</start-class>
+        <start-class>com.liferay.portal.boot.PortalWebApp</start-class>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -87,7 +87,7 @@
     <dependencies>
 
         <dependency>
-            <groupId>com.acn.portal.kernel</groupId>
+            <groupId>com.liferay.portal.kernel</groupId>
             <artifactId>portal-kernel-impl</artifactId>
             <version>${project.parent.version}</version>
         </dependency>

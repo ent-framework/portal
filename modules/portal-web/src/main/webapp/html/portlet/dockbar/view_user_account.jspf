@@ -20,7 +20,7 @@
 	request.setAttribute(WebKeys.RENDER_PORTLET_BOUNDARY, false);
 	%>
 
-	<liferay-portlet:runtime portletName="2_WAR_notificationsportlet" />
+	<%--<liferay-portlet:runtime portletName="2_WAR_notificationsportlet" />--%>
 
 	<%
 	request.removeAttribute(WebKeys.RENDER_PORTLET_BOUNDARY);

@@ -16,7 +16,7 @@
 logging:
     level:
         ROOT: INFO
-        com.acn.portal.web: DEBUG
+        com.liferay.portal.web: DEBUG
         io.github.jhipster: DEBUG
 
 spring:

@@ -51,7 +51,6 @@ import com.liferay.portal.service.PortletLocalServiceUtil;
 import com.liferay.portal.service.PortletPreferencesLocalServiceUtil;
 import com.liferay.portal.service.permission.PortletPermissionUtil;
 import com.liferay.portal.service.persistence.UserTrackerPathUtil;
-import com.liferay.portal.setup.SetupWizardUtil;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PropsUtil;
@@ -659,16 +658,7 @@ public class PortalRequestProcessor extends TilesRequestProcessor {
 			}
 		}
 
-		// Setup wizard
-
-		if (!SetupWizardUtil.isSetupFinished()) {
-			if (!path.equals(_PATH_PORTAL_LICENSE) &&
-				!path.equals(_PATH_PORTAL_STATUS)) {
-
-				return _PATH_PORTAL_SETUP_WIZARD;
-			}
-		}
-		else if (path.equals(_PATH_PORTAL_SETUP_WIZARD)) {
+		if (path.equals(_PATH_PORTAL_SETUP_WIZARD)) {
 			return _PATH_PORTAL_LAYOUT;
 		}
 

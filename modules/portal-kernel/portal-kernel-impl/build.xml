@@ -18,7 +18,7 @@
 	<typedef classpathref="ant-ext-tasks.classpath" resource="org/apache/maven/artifact/ant/antlib.xml" uri="antlib:org.apache.maven.artifact.ant" />
 
 	<artifact:dependencies pathId="project.classpath">
-		<dependency groupId="com.acn.portal.kernel" artifactId="portal-kernel-impl" version="3.0.3"/>
+		<dependency groupId="com.liferay.portal.kernel" artifactId="portal-kernel-impl" version="6.3.0"/>
 		<dependency groupId="javax.servlet" artifactId="javax.servlet-api" version="3.1.0"/>
 		<dependency groupId="javax.servlet.jsp" artifactId="jsp-api" version="2.1"/>
 		<dependency groupId="ch.qos.logback" artifactId="logback-core" version="1.1.11"/>
