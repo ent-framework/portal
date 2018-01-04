@@ -20,13 +20,13 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>com.liferay.portal.kernel</groupId>
+        <groupId>com.liferay.portal</groupId>
         <artifactId>portal-kernel</artifactId>
         <version>6.3.0</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.liferay.portal.kernel</groupId>
     <artifactId>portal-kernel-api</artifactId>
     <name>Portal Kernel API</name>
     <description>Portal Kernel API</description>

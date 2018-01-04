@@ -20,9 +20,10 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>com.liferay.portal.util</groupId>
+        <groupId>com.liferay.portal</groupId>
         <artifactId>portal-utils</artifactId>
         <version>6.3.0</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -33,15 +34,15 @@
     <dependencies>
 
         <dependency>
-            <groupId>com.liferay.portal.util</groupId>
+            <groupId>com.liferay.portal</groupId>
             <artifactId>portal-util-java</artifactId>
-            <version>6.3.0</version>
+            <version>${project.parent.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>com.liferay.portal.kernel</groupId>
+            <groupId>com.liferay.portal</groupId>
             <artifactId>portal-kernel-api</artifactId>
-            <version>6.3.0</version>
+            <version>${project.parent.version}</version>
         </dependency>
 
         <dependency>

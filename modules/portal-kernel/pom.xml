@@ -2,14 +2,13 @@
 <project>
 
     <parent>
-        <groupId>com.liferay.portal.parent</groupId>
+        <groupId>com.liferay.portal</groupId>
         <artifactId>portal-parent</artifactId>
         <version>6.3.0</version>
-        <relativePath>../</relativePath>
+        <relativePath>../portal-parent</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.liferay.portal.kernel</groupId>
     <artifactId>portal-kernel</artifactId>
     <packaging>pom</packaging>
     <version>6.3.0</version>

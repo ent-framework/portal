@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<archetype-descriptor name="liferay-ext-archetype">
+	<fileSets>
+		<fileSet filtered="true">
+			<directory>__artifactId__-ext</directory>
+		</fileSet>
+		<fileSet filtered="true">
+			<directory>__artifactId__-ext-impl</directory>
+		</fileSet>
+		<fileSet filtered="true">
+			<directory>__artifactId__-ext-impl/src/main/resources</directory>
+		</fileSet>
+		<fileSet filtered="true">
+			<directory>__artifactId__-ext-impl/src/main/java</directory>
+		</fileSet>
+		<fileSet filtered="true">
+			<directory>__artifactId__-ext-lib-global</directory>
+		</fileSet>
+		<fileSet filtered="true">
+			<directory>__artifactId__-ext-lib-portal</directory>
+		</fileSet>
+		<fileSet filtered="true">
+			<directory>__artifactId__-ext-service</directory>
+		</fileSet>
+		<fileSet filtered="true">
+			<directory>__artifactId__-ext-service/src/main/java</directory>
+		</fileSet>
+		<fileSet filtered="true">
+			<directory>__artifactId__-ext-util-bridges</directory>
+		</fileSet>
+		<fileSet filtered="true">
+			<directory>__artifactId__-ext-util-bridges/src/main/java</directory>
+		</fileSet>
+		<fileSet filtered="true">
+			<directory>__artifactId__-ext-util-java</directory>
+		</fileSet>
+		<fileSet filtered="true">
+			<directory>__artifactId__-ext-util-java/src/main/java</directory>
+		</fileSet>
+		<fileSet filtered="true">
+			<directory>__artifactId__-ext-util-taglib</directory>
+		</fileSet>
+		<fileSet filtered="true">
+			<directory>__artifactId__-ext-util-taglib/src/main/java</directory>
+		</fileSet>
+		<fileSet filtered="true">
+			<directory>__artifactId__-ext-web</directory>
+		</fileSet>
+	</fileSets>
+</archetype-descriptor>

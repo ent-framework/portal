@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>com.liferay.maven</groupId>
+		<artifactId>liferay-archetypes</artifactId>
+		<version>6.3.0</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.liferay.maven.archetypes</groupId>
+	<artifactId>liferay-ext-archetype</artifactId>
+	<packaging>maven-archetype</packaging>
+	<name>Liferay Maven Ext Archetype</name>
+	<description>Provides an archetype to create Liferay extensions.</description>
+	<build>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.archetype</groupId>
+				<artifactId>archetype-packaging</artifactId>
+				<version>2.2</version>
+			</extension>
+		</extensions>
+		<plugins>
+			<plugin>
+				<artifactId>maven-archetype-plugin</artifactId>
+				<version>2.2</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<phase>generate-test-sources</phase>
+						<configuration>
+							<tasks>
+								<mkdir dir="${project.build.testOutputDirectory}/projects/default/reference/default-ext-impl/src/main/java" />
+								<mkdir dir="${project.build.testOutputDirectory}/projects/default/reference/default-ext-impl/src/main/resources" />
+								<mkdir dir="${project.build.testOutputDirectory}/projects/default/reference/default-ext-service/src/main/java" />
+								<mkdir dir="${project.build.testOutputDirectory}/projects/default/reference/default-ext-util-bridges/src/main/java" />
+								<mkdir dir="${project.build.testOutputDirectory}/projects/default/reference/default-ext-util-java/src/main/java" />
+								<mkdir dir="${project.build.testOutputDirectory}/projects/default/reference/default-ext-util-taglib/src/main/java" />
+							</tasks>
+						</configuration>
+						<goals>
+								<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

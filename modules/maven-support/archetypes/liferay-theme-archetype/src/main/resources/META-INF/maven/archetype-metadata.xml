@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<archetype-descriptor name="liferay-theme-archetype">
+	<fileSets>
+		<fileSet filtered="true">
+			<directory>src/main/resources/resources-importer</directory>
+		</fileSet>
+		<fileSet filtered="true">
+			<directory>src/main/resources/resources-importer/document_library/documents</directory>
+		</fileSet>
+		<fileSet filtered="true">
+			<directory>src/main/resources/resources-importer/journal/articles</directory>
+		</fileSet>
+		<fileSet filtered="true">
+			<directory>src/main/resources/resources-importer/journal/structures</directory>
+		</fileSet>
+		<fileSet filtered="true">
+			<directory>src/main/resources/resources-importer/journal/templates</directory>
+		</fileSet>
+		<fileSet filtered="true">
+			<directory>src/main/webapp</directory>
+		</fileSet>
+	</fileSets>
+	<requiredProperties>
+		<requiredProperty key="themeParent">
+			<defaultValue>_styled</defaultValue>
+		</requiredProperty>
+		<requiredProperty key="themeType">
+			<defaultValue>vm</defaultValue>
+		</requiredProperty>
+	</requiredProperties>
+</archetype-descriptor>
