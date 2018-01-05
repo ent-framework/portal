@@ -25,8 +25,8 @@ import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.TextFormatter;
 import com.liferay.portal.kernel.util.Validator;
-import com.liferay.portal.tools.util.FileImpl;
-import com.liferay.portal.tools.xml.SAXReaderImpl;
+import com.liferay.portal.util.FileImpl;
+import com.liferay.portal.xml.SAXReaderImpl;
 
 import java.io.File;
 import java.io.FileInputStream;

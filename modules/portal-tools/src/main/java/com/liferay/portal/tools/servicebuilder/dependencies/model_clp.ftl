@@ -248,14 +248,14 @@ public class ${entity.name}Clp extends BaseModelImpl<${entity.name}> implements 
 		</#if>
 
 		@Override
-		public void set${column.methodName}(${column.type} ${column.name}) {
+		public void set${column.methodName}(${column.objType} ${column.name}) {
 			_${column.name} = ${column.name};
 
 			if (_${entity.varName}RemoteModel != null) {
 				try {
 					Class<?> clazz = _${entity.varName}RemoteModel.getClass();
 
-					Method method = clazz.getMethod("set${column.methodName}", ${column.type}.class);
+					Method method = clazz.getMethod("set${column.methodName}", ${column.objType}.class);
 
 					method.invoke(_${entity.varName}RemoteModel, ${column.name});
 				}

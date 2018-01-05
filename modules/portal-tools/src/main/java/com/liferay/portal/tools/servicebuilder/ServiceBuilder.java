@@ -46,8 +46,8 @@ import com.liferay.portal.model.ModelHintsUtil;
 import com.liferay.portal.security.permission.ResourceActionsUtil;
 import com.liferay.portal.tools.ArgumentsUtil;
 import com.liferay.portal.tools.sourceformatter.JavaSourceProcessor;
-////import com.liferay.portal.util.InitUtil;
-import com.liferay.portal.tools.util.PropsValues;
+import com.liferay.portal.util.InitUtil;
+import com.liferay.portal.util.PropsValues;
 import com.liferay.util.xml.XMLFormatter;
 
 import com.thoughtworks.qdox.JavaDocBuilder;
@@ -196,7 +196,7 @@ public class ServiceBuilder {
 	public static void main(String[] args) {
 		Map<String, String> arguments = ArgumentsUtil.parseArguments(args);
 
-		////InitUtil.initWithSpring(true);
+		InitUtil.initWithSpring(true);
 
 		String fileName = arguments.get("service.input.file");
 		String hbmFileName = arguments.get("service.hbm.file");
@@ -1630,6 +1630,13 @@ public class ServiceBuilder {
 		return false;
 	}
 
+	public boolean isServiceReadOnlyMethod(
+			JavaMethod method, List<String> txRequiredList) {
+
+		return isReadOnlyMethod(
+				method, txRequiredList,
+				com.liferay.portal.util.PropsValues.SERVICE_BUILDER_SERVICE_READ_ONLY_PREFIXES);
+	}
 
 	public boolean isSoapMethod(JavaMethod method) {
 		Type returnType = method.getReturns();

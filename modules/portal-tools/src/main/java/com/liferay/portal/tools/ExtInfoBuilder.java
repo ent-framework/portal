@@ -18,9 +18,9 @@ import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
-import com.liferay.portal.tools.util.FileImpl;
-import com.liferay.portal.tools.xml.DocumentImpl;
-import com.liferay.portal.tools.xml.ElementImpl;
+import com.liferay.portal.util.FileImpl;
+import com.liferay.portal.xml.DocumentImpl;
+import com.liferay.portal.xml.ElementImpl;
 import com.liferay.util.xml.DocUtil;
 
 import java.util.Arrays;

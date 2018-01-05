@@ -22,6 +22,7 @@ import com.liferay.maven.plugins.util.Validator;
 
 import java.io.File;
 
+import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -38,6 +39,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.artifact.factory.ArtifactFactory;
 import org.apache.maven.artifact.handler.ArtifactHandler;
@@ -395,11 +398,24 @@ public abstract class AbstractToolsLiferayMojo extends AbstractLiferayMojo {
 			}
 			catch (ClassNotFoundException cnfe) {
 				Dependency portalServiceDependency = createDependency(
-					"com.liferay.portal", "portal-service", liferayVersion, "",
+					"com.liferay.portal", "portal-kernel-api", liferayVersion, "",
 					"jar");
 
 				addDependencyToClassPath(
 					toolsClassPath, portalServiceDependency);
+			}
+
+			try {
+				globalClassLoader.loadClass(
+						"com.liferay.portal.tools.servicebuilder.ServiceBuilder");
+			}
+			catch (ClassNotFoundException cnfe) {
+				Dependency portalServiceDependency = createDependency(
+						"com.liferay.portal", "portal-tools", liferayVersion, "",
+						"jar");
+
+				addDependencyToClassPath(
+						toolsClassPath, portalServiceDependency);
 			}
 
 			try {
@@ -433,58 +449,57 @@ public abstract class AbstractToolsLiferayMojo extends AbstractLiferayMojo {
 			}
 		}
 		else {
-			Dependency jalopyDependency = createDependency(
-				"jalopy", "jalopy", "1.5rc3", "", "jar");
 
-			addDependencyToClassPath(toolsClassPath, jalopyDependency);
+			Dependency portalToolsDependency = createDependency(
+					"com.liferay.portal", "portal-tools", liferayVersion, "",
+					"jar");
 
-			Dependency qdoxDependency = createDependency(
-				"com.thoughtworks.qdox", "qdox", "1.12", "", "jar");
+			addDependencyToClassPath(toolsClassPath, portalToolsDependency);
 
-			addDependencyToClassPath(toolsClassPath, qdoxDependency);
 
-			Dependency activationDependency = createDependency(
-				"javax.activation", "activation", "1.1", "", "jar");
+			InputStream pluginDeps =  AbstractToolsLiferayMojo.class.getClassLoader().getResourceAsStream("plugin_deps.txt");
 
-			addDependencyToClassPath(toolsClassPath, activationDependency);
+			List<String> mvnDeps = new ArrayList<>();
+			if (pluginDeps!=null) {
+				try {
+					mvnDeps.addAll(IOUtils.readLines(pluginDeps));
+				} finally {
+					IOUtils.closeQuietly(pluginDeps);
+				}
+			}
 
-			Dependency mailDependency = createDependency(
-				"javax.mail", "mail", "1.4", "", "jar");
+			for (String dep : mvnDeps) {
+				String[] ds =  StringUtils.split(dep, ":");
 
-			addDependencyToClassPath(toolsClassPath, mailDependency);
+				if (ds.length==3) {
 
-			Dependency portalServiceDependency = createDependency(
-				"com.liferay.portal", "portal-service", liferayVersion, "",
-				"jar");
+					String groupId = ds[0];
+					String artifactId = ds[1];
+					String version = ds[2];
 
-			addDependencyToClassPath(toolsClassPath, portalServiceDependency);
+					if (groupId.startsWith("om.liferay.portal")) {
+						version = liferayVersion;
+					}
 
-			Dependency portletApiDependency = createDependency(
-				"javax.portlet", "portlet-api", "2.0", "", "jar");
+					Dependency dependency = createDependency(
+							groupId, artifactId, version, "", "jar");
 
-			addDependencyToClassPath(toolsClassPath, portletApiDependency);
+					addDependencyToClassPath(toolsClassPath, dependency);
 
-			Dependency servletApiDependency = createDependency(
-				"javax.servlet", "servlet-api", "2.5", "", "jar");
-
-			addDependencyToClassPath(toolsClassPath, servletApiDependency);
-
-			Dependency jspApiDependency = createDependency(
-				"javax.servlet.jsp", "jsp-api", "2.1", "", "jar");
-
-			addDependencyToClassPath(toolsClassPath, jspApiDependency);
+				}
+			}
 		}
 
-		Collection<File> portalJarFiles = FileUtils.listFiles(
-			appServerLibPortalDir, new String[] {"jar"}, false);
-
-		for (File file : portalJarFiles) {
-			URI uri = file.toURI();
-
-			URL url = uri.toURL();
-
-			toolsClassPath.add(url.toString());
-		}
+//		Collection<File> portalJarFiles = FileUtils.listFiles(
+//			appServerLibPortalDir, new String[] {"jar"}, false);
+//
+//		for (File file : portalJarFiles) {
+//			URI uri = file.toURI();
+//
+//			URL url = uri.toURL();
+//
+//			toolsClassPath.add(url.toString());
+//		}
 
 		getLog().debug("Tools class path:");
 

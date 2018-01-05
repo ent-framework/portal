@@ -23,7 +23,7 @@ import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
-import com.liferay.portal.tools.util.FileImpl;
+import com.liferay.portal.util.FileImpl;
 //import com.liferay.portal.util.InitUtil;
 
 import java.io.File;

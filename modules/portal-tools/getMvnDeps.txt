@@ -1,0 +1,1 @@
+mvn -o dependency:list | grep ":.*:.*:compile" | sed "s/\[INFO\]    \([^:]*\):\([^:]*\):jar:\([^:]*\):compile/\1:\2:\3/" | sort -u

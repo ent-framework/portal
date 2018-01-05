@@ -22,7 +22,7 @@ import com.liferay.portal.kernel.xml.DocumentException;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.UnsecureSAXReaderUtil;
 //import com.liferay.portal.util.InitUtil;
-import com.liferay.portal.tools.xml.DocumentImpl;
+import com.liferay.portal.xml.DocumentImpl;
 import com.liferay.util.xml.XMLMerger;
 import com.liferay.util.xml.descriptor.WebXML23Descriptor;
 import com.liferay.util.xml.descriptor.WebXML24Descriptor;
