@@ -23,8 +23,8 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.search.Hits;
 import com.liferay.portal.kernel.search.Indexable;
@@ -778,7 +778,7 @@ public class BookmarksEntryLocalServiceImpl
 			statusByUserName = user.getFullName();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		String entryURL =
@@ -854,7 +854,7 @@ public class BookmarksEntryLocalServiceImpl
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		BookmarksEntryLocalServiceImpl.class);
 
 }

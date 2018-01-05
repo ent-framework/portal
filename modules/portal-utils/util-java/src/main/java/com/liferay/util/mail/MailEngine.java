@@ -18,8 +18,8 @@ import com.liferay.mail.model.FileAttachment;
 import com.liferay.mail.service.MailServiceUtil;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.log.LogUtil;
 import com.liferay.portal.kernel.mail.Account;
 import com.liferay.portal.kernel.mail.MailMessage;
@@ -95,7 +95,7 @@ public class MailEngine {
 		}
 		catch (SystemException se) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(se, se);
+				_log.warn(se.getMessage(), se);
 			}
 
 			session = InfrastructureUtil.getMailSession();
@@ -352,7 +352,7 @@ public class MailEngine {
 			_send(session, message, bulkAddresses, batchSize);
 		}
 		catch (SendFailedException sfe) {
-			_log.error(sfe);
+			_log.error(sfe.getMessage(), sfe);
 
 			if (_isThrowsExceptionOnFailure()) {
 				throw new MailEngineException(sfe);
@@ -623,6 +623,6 @@ public class MailEngine {
 
 	private static final String _TEXT_PLAIN = "text/plain;charset=\"UTF-8\"";
 
-	private static Log _log = LogFactoryUtil.getLog(MailEngine.class);
+	private static final Logger _log = LoggerFactory.getLogger(MailEngine.class);
 
 }

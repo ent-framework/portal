@@ -16,8 +16,8 @@ package com.liferay.portal.metadata;
 
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.lar.PortletDataContext;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -125,7 +125,7 @@ public class XugglerRawMetadataProcessor extends BaseRawMetadataProcessor {
 			metadata = extractMetadata(file);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return metadata;
@@ -153,7 +153,7 @@ public class XugglerRawMetadataProcessor extends BaseRawMetadataProcessor {
 			metadata = extractMetadata(file);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 		finally {
 			FileUtil.delete(file);
@@ -176,7 +176,7 @@ public class XugglerRawMetadataProcessor extends BaseRawMetadataProcessor {
 		return false;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		XugglerRawMetadataProcessor.class);
 
 	private static DecimalFormat _decimalFormatter = new DecimalFormat("00");

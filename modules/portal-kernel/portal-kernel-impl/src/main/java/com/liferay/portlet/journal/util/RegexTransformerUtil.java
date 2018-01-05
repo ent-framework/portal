@@ -14,8 +14,8 @@
 
 package com.liferay.portlet.journal.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.util.PropsUtil;
 
@@ -61,7 +61,7 @@ public class RegexTransformerUtil {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(RegexTransformerUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(RegexTransformerUtil.class);
 
 	private static RegexTransformerUtil _instance = new RegexTransformerUtil();
 

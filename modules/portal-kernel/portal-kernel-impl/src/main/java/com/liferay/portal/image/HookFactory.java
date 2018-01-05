@@ -15,8 +15,8 @@
 package com.liferay.portal.image;
 
 import com.liferay.portal.kernel.image.Hook;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.util.PropsValues;
 
 /**
@@ -48,7 +48,7 @@ public class HookFactory {
 		_hook = hook;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(HookFactory.class);
+	private static final Logger _log = LoggerFactory.getLogger(HookFactory.class);
 
 	private static Hook _hook;
 

@@ -14,8 +14,8 @@
 
 package com.liferay.portlet.amazonrankings.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.DateFormatFactoryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
@@ -56,7 +56,7 @@ public class AmazonRankingsWebCacheItem implements WebCacheItem {
 			amazonRankings = doConvert(key);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return amazonRankings;
@@ -276,7 +276,7 @@ public class AmazonRankingsWebCacheItem implements WebCacheItem {
 
 	private static final long _REFRESH_TIME = Time.MINUTE * 20;
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		AmazonRankingsWebCacheItem.class);
 
 	private String _isbn;

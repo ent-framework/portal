@@ -14,8 +14,8 @@
 
 package com.liferay.portlet.journal.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.templateparser.BaseTransformerListener;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MapUtil;
@@ -94,7 +94,7 @@ public class PropertiesTransformerListener extends BaseTransformerListener {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e);
+				_log.warn(e.getMessage());
 			}
 		}
 
@@ -150,7 +150,7 @@ public class PropertiesTransformerListener extends BaseTransformerListener {
 
 	private static final String _GLOBAL_PROPERTIES = "GLOBAL-PROPERTIES";
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PropertiesTransformerListener.class);
 
 }

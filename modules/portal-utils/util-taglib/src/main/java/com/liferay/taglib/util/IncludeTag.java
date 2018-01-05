@@ -14,8 +14,8 @@
 
 package com.liferay.taglib.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.log.LogUtil;
 import com.liferay.portal.kernel.portlet.PortletBag;
 import com.liferay.portal.kernel.portlet.PortletBagPool;
@@ -49,7 +49,7 @@ public class IncludeTag extends AttributesTagSupport {
     private static final boolean _THEME_JSP_OVERRIDE_ENABLED =
             GetterUtil.getBoolean(
                     PropsUtil.get(PropsKeys.THEME_JSP_OVERRIDE_ENABLED));
-    private static Log _log = LogFactoryUtil.getLog(IncludeTag.class);
+    private static final Logger _log = LoggerFactory.getLogger(IncludeTag.class);
     private String _page;
     private boolean _strict;
     private TrackedServletRequest _trackedRequest;

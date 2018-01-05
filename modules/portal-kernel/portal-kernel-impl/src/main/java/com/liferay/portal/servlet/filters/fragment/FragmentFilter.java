@@ -14,8 +14,8 @@
 
 package com.liferay.portal.servlet.filters.fragment;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.BufferCacheServletResponse;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
@@ -112,6 +112,6 @@ public class FragmentFilter extends BasePortalFilter {
 		ServletResponseUtil.write(response, content);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(FragmentFilter.class);
+	private static final Logger _log = LoggerFactory.getLogger(FragmentFilter.class);
 
 }

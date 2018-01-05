@@ -20,8 +20,8 @@ import com.liferay.portal.kernel.cache.CacheListenerScope;
 import com.liferay.portal.kernel.cache.MultiVMPoolUtil;
 import com.liferay.portal.kernel.cache.PortalCache;
 import com.liferay.portal.kernel.cache.SingleVMPoolUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.template.*;
 import com.liferay.portal.kernel.util.InstanceFactory;
@@ -70,7 +70,7 @@ public class DefaultTemplateResourceLoader implements TemplateResourceLoader {
 				_templateResourceParsers.add(templateResourceParser);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -277,7 +277,7 @@ public class DefaultTemplateResourceLoader implements TemplateResourceLoader {
 		_multiVMPortalCache.put(templateId, templateResource);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		DefaultTemplateResourceLoader.class);
 
 	private static NullHolderTemplateResource _nullHolderTemplateResource =

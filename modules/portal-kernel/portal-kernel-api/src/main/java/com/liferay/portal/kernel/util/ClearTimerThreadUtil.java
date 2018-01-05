@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -57,7 +57,7 @@ public class ClearTimerThreadUtil {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ClearTimerThreadUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(ClearTimerThreadUtil.class);
 
 	private static Method _clearMethod;
 	private static boolean _initialized;

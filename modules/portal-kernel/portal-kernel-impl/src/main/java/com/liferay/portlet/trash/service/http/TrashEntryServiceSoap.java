@@ -2,10 +2,10 @@ package com.liferay.portlet.trash.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-
 import com.liferay.portlet.trash.service.TrashEntryServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -51,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class TrashEntryServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(TrashEntryServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(TrashEntryServiceSoap.class);
 
     /**
     * Deletes the trash entries with the matching group ID considering
@@ -65,7 +65,7 @@ public class TrashEntryServiceSoap {
         try {
             TrashEntryServiceUtil.deleteEntries(groupId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -84,7 +84,7 @@ public class TrashEntryServiceSoap {
         try {
             TrashEntryServiceUtil.deleteEntries(entryIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -109,7 +109,7 @@ public class TrashEntryServiceSoap {
         try {
             TrashEntryServiceUtil.deleteEntry(entryId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -136,7 +136,7 @@ public class TrashEntryServiceSoap {
         try {
             TrashEntryServiceUtil.deleteEntry(className, classPK);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -157,7 +157,7 @@ public class TrashEntryServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -187,7 +187,7 @@ public class TrashEntryServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -236,7 +236,7 @@ public class TrashEntryServiceSoap {
             TrashEntryServiceUtil.moveEntry(className, classPK,
                 destinationContainerModelId, serviceContext);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -249,7 +249,7 @@ public class TrashEntryServiceSoap {
 
             return com.liferay.portlet.trash.model.TrashEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -303,7 +303,7 @@ public class TrashEntryServiceSoap {
 
             return com.liferay.portlet.trash.model.TrashEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

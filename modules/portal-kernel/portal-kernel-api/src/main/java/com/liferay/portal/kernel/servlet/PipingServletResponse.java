@@ -15,8 +15,8 @@
 package com.liferay.portal.kernel.servlet;
 
 import com.liferay.portal.kernel.io.WriterOutputStream;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.UnsyncPrintWriterPool;
 
 import java.io.OutputStream;
@@ -118,7 +118,7 @@ public class PipingServletResponse extends HttpServletResponseWrapper {
 		return _printWriter;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PipingServletResponse.class);
 
 	private PrintWriter _printWriter;

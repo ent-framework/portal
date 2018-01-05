@@ -15,8 +15,8 @@
 package com.liferay.portal.search;
 
 import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.search.Indexer;
@@ -110,7 +110,7 @@ public class IndexableAdvice
 		return _nullIndexable;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(IndexableAdvice.class);
+	private static final Logger _log = LoggerFactory.getLogger(IndexableAdvice.class);
 
 	private static Indexable _nullIndexable =
 		new Indexable() {

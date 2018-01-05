@@ -16,8 +16,8 @@ package com.liferay.mail.util;
 
 import com.liferay.mail.model.Filter;
 import com.liferay.mail.service.CyrusServiceUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.process.ProcessUtil;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
@@ -93,7 +93,7 @@ public class CyrusHook implements Hook {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -119,7 +119,7 @@ public class CyrusHook implements Hook {
 			future.get();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -147,7 +147,7 @@ public class CyrusHook implements Hook {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -157,7 +157,7 @@ public class CyrusHook implements Hook {
 			CyrusServiceUtil.deleteEmailAddress(companyId, userId);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -208,7 +208,7 @@ public class CyrusHook implements Hook {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -246,7 +246,7 @@ public class CyrusHook implements Hook {
 			FileUtil.write(file, sb.toString());
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -259,7 +259,7 @@ public class CyrusHook implements Hook {
 				companyId, userId, emailAddress);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -269,10 +269,10 @@ public class CyrusHook implements Hook {
 			CyrusServiceUtil.updatePassword(companyId, userId, password);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(CyrusHook.class);
+	private static final Logger _log = LoggerFactory.getLogger(CyrusHook.class);
 
 }

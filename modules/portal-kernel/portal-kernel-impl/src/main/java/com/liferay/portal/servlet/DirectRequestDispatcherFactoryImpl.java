@@ -14,8 +14,8 @@
 
 package com.liferay.portal.servlet;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.servlet.DirectRequestDispatcherFactory;
 import com.liferay.portal.kernel.servlet.DirectServletRegistryUtil;
@@ -124,7 +124,7 @@ public class DirectRequestDispatcherFactoryImpl
 		return _pacl.getRequestDispatcher(servletContext, requestDispatcher);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		DirectRequestDispatcherFactoryImpl.class);
 
 	private static PACL _pacl = new NoPACL();

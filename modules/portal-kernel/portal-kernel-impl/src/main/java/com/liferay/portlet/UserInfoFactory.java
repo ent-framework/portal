@@ -14,8 +14,8 @@
 
 package com.liferay.portlet;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.InstanceFactory;
 import com.liferay.portal.model.Portlet;
 import com.liferay.portal.model.PortletApp;
@@ -51,7 +51,7 @@ public class UserInfoFactory {
 			userInfo = getUserInfo(user, userInfo, portlet);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return userInfo;
@@ -73,7 +73,7 @@ public class UserInfoFactory {
 			userInfo = getUserInfo(user, userInfo, portlet);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return userInfo;
@@ -110,7 +110,7 @@ public class UserInfoFactory {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		Map<String, String> unmodifiableUserInfo = Collections.unmodifiableMap(
@@ -148,7 +148,7 @@ public class UserInfoFactory {
 							attrCustomClass);
 					}
 					catch (Exception e) {
-						_log.error(e, e);
+						_log.error(e.getMessage(), e);
 					}
 				}
 
@@ -167,6 +167,6 @@ public class UserInfoFactory {
 		return userInfo;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(UserInfoFactory.class);
+	private static final Logger _log = LoggerFactory.getLogger(UserInfoFactory.class);
 
 }

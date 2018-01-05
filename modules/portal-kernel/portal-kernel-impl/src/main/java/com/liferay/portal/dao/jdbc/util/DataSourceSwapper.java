@@ -18,8 +18,8 @@ import com.liferay.portal.dao.orm.hibernate.PortletSessionFactoryImpl;
 import com.liferay.portal.dao.orm.hibernate.SessionFactoryImpl;
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.dao.jdbc.DataSourceFactoryUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.PortletClassLoaderUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.spring.hibernate.PortalHibernateConfiguration;
@@ -250,7 +250,7 @@ public class DataSourceSwapper {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(DataSourceSwapper.class);
+	private static final Logger _log = LoggerFactory.getLogger(DataSourceSwapper.class);
 
 	private static DataSourceWrapper _counterDataSourceWrapper;
 	private static DataSourceWrapper _liferayDataSourceWrapper;

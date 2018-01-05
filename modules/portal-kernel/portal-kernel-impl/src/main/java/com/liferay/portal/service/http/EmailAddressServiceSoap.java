@@ -2,9 +2,10 @@ package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.service.EmailAddressServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -50,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class EmailAddressServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(EmailAddressServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(EmailAddressServiceSoap.class);
 
     /**
     * @deprecated As of 6.2.0, replaced by {@link #addEmailAddress( String,
@@ -65,7 +66,7 @@ public class EmailAddressServiceSoap {
 
             return com.liferay.portal.model.EmailAddressSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -82,7 +83,7 @@ public class EmailAddressServiceSoap {
 
             return com.liferay.portal.model.EmailAddressSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -93,7 +94,7 @@ public class EmailAddressServiceSoap {
         try {
             EmailAddressServiceUtil.deleteEmailAddress(emailAddressId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -106,7 +107,7 @@ public class EmailAddressServiceSoap {
 
             return com.liferay.portal.model.EmailAddressSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -120,7 +121,7 @@ public class EmailAddressServiceSoap {
 
             return com.liferay.portal.model.EmailAddressSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -135,7 +136,7 @@ public class EmailAddressServiceSoap {
 
             return com.liferay.portal.model.EmailAddressSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

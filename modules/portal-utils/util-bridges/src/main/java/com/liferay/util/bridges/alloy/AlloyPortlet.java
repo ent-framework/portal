@@ -14,8 +14,8 @@
 
 package com.liferay.util.bridges.alloy;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.MessageBusUtil;
 import com.liferay.portal.kernel.messaging.MessageListener;
 import com.liferay.portal.kernel.portlet.FriendlyURLMapper;
@@ -92,7 +92,7 @@ public class AlloyPortlet extends GenericPortlet {
 						baseAlloyControllerImpl.getSchedulerDestinationName());
 				}
 				catch (Exception e) {
-					_log.error(e, e);
+					_log.error(e.getMessage(), e);
 				}
 			}
 		}
@@ -209,7 +209,7 @@ public class AlloyPortlet extends GenericPortlet {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(AlloyPortlet.class);
+	private static final Logger _log = LoggerFactory.getLogger(AlloyPortlet.class);
 
 	private Set<AlloyController> _alloyControllers =
 		new HashSet<AlloyController>();

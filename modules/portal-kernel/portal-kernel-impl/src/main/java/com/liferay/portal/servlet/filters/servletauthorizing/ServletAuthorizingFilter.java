@@ -14,8 +14,8 @@
 
 package com.liferay.portal.servlet.filters.servletauthorizing;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.ProtectedServletRequest;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.model.User;
@@ -119,7 +119,7 @@ public class ServletAuthorizingFilter extends BasePortalFilter {
 				session.setAttribute(Globals.LOCALE_KEY, user.getLocale());
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -127,7 +127,7 @@ public class ServletAuthorizingFilter extends BasePortalFilter {
 			ServletAuthorizingFilter.class, request, response, filterChain);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		ServletAuthorizingFilter.class);
 
 }

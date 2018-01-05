@@ -14,8 +14,8 @@
 
 package com.liferay.portal.convert;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.util.MaintenanceUtil;
 
 import org.apache.commons.lang.time.StopWatch;
@@ -83,7 +83,7 @@ public abstract class ConvertProcess {
 
 	protected abstract void doConvert() throws Exception;
 
-	private static Log _log = LogFactoryUtil.getLog(ConvertProcess.class);
+	private static final Logger _log = LoggerFactory.getLogger(ConvertProcess.class);
 
 	private String[] _paramValues = null;
 

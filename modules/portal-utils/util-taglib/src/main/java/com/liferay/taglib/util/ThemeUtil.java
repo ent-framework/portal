@@ -32,8 +32,8 @@ import org.apache.struts.taglib.tiles.ComponentConstants;
 import org.apache.struts.tiles.ComponentContext;
 
 import com.liferay.portal.kernel.io.unsync.UnsyncStringWriter;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.PipingServletResponse;
 import com.liferay.portal.kernel.servlet.PluginContextListener;
 import com.liferay.portal.kernel.servlet.ServletContextPool;
@@ -68,7 +68,7 @@ import freemarker.template.TemplateHashModel;
  */
 public class ThemeUtil {
 
-    private static Log _log = LogFactoryUtil.getLog(ThemeUtil.class);
+    private static final Logger _log = LoggerFactory.getLogger(ThemeUtil.class);
 
     public static String getPortletId(HttpServletRequest request) {
         String portletId = null;

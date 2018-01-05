@@ -17,8 +17,8 @@ package com.liferay.portal.verify;
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBFactoryUtil;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 
@@ -162,6 +162,6 @@ public class VerifyDB2 extends VerifyProcess {
 		convertColumnToClob("EXPANDOVALUE", "DATA_");
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(VerifyDB2.class);
+	private static final Logger _log = LoggerFactory.getLogger(VerifyDB2.class);
 
 }

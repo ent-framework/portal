@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.search;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -221,6 +221,6 @@ public abstract class HitsOpenSearchImpl extends BaseOpenSearchImpl {
 		return portletURL.toString();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(HitsOpenSearchImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(HitsOpenSearchImpl.class);
 
 }

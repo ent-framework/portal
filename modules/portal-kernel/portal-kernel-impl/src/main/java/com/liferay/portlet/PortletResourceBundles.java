@@ -15,8 +15,8 @@
 package com.liferay.portlet;
 
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
 
@@ -89,7 +89,7 @@ public class PortletResourceBundles {
 				resourceBundles.put(languageId, resourceBundle);
 			}
 			catch (IOException ioe) {
-				_log.error(ioe);
+				_log.error(ioe.getMessage());
 			}
 		}
 
@@ -175,7 +175,7 @@ public class PortletResourceBundles {
 		_resourceBundles.remove(servletContextName);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PortletResourceBundles.class);
 
 	private static PortletResourceBundles _instance =

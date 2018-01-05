@@ -29,8 +29,8 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.executor.PortalExecutorManagerUtil;
 import com.liferay.portal.kernel.io.unsync.UnsyncPrintWriter;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.Destination;
 import com.liferay.portal.kernel.messaging.MessageBus;
 import com.liferay.portal.kernel.messaging.MessageBusUtil;
@@ -267,7 +267,7 @@ public class LuceneHelperImpl implements LuceneHelper {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 	}
@@ -303,7 +303,7 @@ public class LuceneHelperImpl implements LuceneHelper {
 			}
 		}
 		catch (IOException ioe) {
-			_log.error(ioe, ioe);
+			_log.error(ioe.getMessage(), ioe);
 		}
 	}
 
@@ -1125,7 +1125,7 @@ public class LuceneHelperImpl implements LuceneHelper {
 		" AND ", " NOT ", " OR "
 	};
 
-	private static Log _log = LogFactoryUtil.getLog(LuceneHelperImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(LuceneHelperImpl.class);
 
 	private static MethodKey _createTokenMethodKey = new MethodKey(
 		TransientTokenUtil.class, "createToken", long.class);

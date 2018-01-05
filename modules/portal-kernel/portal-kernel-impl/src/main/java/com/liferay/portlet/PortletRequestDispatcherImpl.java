@@ -14,8 +14,8 @@
 
 package com.liferay.portlet;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.LiferayPortletContext;
 import com.liferay.portal.kernel.portlet.LiferayPortletRequestDispatcher;
 import com.liferay.portal.kernel.portlet.LiferayPortletURL;
@@ -97,7 +97,7 @@ public class PortletRequestDispatcherImpl
 			dispatch(portletRequest, portletResponse, false, false);
 		}
 		catch (ServletException se) {
-			_log.error(se, se);
+			_log.error(se.getMessage(), se);
 
 			throw new PortletException(se);
 		}
@@ -112,7 +112,7 @@ public class PortletRequestDispatcherImpl
 			dispatch(portletRequest, portletResponse, false, true);
 		}
 		catch (ServletException se) {
-			_log.error(se, se);
+			_log.error(se.getMessage(), se);
 
 			throw new PortletException(se);
 		}
@@ -128,7 +128,7 @@ public class PortletRequestDispatcherImpl
 			dispatch(portletRequest, portletResponse, strutsURLEncoder, true);
 		}
 		catch (ServletException se) {
-			_log.error(se, se);
+			_log.error(se.getMessage(), se);
 
 			throw new PortletException(se);
 		}
@@ -143,7 +143,7 @@ public class PortletRequestDispatcherImpl
 			dispatch(renderRequest, renderResponse, false, true);
 		}
 		catch (ServletException se) {
-			_log.error(se, se);
+			_log.error(se.getMessage(), se);
 
 			throw new PortletException(se);
 		}
@@ -337,7 +337,7 @@ public class PortletRequestDispatcherImpl
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PortletRequestDispatcherImpl.class);
 
 	private LiferayPortletContext _liferayPortletContext;

@@ -15,8 +15,8 @@
 package com.liferay.portal.kernel.messaging;
 
 import com.liferay.portal.kernel.concurrent.ConcurrentHashSet;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -244,7 +244,7 @@ public class DefaultMessageBus implements MessageBus {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(DefaultMessageBus.class);
+	private static final Logger _log = LoggerFactory.getLogger(DefaultMessageBus.class);
 
 	private Set<DestinationEventListener> _destinationEventListeners =
 		new ConcurrentHashSet<DestinationEventListener>();

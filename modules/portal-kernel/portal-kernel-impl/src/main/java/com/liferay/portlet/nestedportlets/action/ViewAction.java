@@ -14,8 +14,8 @@
 
 package com.liferay.portlet.nestedportlets.action;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -183,13 +183,13 @@ public class ViewAction extends PortletAction {
 			}
 			catch (Exception e) {
 				if (_log.isWarnEnabled()) {
-					_log.warn(e, e);
+					_log.warn(e.getMessage(), e);
 				}
 			}
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ViewAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(ViewAction.class);
 
 	private static Pattern _columnIdPattern = Pattern.compile(
 		"([<].*?id=[\"'])([^ ]*?)([\"'].*?[>])", Pattern.DOTALL);

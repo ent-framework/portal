@@ -185,5 +185,5 @@ contextObjects.put(PortletDisplayTemplateConstants.ASSET_PUBLISHER_HELPER, Asset
 </c:if>
 
 <%!
-private static Log _log = LogFactoryUtil.getLog("portal-web.docroot.html.portlet.asset_publisher.view_jsp");
+private static final Logger _log = LoggerFactory.getLogger("portal-web.docroot.html.portlet.asset_publisher.view_jsp");
 %>

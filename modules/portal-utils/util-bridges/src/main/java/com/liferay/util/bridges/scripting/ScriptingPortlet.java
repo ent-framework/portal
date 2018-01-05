@@ -14,8 +14,8 @@
 
 package com.liferay.util.bridges.scripting;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.PortletResponseUtil;
 import com.liferay.portal.kernel.scripting.ScriptingException;
 import com.liferay.portal.kernel.scripting.ScriptingHelperUtil;
@@ -348,6 +348,6 @@ public class ScriptingPortlet extends GenericPortlet {
 
 	private static final String _ERROR = ScriptingPortlet.class + ".ERROR";
 
-	private static Log _log = LogFactoryUtil.getLog(ScriptingPortlet.class);
+	private static final Logger _log = LoggerFactory.getLogger(ScriptingPortlet.class);
 
 }

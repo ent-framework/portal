@@ -15,8 +15,8 @@
 package com.liferay.portlet.documentlibrary.util;
 
 import com.liferay.portal.kernel.lock.BaseLockListener;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.util.PropsValues;
@@ -58,11 +58,11 @@ public class DLFileEntryLockListener extends BaseLockListener {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		DLFileEntryLockListener.class);
 
 }

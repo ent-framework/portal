@@ -2,11 +2,12 @@ package com.liferay.portlet.bookmarks.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 
 import com.liferay.portlet.bookmarks.service.BookmarksEntryServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -52,7 +53,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class BookmarksEntryServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(BookmarksEntryServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(BookmarksEntryServiceSoap.class);
 
     public static com.liferay.portlet.bookmarks.model.BookmarksEntrySoap addEntry(
         long groupId, long folderId, java.lang.String name,
@@ -65,7 +66,7 @@ public class BookmarksEntryServiceSoap {
 
             return com.liferay.portlet.bookmarks.model.BookmarksEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -75,7 +76,7 @@ public class BookmarksEntryServiceSoap {
         try {
             BookmarksEntryServiceUtil.deleteEntry(entryId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -91,7 +92,7 @@ public class BookmarksEntryServiceSoap {
 
             return com.liferay.portlet.bookmarks.model.BookmarksEntrySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -108,7 +109,7 @@ public class BookmarksEntryServiceSoap {
 
             return com.liferay.portlet.bookmarks.model.BookmarksEntrySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -122,7 +123,7 @@ public class BookmarksEntryServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -136,7 +137,7 @@ public class BookmarksEntryServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -149,7 +150,7 @@ public class BookmarksEntryServiceSoap {
 
             return com.liferay.portlet.bookmarks.model.BookmarksEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -163,7 +164,7 @@ public class BookmarksEntryServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -177,7 +178,7 @@ public class BookmarksEntryServiceSoap {
 
             return com.liferay.portlet.bookmarks.model.BookmarksEntrySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -193,7 +194,7 @@ public class BookmarksEntryServiceSoap {
 
             return com.liferay.portlet.bookmarks.model.BookmarksEntrySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -209,7 +210,7 @@ public class BookmarksEntryServiceSoap {
 
             return com.liferay.portlet.bookmarks.model.BookmarksEntrySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -222,7 +223,7 @@ public class BookmarksEntryServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -236,7 +237,7 @@ public class BookmarksEntryServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -250,7 +251,7 @@ public class BookmarksEntryServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -264,7 +265,7 @@ public class BookmarksEntryServiceSoap {
 
             return com.liferay.portlet.bookmarks.model.BookmarksEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -278,7 +279,7 @@ public class BookmarksEntryServiceSoap {
 
             return com.liferay.portlet.bookmarks.model.BookmarksEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -291,7 +292,7 @@ public class BookmarksEntryServiceSoap {
 
             return com.liferay.portlet.bookmarks.model.BookmarksEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -306,7 +307,7 @@ public class BookmarksEntryServiceSoap {
 
             return com.liferay.portlet.bookmarks.model.BookmarksEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -319,7 +320,7 @@ public class BookmarksEntryServiceSoap {
 
             return com.liferay.portlet.bookmarks.model.BookmarksEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -330,7 +331,7 @@ public class BookmarksEntryServiceSoap {
         try {
             BookmarksEntryServiceUtil.restoreEntryFromTrash(entryId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -340,7 +341,7 @@ public class BookmarksEntryServiceSoap {
         try {
             BookmarksEntryServiceUtil.subscribeEntry(entryId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -350,7 +351,7 @@ public class BookmarksEntryServiceSoap {
         try {
             BookmarksEntryServiceUtil.unsubscribeEntry(entryId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -367,7 +368,7 @@ public class BookmarksEntryServiceSoap {
 
             return com.liferay.portlet.bookmarks.model.BookmarksEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

@@ -14,8 +14,8 @@
 
 package com.liferay.util.bridges.alloy;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.DefaultFriendlyURLMapper;
 import com.liferay.portal.kernel.portlet.LiferayPortletURL;
 import com.liferay.portal.kernel.servlet.HttpMethods;
@@ -140,7 +140,7 @@ public class AlloyFriendlyURLMapper extends DefaultFriendlyURLMapper {
 		return ParamUtil.getString(request, "p_p_lifecycle", "0");
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		AlloyFriendlyURLMapper.class);
 
 }

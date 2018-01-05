@@ -15,8 +15,8 @@
 package com.liferay.portal.events;
 
 import com.liferay.portal.kernel.events.SessionAction;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.notifications.ChannelException;
 import com.liferay.portal.kernel.notifications.ChannelHubManagerUtil;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -74,11 +74,11 @@ public class ChannelSessionDestroyAction extends SessionAction {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		ChannelSessionDestroyAction.class);
 
 }

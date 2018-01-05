@@ -26,8 +26,8 @@ import com.artofsolving.jodconverter.openoffice.converter.StreamOpenOfficeDocume
 import com.liferay.portal.kernel.configuration.Filter;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
@@ -117,7 +117,7 @@ public class DocumentConversionUtil {
 		}
 		catch (Exception e) {
 			if (_log.isErrorEnabled()) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -389,7 +389,7 @@ public class DocumentConversionUtil {
 
 	private static final String _LOCALHOST_IP = "127.0.0.1";
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		DocumentConversionUtil.class);
 
 	private static DocumentConversionUtil _instance =

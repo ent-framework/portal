@@ -2,10 +2,10 @@ package com.liferay.portlet.softwarecatalog.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-
 import com.liferay.portlet.softwarecatalog.service.SCLicenseServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -51,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class SCLicenseServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(SCLicenseServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(SCLicenseServiceSoap.class);
 
     public static com.liferay.portlet.softwarecatalog.model.SCLicenseSoap addLicense(
         java.lang.String name, java.lang.String url, boolean openSource,
@@ -62,7 +62,7 @@ public class SCLicenseServiceSoap {
 
             return com.liferay.portlet.softwarecatalog.model.SCLicenseSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -72,7 +72,7 @@ public class SCLicenseServiceSoap {
         try {
             SCLicenseServiceUtil.deleteLicense(licenseId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -85,7 +85,7 @@ public class SCLicenseServiceSoap {
 
             return com.liferay.portlet.softwarecatalog.model.SCLicenseSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -101,7 +101,7 @@ public class SCLicenseServiceSoap {
 
             return com.liferay.portlet.softwarecatalog.model.SCLicenseSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

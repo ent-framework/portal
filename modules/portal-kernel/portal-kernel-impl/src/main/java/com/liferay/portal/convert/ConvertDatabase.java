@@ -22,8 +22,8 @@ import com.liferay.portal.kernel.dao.db.DBFactoryUtil;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.dao.jdbc.DataSourceFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.PluginContextListener;
 import com.liferay.portal.kernel.servlet.ServletContextPool;
 import com.liferay.portal.kernel.util.StringPool;
@@ -285,7 +285,7 @@ public class ConvertDatabase extends ConvertProcess {
 //			}
 //		}
 //		catch (Exception e) {
-//			_log.error(e, e);
+//			_log.error(e.getMessage(), e);
 //
 //			MaintenanceUtil.appendStatus(e.getMessage());
 //		}
@@ -300,6 +300,6 @@ public class ConvertDatabase extends ConvertProcess {
 			CyrusVirtual.TABLE_SQL_CREATE)
 	};
 
-	private static Log _log = LogFactoryUtil.getLog(ConvertDatabase.class);
+	private static final Logger _log = LoggerFactory.getLogger(ConvertDatabase.class);
 
 }

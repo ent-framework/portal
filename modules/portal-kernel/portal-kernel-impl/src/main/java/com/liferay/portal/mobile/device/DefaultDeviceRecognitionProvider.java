@@ -14,8 +14,8 @@
 
 package com.liferay.portal.mobile.device;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.mobile.device.Device;
 import com.liferay.portal.kernel.mobile.device.DeviceCapabilityFilter;
 import com.liferay.portal.kernel.mobile.device.DeviceRecognitionProvider;
@@ -58,7 +58,7 @@ public class DefaultDeviceRecognitionProvider
 		DeviceCapabilityFilter deviceCapabilityFilter) {
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		DefaultDeviceRecognitionProvider.class);
 
 }

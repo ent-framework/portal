@@ -28,8 +28,8 @@ import com.liferay.portal.kernel.lar.PortletDataHandlerKeys;
 import com.liferay.portal.kernel.lar.PortletDataHandlerStatusMessageSenderUtil;
 import com.liferay.portal.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.portal.kernel.lar.StagedModelType;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.staging.LayoutStagingUtil;
 import com.liferay.portal.kernel.staging.StagingUtil;
 import com.liferay.portal.kernel.transaction.TransactionCommitCallbackRegistryUtil;
@@ -915,7 +915,7 @@ public class LayoutExporter {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LayoutExporter.class);
+	private static final Logger _log = LoggerFactory.getLogger(LayoutExporter.class);
 
 	private DeletionSystemEventExporter _deletionSystemEventExporter =
 		new DeletionSystemEventExporter();

@@ -3,8 +3,8 @@ package com.liferay.portal.kernel.jsonwebservice.cache;
 import com.liferay.portal.kernel.cache.PortalCache;
 import com.liferay.portal.kernel.cache.SingleVMPool;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 
@@ -72,7 +72,7 @@ public class WebServiceCacheImpl implements WebServiceCache {
 	
 	private static final String _ARGS_SEPARATOR = "_A_";
 	
-	private static Log _log = LogFactoryUtil.getLog(WebServiceCacheImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(WebServiceCacheImpl.class);
 
 	private PortalCache<String, Object> _portalCache;
 	private SingleVMPool _singleVMPool;

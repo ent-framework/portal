@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
 
@@ -39,7 +39,7 @@ public class StaticFieldGetter {
 			obj = field.get(objClass);
 		}
 		catch (Exception e) {
-			_log.error(e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return obj;
@@ -48,7 +48,7 @@ public class StaticFieldGetter {
 	private StaticFieldGetter() {
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(StaticFieldGetter.class);
+	private static final Logger _log = LoggerFactory.getLogger(StaticFieldGetter.class);
 
 	private static StaticFieldGetter _instance = new StaticFieldGetter();
 

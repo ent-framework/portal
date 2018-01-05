@@ -15,8 +15,8 @@
 package com.liferay.portlet.softwarecatalog.model.impl;
 
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portlet.softwarecatalog.model.SCFrameworkVersion;
 import com.liferay.portlet.softwarecatalog.model.SCProductEntry;
 import com.liferay.portlet.softwarecatalog.service.SCFrameworkVersionLocalServiceUtil;
@@ -51,12 +51,12 @@ public class SCProductVersionImpl extends SCProductVersionBaseImpl {
 		catch (Exception e) {
 			productEntry = new SCProductEntryImpl();
 
-			_log.error(e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return productEntry;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(SCProductVersionImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(SCProductVersionImpl.class);
 
 }

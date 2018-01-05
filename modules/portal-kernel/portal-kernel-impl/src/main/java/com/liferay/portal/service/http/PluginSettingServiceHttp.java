@@ -1,12 +1,13 @@
 package com.liferay.portal.service.http;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.PluginSettingServiceUtil;
 import com.liferay.portal.service.http.TunnelUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Provides the HTTP utility for the
@@ -37,7 +38,7 @@ import com.liferay.portal.service.http.TunnelUtil;
  * @generated
  */
 public class PluginSettingServiceHttp {
-    private static Log _log = LogFactoryUtil.getLog(PluginSettingServiceHttp.class);
+    private static final Logger _log = LoggerFactory.getLogger(PluginSettingServiceHttp.class);
     private static final Class<?>[] _updatePluginSettingParameterTypes0 = new Class[] {
             long.class, java.lang.String.class, java.lang.String.class,
             java.lang.String.class, boolean.class
@@ -73,7 +74,7 @@ public class PluginSettingServiceHttp {
 
             return (com.liferay.portal.model.PluginSetting) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }

@@ -16,8 +16,8 @@ package com.liferay.portlet.ratings.service.impl;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portlet.ratings.NoSuchStatsException;
 import com.liferay.portlet.ratings.model.RatingsStats;
@@ -77,7 +77,7 @@ public class RatingsStatsLocalServiceImpl
 		}
 		catch (NoSuchStatsException nsse) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(nsse);
+				_log.warn(nsse.getMessage());
 			}
 		}
 
@@ -116,7 +116,7 @@ public class RatingsStatsLocalServiceImpl
 		return stats;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		RatingsStatsLocalServiceImpl.class);
 
 }

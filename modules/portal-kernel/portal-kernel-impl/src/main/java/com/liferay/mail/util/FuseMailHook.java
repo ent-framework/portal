@@ -15,8 +15,8 @@
 package com.liferay.mail.util;
 
 import com.liferay.mail.model.Filter;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -69,7 +69,7 @@ public class FuseMailHook implements Hook {
 			executeMethod(method);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -95,7 +95,7 @@ public class FuseMailHook implements Hook {
 			executeMethod(method);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -112,7 +112,7 @@ public class FuseMailHook implements Hook {
 			executeMethod(method);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -139,7 +139,7 @@ public class FuseMailHook implements Hook {
 			executeMethod(method);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -157,7 +157,7 @@ public class FuseMailHook implements Hook {
 			executeMethod(method);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -237,7 +237,7 @@ public class FuseMailHook implements Hook {
 	private static final String _USERNAME = PropsUtil.get(
 		PropsKeys.MAIL_HOOK_FUSEMAIL_USERNAME);
 
-	private static Log _log = LogFactoryUtil.getLog(FuseMailHook.class);
+	private static final Logger _log = LoggerFactory.getLogger(FuseMailHook.class);
 
 	private HttpClient _client;
 

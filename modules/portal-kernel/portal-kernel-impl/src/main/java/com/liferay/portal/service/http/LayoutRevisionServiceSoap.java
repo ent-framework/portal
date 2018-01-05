@@ -2,9 +2,10 @@ package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.service.LayoutRevisionServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -50,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class LayoutRevisionServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(LayoutRevisionServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(LayoutRevisionServiceSoap.class);
 
     public static com.liferay.portal.model.LayoutRevisionSoap addLayoutRevision(
         long userId, long layoutSetBranchId, long layoutBranchId,
@@ -74,7 +75,7 @@ public class LayoutRevisionServiceSoap {
 
             return com.liferay.portal.model.LayoutRevisionSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

@@ -16,8 +16,8 @@ package com.liferay.portal.captcha;
 
 import com.liferay.portal.kernel.captcha.Captcha;
 import com.liferay.portal.kernel.captcha.CaptchaException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.ClassUtil;
 import com.liferay.portal.kernel.util.InstanceFactory;
@@ -145,12 +145,12 @@ public class CaptchaImpl implements Captcha {
 				_originalCaptcha = _captcha;
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(CaptchaImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(CaptchaImpl.class);
 
 	private volatile Captcha _captcha;
 	private Captcha _originalCaptcha;

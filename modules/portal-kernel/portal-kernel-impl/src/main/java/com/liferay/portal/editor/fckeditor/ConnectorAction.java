@@ -17,8 +17,8 @@ package com.liferay.portal.editor.fckeditor;
 import com.liferay.portal.editor.fckeditor.command.Command;
 import com.liferay.portal.editor.fckeditor.command.CommandArgument;
 import com.liferay.portal.editor.fckeditor.command.CommandFactory;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.WebKeys;
@@ -66,12 +66,12 @@ public class ConnectorAction extends Action {
 			commandModel.execute(commandArgument, request, response);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return null;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ConnectorAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(ConnectorAction.class);
 
 }

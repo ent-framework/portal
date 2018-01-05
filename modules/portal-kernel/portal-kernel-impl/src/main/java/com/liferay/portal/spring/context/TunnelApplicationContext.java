@@ -16,8 +16,8 @@ package com.liferay.portal.spring.context;
 
 import com.liferay.portal.bean.BeanLocatorImpl;
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.FileNotFoundException;
 
@@ -65,13 +65,13 @@ public class TunnelApplicationContext extends XmlWebApplicationContext {
 					}
 				}
 				else {
-					_log.error(e, e);
+					_log.error(e.getMessage(), e);
 				}
 			}
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		TunnelApplicationContext.class);
 
 }

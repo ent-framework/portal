@@ -17,8 +17,8 @@ package com.liferay.portlet.documentlibrary.store;
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBFactoryUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ClassUtil;
 import com.liferay.portal.kernel.util.InstanceFactory;
 import com.liferay.portal.kernel.util.PropsKeys;
@@ -105,7 +105,7 @@ public class StoreFactory {
 				_store = _getInstance();
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -181,7 +181,7 @@ public class StoreFactory {
 //		}
 	};
 
-	private static Log _log = LogFactoryUtil.getLog(StoreFactory.class);
+	private static final Logger _log = LoggerFactory.getLogger(StoreFactory.class);
 
 	private static Store _store;
 	private static boolean _warned;

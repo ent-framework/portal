@@ -16,8 +16,8 @@ package com.liferay.portlet.documentlibrary.util;
 
 import com.liferay.portal.kernel.bean.ClassLoaderBeanHandler;
 import com.liferay.portal.kernel.lar.PortletDataContext;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.FileVersion;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
@@ -147,7 +147,7 @@ public class DLProcessorRegistryImpl implements DLProcessorRegistry {
 				PropsKeys.DL_FILE_ENTRY_PREVIEWABLE_PROCESSOR_MAX_SIZE);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		if (fileEntryPreviewableProcessorMaxSize == 0) {
@@ -230,7 +230,7 @@ public class DLProcessorRegistryImpl implements DLProcessorRegistry {
 			return latestFileVersion;
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			return null;
 		}
@@ -275,7 +275,7 @@ public class DLProcessorRegistryImpl implements DLProcessorRegistry {
 	private static final String[] _DL_FILE_ENTRY_PROCESSORS =
 		PropsUtil.getArray(PropsKeys.DL_FILE_ENTRY_PROCESSORS);
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		DLProcessorRegistryImpl.class);
 
 	private Map<String, DLProcessor> _dlProcessors =

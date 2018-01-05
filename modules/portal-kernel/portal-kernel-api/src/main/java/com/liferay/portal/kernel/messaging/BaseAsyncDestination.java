@@ -19,8 +19,8 @@ import com.liferay.portal.kernel.concurrent.RejectedExecutionHandler;
 import com.liferay.portal.kernel.concurrent.ThreadPoolExecutor;
 import com.liferay.portal.kernel.concurrent.ThreadPoolHandlerAdapter;
 import com.liferay.portal.kernel.executor.PortalExecutorManagerUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.proxy.MessageValuesThreadLocal;
 import com.liferay.portal.kernel.util.GroupThreadLocal;
 import com.liferay.portal.kernel.util.LocaleThreadLocal;
@@ -339,7 +339,7 @@ public abstract class BaseAsyncDestination extends BaseDestination {
 
 	private static final int _WORKERS_MAX_SIZE = 5;
 
-	private static Log _log = LogFactoryUtil.getLog(BaseAsyncDestination.class);
+	private static final Logger _log = LoggerFactory.getLogger(BaseAsyncDestination.class);
 
 	private int _maximumQueueSize = Integer.MAX_VALUE;
 	private RejectedExecutionHandler _rejectedExecutionHandler;

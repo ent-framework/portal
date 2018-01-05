@@ -915,7 +915,7 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 				"com.liferay.portal.kernel.exception.PortalException",
 				"com.liferay.portal.kernel.exception.SystemException",
 				"com.liferay.portal.kernel.util.LocalizationUtil",
-				"private static Log _log"
+				"private static final Logger _log"
 			});
 
 		newContent = fixCompatClassImports(file, newContent);
@@ -965,7 +965,7 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 
 		if (excluded == null) {
 			newContent = StringUtil.replace(
-				newContent, "private Log _log", "private static Log _log");
+				newContent, "private Log _log", "private static final Logger _log");
 		}
 
 		if (newContent.contains("*/\npackage ")) {
@@ -2731,7 +2731,7 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 	private Properties _javaTermSortExclusions;
 	private Properties _lineLengthExclusions;
 	private Pattern _logPattern = Pattern.compile(
-		"Log _log = LogFactoryUtil.getLog\\(\n*\t*(.+)\\.class\\)");
+		"Log _log = LoggerFactory.getLogger\\(\n*\t*(.+)\\.class\\)");
 	private Properties _staticLogVariableExclusions;
 	private Properties _upgradeServiceUtilExclusions;
 

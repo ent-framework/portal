@@ -20,8 +20,8 @@ import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.json.JSONSerializable;
 import com.liferay.portal.kernel.json.JSONSerializer;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.ClassUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -642,7 +642,7 @@ public class JSONServiceAction extends JSONAction {
 
 	private static final String _REROUTE_PATH = "/api/json";
 
-	private static Log _log = LogFactoryUtil.getLog(JSONServiceAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(JSONServiceAction.class);
 
 	private static Pattern _fieldDescriptorPattern = Pattern.compile(
 		"^(.*?)((\\[\\])*)$", Pattern.DOTALL);

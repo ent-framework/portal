@@ -15,8 +15,8 @@
 package com.liferay.portlet.portletdisplaytemplate.util;
 
 import com.liferay.portal.kernel.bean.ClassLoaderBeanHandler;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portletdisplaytemplate.BasePortletDisplayTemplateHandler;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.servlet.GenericServletWrapper;
@@ -112,7 +112,7 @@ public class PortletDisplayTemplateImpl implements PortletDisplayTemplate {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -142,7 +142,7 @@ public class PortletDisplayTemplateImpl implements PortletDisplayTemplate {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -464,7 +464,7 @@ public class PortletDisplayTemplateImpl implements PortletDisplayTemplate {
 		return velocityTaglib;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PortletDisplayTemplateImpl.class);
 
 	private Transformer _transformer = new Transformer(

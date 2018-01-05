@@ -14,8 +14,8 @@
 
 package com.liferay.portal.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.Validator;
 
 /**
@@ -40,7 +40,7 @@ public class LayoutCloneFactory {
 					_layoutClone = (LayoutClone)clazz.newInstance();
 				}
 				catch (Exception e) {
-					_log.error(e, e);
+					_log.error(e.getMessage(), e);
 				}
 			}
 		}
@@ -53,7 +53,7 @@ public class LayoutCloneFactory {
 		return _layoutClone;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LayoutCloneFactory.class);
+	private static final Logger _log = LoggerFactory.getLogger(LayoutCloneFactory.class);
 
 	private static LayoutClone _layoutClone;
 

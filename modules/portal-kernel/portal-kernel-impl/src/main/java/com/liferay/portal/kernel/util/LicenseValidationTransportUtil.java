@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.util.transport.MulticastTransport;
 
 import java.lang.reflect.Field;
@@ -30,7 +30,7 @@ public class LicenseValidationTransportUtil {
 			ClassLoader classLoader = PortalClassLoaderUtil.getClassLoader();
 
 			Class licenseManagerClass = classLoader.loadClass(
-				"com.liferay.portal.license.LicenseManager");
+				"com.liferay.portal.license.util.LicenseManager");
 
 			Field[] fields = licenseManagerClass.getDeclaredFields();
 
@@ -67,12 +67,12 @@ public class LicenseValidationTransportUtil {
 		}
 		catch (ClassNotFoundException cnfe) {
 			if (_log.isDebugEnabled()) {
-				_log.debug(cnfe);
+				_log.debug(cnfe.getMessage(), cnfe);
 			}
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		LicenseValidationTransportUtil.class);
 
 }

@@ -16,8 +16,8 @@ package com.liferay.portal.webcache;
 
 import com.liferay.portal.kernel.cache.PortalCache;
 import com.liferay.portal.kernel.cache.SingleVMPool;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.kernel.webcache.WebCacheException;
@@ -60,10 +60,10 @@ public class WebCachePoolImpl implements WebCachePool {
 				Throwable cause = wce.getCause();
 
 				if (cause != null) {
-					_log.warn(cause, cause);
+					_log.warn(cause.getMessage(), cause);
 				}
 				else {
-					_log.warn(wce, wce);
+					_log.warn(wce.getMessage(), wce);
 				}
 			}
 		}
@@ -82,7 +82,7 @@ public class WebCachePoolImpl implements WebCachePool {
 
 	private static final String _CACHE_NAME = WebCachePool.class.getName();
 
-	private static Log _log = LogFactoryUtil.getLog(WebCachePoolImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(WebCachePoolImpl.class);
 
 	private PortalCache<String, Object> _portalCache;
 	private SingleVMPool _singleVMPool;

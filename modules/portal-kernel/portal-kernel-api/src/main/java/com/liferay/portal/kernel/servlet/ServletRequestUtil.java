@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.servlet;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
@@ -45,6 +45,6 @@ public class ServletRequestUtil {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ServletRequestUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(ServletRequestUtil.class);
 
 }

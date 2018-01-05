@@ -14,8 +14,8 @@
 
 package com.liferay.portal.messaging.async;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.MessageBusUtil;
 import com.liferay.portal.kernel.messaging.async.Async;
 import com.liferay.portal.kernel.transaction.TransactionCommitCallbackRegistryUtil;
@@ -109,7 +109,7 @@ public class AsyncAdvice extends AnnotationChainableMethodAdvice<Async> {
 		_destinationNames = destinationNames;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(AsyncAdvice.class);
+	private static final Logger _log = LoggerFactory.getLogger(AsyncAdvice.class);
 
 	private static Async _nullAsync =
 		new Async() {

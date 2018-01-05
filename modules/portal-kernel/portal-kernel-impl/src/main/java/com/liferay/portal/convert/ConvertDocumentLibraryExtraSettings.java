@@ -14,8 +14,8 @@
 
 package com.liferay.portal.convert;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portlet.documentlibrary.service.DLFileEntryLocalServiceUtil;
 
 /**
@@ -39,7 +39,7 @@ public class ConvertDocumentLibraryExtraSettings extends ConvertProcess {
 			return DLFileEntryLocalServiceUtil.hasExtraSettings();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			return false;
 		}
@@ -49,7 +49,7 @@ public class ConvertDocumentLibraryExtraSettings extends ConvertProcess {
 	protected void doConvert() throws Exception {
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		ConvertDocumentLibraryExtraSettings.class);
 
 }

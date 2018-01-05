@@ -22,8 +22,8 @@ import com.liferay.portal.kernel.jsonwebservice.JSONWebServiceActionsManagerUtil
 import com.liferay.portal.kernel.jsonwebservice.JSONWebServiceMappingResolver;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebServiceMode;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebServiceNaming;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.spring.aop.ServiceBeanAopProxy;
 import com.liferay.portal.util.PropsValues;
@@ -93,7 +93,7 @@ public class JSONWebServiceRegistrator {
 				onJSONWebServiceBean(contextPath, bean, jsonWebService);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 	}
@@ -114,7 +114,7 @@ public class JSONWebServiceRegistrator {
 			onJSONWebServiceBean(contextPath, bean, jsonWebService);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -264,7 +264,7 @@ public class JSONWebServiceRegistrator {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		JSONWebServiceRegistrator.class);
 
 	private final JSONWebServiceMappingResolver _jsonWebServiceMappingResolver;

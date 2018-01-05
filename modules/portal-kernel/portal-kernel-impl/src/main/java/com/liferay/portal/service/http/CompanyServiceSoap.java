@@ -2,9 +2,10 @@ package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.service.CompanyServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -50,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class CompanyServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(CompanyServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(CompanyServiceSoap.class);
 
     /**
     * Adds a company.
@@ -79,7 +80,7 @@ public class CompanyServiceSoap {
 
             return com.liferay.portal.model.CompanySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -92,7 +93,7 @@ public class CompanyServiceSoap {
 
             return com.liferay.portal.model.CompanySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -111,7 +112,7 @@ public class CompanyServiceSoap {
         try {
             CompanyServiceUtil.deleteLogo(companyId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -133,7 +134,7 @@ public class CompanyServiceSoap {
 
             return com.liferay.portal.model.CompanySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -154,7 +155,7 @@ public class CompanyServiceSoap {
 
             return com.liferay.portal.model.CompanySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -176,7 +177,7 @@ public class CompanyServiceSoap {
 
             return com.liferay.portal.model.CompanySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -199,7 +200,7 @@ public class CompanyServiceSoap {
 
             return com.liferay.portal.model.CompanySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -221,7 +222,7 @@ public class CompanyServiceSoap {
 
             return com.liferay.portal.model.CompanySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -244,7 +245,7 @@ public class CompanyServiceSoap {
         try {
             CompanyServiceUtil.removePreferences(companyId, keys);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -274,7 +275,7 @@ public class CompanyServiceSoap {
 
             return com.liferay.portal.model.CompanySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -322,7 +323,7 @@ public class CompanyServiceSoap {
 
             return com.liferay.portal.model.CompanySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -344,7 +345,7 @@ public class CompanyServiceSoap {
         try {
             CompanyServiceUtil.updateDisplay(companyId, languageId, timeZoneId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -369,7 +370,7 @@ public class CompanyServiceSoap {
 
             return com.liferay.portal.model.CompanySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -404,7 +405,7 @@ public class CompanyServiceSoap {
                 sendPassword, strangers, strangersWithMx, strangersVerify,
                 siteLogo);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

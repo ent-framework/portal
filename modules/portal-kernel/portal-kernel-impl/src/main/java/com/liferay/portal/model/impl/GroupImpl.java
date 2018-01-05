@@ -17,8 +17,8 @@ package com.liferay.portal.model.impl;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.staging.StagingConstants;
 import com.liferay.portal.kernel.staging.StagingUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -350,7 +350,7 @@ public class GroupImpl extends GroupBaseImpl {
 				getGroupId(), true);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return layoutSet;
@@ -362,7 +362,7 @@ public class GroupImpl extends GroupBaseImpl {
 			return LayoutLocalServiceUtil.getLayoutsCount(this, true);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return 0;
@@ -377,7 +377,7 @@ public class GroupImpl extends GroupBaseImpl {
 				getGroupId(), false);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return layoutSet;
@@ -389,7 +389,7 @@ public class GroupImpl extends GroupBaseImpl {
 			return LayoutLocalServiceUtil.getLayoutsCount(this, false);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return 0;
@@ -520,7 +520,7 @@ public class GroupImpl extends GroupBaseImpl {
 				_typeSettingsProperties.load(super.getTypeSettings());
 			}
 			catch (IOException ioe) {
-				_log.error(ioe, ioe);
+				_log.error(ioe.getMessage(), ioe);
 			}
 		}
 
@@ -931,7 +931,7 @@ public class GroupImpl extends GroupBaseImpl {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(GroupImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(GroupImpl.class);
 
 	private Group _liveGroup;
 	private Group _stagingGroup;

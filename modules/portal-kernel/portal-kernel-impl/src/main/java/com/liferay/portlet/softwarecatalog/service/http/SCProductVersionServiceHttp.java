@@ -1,13 +1,14 @@
 package com.liferay.portlet.softwarecatalog.service.http;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.http.TunnelUtil;
 
 import com.liferay.portlet.softwarecatalog.service.SCProductVersionServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Provides the HTTP utility for the
@@ -38,7 +39,7 @@ import com.liferay.portlet.softwarecatalog.service.SCProductVersionServiceUtil;
  * @generated
  */
 public class SCProductVersionServiceHttp {
-    private static Log _log = LogFactoryUtil.getLog(SCProductVersionServiceHttp.class);
+    private static final Logger _log = LoggerFactory.getLogger(SCProductVersionServiceHttp.class);
     private static final Class<?>[] _addProductVersionParameterTypes0 = new Class[] {
             long.class, java.lang.String.class, java.lang.String.class,
             java.lang.String.class, java.lang.String.class, boolean.class,
@@ -99,7 +100,7 @@ public class SCProductVersionServiceHttp {
 
             return (com.liferay.portlet.softwarecatalog.model.SCProductVersion) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -130,7 +131,7 @@ public class SCProductVersionServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -165,7 +166,7 @@ public class SCProductVersionServiceHttp {
 
             return (com.liferay.portlet.softwarecatalog.model.SCProductVersion) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -200,7 +201,7 @@ public class SCProductVersionServiceHttp {
 
             return (java.util.List<com.liferay.portlet.softwarecatalog.model.SCProductVersion>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -236,7 +237,7 @@ public class SCProductVersionServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -277,7 +278,7 @@ public class SCProductVersionServiceHttp {
 
             return (com.liferay.portlet.softwarecatalog.model.SCProductVersion) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }

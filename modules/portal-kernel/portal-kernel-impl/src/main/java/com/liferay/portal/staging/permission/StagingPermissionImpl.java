@@ -14,8 +14,8 @@
 
 package com.liferay.portal.staging.permission;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.staging.permission.StagingPermission;
 import com.liferay.portal.kernel.util.Validator;
@@ -41,7 +41,7 @@ public class StagingPermissionImpl implements StagingPermission {
 				actionId);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return null;
@@ -60,7 +60,7 @@ public class StagingPermissionImpl implements StagingPermission {
 				actionId);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return null;
@@ -86,7 +86,7 @@ public class StagingPermissionImpl implements StagingPermission {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		StagingPermissionImpl.class);
 
 }

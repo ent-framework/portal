@@ -14,7 +14,7 @@
 
 package com.liferay.portal.kernel.servlet;
 
-import com.liferay.portal.kernel.log.Log;
+import org.slf4j.Logger;
 import com.liferay.portal.kernel.servlet.filters.invoker.FilterMapping;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
@@ -78,9 +78,9 @@ public abstract class BaseFilter implements LiferayFilter {
 			throw se;
 		}
 		catch (Exception e) {
-			Log log = getLog();
+			Logger log = getLog();
 
-			log.error(e, e);
+			log.error(e.getMessage(), e);
 		}
 	}
 
@@ -126,7 +126,7 @@ public abstract class BaseFilter implements LiferayFilter {
 		_filterEnabled = filterEnabled;
 	}
 
-	protected abstract Log getLog();
+	protected abstract Logger getLog();
 
 	protected void processFilter(
 			Class<?> filterClass, HttpServletRequest request,
@@ -139,7 +139,7 @@ public abstract class BaseFilter implements LiferayFilter {
 		String depther = null;
 		String path = null;
 
-		Log log = getLog();
+		Logger log = getLog();
 
 		if (log.isDebugEnabled()) {
 			startTime = System.currentTimeMillis();

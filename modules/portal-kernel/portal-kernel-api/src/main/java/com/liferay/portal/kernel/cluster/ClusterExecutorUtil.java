@@ -15,8 +15,8 @@
 package com.liferay.portal.kernel.cluster;
 
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.util.Collections;
@@ -205,7 +205,7 @@ public class ClusterExecutorUtil {
 		_clusterExecutor = clusterExecutor;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ClusterExecutorUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(ClusterExecutorUtil.class);
 
 	private static ClusterExecutor _clusterExecutor;
 

@@ -14,8 +14,8 @@
 
 package com.liferay.portal.json.jabsorb.serializer;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.jabsorb.serializer.ProcessedObject;
 import org.jabsorb.serializer.SerializerState;
@@ -55,7 +55,7 @@ public class LiferaySerializerState extends SerializerState {
 		return super.store(object);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		LiferaySerializerState.class);
 
 }

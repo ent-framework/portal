@@ -14,8 +14,8 @@
 
 package com.liferay.portal.mobile.device.rulegroup.rule.impl;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.mobile.device.Device;
 import com.liferay.portal.kernel.mobile.device.Dimensions;
 import com.liferay.portal.kernel.mobile.device.rulegroup.rule.RuleHandler;
@@ -336,7 +336,7 @@ public class SimpleRuleHandler implements RuleHandler {
 		_log.debug(sb.toString());
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(SimpleRuleHandler.class);
+	private static final Logger _log = LoggerFactory.getLogger(SimpleRuleHandler.class);
 
 	private Collection<String> _propertyNames;
 

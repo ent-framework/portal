@@ -14,8 +14,8 @@
 
 package com.liferay.portal.servlet.filters;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.BaseFilter;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.util.PropsUtil;
@@ -36,12 +36,12 @@ public abstract class BasePortalFilter extends BaseFilter {
 	}
 
 	@Override
-	protected Log getLog() {
+	protected Logger getLog() {
 		return _log;
 	}
 
 	private boolean _filterEnabled = GetterUtil.getBoolean(
 		PropsUtil.get(getClass().getName()), true);
-	private Log _log = LogFactoryUtil.getLog(getClass());
+	private  Logger _log = LoggerFactory.getLogger(getClass());
 
 }

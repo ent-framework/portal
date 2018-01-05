@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.cache.cluster;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 /**
@@ -71,7 +71,7 @@ public class PortalCacheClusterLinkUtil {
 		_portalCacheClusterLink = portalCacheClusterLink;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PortalCacheClusterLinkUtil.class);
 
 	private static PortalCacheClusterLink _portalCacheClusterLink;

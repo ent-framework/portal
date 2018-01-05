@@ -15,8 +15,8 @@
 package com.liferay.portal.cluster;
 
 import com.liferay.portal.kernel.cluster.messaging.ClusterForwardMessageListener;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
@@ -57,7 +57,7 @@ public class ClusterForwardReceiver extends BaseReceiver {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		ClusterForwardReceiver.class);
 
 	private ClusterForwardMessageListener _clusterForwardMessageListener;

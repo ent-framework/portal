@@ -16,8 +16,8 @@ package com.liferay.portal.servlet;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.kernel.util.ObjectValuePair;
@@ -51,7 +51,7 @@ public class TunnelServlet extends HttpServlet {
 		}
 		catch (IOException ioe) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(ioe, ioe);
+				_log.warn(ioe.getMessage(), ioe);
 			}
 
 			return;
@@ -83,7 +83,7 @@ public class TunnelServlet extends HttpServlet {
 			returnObj = ite.getCause();
 
 			if (!(returnObj instanceof PortalException)) {
-				_log.error(ite, ite);
+				_log.error(ite.getMessage(), ite);
 
 				if (returnObj != null) {
 					Throwable throwable = (Throwable)returnObj;
@@ -96,7 +96,7 @@ public class TunnelServlet extends HttpServlet {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 		finally {
 			AccessControlThreadLocal.setRemoteAccess(remoteAccess);
@@ -113,7 +113,7 @@ public class TunnelServlet extends HttpServlet {
 				oos.close();
 			}
 			catch (IOException ioe) {
-				_log.error(ioe, ioe);
+				_log.error(ioe.getMessage(), ioe);
 
 				throw ioe;
 			}
@@ -134,6 +134,6 @@ public class TunnelServlet extends HttpServlet {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(TunnelServlet.class);
+	private static final Logger _log = LoggerFactory.getLogger(TunnelServlet.class);
 
 }

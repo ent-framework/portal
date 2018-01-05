@@ -14,8 +14,8 @@
 
 package com.liferay.portal.model.impl;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.PropertiesUtil;
 import com.liferay.portal.kernel.util.SafeProperties;
@@ -190,7 +190,7 @@ public class ColorSchemeImpl implements ColorScheme {
 			PropertiesUtil.trimKeys(_settingsProperties);
 		}
 		catch (IOException ioe) {
-			_log.error(ioe);
+			_log.error(ioe.getMessage(), ioe);
 		}
 	}
 
@@ -199,7 +199,7 @@ public class ColorSchemeImpl implements ColorScheme {
 		_settingsProperties = settingsProperties;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ColorSchemeImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(ColorSchemeImpl.class);
 
 	private String _colorSchemeId;
 	private String _colorSchemeImagesPath =

@@ -16,8 +16,8 @@ package com.liferay.portal.mobile.device.rulegroup;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.mobile.device.rulegroup.ActionHandlerManager;
 import com.liferay.portal.kernel.mobile.device.rulegroup.action.ActionHandler;
 import com.liferay.portlet.mobiledevicerules.model.MDRAction;
@@ -103,7 +103,7 @@ public class DefaultActionHandlerManagerImpl implements ActionHandlerManager {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		DefaultActionHandlerManagerImpl.class);
 
 	private Map<String, ActionHandler> _deviceActionHandlers =

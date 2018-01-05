@@ -16,8 +16,8 @@ package com.liferay.portal.kernel.workflow;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.LiferayPortletRequest;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -88,7 +88,7 @@ public abstract class BaseWorkflowHandler implements WorkflowHandler {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -106,7 +106,7 @@ public abstract class BaseWorkflowHandler implements WorkflowHandler {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -128,7 +128,7 @@ public abstract class BaseWorkflowHandler implements WorkflowHandler {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -152,7 +152,7 @@ public abstract class BaseWorkflowHandler implements WorkflowHandler {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -199,7 +199,7 @@ public abstract class BaseWorkflowHandler implements WorkflowHandler {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -227,6 +227,6 @@ public abstract class BaseWorkflowHandler implements WorkflowHandler {
 
 	private static final boolean _VISIBLE = true;
 
-	private static Log _log = LogFactoryUtil.getLog(BaseWorkflowHandler.class);
+	private static final Logger _log = LoggerFactory.getLogger(BaseWorkflowHandler.class);
 
 }

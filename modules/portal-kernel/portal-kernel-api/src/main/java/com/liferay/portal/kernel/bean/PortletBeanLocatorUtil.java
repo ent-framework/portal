@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.bean;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.util.HashMap;
@@ -74,7 +74,7 @@ public class PortletBeanLocatorUtil {
 		_beanLocators.put(servletContextName, beanLocator);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PortletBeanLocatorUtil.class);
 
 	private static Map<String, BeanLocator> _beanLocators =

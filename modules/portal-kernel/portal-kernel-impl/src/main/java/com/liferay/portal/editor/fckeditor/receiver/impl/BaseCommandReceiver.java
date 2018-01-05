@@ -19,8 +19,8 @@ import com.liferay.portal.editor.fckeditor.exception.FCKException;
 import com.liferay.portal.editor.fckeditor.receiver.CommandReceiver;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.io.ByteArrayFileInputStream;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -500,6 +500,6 @@ public abstract class BaseCommandReceiver implements CommandReceiver {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(BaseCommandReceiver.class);
+	private static final Logger _log = LoggerFactory.getLogger(BaseCommandReceiver.class);
 
 }

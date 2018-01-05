@@ -20,8 +20,8 @@ import com.germinus.easyconf.ComponentProperties;
 import com.liferay.portal.configuration.easyconf.ClassLoaderAggregateProperties;
 import com.liferay.portal.configuration.easyconf.ClassLoaderComponentConfiguration;
 import com.liferay.portal.kernel.configuration.Filter;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.PropertiesUtil;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -68,7 +68,7 @@ public class ConfigurationImpl
 				webId = company.getWebId();
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -449,7 +449,7 @@ public class ConfigurationImpl
 
 	private static final boolean _PRINT_DUPLICATE_CALLS_TO_GET = false;
 
-	private static Log _log = LogFactoryUtil.getLog(ConfigurationImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(ConfigurationImpl.class);
 
 	private static String[] _emptyArray = new String[0];
 	private static Object _nullValue = new Object();

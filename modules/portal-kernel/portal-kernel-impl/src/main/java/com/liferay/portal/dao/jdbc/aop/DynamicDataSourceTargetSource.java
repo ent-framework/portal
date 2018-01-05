@@ -14,8 +14,8 @@
 
 package com.liferay.portal.dao.jdbc.aop;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Stack;
 
@@ -125,7 +125,7 @@ public class DynamicDataSourceTargetSource implements TargetSource {
 		return !methodStack.empty();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		DynamicDataSourceTargetSource.class);
 
 	private static ThreadLocal<Stack<String>> _methodStack =

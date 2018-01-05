@@ -15,8 +15,8 @@
 package com.liferay.portlet.usergroupsadmin.search;
 
 import com.liferay.portal.kernel.dao.search.RowChecker;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.UserGroup;
 import com.liferay.portal.service.UserGroupLocalServiceUtil;
@@ -43,13 +43,13 @@ public class UserGroupGroupChecker extends RowChecker {
 				_group.getGroupId(), userGroup.getUserGroupId());
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			return false;
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		UserGroupGroupChecker.class);
 
 	private Group _group;

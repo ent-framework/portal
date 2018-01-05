@@ -15,8 +15,8 @@
 package com.liferay.portal.events;
 
 import com.liferay.portal.kernel.events.Action;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,6 +33,6 @@ public class LogoutPreAction extends Action {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LogoutPreAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(LogoutPreAction.class);
 
 }

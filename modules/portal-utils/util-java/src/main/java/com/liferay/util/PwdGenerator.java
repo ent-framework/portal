@@ -14,8 +14,8 @@
 
 package com.liferay.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.SecureRandomUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -140,6 +140,6 @@ public class PwdGenerator {
 
 	private static final String[] KEYS = {KEY1, KEY2, KEY3};
 
-	private static Log _log = LogFactoryUtil.getLog(PwdGenerator.class);
+	private static final Logger _log = LoggerFactory.getLogger(PwdGenerator.class);
 
 }

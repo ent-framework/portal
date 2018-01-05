@@ -528,7 +528,7 @@ private String _getDataContent(TemplateVariableDefinition templateVariableDefini
 			dataContent = generateCode[0];
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -682,5 +682,5 @@ private String _getVariableReferenceCode(String variableName, String accessor, S
 %>
 
 <%!
-private static Log _log = LogFactoryUtil.getLog("portal-web.docroot.html.portlet.dynamic_data_mapping.edit_template_display_jspf");
+private static final Logger _log = LoggerFactory.getLogger("portal-web.docroot.html.portlet.dynamic_data_mapping.edit_template_display_jspf");
 %>

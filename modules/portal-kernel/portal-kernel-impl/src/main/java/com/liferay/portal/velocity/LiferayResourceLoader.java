@@ -15,8 +15,8 @@
 package com.liferay.portal.velocity;
 
 import com.liferay.portal.kernel.io.ReaderInputStream;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.template.TemplateConstants;
 import com.liferay.portal.kernel.template.TemplateResource;
 import com.liferay.portal.kernel.template.TemplateResourceLoaderUtil;
@@ -124,7 +124,7 @@ public class LiferayResourceLoader extends ResourceLoader {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		LiferayResourceLoader.class);
 
 }

@@ -19,8 +19,8 @@ import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.Property;
 import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.staging.MergeLayoutPrototypesThreadLocal;
 import com.liferay.portal.kernel.util.AutoResetThreadLocal;
 import com.liferay.portal.kernel.util.ListUtil;
@@ -174,7 +174,7 @@ public class LayoutLocalServiceVirtualLayoutsAdvice
 				return layouts;
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 
 				throw e;
 			}
@@ -317,7 +317,7 @@ public class LayoutLocalServiceVirtualLayoutsAdvice
 		Integer.TYPE
 	};
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		LayoutLocalServiceVirtualLayoutsAdvice.class);
 
 	private static ThreadLocal<Long> _virtualLayoutTargetGroupId =

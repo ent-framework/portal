@@ -15,8 +15,8 @@
 package com.liferay.portal.servlet;
 
 import com.liferay.portal.NoSuchLayoutException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -63,7 +63,7 @@ public class WidgetServlet extends HttpServlet {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			PortalUtil.sendError(
 				HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e, request,
@@ -89,6 +89,6 @@ public class WidgetServlet extends HttpServlet {
 		return path;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(WidgetServlet.class);
+	private static final Logger _log = LoggerFactory.getLogger(WidgetServlet.class);
 
 }

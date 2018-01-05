@@ -18,8 +18,8 @@ import com.liferay.portal.kernel.concurrent.ThrowableAwareRunnable;
 import com.liferay.portal.kernel.dao.db.BaseDBProcess;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.exception.BulkException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.model.ReleaseConstants;
 import com.liferay.portal.util.ClassLoaderUtil;
@@ -195,7 +195,7 @@ public abstract class VerifyProcess extends BaseDBProcess {
 		return portalTableNames.contains(StringUtil.toLowerCase(tableName));
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(VerifyProcess.class);
+	private static final Logger _log = LoggerFactory.getLogger(VerifyProcess.class);
 
 	private Pattern _createTablePattern = Pattern.compile(
 		"create table (\\S*) \\(");

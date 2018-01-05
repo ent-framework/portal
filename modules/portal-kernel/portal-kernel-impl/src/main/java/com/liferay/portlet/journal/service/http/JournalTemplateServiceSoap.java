@@ -2,11 +2,12 @@ package com.liferay.portlet.journal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.LocalizationUtil;
 
 import com.liferay.portlet.journal.service.JournalTemplateServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -46,7 +47,7 @@ import java.util.Map;
  */
 @ProviderType
 public class JournalTemplateServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(JournalTemplateServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(JournalTemplateServiceSoap.class);
 
     public static com.liferay.portlet.journal.model.JournalTemplateSoap addTemplate(
         long groupId, java.lang.String templateId, boolean autoTemplateId,
@@ -70,7 +71,7 @@ public class JournalTemplateServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalTemplateSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -86,7 +87,7 @@ public class JournalTemplateServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalTemplateSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -97,7 +98,7 @@ public class JournalTemplateServiceSoap {
         try {
             JournalTemplateServiceUtil.deleteTemplate(groupId, templateId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -112,7 +113,7 @@ public class JournalTemplateServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalTemplateSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -126,7 +127,7 @@ public class JournalTemplateServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalTemplateSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -141,7 +142,7 @@ public class JournalTemplateServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalTemplateSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -160,7 +161,7 @@ public class JournalTemplateServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalTemplateSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -181,7 +182,7 @@ public class JournalTemplateServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalTemplateSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -196,7 +197,7 @@ public class JournalTemplateServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -214,7 +215,7 @@ public class JournalTemplateServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -241,7 +242,7 @@ public class JournalTemplateServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalTemplateSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

@@ -22,9 +22,8 @@ import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.events.SimpleAction;
 import com.liferay.portal.kernel.executor.PortalExecutorManagerUtil;
 import com.liferay.portal.kernel.javadoc.JavadocManagerUtil;
-import com.liferay.portal.kernel.log.Jdk14LogFactoryImpl;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.resiliency.mpi.MPIHelperUtil;
 import com.liferay.portal.kernel.scheduler.SchedulerEngineHelperUtil;
 import com.liferay.portal.kernel.template.TemplateManagerUtil;
@@ -84,23 +83,13 @@ public class GlobalShutdownAction extends SimpleAction {
 
                 statement.executeUpdate("SHUTDOWN");
             } catch (Exception e) {
-                _log.error(e, e);
+                _log.error(e.getMessage(), e);
             } finally {
                 DataAccess.cleanUp(connection, statement);
             }
         }
 
-        // Reset log to default JDK 1.4 logger. This will allow WARs dependent
-        // on the portal to still log events after the portal WAR has been
-        // destroyed.
-
-        try {
-            LogFactoryUtil.setLogFactory(new Jdk14LogFactoryImpl());
-        } catch (Exception e) {
-        }
-
         // Scheduler engine
-
         try {
             SchedulerEngineHelperUtil.shutdown();
         } catch (Exception e) {
@@ -182,6 +171,6 @@ public class GlobalShutdownAction extends SimpleAction {
         return threads;
     }
 
-    private static Log _log = LogFactoryUtil.getLog(GlobalShutdownAction.class);
+    private static final Logger _log = LoggerFactory.getLogger(GlobalShutdownAction.class);
 
 }

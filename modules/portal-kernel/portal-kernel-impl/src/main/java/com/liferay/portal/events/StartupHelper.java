@@ -17,8 +17,8 @@ package com.liferay.portal.events;
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBFactoryUtil;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.upgrade.UpgradeException;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
@@ -67,7 +67,7 @@ public class StartupHelper {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 		finally {
@@ -99,7 +99,7 @@ public class StartupHelper {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 	}
@@ -160,7 +160,7 @@ public class StartupHelper {
 		return StringUtil.split(GetterUtil.getString(PropsUtil.get(key)));
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(StartupHelper.class);
+	private static final Logger _log = LoggerFactory.getLogger(StartupHelper.class);
 
 	private boolean _dropIndexes;
 	private boolean _upgraded;

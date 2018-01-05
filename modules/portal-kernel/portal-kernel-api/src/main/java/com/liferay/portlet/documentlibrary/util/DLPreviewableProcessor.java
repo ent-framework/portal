@@ -21,8 +21,8 @@ import com.liferay.portal.kernel.image.ImageToolUtil;
 import com.liferay.portal.kernel.io.FileFilter;
 import com.liferay.portal.kernel.lar.ExportImportPathUtil;
 import com.liferay.portal.kernel.lar.PortletDataContext;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.MessageBusUtil;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.FileVersion;
@@ -274,7 +274,7 @@ public abstract class DLPreviewableProcessor implements DLProcessor {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -300,7 +300,7 @@ public abstract class DLPreviewableProcessor implements DLProcessor {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -953,7 +953,7 @@ public abstract class DLPreviewableProcessor implements DLProcessor {
 				getThumbnailFilePath(fileVersion, imageType, index));
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return false;
@@ -1292,7 +1292,7 @@ public abstract class DLPreviewableProcessor implements DLProcessor {
 	protected Map<String, Future<?>> futures =
 		new ConcurrentHashMap<String, Future<?>>();
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		DLPreviewableProcessor.class);
 
 }

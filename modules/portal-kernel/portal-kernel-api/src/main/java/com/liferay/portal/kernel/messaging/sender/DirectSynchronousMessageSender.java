@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.messaging.sender;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.Destination;
 import com.liferay.portal.kernel.messaging.Message;
 import com.liferay.portal.kernel.messaging.MessageBus;
@@ -87,7 +87,7 @@ public class DirectSynchronousMessageSender
 		_messageBus = messageBus;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		DirectSynchronousMessageSender.class);
 
 	private MessageBus _messageBus;

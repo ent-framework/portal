@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.nio.intraband.welder.fifo;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 
@@ -52,7 +52,7 @@ public class FIFOUtil {
 		return _fifoSupported;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(FIFOUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(FIFOUtil.class);
 
 	private static boolean _fifoSupported;
 

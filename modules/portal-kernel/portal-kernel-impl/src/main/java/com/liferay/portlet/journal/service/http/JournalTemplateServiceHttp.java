@@ -1,13 +1,14 @@
 package com.liferay.portlet.journal.service.http;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.http.TunnelUtil;
 
 import com.liferay.portlet.journal.service.JournalTemplateServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Provides the HTTP utility for the
@@ -40,7 +41,7 @@ import com.liferay.portlet.journal.service.JournalTemplateServiceUtil;
  * @generated
  */
 public class JournalTemplateServiceHttp {
-    private static Log _log = LogFactoryUtil.getLog(JournalTemplateServiceHttp.class);
+    private static final Logger _log = LoggerFactory.getLogger(JournalTemplateServiceHttp.class);
     private static final Class<?>[] _addTemplateParameterTypes0 = new Class[] {
             long.class, java.lang.String.class, boolean.class,
             java.lang.String.class, java.util.Map.class, java.util.Map.class,
@@ -143,7 +144,7 @@ public class JournalTemplateServiceHttp {
 
             return (com.liferay.portlet.journal.model.JournalTemplate) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -186,7 +187,7 @@ public class JournalTemplateServiceHttp {
 
             return (com.liferay.portlet.journal.model.JournalTemplate) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -223,7 +224,7 @@ public class JournalTemplateServiceHttp {
 
             return (com.liferay.portlet.journal.model.JournalTemplate) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -254,7 +255,7 @@ public class JournalTemplateServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -290,7 +291,7 @@ public class JournalTemplateServiceHttp {
 
             return (java.util.List<com.liferay.portlet.journal.model.JournalTemplate>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -325,7 +326,7 @@ public class JournalTemplateServiceHttp {
 
             return (com.liferay.portlet.journal.model.JournalTemplate) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -361,7 +362,7 @@ public class JournalTemplateServiceHttp {
 
             return (com.liferay.portlet.journal.model.JournalTemplate) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -395,7 +396,7 @@ public class JournalTemplateServiceHttp {
 
             return (java.util.List<com.liferay.portlet.journal.model.JournalTemplate>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -431,7 +432,7 @@ public class JournalTemplateServiceHttp {
 
             return (java.util.List<com.liferay.portlet.journal.model.JournalTemplate>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -463,7 +464,7 @@ public class JournalTemplateServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -496,7 +497,7 @@ public class JournalTemplateServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -540,7 +541,7 @@ public class JournalTemplateServiceHttp {
 
             return (com.liferay.portlet.journal.model.JournalTemplate) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -582,7 +583,7 @@ public class JournalTemplateServiceHttp {
 
             return (com.liferay.portlet.journal.model.JournalTemplate) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }

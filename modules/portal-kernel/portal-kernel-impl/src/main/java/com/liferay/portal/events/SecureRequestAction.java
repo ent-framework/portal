@@ -16,8 +16,8 @@ package com.liferay.portal.events;
 
 import com.liferay.portal.kernel.events.Action;
 import com.liferay.portal.kernel.events.ActionException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.util.PortalUtil;
@@ -96,6 +96,6 @@ public class SecureRequestAction extends Action {
 
 	private static final boolean _REQUIRES_SECURE = true;
 
-	private static Log _log = LogFactoryUtil.getLog(SecureRequestAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(SecureRequestAction.class);
 
 }

@@ -14,8 +14,8 @@
 
 package com.liferay.portlet;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.LiferayPortletContext;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ReleaseInfo;
@@ -226,7 +226,7 @@ public class PortletContextImpl implements LiferayPortletContext {
 
 	private static final int _MINOR_VERSION = 0;
 
-	private static Log _log = LogFactoryUtil.getLog(PortletContextImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(PortletContextImpl.class);
 
 	private Portlet _portlet;
 	private ServletContext _servletContext;

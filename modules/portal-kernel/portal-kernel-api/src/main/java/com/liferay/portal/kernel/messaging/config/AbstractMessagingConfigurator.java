@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.messaging.config;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.Destination;
 import com.liferay.portal.kernel.messaging.DestinationEventListener;
 import com.liferay.portal.kernel.messaging.MessageBus;
@@ -307,7 +307,7 @@ public abstract class AbstractMessagingConfigurator
 
 	protected abstract ClassLoader getOperatingClassloader();
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		AbstractMessagingConfigurator.class);
 
 	private List<Destination> _destinations = new ArrayList<Destination>();

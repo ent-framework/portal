@@ -2,11 +2,12 @@ package com.liferay.portlet.bookmarks.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 
 import com.liferay.portlet.bookmarks.service.BookmarksFolderServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -52,7 +53,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class BookmarksFolderServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(BookmarksFolderServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(BookmarksFolderServiceSoap.class);
 
     public static com.liferay.portlet.bookmarks.model.BookmarksFolderSoap addFolder(
         long parentFolderId, java.lang.String name,
@@ -65,7 +66,7 @@ public class BookmarksFolderServiceSoap {
 
             return com.liferay.portlet.bookmarks.model.BookmarksFolderSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -75,7 +76,7 @@ public class BookmarksFolderServiceSoap {
         try {
             BookmarksFolderServiceUtil.deleteFolder(folderId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -87,7 +88,7 @@ public class BookmarksFolderServiceSoap {
             BookmarksFolderServiceUtil.deleteFolder(folderId,
                 includeTrashedEntries);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -100,7 +101,7 @@ public class BookmarksFolderServiceSoap {
 
             return com.liferay.portlet.bookmarks.model.BookmarksFolderSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -114,7 +115,7 @@ public class BookmarksFolderServiceSoap {
 
             return returnValue.toArray(new java.lang.Long[returnValue.size()]);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -128,7 +129,7 @@ public class BookmarksFolderServiceSoap {
 
             return com.liferay.portlet.bookmarks.model.BookmarksFolderSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -142,7 +143,7 @@ public class BookmarksFolderServiceSoap {
 
             return com.liferay.portlet.bookmarks.model.BookmarksFolderSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -158,7 +159,7 @@ public class BookmarksFolderServiceSoap {
 
             return com.liferay.portlet.bookmarks.model.BookmarksFolderSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -174,7 +175,7 @@ public class BookmarksFolderServiceSoap {
 
             return com.liferay.portlet.bookmarks.model.BookmarksFolderSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -188,7 +189,7 @@ public class BookmarksFolderServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -202,7 +203,7 @@ public class BookmarksFolderServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -216,7 +217,7 @@ public class BookmarksFolderServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -230,7 +231,7 @@ public class BookmarksFolderServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -246,7 +247,7 @@ public class BookmarksFolderServiceSoap {
             BookmarksFolderServiceUtil.getSubfolderIds(ListUtil.toList(
                     folderIds), groupId, folderId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -258,7 +259,7 @@ public class BookmarksFolderServiceSoap {
             BookmarksFolderServiceUtil.getSubfolderIds(ListUtil.toList(
                     folderIds), groupId, folderId, recurse);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -272,7 +273,7 @@ public class BookmarksFolderServiceSoap {
 
             return returnValue.toArray(new java.lang.Long[returnValue.size()]);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -286,7 +287,7 @@ public class BookmarksFolderServiceSoap {
 
             return com.liferay.portlet.bookmarks.model.BookmarksFolderSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -300,7 +301,7 @@ public class BookmarksFolderServiceSoap {
 
             return com.liferay.portlet.bookmarks.model.BookmarksFolderSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -313,7 +314,7 @@ public class BookmarksFolderServiceSoap {
 
             return com.liferay.portlet.bookmarks.model.BookmarksFolderSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -324,7 +325,7 @@ public class BookmarksFolderServiceSoap {
         try {
             BookmarksFolderServiceUtil.restoreFolderFromTrash(folderId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -335,7 +336,7 @@ public class BookmarksFolderServiceSoap {
         try {
             BookmarksFolderServiceUtil.subscribeFolder(groupId, folderId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -346,7 +347,7 @@ public class BookmarksFolderServiceSoap {
         try {
             BookmarksFolderServiceUtil.unsubscribeFolder(groupId, folderId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -364,7 +365,7 @@ public class BookmarksFolderServiceSoap {
 
             return com.liferay.portlet.bookmarks.model.BookmarksFolderSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

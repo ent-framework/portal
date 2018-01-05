@@ -2,11 +2,12 @@ package com.liferay.portlet.journal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 
 import com.liferay.portlet.journal.service.JournalFolderServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -52,7 +53,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class JournalFolderServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(JournalFolderServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(JournalFolderServiceSoap.class);
 
     public static com.liferay.portlet.journal.model.JournalFolderSoap addFolder(
         long groupId, long parentFolderId, java.lang.String name,
@@ -65,7 +66,7 @@ public class JournalFolderServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalFolderSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -75,7 +76,7 @@ public class JournalFolderServiceSoap {
         try {
             JournalFolderServiceUtil.deleteFolder(folderId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -87,7 +88,7 @@ public class JournalFolderServiceSoap {
             JournalFolderServiceUtil.deleteFolder(folderId,
                 includeTrashedEntries);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -100,7 +101,7 @@ public class JournalFolderServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalFolderSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -113,7 +114,7 @@ public class JournalFolderServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalFolderSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -127,7 +128,7 @@ public class JournalFolderServiceSoap {
 
             return returnValue.toArray(new java.lang.Long[returnValue.size()]);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -141,7 +142,7 @@ public class JournalFolderServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalFolderSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -155,7 +156,7 @@ public class JournalFolderServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalFolderSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -171,7 +172,7 @@ public class JournalFolderServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalFolderSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -187,7 +188,7 @@ public class JournalFolderServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalFolderSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -203,7 +204,7 @@ public class JournalFolderServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalFolderSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -217,7 +218,7 @@ public class JournalFolderServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -231,7 +232,7 @@ public class JournalFolderServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -245,7 +246,7 @@ public class JournalFolderServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -259,7 +260,7 @@ public class JournalFolderServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -273,7 +274,7 @@ public class JournalFolderServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -287,7 +288,7 @@ public class JournalFolderServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -303,7 +304,7 @@ public class JournalFolderServiceSoap {
             JournalFolderServiceUtil.getSubfolderIds(ListUtil.toList(folderIds),
                 groupId, folderId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -315,7 +316,7 @@ public class JournalFolderServiceSoap {
             JournalFolderServiceUtil.getSubfolderIds(ListUtil.toList(folderIds),
                 groupId, folderId, recurse);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -329,7 +330,7 @@ public class JournalFolderServiceSoap {
 
             return returnValue.toArray(new java.lang.Long[returnValue.size()]);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -345,7 +346,7 @@ public class JournalFolderServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalFolderSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -361,7 +362,7 @@ public class JournalFolderServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalFolderSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -374,7 +375,7 @@ public class JournalFolderServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalFolderSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -385,7 +386,7 @@ public class JournalFolderServiceSoap {
         try {
             JournalFolderServiceUtil.restoreFolderFromTrash(folderId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -403,7 +404,7 @@ public class JournalFolderServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalFolderSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

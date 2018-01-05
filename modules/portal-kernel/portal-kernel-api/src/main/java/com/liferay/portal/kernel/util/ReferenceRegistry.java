@@ -15,8 +15,8 @@
 package com.liferay.portal.kernel.util;
 
 import com.liferay.portal.kernel.concurrent.ConcurrentHashSet;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
 
@@ -85,7 +85,7 @@ public class ReferenceRegistry {
 
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ReferenceRegistry.class);
+	private static final Logger _log = LoggerFactory.getLogger(ReferenceRegistry.class);
 
 	private static PACL _pacl = new NoPACL();
 	private static Set<ReferenceEntry> _referenceEntries =

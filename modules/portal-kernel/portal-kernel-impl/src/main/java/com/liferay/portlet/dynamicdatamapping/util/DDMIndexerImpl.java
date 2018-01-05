@@ -17,8 +17,8 @@ package com.liferay.portlet.dynamicdatamapping.util;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.search.Document;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.FastDateFormatFactoryUtil;
@@ -190,7 +190,7 @@ public class DDMIndexerImpl implements DDMIndexer {
 			}
 			catch (Exception e) {
 				if (_log.isWarnEnabled()) {
-					_log.warn(e, e);
+					_log.warn(e.getMessage(), e);
 				}
 			}
 		}
@@ -299,7 +299,7 @@ public class DDMIndexerImpl implements DDMIndexer {
 			}
 			catch (Exception e) {
 				if (_log.isWarnEnabled()) {
-					_log.warn(e, e);
+					_log.warn(e.getMessage(), e);
 				}
 			}
 		}
@@ -307,6 +307,6 @@ public class DDMIndexerImpl implements DDMIndexer {
 		return sb.toString();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(DDMIndexerImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(DDMIndexerImpl.class);
 
 }

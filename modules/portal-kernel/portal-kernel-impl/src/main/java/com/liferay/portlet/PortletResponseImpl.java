@@ -17,8 +17,8 @@ package com.liferay.portlet;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringWriter;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
 import com.liferay.portal.kernel.portlet.LiferayPortletURL;
 import com.liferay.portal.kernel.servlet.URLEncoder;
@@ -363,7 +363,7 @@ public abstract class PortletResponseImpl implements LiferayPortletResponse {
 					_companyId, _portletName);
 			}
 			catch (Exception e) {
-				_log.error(e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -562,7 +562,7 @@ public abstract class PortletResponseImpl implements LiferayPortletResponse {
 			}
 			catch (Exception e) {
 				if (_log.isWarnEnabled()) {
-					_log.warn(e, e);
+					_log.warn(e.getMessage(), e);
 				}
 			}
 		}
@@ -619,7 +619,7 @@ public abstract class PortletResponseImpl implements LiferayPortletResponse {
 		}
 		catch (SystemException se) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(se);
+				_log.warn(se.getMessage());
 			}
 		}
 
@@ -665,7 +665,7 @@ public abstract class PortletResponseImpl implements LiferayPortletResponse {
 						new Object[] {this, plid, lifecycle});
 				}
 				catch (Exception e) {
-					_log.error(e);
+					_log.error(e.getMessage(), e);
 				}
 			}
 		}
@@ -699,7 +699,7 @@ public abstract class PortletResponseImpl implements LiferayPortletResponse {
 				}
 			}
 			catch (PortletException pe) {
-				_log.error(pe, pe);
+				_log.error(pe.getMessage(), pe);
 			}
 		}
 
@@ -737,7 +737,7 @@ public abstract class PortletResponseImpl implements LiferayPortletResponse {
 		setPlid(plid);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PortletResponseImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(PortletResponseImpl.class);
 
 	private long _companyId;
 	private Map<String, Constructor<? extends PortletURLImpl>> _constructors =

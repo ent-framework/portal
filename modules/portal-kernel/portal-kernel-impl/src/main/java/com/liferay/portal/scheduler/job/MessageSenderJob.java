@@ -17,8 +17,8 @@ package com.liferay.portal.scheduler.job;
 import com.liferay.portal.kernel.cluster.ClusterExecutorUtil;
 import com.liferay.portal.kernel.cluster.ClusterRequest;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.Message;
 import com.liferay.portal.kernel.messaging.MessageBusUtil;
 import com.liferay.portal.kernel.scheduler.JobState;
@@ -125,7 +125,7 @@ public class MessageSenderJob implements Job {
 		ClusterExecutorUtil.execute(clusterRequest);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(MessageSenderJob.class);
+	private static final Logger _log = LoggerFactory.getLogger(MessageSenderJob.class);
 
 	private static MethodKey _deleteJobMethodKey = new MethodKey(
 		SchedulerEngineHelperUtil.class, "delete", String.class, String.class,

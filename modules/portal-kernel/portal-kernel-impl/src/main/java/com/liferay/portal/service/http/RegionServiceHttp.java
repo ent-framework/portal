@@ -1,12 +1,13 @@
 package com.liferay.portal.service.http;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.RegionServiceUtil;
 import com.liferay.portal.service.http.TunnelUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Provides the HTTP utility for the
@@ -37,7 +38,7 @@ import com.liferay.portal.service.http.TunnelUtil;
  * @generated
  */
 public class RegionServiceHttp {
-    private static Log _log = LogFactoryUtil.getLog(RegionServiceHttp.class);
+    private static final Logger _log = LoggerFactory.getLogger(RegionServiceHttp.class);
     private static final Class<?>[] _addRegionParameterTypes0 = new Class[] {
             long.class, java.lang.String.class, java.lang.String.class,
             boolean.class
@@ -92,7 +93,7 @@ public class RegionServiceHttp {
 
             return (com.liferay.portal.model.Region) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -122,7 +123,7 @@ public class RegionServiceHttp {
 
             return (com.liferay.portal.model.Region) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -156,7 +157,7 @@ public class RegionServiceHttp {
 
             return (com.liferay.portal.model.Region) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -191,7 +192,7 @@ public class RegionServiceHttp {
 
             return (com.liferay.portal.model.Region) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -220,7 +221,7 @@ public class RegionServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Region>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -249,7 +250,7 @@ public class RegionServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Region>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -278,7 +279,7 @@ public class RegionServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Region>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -308,7 +309,7 @@ public class RegionServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Region>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }

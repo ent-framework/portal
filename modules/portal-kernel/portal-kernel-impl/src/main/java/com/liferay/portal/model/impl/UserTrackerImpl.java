@@ -14,8 +14,8 @@
 
 package com.liferay.portal.model.impl;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.model.User;
@@ -41,7 +41,7 @@ public class UserTrackerImpl extends UserTrackerBaseImpl {
 		}
 		catch (ArrayIndexOutOfBoundsException aioobe) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(aioobe);
+				_log.warn(aioobe.getMessage());
 			}
 		}
 
@@ -114,7 +114,7 @@ public class UserTrackerImpl extends UserTrackerBaseImpl {
 		return _paths;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(UserTrackerImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(UserTrackerImpl.class);
 
 	private String _emailAddress;
 	private String _fullName;

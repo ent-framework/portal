@@ -14,8 +14,8 @@
 
 package com.liferay.util.bridges.common;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -69,7 +69,7 @@ public class ScriptPostProcess {
 				startTag, endTag, ref, actionURL, actionParameterName);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -182,7 +182,7 @@ public class ScriptPostProcess {
 		_sb = sb;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ScriptPostProcess.class);
+	private static final Logger _log = LoggerFactory.getLogger(ScriptPostProcess.class);
 
 	private StringBundler _sb;
 

@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.upgrade.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.upgrade.StagnantRowException;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -66,7 +66,7 @@ public class IdReplacer {
 					}
 					catch (StagnantRowException sre) {
 						if (_log.isWarnEnabled()) {
-							_log.warn(sre);
+							_log.warn(sre.getMessage());
 						}
 					}
 
@@ -120,7 +120,7 @@ public class IdReplacer {
 				}
 				catch (StagnantRowException sre) {
 					if (_log.isWarnEnabled()) {
-						_log.warn(sre);
+						_log.warn(sre.getMessage());
 					}
 				}
 
@@ -153,6 +153,6 @@ public class IdReplacer {
 		return pos;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(IdReplacer.class);
+	private static final Logger _log = LoggerFactory.getLogger(IdReplacer.class);
 
 }

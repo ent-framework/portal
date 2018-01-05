@@ -2,11 +2,12 @@ package com.liferay.portlet.documentlibrary.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.LocalizationUtil;
 
 import com.liferay.portlet.documentlibrary.service.DLFileEntryTypeServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -55,7 +56,7 @@ import java.util.Map;
  */
 @ProviderType
 public class DLFileEntryTypeServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(DLFileEntryTypeServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(DLFileEntryTypeServiceSoap.class);
 
     public static com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap addFileEntryType(
         long groupId, java.lang.String fileEntryTypeKey,
@@ -78,7 +79,7 @@ public class DLFileEntryTypeServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -96,7 +97,7 @@ public class DLFileEntryTypeServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -107,7 +108,7 @@ public class DLFileEntryTypeServiceSoap {
         try {
             DLFileEntryTypeServiceUtil.deleteFileEntryType(fileEntryTypeId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -121,7 +122,7 @@ public class DLFileEntryTypeServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -135,7 +136,7 @@ public class DLFileEntryTypeServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -150,7 +151,7 @@ public class DLFileEntryTypeServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -163,7 +164,7 @@ public class DLFileEntryTypeServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -179,7 +180,7 @@ public class DLFileEntryTypeServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -198,7 +199,7 @@ public class DLFileEntryTypeServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileEntryTypeSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -213,7 +214,7 @@ public class DLFileEntryTypeServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -235,7 +236,7 @@ public class DLFileEntryTypeServiceSoap {
             DLFileEntryTypeServiceUtil.updateFileEntryType(fileEntryTypeId,
                 nameMap, descriptionMap, ddmStructureIds, serviceContext);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -250,7 +251,7 @@ public class DLFileEntryTypeServiceSoap {
             DLFileEntryTypeServiceUtil.updateFileEntryType(fileEntryTypeId,
                 name, description, ddmStructureIds, serviceContext);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

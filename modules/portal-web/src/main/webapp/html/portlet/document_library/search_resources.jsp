@@ -337,7 +337,7 @@ else if ((searchType == DLSearchConstants.SINGLE) && !ajax) {
 			<%
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 			%>
 
@@ -449,5 +449,5 @@ request.setAttribute("view.jsp-folderId", String.valueOf(folderId));
 </span>
 
 <%!
-private static Log _log = LogFactoryUtil.getLog("portal-web.docroot.html.portlet.document_library.search_resources_jsp");
+private static final Logger _log = LoggerFactory.getLogger("portal-web.docroot.html.portlet.document_library.search_resources_jsp");
 %>

@@ -14,8 +14,8 @@
 
 package com.liferay.portal.xmlrpc;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.Http;
@@ -115,6 +115,6 @@ public class XmlRpcImpl implements XmlRpc {
 		StringUtil.equalsIgnoreCase(
 			PropsValues.HTTP_HEADER_VERSION_VERBOSITY, "partial");
 
-	private static Log _log = LogFactoryUtil.getLog(XmlRpcImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(XmlRpcImpl.class);
 
 }

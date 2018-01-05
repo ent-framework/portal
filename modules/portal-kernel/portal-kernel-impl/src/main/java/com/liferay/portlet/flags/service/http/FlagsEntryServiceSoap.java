@@ -2,10 +2,10 @@ package com.liferay.portlet.flags.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-
 import com.liferay.portlet.flags.service.FlagsEntryServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -40,7 +40,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class FlagsEntryServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(FlagsEntryServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(FlagsEntryServiceSoap.class);
 
     public static void addEntry(java.lang.String className, long classPK,
         java.lang.String reporterEmailAddress, long reportedUserId,
@@ -53,7 +53,7 @@ public class FlagsEntryServiceSoap {
                 reporterEmailAddress, reportedUserId, contentTitle, contentURL,
                 reason, serviceContext);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

@@ -14,8 +14,8 @@
 
 package com.liferay.portlet.documentlibrary.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.PropsKeys;
 
 import com.xuggle.xuggler.IAudioResampler;
@@ -199,7 +199,7 @@ public class LiferayAudioConverter extends LiferayConverter {
 			AUDIO_SAMPLE_RATE_MAX);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		LiferayAudioConverter.class);
 
 	private int _audioBitRate;

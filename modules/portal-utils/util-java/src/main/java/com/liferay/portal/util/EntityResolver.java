@@ -14,8 +14,8 @@
 
 package com.liferay.portal.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.KeyValuePair;
 
@@ -720,6 +720,6 @@ public class EntityResolver implements org.xml.sax.EntityResolver {
 		)
 	};
 
-	private static Log _log = LogFactoryUtil.getLog(EntityResolver.class);
+	private static final Logger _log = LoggerFactory.getLogger(EntityResolver.class);
 
 }

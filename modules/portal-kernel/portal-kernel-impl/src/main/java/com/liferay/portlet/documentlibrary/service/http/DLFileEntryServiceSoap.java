@@ -2,11 +2,12 @@ package com.liferay.portlet.documentlibrary.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 
 import com.liferay.portlet.documentlibrary.service.DLFileEntryServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -52,7 +53,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class DLFileEntryServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(DLFileEntryServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(DLFileEntryServiceSoap.class);
 
     public static com.liferay.portlet.documentlibrary.model.DLFileVersionSoap cancelCheckOut(
         long fileEntryId) throws RemoteException {
@@ -61,7 +62,7 @@ public class DLFileEntryServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileVersionSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -75,7 +76,7 @@ public class DLFileEntryServiceSoap {
             DLFileEntryServiceUtil.checkInFileEntry(fileEntryId, major,
                 changeLog, serviceContext);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -90,7 +91,7 @@ public class DLFileEntryServiceSoap {
         try {
             DLFileEntryServiceUtil.checkInFileEntry(fileEntryId, lockUuid);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -104,7 +105,7 @@ public class DLFileEntryServiceSoap {
             DLFileEntryServiceUtil.checkInFileEntry(fileEntryId, lockUuid,
                 serviceContext);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -121,7 +122,7 @@ public class DLFileEntryServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -137,7 +138,7 @@ public class DLFileEntryServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -156,7 +157,7 @@ public class DLFileEntryServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -172,7 +173,7 @@ public class DLFileEntryServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -188,7 +189,7 @@ public class DLFileEntryServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -199,7 +200,7 @@ public class DLFileEntryServiceSoap {
         try {
             DLFileEntryServiceUtil.deleteFileEntry(fileEntryId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -210,7 +211,7 @@ public class DLFileEntryServiceSoap {
         try {
             DLFileEntryServiceUtil.deleteFileEntry(groupId, folderId, title);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -221,7 +222,7 @@ public class DLFileEntryServiceSoap {
         try {
             DLFileEntryServiceUtil.deleteFileVersion(fileEntryId, version);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -234,7 +235,7 @@ public class DLFileEntryServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -251,7 +252,7 @@ public class DLFileEntryServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileEntrySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -268,7 +269,7 @@ public class DLFileEntryServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileEntrySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -285,7 +286,7 @@ public class DLFileEntryServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileEntrySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -302,7 +303,7 @@ public class DLFileEntryServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileEntrySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -316,7 +317,7 @@ public class DLFileEntryServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -330,7 +331,7 @@ public class DLFileEntryServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -344,7 +345,7 @@ public class DLFileEntryServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -358,7 +359,7 @@ public class DLFileEntryServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -371,7 +372,7 @@ public class DLFileEntryServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -386,7 +387,7 @@ public class DLFileEntryServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -400,7 +401,7 @@ public class DLFileEntryServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -414,7 +415,7 @@ public class DLFileEntryServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -431,7 +432,7 @@ public class DLFileEntryServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileEntrySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -449,7 +450,7 @@ public class DLFileEntryServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileEntrySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -468,7 +469,7 @@ public class DLFileEntryServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileEntrySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -482,7 +483,7 @@ public class DLFileEntryServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -497,7 +498,7 @@ public class DLFileEntryServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -512,7 +513,7 @@ public class DLFileEntryServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -525,7 +526,7 @@ public class DLFileEntryServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -538,7 +539,7 @@ public class DLFileEntryServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -554,7 +555,7 @@ public class DLFileEntryServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -568,7 +569,7 @@ public class DLFileEntryServiceSoap {
             DLFileEntryServiceUtil.revertFileEntry(fileEntryId, version,
                 serviceContext);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -582,7 +583,7 @@ public class DLFileEntryServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -596,7 +597,7 @@ public class DLFileEntryServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

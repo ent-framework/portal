@@ -18,8 +18,8 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.image.ImageBag;
 import com.liferay.portal.kernel.image.ImageToolUtil;
 import com.liferay.portal.kernel.lar.PortletDataContext;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.DestinationNames;
 import com.liferay.portal.kernel.process.ClassPathUtil;
 import com.liferay.portal.kernel.process.ProcessCallable;
@@ -38,12 +38,10 @@ import com.liferay.portal.kernel.util.SystemEnv;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xuggler.XugglerUtil;
-import com.liferay.portal.log.Log4jLogFactoryImpl;
 import com.liferay.portal.repository.liferayrepository.model.LiferayFileVersion;
 import com.liferay.portal.util.PropsUtil;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portlet.documentlibrary.NoSuchFileEntryException;
-import com.liferay.util.log4j.Log4JUtil;
 
 import java.awt.image.RenderedImage;
 
@@ -155,7 +153,7 @@ public class VideoProcessorImpl
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return hasVideo;
@@ -328,25 +326,25 @@ public class VideoProcessorImpl
 		try {
 			try {
 				if (PropsValues.DL_FILE_ENTRY_PREVIEW_FORK_PROCESS_ENABLED) {
-					ProcessCallable<String> processCallable =
-						new LiferayVideoThumbnailProcessCallable(
-							ServerDetector.getServerId(),
-							PropsUtil.get(PropsKeys.LIFERAY_HOME),
-							Log4JUtil.getCustomLogSettings(),
-							file.getCanonicalPath(), thumbnailTempFile,
-							THUMBNAIL_TYPE, height, width,
-							PropsValues.
-								DL_FILE_ENTRY_THUMBNAIL_VIDEO_FRAME_PERCENTAGE);
-
-					Future<String> future = ProcessExecutor.execute(
-						ClassPathUtil.getPortalClassPath(), processCallable);
-
-					String processIdentity = String.valueOf(
-						fileVersion.getFileVersionId());
-
-					futures.put(processIdentity, future);
-
-					future.get();
+//					ProcessCallable<String> processCallable =
+//						new LiferayVideoThumbnailProcessCallable(
+//							ServerDetector.getServerId(),
+//							PropsUtil.get(PropsKeys.LIFERAY_HOME),
+//							Log4JUtil.getCustomLogSettings(),
+//							file.getCanonicalPath(), thumbnailTempFile,
+//							THUMBNAIL_TYPE, height, width,
+//							PropsValues.
+//								DL_FILE_ENTRY_THUMBNAIL_VIDEO_FRAME_PERCENTAGE);
+//
+//					Future<String> future = ProcessExecutor.execute(
+//						ClassPathUtil.getPortalClassPath(), processCallable);
+//
+//					String processIdentity = String.valueOf(
+//						fileVersion.getFileVersionId());
+//
+//					futures.put(processIdentity, future);
+//
+//					future.get();
 				}
 				else {
 					LiferayConverter liferayConverter =
@@ -368,7 +366,7 @@ public class VideoProcessorImpl
 				}
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 
 			storeThumbnailImages(fileVersion, thumbnailTempFile);
@@ -455,7 +453,7 @@ public class VideoProcessorImpl
 						PropsValues.DL_FILE_ENTRY_PREVIEW_VIDEO_WIDTH);
 				}
 				catch (Exception e) {
-					_log.error(e, e);
+					_log.error(e.getMessage(), e);
 				}
 			}
 
@@ -467,7 +465,7 @@ public class VideoProcessorImpl
 						PropsValues.DL_FILE_ENTRY_PREVIEW_VIDEO_WIDTH);
 				}
 				catch (Exception e) {
-					_log.error(e, e);
+					_log.error(e.getMessage(), e);
 				}
 			}
 		}
@@ -500,26 +498,26 @@ public class VideoProcessorImpl
 		stopWatch.start();
 
 		if (PropsValues.DL_FILE_ENTRY_PREVIEW_FORK_PROCESS_ENABLED) {
-			ProcessCallable<String> processCallable =
-				new LiferayVideoProcessCallable(
-					ServerDetector.getServerId(),
-					PropsUtil.get(PropsKeys.LIFERAY_HOME),
-					Log4JUtil.getCustomLogSettings(),
-					sourceFile.getCanonicalPath(),
-					destinationFile.getCanonicalPath(), containerType,
-					PropsUtil.getProperties(
-						PropsKeys.DL_FILE_ENTRY_PREVIEW_VIDEO, false),
-					PropsUtil.getProperties(PropsKeys.XUGGLER_FFPRESET, true));
-
-			Future<String> future = ProcessExecutor.execute(
-				ClassPathUtil.getPortalClassPath(), processCallable);
-
-			String processIdentity = Long.toString(
-				fileVersion.getFileVersionId());
-
-			futures.put(processIdentity, future);
-
-			future.get();
+//			ProcessCallable<String> processCallable =
+//				new LiferayVideoProcessCallable(
+//					ServerDetector.getServerId(),
+//					PropsUtil.get(PropsKeys.LIFERAY_HOME),
+//					Log4JUtil.getCustomLogSettings(),
+//					sourceFile.getCanonicalPath(),
+//					destinationFile.getCanonicalPath(), containerType,
+//					PropsUtil.getProperties(
+//						PropsKeys.DL_FILE_ENTRY_PREVIEW_VIDEO, false),
+//					PropsUtil.getProperties(PropsKeys.XUGGLER_FFPRESET, true));
+//
+//			Future<String> future = ProcessExecutor.execute(
+//				ClassPathUtil.getPortalClassPath(), processCallable);
+//
+//			String processIdentity = Long.toString(
+//				fileVersion.getFileVersionId());
+//
+//			futures.put(processIdentity, future);
+//
+//			future.get();
 		}
 		else {
 			LiferayConverter liferayConverter = new LiferayVideoConverter(
@@ -564,7 +562,7 @@ public class VideoProcessorImpl
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -596,7 +594,7 @@ public class VideoProcessorImpl
 	private static final String[] _PREVIEW_TYPES =
 		PropsValues.DL_FILE_ENTRY_PREVIEW_VIDEO_CONTAINERS;
 
-	private static Log _log = LogFactoryUtil.getLog(VideoProcessorImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(VideoProcessorImpl.class);
 
 	private List<Long> _fileVersionIds = new Vector<Long>();
 	private Set<String> _videoMimeTypes = SetUtil.fromArray(
@@ -631,9 +629,9 @@ public class VideoProcessorImpl
 
 			ClassLoader classLoader = clazz.getClassLoader();
 
-			Log4JUtil.initLog4J(
-				_serverId, _liferayHome, classLoader, new Log4jLogFactoryImpl(),
-				_customLogSettings);
+//			Log4JUtil.initLog4J(
+//				_serverId, _liferayHome, classLoader, new Log4jLogFactoryImpl(),
+//				_customLogSettings);
 
 			try {
 				LiferayConverter liferayConverter = new LiferayVideoConverter(
@@ -691,9 +689,9 @@ public class VideoProcessorImpl
 			Properties systemProperties = System.getProperties();
 			SystemEnv.setProperties(systemProperties);
 
-			Log4JUtil.initLog4J(
-				_serverId, _liferayHome, classLoader, new Log4jLogFactoryImpl(),
-				_customLogSettings);
+//			Log4JUtil.initLog4J(
+//				_serverId, _liferayHome, classLoader, new Log4jLogFactoryImpl(),
+//				_customLogSettings);
 
 			try {
 				LiferayConverter liferayConverter =

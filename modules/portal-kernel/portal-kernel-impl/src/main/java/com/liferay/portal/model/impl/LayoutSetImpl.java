@@ -16,8 +16,8 @@ package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.UnicodeProperties;
@@ -162,7 +162,7 @@ public class LayoutSetImpl extends LayoutSetBaseImpl {
 				_settingsProperties.load(super.getSettings());
 			}
 			catch (IOException ioe) {
-				_log.error(ioe, ioe);
+				_log.error(ioe.getMessage(), ioe);
 			}
 		}
 
@@ -304,7 +304,7 @@ public class LayoutSetImpl extends LayoutSetBaseImpl {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LayoutSetImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(LayoutSetImpl.class);
 
 	@CacheField
 	private String _companyFallbackVirtualHostname;

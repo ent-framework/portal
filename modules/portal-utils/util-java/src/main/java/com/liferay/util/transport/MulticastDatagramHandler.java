@@ -23,9 +23,8 @@ import java.io.InputStream;
 import java.net.DatagramPacket;
 
 import java.util.zip.GZIPInputStream;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 
 /**
  * @author Michael C. Han
@@ -40,7 +39,7 @@ public class MulticastDatagramHandler implements DatagramHandler {
 
 	@Override
 	public void errorReceived(Throwable t) {
-		_log.error(t, t);
+		_log.error(t.getMessage(), t);
 	}
 
 	@Override
@@ -52,7 +51,7 @@ public class MulticastDatagramHandler implements DatagramHandler {
 				bytes = getUnzippedBytes(bytes);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -72,7 +71,7 @@ public class MulticastDatagramHandler implements DatagramHandler {
 		sb.append(new String(bytes));
 
 		if (_log.isInfoEnabled()) {
-			_log.info(sb);
+			_log.info(sb.toString());
 		}
 	}
 
@@ -106,7 +105,7 @@ public class MulticastDatagramHandler implements DatagramHandler {
 		return ubaos.toByteArray();
 	}
 
-	private static Log _log = LogFactory.getLog(MulticastDatagramHandler.class);
+	private static final Logger _log = LoggerFactory.getLogger(MulticastDatagramHandler.class);
 
 	private boolean _gzipData;
 	private boolean _shortData;

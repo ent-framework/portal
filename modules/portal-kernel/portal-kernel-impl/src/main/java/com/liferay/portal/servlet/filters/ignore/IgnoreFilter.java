@@ -15,8 +15,8 @@
 package com.liferay.portal.servlet.filters.ignore;
 
 import com.liferay.portal.NoSuchLayoutException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.servlet.filters.BasePortalFilter;
 import com.liferay.portal.util.PortalUtil;
 
@@ -46,6 +46,6 @@ public class IgnoreFilter extends BasePortalFilter {
 			request, response);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(IgnoreFilter.class);
+	private static final Logger _log = LoggerFactory.getLogger(IgnoreFilter.class);
 
 }

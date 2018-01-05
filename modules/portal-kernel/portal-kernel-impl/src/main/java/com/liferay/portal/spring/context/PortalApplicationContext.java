@@ -14,8 +14,8 @@
 
 package com.liferay.portal.spring.context;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.util.PropsValues;
@@ -50,7 +50,7 @@ public class PortalApplicationContext extends XmlWebApplicationContext {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -86,13 +86,13 @@ public class PortalApplicationContext extends XmlWebApplicationContext {
 					}
 				}
 				else {
-					_log.error(e, e);
+					_log.error(e.getMessage(), e);
 				}
 			}
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PortalApplicationContext.class);
 
 }

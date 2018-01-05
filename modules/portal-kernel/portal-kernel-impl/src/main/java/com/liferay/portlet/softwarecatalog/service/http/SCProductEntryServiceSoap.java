@@ -2,10 +2,10 @@ package com.liferay.portlet.softwarecatalog.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-
 import com.liferay.portlet.softwarecatalog.service.SCProductEntryServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -51,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class SCProductEntryServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(SCProductEntryServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(SCProductEntryServiceSoap.class);
 
     public static com.liferay.portlet.softwarecatalog.model.SCProductEntrySoap addProductEntry(
         java.lang.String name, java.lang.String type, java.lang.String tags,
@@ -71,7 +71,7 @@ public class SCProductEntryServiceSoap {
 
             return com.liferay.portlet.softwarecatalog.model.SCProductEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -82,7 +82,7 @@ public class SCProductEntryServiceSoap {
         try {
             SCProductEntryServiceUtil.deleteProductEntry(productEntryId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -96,7 +96,7 @@ public class SCProductEntryServiceSoap {
 
             return com.liferay.portlet.softwarecatalog.model.SCProductEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -119,7 +119,7 @@ public class SCProductEntryServiceSoap {
 
             return com.liferay.portlet.softwarecatalog.model.SCProductEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

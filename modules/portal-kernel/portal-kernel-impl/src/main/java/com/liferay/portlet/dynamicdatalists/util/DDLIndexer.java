@@ -15,8 +15,8 @@
 package com.liferay.portlet.dynamicdatalists.util;
 
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.search.BaseIndexer;
 import com.liferay.portal.kernel.search.BooleanQuery;
 import com.liferay.portal.kernel.search.Document;
@@ -243,7 +243,7 @@ public class DDLIndexer extends BaseIndexer {
 				new Object[] {ddmStructureName, recordSetName});
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return StringPool.BLANK;
@@ -298,6 +298,6 @@ public class DDLIndexer extends BaseIndexer {
 			getSearchEngineId(), companyId, documents);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(DDLIndexer.class);
+	private static final Logger _log = LoggerFactory.getLogger(DDLIndexer.class);
 
 }

@@ -14,8 +14,8 @@
 
 package com.liferay.portal.patcher;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.patcher.PatchInconsistencyException;
 import com.liferay.portal.kernel.patcher.Patcher;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
@@ -235,7 +235,7 @@ public class PatcherImpl implements Patcher {
 				_configured = true;
 			}
 			catch (IOException ioe) {
-				_log.error(ioe, ioe);
+				_log.error(ioe.getMessage(), ioe);
 			}
 			finally {
 				StreamUtil.cleanUp(inputStream);
@@ -247,7 +247,7 @@ public class PatcherImpl implements Patcher {
 		return _properties;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PatcherImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(PatcherImpl.class);
 
 	private static boolean _configured;
 	private static String[] _fixedIssueKeys;

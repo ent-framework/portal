@@ -16,8 +16,8 @@ package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.Group;
@@ -66,7 +66,7 @@ public class VirtualLayout extends LayoutWrapper {
 			sb.append(group.getFriendlyURL());
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		if (locale == null) {
@@ -179,7 +179,7 @@ public class VirtualLayout extends LayoutWrapper {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(VirtualLayout.class);
+	private static final Logger _log = LoggerFactory.getLogger(VirtualLayout.class);
 
 	private Layout _sourceLayout;
 	private Group _targetGroup;

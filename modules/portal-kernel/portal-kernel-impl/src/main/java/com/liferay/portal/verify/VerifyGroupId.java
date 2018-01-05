@@ -16,8 +16,8 @@ package com.liferay.portal.verify;
 
 import com.liferay.portal.kernel.concurrent.ThrowableAwareRunnable;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringPool;
 
 import java.sql.Connection;
@@ -190,6 +190,6 @@ public class VerifyGroupId extends VerifyProcess {
 
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(VerifyGroupId.class);
+	private static final Logger _log = LoggerFactory.getLogger(VerifyGroupId.class);
 
 }

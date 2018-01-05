@@ -2,10 +2,10 @@ package com.liferay.portlet.ratings.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-
 import com.liferay.portlet.ratings.service.RatingsEntryServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -51,14 +51,14 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class RatingsEntryServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(RatingsEntryServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(RatingsEntryServiceSoap.class);
 
     public static void deleteEntry(java.lang.String className, long classPK)
         throws RemoteException {
         try {
             RatingsEntryServiceUtil.deleteEntry(className, classPK);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -73,7 +73,7 @@ public class RatingsEntryServiceSoap {
 
             return com.liferay.portlet.ratings.model.RatingsEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

@@ -18,8 +18,8 @@ import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.search.Hits;
 import com.liferay.portal.kernel.search.Indexer;
@@ -461,7 +461,7 @@ public class DDLImpl implements DDL {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(DDLImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(DDLImpl.class);
 
 	private Transformer _transformer = new Transformer(
 		PropsKeys.DYNAMIC_DATA_LISTS_ERROR_TEMPLATE, true);

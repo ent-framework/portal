@@ -14,8 +14,8 @@
 
 package com.liferay.portal.struts;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.BrowserSnifferUtil;
 
 import java.io.IOException;
@@ -79,7 +79,7 @@ public class StrutsUtil {
 			}
 			catch (IOException ioe1) {
 				if (_log.isWarnEnabled()) {
-					_log.warn(ioe1, ioe1);
+					_log.warn(ioe1.getMessage(), ioe1);
 				}
 			}
 			catch (ServletException se1) {
@@ -99,7 +99,7 @@ public class StrutsUtil {
 				}
 				catch (IOException ioe2) {
 					if (_log.isWarnEnabled()) {
-						_log.warn(ioe2, ioe2);
+						_log.warn(ioe2.getMessage(), ioe2);
 					}
 				}
 				catch (ServletException se2) {
@@ -139,7 +139,7 @@ public class StrutsUtil {
 		}
 		catch (IOException ioe) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(ioe, ioe);
+				_log.warn(ioe.getMessage(), ioe);
 			}
 		}
 	}
@@ -182,6 +182,6 @@ public class StrutsUtil {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(StrutsUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(StrutsUtil.class);
 
 }

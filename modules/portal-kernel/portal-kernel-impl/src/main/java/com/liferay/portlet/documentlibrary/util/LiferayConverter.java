@@ -16,8 +16,8 @@ package com.liferay.portlet.documentlibrary.util;
 
 import com.liferay.portal.image.ImageToolImpl;
 import com.liferay.portal.kernel.image.ImageTool;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 
 import com.xuggle.ferry.RefCounted;
@@ -896,7 +896,7 @@ public abstract class LiferayConverter {
 
 	protected static final int DECODE_VIDEO_THUMBNAIL = 2;
 
-	private static Log _log = LogFactoryUtil.getLog(LiferayConverter.class);
+	private static final Logger _log = LoggerFactory.getLogger(LiferayConverter.class);
 
 	private ConverterFactory.Type _converterFactoryType;
 	private IConverter _videoIConverter;

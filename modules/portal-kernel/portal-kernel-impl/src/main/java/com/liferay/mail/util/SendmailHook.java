@@ -16,8 +16,8 @@ package com.liferay.mail.util;
 
 import com.liferay.mail.model.Filter;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.process.ProcessUtil;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
@@ -66,7 +66,7 @@ public class SendmailHook implements Hook {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -92,7 +92,7 @@ public class SendmailHook implements Hook {
 			future.get();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		updatePassword(companyId, userId, password);
@@ -131,7 +131,7 @@ public class SendmailHook implements Hook {
 			future.get();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -173,7 +173,7 @@ public class SendmailHook implements Hook {
 			FileUtil.write(file, sb.toString());
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -221,7 +221,7 @@ public class SendmailHook implements Hook {
 			future.get();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -250,10 +250,10 @@ public class SendmailHook implements Hook {
 			future.get();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(SendmailHook.class);
+	private static final Logger _log = LoggerFactory.getLogger(SendmailHook.class);
 
 }

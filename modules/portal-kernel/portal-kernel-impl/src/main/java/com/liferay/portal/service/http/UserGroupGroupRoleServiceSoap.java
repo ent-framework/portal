@@ -2,9 +2,10 @@ package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.service.UserGroupGroupRoleServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -50,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class UserGroupGroupRoleServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(UserGroupGroupRoleServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(UserGroupGroupRoleServiceSoap.class);
 
     public static void addUserGroupGroupRoles(long userGroupId, long groupId,
         long[] roleIds) throws RemoteException {
@@ -58,7 +59,7 @@ public class UserGroupGroupRoleServiceSoap {
             UserGroupGroupRoleServiceUtil.addUserGroupGroupRoles(userGroupId,
                 groupId, roleIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -70,7 +71,7 @@ public class UserGroupGroupRoleServiceSoap {
             UserGroupGroupRoleServiceUtil.addUserGroupGroupRoles(userGroupIds,
                 groupId, roleId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -82,7 +83,7 @@ public class UserGroupGroupRoleServiceSoap {
             UserGroupGroupRoleServiceUtil.deleteUserGroupGroupRoles(userGroupId,
                 groupId, roleIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -94,7 +95,7 @@ public class UserGroupGroupRoleServiceSoap {
             UserGroupGroupRoleServiceUtil.deleteUserGroupGroupRoles(userGroupIds,
                 groupId, roleId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

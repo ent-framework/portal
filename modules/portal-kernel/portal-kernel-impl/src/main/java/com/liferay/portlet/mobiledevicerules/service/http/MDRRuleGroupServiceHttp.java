@@ -1,13 +1,14 @@
 package com.liferay.portlet.mobiledevicerules.service.http;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.http.TunnelUtil;
 
 import com.liferay.portlet.mobiledevicerules.service.MDRRuleGroupServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Provides the HTTP utility for the
@@ -38,7 +39,7 @@ import com.liferay.portlet.mobiledevicerules.service.MDRRuleGroupServiceUtil;
  * @generated
  */
 public class MDRRuleGroupServiceHttp {
-    private static Log _log = LogFactoryUtil.getLog(MDRRuleGroupServiceHttp.class);
+    private static final Logger _log = LoggerFactory.getLogger(MDRRuleGroupServiceHttp.class);
     private static final Class<?>[] _addRuleGroupParameterTypes0 = new Class[] {
             long.class, java.util.Map.class, java.util.Map.class,
             com.liferay.portal.service.ServiceContext.class
@@ -93,7 +94,7 @@ public class MDRRuleGroupServiceHttp {
 
             return (com.liferay.portlet.mobiledevicerules.model.MDRRuleGroup) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -129,7 +130,7 @@ public class MDRRuleGroupServiceHttp {
 
             return (com.liferay.portlet.mobiledevicerules.model.MDRRuleGroup) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -160,7 +161,7 @@ public class MDRRuleGroupServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -195,7 +196,7 @@ public class MDRRuleGroupServiceHttp {
 
             return (com.liferay.portlet.mobiledevicerules.model.MDRRuleGroup) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -230,7 +231,7 @@ public class MDRRuleGroupServiceHttp {
 
             return (com.liferay.portlet.mobiledevicerules.model.MDRRuleGroup) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -268,7 +269,7 @@ public class MDRRuleGroupServiceHttp {
 
             return (com.liferay.portlet.mobiledevicerules.model.MDRRuleGroup) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }

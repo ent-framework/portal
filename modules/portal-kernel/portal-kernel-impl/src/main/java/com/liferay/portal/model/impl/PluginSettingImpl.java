@@ -14,8 +14,8 @@
 
 package com.liferay.portal.model.impl;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.model.PluginSetting;
@@ -91,7 +91,7 @@ public class PluginSettingImpl extends PluginSettingBaseImpl {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return false;
@@ -139,7 +139,7 @@ public class PluginSettingImpl extends PluginSettingBaseImpl {
 	/**
 	 * Log instance for this class.
 	 */
-	private static Log _log = LogFactoryUtil.getLog(PluginSettingImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(PluginSettingImpl.class);
 
 	/**
 	 * An array of required roles of the plugin.

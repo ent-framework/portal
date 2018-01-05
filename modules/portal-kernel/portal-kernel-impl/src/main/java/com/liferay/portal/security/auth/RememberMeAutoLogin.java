@@ -14,8 +14,8 @@
 
 package com.liferay.portal.security.auth;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.CookieKeys;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.KeyValuePair;
@@ -42,7 +42,7 @@ public class RememberMeAutoLogin extends BaseAutoLogin {
 		throws AutoLoginException {
 
 		if (_log.isWarnEnabled()) {
-			_log.warn(e, e);
+			_log.warn(e.getMessage(), e);
 		}
 
 		removeCookies(request, response);
@@ -137,6 +137,6 @@ public class RememberMeAutoLogin extends BaseAutoLogin {
 		CookieKeys.addCookie(request, response, cookie);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(RememberMeAutoLogin.class);
+	private static final Logger _log = LoggerFactory.getLogger(RememberMeAutoLogin.class);
 
 }

@@ -16,8 +16,8 @@ package com.liferay.portal.microsofttranslator;
 
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.HttpUtil;
@@ -128,7 +128,7 @@ public class MicrosoftTranslatorAuthenticator {
 	private static final String _URL =
 		"https://datamarket.accesscontrol.windows.net/v2/OAuth2-13";
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		MicrosoftTranslatorAuthenticator.class);
 
 	private String _accessToken;

@@ -16,8 +16,8 @@ package com.liferay.portal.lar;
 
 import com.liferay.portal.kernel.lar.PortletDataContext;
 import com.liferay.portal.kernel.lar.PortletDataHandlerKeys;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.xml.Attribute;
@@ -73,6 +73,6 @@ public class ThemeImporter {
 			colorSchemeId, css, false);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ThemeImporter.class);
+	private static final Logger _log = LoggerFactory.getLogger(ThemeImporter.class);
 
 }

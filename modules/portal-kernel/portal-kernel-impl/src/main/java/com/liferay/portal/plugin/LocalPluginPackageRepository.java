@@ -15,8 +15,8 @@
 package com.liferay.portal.plugin;
 
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.plugin.PluginPackage;
 import com.liferay.portal.kernel.plugin.PluginPackageNameAndContextComparator;
 import com.liferay.portal.kernel.plugin.Version;
@@ -167,7 +167,7 @@ public class LocalPluginPackageRepository {
 		_pendingPackages.remove(context);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		LocalPluginPackageRepository.class);
 
 	private Map<String, PluginPackage> _pendingPackages =

@@ -16,8 +16,8 @@ package com.liferay.portal.service.permission;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.model.Account;
 import com.liferay.portal.model.Company;
 import com.liferay.portal.model.Contact;
@@ -76,6 +76,6 @@ public class CommonPermissionImpl implements CommonPermission {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(CommonPermissionImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(CommonPermissionImpl.class);
 
 }

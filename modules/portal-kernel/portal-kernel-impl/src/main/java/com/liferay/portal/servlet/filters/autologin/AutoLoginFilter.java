@@ -14,8 +14,8 @@
 
 package com.liferay.portal.servlet.filters.autologin;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.ProtectedServletRequest;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.InstancePool;
@@ -270,7 +270,7 @@ public class AutoLoginFilter extends BasePortalFilter {
 
 	private static final String _PATH_CHAT_LATEST = "/-/chat/latest";
 
-	private static Log _log = LogFactoryUtil.getLog(AutoLoginFilter.class);
+	private static final Logger _log = LoggerFactory.getLogger(AutoLoginFilter.class);
 
 	private static List<AutoLogin> _autoLogins =
 		new CopyOnWriteArrayList<AutoLogin>();

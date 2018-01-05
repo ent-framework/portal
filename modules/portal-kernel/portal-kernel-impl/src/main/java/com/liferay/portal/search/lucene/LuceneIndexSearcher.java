@@ -34,8 +34,8 @@ import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.dao.search.SearchPaginationUtil;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.search.BaseIndexSearcher;
 import com.liferay.portal.kernel.search.Document;
 import com.liferay.portal.kernel.search.DocumentImpl;
@@ -440,7 +440,7 @@ public class LuceneIndexSearcher extends BaseIndexSearcher {
 			boboBrowser.close();
 		}
 		catch (IOException ioe) {
-			_log.error(ioe, ioe);
+			_log.error(ioe.getMessage(), ioe);
 		}
 
 		Browsable[] browsables = boboBrowser.getSubBrowsers();
@@ -712,7 +712,7 @@ public class LuceneIndexSearcher extends BaseIndexSearcher {
 		return hits;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LuceneIndexSearcher.class);
+	private static final Logger _log = LoggerFactory.getLogger(LuceneIndexSearcher.class);
 
 	private static java.lang.reflect.Field _runtimeFacetDataMapField;
 	private static java.lang.reflect.Field _runtimeFacetHandlerMapField;

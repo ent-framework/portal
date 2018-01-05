@@ -14,8 +14,8 @@
 
 package com.liferay.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -107,7 +107,7 @@ public class PropertyComparator implements Comparator<Object> {
 		return -1;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PropertyComparator.class);
+	private static final Logger _log = LoggerFactory.getLogger(PropertyComparator.class);
 
 	private boolean _ascending;
 	private boolean _caseSensitive;

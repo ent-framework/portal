@@ -19,8 +19,8 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.flash.FlashMagicBytesUtil;
 import com.liferay.portal.kernel.image.ImageBag;
 import com.liferay.portal.kernel.image.ImageToolUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.repository.RepositoryException;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.FileVersion;
@@ -585,7 +585,7 @@ public class WebServerServlet extends HttpServlet {
 				}
 				catch (Exception e) {
 					if (_log.isDebugEnabled()) {
-						_log.debug(e);
+						_log.debug(e.getMessage(), e);
 					}
 				}
 			}
@@ -657,11 +657,11 @@ public class WebServerServlet extends HttpServlet {
 		}
 		catch (PrincipalException pe) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(pe, pe);
+				_log.warn(pe.getMessage(), pe);
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return -1;
@@ -1235,7 +1235,7 @@ public class WebServerServlet extends HttpServlet {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 	}
@@ -1338,7 +1338,7 @@ public class WebServerServlet extends HttpServlet {
 		StringUtil.equalsIgnoreCase(
 			PropsValues.WEB_SERVER_SERVLET_VERSION_VERBOSITY, "partial");
 
-	private static Log _log = LogFactoryUtil.getLog(WebServerServlet.class);
+	private static final Logger _log = LoggerFactory.getLogger(WebServerServlet.class);
 
 	private static Set<String> _acceptRangesMimeTypes = SetUtil.fromArray(
 		PropsValues.WEB_SERVER_SERVLET_ACCEPT_RANGES_MIME_TYPES);

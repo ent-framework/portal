@@ -36,8 +36,8 @@ import com.liferay.portal.kernel.lar.PortletDataHandler;
 import com.liferay.portal.kernel.lar.PortletDataHandlerKeys;
 import com.liferay.portal.kernel.lar.PortletDataHandlerStatusMessageSenderUtil;
 import com.liferay.portal.kernel.lar.UserIdStrategy;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.search.Indexer;
 import com.liferay.portal.kernel.search.IndexerRegistryUtil;
 import com.liferay.portal.kernel.staging.MergeLayoutPrototypesThreadLocal;
@@ -1814,7 +1814,7 @@ public class PortletImporter {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PortletImporter.class);
+	private static final Logger _log = LoggerFactory.getLogger(PortletImporter.class);
 
 	private DeletionSystemEventImporter _deletionSystemEventImporter =
 		new DeletionSystemEventImporter();

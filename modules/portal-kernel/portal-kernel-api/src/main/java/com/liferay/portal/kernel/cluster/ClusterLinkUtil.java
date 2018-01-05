@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.cluster;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.Message;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
@@ -149,7 +149,7 @@ public class ClusterLinkUtil {
 
 	private static final String _ADDRESS = "CLUSTER_ADDRESS";
 
-	private static Log _log = LogFactoryUtil.getLog(ClusterLinkUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(ClusterLinkUtil.class);
 
 	private static ClusterLink _clusterLink;
 

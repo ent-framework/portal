@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.portlet;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.util.PortalUtil;
 
 import java.util.Map;
@@ -231,7 +231,7 @@ public abstract class BaseFriendlyURLMapper implements FriendlyURLMapper {
 			parameterMap.put(name, values);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -254,7 +254,7 @@ public abstract class BaseFriendlyURLMapper implements FriendlyURLMapper {
 
 	private static final boolean _CHECK_MAPPING_WITH_PREFIX = true;
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		BaseFriendlyURLMapper.class);
 
 	private String _mapping;

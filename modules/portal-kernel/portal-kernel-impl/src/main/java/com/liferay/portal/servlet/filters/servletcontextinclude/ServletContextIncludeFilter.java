@@ -14,8 +14,8 @@
 
 package com.liferay.portal.servlet.filters.servletcontextinclude;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.Layout;
@@ -85,7 +85,7 @@ public class ServletContextIncludeFilter extends BasePortalFilter {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return false;
@@ -157,7 +157,7 @@ public class ServletContextIncludeFilter extends BasePortalFilter {
 		requestDispatcher.include(request, response);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		ServletContextIncludeFilter.class);
 
 }

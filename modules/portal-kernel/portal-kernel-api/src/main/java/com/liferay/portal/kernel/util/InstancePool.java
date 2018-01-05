@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -121,7 +121,7 @@ public class InstancePool {
 		_instances.clear();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(InstancePool.class);
+	private static final Logger _log = LoggerFactory.getLogger(InstancePool.class);
 
 	private static InstancePool _instance = new InstancePool();
 

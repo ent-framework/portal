@@ -351,7 +351,7 @@ portletURL.setParameter("folderId", String.valueOf(folderId));
 	<%
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	%>
 
@@ -364,5 +364,5 @@ portletURL.setParameter("folderId", String.valueOf(folderId));
 </aui:form>
 
 <%!
-private static Log _log = LogFactoryUtil.getLog("portal-web.docroot.html.portlet.dynamic_data_mapping.select_document_library_jsp");
+private static final Logger _log = LoggerFactory.getLogger("portal-web.docroot.html.portlet.dynamic_data_mapping.select_document_library_jsp");
 %>

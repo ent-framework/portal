@@ -2,9 +2,10 @@ package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.service.PortalServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -39,20 +40,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class PortalServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(PortalServiceSoap.class);
-
-    public static java.lang.String getAutoDeployDirectory()
-        throws RemoteException {
-        try {
-            java.lang.String returnValue = null;
-
-            return returnValue;
-        } catch (Exception e) {
-            _log.error(e, e);
-
-            throw new RemoteException(e.getMessage());
-        }
-    }
+    private static final Logger _log = LoggerFactory.getLogger(PortalServiceSoap.class);
 
     public static int getBuildNumber() throws RemoteException {
         try {
@@ -60,7 +48,7 @@ public class PortalServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -71,7 +59,7 @@ public class PortalServiceSoap {
         try {
             PortalServiceUtil.testAddClassName_Rollback(classNameValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -82,7 +70,7 @@ public class PortalServiceSoap {
         try {
             PortalServiceUtil.testAddClassName_Success(classNameValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -93,7 +81,7 @@ public class PortalServiceSoap {
         try {
             PortalServiceUtil.testAddClassNameAndTestTransactionPortletBar_PortalRollback(transactionPortletBarText);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -104,7 +92,7 @@ public class PortalServiceSoap {
         try {
             PortalServiceUtil.testAddClassNameAndTestTransactionPortletBar_PortletRollback(transactionPortletBarText);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -115,7 +103,7 @@ public class PortalServiceSoap {
         try {
             PortalServiceUtil.testAddClassNameAndTestTransactionPortletBar_Success(transactionPortletBarText);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -126,7 +114,7 @@ public class PortalServiceSoap {
         try {
             PortalServiceUtil.testAutoSyncHibernateSessionStateOnTxCreation();
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -136,7 +124,7 @@ public class PortalServiceSoap {
         try {
             PortalServiceUtil.testDeleteClassName();
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -148,7 +136,7 @@ public class PortalServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -158,7 +146,7 @@ public class PortalServiceSoap {
         try {
             PortalServiceUtil.testGetUserId();
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -170,7 +158,7 @@ public class PortalServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

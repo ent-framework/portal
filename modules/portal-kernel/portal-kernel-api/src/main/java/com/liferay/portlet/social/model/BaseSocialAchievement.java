@@ -17,8 +17,8 @@ package com.liferay.portlet.social.model;
 import com.liferay.portal.kernel.bean.BeanPropertiesUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -236,7 +236,7 @@ public class BaseSocialAchievement implements SocialAchievement {
 	private static final char[] _NAME_SUPPORTED_CHARS =
 		"abcdefghijklmnopqrstuvwxyz123456789_-.".toCharArray();
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		BaseSocialAchievement.class);
 
 	private int _counterIncrement = 1;

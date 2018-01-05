@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.resiliency.spi.remote;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.nio.intraband.RegistrationReference;
 import com.liferay.portal.kernel.resiliency.PortalResiliencyException;
 import com.liferay.portal.kernel.resiliency.mpi.MPI;
@@ -162,7 +162,7 @@ public class RemoteSPIProxy implements SPI {
 			_spiConfiguration.toString());
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(RemoteSPIProxy.class);
+	private static final Logger _log = LoggerFactory.getLogger(RemoteSPIProxy.class);
 
 	private final Future<SPI> _cancelHandlerFuture;
 	private final MPI _mpi;

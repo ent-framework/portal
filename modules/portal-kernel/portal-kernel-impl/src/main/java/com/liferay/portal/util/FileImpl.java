@@ -17,8 +17,8 @@ package com.liferay.portal.util;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.nio.charset.CharsetEncoderUtil;
 import com.liferay.portal.kernel.process.ClassPathUtil;
 import com.liferay.portal.kernel.process.ProcessCallable;
@@ -394,7 +394,7 @@ public class FileImpl implements com.liferay.portal.kernel.util.File {
 				}
 			}
 			else {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 		finally {
@@ -1055,7 +1055,7 @@ public class FileImpl implements com.liferay.portal.kernel.util.File {
 		"_AMP_", "_CP_", "_OP_", "_SEM_"
 	};
 
-	private static Log _log = LogFactoryUtil.getLog(FileImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(FileImpl.class);
 
 	private static FileImpl _instance = new FileImpl();
 

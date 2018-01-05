@@ -17,8 +17,8 @@ package com.liferay.portal.kernel.servlet.filters.invoker;
 import com.liferay.portal.kernel.cache.key.CacheKeyGenerator;
 import com.liferay.portal.kernel.cache.key.CacheKeyGeneratorUtil;
 import com.liferay.portal.kernel.concurrent.ConcurrentLFUCache;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.HttpOnlyCookieServletResponse;
 import com.liferay.portal.kernel.servlet.NonSerializableObjectRequestWrapper;
 import com.liferay.portal.kernel.servlet.SanitizedServletResponse;
@@ -150,7 +150,7 @@ public class InvokerFilter extends BasePortalLifecycle implements Filter {
 				doPortalInit();
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 
 				throw new ServletException(e);
 			}
@@ -330,7 +330,7 @@ public class InvokerFilter extends BasePortalLifecycle implements Filter {
 	private static final String _SECURE_RESPONSE =
 		InvokerFilter.class.getName() + "SECURE_RESPONSE";
 
-	private static Log _log = LogFactoryUtil.getLog(InvokerFilter.class);
+	private static final Logger _log = LoggerFactory.getLogger(InvokerFilter.class);
 
 	private String _contextPath;
 	private Dispatcher _dispatcher;

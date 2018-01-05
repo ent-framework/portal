@@ -14,8 +14,8 @@
 
 package com.liferay.portal.model;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ListUtil;
@@ -92,7 +92,7 @@ public class ModelHintsImpl implements ModelHints {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -494,7 +494,7 @@ public class ModelHintsImpl implements ModelHints {
 
 	private static final String _VALIDATORS_SUFFIX = "_VALIDATORS";
 
-	private static Log _log = LogFactoryUtil.getLog(ModelHintsImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(ModelHintsImpl.class);
 
 	private Map<String, Map<String, String>> _defaultHints;
 	private Map<String, Map<String, String>> _hintCollections;

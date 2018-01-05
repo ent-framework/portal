@@ -23,8 +23,8 @@ import com.liferay.portal.kernel.cache.ThreadLocalCacheManager;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.patcher.PatchInconsistencyException;
 import com.liferay.portal.kernel.patcher.PatcherUtil;
 import com.liferay.portal.kernel.plugin.PluginPackage;
@@ -52,7 +52,6 @@ import com.liferay.portal.plugin.PluginPackageUtil;
 import com.liferay.portal.security.auth.CompanyThreadLocal;
 import com.liferay.portal.security.auth.PrincipalException;
 import com.liferay.portal.security.permission.ResourceActionsUtil;
-import com.liferay.portal.server.capabilities.ServerCapabilitiesUtil;
 import com.liferay.portal.service.CompanyLocalServiceUtil;
 import com.liferay.portal.service.GroupLocalServiceUtil;
 import com.liferay.portal.service.LayoutLocalServiceUtil;
@@ -62,7 +61,6 @@ import com.liferay.portal.service.ResourceActionLocalServiceUtil;
 import com.liferay.portal.service.ThemeLocalServiceUtil;
 import com.liferay.portal.service.UserLocalServiceUtil;
 import com.liferay.portal.servlet.filters.absoluteredirects.AbsoluteRedirectsResponse;
-import com.liferay.portal.servlet.filters.i18n.I18nFilter;
 import com.liferay.portal.struts.PortletRequestProcessor;
 import com.liferay.portal.struts.StrutsUtil;
 import com.liferay.portal.util.ClassLoaderUtil;
@@ -71,7 +69,6 @@ import com.liferay.portal.util.MaintenanceUtil;
 import com.liferay.portal.util.Portal;
 import com.liferay.portal.util.PortalInstances;
 import com.liferay.portal.util.PortalUtil;
-import com.liferay.portal.util.PropsUtil;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portal.util.ShutdownUtil;
 import com.liferay.portal.util.WebKeys;
@@ -143,7 +140,7 @@ public class MainServlet extends ActionServlet {
 			destroyPortlets(portlets);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		if (_log.isDebugEnabled()) {
@@ -154,7 +151,7 @@ public class MainServlet extends ActionServlet {
 			destroyCompanies();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		if (_log.isDebugEnabled()) {
@@ -165,7 +162,7 @@ public class MainServlet extends ActionServlet {
 			processGlobalShutdownEvents();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		if (_log.isDebugEnabled()) {
@@ -229,23 +226,12 @@ public class MainServlet extends ActionServlet {
 			processStartupEvents();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			System.out.println(
 				"Stopping the server due to unexpected startup errors");
 
 			System.exit(0);
-		}
-
-		if (_log.isDebugEnabled()) {
-			_log.debug("Initialize server detector");
-		}
-
-		try {
-			initServerDetector();
-		}
-		catch (Exception e) {
-			_log.error(e, e);
 		}
 
 		if (_log.isDebugEnabled()) {
@@ -258,7 +244,7 @@ public class MainServlet extends ActionServlet {
 			pluginPackage = initPluginPackage();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		if (_log.isDebugEnabled()) {
@@ -271,7 +257,7 @@ public class MainServlet extends ActionServlet {
 			portlets.addAll(initPortlets(pluginPackage));
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		if (_log.isDebugEnabled()) {
@@ -282,7 +268,7 @@ public class MainServlet extends ActionServlet {
 			initLayoutTemplates(pluginPackage, portlets);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		if (_log.isDebugEnabled()) {
@@ -293,7 +279,7 @@ public class MainServlet extends ActionServlet {
 			initSocial(pluginPackage);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		if (_log.isDebugEnabled()) {
@@ -304,7 +290,7 @@ public class MainServlet extends ActionServlet {
 			initThemes(pluginPackage, portlets);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		if (_log.isDebugEnabled()) {
@@ -315,7 +301,7 @@ public class MainServlet extends ActionServlet {
 //			initWebSettings();
 //		}
 //		catch (Exception e) {
-//			_log.error(e, e);
+//			_log.error(e.getMessage(), e);
 //		}
 
 		if (_log.isDebugEnabled()) {
@@ -326,7 +312,7 @@ public class MainServlet extends ActionServlet {
 			initExt();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		if (_log.isDebugEnabled()) {
@@ -337,7 +323,7 @@ public class MainServlet extends ActionServlet {
 			processGlobalStartupEvents();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		if (_log.isDebugEnabled()) {
@@ -348,7 +334,7 @@ public class MainServlet extends ActionServlet {
 			initResourceActions(portlets);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		if (_log.isDebugEnabled()) {
@@ -359,18 +345,11 @@ public class MainServlet extends ActionServlet {
 			initCompanies();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		if (_log.isDebugEnabled()) {
 			_log.debug("Initialize plugins");
-		}
-
-		try {
-			initPlugins();
-		}
-		catch (Exception e) {
-			_log.error(e, e);
 		}
 
 		servletContext.setAttribute(WebKeys.STARTUP_FINISHED, true);
@@ -429,11 +408,11 @@ public class MainServlet extends ActionServlet {
 		catch (Exception e) {
 			if (e instanceof NoSuchLayoutException) {
 				if (_log.isDebugEnabled()) {
-					_log.debug(e, e);
+					_log.debug(e.getMessage(), e);
 				}
 			}
 			else {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -480,7 +459,7 @@ public class MainServlet extends ActionServlet {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		if (_log.isDebugEnabled()) {
@@ -599,30 +578,6 @@ public class MainServlet extends ActionServlet {
 			servletContext.getAttribute(TilesUtilImpl.DEFINITIONS_FACTORY));
 	}
 
-	protected void checkWebSettings(String xml) throws DocumentException {
-		Document doc = UnsecureSAXReaderUtil.read(xml);
-
-		Element root = doc.getRootElement();
-
-		int timeout = PropsValues.SESSION_TIMEOUT;
-
-		Element sessionConfig = root.element("session-config");
-
-		if (sessionConfig != null) {
-			String sessionTimeout = sessionConfig.elementText(
-				"session-timeout");
-
-			timeout = GetterUtil.getInteger(sessionTimeout, timeout);
-		}
-
-		PropsUtil.set(PropsKeys.SESSION_TIMEOUT, String.valueOf(timeout));
-
-		PropsValues.SESSION_TIMEOUT = timeout;
-
-		I18nServlet.setLanguageIds(root);
-		I18nFilter.setLanguageIds(I18nServlet.getLanguageIds());
-	}
-
 	protected void destroyCompanies() throws Exception {
 		long[] companyIds = PortalInstances.getCompanyIds();
 
@@ -643,7 +598,7 @@ public class MainServlet extends ActionServlet {
 				new String[] {String.valueOf(companyId)});
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -817,18 +772,6 @@ public class MainServlet extends ActionServlet {
 			servletContext);
 	}
 
-	protected void initPlugins() throws Exception {
-
-		// See LEP-2885. Don't flush hot deploy events until after the portal
-		// has initialized.
-
-		//if (SetupWizardUtil.isSetupFinished()) {
-			//HotDeployUtil.setCapturePrematureEvents(false);
-			//PortalLifecycleUtil.flushInits();
-		//}
-		PortalLifecycleUtil.flushInits();
-	}
-
 	protected void initPortletApp(
 			Portlet portlet, ServletContext servletContext)
 		throws PortletException {
@@ -916,10 +859,6 @@ public class MainServlet extends ActionServlet {
 		}
 	}
 
-	protected void initServerDetector() throws Exception {
-		ServerCapabilitiesUtil.determineServerCapabilities(getServletContext());
-	}
-
 	protected void initSocial(PluginPackage pluginPackage) throws Exception {
 		ClassLoader classLoader = ClassLoaderUtil.getPortalClassLoader();
 
@@ -950,15 +889,6 @@ public class MainServlet extends ActionServlet {
 			servletContext, null, true, xmls, pluginPackage);
 
 		servletContext.setAttribute(WebKeys.PLUGIN_THEMES, themes);
-	}
-
-	protected void initWebSettings() throws Exception {
-		ServletContext servletContext = getServletContext();
-
-		String xml = HttpUtil.URLtoString(
-			servletContext.getResource("/WEB-INF/web.xml"));
-
-		checkWebSettings(xml);
 	}
 
 	protected long loginUser(
@@ -1098,7 +1028,7 @@ public class MainServlet extends ActionServlet {
 				PropsValues.SERVLET_SERVICE_EVENTS_POST, request, response);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -1128,7 +1058,7 @@ public class MainServlet extends ActionServlet {
 				return true;
 			}
 
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			request.setAttribute(PageContext.EXCEPTION, e);
 
@@ -1300,6 +1230,6 @@ public class MainServlet extends ActionServlet {
 	private static final String _LIFERAY_PORTAL_REQUEST_HEADER =
 		"Liferay-Portal";
 
-	private static Log _log = LogFactoryUtil.getLog(MainServlet.class);
+	private static final Logger _log = LoggerFactory.getLogger(MainServlet.class);
 
 }

@@ -15,8 +15,8 @@
 package com.liferay.portal.security.ldap;
 
 import com.liferay.portal.kernel.ldap.LDAPUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.Validator;
@@ -335,7 +335,7 @@ public class PortalLDAPExporterImpl implements PortalLDAPExporter {
 				throw nnfe;
 			}
 
-			_log.error(nnfe, nnfe);
+			_log.error(nnfe.getMessage(), nnfe);
 		}
 		finally {
 			if (ldapContext != null) {
@@ -395,7 +395,7 @@ public class PortalLDAPExporterImpl implements PortalLDAPExporter {
 		return binding;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PortalLDAPExporterImpl.class);
 
 	private PortalToLDAPConverter _portalToLDAPConverter;

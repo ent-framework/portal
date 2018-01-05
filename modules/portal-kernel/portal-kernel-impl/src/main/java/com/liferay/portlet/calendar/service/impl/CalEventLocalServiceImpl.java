@@ -21,8 +21,8 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedOutputStream;
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.mail.MailMessage;
 import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
@@ -688,7 +688,7 @@ public class CalEventLocalServiceImpl extends CalEventLocalServiceBaseImpl {
 					}
 				}
 				catch (Exception e) {
-					_log.error(e, e);
+					_log.error(e.getMessage(), e);
 				}
 			}
 
@@ -921,7 +921,7 @@ public class CalEventLocalServiceImpl extends CalEventLocalServiceBaseImpl {
 			return file;
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			throw new SystemException(e);
 		}
@@ -1316,7 +1316,7 @@ public class CalEventLocalServiceImpl extends CalEventLocalServiceBaseImpl {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -1780,7 +1780,7 @@ public class CalEventLocalServiceImpl extends CalEventLocalServiceBaseImpl {
 	private static final long _CALENDAR_EVENT_CHECK_INTERVAL =
 		PropsValues.CALENDAR_EVENT_CHECK_INTERVAL * Time.MINUTE;
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		CalEventLocalServiceImpl.class);
 
 }

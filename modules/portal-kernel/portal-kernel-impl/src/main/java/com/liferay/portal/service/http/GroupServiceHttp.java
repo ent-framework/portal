@@ -1,12 +1,13 @@
 package com.liferay.portal.service.http;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.GroupServiceUtil;
 import com.liferay.portal.service.http.TunnelUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Provides the HTTP utility for the
@@ -37,7 +38,7 @@ import com.liferay.portal.service.http.TunnelUtil;
  * @generated
  */
 public class GroupServiceHttp {
-    private static Log _log = LogFactoryUtil.getLog(GroupServiceHttp.class);
+    private static final Logger _log = LoggerFactory.getLogger(GroupServiceHttp.class);
     private static final Class<?>[] _addGroupParameterTypes0 = new Class[] {
             long.class, long.class, java.lang.String.class,
             java.lang.String.class, int.class, boolean.class, int.class,
@@ -206,7 +207,7 @@ public class GroupServiceHttp {
 
             return (com.liferay.portal.model.Group) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -245,7 +246,7 @@ public class GroupServiceHttp {
 
             return (com.liferay.portal.model.Group) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -283,7 +284,7 @@ public class GroupServiceHttp {
 
             return (com.liferay.portal.model.Group) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -314,7 +315,7 @@ public class GroupServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -345,7 +346,7 @@ public class GroupServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -374,7 +375,7 @@ public class GroupServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -403,7 +404,7 @@ public class GroupServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -432,7 +433,7 @@ public class GroupServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -466,7 +467,7 @@ public class GroupServiceHttp {
 
             return (com.liferay.portal.model.Group) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -500,7 +501,7 @@ public class GroupServiceHttp {
 
             return (com.liferay.portal.model.Group) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -535,7 +536,7 @@ public class GroupServiceHttp {
 
             return (com.liferay.portal.model.Group) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -571,7 +572,7 @@ public class GroupServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Group>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -608,7 +609,7 @@ public class GroupServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Group>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -644,7 +645,7 @@ public class GroupServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Group>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -681,7 +682,7 @@ public class GroupServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Group>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -716,7 +717,7 @@ public class GroupServiceHttp {
 
             return (com.liferay.portal.model.Group) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -752,7 +753,7 @@ public class GroupServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Group>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -788,7 +789,7 @@ public class GroupServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Group>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -824,7 +825,7 @@ public class GroupServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Group>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -860,7 +861,7 @@ public class GroupServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Group>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -895,7 +896,7 @@ public class GroupServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Group>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -928,7 +929,7 @@ public class GroupServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -962,7 +963,7 @@ public class GroupServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Group>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -996,7 +997,7 @@ public class GroupServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Group>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1032,7 +1033,7 @@ public class GroupServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Group>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1068,7 +1069,7 @@ public class GroupServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Group>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1103,7 +1104,7 @@ public class GroupServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Group>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1137,7 +1138,7 @@ public class GroupServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1172,7 +1173,7 @@ public class GroupServiceHttp {
 
             return ((Boolean) returnObj).booleanValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1210,7 +1211,7 @@ public class GroupServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Group>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1250,7 +1251,7 @@ public class GroupServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Group>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1287,7 +1288,7 @@ public class GroupServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Group>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1318,7 +1319,7 @@ public class GroupServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1349,7 +1350,7 @@ public class GroupServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1380,7 +1381,7 @@ public class GroupServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1415,7 +1416,7 @@ public class GroupServiceHttp {
 
             return (com.liferay.portal.model.Group) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1455,7 +1456,7 @@ public class GroupServiceHttp {
 
             return (com.liferay.portal.model.Group) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1490,7 +1491,7 @@ public class GroupServiceHttp {
 
             return (com.liferay.portal.model.Group) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1523,7 +1524,7 @@ public class GroupServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }

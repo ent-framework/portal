@@ -2,11 +2,12 @@ package com.liferay.portlet.mobiledevicerules.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.LocalizationUtil;
 
 import com.liferay.portlet.mobiledevicerules.service.MDRActionServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -55,7 +56,7 @@ import java.util.Map;
  */
 @ProviderType
 public class MDRActionServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(MDRActionServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(MDRActionServiceSoap.class);
 
     public static com.liferay.portlet.mobiledevicerules.model.MDRActionSoap addAction(
         long ruleGroupInstanceId, java.lang.String[] nameMapLanguageIds,
@@ -76,7 +77,7 @@ public class MDRActionServiceSoap {
 
             return com.liferay.portlet.mobiledevicerules.model.MDRActionSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -86,7 +87,7 @@ public class MDRActionServiceSoap {
         try {
             MDRActionServiceUtil.deleteAction(actionId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -99,7 +100,7 @@ public class MDRActionServiceSoap {
 
             return com.liferay.portlet.mobiledevicerules.model.MDRActionSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -112,7 +113,7 @@ public class MDRActionServiceSoap {
 
             return com.liferay.portlet.mobiledevicerules.model.MDRActionSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -137,7 +138,7 @@ public class MDRActionServiceSoap {
 
             return com.liferay.portlet.mobiledevicerules.model.MDRActionSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

@@ -14,8 +14,8 @@
 
 package com.liferay.portal.security.auth;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.util.Base64;
 import com.liferay.portal.kernel.util.CharPool;
@@ -184,7 +184,7 @@ public class BasicAuthHeaderAutoLogin
 	private static final String _BASIC_REALM =
 		"Basic realm=\"" + Portal.PORTAL_REALM + "\"";
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		BasicAuthHeaderAutoLogin.class);
 
 }

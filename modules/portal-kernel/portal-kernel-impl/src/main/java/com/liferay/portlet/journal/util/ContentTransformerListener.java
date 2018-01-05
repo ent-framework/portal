@@ -14,8 +14,8 @@
 
 package com.liferay.portlet.journal.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.templateparser.BaseTransformerListener;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
@@ -82,7 +82,7 @@ public class ContentTransformerListener extends BaseTransformerListener {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return GetterUtil.getString(content);
@@ -212,7 +212,7 @@ public class ContentTransformerListener extends BaseTransformerListener {
 			script, "$editInPlace(" + field + ")", wrappedField);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		ContentTransformerListener.class);
 
 }

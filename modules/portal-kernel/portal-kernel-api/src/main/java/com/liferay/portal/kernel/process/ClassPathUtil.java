@@ -15,8 +15,8 @@
 package com.liferay.portal.kernel.process;
 
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
 import com.liferay.portal.kernel.util.ServerDetector;
@@ -267,7 +267,7 @@ public class ClassPathUtil {
 		return sb.toString();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ClassPathUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(ClassPathUtil.class);
 
 	private static String _globalClassPath;
 	private static String _portalClassPath;

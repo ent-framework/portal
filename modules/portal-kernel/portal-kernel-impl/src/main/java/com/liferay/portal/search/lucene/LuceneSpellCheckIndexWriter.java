@@ -14,8 +14,8 @@
 
 package com.liferay.portal.search.lucene;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.search.BaseSpellCheckIndexWriter;
 import com.liferay.portal.kernel.search.DictionaryEntry;
 import com.liferay.portal.kernel.search.DictionaryReader;
@@ -315,7 +315,7 @@ public class LuceneSpellCheckIndexWriter extends BaseSpellCheckIndexWriter {
 
 	private static final int _MINIMUM_WORD_LENGTH = 3;
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		LuceneSpellCheckIndexWriter.class);
 
 }

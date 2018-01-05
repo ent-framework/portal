@@ -17,8 +17,8 @@ package com.liferay.portal.json;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONException;
 import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 
@@ -191,7 +191,7 @@ public class JSONObjectImpl implements JSONObject {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -205,7 +205,7 @@ public class JSONObjectImpl implements JSONObject {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -219,7 +219,7 @@ public class JSONObjectImpl implements JSONObject {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -233,7 +233,7 @@ public class JSONObjectImpl implements JSONObject {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -247,7 +247,7 @@ public class JSONObjectImpl implements JSONObject {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -261,7 +261,7 @@ public class JSONObjectImpl implements JSONObject {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -275,7 +275,7 @@ public class JSONObjectImpl implements JSONObject {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -289,7 +289,7 @@ public class JSONObjectImpl implements JSONObject {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -306,7 +306,7 @@ public class JSONObjectImpl implements JSONObject {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -366,7 +366,7 @@ public class JSONObjectImpl implements JSONObject {
 
 	private static final String _NULL_JSON = "{}";
 
-	private static Log _log = LogFactoryUtil.getLog(JSONObjectImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(JSONObjectImpl.class);
 
 	private org.json.JSONObject _jsonObject;
 

@@ -478,5 +478,5 @@ for (int i = 0; i < results.size(); i++) {
 </aui:script>
 
 <%!
-private static Log _log = LogFactoryUtil.getLog("portal-web.docroot.html.portlet.journal.view_entries_jsp");
+private static final Logger _log = LoggerFactory.getLogger("portal-web.docroot.html.portlet.journal.view_entries_jsp");
 %>

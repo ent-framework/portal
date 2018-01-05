@@ -2,9 +2,10 @@ package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.service.TeamServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -50,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class TeamServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(TeamServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(TeamServiceSoap.class);
 
     public static com.liferay.portal.model.TeamSoap addTeam(long groupId,
         java.lang.String name, java.lang.String description)
@@ -61,7 +62,7 @@ public class TeamServiceSoap {
 
             return com.liferay.portal.model.TeamSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -71,7 +72,7 @@ public class TeamServiceSoap {
         try {
             TeamServiceUtil.deleteTeam(teamId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -84,7 +85,7 @@ public class TeamServiceSoap {
 
             return com.liferay.portal.model.TeamSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -97,7 +98,7 @@ public class TeamServiceSoap {
 
             return com.liferay.portal.model.TeamSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -111,7 +112,7 @@ public class TeamServiceSoap {
 
             return com.liferay.portal.model.TeamSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -124,7 +125,7 @@ public class TeamServiceSoap {
 
             return com.liferay.portal.model.TeamSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -138,7 +139,7 @@ public class TeamServiceSoap {
 
             return com.liferay.portal.model.TeamSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -151,7 +152,7 @@ public class TeamServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -166,7 +167,7 @@ public class TeamServiceSoap {
 
             return com.liferay.portal.model.TeamSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

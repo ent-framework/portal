@@ -16,8 +16,8 @@ package com.liferay.portal.servlet;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
@@ -104,7 +104,7 @@ public class LanguageServlet extends HttpServlet {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -127,6 +127,6 @@ public class LanguageServlet extends HttpServlet {
 	private static final String _CONTENT_DISPOSITION =
 		"attachment; filename=language.txt";
 
-	private static Log _log = LogFactoryUtil.getLog(LanguageServlet.class);
+	private static final Logger _log = LoggerFactory.getLogger(LanguageServlet.class);
 
 }

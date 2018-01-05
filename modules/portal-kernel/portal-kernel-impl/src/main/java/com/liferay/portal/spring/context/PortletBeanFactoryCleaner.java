@@ -14,8 +14,8 @@
 
 package com.liferay.portal.spring.context;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ReflectionUtil;
 
 import java.lang.reflect.Field;
@@ -127,7 +127,7 @@ public class PortletBeanFactoryCleaner implements BeanFactoryAware {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PortletBeanFactoryCleaner.class);
 
 	private static Set<AspectJExpressionPointcut> _aspectJExpressionPointcuts =
@@ -143,7 +143,7 @@ public class PortletBeanFactoryCleaner implements BeanFactoryAware {
 				AspectJExpressionPointcut.class, "shadowMatchCache");
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 

@@ -17,8 +17,8 @@ package com.liferay.portal.resiliency.spi.agent;
 import com.liferay.portal.kernel.io.BigEndianCodec;
 import com.liferay.portal.kernel.io.Deserializer;
 import com.liferay.portal.kernel.io.Serializer;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.nio.intraband.RegistrationReference;
 import com.liferay.portal.kernel.nio.intraband.mailbox.MailboxException;
 import com.liferay.portal.kernel.nio.intraband.mailbox.MailboxUtil;
@@ -316,6 +316,6 @@ public class SPIAgentSerializable implements Serializable {
 	protected transient String servletContextName;
 	protected ThreadLocalDistributor[] threadLocalDistributors;
 
-	private static Log _log = LogFactoryUtil.getLog(SPIAgentSerializable.class);
+	private static final Logger _log = LoggerFactory.getLogger(SPIAgentSerializable.class);
 
 }

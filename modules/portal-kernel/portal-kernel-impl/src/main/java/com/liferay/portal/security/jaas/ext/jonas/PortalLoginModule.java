@@ -14,8 +14,8 @@
 
 package com.liferay.portal.security.jaas.ext.jonas;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ClassResolverUtil;
 import com.liferay.portal.kernel.util.InstanceFactory;
 import com.liferay.portal.kernel.util.MethodKey;
@@ -70,7 +70,7 @@ public class PortalLoginModule extends BasicLoginModule {
 			principals.add(group);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return commitValue;
@@ -96,6 +96,6 @@ public class PortalLoginModule extends BasicLoginModule {
 	private static final String _JROLE =
 		"org.objectweb.jonas.security.auth.JRole";
 
-	private static Log _log = LogFactoryUtil.getLog(PortalLoginModule.class);
+	private static final Logger _log = LoggerFactory.getLogger(PortalLoginModule.class);
 
 }

@@ -15,8 +15,8 @@
 package com.liferay.portal.words;
 
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.SecureRandomUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -95,7 +95,7 @@ public class WordsUtil {
 			}
 		}
 		catch (IOException ioe) {
-			_log.error(ioe);
+			_log.error(ioe.getMessage());
 		}
 	}
 
@@ -133,7 +133,7 @@ public class WordsUtil {
 		return _dictionarySet.contains(word);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(WordsUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(WordsUtil.class);
 
 	private static WordsUtil _instance = new WordsUtil();
 

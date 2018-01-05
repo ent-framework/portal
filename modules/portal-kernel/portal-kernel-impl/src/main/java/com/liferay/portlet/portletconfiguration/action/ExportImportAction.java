@@ -23,8 +23,8 @@ import com.liferay.portal.PortletIdException;
 import com.liferay.portal.kernel.lar.ExportImportHelper;
 import com.liferay.portal.kernel.lar.ExportImportHelperUtil;
 import com.liferay.portal.kernel.lar.MissingReferences;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.staging.StagingUtil;
@@ -168,7 +168,7 @@ public class ExportImportAction extends ImportLayoutsAction {
 					SessionErrors.add(actionRequest, e.getClass());
 				}
 				else {
-					_log.error(e, e);
+					_log.error(e.getMessage(), e);
 
 					SessionErrors.add(
 						actionRequest, ExportImportAction.class.getName());
@@ -268,7 +268,7 @@ public class ExportImportAction extends ImportLayoutsAction {
 		}
 		catch (Exception e) {
 			if (_log.isDebugEnabled()) {
-				_log.debug(e, e);
+				_log.debug(e.getMessage(), e);
 			}
 
 			SessionErrors.add(actionRequest, e.getClass(), e);
@@ -306,6 +306,6 @@ public class ExportImportAction extends ImportLayoutsAction {
 			actionRequest.getParameterMap(), inputStream);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ExportImportAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(ExportImportAction.class);
 
 }

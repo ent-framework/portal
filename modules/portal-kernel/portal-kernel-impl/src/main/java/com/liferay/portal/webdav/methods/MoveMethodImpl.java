@@ -14,8 +14,8 @@
 
 package com.liferay.portal.webdav.methods;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.webdav.Resource;
 import com.liferay.portal.kernel.webdav.WebDAVException;
@@ -81,6 +81,6 @@ public class MoveMethodImpl implements Method {
 		return HttpServletResponse.SC_FORBIDDEN;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(MoveMethodImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(MoveMethodImpl.class);
 
 }

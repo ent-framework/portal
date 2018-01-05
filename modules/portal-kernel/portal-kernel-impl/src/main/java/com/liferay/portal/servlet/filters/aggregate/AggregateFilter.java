@@ -17,8 +17,8 @@ package com.liferay.portal.servlet.filters.aggregate;
 import com.liferay.portal.kernel.cache.key.CacheKeyGenerator;
 import com.liferay.portal.kernel.cache.key.CacheKeyGeneratorUtil;
 import com.liferay.portal.kernel.configuration.Filter;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.BrowserSniffer;
 import com.liferay.portal.kernel.servlet.BufferCacheServletResponse;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
@@ -552,7 +552,7 @@ public class AggregateFilter extends IgnoreModuleRequestFilter {
 
 	private static final String _TEMP_DIR = "aggregate";
 
-	private static Log _log = LogFactoryUtil.getLog(AggregateFilter.class);
+	private static final Logger _log = LoggerFactory.getLogger(AggregateFilter.class);
 
 	private static String _BASE_URL = "@base_url@";
 

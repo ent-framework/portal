@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.bean;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.util.Map;
@@ -75,7 +75,7 @@ public class PortalBeanLocatorUtil {
 			if (_log.isDebugEnabled()) {
 				Exception e = new Exception();
 
-				_log.debug(e, e);
+				_log.debug(e.getMessage(), e);
 			}
 
 			throw new BeanLocatorException("BeanLocator has not been set");
@@ -134,7 +134,7 @@ public class PortalBeanLocatorUtil {
 
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PortalBeanLocatorUtil.class);
 
 	private static BeanLocator _beanLocator;

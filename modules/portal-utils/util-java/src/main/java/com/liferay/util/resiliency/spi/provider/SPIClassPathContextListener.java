@@ -15,8 +15,8 @@
 package com.liferay.util.resiliency.spi.provider;
 
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.resiliency.mpi.MPIHelperUtil;
 import com.liferay.portal.kernel.resiliency.spi.SPIUtil;
 import com.liferay.portal.kernel.resiliency.spi.provider.SPIProvider;
@@ -213,7 +213,7 @@ public class SPIClassPathContextListener implements ServletContextListener {
 	protected static final AtomicReference<SPIProvider> spiProviderReference =
 		new AtomicReference<SPIProvider>();
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		SPIClassPathContextListener.class);
 
 }

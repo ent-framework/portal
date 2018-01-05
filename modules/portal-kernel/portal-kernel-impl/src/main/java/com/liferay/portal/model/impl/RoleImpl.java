@@ -16,8 +16,8 @@ package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.RoleConstants;
 import com.liferay.portal.model.Team;
@@ -55,7 +55,7 @@ public class RoleImpl extends RoleBaseImpl {
 				value = getDescriptiveName();
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -71,7 +71,7 @@ public class RoleImpl extends RoleBaseImpl {
 				value = getDescriptiveName();
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -99,6 +99,6 @@ public class RoleImpl extends RoleBaseImpl {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(RoleImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(RoleImpl.class);
 
 }

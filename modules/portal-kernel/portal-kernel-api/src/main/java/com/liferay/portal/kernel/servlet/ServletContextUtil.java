@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.servlet;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -259,6 +259,6 @@ public class ServletContextUtil {
 
 	private static final String _EXT_JAR = ".jar";
 
-	private static Log _log = LogFactoryUtil.getLog(ServletContextUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(ServletContextUtil.class);
 
 }

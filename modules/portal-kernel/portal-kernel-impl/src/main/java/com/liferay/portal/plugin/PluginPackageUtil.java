@@ -16,8 +16,8 @@ package com.liferay.portal.plugin;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.plugin.License;
 import com.liferay.portal.kernel.plugin.PluginPackage;
 import com.liferay.portal.kernel.plugin.RemotePluginPackageRepository;
@@ -1361,7 +1361,7 @@ public class PluginPackageUtil {
 			pluginPackage);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PluginPackageUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(PluginPackageUtil.class);
 
 	private static PluginPackageUtil _instance = new PluginPackageUtil();
 

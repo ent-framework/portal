@@ -149,5 +149,5 @@
 </c:choose>
 
 <%!
-private static Log _log = LogFactoryUtil.getLog("portal-web.docroot.html.portlet.journal_content_search.search_jsp");
+private static final Logger _log = LoggerFactory.getLogger("portal-web.docroot.html.portlet.journal_content_search.search_jsp");
 %>

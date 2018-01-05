@@ -21,8 +21,8 @@ import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
 import com.liferay.portal.kernel.dao.shard.ShardUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -343,6 +343,6 @@ public class VerifyGroup extends VerifyProcess {
 		"staged-portlet_110", "staged-portlet_166", "staged-portlet_169"
 	};
 
-	private static Log _log = LogFactoryUtil.getLog(VerifyGroup.class);
+	private static final Logger _log = LoggerFactory.getLogger(VerifyGroup.class);
 
 }

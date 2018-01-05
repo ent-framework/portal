@@ -15,8 +15,8 @@
 package com.liferay.portal.kernel.cache.cluster;
 
 import com.liferay.portal.kernel.concurrent.CoalescedPipe;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
@@ -120,7 +120,7 @@ public abstract class BasePortalCacheClusterChannel
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		BasePortalCacheClusterChannel.class);
 
 	private static AtomicInteger _dispatchThreadCounter = new AtomicInteger(0);

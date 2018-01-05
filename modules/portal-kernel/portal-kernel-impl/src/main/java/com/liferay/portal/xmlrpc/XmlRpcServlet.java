@@ -14,8 +14,8 @@
 
 package com.liferay.portal.xmlrpc;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.HttpUtil;
@@ -123,11 +123,11 @@ public class XmlRpcServlet extends HttpServlet {
 				XmlRpcConstants.NOT_WELL_FORMED, "XML is not well formed");
 
 			if (_log.isDebugEnabled()) {
-				_log.debug(ioe, ioe);
+				_log.debug(ioe.getMessage(), ioe);
 			}
 		}
 		catch (XmlRpcException xmlrpce) {
-			_log.error(xmlrpce, xmlrpce);
+			_log.error(xmlrpce.getMessage(), xmlrpce);
 		}
 
 		if (xmlRpcResponse == null) {
@@ -144,7 +144,7 @@ public class XmlRpcServlet extends HttpServlet {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 
 			response.setStatus(HttpServletResponse.SC_PRECONDITION_FAILED);
@@ -190,7 +190,7 @@ public class XmlRpcServlet extends HttpServlet {
 		return method.execute(companyId);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(XmlRpcServlet.class);
+	private static final Logger _log = LoggerFactory.getLogger(XmlRpcServlet.class);
 
 	private static Map<String, Map<String, Method>> _methodRegistry =
 		new HashMap<String, Map<String, Method>>();

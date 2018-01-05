@@ -14,8 +14,8 @@
 
 package com.liferay.portal.search.lucene.dump;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.search.lucene.dump.IndexCommitMetaInfo.Segment;
 import com.liferay.portal.util.PropsValues;
 
@@ -214,7 +214,7 @@ public class IndexCommitSerializationUtil {
 
 	private static final String _SEGMENTS_GEN_FILE_NAME = "segments.gen";
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		IndexCommitSerializationUtil.class);
 
 }

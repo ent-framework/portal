@@ -14,8 +14,8 @@
 
 package com.liferay.mail.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ClassUtil;
 import com.liferay.portal.kernel.util.InstanceFactory;
 import com.liferay.portal.util.ClassLoaderUtil;
@@ -57,7 +57,7 @@ public class HookFactory {
 		_hook = _originalHook;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(HookFactory.class);
+	private static final Logger _log = LoggerFactory.getLogger(HookFactory.class);
 
 	private static volatile Hook _hook;
 	private static Hook _originalHook;

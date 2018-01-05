@@ -22,14 +22,11 @@ import com.liferay.portal.kernel.cache.CacheRegistryUtil;
 import com.liferay.portal.kernel.configuration.ConfigurationFactoryUtil;
 import com.liferay.portal.kernel.dao.db.DBFactoryUtil;
 import com.liferay.portal.kernel.dao.jdbc.DataSourceFactoryUtil;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.kernel.log.SanitizerLogWrapper;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.*;
-import com.liferay.portal.log.Log4jLogFactoryImpl;
 import com.liferay.portal.security.lang.DoPrivilegedUtil;
 import com.liferay.portal.security.lang.SecurityManagerUtil;
 import com.liferay.portal.spring.util.SpringUtil;
-import com.liferay.util.log4j.Log4JUtil;
 import com.sun.syndication.io.XmlReader;
 import org.apache.commons.lang.time.StopWatch;
 
@@ -79,29 +76,6 @@ public class InitUtil {
 
 		com.liferay.portal.kernel.util.PropsUtil.setProps(new PropsImpl());
 
-		// Log4J
-
-		if (GetterUtil.getBoolean(
-				SystemProperties.get("log4j.configure.on.startup"), true)) {
-
-			ClassLoader classLoader = InitUtil.class.getClassLoader();
-
-			Log4JUtil.configureLog4J(classLoader);
-		}
-
-		// Shared log
-
-		try {
-			LogFactoryUtil.setLogFactory(new Log4jLogFactoryImpl());
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		// Log sanitizer
-
-		SanitizerLogWrapper.init();
-
 		// Java properties
 
 		JavaDetector.isJDK5();
@@ -109,15 +83,6 @@ public class InitUtil {
 		// Security manager
 
 		SecurityManagerUtil.init();
-
-		if (SecurityManagerUtil.ENABLED) {
-			com.liferay.portal.kernel.util.PropsUtil.setProps(
-				DoPrivilegedUtil.wrap(
-					com.liferay.portal.kernel.util.PropsUtil.getProps()));
-
-			LogFactoryUtil.setLogFactory(
-				DoPrivilegedUtil.wrap(LogFactoryUtil.getLogFactory()));
-		}
 
 		// Cache registry
 

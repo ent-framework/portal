@@ -15,8 +15,8 @@
 package com.liferay.portal.resiliency.spi;
 
 import com.liferay.portal.kernel.concurrent.ConcurrentHashSet;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.resiliency.spi.SPI;
 import com.liferay.portal.kernel.resiliency.spi.SPIConfiguration;
 import com.liferay.portal.kernel.resiliency.spi.SPIRegistry;
@@ -190,7 +190,7 @@ public class SPIRegistryImpl implements SPIRegistry {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(SPIRegistryImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(SPIRegistryImpl.class);
 
 	private SPI _errorSPI;
 	private Set<String> _excludedPortletIds = new ConcurrentHashSet<String>();

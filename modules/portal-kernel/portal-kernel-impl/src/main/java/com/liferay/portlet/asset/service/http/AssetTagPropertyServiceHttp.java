@@ -1,13 +1,14 @@
 package com.liferay.portlet.asset.service.http;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.http.TunnelUtil;
 
 import com.liferay.portlet.asset.service.AssetTagPropertyServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Provides the HTTP utility for the
@@ -38,7 +39,7 @@ import com.liferay.portlet.asset.service.AssetTagPropertyServiceUtil;
  * @generated
  */
 public class AssetTagPropertyServiceHttp {
-    private static Log _log = LogFactoryUtil.getLog(AssetTagPropertyServiceHttp.class);
+    private static final Logger _log = LoggerFactory.getLogger(AssetTagPropertyServiceHttp.class);
     private static final Class<?>[] _addTagPropertyParameterTypes0 = new Class[] {
             long.class, java.lang.String.class, java.lang.String.class
         };
@@ -85,7 +86,7 @@ public class AssetTagPropertyServiceHttp {
 
             return (com.liferay.portlet.asset.model.AssetTagProperty) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -116,7 +117,7 @@ public class AssetTagPropertyServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -145,7 +146,7 @@ public class AssetTagPropertyServiceHttp {
 
             return (java.util.List<com.liferay.portlet.asset.model.AssetTagProperty>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -175,7 +176,7 @@ public class AssetTagPropertyServiceHttp {
 
             return (java.util.List<com.liferay.portlet.asset.model.AssetTagProperty>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -211,7 +212,7 @@ public class AssetTagPropertyServiceHttp {
 
             return (com.liferay.portlet.asset.model.AssetTagProperty) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }

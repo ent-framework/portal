@@ -17,8 +17,8 @@ package com.liferay.portlet.dynamicdatamapping.storage;
 import com.liferay.counter.service.CounterLocalServiceUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -621,7 +621,7 @@ public class ExpandoStorageAdapter extends BaseStorageAdapter {
 
 	private static final String _NUMERIC_NULL_VALUE = "NUMERIC_NULL_VALUE";
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		ExpandoStorageAdapter.class);
 
 }

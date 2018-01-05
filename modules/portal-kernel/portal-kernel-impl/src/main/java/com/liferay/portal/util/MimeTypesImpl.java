@@ -15,8 +15,8 @@
 package com.liferay.portal.util;
 
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.*;
 import org.apache.tika.detect.DefaultDetector;
 import org.apache.tika.detect.Detector;
@@ -131,7 +131,7 @@ public class MimeTypesImpl implements MimeTypes, MimeTypesReaderMetKeys {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			contentType = ContentTypes.APPLICATION_OCTET_STREAM;
 		}
@@ -165,7 +165,7 @@ public class MimeTypesImpl implements MimeTypes, MimeTypesReaderMetKeys {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return ContentTypes.APPLICATION_OCTET_STREAM;
@@ -282,7 +282,7 @@ public class MimeTypesImpl implements MimeTypes, MimeTypesReaderMetKeys {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(MimeTypesImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(MimeTypesImpl.class);
 
 	private Detector _detector;
 	private Map<String, Set<String>> _extensionsMap =

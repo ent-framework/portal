@@ -16,8 +16,8 @@ package com.liferay.portal.scheduler.quartz;
 
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBFactoryUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.quartz.impl.jdbcjobstore.DB2v8Delegate;
 import org.quartz.impl.jdbcjobstore.DriverDelegate;
@@ -87,7 +87,7 @@ public class PortalJobStore extends JobStoreTX {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PortalJobStore.class);
+	private static final Logger _log = LoggerFactory.getLogger(PortalJobStore.class);
 
 	private DriverDelegate _driverDelegate;
 

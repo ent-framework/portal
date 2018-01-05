@@ -2,11 +2,12 @@ package com.liferay.portlet.shopping.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 
 import com.liferay.portlet.shopping.service.ShoppingCategoryServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -52,7 +53,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class ShoppingCategoryServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(ShoppingCategoryServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(ShoppingCategoryServiceSoap.class);
 
     public static com.liferay.portlet.shopping.model.ShoppingCategorySoap addCategory(
         long parentCategoryId, java.lang.String name,
@@ -65,7 +66,7 @@ public class ShoppingCategoryServiceSoap {
 
             return com.liferay.portlet.shopping.model.ShoppingCategorySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -76,7 +77,7 @@ public class ShoppingCategoryServiceSoap {
         try {
             ShoppingCategoryServiceUtil.deleteCategory(categoryId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -90,7 +91,7 @@ public class ShoppingCategoryServiceSoap {
 
             return com.liferay.portlet.shopping.model.ShoppingCategorySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -106,7 +107,7 @@ public class ShoppingCategoryServiceSoap {
 
             return com.liferay.portlet.shopping.model.ShoppingCategorySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -120,7 +121,7 @@ public class ShoppingCategoryServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -133,7 +134,7 @@ public class ShoppingCategoryServiceSoap {
 
             return com.liferay.portlet.shopping.model.ShoppingCategorySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -145,7 +146,7 @@ public class ShoppingCategoryServiceSoap {
             ShoppingCategoryServiceUtil.getSubcategoryIds(ListUtil.toList(
                     categoryIds), groupId, categoryId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -163,7 +164,7 @@ public class ShoppingCategoryServiceSoap {
 
             return com.liferay.portlet.shopping.model.ShoppingCategorySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

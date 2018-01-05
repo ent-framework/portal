@@ -16,8 +16,8 @@ package com.liferay.portal.upload;
 
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.servlet.ServletInputStreamAdapter;
 import com.liferay.portal.kernel.util.FileUtil;
@@ -82,7 +82,7 @@ public class LiferayInputStream extends ServletInputStreamAdapter {
 				}
 				catch (IOException ioe) {
 					if (_log.isWarnEnabled()) {
-						_log.warn(ioe, ioe);
+						_log.warn(ioe.getMessage(), ioe);
 					}
 				}
 			}
@@ -175,7 +175,7 @@ public class LiferayInputStream extends ServletInputStreamAdapter {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LiferayInputStream.class);
+	private static final Logger _log = LoggerFactory.getLogger(LiferayInputStream.class);
 
 	private UnsyncByteArrayOutputStream _cachedBytes =
 		new UnsyncByteArrayOutputStream();

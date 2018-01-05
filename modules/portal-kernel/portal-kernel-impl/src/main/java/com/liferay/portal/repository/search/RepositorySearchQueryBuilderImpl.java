@@ -14,8 +14,8 @@
 
 package com.liferay.portal.repository.search;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.repository.search.RepositorySearchQueryBuilder;
 import com.liferay.portal.kernel.search.BooleanClause;
 import com.liferay.portal.kernel.search.BooleanClauseOccur;
@@ -201,7 +201,7 @@ public class RepositorySearchQueryBuilderImpl
 				org.apache.lucene.search.BooleanClause.Occur.SHOULD);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -455,7 +455,7 @@ public class RepositorySearchQueryBuilderImpl
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		RepositorySearchQueryBuilderImpl.class);
 
 	private Analyzer _analyzer;

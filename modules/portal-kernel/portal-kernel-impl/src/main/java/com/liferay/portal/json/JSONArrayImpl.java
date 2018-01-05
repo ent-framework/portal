@@ -17,8 +17,8 @@ package com.liferay.portal.json;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONException;
 import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.Validator;
 
 import java.io.IOException;
@@ -138,7 +138,7 @@ public class JSONArrayImpl implements JSONArray {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -227,7 +227,7 @@ public class JSONArrayImpl implements JSONArray {
 
 	private static final String _NULL_JSON = "[]";
 
-	private static Log _log = LogFactoryUtil.getLog(JSONArrayImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(JSONArrayImpl.class);
 
 	private org.json.JSONArray _jsonArray;
 

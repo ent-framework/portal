@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.resiliency.spi.agent;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.resiliency.spi.SPI;
 import com.liferay.portal.kernel.resiliency.spi.SPIUtil;
 import com.liferay.portal.kernel.util.StringPool;
@@ -92,17 +92,17 @@ public class AcceptorServlet extends HttpServlet {
 			doService(request, response);
 		}
 		catch (IOException ioe) {
-			_log.error(ioe, ioe);
+			_log.error(ioe.getMessage(), ioe);
 
 			throw ioe;
 		}
 		catch (RuntimeException re) {
-			_log.error(re, re);
+			_log.error(re.getMessage(), re);
 
 			throw re;
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(AcceptorServlet.class);
+	private static final Logger _log = LoggerFactory.getLogger(AcceptorServlet.class);
 
 }

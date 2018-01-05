@@ -17,8 +17,8 @@ package com.liferay.portal.kernel.search.facet;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.search.BooleanClause;
 import com.liferay.portal.kernel.search.BooleanClauseFactoryUtil;
 import com.liferay.portal.kernel.search.BooleanClauseOccur;
@@ -118,7 +118,7 @@ public class AssetEntriesFacet extends MultiValueFacet {
 				}
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -180,6 +180,6 @@ public class AssetEntriesFacet extends MultiValueFacet {
 		searchContext.setEntryClassNames(entryClassNames);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(AssetEntriesFacet.class);
+	private static final Logger _log = LoggerFactory.getLogger(AssetEntriesFacet.class);
 
 }

@@ -19,8 +19,8 @@ import com.liferay.mail.service.MailService;
 import com.liferay.mail.util.Hook;
 import com.liferay.portal.kernel.bean.IdentifiableBean;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.mail.Account;
 import com.liferay.portal.kernel.mail.MailMessage;
 import com.liferay.portal.kernel.messaging.DestinationNames;
@@ -241,7 +241,7 @@ public class MailServiceImpl implements MailService, IdentifiableBean {
 		}
 		catch (IOException ioe) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(ioe, ioe);
+				_log.warn(ioe.getMessage(), ioe);
 			}
 		}
 
@@ -304,7 +304,7 @@ public class MailServiceImpl implements MailService, IdentifiableBean {
 		MessageBusUtil.sendMessage(DestinationNames.MAIL, methodHandler);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(MailServiceImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(MailServiceImpl.class);
 
 	private static MethodKey _addForwardMethodKey = new MethodKey(
 		Hook.class, "addForward", long.class, long.class, List.class,

@@ -15,8 +15,8 @@
 package com.liferay.util.dao.orm;
 
 import com.liferay.portal.kernel.dao.orm.QueryDefinition;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.OrderByComparator;
 
 import java.sql.SQLException;
@@ -139,11 +139,11 @@ public class CustomSQLUtil {
 			_customSQL = new CustomSQL();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(CustomSQLUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(CustomSQLUtil.class);
 
 	private static CustomSQLUtil _instance = new CustomSQLUtil();
 

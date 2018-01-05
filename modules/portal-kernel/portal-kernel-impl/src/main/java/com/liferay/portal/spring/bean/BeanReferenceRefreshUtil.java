@@ -14,8 +14,8 @@
 
 package com.liferay.portal.spring.bean;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
 
@@ -101,7 +101,7 @@ public class BeanReferenceRefreshUtil {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		BeanReferenceRefreshUtil.class);
 
 	private static PACL _pacl = new NoPACL();

@@ -16,8 +16,8 @@ package com.liferay.portal.kernel.util;
 
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -67,7 +67,7 @@ public class ClassLoaderProxy {
 			throw translateThrowable(ite.getCause(), contextClassLoader);
 		}
 		catch (Throwable t) {
-			_log.error(t, t);
+			_log.error(t.getMessage(), t);
 
 			throw t;
 		}
@@ -169,7 +169,7 @@ public class ClassLoaderProxy {
 			throw translateThrowable(ite.getCause(), contextClassLoader);
 		}
 		catch (Throwable t) {
-			_log.error(t, t);
+			_log.error(t.getMessage(), t);
 
 			throw t;
 		}
@@ -207,7 +207,7 @@ public class ClassLoaderProxy {
 			return throwable;
 		}
 		catch (Throwable throwable2) {
-			_log.error(throwable2, throwable2);
+			_log.error(throwable2.getMessage(), throwable2);
 
 			return throwable2;
 		}
@@ -258,7 +258,7 @@ public class ClassLoaderProxy {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ClassLoaderProxy.class);
+	private static final Logger _log = LoggerFactory.getLogger(ClassLoaderProxy.class);
 
 	private ClassLoader _classLoader;
 	private String _className;

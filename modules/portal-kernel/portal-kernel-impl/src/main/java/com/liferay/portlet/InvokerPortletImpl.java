@@ -15,8 +15,8 @@
 package com.liferay.portlet;
 
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.LiferayPortletConfig;
 import com.liferay.portal.kernel.portlet.LiferayPortletContext;
 import com.liferay.portal.kernel.portlet.LiferayPortletRequest;
@@ -715,7 +715,7 @@ public class InvokerPortletImpl implements InvokerPortlet {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(InvokerPortletImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(InvokerPortletImpl.class);
 
 	private List<ActionFilter> _actionFilters = new ArrayList<ActionFilter>();
 	private boolean _checkAuthToken;

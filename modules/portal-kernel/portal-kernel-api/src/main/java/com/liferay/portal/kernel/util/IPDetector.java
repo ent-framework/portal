@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -64,7 +64,7 @@ public class IPDetector {
 			}
 		}
 		catch (UnknownHostException uhe) {
-			_log.error(uhe, uhe);
+			_log.error(uhe.getMessage(), uhe);
 		}
 
 		if (_suppportsV6 == null) {
@@ -74,7 +74,7 @@ public class IPDetector {
 		return _suppportsV6.booleanValue();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(IPDetector.class);
+	private static final Logger _log = LoggerFactory.getLogger(IPDetector.class);
 
 	private static Boolean _prefersV4;
 	private static Boolean _prefersV6;

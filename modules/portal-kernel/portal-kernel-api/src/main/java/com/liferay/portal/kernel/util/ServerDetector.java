@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.management.MBeanServer;
 import javax.management.MBeanServerFactory;
@@ -306,7 +306,7 @@ public class ServerDetector {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return false;
@@ -340,7 +340,7 @@ public class ServerDetector {
 		return _detect("/com/ibm/websphere/product/VersionInfo.class");
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ServerDetector.class);
+	private static final Logger _log = LoggerFactory.getLogger(ServerDetector.class);
 
 	private static ServerDetector _instance;
 

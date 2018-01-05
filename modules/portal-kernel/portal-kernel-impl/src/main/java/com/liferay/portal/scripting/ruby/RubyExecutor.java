@@ -14,8 +14,8 @@
 
 package com.liferay.portal.scripting.ruby;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.scripting.BaseScriptingExecutor;
 import com.liferay.portal.kernel.scripting.ExecutionException;
 import com.liferay.portal.kernel.scripting.ScriptingException;
@@ -65,7 +65,7 @@ public class RubyExecutor extends BaseScriptingExecutor {
 			initRubyGems();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		_scriptingContainer = new ScriptingContainer(
@@ -212,7 +212,7 @@ public class RubyExecutor extends BaseScriptingExecutor {
 				_globalRuntimeField.set(null, null);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 	}
@@ -307,7 +307,7 @@ public class RubyExecutor extends BaseScriptingExecutor {
 
 	private static final String _COMPILE_MODE_JIT = "jit";
 
-	private static Log _log = LogFactoryUtil.getLog(RubyExecutor.class);
+	private static final Logger _log = LoggerFactory.getLogger(RubyExecutor.class);
 
 	private static Field _globalRuntimeField;
 

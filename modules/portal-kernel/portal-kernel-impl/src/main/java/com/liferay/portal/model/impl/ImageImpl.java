@@ -14,8 +14,8 @@
 
 package com.liferay.portal.model.impl;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.util.PropsValues;
@@ -88,7 +88,7 @@ public class ImageImpl extends ImageBaseImpl {
 
 	private static final long _DEFAULT_REPOSITORY_ID = 0;
 
-	private static Log _log = LogFactoryUtil.getLog(ImageImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(ImageImpl.class);
 
 	private byte[] _textObj;
 

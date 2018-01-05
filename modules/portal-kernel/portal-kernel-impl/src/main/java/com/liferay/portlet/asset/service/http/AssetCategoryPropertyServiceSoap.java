@@ -2,10 +2,10 @@ package com.liferay.portlet.asset.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-
 import com.liferay.portlet.asset.service.AssetCategoryPropertyServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -51,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class AssetCategoryPropertyServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(AssetCategoryPropertyServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(AssetCategoryPropertyServiceSoap.class);
 
     public static com.liferay.portlet.asset.model.AssetCategoryPropertySoap addCategoryProperty(
         long entryId, java.lang.String key, java.lang.String value)
@@ -62,7 +62,7 @@ public class AssetCategoryPropertyServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetCategoryPropertySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -73,7 +73,7 @@ public class AssetCategoryPropertyServiceSoap {
         try {
             AssetCategoryPropertyServiceUtil.deleteCategoryProperty(categoryPropertyId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -87,7 +87,7 @@ public class AssetCategoryPropertyServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetCategoryPropertySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -102,7 +102,7 @@ public class AssetCategoryPropertyServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetCategoryPropertySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -117,7 +117,7 @@ public class AssetCategoryPropertyServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetCategoryPropertySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

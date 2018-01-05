@@ -16,8 +16,8 @@ package com.liferay.portal.kernel.dao.orm;
 
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBFactoryUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.RandomUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.UnmodifiableList;
@@ -290,6 +290,6 @@ public class QueryUtil {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(QueryUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(QueryUtil.class);
 
 }

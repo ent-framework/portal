@@ -16,8 +16,8 @@ package com.liferay.portal.util;
 
 import com.liferay.portal.kernel.configuration.Filter;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.upload.ProgressInputStream;
@@ -1509,7 +1509,7 @@ public class HttpImpl implements Http {
 				}
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 
 			try {
@@ -1518,7 +1518,7 @@ public class HttpImpl implements Http {
 				}
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 	}
@@ -1562,7 +1562,7 @@ public class HttpImpl implements Http {
 	private static final int _TIMEOUT = GetterUtil.getInteger(
 		PropsUtil.get(HttpImpl.class.getName() + ".timeout"), 5000);
 
-	private static Log _log = LogFactoryUtil.getLog(HttpImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(HttpImpl.class);
 
 	private static ThreadLocal<Cookie[]> _cookies = new ThreadLocal<Cookie[]>();
 

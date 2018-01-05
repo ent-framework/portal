@@ -14,8 +14,8 @@
 
 package com.liferay.portal.apache.bridges.struts;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portlet.PortletResponseImpl;
 import com.liferay.portlet.PortletURLImplWrapper;
@@ -69,7 +69,7 @@ public class LiferayStrutsPortletURLImpl extends PortletURLImplWrapper {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		LiferayStrutsPortletURLImpl.class);
 
 }

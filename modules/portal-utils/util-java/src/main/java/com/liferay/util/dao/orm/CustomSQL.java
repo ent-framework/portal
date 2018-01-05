@@ -18,8 +18,8 @@ import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.dao.orm.QueryDefinition;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -448,7 +448,7 @@ public class CustomSQL {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 		finally {
 			DataAccess.cleanUp(con);
@@ -473,7 +473,7 @@ public class CustomSQL {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -881,7 +881,7 @@ public class CustomSQL {
 
 	private static final String _STATUS_KEYWORD = "[$STATUS$]";
 
-	private static Log _log = LogFactoryUtil.getLog(CustomSQL.class);
+	private static final Logger _log = LoggerFactory.getLogger(CustomSQL.class);
 
 	private String _functionIsNotNull;
 	private String _functionIsNull;

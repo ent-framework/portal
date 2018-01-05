@@ -16,8 +16,8 @@ package com.liferay.portal.image;
 
 import com.liferay.portal.kernel.configuration.Filter;
 import com.liferay.portal.kernel.image.ImageMagick;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.NamedThreadFactory;
 import com.liferay.portal.kernel.util.OSDetector;
@@ -163,7 +163,7 @@ public class ImageMagickImpl implements ImageMagick {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -195,7 +195,7 @@ public class ImageMagickImpl implements ImageMagick {
 				_resourceLimitsProperties = getResourceLimitsProperties();
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 	}
@@ -241,7 +241,7 @@ public class ImageMagickImpl implements ImageMagick {
 		return _processExecutor;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ImageMagickImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(ImageMagickImpl.class);
 
 	private static ImageMagickImpl _instance = new ImageMagickImpl();
 

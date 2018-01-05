@@ -14,8 +14,8 @@
 
 package com.liferay.portal.struts;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.LiferayPortletURL;
 import com.liferay.portal.kernel.portlet.PortletModeFactory;
 import com.liferay.portal.kernel.portlet.WindowStateFactory;
@@ -212,7 +212,7 @@ public class StrutsURLEncoder implements URLEncoder {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(StrutsURLEncoder.class);
+	private static final Logger _log = LoggerFactory.getLogger(StrutsURLEncoder.class);
 
 	private String _contextPath;
 	private LiferayPortletURL _liferayPortletURL;

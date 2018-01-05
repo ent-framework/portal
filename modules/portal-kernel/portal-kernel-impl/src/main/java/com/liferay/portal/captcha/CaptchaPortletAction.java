@@ -15,8 +15,8 @@
 package com.liferay.portal.captcha;
 
 import com.liferay.portal.kernel.captcha.CaptchaUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.struts.PortletAction;
 
 import javax.portlet.PortletConfig;
@@ -42,7 +42,7 @@ public class CaptchaPortletAction extends PortletAction {
 			CaptchaUtil.serveImage(resourceRequest, resourceResponse);
 		}
 		catch (Exception e) {
-			_log.error(e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -53,6 +53,6 @@ public class CaptchaPortletAction extends PortletAction {
 
 	private static final boolean _CHECK_METHOD_ON_PROCESS_ACTION = false;
 
-	private static Log _log = LogFactoryUtil.getLog(CaptchaPortletAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(CaptchaPortletAction.class);
 
 }

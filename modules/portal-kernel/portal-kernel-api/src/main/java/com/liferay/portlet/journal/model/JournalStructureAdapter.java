@@ -16,8 +16,8 @@ package com.liferay.portlet.journal.model;
 
 import com.liferay.portal.LocaleException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Document;
@@ -301,7 +301,7 @@ public class JournalStructureAdapter implements JournalStructure {
 			return parentDDMStructure.getStructureKey();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return null;
@@ -577,7 +577,7 @@ public class JournalStructureAdapter implements JournalStructure {
 				parentDDMStructure.getStructureId());
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -686,7 +686,7 @@ public class JournalStructureAdapter implements JournalStructure {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		JournalStructureAdapter.class);
 
 	private DDMStructure _ddmStructure;

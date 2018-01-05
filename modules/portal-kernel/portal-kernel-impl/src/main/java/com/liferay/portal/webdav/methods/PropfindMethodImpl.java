@@ -14,8 +14,8 @@
 
 package com.liferay.portal.webdav.methods;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
@@ -133,6 +133,6 @@ public class PropfindMethodImpl extends BasePropMethodImpl implements Method {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PropfindMethodImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(PropfindMethodImpl.class);
 
 }

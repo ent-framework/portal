@@ -15,8 +15,8 @@
 package com.liferay.portal.util;
 
 import com.liferay.portal.kernel.configuration.Filter;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringPool;
@@ -87,7 +87,7 @@ public class LayoutSettings {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return replaceVariables(url, variables);
@@ -130,7 +130,7 @@ public class LayoutSettings {
 				permissionChecker, layout, ActionKeys.VIEW);
 		}
 		catch (Exception e) {
-			_log.error(e);
+			_log.error(e.getMessage(), e);
 
 			return false;
 		}
@@ -177,7 +177,7 @@ public class LayoutSettings {
 			PropsUtil.get(PropsKeys.LAYOUT_VIEW_PAGE, filter));
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LayoutSettings.class);
+	private static final Logger _log = LoggerFactory.getLogger(LayoutSettings.class);
 
 	private static final String _URL =
 		"${liferay:mainPath}/portal/layout?p_l_id=${liferay:plid}&" +

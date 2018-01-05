@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.templateparser;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -261,7 +261,7 @@ public class TemplateNode extends LinkedHashMap<String, Object> {
 
 	private static final String _LAYOUT_TYPE_PUBLIC = "public";
 
-	private static Log _log = LogFactoryUtil.getLog(TemplateNode.class);
+	private static final Logger _log = LoggerFactory.getLogger(TemplateNode.class);
 
 	private Map<String, TemplateNode> _childTemplateNodes =
 		new LinkedHashMap<String, TemplateNode>();

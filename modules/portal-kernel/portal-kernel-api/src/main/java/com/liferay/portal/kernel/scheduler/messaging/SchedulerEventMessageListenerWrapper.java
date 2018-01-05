@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.scheduler.messaging;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.DestinationNames;
 import com.liferay.portal.kernel.messaging.Message;
 import com.liferay.portal.kernel.messaging.MessageBusUtil;
@@ -166,7 +166,7 @@ public class SchedulerEventMessageListenerWrapper implements MessageListener {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		SchedulerEventMessageListenerWrapper.class);
 
 	private String _groupName;

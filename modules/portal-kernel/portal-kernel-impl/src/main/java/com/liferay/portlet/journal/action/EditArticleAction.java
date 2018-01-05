@@ -16,8 +16,8 @@ package com.liferay.portlet.journal.action;
 
 import com.liferay.portal.LocaleException;
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.LiferayWindowState;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.servlet.SessionMessages;
@@ -898,6 +898,6 @@ public class EditArticleAction extends PortletAction {
 			portletResource, articleId, true);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(EditArticleAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(EditArticleAction.class);
 
 }

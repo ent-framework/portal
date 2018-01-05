@@ -16,8 +16,8 @@ package com.liferay.portal.servlet;
 
 import com.liferay.portal.NoSuchLayoutException;
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
@@ -59,28 +59,6 @@ public class I18nServlet extends HttpServlet {
 
 	public static Set<String> getLanguageIds() {
 		return _languageIds;
-	}
-
-	@Deprecated
-	public static void setLanguageIds(Element root) {
-		_languageIds = new HashSet<String>();
-
-		List<Element> rootElements = root.elements("servlet-mapping");
-
-		for (Element element : rootElements) {
-			String servletName = element.elementText("servlet-name");
-
-			if (servletName.equals("I18n Servlet")) {
-				String urlPattern = element.elementText("url-pattern");
-
-				String languageId = urlPattern.substring(
-					0, urlPattern.lastIndexOf(CharPool.SLASH));
-
-				_languageIds.add(languageId);
-			}
-		}
-
-		_languageIds = Collections.unmodifiableSet(_languageIds);
 	}
 
 	@Override
@@ -126,7 +104,7 @@ public class I18nServlet extends HttpServlet {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			PortalUtil.sendError(
 				HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e, request,
@@ -187,7 +165,7 @@ public class I18nServlet extends HttpServlet {
 		};
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(I18nServlet.class);
+	private static final Logger _log = LoggerFactory.getLogger(I18nServlet.class);
 
 	private static Set<String> _languageIds;
 

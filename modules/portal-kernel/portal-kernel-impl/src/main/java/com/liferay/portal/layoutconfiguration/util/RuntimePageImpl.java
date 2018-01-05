@@ -16,8 +16,8 @@ package com.liferay.portal.layoutconfiguration.util;
 
 import com.liferay.portal.kernel.executor.PortalExecutorManagerUtil;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringWriter;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.servlet.PipingServletResponse;
 import com.liferay.portal.kernel.servlet.PluginContextListener;
@@ -331,7 +331,7 @@ public class RuntimePageImpl implements RuntimePage {
 			template.processTemplate(pageContext.getOut());
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			throw e;
 		}
@@ -375,7 +375,7 @@ public class RuntimePageImpl implements RuntimePage {
 			template.processTemplate(unsyncStringWriter);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			throw e;
 		}
@@ -682,7 +682,7 @@ public class RuntimePageImpl implements RuntimePage {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(RuntimePageImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(RuntimePageImpl.class);
 
 	private int _waitTime = Integer.MAX_VALUE;
 

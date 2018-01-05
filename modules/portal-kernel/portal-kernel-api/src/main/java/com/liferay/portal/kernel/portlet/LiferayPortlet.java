@@ -16,8 +16,8 @@ package com.liferay.portal.kernel.portlet;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.servlet.SessionMessages;
@@ -411,7 +411,7 @@ public class LiferayPortlet extends GenericPortlet {
 
 	protected boolean isSessionErrorException(Throwable cause) {
 		if (_log.isDebugEnabled()) {
-			_log.debug(cause, cause);
+			_log.debug(cause.getMessage(), cause);
 		}
 
 		if (cause instanceof PortalException) {
@@ -517,7 +517,7 @@ public class LiferayPortlet extends GenericPortlet {
 
 	private static final boolean _PROCESS_PORTLET_REQUEST = true;
 
-	private static Log _log = LogFactoryUtil.getLog(LiferayPortlet.class);
+	private static final Logger _log = LoggerFactory.getLogger(LiferayPortlet.class);
 
 	private Map<String, Method> _actionMethods =
 		new ConcurrentHashMap<String, Method>();

@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.messaging.proxy;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.Message;
 import com.liferay.portal.kernel.messaging.MessageBus;
 import com.liferay.portal.kernel.messaging.MessageBusUtil;
@@ -69,7 +69,7 @@ public class ProxyMessageListener implements MessageListener {
 				responseMessage.setPayload(proxyResponse);
 
 				if (_log.isDebugEnabled() && (proxyResponseException != null)) {
-					_log.debug(proxyResponseException, proxyResponseException);
+					_log.debug(proxyResponseException.getMessage(), proxyResponseException);
 				}
 
 				_messageBus.sendMessage(
@@ -79,7 +79,7 @@ public class ProxyMessageListener implements MessageListener {
 				if (proxyResponseException != null) {
 					if (_log.isWarnEnabled()) {
 						_log.warn(
-							proxyResponseException, proxyResponseException);
+							proxyResponseException.getMessage(), proxyResponseException);
 					}
 				}
 
@@ -96,7 +96,7 @@ public class ProxyMessageListener implements MessageListener {
 		_messageBus = messageBus;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ProxyMessageListener.class);
+	private static final Logger _log = LoggerFactory.getLogger(ProxyMessageListener.class);
 
 	private Object _manager;
 	private MessageBus _messageBus;

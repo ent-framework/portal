@@ -2,10 +2,10 @@ package com.liferay.portlet.softwarecatalog.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-
 import com.liferay.portlet.softwarecatalog.service.SCProductVersionServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -51,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class SCProductVersionServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(SCProductVersionServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(SCProductVersionServiceSoap.class);
 
     public static com.liferay.portlet.softwarecatalog.model.SCProductVersionSoap addProductVersion(
         long productEntryId, java.lang.String version,
@@ -69,7 +69,7 @@ public class SCProductVersionServiceSoap {
 
             return com.liferay.portlet.softwarecatalog.model.SCProductVersionSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -80,7 +80,7 @@ public class SCProductVersionServiceSoap {
         try {
             SCProductVersionServiceUtil.deleteProductVersion(productVersionId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -94,7 +94,7 @@ public class SCProductVersionServiceSoap {
 
             return com.liferay.portlet.softwarecatalog.model.SCProductVersionSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -109,7 +109,7 @@ public class SCProductVersionServiceSoap {
 
             return com.liferay.portlet.softwarecatalog.model.SCProductVersionSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -122,7 +122,7 @@ public class SCProductVersionServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -143,7 +143,7 @@ public class SCProductVersionServiceSoap {
 
             return com.liferay.portlet.softwarecatalog.model.SCProductVersionSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

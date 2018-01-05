@@ -15,8 +15,8 @@
 package com.liferay.mail.util;
 
 import com.liferay.portal.kernel.jndi.JNDIUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.SortedProperties;
 import com.liferay.portal.kernel.util.Validator;
@@ -81,7 +81,7 @@ public class MailSessionFactoryBean extends AbstractFactoryBean<Session> {
 		return session;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		MailSessionFactoryBean.class);
 
 	private String _propertyPrefix;

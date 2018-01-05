@@ -16,8 +16,8 @@ package com.liferay.portal.struts;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.PortletResponseUtil;
 import com.liferay.portal.kernel.servlet.BrowserSnifferUtil;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
@@ -336,7 +336,7 @@ public class PortletAction extends Action {
 		}
 		catch (PortalException pe) {
 			if (_log.isDebugEnabled()) {
-				_log.debug(pe, pe);
+				_log.debug(pe.getMessage(), pe);
 			}
 		}
 
@@ -483,6 +483,6 @@ public class PortletAction extends Action {
 
 	private static final boolean _CHECK_METHOD_ON_PROCESS_ACTION = true;
 
-	private static Log _log = LogFactoryUtil.getLog(PortletAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(PortletAction.class);
 
 }

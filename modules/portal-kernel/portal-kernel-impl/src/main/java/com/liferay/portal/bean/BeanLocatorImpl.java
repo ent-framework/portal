@@ -16,8 +16,8 @@ package com.liferay.portal.bean;
 
 import com.liferay.portal.kernel.bean.BeanLocator;
 import com.liferay.portal.kernel.bean.BeanLocatorException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.kernel.util.ProxyUtil;
@@ -189,7 +189,7 @@ public class BeanLocatorImpl implements BeanLocator {
 		return _pacl.getBean(bean, _classLoader);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(BeanLocatorImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(BeanLocatorImpl.class);
 
 	private static PACL _pacl = new NoPACL();
 

@@ -16,8 +16,8 @@ package com.liferay.portal.kernel.util;
 
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
@@ -239,7 +239,7 @@ public class UnicodeProperties extends HashMap<String, String> {
 	private static final String _SAFE_NEWLINE_CHARACTER =
 		"_SAFE_NEWLINE_CHARACTER_";
 
-	private static Log _log = LogFactoryUtil.getLog(UnicodeProperties.class);
+	private static final Logger _log = LoggerFactory.getLogger(UnicodeProperties.class);
 
 	private int _length;
 	private boolean _safe = false;

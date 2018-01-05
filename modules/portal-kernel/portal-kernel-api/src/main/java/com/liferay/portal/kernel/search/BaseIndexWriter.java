@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.search;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Michael C. Han
@@ -138,7 +138,7 @@ public abstract class BaseIndexWriter
 		_spellCheckIndexWriter = spellCheckIndexWriter;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(BaseIndexWriter.class);
+	private static final Logger _log = LoggerFactory.getLogger(BaseIndexWriter.class);
 
 	private SpellCheckIndexWriter _spellCheckIndexWriter;
 

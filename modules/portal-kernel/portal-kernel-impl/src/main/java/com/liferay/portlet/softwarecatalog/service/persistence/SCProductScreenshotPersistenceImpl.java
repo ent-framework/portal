@@ -9,8 +9,6 @@ import com.liferay.portal.kernel.dao.orm.QueryPos;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.dao.orm.Session;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.InstanceFactory;
 import com.liferay.portal.kernel.util.OrderByComparator;
@@ -27,6 +25,9 @@ import com.liferay.portlet.softwarecatalog.model.SCProductScreenshot;
 import com.liferay.portlet.softwarecatalog.model.impl.SCProductScreenshotImpl;
 import com.liferay.portlet.softwarecatalog.model.impl.SCProductScreenshotModelImpl;
 import com.liferay.portlet.softwarecatalog.service.persistence.SCProductScreenshotPersistence;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.Serializable;
 
@@ -134,7 +135,7 @@ public class SCProductScreenshotPersistenceImpl extends BasePersistenceImpl<SCPr
     private static final String _NO_SUCH_ENTITY_WITH_PRIMARY_KEY = "No SCProductScreenshot exists with the primary key ";
     private static final String _NO_SUCH_ENTITY_WITH_KEY = "No SCProductScreenshot exists with the key {";
     private static final boolean _HIBERNATE_CACHE_USE_SECOND_LEVEL_CACHE = com.liferay.portal.util.PropsValues.HIBERNATE_CACHE_USE_SECOND_LEVEL_CACHE;
-    private static Log _log = LogFactoryUtil.getLog(SCProductScreenshotPersistenceImpl.class);
+    private static final Logger _log = LoggerFactory.getLogger(SCProductScreenshotPersistenceImpl.class);
     private static SCProductScreenshot _nullSCProductScreenshot = new SCProductScreenshotImpl() {
             @Override
             public Object clone() {
@@ -1936,7 +1937,7 @@ public class SCProductScreenshotPersistenceImpl extends BasePersistenceImpl<SCPr
 
                 listeners = listenersList.toArray(new ModelListener[listenersList.size()]);
             } catch (Exception e) {
-                _log.error(e);
+                _log.error(e.getMessage());
             }
         }
     }

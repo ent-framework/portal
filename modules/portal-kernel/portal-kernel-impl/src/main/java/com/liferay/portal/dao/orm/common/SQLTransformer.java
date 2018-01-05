@@ -16,8 +16,8 @@ package com.liferay.portal.dao.orm.common;
 
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBFactoryUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -423,7 +423,7 @@ public class SQLTransformer {
 
 	private static final String _LOWER_OPEN = "lower(";
 
-	private static Log _log = LogFactoryUtil.getLog(SQLTransformer.class);
+	private static final Logger _log = LoggerFactory.getLogger(SQLTransformer.class);
 
 	private static SQLTransformer _instance = new SQLTransformer();
 

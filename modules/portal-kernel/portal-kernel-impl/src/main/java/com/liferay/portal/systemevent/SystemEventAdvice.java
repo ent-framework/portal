@@ -15,8 +15,8 @@
 package com.liferay.portal.systemevent;
 
 import com.liferay.portal.kernel.lar.StagedModelType;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.systemevent.SystemEvent;
 import com.liferay.portal.kernel.systemevent.SystemEventHierarchyEntry;
 import com.liferay.portal.kernel.systemevent.SystemEventHierarchyEntryThreadLocal;
@@ -332,7 +332,7 @@ public class SystemEventAdvice
 
 	private static final int PHASE_DURING_FINALLY = 2;
 
-	private static Log _log = LogFactoryUtil.getLog(SystemEventAdvice.class);
+	private static final Logger _log = LoggerFactory.getLogger(SystemEventAdvice.class);
 
 	private static SystemEvent _nullSystemEvent = new SystemEvent() {
 

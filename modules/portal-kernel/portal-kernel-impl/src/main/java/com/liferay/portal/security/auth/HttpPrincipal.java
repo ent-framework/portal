@@ -15,8 +15,8 @@
 package com.liferay.portal.security.auth;
 
 import com.liferay.portal.PwdEncryptorException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.security.pwd.PasswordEncryptorUtil;
 
 import java.io.Serializable;
@@ -51,7 +51,7 @@ public class HttpPrincipal implements Serializable {
 				_password = PasswordEncryptorUtil.encrypt(password);
 			}
 			catch (PwdEncryptorException pee) {
-				_log.error(pee, pee);
+				_log.error(pee.getMessage(), pee);
 			}
 		}
 	}
@@ -80,7 +80,7 @@ public class HttpPrincipal implements Serializable {
 		_password = password;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(HttpPrincipal.class);
+	private static final Logger _log = LoggerFactory.getLogger(HttpPrincipal.class);
 
 	private long _companyId;
 	private String _login;

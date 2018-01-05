@@ -18,8 +18,8 @@ import com.liferay.portal.kernel.cluster.Address;
 import com.liferay.portal.kernel.cluster.ClusterLink;
 import com.liferay.portal.kernel.cluster.Priority;
 import com.liferay.portal.kernel.cluster.messaging.ClusterForwardMessageListener;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.Message;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.PropsKeys;
@@ -198,7 +198,7 @@ public class ClusterLinkImpl extends ClusterBase implements ClusterLink {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ClusterLinkImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(ClusterLinkImpl.class);
 
 	private int _channelCount;
 	private ClusterForwardMessageListener _clusterForwardMessageListener;

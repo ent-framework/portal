@@ -16,8 +16,8 @@ package com.liferay.portal.metadata;
 
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.io.DummyWriter;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.process.ClassPathUtil;
 import com.liferay.portal.kernel.process.ProcessCallable;
 import com.liferay.portal.kernel.process.ProcessException;
@@ -93,7 +93,7 @@ public class TikaRawMetadataProcessor extends XugglerRawMetadataProcessor {
 				}
 			}
 			else {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 
 			throw new IOException(e.getMessage());
@@ -206,7 +206,7 @@ public class TikaRawMetadataProcessor extends XugglerRawMetadataProcessor {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		TikaRawMetadataProcessor.class);
 
 	private Parser _parser;

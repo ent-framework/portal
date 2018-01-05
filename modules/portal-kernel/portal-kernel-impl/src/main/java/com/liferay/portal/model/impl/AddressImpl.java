@@ -14,8 +14,8 @@
 
 package com.liferay.portal.model.impl;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.model.Country;
 import com.liferay.portal.model.ListType;
 import com.liferay.portal.model.Region;
@@ -42,7 +42,7 @@ public class AddressImpl extends AddressBaseImpl {
 			country = new CountryImpl();
 
 			if (_log.isWarnEnabled()) {
-				_log.warn(e);
+				_log.warn(e.getMessage());
 			}
 		}
 
@@ -60,7 +60,7 @@ public class AddressImpl extends AddressBaseImpl {
 			region = new RegionImpl();
 
 			if (_log.isWarnEnabled()) {
-				_log.warn(e);
+				_log.warn(e.getMessage());
 			}
 		}
 
@@ -78,13 +78,13 @@ public class AddressImpl extends AddressBaseImpl {
 			type = new ListTypeImpl();
 
 			if (_log.isWarnEnabled()) {
-				_log.warn(e);
+				_log.warn(e.getMessage());
 			}
 		}
 
 		return type;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(AddressImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(AddressImpl.class);
 
 }

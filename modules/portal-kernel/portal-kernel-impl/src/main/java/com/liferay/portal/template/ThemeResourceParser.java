@@ -14,8 +14,8 @@
 
 package com.liferay.portal.template;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.template.TemplateConstants;
 import com.liferay.portal.theme.ThemeLoader;
 import com.liferay.portal.theme.ThemeLoaderFactory;
@@ -71,6 +71,6 @@ public class ThemeResourceParser extends URLResourceParser {
 		return new File(fileStorage, templateId).toURI().toURL();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ThemeResourceParser.class);
+	private static final Logger _log = LoggerFactory.getLogger(ThemeResourceParser.class);
 
 }

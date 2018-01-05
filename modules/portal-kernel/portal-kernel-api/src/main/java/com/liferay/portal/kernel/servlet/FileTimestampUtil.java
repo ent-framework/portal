@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.servlet;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.Validator;
 
@@ -98,7 +98,7 @@ public class FileTimestampUtil {
 			}
 		}
 		catch (IOException ioe) {
-			_log.error(ioe, ioe);
+			_log.error(ioe.getMessage(), ioe);
 		}
 
 		_timestamps.put(path, timestamp);
@@ -110,7 +110,7 @@ public class FileTimestampUtil {
 		_timestamps.clear();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(FileTimestampUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(FileTimestampUtil.class);
 
 	private static Map<String, Long> _timestamps =
 		new ConcurrentHashMap<String, Long>();

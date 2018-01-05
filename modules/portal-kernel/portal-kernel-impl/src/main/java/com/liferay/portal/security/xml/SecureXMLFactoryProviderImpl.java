@@ -14,8 +14,8 @@
 
 package com.liferay.portal.security.xml;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.util.PropsValues;
 
 import javax.xml.XMLConstants;
@@ -139,7 +139,7 @@ public class SecureXMLFactoryProviderImpl implements SecureXMLFactoryProvider {
 	private static final String _FEATURES_EXTERNAL_PARAMETER_ENTITIES =
 		"http://xml.org/sax/features/external-parameter-entities";
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		SecureXMLFactoryProviderImpl.class);
 
 }

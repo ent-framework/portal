@@ -19,8 +19,8 @@ import com.liferay.portal.dao.orm.hibernate.SQLServer2005Dialect;
 import com.liferay.portal.dao.orm.hibernate.SQLServer2008Dialect;
 import com.liferay.portal.dao.orm.hibernate.SybaseASE157Dialect;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -121,7 +121,7 @@ public class DialectDetector {
 				}
 			}
 			else {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 		finally {
@@ -142,7 +142,7 @@ public class DialectDetector {
 		return dialect;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(DialectDetector.class);
+	private static final Logger _log = LoggerFactory.getLogger(DialectDetector.class);
 
 	private static Map<String, Dialect> _dialects =
 		new ConcurrentHashMap<String, Dialect>();

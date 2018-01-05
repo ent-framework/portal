@@ -14,8 +14,8 @@
 
 package com.liferay.portal.action;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -125,7 +125,7 @@ public class TCKAction extends Action {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 
 			PortalUtil.sendError(e, request, response);
@@ -179,6 +179,6 @@ public class TCKAction extends Action {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(TCKAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(TCKAction.class);
 
 }

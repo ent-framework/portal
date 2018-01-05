@@ -2,10 +2,10 @@ package com.liferay.portlet.expando.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-
 import com.liferay.portlet.expando.service.ExpandoColumnServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -51,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class ExpandoColumnServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(ExpandoColumnServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(ExpandoColumnServiceSoap.class);
 
     public static com.liferay.portlet.expando.model.ExpandoColumnSoap addColumn(
         long tableId, java.lang.String name, int type)
@@ -62,7 +62,7 @@ public class ExpandoColumnServiceSoap {
 
             return com.liferay.portlet.expando.model.ExpandoColumnSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -77,7 +77,7 @@ public class ExpandoColumnServiceSoap {
 
             return com.liferay.portlet.expando.model.ExpandoColumnSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -87,7 +87,7 @@ public class ExpandoColumnServiceSoap {
         try {
             ExpandoColumnServiceUtil.deleteColumn(columnId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -102,7 +102,7 @@ public class ExpandoColumnServiceSoap {
 
             return com.liferay.portlet.expando.model.ExpandoColumnSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -117,7 +117,7 @@ public class ExpandoColumnServiceSoap {
 
             return com.liferay.portlet.expando.model.ExpandoColumnSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -131,7 +131,7 @@ public class ExpandoColumnServiceSoap {
 
             return com.liferay.portlet.expando.model.ExpandoColumnSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

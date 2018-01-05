@@ -2,11 +2,12 @@ package com.liferay.portlet.documentlibrary.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 
 import com.liferay.portlet.documentlibrary.service.DLFolderServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -52,7 +53,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class DLFolderServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(DLFolderServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(DLFolderServiceSoap.class);
 
     public static com.liferay.portlet.documentlibrary.model.DLFolderSoap addFolder(
         long groupId, long repositoryId, boolean mountPoint,
@@ -67,7 +68,7 @@ public class DLFolderServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFolderSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -77,7 +78,7 @@ public class DLFolderServiceSoap {
         try {
             DLFolderServiceUtil.deleteFolder(folderId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -88,7 +89,7 @@ public class DLFolderServiceSoap {
         try {
             DLFolderServiceUtil.deleteFolder(folderId, includeTrashedEntries);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -99,7 +100,7 @@ public class DLFolderServiceSoap {
         try {
             DLFolderServiceUtil.deleteFolder(groupId, parentFolderId, name);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -113,7 +114,7 @@ public class DLFolderServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -128,7 +129,7 @@ public class DLFolderServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -141,7 +142,7 @@ public class DLFolderServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFolderSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -156,7 +157,7 @@ public class DLFolderServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFolderSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -170,7 +171,7 @@ public class DLFolderServiceSoap {
 
             return returnValue.toArray(new java.lang.Long[returnValue.size()]);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -188,7 +189,7 @@ public class DLFolderServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFolderSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -205,7 +206,7 @@ public class DLFolderServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFolderSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -220,7 +221,7 @@ public class DLFolderServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -235,7 +236,7 @@ public class DLFolderServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -249,7 +250,7 @@ public class DLFolderServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -263,7 +264,7 @@ public class DLFolderServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -280,7 +281,7 @@ public class DLFolderServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFolderSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -294,7 +295,7 @@ public class DLFolderServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -310,7 +311,7 @@ public class DLFolderServiceSoap {
             DLFolderServiceUtil.getSubfolderIds(ListUtil.toList(folderIds),
                 groupId, folderId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -322,7 +323,7 @@ public class DLFolderServiceSoap {
             DLFolderServiceUtil.getSubfolderIds(ListUtil.toList(folderIds),
                 groupId, folderId, recurse);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -336,7 +337,7 @@ public class DLFolderServiceSoap {
 
             return returnValue.toArray(new java.lang.Long[returnValue.size()]);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -349,7 +350,7 @@ public class DLFolderServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -362,7 +363,7 @@ public class DLFolderServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -375,7 +376,7 @@ public class DLFolderServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -391,7 +392,7 @@ public class DLFolderServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFolderSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -404,7 +405,7 @@ public class DLFolderServiceSoap {
             DLFolderServiceUtil.unlockFolder(groupId, parentFolderId, name,
                 lockUuid);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -415,7 +416,7 @@ public class DLFolderServiceSoap {
         try {
             DLFolderServiceUtil.unlockFolder(folderId, lockUuid);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -435,7 +436,7 @@ public class DLFolderServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFolderSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -449,7 +450,7 @@ public class DLFolderServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

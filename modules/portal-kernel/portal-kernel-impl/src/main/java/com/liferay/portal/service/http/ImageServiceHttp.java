@@ -1,12 +1,13 @@
 package com.liferay.portal.service.http;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.ImageServiceUtil;
 import com.liferay.portal.service.http.TunnelUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Provides the HTTP utility for the
@@ -37,7 +38,7 @@ import com.liferay.portal.service.http.TunnelUtil;
  * @generated
  */
 public class ImageServiceHttp {
-    private static Log _log = LogFactoryUtil.getLog(ImageServiceHttp.class);
+    private static final Logger _log = LoggerFactory.getLogger(ImageServiceHttp.class);
     private static final Class<?>[] _getImageParameterTypes0 = new Class[] {
             long.class
         };
@@ -70,7 +71,7 @@ public class ImageServiceHttp {
 
             return (com.liferay.portal.model.Image) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }

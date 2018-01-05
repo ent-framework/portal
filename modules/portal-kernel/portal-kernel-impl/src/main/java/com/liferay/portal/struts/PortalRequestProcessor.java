@@ -17,8 +17,8 @@ package com.liferay.portal.struts;
 import com.liferay.portal.LayoutPermissionException;
 import com.liferay.portal.PortletActiveException;
 import com.liferay.portal.UserActiveException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.FriendlyURLMapper;
 import com.liferay.portal.kernel.servlet.DynamicServletRequest;
 import com.liferay.portal.kernel.servlet.HttpMethods;
@@ -172,7 +172,7 @@ public class PortalRequestProcessor extends TilesRequestProcessor {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -575,7 +575,7 @@ public class PortalRequestProcessor extends TilesRequestProcessor {
 				}
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 
 			String fullPathWithoutQueryString = fullPath;
@@ -1024,7 +1024,7 @@ public class PortalRequestProcessor extends TilesRequestProcessor {
 	private static final String _PATH_PORTAL_VERIFY_EMAIL_ADDRESS =
 		"/portal/verify_email_address";
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PortalRequestProcessor.class);
 
 	private static Pattern _strutsPortletIgnoredParamtersPattern =

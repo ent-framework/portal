@@ -14,8 +14,8 @@
 
 package com.liferay.portal.security.auth;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -56,7 +56,7 @@ public abstract class BaseAutoLogin implements AutoLogin {
 			throw new AutoLoginException(e);
 		}
 
-		_log.error(e, e);
+		_log.error(e.getMessage(), e);
 
 		return null;
 	}
@@ -65,6 +65,6 @@ public abstract class BaseAutoLogin implements AutoLogin {
 			HttpServletRequest request, HttpServletResponse response)
 		throws Exception;
 
-	private static Log _log = LogFactoryUtil.getLog(BaseAutoLogin.class);
+	private static final Logger _log = LoggerFactory.getLogger(BaseAutoLogin.class);
 
 }

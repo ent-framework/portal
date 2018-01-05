@@ -16,8 +16,8 @@ package com.liferay.portal.templateparser;
 
 import com.liferay.portal.kernel.configuration.Filter;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringWriter;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.mobile.device.Device;
 import com.liferay.portal.kernel.mobile.device.UnknownDevice;
 import com.liferay.portal.kernel.template.StringTemplateResource;
@@ -231,7 +231,7 @@ public class Transformer {
 				transformerListeners.add(transformerListener);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 
 			// Modify XML
@@ -672,25 +672,25 @@ public class Transformer {
 		return s;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(Transformer.class);
+	private static final Logger _log = LoggerFactory.getLogger(Transformer.class);
 
-	private static Log _logOutputAfterListener = LogFactoryUtil.getLog(
+	private static final Logger _logOutputAfterListener = LoggerFactory.getLogger(
 		Transformer.class.getName() + ".OutputAfterListener");
-	private static Log _logOutputBeforeListener = LogFactoryUtil.getLog(
+	private static final Logger _logOutputBeforeListener = LoggerFactory.getLogger(
 		Transformer.class.getName() + ".OutputBeforeListener");
-	private static Log _logScriptAfterListener = LogFactoryUtil.getLog(
+	private static final Logger _logScriptAfterListener = LoggerFactory.getLogger(
 		Transformer.class.getName() + ".ScriptAfterListener");
-	private static Log _logScriptBeforeListener = LogFactoryUtil.getLog(
+	private static final Logger _logScriptBeforeListener = LoggerFactory.getLogger(
 		Transformer.class.getName() + ".ScriptBeforeListener");
-	private static Log _logTokens = LogFactoryUtil.getLog(
+	private static final Logger _logTokens = LoggerFactory.getLogger(
 		Transformer.class.getName() + ".Tokens");
-	private static Log _logTransformBefore = LogFactoryUtil.getLog(
+	private static final Logger _logTransformBefore = LoggerFactory.getLogger(
 		Transformer.class.getName() + ".TransformBefore");
-	private static Log _logTransfromAfter = LogFactoryUtil.getLog(
+	private static final Logger _logTransfromAfter = LoggerFactory.getLogger(
 		Transformer.class.getName() + ".TransformAfter");
-	private static Log _logXmlAfterListener = LogFactoryUtil.getLog(
+	private static final Logger _logXmlAfterListener = LoggerFactory.getLogger(
 		Transformer.class.getName() + ".XmlAfterListener");
-	private static Log _logXmlBeforeListener = LogFactoryUtil.getLog(
+	private static final Logger _logXmlBeforeListener = LoggerFactory.getLogger(
 		Transformer.class.getName() + ".XmlBeforeListener");
 
 	private Map<String, String> _errorTemplateIds =

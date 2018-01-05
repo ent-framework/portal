@@ -29,8 +29,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
 import com.liferay.portal.ext.service.FilterScopeLocalServiceUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.LiferayFilter;
 import com.liferay.portal.kernel.servlet.PluginContextListener;
 import com.liferay.portal.kernel.util.InstanceFactory;
@@ -61,7 +61,7 @@ public class InvokerFilterHelper {
 				filter.destroy();
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -89,7 +89,7 @@ public class InvokerFilterHelper {
 			readLiferayFilterWebXML(servletContext, "/portal-config/liferay-web.xml");
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			throw new ServletException(e);
 		}
@@ -184,7 +184,7 @@ public class InvokerFilterHelper {
 			filter.destroy();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -421,7 +421,7 @@ public class InvokerFilterHelper {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(InvokerFilterHelper.class);
+	private static final Logger _log = LoggerFactory.getLogger(InvokerFilterHelper.class);
 
 	private Map<String, FilterConfig> _filterConfigs =
 		new HashMap<String, FilterConfig>();

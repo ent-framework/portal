@@ -1,13 +1,14 @@
 package com.liferay.portlet.documentlibrary.service.http;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.http.TunnelUtil;
 
 import com.liferay.portlet.documentlibrary.service.DLAppServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Provides the HTTP utility for the
@@ -38,7 +39,7 @@ import com.liferay.portlet.documentlibrary.service.DLAppServiceUtil;
  * @generated
  */
 public class DLAppServiceHttp {
-    private static Log _log = LogFactoryUtil.getLog(DLAppServiceHttp.class);
+    private static final Logger _log = LoggerFactory.getLogger(DLAppServiceHttp.class);
     private static final Class<?>[] _addFileEntryParameterTypes0 = new Class[] {
             long.class, long.class, java.lang.String.class,
             java.lang.String.class, java.lang.String.class,
@@ -470,7 +471,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.FileEntry) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -510,7 +511,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.FileEntry) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -550,7 +551,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.FileEntry) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -587,7 +588,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portlet.documentlibrary.model.DLFileShortcut) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -625,7 +626,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.Folder) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -662,7 +663,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.FileEntry) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -699,7 +700,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.FileEntry) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -730,7 +731,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -762,7 +763,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -793,7 +794,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -825,7 +826,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -857,7 +858,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -894,7 +895,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.FileEntry) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -933,7 +934,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.Folder) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -964,7 +965,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -996,7 +997,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1027,7 +1028,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1058,7 +1059,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1087,7 +1088,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1118,7 +1119,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1150,7 +1151,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1185,7 +1186,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<com.liferay.portal.kernel.repository.model.FileEntry>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1221,7 +1222,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<com.liferay.portal.kernel.repository.model.FileEntry>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1257,7 +1258,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<com.liferay.portal.kernel.repository.model.FileEntry>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1293,7 +1294,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<com.liferay.portal.kernel.repository.model.FileEntry>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1329,7 +1330,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<com.liferay.portal.kernel.repository.model.FileEntry>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1366,7 +1367,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<com.liferay.portal.kernel.repository.model.FileEntry>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1402,7 +1403,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<com.liferay.portal.kernel.repository.model.FileEntry>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1439,7 +1440,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<java.lang.Object>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1476,7 +1477,7 @@ public class DLAppServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1513,7 +1514,7 @@ public class DLAppServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1548,7 +1549,7 @@ public class DLAppServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1583,7 +1584,7 @@ public class DLAppServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1618,7 +1619,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.FileEntry) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1654,7 +1655,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.FileEntry) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1690,7 +1691,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.FileEntry) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1725,7 +1726,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portlet.documentlibrary.model.DLFileShortcut) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1759,7 +1760,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.Folder) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1795,7 +1796,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.Folder) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1830,7 +1831,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<com.liferay.portal.kernel.repository.model.Folder>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1866,7 +1867,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<com.liferay.portal.kernel.repository.model.Folder>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1903,7 +1904,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<com.liferay.portal.kernel.repository.model.Folder>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1941,7 +1942,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<com.liferay.portal.kernel.repository.model.Folder>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1979,7 +1980,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<com.liferay.portal.kernel.repository.model.Folder>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2015,7 +2016,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<com.liferay.portal.kernel.repository.model.Folder>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2051,7 +2052,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<com.liferay.portal.kernel.repository.model.Folder>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2089,7 +2090,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<java.lang.Object>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2128,7 +2129,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<java.lang.Object>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2167,7 +2168,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<java.lang.Object>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2204,7 +2205,7 @@ public class DLAppServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2242,7 +2243,7 @@ public class DLAppServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2277,7 +2278,7 @@ public class DLAppServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2312,7 +2313,7 @@ public class DLAppServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2348,7 +2349,7 @@ public class DLAppServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2384,7 +2385,7 @@ public class DLAppServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2420,7 +2421,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<com.liferay.portal.kernel.repository.model.FileEntry>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2456,7 +2457,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<com.liferay.portal.kernel.repository.model.FileEntry>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2492,7 +2493,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<com.liferay.portal.kernel.repository.model.FileEntry>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2529,7 +2530,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<com.liferay.portal.kernel.repository.model.FileEntry>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2566,7 +2567,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<com.liferay.portal.kernel.repository.model.FileEntry>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2602,7 +2603,7 @@ public class DLAppServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2638,7 +2639,7 @@ public class DLAppServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2675,7 +2676,7 @@ public class DLAppServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2710,7 +2711,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<com.liferay.portal.kernel.repository.model.Folder>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2746,7 +2747,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<com.liferay.portal.kernel.repository.model.Folder>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2782,7 +2783,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<com.liferay.portal.kernel.repository.model.Folder>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2818,7 +2819,7 @@ public class DLAppServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2850,7 +2851,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2885,7 +2886,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<java.lang.Long>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2921,7 +2922,7 @@ public class DLAppServiceHttp {
 
             return (java.util.List<java.lang.Long>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2958,7 +2959,7 @@ public class DLAppServiceHttp {
 
             return (java.lang.String[]) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -2993,7 +2994,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.model.Lock) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3029,7 +3030,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.model.Lock) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3064,7 +3065,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.model.Lock) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3100,7 +3101,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.model.Lock) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3136,7 +3137,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.FileEntry) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3173,7 +3174,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.FileEntry) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3209,7 +3210,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.FileEntry) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3246,7 +3247,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portlet.documentlibrary.model.DLFileShortcut) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3282,7 +3283,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portlet.documentlibrary.model.DLFileShortcut) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3318,7 +3319,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.Folder) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3354,7 +3355,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.Folder) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3388,7 +3389,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.Folder) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3425,7 +3426,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.model.Lock) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3461,7 +3462,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.model.Lock) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3493,7 +3494,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3525,7 +3526,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3556,7 +3557,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3588,7 +3589,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3624,7 +3625,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.search.Hits) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3662,7 +3663,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.search.Hits) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3694,7 +3695,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.search.Hits) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3727,7 +3728,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.search.Hits) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3759,7 +3760,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3790,7 +3791,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3821,7 +3822,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3852,7 +3853,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3883,7 +3884,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3915,7 +3916,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3947,7 +3948,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -3978,7 +3979,7 @@ public class DLAppServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -4018,7 +4019,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.FileEntry) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -4058,7 +4059,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.FileEntry) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -4099,7 +4100,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.FileEntry) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -4140,7 +4141,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.FileEntry) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -4182,7 +4183,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.FileEntry) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -4219,7 +4220,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portlet.documentlibrary.model.DLFileShortcut) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -4256,7 +4257,7 @@ public class DLAppServiceHttp {
 
             return (com.liferay.portal.kernel.repository.model.Folder) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -4292,7 +4293,7 @@ public class DLAppServiceHttp {
 
             return ((Boolean) returnObj).booleanValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -4327,7 +4328,7 @@ public class DLAppServiceHttp {
 
             return ((Boolean) returnObj).booleanValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -4363,7 +4364,7 @@ public class DLAppServiceHttp {
 
             return ((Boolean) returnObj).booleanValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }

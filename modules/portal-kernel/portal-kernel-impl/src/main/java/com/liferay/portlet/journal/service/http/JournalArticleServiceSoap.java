@@ -2,12 +2,13 @@ package com.liferay.portlet.journal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.LocalizationUtil;
 
 import com.liferay.portlet.journal.service.JournalArticleServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -56,7 +57,7 @@ import java.util.Map;
  */
 @ProviderType
 public class JournalArticleServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(JournalArticleServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(JournalArticleServiceSoap.class);
 
     /**
     * Adds a web content article without any images.
@@ -174,7 +175,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -206,7 +207,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -237,7 +238,7 @@ public class JournalArticleServiceSoap {
             JournalArticleServiceUtil.deleteArticle(groupId, articleId,
                 version, articleURL, serviceContext);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -266,7 +267,7 @@ public class JournalArticleServiceSoap {
             JournalArticleServiceUtil.deleteArticle(groupId, articleId,
                 articleURL, serviceContext);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -305,7 +306,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -341,7 +342,7 @@ public class JournalArticleServiceSoap {
             JournalArticleServiceUtil.expireArticle(groupId, articleId,
                 articleURL, serviceContext);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -355,7 +356,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -378,7 +379,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -405,7 +406,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -433,7 +434,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -467,7 +468,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -493,7 +494,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -515,7 +516,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -556,7 +557,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -598,7 +599,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -622,7 +623,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -673,7 +674,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -716,7 +717,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -738,7 +739,7 @@ public class JournalArticleServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -752,7 +753,7 @@ public class JournalArticleServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -775,7 +776,7 @@ public class JournalArticleServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -807,7 +808,7 @@ public class JournalArticleServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -831,7 +832,7 @@ public class JournalArticleServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -859,7 +860,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -883,7 +884,7 @@ public class JournalArticleServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -926,7 +927,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -968,7 +969,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1016,7 +1017,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1044,7 +1045,7 @@ public class JournalArticleServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1058,7 +1059,7 @@ public class JournalArticleServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1091,7 +1092,7 @@ public class JournalArticleServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1116,7 +1117,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1146,7 +1147,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1180,7 +1181,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1206,7 +1207,7 @@ public class JournalArticleServiceSoap {
             JournalArticleServiceUtil.moveArticle(groupId, articleId,
                 newFolderId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1244,7 +1245,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1283,7 +1284,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1309,7 +1310,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1331,7 +1332,7 @@ public class JournalArticleServiceSoap {
         try {
             JournalArticleServiceUtil.removeArticleLocale(companyId, languageId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1360,7 +1361,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1381,7 +1382,7 @@ public class JournalArticleServiceSoap {
         try {
             JournalArticleServiceUtil.restoreArticleFromTrash(resourcePrimKey);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1403,7 +1404,7 @@ public class JournalArticleServiceSoap {
         try {
             JournalArticleServiceUtil.restoreArticleFromTrash(groupId, articleId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1486,7 +1487,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1579,7 +1580,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1673,7 +1674,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1737,7 +1738,7 @@ public class JournalArticleServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1810,7 +1811,7 @@ public class JournalArticleServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1883,7 +1884,7 @@ public class JournalArticleServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1904,7 +1905,7 @@ public class JournalArticleServiceSoap {
         try {
             JournalArticleServiceUtil.subscribe(groupId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1924,7 +1925,7 @@ public class JournalArticleServiceSoap {
         try {
             JournalArticleServiceUtil.unsubscribe(groupId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1985,7 +1986,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -2030,7 +2031,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -2061,7 +2062,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -2098,7 +2099,7 @@ public class JournalArticleServiceSoap {
 
             return com.liferay.portlet.journal.model.JournalArticleSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

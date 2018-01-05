@@ -14,8 +14,8 @@
 
 package com.liferay.portal.xuggler;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ProgressTracker;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -23,7 +23,6 @@ import com.liferay.portal.kernel.xuggler.Xuggler;
 import com.liferay.portal.util.JarUtil;
 import com.liferay.portal.util.PrefsPropsUtil;
 import com.liferay.portal.util.PropsValues;
-import com.liferay.util.log4j.Log4JUtil;
 
 import com.xuggle.ferry.JNILibraryLoader;
 import com.xuggle.xuggler.IContainer;
@@ -65,7 +64,7 @@ public class XugglerImpl implements Xuggler {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -82,32 +81,6 @@ public class XugglerImpl implements Xuggler {
 
 	@Override
 	public boolean isNativeLibraryInstalled() {
-		if (_nativeLibraryInstalled) {
-			return _nativeLibraryInstalled;
-		}
-
-		String originalLevel = Log4JUtil.getOriginalLevel(
-			JNILibraryLoader.class.getName());
-
-		try {
-			Log4JUtil.setLevel(JNILibraryLoader.class.getName(), "OFF", false);
-
-			IContainer.make();
-
-			_nativeLibraryInstalled = true;
-		}
-		catch (NoClassDefFoundError ncdfe) {
-			informAdministrator(ncdfe.getMessage());
-		}
-		catch (UnsatisfiedLinkError ule) {
-			informAdministrator(ule.getMessage());
-		}
-		finally {
-			Log4JUtil.setLevel(
-				JNILibraryLoader.class.getName(), originalLevel.toString(),
-				false);
-		}
-
 		return _nativeLibraryInstalled;
 	}
 
@@ -131,7 +104,7 @@ public class XugglerImpl implements Xuggler {
 		_log.error(sb.toString());
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(XugglerImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(XugglerImpl.class);
 
 	private static boolean _informAdministrator = true;
 	private static boolean _nativeLibraryInstalled;

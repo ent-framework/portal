@@ -16,8 +16,8 @@ package com.liferay.portal.dao.shard.advice;
 
 import com.liferay.portal.kernel.cache.CacheRegistryUtil;
 import com.liferay.portal.kernel.dao.shard.ShardUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
@@ -78,7 +78,7 @@ public class ShardGloballyAdvice implements MethodInterceptor {
 		_shardAdvice = shardAdvice;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ShardGloballyAdvice.class);
+	private static final Logger _log = LoggerFactory.getLogger(ShardGloballyAdvice.class);
 
 	private ShardAdvice _shardAdvice;
 

@@ -15,8 +15,8 @@
 package com.liferay.portal.kernel.nio.intraband;
 
 import com.liferay.portal.kernel.executor.PortalExecutorManagerUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.Executor;
 
@@ -44,7 +44,7 @@ public abstract class BaseAsyncDatagramReceiveHandler
 			RegistrationReference registrationReference, Datagram datagram)
 		throws Exception;
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		BaseAsyncDatagramReceiveHandler.class);
 
 	private final Executor _executor;

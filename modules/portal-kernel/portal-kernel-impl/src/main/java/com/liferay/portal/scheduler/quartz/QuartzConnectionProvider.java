@@ -15,8 +15,8 @@
 package com.liferay.portal.scheduler.quartz;
 
 import com.liferay.portal.dao.shard.ShardDataSourceTargetSource;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.InfrastructureUtil;
 
 import java.sql.Connection;
@@ -48,7 +48,7 @@ public class QuartzConnectionProvider implements ConnectionProvider {
 			con = dataSource.getConnection();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return con;
@@ -58,7 +58,7 @@ public class QuartzConnectionProvider implements ConnectionProvider {
 	public void shutdown() {
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		QuartzConnectionProvider.class);
 
 }

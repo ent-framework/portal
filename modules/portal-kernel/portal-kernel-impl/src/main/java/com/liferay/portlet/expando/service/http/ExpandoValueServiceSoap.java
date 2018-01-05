@@ -2,10 +2,10 @@ package com.liferay.portlet.expando.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-
 import com.liferay.portlet.expando.service.ExpandoValueServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -51,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class ExpandoValueServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(ExpandoValueServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(ExpandoValueServiceSoap.class);
 
     public static com.liferay.portlet.expando.model.ExpandoValueSoap addValue(
         long companyId, java.lang.String className, java.lang.String tableName,
@@ -63,7 +63,7 @@ public class ExpandoValueServiceSoap {
 
             return com.liferay.portlet.expando.model.ExpandoValueSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -79,7 +79,7 @@ public class ExpandoValueServiceSoap {
 
             return com.liferay.portlet.expando.model.ExpandoValueSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -94,7 +94,7 @@ public class ExpandoValueServiceSoap {
 
             return returnValue.toString();
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

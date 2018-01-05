@@ -14,8 +14,8 @@
 
 package com.liferay.portal.theme;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -147,7 +147,7 @@ public class ThemeLoader {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		loadThemes();
@@ -175,7 +175,7 @@ public class ThemeLoader {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ThemeLoader.class);
+	private static final Logger _log = LoggerFactory.getLogger(ThemeLoader.class);
 
 	private File _fileStorage;
 	private Map<String, Long> _lastModifiedMap = new HashMap<String, Long>();

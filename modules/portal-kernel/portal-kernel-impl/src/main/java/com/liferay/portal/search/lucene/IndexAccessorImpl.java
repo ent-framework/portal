@@ -14,8 +14,8 @@
 
 package com.liferay.portal.search.lucene;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.nio.intraband.RegistrationReference;
 import com.liferay.portal.kernel.nio.intraband.rpc.IntrabandRPCUtil;
 import com.liferay.portal.kernel.process.ProcessCallable;
@@ -567,7 +567,7 @@ public class IndexAccessorImpl implements IndexAccessor {
 
 	private static final String _LUCENE_STORE_TYPE_RAM = "ram";
 
-	private static Log _log = LogFactoryUtil.getLog(IndexAccessorImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(IndexAccessorImpl.class);
 
 	private volatile int _batchCount;
 	private Lock _commitLock = new ReentrantLock();

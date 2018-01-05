@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.servlet;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.InstanceFactory;
 import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
 import com.liferay.portal.kernel.util.PortalLifecycle;
@@ -80,7 +80,7 @@ public class PortalClassLoaderServlet
 			_servlet.init(_servletConfig);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 		finally {
 			currentThread.setContextClassLoader(contextClassLoader);
@@ -125,7 +125,7 @@ public class PortalClassLoaderServlet
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PortalClassLoaderServlet.class);
 
 	private boolean _calledPortalDestroy;

@@ -14,8 +14,8 @@
 
 package com.liferay.portal.json.jabsorb.serializer;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.Serializable;
 
@@ -349,7 +349,7 @@ public class LiferaySerializer extends AbstractSerializer {
 							field.set(javaClassInstance, value);
 						}
 						catch (Exception e) {
-							_log.error(e, e);
+							_log.error(e.getMessage(), e);
 						}
 					}
 				}
@@ -370,6 +370,6 @@ public class LiferaySerializer extends AbstractSerializer {
 	private static final Class<?>[] _SERIALIZABLE_CLASSES =
 		{Serializable.class};
 
-	private static Log _log = LogFactoryUtil.getLog(LiferaySerializer.class);
+	private static final Logger _log = LoggerFactory.getLogger(LiferaySerializer.class);
 
 }

@@ -215,5 +215,5 @@ private String _escapeCssBlock(String css) {
 	);
 }
 
-private static Log _log = LogFactoryUtil.getLog("portal-web.docroot.html.common.themes.top_head_jsp");
+private static final Logger _log = LoggerFactory.getLogger("portal-web.docroot.html.common.themes.top_head_jsp");
 %>

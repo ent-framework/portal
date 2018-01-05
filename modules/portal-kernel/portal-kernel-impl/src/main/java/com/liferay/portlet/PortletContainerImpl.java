@@ -17,8 +17,8 @@ package com.liferay.portlet;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.ActionResult;
 import com.liferay.portal.kernel.portlet.LiferayPortletMode;
 import com.liferay.portal.kernel.portlet.PortletContainer;
@@ -782,6 +782,6 @@ public class PortletContainerImpl implements PortletContainer {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PortletContainerImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(PortletContainerImpl.class);
 
 }

@@ -14,8 +14,8 @@
 
 package com.liferay.portal.service;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ListUtil;
 
 import java.util.List;
@@ -78,7 +78,7 @@ public class PersistedModelLocalServiceRegistryImpl
 		_persistedModelLocalServices.remove(className);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PersistedModelLocalServiceRegistryImpl.class);
 
 	private Map<String, PersistedModelLocalService>

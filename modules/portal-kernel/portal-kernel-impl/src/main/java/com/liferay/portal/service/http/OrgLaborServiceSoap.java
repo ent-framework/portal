@@ -2,9 +2,10 @@ package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.service.OrgLaborServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -50,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class OrgLaborServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(OrgLaborServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(OrgLaborServiceSoap.class);
 
     public static com.liferay.portal.model.OrgLaborSoap addOrgLabor(
         long organizationId, int typeId, int sunOpen, int sunClose,
@@ -65,7 +66,7 @@ public class OrgLaborServiceSoap {
 
             return com.liferay.portal.model.OrgLaborSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -76,7 +77,7 @@ public class OrgLaborServiceSoap {
         try {
             OrgLaborServiceUtil.deleteOrgLabor(orgLaborId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -89,7 +90,7 @@ public class OrgLaborServiceSoap {
 
             return com.liferay.portal.model.OrgLaborSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -102,7 +103,7 @@ public class OrgLaborServiceSoap {
 
             return com.liferay.portal.model.OrgLaborSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -121,7 +122,7 @@ public class OrgLaborServiceSoap {
 
             return com.liferay.portal.model.OrgLaborSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

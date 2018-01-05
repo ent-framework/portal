@@ -17,7 +17,6 @@ logging:
     level:
         ROOT: INFO
         com.liferay.portal.web: DEBUG
-        io.github.jhipster: DEBUG
 
 spring:
     profiles:

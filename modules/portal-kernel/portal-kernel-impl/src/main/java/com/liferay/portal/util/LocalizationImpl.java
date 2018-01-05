@@ -18,8 +18,8 @@ import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringWriter;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.kernel.xml.Document;
@@ -288,7 +288,7 @@ public class LocalizationImpl implements Localization {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 		finally {
@@ -672,7 +672,7 @@ public class LocalizationImpl implements Localization {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 		finally {
@@ -890,7 +890,7 @@ public class LocalizationImpl implements Localization {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 		finally {
@@ -1055,7 +1055,7 @@ public class LocalizationImpl implements Localization {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 		finally {
@@ -1118,7 +1118,7 @@ public class LocalizationImpl implements Localization {
 
 	private static final String _ROOT = "root";
 
-	private static Log _log = LogFactoryUtil.getLog(LocalizationImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(LocalizationImpl.class);
 
 	private Map<String, Map<Tuple, String>> _cache = new ReferenceMap(
 		ReferenceMap.SOFT, ReferenceMap.HARD);

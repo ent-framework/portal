@@ -16,8 +16,8 @@ package com.liferay.portal.image;
 
 import com.liferay.portal.kernel.image.Ghostscript;
 import com.liferay.portal.kernel.image.ImageMagickUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.process.ProcessUtil;
 import com.liferay.portal.kernel.util.OSDetector;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -89,7 +89,7 @@ public class GhostscriptImpl implements Ghostscript {
 				_commandPath = getCommandPath();
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 	}
@@ -164,7 +164,7 @@ public class GhostscriptImpl implements Ghostscript {
 		"gswin32c", "gswin64c"
 	};
 
-	private static Log _log = LogFactoryUtil.getLog(GhostscriptImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(GhostscriptImpl.class);
 
 	private String _commandPath;
 	private String _globalSearchPath;

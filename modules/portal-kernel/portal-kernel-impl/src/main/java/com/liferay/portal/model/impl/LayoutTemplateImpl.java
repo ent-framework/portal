@@ -14,8 +14,8 @@
 
 package com.liferay.portal.model.impl;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.ServletContextPool;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.ContextPathUtil;
@@ -332,7 +332,7 @@ public class LayoutTemplateImpl
 		_wapTemplatePath = wapTemplatePath;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LayoutTemplateImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(LayoutTemplateImpl.class);
 
 	private List<String> _columns = new ArrayList<String>();
 	private String _content;

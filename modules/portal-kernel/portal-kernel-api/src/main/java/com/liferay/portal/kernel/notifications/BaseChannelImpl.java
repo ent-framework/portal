@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.notifications;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -120,7 +120,7 @@ public abstract class BaseChannelImpl implements Channel {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(BaseChannelImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(BaseChannelImpl.class);
 
 	private List<ChannelListener> _channelListeners =
 		new CopyOnWriteArrayList<ChannelListener>();

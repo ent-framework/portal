@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Method;
 
@@ -42,7 +42,7 @@ public class InitialThreadLocal<T> extends CentralizedThreadLocal<T> {
 				_cloneMethod = clazz.getMethod(_METHOD_CLONE);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 	}
@@ -64,7 +64,7 @@ public class InitialThreadLocal<T> extends CentralizedThreadLocal<T> {
 				return (T)_cloneMethod.invoke(_initialValue);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -73,7 +73,7 @@ public class InitialThreadLocal<T> extends CentralizedThreadLocal<T> {
 
 	private static final String _METHOD_CLONE = "clone";
 
-	private static Log _log = LogFactoryUtil.getLog(InitialThreadLocal.class);
+	private static final Logger _log = LoggerFactory.getLogger(InitialThreadLocal.class);
 
 	private Method _cloneMethod;
 	private T _initialValue;

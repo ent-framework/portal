@@ -14,8 +14,8 @@
 
 package com.liferay.portal.search.lucene;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.search.DocumentImpl;
 import com.liferay.portal.kernel.search.SearchException;
 import com.liferay.portal.kernel.search.Tokenizer;
@@ -146,7 +146,7 @@ public class PerFieldAnalyzer extends Analyzer implements Tokenizer {
 		return analyzer.tokenStream(fieldName, reader);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PerFieldAnalyzer.class);
+	private static final Logger _log = LoggerFactory.getLogger(PerFieldAnalyzer.class);
 
 	private Analyzer _analyzer;
 	private Map<String, Analyzer> _analyzers =

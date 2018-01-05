@@ -14,8 +14,8 @@
 
 package com.liferay.portal.sharepoint.methods;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.sharepoint.Property;
 import com.liferay.portal.sharepoint.ResponseElement;
@@ -66,7 +66,7 @@ public class UrlToWebUrlMethodImpl extends BaseMethodImpl {
 
 	private static final String _METHOD_NAME = "url to web url";
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		UrlToWebUrlMethodImpl.class);
 
 }

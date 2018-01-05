@@ -14,8 +14,8 @@
 
 package com.liferay.portal.security.auth;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.AutoResetThreadLocal;
 import com.liferay.portal.kernel.util.GetterUtil;
 
@@ -58,7 +58,7 @@ public class PrincipalThreadLocal {
 		_password.set(password);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PrincipalThreadLocal.class);
+	private static final Logger _log = LoggerFactory.getLogger(PrincipalThreadLocal.class);
 
 	private static ThreadLocal<String> _name = new AutoResetThreadLocal<String>(
 		PrincipalThreadLocal.class + "._name");

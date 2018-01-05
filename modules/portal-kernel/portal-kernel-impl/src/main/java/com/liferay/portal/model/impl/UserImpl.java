@@ -19,8 +19,8 @@ import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.dao.shard.ShardUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.Digester;
 import com.liferay.portal.kernel.util.DigesterUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
@@ -918,7 +918,7 @@ public class UserImpl extends UserBaseImpl {
 			emailAddressVerificationRequired = company.isStrangersVerify();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		if (emailAddressVerificationRequired) {
@@ -1028,7 +1028,7 @@ public class UserImpl extends UserBaseImpl {
 			});
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(UserImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(UserImpl.class);
 
 	private Locale _locale;
 	private boolean _passwordModified;

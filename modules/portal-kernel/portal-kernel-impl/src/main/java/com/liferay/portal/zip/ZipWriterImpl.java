@@ -16,8 +16,8 @@ package com.liferay.portal.zip;
 
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.memory.DeleteFileFinalizeAction;
 import com.liferay.portal.kernel.memory.FinalizeManager;
 import com.liferay.portal.kernel.util.StringPool;
@@ -141,7 +141,7 @@ public class ZipWriterImpl implements ZipWriter {
 			File.umount(_file);
 		}
 		catch (ArchiveException ae) {
-			_log.error(ae, ae);
+			_log.error(ae.getMessage(), ae);
 		}
 
 		return _file.getDelegate();
@@ -152,7 +152,7 @@ public class ZipWriterImpl implements ZipWriter {
 		return _file.getPath();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ZipWriterImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(ZipWriterImpl.class);
 
 	private File _file;
 

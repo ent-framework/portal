@@ -28,8 +28,8 @@ import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.sanitizer.SanitizerUtil;
 import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.search.Hits;
@@ -6155,7 +6155,7 @@ public class JournalArticleLocalServiceImpl
 			content = DDMXMLUtil.formatXML(document);
 		}
 		catch (DocumentException de) {
-			_log.error(de, de);
+			_log.error(de.getMessage(), de);
 		}
 
 		return content;
@@ -6398,7 +6398,7 @@ public class JournalArticleLocalServiceImpl
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return classTypeId;
@@ -7063,7 +7063,7 @@ public class JournalArticleLocalServiceImpl
 	private static final long _JOURNAL_ARTICLE_CHECK_INTERVAL =
 		PropsValues.JOURNAL_ARTICLE_CHECK_INTERVAL * Time.MINUTE;
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		JournalArticleLocalServiceImpl.class);
 
 	private Date _previousCheckDate;

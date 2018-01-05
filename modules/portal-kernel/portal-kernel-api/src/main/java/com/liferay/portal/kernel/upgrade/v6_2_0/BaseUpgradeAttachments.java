@@ -16,8 +16,8 @@ package com.liferay.portal.kernel.upgrade.v6_2_0;
 
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.dao.shard.ShardUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.upgrade.UpgradeProcess;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.FileUtil;
@@ -729,7 +729,7 @@ public abstract class BaseUpgradeAttachments extends UpgradeProcess {
 	private static final String _LIFERAY_REPOSITORY_CLASS_NAME =
 		"com.liferay.portal.repository.liferayrepository.LiferayRepository";
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		BaseUpgradeAttachments.class);
 
 	private Map<String, Map<String, Long>> _bitwiseValues =

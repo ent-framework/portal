@@ -14,8 +14,8 @@
 
 package com.liferay.portal.velocity;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.template.Template;
 import com.liferay.portal.kernel.template.TemplateConstants;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -161,11 +161,11 @@ public class VelocityTemplateContextHelper extends TemplateContextHelper {
 				"rolePermission", RolePermissionUtil.getRolePermission());
 		}
 		catch (SecurityException se) {
-			_log.error(se, se);
+			_log.error(se.getMessage(), se);
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		VelocityTemplateContextHelper.class);
 
 }

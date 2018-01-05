@@ -19,8 +19,8 @@ import com.liferay.portal.kernel.googleapps.GEmailSettingsManager;
 import com.liferay.portal.kernel.googleapps.GNicknameManager;
 import com.liferay.portal.kernel.googleapps.GUserManager;
 import com.liferay.portal.kernel.googleapps.GoogleAppsFactoryUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.model.User;
 import com.liferay.portal.security.auth.FullNameGenerator;
@@ -70,7 +70,7 @@ public class GoogleHook implements Hook {
 				emailAddress);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -93,7 +93,7 @@ public class GoogleHook implements Hook {
 			gNicknameManager.deleteGNickname(nickname);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -106,7 +106,7 @@ public class GoogleHook implements Hook {
 			gUserManager.deleteGUser(userId);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -138,7 +138,7 @@ public class GoogleHook implements Hook {
 				userId, user.getFullName(), emailAddress);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -151,7 +151,7 @@ public class GoogleHook implements Hook {
 			gUserManager.updatePassword(userId, password);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -161,6 +161,6 @@ public class GoogleHook implements Hook {
 		return emailAddress.substring(0, pos);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(GoogleHook.class);
+	private static final Logger _log = LoggerFactory.getLogger(GoogleHook.class);
 
 }

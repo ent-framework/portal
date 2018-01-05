@@ -22,8 +22,8 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.lar.PortletDataHandlerKeys;
 import com.liferay.portal.kernel.lar.UserIdStrategy;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -872,7 +872,7 @@ public class SitesImpl implements Sites {
 		}
 		catch (Exception e) {
 			if (_log.isDebugEnabled()) {
-				_log.debug(e, e);
+				_log.debug(e.getMessage(), e);
 			}
 		}
 
@@ -1000,7 +1000,7 @@ public class SitesImpl implements Sites {
 		}
 		catch (Exception e) {
 			if (_log.isDebugEnabled()) {
-				_log.debug(e, e);
+				_log.debug(e.getMessage(), e);
 			}
 		}
 
@@ -1051,7 +1051,7 @@ public class SitesImpl implements Sites {
 		}
 		catch (Exception e) {
 			if (_log.isDebugEnabled()) {
-				_log.debug(e, e);
+				_log.debug(e.getMessage(), e);
 			}
 		}
 
@@ -1297,7 +1297,7 @@ public class SitesImpl implements Sites {
 				layoutSet.isPrivateLayout(), parameterMap, importData);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			layoutSetPrototypeSettingsProperties.setProperty(
 				MERGE_FAIL_COUNT, String.valueOf(++mergeFailCount));
@@ -1639,7 +1639,7 @@ public class SitesImpl implements Sites {
 			applyLayoutPrototype(layoutPrototype, layout, true);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			prototypeTypeSettingsProperties.setProperty(
 				MERGE_FAIL_COUNT, String.valueOf(++mergeFailCount));
@@ -1954,6 +1954,6 @@ public class SitesImpl implements Sites {
 		SystemProperties.get(SystemProperties.TMP_DIR) +
 			"/liferay/layout_set_prototype/";
 
-	private static Log _log = LogFactoryUtil.getLog(SitesImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(SitesImpl.class);
 
 }

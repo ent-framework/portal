@@ -17,8 +17,8 @@ package com.liferay.portlet.journal.action;
 import com.liferay.portal.NoSuchLayoutException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringPool;
@@ -112,7 +112,7 @@ public class RSSAction extends com.liferay.portal.struts.RSSAction {
 			}
 			catch (Exception e) {
 				if (_log.isWarnEnabled()) {
-					_log.warn(e, e);
+					_log.warn(e.getMessage(), e);
 				}
 			}
 
@@ -365,6 +365,6 @@ public class RSSAction extends com.liferay.portal.struts.RSSAction {
 		"<request><parameters><parameter><name>rss</name><value>true</value>" +
 			"</parameter></parameters></request>";
 
-	private static Log _log = LogFactoryUtil.getLog(RSSAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(RSSAction.class);
 
 }

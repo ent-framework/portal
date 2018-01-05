@@ -14,8 +14,8 @@
 
 package com.liferay.util.bridges.mvc;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.InstanceFactory;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -132,7 +132,7 @@ public class ActionCommandCache {
 
 	private static final String _ACTION_COMMAND_POSTFIX = "ActionCommand";
 
-	private static Log _log = LogFactoryUtil.getLog(ActionCommandCache.class);
+	private static final Logger _log = LoggerFactory.getLogger(ActionCommandCache.class);
 
 	private Map<String, ActionCommand> _actionCommandCache =
 		new ConcurrentHashMap<String, ActionCommand>();

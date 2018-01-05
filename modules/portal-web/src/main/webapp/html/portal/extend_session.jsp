@@ -62,5 +62,5 @@ for (String servletContextName : ServletContextPool.keySet()) {
 %>
 
 <%!
-private static Log _log = LogFactoryUtil.getLog("portal-web.docroot.html.portal.extend_session_jsp");
+private static final Logger _log = LoggerFactory.getLogger("portal-web.docroot.html.portal.extend_session_jsp");
 %>

@@ -15,8 +15,8 @@
 package com.liferay.portal.poller.comet;
 
 import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.notifications.ChannelHubManagerUtil;
 import com.liferay.portal.kernel.notifications.ChannelListener;
 import com.liferay.portal.kernel.notifications.UnknownChannelException;
@@ -89,7 +89,7 @@ public class PollerCometHandler extends BaseCometHandler {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PollerCometHandler.class);
+	private static final Logger _log = LoggerFactory.getLogger(PollerCometHandler.class);
 
 	private ChannelListener _channelListener;
 	private long _companyId;

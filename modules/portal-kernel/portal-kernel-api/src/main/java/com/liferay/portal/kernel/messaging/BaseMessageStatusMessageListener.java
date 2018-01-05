@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.messaging;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.sender.MessageSender;
 import com.liferay.portal.kernel.messaging.sender.SingleDestinationMessageSender;
 
@@ -78,7 +78,7 @@ public abstract class BaseMessageStatusMessageListener
 		return _responseSender;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		BaseMessageStatusMessageListener.class);
 
 	private MessageSender _responseSender;

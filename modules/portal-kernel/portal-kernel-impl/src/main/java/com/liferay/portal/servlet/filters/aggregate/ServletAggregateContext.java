@@ -14,8 +14,8 @@
 
 package com.liferay.portal.servlet.filters.aggregate;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.ServletContextUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -85,13 +85,13 @@ public class ServletAggregateContext extends BaseAggregateContext {
 			return StringUtil.read(urlConnection.getInputStream());
 		}
 		catch (IOException ioe) {
-			_log.error(ioe, ioe);
+			_log.error(ioe.getMessage(), ioe);
 		}
 
 		return null;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		ServletAggregateContext.class);
 
 	private ServletContext _servletContext;

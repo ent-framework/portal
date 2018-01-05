@@ -20,8 +20,8 @@ import com.germinus.easyconf.ComponentProperties;
 import com.germinus.easyconf.ConfigurationNotFoundException;
 import com.germinus.easyconf.Conventions;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.SystemProperties;
 
 import java.lang.reflect.Constructor;
@@ -130,13 +130,13 @@ public class ClassLoaderComponentConfiguration extends ComponentConfiguration {
 				new Object[] {classLoaderAggregateProperties});
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return _properties;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		ClassLoaderComponentConfiguration.class);
 
 	private static Constructor<ComponentProperties> _constructor;
@@ -149,7 +149,7 @@ public class ClassLoaderComponentConfiguration extends ComponentConfiguration {
 			_constructor.setAccessible(true);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 

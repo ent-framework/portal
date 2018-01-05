@@ -19,8 +19,8 @@ import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.search.Indexer;
 import com.liferay.portal.kernel.search.IndexerRegistryUtil;
 import com.liferay.portal.kernel.systemevent.SystemEvent;
@@ -1435,7 +1435,7 @@ public class DDMStructureLocalServiceImpl
 		}
 		catch (DocumentException de) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(de, de);
+				_log.warn(de.getMessage(), de);
 			}
 
 			return;
@@ -1616,7 +1616,7 @@ public class DDMStructureLocalServiceImpl
 			}
 			catch (DocumentException de) {
 				if (_log.isWarnEnabled()) {
-					_log.warn(de, de);
+					_log.warn(de.getMessage(), de);
 				}
 
 				continue;
@@ -1824,7 +1824,7 @@ public class DDMStructureLocalServiceImpl
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		DDMStructureLocalServiceImpl.class);
 
 }

@@ -18,8 +18,8 @@ import com.liferay.portal.kernel.cluster.ClusterNode;
 import com.liferay.portal.kernel.cluster.ClusterNodeResponse;
 import com.liferay.portal.kernel.cluster.ClusterNodeResponses;
 import com.liferay.portal.kernel.cluster.FutureClusterResponses;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.model.ClusterGroup;
@@ -100,7 +100,7 @@ public class PortalManagerUtil {
 		_portalManager = portalManager;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PortalManagerUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(PortalManagerUtil.class);
 
 	private static Method _manageMethod;
 	private static PortalManager _portalManager;
@@ -111,7 +111,7 @@ public class PortalManagerUtil {
 				"manage", ManageAction.class);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 

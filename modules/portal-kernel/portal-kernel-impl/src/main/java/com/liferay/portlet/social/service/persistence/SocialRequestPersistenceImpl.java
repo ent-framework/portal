@@ -9,8 +9,6 @@ import com.liferay.portal.kernel.dao.orm.QueryPos;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.dao.orm.Session;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.InstanceFactory;
 import com.liferay.portal.kernel.util.OrderByComparator;
@@ -30,6 +28,9 @@ import com.liferay.portlet.social.model.SocialRequest;
 import com.liferay.portlet.social.model.impl.SocialRequestImpl;
 import com.liferay.portlet.social.model.impl.SocialRequestModelImpl;
 import com.liferay.portlet.social.service.persistence.SocialRequestPersistence;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.Serializable;
 
@@ -358,7 +359,7 @@ public class SocialRequestPersistenceImpl extends BasePersistenceImpl<SocialRequ
     private static final String _NO_SUCH_ENTITY_WITH_PRIMARY_KEY = "No SocialRequest exists with the primary key ";
     private static final String _NO_SUCH_ENTITY_WITH_KEY = "No SocialRequest exists with the key {";
     private static final boolean _HIBERNATE_CACHE_USE_SECOND_LEVEL_CACHE = com.liferay.portal.util.PropsValues.HIBERNATE_CACHE_USE_SECOND_LEVEL_CACHE;
-    private static Log _log = LogFactoryUtil.getLog(SocialRequestPersistenceImpl.class);
+    private static final Logger _log = LoggerFactory.getLogger(SocialRequestPersistenceImpl.class);
     private static Set<String> _badColumnNames = SetUtil.fromArray(new String[] {
                 "uuid", "type"
             });
@@ -6263,7 +6264,7 @@ public class SocialRequestPersistenceImpl extends BasePersistenceImpl<SocialRequ
 
                 listeners = listenersList.toArray(new ModelListener[listenersList.size()]);
             } catch (Exception e) {
-                _log.error(e);
+                _log.error(e.getMessage());
             }
         }
     }

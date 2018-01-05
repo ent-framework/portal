@@ -14,8 +14,8 @@
 
 package com.liferay.portlet.portletconfiguration.action;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.ConfigurationAction;
 import com.liferay.portal.kernel.portlet.ResourceServingConfigurationAction;
 import com.liferay.portal.kernel.servlet.SessionErrors;
@@ -176,7 +176,7 @@ public class EditConfigurationAction extends PortletAction {
 		return configurationAction;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		EditConfigurationAction.class);
 
 }

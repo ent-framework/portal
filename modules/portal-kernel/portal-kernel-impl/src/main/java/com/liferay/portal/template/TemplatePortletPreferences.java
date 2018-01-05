@@ -14,8 +14,8 @@
 
 package com.liferay.portal.template;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.model.PortletConstants;
 import com.liferay.portlet.PortletPreferencesFactoryUtil;
 import com.liferay.portlet.PortletPreferencesImpl;
@@ -51,13 +51,13 @@ public class TemplatePortletPreferences {
 			return PortletPreferencesFactoryUtil.toXML(_portletPreferencesImpl);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			return PortletConstants.DEFAULT_PREFERENCES;
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		TemplatePortletPreferences.class);
 
 	private PortletPreferencesImpl _portletPreferencesImpl;

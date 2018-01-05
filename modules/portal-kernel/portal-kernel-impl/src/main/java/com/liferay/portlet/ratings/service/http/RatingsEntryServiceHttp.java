@@ -1,13 +1,14 @@
 package com.liferay.portlet.ratings.service.http;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.http.TunnelUtil;
 
 import com.liferay.portlet.ratings.service.RatingsEntryServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Provides the HTTP utility for the
@@ -38,7 +39,7 @@ import com.liferay.portlet.ratings.service.RatingsEntryServiceUtil;
  * @generated
  */
 public class RatingsEntryServiceHttp {
-    private static Log _log = LogFactoryUtil.getLog(RatingsEntryServiceHttp.class);
+    private static final Logger _log = LoggerFactory.getLogger(RatingsEntryServiceHttp.class);
     private static final Class<?>[] _deleteEntryParameterTypes0 = new Class[] {
             java.lang.String.class, long.class
         };
@@ -71,7 +72,7 @@ public class RatingsEntryServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -107,7 +108,7 @@ public class RatingsEntryServiceHttp {
 
             return (com.liferay.portlet.ratings.model.RatingsEntry) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }

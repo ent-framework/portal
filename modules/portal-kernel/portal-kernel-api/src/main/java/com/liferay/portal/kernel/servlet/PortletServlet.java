@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.servlet;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.LiferayPortletSession;
 import com.liferay.portal.kernel.portlet.PortletFilterUtil;
 import com.liferay.portal.kernel.util.JavaConstants;
@@ -113,12 +113,12 @@ public class PortletServlet extends HttpServlet {
 				portletRequest, portletResponse, lifecycle, filterChain);
 		}
 		catch (PortletException pe) {
-			_log.error(pe, pe);
+			_log.error(pe.getMessage(), pe);
 
 			throw new ServletException(pe);
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PortletServlet.class);
+	private static final Logger _log = LoggerFactory.getLogger(PortletServlet.class);
 
 }

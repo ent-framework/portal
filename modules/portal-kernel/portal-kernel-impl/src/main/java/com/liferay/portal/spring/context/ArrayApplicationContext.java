@@ -14,8 +14,8 @@
 
 package com.liferay.portal.spring.context;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.FileNotFoundException;
 
@@ -57,13 +57,13 @@ public class ArrayApplicationContext extends ClassPathXmlApplicationContext {
 					}
 				}
 				else {
-					_log.error(e, e);
+					_log.error(e.getMessage(), e);
 				}
 			}
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		ArrayApplicationContext.class);
 
 }

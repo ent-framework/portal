@@ -16,8 +16,8 @@ package com.liferay.portal.struts;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.servlet.ServletContextPool;
 import com.liferay.portal.kernel.util.ClassUtil;
@@ -101,7 +101,7 @@ public abstract class JSONAction extends Action {
 			json = JSONFactoryUtil.serializeThrowable(se);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			PortalUtil.sendError(
 				HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e, request,
@@ -232,7 +232,7 @@ public abstract class JSONAction extends Action {
 		return true;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(JSONAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(JSONAction.class);
 
 	private Set<String> _hostsAllowed = SetUtil.fromArray(
 		PropsValues.JSON_SERVICE_AUTH_TOKEN_HOSTS_ALLOWED);

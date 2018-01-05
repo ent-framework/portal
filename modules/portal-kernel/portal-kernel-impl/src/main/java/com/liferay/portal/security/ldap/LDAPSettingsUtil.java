@@ -16,8 +16,8 @@ package com.liferay.portal.security.ldap;
 
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.ldap.LDAPUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.log.LogUtil;
 import com.liferay.portal.kernel.util.PropertiesUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
@@ -240,6 +240,6 @@ public class LDAPSettingsUtil {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LDAPSettingsUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(LDAPSettingsUtil.class);
 
 }

@@ -15,8 +15,8 @@
 package com.liferay.portal.security.auth;
 
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
@@ -229,6 +229,6 @@ public class OpenSSOAutoLogin extends BaseAutoLogin {
 		return credentials;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(OpenSSOAutoLogin.class);
+	private static final Logger _log = LoggerFactory.getLogger(OpenSSOAutoLogin.class);
 
 }

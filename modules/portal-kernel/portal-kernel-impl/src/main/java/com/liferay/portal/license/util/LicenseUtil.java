@@ -22,8 +22,8 @@ import com.liferay.portal.kernel.cluster.ClusterRequest;
 import com.liferay.portal.kernel.cluster.FutureClusterResponses;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.Base64;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.Constants;
@@ -142,7 +142,7 @@ public class LicenseUtil {
 			return (Map<String, String>)clusterNodeResponse.getResult();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			throw e;
 		}
@@ -185,7 +185,7 @@ public class LicenseUtil {
 		catch (Exception e) {
 			_log.error("Unable to read local server's IP addresses");
 
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return new HashSet<String>(_ipAddresses);
@@ -233,7 +233,7 @@ public class LicenseUtil {
 			macAddresses = getMacAddresses(osName, process.getInputStream());
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		_macAddresses = macAddresses;
@@ -354,7 +354,7 @@ public class LicenseUtil {
 						maxServers);
 				}
 				catch (Exception e) {
-					_log.error(e, e);
+					_log.error(e.getMessage(), e);
 
 					InetAddress inetAddress = clusterNode.getInetAddress();
 
@@ -416,7 +416,7 @@ public class LicenseUtil {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			attributes.put(
 				"ERROR_MESSAGE",
@@ -649,7 +649,7 @@ public class LicenseUtil {
 				encryptedSymmetricKey);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -695,7 +695,7 @@ public class LicenseUtil {
 	private static final String _PROXY_USER_NAME = GetterUtil.getString(
 		PropsUtil.get("license.proxy.username"));
 
-	private static Log _log = LogFactoryUtil.getLog(LicenseUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(LicenseUtil.class);
 
 	private static String _encryptedSymmetricKey;
 	private static MethodHandler _getServerInfoMethodHandler =

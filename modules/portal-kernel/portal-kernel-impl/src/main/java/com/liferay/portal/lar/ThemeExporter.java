@@ -16,8 +16,8 @@ package com.liferay.portal.lar;
 
 import com.liferay.portal.kernel.lar.PortletDataContext;
 import com.liferay.portal.kernel.lar.PortletDataHandlerKeys;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.model.LayoutSet;
@@ -112,6 +112,6 @@ public class ThemeExporter {
 		cssElement.addCDATA(css);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ThemeExporter.class);
+	private static final Logger _log = LoggerFactory.getLogger(ThemeExporter.class);
 
 }

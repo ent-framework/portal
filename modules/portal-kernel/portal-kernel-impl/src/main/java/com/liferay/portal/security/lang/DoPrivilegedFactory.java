@@ -14,8 +14,8 @@
 
 package com.liferay.portal.security.lang;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
@@ -160,7 +160,7 @@ public class DoPrivilegedFactory
 
 	private static final String _BEAN_NAME_SUFFIX_PERSISTENCE = "Persistence";
 
-	private static Log _log = LogFactoryUtil.getLog(DoPrivilegedFactory.class);
+	private static final Logger _log = LoggerFactory.getLogger(DoPrivilegedFactory.class);
 
 	private static Set<String> _earlyBeanReferenceNames = new HashSet<String>();
 
@@ -181,7 +181,7 @@ public class DoPrivilegedFactory
 			}
 			catch (Exception e) {
 				if (_log.isWarnEnabled()) {
-					_log.warn(e, e);
+					_log.warn(e.getMessage(), e);
 				}
 			}
 

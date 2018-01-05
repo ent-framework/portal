@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.resiliency.mpi;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.config.MessagingConfigurator;
 import com.liferay.portal.kernel.messaging.config.MessagingConfiguratorRegistry;
 import com.liferay.portal.kernel.nio.intraband.Intraband;
@@ -372,7 +372,7 @@ public class MPIHelperUtil {
 			alive = spi.isAlive();
 		}
 		catch (RemoteException re) {
-			_log.error(re);
+			_log.error(re.getMessage(), re);
 		}
 
 		if (alive) {
@@ -384,7 +384,7 @@ public class MPIHelperUtil {
 		return null;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(MPIHelperUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(MPIHelperUtil.class);
 
 	private static Intraband _intraband;
 	private static Lock _lock = new ReentrantLock();

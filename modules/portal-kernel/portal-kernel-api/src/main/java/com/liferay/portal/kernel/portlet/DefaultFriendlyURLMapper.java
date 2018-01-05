@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.portlet;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.PortletConstants;
@@ -352,7 +352,7 @@ public class DefaultFriendlyURLMapper extends BaseFriendlyURLMapper {
 	protected Set<String> defaultIgnoredParameters;
 	protected Map<String, String> defaultReservedParameters;
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		DefaultFriendlyURLMapper.class);
 
 }

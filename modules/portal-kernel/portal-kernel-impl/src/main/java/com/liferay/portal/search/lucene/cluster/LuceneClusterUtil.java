@@ -16,8 +16,8 @@ package com.liferay.portal.search.lucene.cluster;
 
 import com.liferay.portal.kernel.cluster.Address;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.search.lucene.LuceneHelperUtil;
 
 import java.io.IOException;
@@ -78,6 +78,6 @@ public class LuceneClusterUtil {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LuceneClusterUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(LuceneClusterUtil.class);
 
 }

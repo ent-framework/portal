@@ -20,8 +20,8 @@ import com.liferay.portal.kernel.events.Action;
 import com.liferay.portal.kernel.events.ActionException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.DestinationNames;
 import com.liferay.portal.kernel.messaging.MessageBusUtil;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
@@ -108,6 +108,6 @@ public class LoginPostAction extends Action {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LoginPostAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(LoginPostAction.class);
 
 }

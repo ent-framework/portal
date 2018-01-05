@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.portlet;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.BrowserSnifferUtil;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.util.ArrayUtil;
@@ -370,7 +370,7 @@ public class PortletResponseUtil {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e);
+				_log.warn(e.getMessage(),e);
 			}
 		}
 
@@ -412,6 +412,6 @@ public class PortletResponseUtil {
 			HttpHeaders.CONTENT_DISPOSITION, sb.toString());
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PortletResponseUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(PortletResponseUtil.class);
 
 }

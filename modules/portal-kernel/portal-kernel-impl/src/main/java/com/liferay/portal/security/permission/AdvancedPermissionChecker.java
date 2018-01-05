@@ -16,8 +16,8 @@ package com.liferay.portal.security.permission;
 
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -503,7 +503,7 @@ public class AdvancedPermissionChecker extends BasePermissionChecker {
 		}
 		catch (Exception e) {
 			if (_log.isDebugEnabled()) {
-				_log.debug(e, e);
+				_log.debug(e.getMessage(), e);
 			}
 		}
 
@@ -561,7 +561,7 @@ public class AdvancedPermissionChecker extends BasePermissionChecker {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		Boolean value = PermissionCacheUtil.getPermission(
@@ -605,7 +605,7 @@ public class AdvancedPermissionChecker extends BasePermissionChecker {
 				groupId, name, primKey, actionId, checkAdmin);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			return false;
 		}
@@ -617,7 +617,7 @@ public class AdvancedPermissionChecker extends BasePermissionChecker {
 			return isCompanyAdminImpl();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			return false;
 		}
@@ -629,7 +629,7 @@ public class AdvancedPermissionChecker extends BasePermissionChecker {
 			return isCompanyAdminImpl(companyId);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			return false;
 		}
@@ -641,7 +641,7 @@ public class AdvancedPermissionChecker extends BasePermissionChecker {
 			return isContentReviewerImpl(companyId, groupId);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return false;
@@ -653,7 +653,7 @@ public class AdvancedPermissionChecker extends BasePermissionChecker {
 			return isGroupAdminImpl(groupId);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			return false;
 		}
@@ -665,7 +665,7 @@ public class AdvancedPermissionChecker extends BasePermissionChecker {
 			return isGroupMemberImpl(groupId);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			return false;
 		}
@@ -677,7 +677,7 @@ public class AdvancedPermissionChecker extends BasePermissionChecker {
 			return isGroupOwnerImpl(groupId);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			return false;
 		}
@@ -689,7 +689,7 @@ public class AdvancedPermissionChecker extends BasePermissionChecker {
 			return isOrganizationAdminImpl(organizationId);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			return false;
 		}
@@ -701,7 +701,7 @@ public class AdvancedPermissionChecker extends BasePermissionChecker {
 			return isOrganizationOwnerImpl(organizationId);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			return false;
 		}
@@ -932,7 +932,7 @@ public class AdvancedPermissionChecker extends BasePermissionChecker {
 				defaultUserId, groupId, resources, actionId, bag.getRoleIds());
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			return false;
 		}
@@ -970,7 +970,7 @@ public class AdvancedPermissionChecker extends BasePermissionChecker {
 			return value;
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			return false;
 		}
@@ -1331,7 +1331,7 @@ public class AdvancedPermissionChecker extends BasePermissionChecker {
 
 	protected Map<Long, Boolean> companyAdmins = new HashMap<Long, Boolean>();
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		AdvancedPermissionChecker.class);
 
 }

@@ -10,8 +10,6 @@ import com.liferay.portal.kernel.dao.orm.QueryPos;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.dao.orm.Session;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.InstanceFactory;
 import com.liferay.portal.kernel.util.OrderByComparator;
@@ -26,6 +24,9 @@ import com.liferay.portal.model.impl.PortalPreferencesImpl;
 import com.liferay.portal.model.impl.PortalPreferencesModelImpl;
 import com.liferay.portal.service.persistence.PortalPreferencesPersistence;
 import com.liferay.portal.service.persistence.impl.BasePersistenceImpl;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.Serializable;
 
@@ -89,7 +90,7 @@ public class PortalPreferencesPersistenceImpl extends BasePersistenceImpl<Portal
     private static final String _NO_SUCH_ENTITY_WITH_PRIMARY_KEY = "No PortalPreferences exists with the primary key ";
     private static final String _NO_SUCH_ENTITY_WITH_KEY = "No PortalPreferences exists with the key {";
     private static final boolean _HIBERNATE_CACHE_USE_SECOND_LEVEL_CACHE = com.liferay.portal.util.PropsValues.HIBERNATE_CACHE_USE_SECOND_LEVEL_CACHE;
-    private static Log _log = LogFactoryUtil.getLog(PortalPreferencesPersistenceImpl.class);
+    private static final Logger _log = LoggerFactory.getLogger(PortalPreferencesPersistenceImpl.class);
     private static PortalPreferences _nullPortalPreferences = new PortalPreferencesImpl() {
             @Override
             public Object clone() {
@@ -917,7 +918,7 @@ public class PortalPreferencesPersistenceImpl extends BasePersistenceImpl<Portal
 
                 listeners = listenersList.toArray(new ModelListener[listenersList.size()]);
             } catch (Exception e) {
-                _log.error(e);
+                _log.error(e.getMessage());
             }
         }
     }

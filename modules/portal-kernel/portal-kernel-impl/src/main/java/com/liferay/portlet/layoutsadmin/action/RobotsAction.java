@@ -14,8 +14,8 @@
 
 package com.liferay.portlet.layoutsadmin.action;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -85,7 +85,7 @@ public class RobotsAction extends Action {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 
 			PortalUtil.sendError(
@@ -96,6 +96,6 @@ public class RobotsAction extends Action {
 		return null;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(RobotsAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(RobotsAction.class);
 
 }

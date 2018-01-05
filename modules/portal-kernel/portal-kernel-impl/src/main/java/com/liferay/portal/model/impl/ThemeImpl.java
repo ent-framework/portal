@@ -14,8 +14,8 @@
 
 package com.liferay.portal.model.impl;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.ServletContextPool;
 import com.liferay.portal.kernel.template.TemplateConstants;
 import com.liferay.portal.kernel.util.ContextPathUtil;
@@ -628,7 +628,7 @@ public class ThemeImpl extends PluginBaseImpl implements Theme {
 		return available;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ThemeImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(ThemeImpl.class);
 
 	private Map<String, ColorScheme> _colorSchemesMap =
 		new HashMap<String, ColorScheme>();

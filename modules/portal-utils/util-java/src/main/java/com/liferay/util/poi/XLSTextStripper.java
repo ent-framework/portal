@@ -14,8 +14,8 @@
 
 package com.liferay.util.poi;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringBundler;
 
 import java.io.InputStream;
@@ -91,7 +91,7 @@ public class XLSTextStripper {
 		return _text;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(XLSTextStripper.class);
+	private static final Logger _log = LoggerFactory.getLogger(XLSTextStripper.class);
 
 	private String _text;
 

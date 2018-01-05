@@ -2,9 +2,10 @@ package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.service.PortletPreferencesServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -50,14 +51,14 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class PortletPreferencesServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(PortletPreferencesServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(PortletPreferencesServiceSoap.class);
 
     public static void deleteArchivedPreferences(long portletItemId)
         throws RemoteException {
         try {
             PortletPreferencesServiceUtil.deleteArchivedPreferences(portletItemId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

@@ -2,9 +2,10 @@ package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.service.CountryServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -50,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class CountryServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(CountryServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(CountryServiceSoap.class);
 
     public static com.liferay.portal.model.CountrySoap addCountry(
         java.lang.String name, java.lang.String a2, java.lang.String a3,
@@ -62,7 +63,7 @@ public class CountryServiceSoap {
 
             return com.liferay.portal.model.CountrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -75,7 +76,7 @@ public class CountryServiceSoap {
 
             return com.liferay.portal.model.CountrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -88,7 +89,7 @@ public class CountryServiceSoap {
 
             return com.liferay.portal.model.CountrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -101,7 +102,7 @@ public class CountryServiceSoap {
 
             return com.liferay.portal.model.CountrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -114,7 +115,7 @@ public class CountryServiceSoap {
 
             return com.liferay.portal.model.CountrySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -127,7 +128,7 @@ public class CountryServiceSoap {
 
             return com.liferay.portal.model.CountrySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -140,7 +141,7 @@ public class CountryServiceSoap {
 
             return com.liferay.portal.model.CountrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -153,7 +154,7 @@ public class CountryServiceSoap {
 
             return com.liferay.portal.model.CountrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -166,7 +167,7 @@ public class CountryServiceSoap {
 
             return com.liferay.portal.model.CountrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -179,7 +180,7 @@ public class CountryServiceSoap {
 
             return com.liferay.portal.model.CountrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

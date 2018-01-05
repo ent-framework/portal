@@ -23,8 +23,8 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.search.facet.AssetEntriesFacet;
 import com.liferay.portal.kernel.search.facet.Facet;
 import com.liferay.portal.kernel.search.facet.MultiValueFacet;
@@ -1813,7 +1813,7 @@ public abstract class BaseIndexer implements Indexer {
 		return false;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(BaseIndexer.class);
+	private static final Logger _log = LoggerFactory.getLogger(BaseIndexer.class);
 
 	private boolean _commitImmediately;
 	private Document _document = new DocumentImpl();

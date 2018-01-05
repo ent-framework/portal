@@ -18,8 +18,8 @@ import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBFactoryUtil;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.service.base.QuartzLocalServiceBaseImpl;
 
 import java.sql.Connection;
@@ -51,7 +51,7 @@ public class QuartzLocalServiceImpl extends QuartzLocalServiceBaseImpl {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 		finally {
@@ -68,7 +68,7 @@ public class QuartzLocalServiceImpl extends QuartzLocalServiceBaseImpl {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		QuartzLocalServiceImpl.class);
 
 }

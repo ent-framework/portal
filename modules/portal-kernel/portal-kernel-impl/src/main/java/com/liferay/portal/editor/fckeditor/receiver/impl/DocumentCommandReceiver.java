@@ -16,8 +16,8 @@ package com.liferay.portal.editor.fckeditor.receiver.impl;
 
 import com.liferay.portal.editor.fckeditor.command.CommandArgument;
 import com.liferay.portal.editor.fckeditor.exception.FCKException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.util.StringPool;
@@ -189,7 +189,7 @@ public class DocumentCommandReceiver extends BaseCommandReceiver {
 		}
 		catch (PrincipalException pe) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(pe, pe);
+				_log.warn(pe.getMessage(), pe);
 			}
 		}
 		catch (Exception e) {
@@ -292,7 +292,7 @@ public class DocumentCommandReceiver extends BaseCommandReceiver {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		DocumentCommandReceiver.class);
 
 }

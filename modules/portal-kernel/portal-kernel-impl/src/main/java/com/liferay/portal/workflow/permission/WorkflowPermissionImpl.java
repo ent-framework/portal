@@ -14,8 +14,8 @@
 
 package com.liferay.portal.workflow.permission;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.workflow.WorkflowException;
 import com.liferay.portal.kernel.workflow.WorkflowInstance;
@@ -44,7 +44,7 @@ public class WorkflowPermissionImpl implements WorkflowPermission {
 				permissionChecker, groupId, className, classPK, actionId);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return null;
@@ -120,7 +120,7 @@ public class WorkflowPermissionImpl implements WorkflowPermission {
 		return false;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		WorkflowPermissionImpl.class);
 
 }

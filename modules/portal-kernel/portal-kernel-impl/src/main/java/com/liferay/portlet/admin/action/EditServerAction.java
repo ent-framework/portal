@@ -38,9 +38,8 @@ import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncPrintWriter;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.kernel.log.SanitizerLogWrapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.mail.Account;
 import com.liferay.portal.kernel.messaging.BaseAsyncDestination;
 import com.liferay.portal.kernel.messaging.Destination;
@@ -104,7 +103,6 @@ import com.liferay.portal.util.WebKeys;
 import com.liferay.portlet.ActionResponseImpl;
 import com.liferay.portlet.admin.util.CleanUpPermissionsUtil;
 import com.liferay.portlet.documentlibrary.util.DLPreviewableProcessor;
-import com.liferay.util.log4j.Log4JUtil;
 
 import java.io.File;
 
@@ -241,7 +239,7 @@ public class EditServerAction extends PortletAction {
 		String loggerName = ParamUtil.getString(actionRequest, "loggerName");
 		String priority = ParamUtil.getString(actionRequest, "priority");
 
-		Log4JUtil.setLevel(loggerName, priority, true);
+		//Log4JUtil.setLevel(loggerName, priority, true);
 	}
 
 	protected void cacheDb() throws Exception {
@@ -389,7 +387,7 @@ public class EditServerAction extends PortletAction {
 						luceneIndexer.getUsedSearchEngineIds());
 				}
 				catch (Exception e) {
-					_log.error(e, e);
+					_log.error(e.getMessage(), e);
 				}
 			}
 		}
@@ -431,7 +429,7 @@ public class EditServerAction extends PortletAction {
 						usedSearchEngineIds.add(indexer.getSearchEngineId());
 					}
 					catch (Exception e) {
-						_log.error(e, e);
+						_log.error(e.getMessage(), e);
 					}
 					finally {
 						ShardUtil.popCompanyService();
@@ -518,9 +516,9 @@ public class EditServerAction extends PortletAction {
 			SessionErrors.add(
 				actionRequest, ScriptingException.class.getName(), se);
 
-			Log log = SanitizerLogWrapper.allowCRLF(_log);
-
-			log.error(se.getMessage());
+//			Log log = SanitizerLogWrapper.allowCRLF(_log);
+//
+//			log.error(se.getMessage());
 		}
 	}
 
@@ -611,9 +609,9 @@ public class EditServerAction extends PortletAction {
 
 	protected void threadDump() throws Exception {
 		if (_log.isInfoEnabled()) {
-			Log log = SanitizerLogWrapper.allowCRLF(_log);
+			//Log log = SanitizerLogWrapper.allowCRLF(_log);
 
-			log.info(ThreadUtil.threadDump());
+			//log.info(ThreadUtil.threadDump());
 		}
 		else {
 			Class<?> clazz = getClass();
@@ -832,7 +830,7 @@ public class EditServerAction extends PortletAction {
 				String priority = ParamUtil.getString(
 					actionRequest, name, Level.INFO.toString());
 
-				Log4JUtil.setLevel(loggerName, priority, true);
+				//Log4JUtil.setLevel(loggerName, priority, true);
 			}
 		}
 	}
@@ -956,7 +954,7 @@ public class EditServerAction extends PortletAction {
 		ServiceComponentLocalServiceUtil.verifyDB();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(EditServerAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(EditServerAction.class);
 
 	private static MethodKey _loadIndexesFromClusterMethodKey = new MethodKey(
 		LuceneClusterUtil.class, "loadIndexesFromCluster", long[].class,

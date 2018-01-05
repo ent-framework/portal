@@ -16,8 +16,8 @@ package com.liferay.portlet.layoutsadmin.action;
 
 import com.liferay.portal.NoSuchGroupException;
 import com.liferay.portal.kernel.lar.ExportImportHelperUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.DateRange;
@@ -90,7 +90,7 @@ public class ExportLayoutsAction extends PortletAction {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			SessionErrors.add(actionRequest, e.getClass());
 
@@ -170,6 +170,6 @@ public class ExportLayoutsAction extends PortletAction {
 		return ExportImportHelperUtil.getLayoutIds(layouts);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ExportLayoutsAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(ExportLayoutsAction.class);
 
 }

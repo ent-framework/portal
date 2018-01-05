@@ -14,8 +14,8 @@
 
 package com.liferay.util.axis;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.BaseFilter;
 import com.liferay.portal.kernel.util.ReflectionUtil;
 
@@ -34,7 +34,7 @@ import org.apache.axis.utils.cache.MethodCache;
 public class AxisCleanUpFilter extends BaseFilter {
 
 	@Override
-	protected Log getLog() {
+	protected Logger getLog() {
 		return _log;
 	}
 
@@ -58,12 +58,12 @@ public class AxisCleanUpFilter extends BaseFilter {
 				}
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(AxisCleanUpFilter.class);
+	private static final Logger _log = LoggerFactory.getLogger(AxisCleanUpFilter.class);
 
 	private static Field _cacheField;
 
@@ -73,7 +73,7 @@ public class AxisCleanUpFilter extends BaseFilter {
 				MethodCache.class, "cache");
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 

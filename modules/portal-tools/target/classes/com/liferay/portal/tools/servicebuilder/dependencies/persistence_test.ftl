@@ -28,8 +28,8 @@ import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.ProjectionFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.test.AssertUtils;
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
@@ -45,7 +45,7 @@ import com.liferay.portal.service.persistence.PersistenceExecutionTestListener;
 import com.liferay.portal.test.EnvironmentExecutionTestListener;
 import com.liferay.portal.test.LiferayPersistenceIntegrationJUnitTestRunner;
 import com.liferay.portal.test.persistence.TransactionalPersistenceAdvice;
-import com.liferay.portal.tools.util.PropsValues;
+import com.liferay.portal.util.PropsValues;
 
 import java.sql.Blob;
 import java.sql.Connection;
@@ -892,7 +892,7 @@ public class ${entity.name}PersistenceTest {
 		}
 	</#if>
 
-	private static Log _log = LogFactoryUtil.getLog(${entity.name}PersistenceTest.class);
+	private static final Logger _log = LoggerFactory.getLogger(${entity.name}PersistenceTest.class);
 
 	private ${entity.name}Persistence _persistence = (${entity.name}Persistence)${beanLocatorUtilShortName}.locate(${entity.name}Persistence.class.getName());
 	private TransactionalPersistenceAdvice _transactionalPersistenceAdvice = (TransactionalPersistenceAdvice)${beanLocatorUtilShortName}.locate(TransactionalPersistenceAdvice.class.getName());

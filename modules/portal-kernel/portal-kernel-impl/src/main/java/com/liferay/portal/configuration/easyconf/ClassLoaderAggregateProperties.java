@@ -21,8 +21,8 @@ import com.germinus.easyconf.DatasourceURL;
 import com.germinus.easyconf.FileConfigurationChangedReloadingStrategy;
 import com.germinus.easyconf.JndiURL;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ArrayUtil;
 
 import java.net.URL;
@@ -364,7 +364,7 @@ public class ClassLoaderAggregateProperties extends AggregatedProperties {
 		return delay;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		ClassLoaderAggregateProperties.class);
 
 	private CompositeConfiguration _baseCompositeConfiguration =

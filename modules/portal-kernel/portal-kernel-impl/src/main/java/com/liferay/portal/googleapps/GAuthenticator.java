@@ -14,8 +14,8 @@
 
 package com.liferay.portal.googleapps;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.PropertiesUtil;
@@ -71,7 +71,7 @@ public class GAuthenticator {
 				doInit();
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 	}
@@ -134,7 +134,7 @@ public class GAuthenticator {
 
 	private static final long _EXPIRE_TIME = Time.HOUR;
 
-	private static Log _log = LogFactoryUtil.getLog(GAuthenticator.class);
+	private static final Logger _log = LoggerFactory.getLogger(GAuthenticator.class);
 
 	private String _authenticationToken;
 	private long _companyId;

@@ -15,8 +15,8 @@
 package com.liferay.util.portlet;
 
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.LiferayWindowState;
 import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.StreamUtil;
@@ -502,6 +502,6 @@ public class PortletRequestUtil {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PortletRequestUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(PortletRequestUtil.class);
 
 }

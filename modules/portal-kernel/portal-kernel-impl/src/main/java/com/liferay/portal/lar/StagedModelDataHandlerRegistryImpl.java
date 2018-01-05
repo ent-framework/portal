@@ -16,8 +16,8 @@ package com.liferay.portal.lar;
 
 import com.liferay.portal.kernel.lar.StagedModelDataHandler;
 import com.liferay.portal.kernel.lar.StagedModelDataHandlerRegistry;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.ListUtil;
 
@@ -70,7 +70,7 @@ public class StagedModelDataHandlerRegistryImpl
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		StagedModelDataHandlerRegistryImpl.class);
 
 	private Map<String, StagedModelDataHandler<?>> _stagedModelDataHandlers =

@@ -14,8 +14,8 @@
 
 package com.liferay.taglib.portlet;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.*;
 import com.liferay.portal.kernel.util.JavaConstants;
 import com.liferay.portal.kernel.util.MapUtil;
@@ -40,7 +40,7 @@ import java.util.Set;
  */
 public class ActionURLTag extends ParamAndPropertyAncestorTagImpl {
 
-    private static Log _log = LogFactoryUtil.getLog(ActionURLTag.class);
+    private static final Logger _log = LoggerFactory.getLogger(ActionURLTag.class);
     private Boolean _anchor;
     private String _cacheability;
     private Boolean _copyCurrentRenderParameters;

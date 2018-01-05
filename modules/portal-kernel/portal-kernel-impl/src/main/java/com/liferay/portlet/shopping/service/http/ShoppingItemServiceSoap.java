@@ -2,11 +2,12 @@ package com.liferay.portlet.shopping.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 
 import com.liferay.portlet.shopping.service.ShoppingItemServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -52,14 +53,14 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class ShoppingItemServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(ShoppingItemServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(ShoppingItemServiceSoap.class);
 
     public static void addBookItems(long groupId, long categoryId,
         java.lang.String[] isbns) throws RemoteException {
         try {
             ShoppingItemServiceUtil.addBookItems(groupId, categoryId, isbns);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -69,7 +70,7 @@ public class ShoppingItemServiceSoap {
         try {
             ShoppingItemServiceUtil.deleteItem(itemId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -83,7 +84,7 @@ public class ShoppingItemServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -96,7 +97,7 @@ public class ShoppingItemServiceSoap {
 
             return com.liferay.portlet.shopping.model.ShoppingItemSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -110,7 +111,7 @@ public class ShoppingItemServiceSoap {
 
             return com.liferay.portlet.shopping.model.ShoppingItemSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -127,7 +128,7 @@ public class ShoppingItemServiceSoap {
 
             return com.liferay.portlet.shopping.model.ShoppingItemSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -141,7 +142,7 @@ public class ShoppingItemServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -156,7 +157,7 @@ public class ShoppingItemServiceSoap {
 
             return com.liferay.portlet.shopping.model.ShoppingItemSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

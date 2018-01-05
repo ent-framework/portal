@@ -16,8 +16,8 @@ package com.liferay.portal.security.auth;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.Base64;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -67,7 +67,7 @@ public class TunnelingServletAuthVerifier implements AuthVerifier {
 		}
 		catch (AuthException ae) {
 			if (_log.isDebugEnabled()) {
-				_log.debug(ae);
+				_log.debug(ae.getMessage(), ae);
 			}
 
 			HttpServletResponse response = accessControlContext.getResponse();
@@ -86,7 +86,7 @@ public class TunnelingServletAuthVerifier implements AuthVerifier {
 					AuthVerifierResult.State.INVALID_CREDENTIALS);
 			}
 			catch (IOException ioe) {
-				_log.error(ioe, ioe);
+				_log.error(ioe.getMessage(), ioe);
 
 				throw ae;
 			}
@@ -212,7 +212,7 @@ public class TunnelingServletAuthVerifier implements AuthVerifier {
 		return credentials;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		TunnelingServletAuthVerifier.class);
 
 }

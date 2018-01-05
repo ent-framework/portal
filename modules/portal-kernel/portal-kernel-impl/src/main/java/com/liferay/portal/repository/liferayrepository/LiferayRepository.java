@@ -16,8 +16,8 @@ package com.liferay.portal.repository.liferayrepository;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.repository.Repository;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.FileVersion;
@@ -886,7 +886,7 @@ public class LiferayRepository
 					_log.trace(e.getMessage());
 				}
 				else {
-					_log.trace(e, e);
+					_log.trace(e.getMessage(), e);
 				}
 			}
 		}
@@ -911,7 +911,7 @@ public class LiferayRepository
 					_log.trace(e.getMessage());
 				}
 				else {
-					_log.trace(e, e);
+					_log.trace(e.getMessage(), e);
 				}
 			}
 		}
@@ -933,7 +933,7 @@ public class LiferayRepository
 					_log.trace(e.getMessage());
 				}
 				else {
-					_log.trace(e, e);
+					_log.trace(e.getMessage(), e);
 				}
 			}
 		}
@@ -956,6 +956,6 @@ public class LiferayRepository
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LiferayRepository.class);
+	private static final Logger _log = LoggerFactory.getLogger(LiferayRepository.class);
 
 }

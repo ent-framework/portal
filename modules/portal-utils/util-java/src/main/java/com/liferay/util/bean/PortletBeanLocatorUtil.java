@@ -16,8 +16,8 @@ package com.liferay.util.bean;
 
 import com.liferay.portal.kernel.bean.BeanLocator;
 import com.liferay.portal.kernel.bean.BeanLocatorException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Brian Wing Shun Chan
@@ -52,7 +52,7 @@ public class PortletBeanLocatorUtil {
 		_beanLocator = beanLocator;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PortletBeanLocatorUtil.class);
 
 	private static BeanLocator _beanLocator;

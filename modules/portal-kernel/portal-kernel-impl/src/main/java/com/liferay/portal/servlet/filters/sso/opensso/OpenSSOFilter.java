@@ -14,8 +14,8 @@
 
 package com.liferay.portal.servlet.filters.sso.opensso;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
@@ -67,7 +67,7 @@ public class OpenSSOFilter extends BasePortalFilter {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return false;
@@ -112,7 +112,7 @@ public class OpenSSOFilter extends BasePortalFilter {
 			authenticated = OpenSSOUtil.isAuthenticated(request, serviceUrl);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			processFilter(OpenSSOFilter.class, request, response, filterChain);
 
@@ -177,6 +177,6 @@ public class OpenSSOFilter extends BasePortalFilter {
 
 	private static final String _SUBJECT_ID_KEY = "open.sso.subject.id";
 
-	private static Log _log = LogFactoryUtil.getLog(OpenSSOFilter.class);
+	private static final Logger _log = LoggerFactory.getLogger(OpenSSOFilter.class);
 
 }

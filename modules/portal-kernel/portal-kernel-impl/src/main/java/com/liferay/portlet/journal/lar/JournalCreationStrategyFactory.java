@@ -14,8 +14,8 @@
 
 package com.liferay.portlet.journal.lar;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.util.ClassLoaderUtil;
 import com.liferay.portal.util.PropsValues;
 
@@ -40,7 +40,7 @@ public class JournalCreationStrategyFactory {
 							newInstance();
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -62,7 +62,7 @@ public class JournalCreationStrategyFactory {
 		_journalCreationStrategy = journalCreationStrategy;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		JournalCreationStrategyFactory.class);
 
 	private static JournalCreationStrategy _journalCreationStrategy;

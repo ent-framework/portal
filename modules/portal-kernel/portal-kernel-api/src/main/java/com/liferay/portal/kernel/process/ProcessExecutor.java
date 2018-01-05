@@ -18,8 +18,8 @@ import com.liferay.portal.kernel.concurrent.ConcurrentHashSet;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedInputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedOutputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.process.log.ProcessOutputStream;
 import com.liferay.portal.kernel.util.ClassLoaderObjectInputStream;
 import com.liferay.portal.kernel.util.NamedThreadFactory;
@@ -339,7 +339,7 @@ public class ProcessExecutor {
 		return _executorService;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ProcessExecutor.class);
+	private static final Logger _log = LoggerFactory.getLogger(ProcessExecutor.class);
 
 	private static volatile ExecutorService _executorService;
 	private static Set<Process> _managedProcesses =

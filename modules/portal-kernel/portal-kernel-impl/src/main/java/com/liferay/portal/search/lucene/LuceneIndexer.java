@@ -15,8 +15,8 @@
 package com.liferay.portal.search.lucene;
 
 import com.liferay.portal.kernel.dao.shard.ShardUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.search.Indexer;
 import com.liferay.portal.kernel.search.SearchEngineUtil;
 import com.liferay.portal.kernel.util.ListUtil;
@@ -170,7 +170,7 @@ public class LuceneIndexer implements Runnable {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LuceneIndexer.class);
+	private static final Logger _log = LoggerFactory.getLogger(LuceneIndexer.class);
 
 	private long _companyId;
 	private boolean _finished;

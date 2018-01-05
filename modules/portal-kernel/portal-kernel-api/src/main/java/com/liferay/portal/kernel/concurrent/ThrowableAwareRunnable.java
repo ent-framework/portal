@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.concurrent;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ClassUtil;
 
 /**
@@ -60,7 +60,7 @@ public abstract class ThrowableAwareRunnable implements Runnable {
 
 	protected abstract void doRun() throws Exception;
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		ThrowableAwareRunnable.class);
 
 	private Throwable _throwable;

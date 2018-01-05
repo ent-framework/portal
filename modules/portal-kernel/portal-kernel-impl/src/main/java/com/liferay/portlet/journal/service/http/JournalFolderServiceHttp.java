@@ -1,13 +1,14 @@
 package com.liferay.portlet.journal.service.http;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.http.TunnelUtil;
 
 import com.liferay.portlet.journal.service.JournalFolderServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Provides the HTTP utility for the
@@ -38,7 +39,7 @@ import com.liferay.portlet.journal.service.JournalFolderServiceUtil;
  * @generated
  */
 public class JournalFolderServiceHttp {
-    private static Log _log = LogFactoryUtil.getLog(JournalFolderServiceHttp.class);
+    private static final Logger _log = LoggerFactory.getLogger(JournalFolderServiceHttp.class);
     private static final Class<?>[] _addFolderParameterTypes0 = new Class[] {
             long.class, long.class, java.lang.String.class,
             java.lang.String.class,
@@ -164,7 +165,7 @@ public class JournalFolderServiceHttp {
 
             return (com.liferay.portlet.journal.model.JournalFolder) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -193,7 +194,7 @@ public class JournalFolderServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -224,7 +225,7 @@ public class JournalFolderServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -258,7 +259,7 @@ public class JournalFolderServiceHttp {
 
             return (com.liferay.portlet.journal.model.JournalFolder) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -292,7 +293,7 @@ public class JournalFolderServiceHttp {
 
             return (com.liferay.portlet.journal.model.JournalFolder) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -327,7 +328,7 @@ public class JournalFolderServiceHttp {
 
             return (java.util.List<java.lang.Long>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -356,7 +357,7 @@ public class JournalFolderServiceHttp {
 
             return (java.util.List<com.liferay.portlet.journal.model.JournalFolder>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -386,7 +387,7 @@ public class JournalFolderServiceHttp {
 
             return (java.util.List<com.liferay.portlet.journal.model.JournalFolder>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -416,7 +417,7 @@ public class JournalFolderServiceHttp {
 
             return (java.util.List<com.liferay.portlet.journal.model.JournalFolder>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -447,7 +448,7 @@ public class JournalFolderServiceHttp {
 
             return (java.util.List<com.liferay.portlet.journal.model.JournalFolder>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -478,7 +479,7 @@ public class JournalFolderServiceHttp {
 
             return (java.util.List<com.liferay.portlet.journal.model.JournalFolder>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -510,7 +511,7 @@ public class JournalFolderServiceHttp {
 
             return (java.util.List<java.lang.Object>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -542,7 +543,7 @@ public class JournalFolderServiceHttp {
 
             return (java.util.List<java.lang.Object>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -575,7 +576,7 @@ public class JournalFolderServiceHttp {
 
             return (java.util.List<java.lang.Object>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -606,7 +607,7 @@ public class JournalFolderServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -637,7 +638,7 @@ public class JournalFolderServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -668,7 +669,7 @@ public class JournalFolderServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -699,7 +700,7 @@ public class JournalFolderServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -729,7 +730,7 @@ public class JournalFolderServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -759,7 +760,7 @@ public class JournalFolderServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -785,7 +786,7 @@ public class JournalFolderServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -812,7 +813,7 @@ public class JournalFolderServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -843,7 +844,7 @@ public class JournalFolderServiceHttp {
 
             return (java.util.List<java.lang.Long>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -879,7 +880,7 @@ public class JournalFolderServiceHttp {
 
             return (com.liferay.portlet.journal.model.JournalFolder) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -915,7 +916,7 @@ public class JournalFolderServiceHttp {
 
             return (com.liferay.portlet.journal.model.JournalFolder) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -949,7 +950,7 @@ public class JournalFolderServiceHttp {
 
             return (com.liferay.portlet.journal.model.JournalFolder) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -980,7 +981,7 @@ public class JournalFolderServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -1019,7 +1020,7 @@ public class JournalFolderServiceHttp {
 
             return (com.liferay.portlet.journal.model.JournalFolder) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }

@@ -14,8 +14,8 @@
 
 package com.liferay.portal.verify;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.search.SearchEngineUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.NotificationThreadLocal;
@@ -129,6 +129,6 @@ public class VerifyProcessUtil {
 		return false;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(VerifyProcessUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(VerifyProcessUtil.class);
 
 }

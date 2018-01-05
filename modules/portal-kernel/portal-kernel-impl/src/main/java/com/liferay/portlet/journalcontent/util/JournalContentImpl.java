@@ -17,8 +17,8 @@ package com.liferay.portlet.journalcontent.util;
 import com.liferay.portal.kernel.cache.MultiVMPoolUtil;
 import com.liferay.portal.kernel.cache.PortalCache;
 import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -335,6 +335,6 @@ public class JournalContentImpl implements JournalContent {
 	protected static PortalCache<String, JournalArticleDisplay> portalCache =
 		MultiVMPoolUtil.getCache(CACHE_NAME);
 
-	private static Log _log = LogFactoryUtil.getLog(JournalContentImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(JournalContentImpl.class);
 
 }

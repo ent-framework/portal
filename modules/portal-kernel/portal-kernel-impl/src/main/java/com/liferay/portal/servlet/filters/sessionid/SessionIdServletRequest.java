@@ -14,8 +14,8 @@
 
 package com.liferay.portal.servlet.filters.sessionid;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.CookieKeys;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
@@ -98,7 +98,7 @@ public class SessionIdServletRequest extends HttpServletRequestWrapper {
 	private static final String _JESSIONID_ALREADY_SET =
 		"JESSIONID_ALREADY_SET";
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		SessionIdServletRequest.class);
 
 	private HttpServletResponse _response;

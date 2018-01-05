@@ -14,8 +14,8 @@
 
 package com.liferay.util.axis;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.BufferCacheServletResponse;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
 import com.liferay.portal.kernel.servlet.UncommittedServletResponse;
@@ -215,7 +215,7 @@ public class AxisServlet extends org.apache.axis.transport.http.AxisServlet {
 				}
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 	}
@@ -261,7 +261,7 @@ public class AxisServlet extends org.apache.axis.transport.http.AxisServlet {
 
 	private static final String _HTML_TOP_WRAPPER = "<html><body>";
 
-	private static Log _log = LogFactoryUtil.getLog(AxisServlet.class);
+	private static final Logger _log = LoggerFactory.getLogger(AxisServlet.class);
 
 	private static Field _cacheField;
 
@@ -329,7 +329,7 @@ public class AxisServlet extends org.apache.axis.transport.http.AxisServlet {
 				MethodCache.class, "cache");
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 

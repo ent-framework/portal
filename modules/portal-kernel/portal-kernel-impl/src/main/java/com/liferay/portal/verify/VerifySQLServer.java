@@ -17,8 +17,8 @@ package com.liferay.portal.verify;
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBFactoryUtil;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -92,7 +92,7 @@ public class VerifySQLServer extends VerifyProcess {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 		finally {
 			DataAccess.cleanUp(con, ps, rs);
@@ -145,7 +145,7 @@ public class VerifySQLServer extends VerifyProcess {
 			runSQL(sb.toString());
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 		finally {
 			DataAccess.cleanUp(con, ps, rs);
@@ -301,7 +301,7 @@ public class VerifySQLServer extends VerifyProcess {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 		finally {
 			DataAccess.cleanUp(con, ps, rs);
@@ -344,7 +344,7 @@ public class VerifySQLServer extends VerifyProcess {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 		finally {
 			DataAccess.cleanUp(con, ps, rs);
@@ -361,7 +361,7 @@ public class VerifySQLServer extends VerifyProcess {
 		"((systypes.name = 'ntext') OR (systypes.name = 'text') OR " +
 			"(systypes.name = 'varchar'))";
 
-	private static Log _log = LogFactoryUtil.getLog(VerifySQLServer.class);
+	private static final Logger _log = LoggerFactory.getLogger(VerifySQLServer.class);
 
 	private List<String> _addPrimaryKeySQLs = new ArrayList<String>();
 

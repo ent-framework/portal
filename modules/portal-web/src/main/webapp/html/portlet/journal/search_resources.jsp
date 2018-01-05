@@ -439,7 +439,7 @@ ArticleSearch searchContainer = new ArticleSearch(liferayPortletRequest, entryEn
 			<%
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 			%>
 
@@ -496,5 +496,5 @@ request.setAttribute("view.jsp-folderId", String.valueOf(folderId));
 </span>
 
 <%!
-private static Log _log = LogFactoryUtil.getLog("portal-web.docroot.html.portlet.journal.search_resources_jsp");
+private static final Logger _log = LoggerFactory.getLogger("portal-web.docroot.html.portlet.journal.search_resources_jsp");
 %>

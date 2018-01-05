@@ -15,8 +15,8 @@
 package com.liferay.portlet.workflowdefinitions.action;
 
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.upload.UploadPortletRequest;
@@ -94,7 +94,7 @@ public class EditWorkflowDefinitionAction extends PortletAction {
 				SessionErrors.add(actionRequest, e.getClass());
 			}
 			else if (e instanceof WorkflowException) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 
 				SessionErrors.add(actionRequest, e.getClass());
 
@@ -231,7 +231,7 @@ public class EditWorkflowDefinitionAction extends PortletAction {
 
 	private static final boolean _CHECK_METHOD_ON_PROCESS_ACTION = false;
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		EditWorkflowDefinitionAction.class);
 
 }

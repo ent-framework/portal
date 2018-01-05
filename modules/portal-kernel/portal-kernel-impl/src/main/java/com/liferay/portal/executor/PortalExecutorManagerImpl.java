@@ -17,8 +17,8 @@ package com.liferay.portal.executor;
 import com.liferay.portal.kernel.concurrent.ThreadPoolExecutor;
 import com.liferay.portal.kernel.executor.PortalExecutorFactory;
 import com.liferay.portal.kernel.executor.PortalExecutorManager;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 
 import java.util.Map;
@@ -174,7 +174,7 @@ public class PortalExecutorManagerImpl implements PortalExecutorManager {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PortalExecutorManagerImpl.class);
 
 	private PortalExecutorFactory _portalExecutorFactory;

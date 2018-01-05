@@ -15,8 +15,8 @@
 package com.liferay.portal.kernel.cluster.messaging;
 
 import com.liferay.portal.kernel.cluster.ClusterLinkUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.Message;
 import com.liferay.portal.kernel.messaging.MessageBusUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -50,7 +50,7 @@ public class ClusterForwardMessageListener implements ClusterMessageListener {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		ClusterForwardMessageListener.class);
 
 }

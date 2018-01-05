@@ -17,8 +17,8 @@ package com.liferay.portal.action;
 import com.liferay.portal.kernel.audit.AuditMessage;
 import com.liferay.portal.kernel.audit.AuditRouterUtil;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringWriter;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.PortletContainerUtil;
 import com.liferay.portal.kernel.servlet.BrowserSnifferUtil;
 import com.liferay.portal.kernel.servlet.MetaInfoCacheServletResponse;
@@ -439,7 +439,7 @@ public class LayoutAction extends Action {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LayoutAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(LayoutAction.class);
 
 	private Set<String> _layoutResetPortletIds;
 

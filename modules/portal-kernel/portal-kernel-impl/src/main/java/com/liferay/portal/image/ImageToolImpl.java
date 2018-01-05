@@ -19,8 +19,8 @@ import com.liferay.portal.kernel.image.ImageMagick;
 import com.liferay.portal.kernel.image.ImageTool;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.JavaDetector;
@@ -204,7 +204,7 @@ public class ImageToolImpl implements ImageTool {
 		}
 		catch (Exception e) {
 			if (_log.isErrorEnabled()) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 		finally {
@@ -617,7 +617,7 @@ public class ImageToolImpl implements ImageTool {
 		ImageIO.setUseCache(PropsValues.IMAGE_IO_USE_DISK_CACHE);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ImageToolImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(ImageToolImpl.class);
 
 	private static ImageTool _instance = new ImageToolImpl();
 

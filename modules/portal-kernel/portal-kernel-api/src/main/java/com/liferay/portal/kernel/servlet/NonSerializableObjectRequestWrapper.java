@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.servlet;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
@@ -78,7 +78,7 @@ public class NonSerializableObjectRequestWrapper
 				String message = e.getMessage();
 
 				if ((message == null) || !message.contains("BEA-101362")) {
-					_log.error(e, e);
+					_log.error(e.getMessage(), e);
 				}
 			}
 
@@ -103,7 +103,7 @@ public class NonSerializableObjectRequestWrapper
 		GetterUtil.getBoolean(
 			PropsUtil.get(PropsKeys.WEBLOGIC_REQUEST_WRAP_NON_SERIALIZABLE));
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		NonSerializableObjectRequestWrapper.class);
 
 }

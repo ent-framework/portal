@@ -14,8 +14,8 @@
 
 package com.liferay.portal.spring.jpa;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.util.PropsValues;
@@ -51,7 +51,7 @@ public class LocalContainerEntityManagerFactoryBean
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			throw new RuntimeException(e);
 		}
@@ -83,7 +83,7 @@ public class LocalContainerEntityManagerFactoryBean
 				(AbstractJpaVendorAdapter)providerClass.newInstance();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			return;
 		}
@@ -208,7 +208,7 @@ public class LocalContainerEntityManagerFactoryBean
 		return null;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		LocalContainerEntityManagerFactoryBean.class);
 
 }

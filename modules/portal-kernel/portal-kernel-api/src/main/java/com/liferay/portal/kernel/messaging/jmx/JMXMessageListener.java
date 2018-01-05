@@ -15,8 +15,8 @@
 package com.liferay.portal.kernel.messaging.jmx;
 
 import com.liferay.portal.kernel.jmx.MBeanRegistry;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.BaseDestinationEventListener;
 import com.liferay.portal.kernel.messaging.Destination;
 import com.liferay.portal.kernel.messaging.MessageBus;
@@ -166,7 +166,7 @@ public class JMXMessageListener extends BaseDestinationEventListener {
 	private static final String _MESSAGE_BUS_MANAGER_OBJECT_NAME_CACHE_KEY =
 		"messageBusManager";
 
-	private static Log _log = LogFactoryUtil.getLog(JMXMessageListener.class);
+	private static final Logger _log = LoggerFactory.getLogger(JMXMessageListener.class);
 
 	private MBeanRegistry _mBeanRegistry;
 	private MessageBus _messageBus;

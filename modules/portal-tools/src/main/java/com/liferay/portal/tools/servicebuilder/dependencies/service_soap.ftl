@@ -4,8 +4,8 @@ import aQute.bnd.annotation.ProviderType;
 
 import ${packagePath}.service.${entity.name}ServiceUtil;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.LocalizationUtil;
@@ -253,7 +253,7 @@ public class ${entity.name}ServiceSoap {
 					</#if>
 				}
 				catch (Exception e) {
-					_log.error(e, e);
+					_log.error(e.getMessage(), e);
 
 					throw new RemoteException(e.getMessage());
 				}
@@ -262,7 +262,7 @@ public class ${entity.name}ServiceSoap {
 	</#list>
 
 	<#if hasMethods>
-		private static Log _log = LogFactoryUtil.getLog(${entity.name}ServiceSoap.class);
+		private static final Logger _log = LoggerFactory.getLogger(${entity.name}ServiceSoap.class);
 	</#if>
 
 }

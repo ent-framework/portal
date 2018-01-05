@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.search;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringPool;
 
 import java.util.Collections;
@@ -78,7 +78,7 @@ public abstract class BaseIndexSearcher
 		return _querySuggester.suggestKeywordQueries(searchContext, max);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(BaseIndexSearcher.class);
+	private static final Logger _log = LoggerFactory.getLogger(BaseIndexSearcher.class);
 
 	private QuerySuggester _querySuggester;
 

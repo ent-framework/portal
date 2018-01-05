@@ -2,10 +2,10 @@ package com.liferay.portlet.asset.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-
 import com.liferay.portlet.asset.service.AssetEntryServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -51,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class AssetEntryServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(AssetEntryServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(AssetEntryServiceSoap.class);
 
     public static com.liferay.portlet.asset.model.AssetEntrySoap[] getCompanyEntries(
         long companyId, int start, int end) throws RemoteException {
@@ -61,7 +61,7 @@ public class AssetEntryServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetEntrySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -74,7 +74,7 @@ public class AssetEntryServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -89,7 +89,7 @@ public class AssetEntryServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetEntrySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -103,7 +103,7 @@ public class AssetEntryServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -116,7 +116,7 @@ public class AssetEntryServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -130,7 +130,7 @@ public class AssetEntryServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -155,7 +155,7 @@ public class AssetEntryServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -186,7 +186,7 @@ public class AssetEntryServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -217,7 +217,7 @@ public class AssetEntryServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

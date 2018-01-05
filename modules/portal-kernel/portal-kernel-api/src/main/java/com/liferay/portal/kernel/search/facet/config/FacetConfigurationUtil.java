@@ -17,8 +17,8 @@ package com.liferay.portal.kernel.search.facet.config;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.Validator;
 
 import java.util.ArrayList;
@@ -58,7 +58,7 @@ public class FacetConfigurationUtil {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return facetConfigurations;
@@ -87,7 +87,7 @@ public class FacetConfigurationUtil {
 		return facetConfiguration;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		FacetConfigurationUtil.class);
 
 }

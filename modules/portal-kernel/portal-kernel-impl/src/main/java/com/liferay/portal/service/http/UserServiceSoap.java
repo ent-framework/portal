@@ -2,10 +2,11 @@ package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.service.UserServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -51,7 +52,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class UserServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(UserServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(UserServiceSoap.class);
 
     /**
     * Adds the users to the group.
@@ -72,7 +73,7 @@ public class UserServiceSoap {
         try {
             UserServiceUtil.addGroupUsers(groupId, userIds, serviceContext);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -95,7 +96,7 @@ public class UserServiceSoap {
         try {
             UserServiceUtil.addOrganizationUsers(organizationId, userIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -116,7 +117,7 @@ public class UserServiceSoap {
         try {
             UserServiceUtil.addPasswordPolicyUsers(passwordPolicyId, userIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -138,7 +139,7 @@ public class UserServiceSoap {
         try {
             UserServiceUtil.addRoleUsers(roleId, userIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -159,7 +160,7 @@ public class UserServiceSoap {
         try {
             UserServiceUtil.addTeamUsers(teamId, userIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -239,7 +240,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -339,7 +340,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -361,7 +362,7 @@ public class UserServiceSoap {
         try {
             UserServiceUtil.addUserGroupUsers(userGroupId, userIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -441,7 +442,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -541,7 +542,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -560,7 +561,7 @@ public class UserServiceSoap {
         try {
             UserServiceUtil.deletePortrait(userId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -581,7 +582,7 @@ public class UserServiceSoap {
         try {
             UserServiceUtil.deleteRoleUser(roleId, userId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -599,7 +600,7 @@ public class UserServiceSoap {
         try {
             UserServiceUtil.deleteUser(userId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -613,7 +614,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -626,7 +627,7 @@ public class UserServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -639,7 +640,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -661,7 +662,7 @@ public class UserServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -683,7 +684,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -705,7 +706,7 @@ public class UserServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -727,7 +728,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -748,7 +749,7 @@ public class UserServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -774,7 +775,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -796,7 +797,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -820,7 +821,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -833,7 +834,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -857,7 +858,7 @@ public class UserServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -880,7 +881,7 @@ public class UserServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -904,7 +905,7 @@ public class UserServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -928,7 +929,7 @@ public class UserServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -957,7 +958,7 @@ public class UserServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -979,7 +980,7 @@ public class UserServiceSoap {
         try {
             UserServiceUtil.setRoleUsers(roleId, userIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1000,7 +1001,7 @@ public class UserServiceSoap {
         try {
             UserServiceUtil.setUserGroupUsers(userGroupId, userIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1020,7 +1021,7 @@ public class UserServiceSoap {
         try {
             UserServiceUtil.unsetGroupTeamsUsers(groupId, userIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1044,7 +1045,7 @@ public class UserServiceSoap {
         try {
             UserServiceUtil.unsetGroupUsers(groupId, userIds, serviceContext);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1065,7 +1066,7 @@ public class UserServiceSoap {
         try {
             UserServiceUtil.unsetOrganizationUsers(organizationId, userIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1085,7 +1086,7 @@ public class UserServiceSoap {
         try {
             UserServiceUtil.unsetPasswordPolicyUsers(passwordPolicyId, userIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1106,7 +1107,7 @@ public class UserServiceSoap {
         try {
             UserServiceUtil.unsetRoleUsers(roleId, userIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1126,7 +1127,7 @@ public class UserServiceSoap {
         try {
             UserServiceUtil.unsetTeamUsers(teamId, userIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1147,7 +1148,7 @@ public class UserServiceSoap {
         try {
             UserServiceUtil.unsetUserGroupUsers(userGroupId, userIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1171,7 +1172,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1203,7 +1204,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1271,7 +1272,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1295,7 +1296,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1319,7 +1320,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1344,7 +1345,7 @@ public class UserServiceSoap {
             UserServiceUtil.updateOrganizations(userId, organizationIds,
                 serviceContext);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1372,7 +1373,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1397,7 +1398,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1424,7 +1425,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1449,7 +1450,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1479,7 +1480,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1511,7 +1512,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1631,7 +1632,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1732,7 +1733,7 @@ public class UserServiceSoap {
 
             return com.liferay.portal.model.UserSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

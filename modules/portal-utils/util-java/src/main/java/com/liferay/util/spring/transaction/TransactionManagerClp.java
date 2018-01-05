@@ -15,8 +15,8 @@
 package com.liferay.util.spring.transaction;
 
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
 import com.liferay.portal.kernel.util.SimplePojoClp;
 
@@ -59,7 +59,7 @@ public class TransactionManagerClp implements PlatformTransactionManager {
 				unwrapTransactionStatus(transactionStatus));
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			throw new TransactionSystemException(e.getMessage());
 		}
@@ -80,7 +80,7 @@ public class TransactionManagerClp implements PlatformTransactionManager {
 				createRemoteTransactionDefinition(transactionDefinition));
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			throw new TransactionSystemException(e.getMessage());
 		}
@@ -112,7 +112,7 @@ public class TransactionManagerClp implements PlatformTransactionManager {
 				unwrapTransactionStatus(transactionStatus));
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			throw new TransactionSystemException(e.getMessage());
 		}
@@ -145,7 +145,7 @@ public class TransactionManagerClp implements PlatformTransactionManager {
 		return transactionStatusClp.getRemoteTransactionStatus();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		TransactionManagerClp.class);
 
 	private SimplePojoClp<TransactionDefinition> _transactionDefinitionClp;

@@ -19,8 +19,8 @@ import com.liferay.portal.kernel.bean.BeanLocatorException;
 import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.bean.IdentifiableBean;
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -181,7 +181,7 @@ public class BeanReferenceAnnotationBeanPostProcessor
 
 	private static final String _ORG_SPRINGFRAMEWORK = "org.springframework";
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		BeanReferenceAnnotationBeanPostProcessor.class);
 
 	private BeanFactory _beanFactory;

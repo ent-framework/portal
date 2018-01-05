@@ -14,8 +14,8 @@
 
 package com.liferay.portal.spring.hibernate;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.Converter;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
@@ -41,7 +41,7 @@ public class HibernateConfigurationConverter implements Converter<String> {
 			output = doConvert(input);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return output;
@@ -77,7 +77,7 @@ public class HibernateConfigurationConverter implements Converter<String> {
 		return document.asXML();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		HibernateConfigurationConverter.class);
 
 	private Map<String, String> _classNames;

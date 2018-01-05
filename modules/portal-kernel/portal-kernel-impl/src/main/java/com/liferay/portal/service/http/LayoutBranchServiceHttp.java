@@ -1,12 +1,13 @@
 package com.liferay.portal.service.http;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.LayoutBranchServiceUtil;
 import com.liferay.portal.service.http.TunnelUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Provides the HTTP utility for the
@@ -37,7 +38,7 @@ import com.liferay.portal.service.http.TunnelUtil;
  * @generated
  */
 public class LayoutBranchServiceHttp {
-    private static Log _log = LogFactoryUtil.getLog(LayoutBranchServiceHttp.class);
+    private static final Logger _log = LoggerFactory.getLogger(LayoutBranchServiceHttp.class);
     private static final Class<?>[] _addLayoutBranchParameterTypes0 = new Class[] {
             long.class, java.lang.String.class, java.lang.String.class,
             boolean.class, com.liferay.portal.service.ServiceContext.class
@@ -81,7 +82,7 @@ public class LayoutBranchServiceHttp {
 
             return (com.liferay.portal.model.LayoutBranch) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -112,7 +113,7 @@ public class LayoutBranchServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -149,7 +150,7 @@ public class LayoutBranchServiceHttp {
 
             return (com.liferay.portal.model.LayoutBranch) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }

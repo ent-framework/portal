@@ -15,8 +15,8 @@
 package com.liferay.portal.events;
 
 import com.liferay.portal.kernel.events.Action;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.CookieKeys;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
@@ -65,7 +65,7 @@ public class SiteMinderLogoutAction extends Action {
 			CookieKeys.addCookie(request, response, smIdentityCookie);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -73,7 +73,7 @@ public class SiteMinderLogoutAction extends Action {
 
 	private static final String _SMSESSION = "SMSESSION";
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		SiteMinderLogoutAction.class);
 
 }

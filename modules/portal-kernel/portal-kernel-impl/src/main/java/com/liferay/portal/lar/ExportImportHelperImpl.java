@@ -44,8 +44,8 @@ import com.liferay.portal.kernel.lar.StagedModelDataHandlerRegistryUtil;
 import com.liferay.portal.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.portal.kernel.lar.StagedModelType;
 import com.liferay.portal.kernel.lar.UserIdStrategy;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.staging.StagingUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
@@ -749,7 +749,7 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 			}
 			catch (Exception e) {
 				if (_log.isDebugEnabled()) {
-					_log.debug(e, e);
+					_log.debug(e.getMessage(), e);
 				}
 				else if (_log.isWarnEnabled()) {
 					StringBundler exceptionSB = new StringBundler(6);
@@ -1117,7 +1117,7 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 			}
 			catch (Exception e) {
 				if (_log.isDebugEnabled()) {
-					_log.debug(e, e);
+					_log.debug(e.getMessage(), e);
 				}
 				else if (_log.isWarnEnabled()) {
 					StringBundler sb = new StringBundler(6);
@@ -1148,7 +1148,7 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 			}
 			catch (PortalException pe) {
 				if (_log.isDebugEnabled()) {
-					_log.debug(pe, pe);
+					_log.debug(pe.getMessage(), pe);
 				}
 				else if (_log.isWarnEnabled()) {
 					_log.warn(pe.getMessage());
@@ -1819,7 +1819,7 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 		}
 		catch (Exception e) {
 			if (_log.isDebugEnabled()) {
-				_log.debug(e, e);
+				_log.debug(e.getMessage(), e);
 			}
 			else if (_log.isWarnEnabled()) {
 				_log.warn(e.getMessage());
@@ -2163,7 +2163,7 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 		PropsValues.LAYOUT_FRIENDLY_URL_PUBLIC_SERVLET_MAPPING +
 			StringPool.SLASH;
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		ExportImportHelperImpl.class);
 
 	private Pattern _exportLinksToLayoutPattern = Pattern.compile(

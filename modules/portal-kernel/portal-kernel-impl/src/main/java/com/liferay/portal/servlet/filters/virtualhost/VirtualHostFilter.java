@@ -18,8 +18,8 @@ import com.liferay.portal.LayoutFriendlyURLException;
 import com.liferay.portal.NoSuchLayoutException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.struts.LastPath;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.HttpUtil;
@@ -320,7 +320,7 @@ public class VirtualHostFilter extends BasePortalFilter {
 			requestDispatcher.forward(request, response);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			processFilter(
 				VirtualHostFilter.class, request, response, filterChain);
@@ -350,7 +350,7 @@ public class VirtualHostFilter extends BasePortalFilter {
 	private static final String _PUBLIC_GROUP_SERVLET_MAPPING_SLASH =
 		_PUBLIC_GROUP_SERVLET_MAPPING + StringPool.SLASH;
 
-	private static Log _log = LogFactoryUtil.getLog(VirtualHostFilter.class);
+	private static final Logger _log = LoggerFactory.getLogger(VirtualHostFilter.class);
 
 	private ServletContext _servletContext;
 

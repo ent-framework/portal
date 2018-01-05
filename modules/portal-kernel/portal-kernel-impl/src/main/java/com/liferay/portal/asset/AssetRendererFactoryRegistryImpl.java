@@ -14,8 +14,8 @@
 
 package com.liferay.portal.asset;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portlet.asset.AssetRendererFactoryRegistry;
 import com.liferay.portlet.asset.model.AssetRendererFactory;
@@ -149,7 +149,7 @@ public class AssetRendererFactoryRegistryImpl
 		return filteredAssetRendererFactories;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		AssetRendererFactoryRegistryImpl.class);
 
 	private Map<String, AssetRendererFactory>

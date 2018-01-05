@@ -15,8 +15,8 @@
 package com.liferay.portal.webdav.methods;
 
 import com.liferay.portal.kernel.flash.FlashMagicBytesUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.webdav.Resource;
@@ -80,7 +80,7 @@ public class GetMethodImpl implements Method {
 				}
 				catch (Exception e) {
 					if (_log.isWarnEnabled()) {
-						_log.warn(e);
+						_log.warn(e.getMessage());
 					}
 				}
 
@@ -94,6 +94,6 @@ public class GetMethodImpl implements Method {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(GetMethodImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(GetMethodImpl.class);
 
 }

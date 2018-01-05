@@ -14,8 +14,8 @@
 
 package com.liferay.portal.xml;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.xml.Attribute;
 import com.liferay.portal.kernel.xml.Document;
@@ -657,7 +657,7 @@ public class SAXReaderImpl implements SAXReader {
 	private static final String _PROPERTY_SCHEMA_SOURCE =
 		"http://java.sun.com/xml/jaxp/properties/schemaSource";
 
-	private static Log _log = LogFactoryUtil.getLog(SAXReaderImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(SAXReaderImpl.class);
 
 	private boolean _secure;
 	private SecureXMLFactoryProvider _secureXMLFactoryProvider =

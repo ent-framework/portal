@@ -20,8 +20,8 @@
 <%@ page isErrorPage="true" %>
 
 <%@ page import="com.liferay.portal.kernel.language.LanguageUtil" %>
-<%@ page import="com.liferay.portal.kernel.log.Log" %>
-<%@ page import="com.liferay.portal.kernel.log.LogFactoryUtil" %>
+<%@ page import="org.slf4j.Logger" %>
+<%@ page import="org.slf4j.LoggerFactory" %>
 <%@ page import="com.liferay.portal.kernel.servlet.HttpHeaders" %>
 <%@ page import="com.liferay.portal.kernel.util.HtmlUtil" %>
 <%@ page import="com.liferay.portal.kernel.util.JavaConstants" %>
@@ -119,5 +119,5 @@ String xRequestWith = request.getHeader(HttpHeaders.X_REQUESTED_WITH);
 </html>
 
 <%!
-private static Log _log = LogFactoryUtil.getLog("portal-web.docroot.errors.code_jsp");
+private static final Logger _log = LoggerFactory.getLogger("portal-web.docroot.errors.code_jsp");
 %>

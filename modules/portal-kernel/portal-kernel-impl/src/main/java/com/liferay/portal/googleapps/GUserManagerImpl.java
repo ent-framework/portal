@@ -19,8 +19,8 @@ import com.liferay.portal.kernel.googleapps.GNicknameManager;
 import com.liferay.portal.kernel.googleapps.GUser;
 import com.liferay.portal.kernel.googleapps.GUserManager;
 import com.liferay.portal.kernel.googleapps.GoogleAppsException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -267,6 +267,6 @@ public class GUserManagerImpl extends GBaseManagerImpl implements GUserManager {
 
 	protected String userURL;
 
-	private static Log _log = LogFactoryUtil.getLog(GUserManagerImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(GUserManagerImpl.class);
 
 }

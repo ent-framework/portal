@@ -16,8 +16,8 @@ package com.liferay.portal.kernel.backgroundtask;
 
 import com.liferay.portal.DuplicateLockException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.BackgroundTask;
 import com.liferay.portal.model.Lock;
@@ -97,7 +97,7 @@ public class SerialBackgroundTaskExecutor
 		return lock;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		SerialBackgroundTaskExecutor.class);
 
 }

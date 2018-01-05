@@ -14,8 +14,8 @@
 
 package com.liferay.portal.security.permission;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.model.Role;
 import com.liferay.portal.model.RoleConstants;
 import com.liferay.portal.model.User;
@@ -114,7 +114,7 @@ public abstract class BasePermissionChecker implements PermissionChecker {
 					user.getCompanyId());
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 
 			this.signedIn = true;
@@ -125,7 +125,7 @@ public abstract class BasePermissionChecker implements PermissionChecker {
 				user.getCompanyId(), RoleConstants.OWNER);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -179,7 +179,7 @@ public abstract class BasePermissionChecker implements PermissionChecker {
 	protected boolean signedIn;
 	protected User user;
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		BasePermissionChecker.class);
 
 }

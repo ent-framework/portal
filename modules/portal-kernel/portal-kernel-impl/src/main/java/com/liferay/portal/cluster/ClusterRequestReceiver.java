@@ -21,8 +21,8 @@ import com.liferay.portal.kernel.cluster.ClusterMessageType;
 import com.liferay.portal.kernel.cluster.ClusterNodeResponse;
 import com.liferay.portal.kernel.cluster.ClusterRequest;
 import com.liferay.portal.kernel.cluster.FutureClusterResponses;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.MethodHandler;
 
 import java.util.ArrayList;
@@ -165,7 +165,7 @@ public class ClusterRequestReceiver extends BaseReceiver {
 				"Unable to send response message " + clusterNodeResponse, e);
 		}
 		catch (Throwable t) {
-			_log.error(t, t);
+			_log.error(t.getMessage(), t);
 		}
 	}
 
@@ -271,7 +271,7 @@ public class ClusterRequestReceiver extends BaseReceiver {
 		return false;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		ClusterRequestReceiver.class);
 
 	private ClusterExecutorImpl _clusterExecutorImpl;

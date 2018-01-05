@@ -14,8 +14,8 @@
 
 package com.liferay.portal.zip;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
@@ -75,11 +75,11 @@ public class ZipReaderImpl implements ZipReader {
 		}
 		catch (ArchiveBusyWarningException abwe) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(abwe, abwe);
+				_log.warn(abwe.getMessage(), abwe);
 			}
 		}
 		catch (ArchiveException ae) {
-			_log.error(ae, ae);
+			_log.error(ae.getMessage(), ae);
 		}
 	}
 
@@ -117,7 +117,7 @@ public class ZipReaderImpl implements ZipReader {
 			}
 		}
 		catch (IOException ioe) {
-			_log.error(ioe, ioe);
+			_log.error(ioe.getMessage(), ioe);
 		}
 
 		return bytes;
@@ -144,7 +144,7 @@ public class ZipReaderImpl implements ZipReader {
 				return new FileInputStream(file);
 			}
 			catch (IOException ioe) {
-				_log.error(ioe, ioe);
+				_log.error(ioe.getMessage(), ioe);
 			}
 		}
 
@@ -206,7 +206,7 @@ public class ZipReaderImpl implements ZipReader {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ZipReaderImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(ZipReaderImpl.class);
 
 	private File _zipFile;
 

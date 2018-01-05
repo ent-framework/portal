@@ -25,8 +25,8 @@ import com.liferay.portal.kernel.json.JSONFactory;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.json.JSONSerializer;
 import com.liferay.portal.kernel.json.JSONTransformer;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.ClassUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -57,7 +57,7 @@ public class JSONFactoryImpl implements JSONFactory {
 			_jsonSerializer.registerSerializer(new LocaleSerializer());
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -70,7 +70,7 @@ public class JSONFactoryImpl implements JSONFactory {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 
 			throw new IllegalStateException("Unable to convert to XML", e);
@@ -86,7 +86,7 @@ public class JSONFactoryImpl implements JSONFactory {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 
 			throw new IllegalStateException("Unable to convert to XML", e);
@@ -102,7 +102,7 @@ public class JSONFactoryImpl implements JSONFactory {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 
 			throw new IllegalStateException("Unable to convert to JSONML", e);
@@ -118,7 +118,7 @@ public class JSONFactoryImpl implements JSONFactory {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 
 			throw new IllegalStateException("Unable to convert to JSONML", e);
@@ -178,7 +178,7 @@ public class JSONFactoryImpl implements JSONFactory {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 
 			throw new IllegalStateException("Unable to deserialize object", e);
@@ -204,7 +204,7 @@ public class JSONFactoryImpl implements JSONFactory {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 
 			throw new IllegalStateException("Unable to deserialize object", e);
@@ -231,7 +231,7 @@ public class JSONFactoryImpl implements JSONFactory {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 
 			throw new IllegalStateException("Unable to deserialize object", e);
@@ -301,7 +301,7 @@ public class JSONFactoryImpl implements JSONFactory {
 		}
 		catch (MarshallException me) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(me, me);
+				_log.warn(me.getMessage(), me);
 			}
 
 			throw new IllegalStateException("Unable to serialize oject", me);
@@ -356,7 +356,7 @@ public class JSONFactoryImpl implements JSONFactory {
 
 	private static final String _NULL_JSON = "{}";
 
-	private static Log _log = LogFactoryUtil.getLog(JSONFactoryImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(JSONFactoryImpl.class);
 
 	private org.jabsorb.JSONSerializer _jsonSerializer;
 	private JSONObject _unmodifiableJSONObject =

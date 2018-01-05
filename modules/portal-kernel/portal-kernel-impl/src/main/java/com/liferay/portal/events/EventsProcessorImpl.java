@@ -18,8 +18,8 @@ import com.liferay.portal.kernel.events.Action;
 import com.liferay.portal.kernel.events.ActionException;
 import com.liferay.portal.kernel.events.SessionAction;
 import com.liferay.portal.kernel.events.SimpleAction;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.InstancePool;
 import com.liferay.portal.kernel.util.Validator;
 
@@ -135,7 +135,7 @@ public class EventsProcessorImpl implements EventsProcessor {
 		return events;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(EventsProcessorImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(EventsProcessorImpl.class);
 
 	private Map<String, List<Object>> _eventsMap =
 		new HashMap<String, List<Object>>();

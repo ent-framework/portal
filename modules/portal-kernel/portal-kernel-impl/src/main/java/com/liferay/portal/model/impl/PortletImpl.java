@@ -17,8 +17,8 @@ package com.liferay.portal.model.impl;
 import com.liferay.portal.kernel.atom.AtomCollectionAdapter;
 import com.liferay.portal.kernel.lar.PortletDataHandler;
 import com.liferay.portal.kernel.lar.StagedModelDataHandler;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.notifications.UserNotificationHandler;
 import com.liferay.portal.kernel.plugin.PluginPackage;
 import com.liferay.portal.kernel.poller.PollerProcessor;
@@ -2271,7 +2271,7 @@ public class PortletImpl extends PortletBaseImpl {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return false;
@@ -3922,7 +3922,7 @@ public class PortletImpl extends PortletBaseImpl {
 	/**
 	 * Log instance for this class.
 	 */
-	private static Log _log = LogFactoryUtil.getLog(PortletImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(PortletImpl.class);
 
 	/**
 	 * Map of the ready states of all portlets keyed by their root portlet ID.

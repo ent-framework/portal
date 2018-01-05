@@ -17,8 +17,8 @@ package com.liferay.portal.mobile.device.rulegroup;
 import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.mobile.device.rulegroup.RuleGroupProcessor;
 import com.liferay.portal.kernel.mobile.device.rulegroup.rule.RuleHandler;
 import com.liferay.portal.model.Layout;
@@ -166,7 +166,7 @@ public class DefaultRuleGroupProcessorImpl implements RuleGroupProcessor {
 		return null;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		DefaultRuleGroupProcessorImpl.class);
 
 	@BeanReference(type = MDRRuleGroupInstanceLocalService.class)

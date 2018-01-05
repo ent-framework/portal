@@ -14,8 +14,8 @@
 
 package com.liferay.portlet;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -168,7 +168,7 @@ public class PortletQNameImpl implements PortletQName {
 
 	private static final String _KEY_SEPARATOR = "_KEY_";
 
-	private static Log _log = LogFactoryUtil.getLog(PortletQNameImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(PortletQNameImpl.class);
 
 	private Map<String, String> _identifiers;
 	private Map<String, QName> _qNames;

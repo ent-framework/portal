@@ -14,8 +14,8 @@
 
 package com.liferay.portal.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringUtil;
 
 import java.lang.reflect.Field;
@@ -142,6 +142,6 @@ public class JavaFieldsParser {
 		return javaSnippet.substring(x + 1);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(JavaFieldsParser.class);
+	private static final Logger _log = LoggerFactory.getLogger(JavaFieldsParser.class);
 
 }

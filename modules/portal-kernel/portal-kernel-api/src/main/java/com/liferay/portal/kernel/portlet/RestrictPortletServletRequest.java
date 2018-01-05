@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.portlet;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.PersistentHttpServletRequestWrapper;
 import com.liferay.portal.kernel.servlet.RequestDispatcherAttributeNames;
 import com.liferay.portal.kernel.util.Mergeable;
@@ -205,7 +205,7 @@ public class RestrictPortletServletRequest
 	private static final String[] _REQUEST_SHARED_ATTRIBUTES =
 		PropsUtil.getArray(PropsKeys.REQUEST_SHARED_ATTRIBUTES);
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		RestrictPortletServletRequest.class);
 
 	private static Object _nullValue = new Object();

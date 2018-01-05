@@ -17,8 +17,8 @@ package com.liferay.portlet.documentlibrary.model.impl;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.lar.StagedModelType;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -102,7 +102,7 @@ public class DLFileEntryImpl extends DLFileEntryBaseImpl {
 			return dlFileVersion.getExpandoBridge();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return null;
@@ -127,7 +127,7 @@ public class DLFileEntryImpl extends DLFileEntryBaseImpl {
 				_extraSettingsProperties.load(super.getExtraSettings());
 			}
 			catch (IOException ioe) {
-				_log.error(ioe, ioe);
+				_log.error(ioe.getMessage(), ioe);
 			}
 		}
 
@@ -288,7 +288,7 @@ public class DLFileEntryImpl extends DLFileEntryBaseImpl {
 			versionUserId = dlFileVersion.getUserId();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return versionUserId;
@@ -307,7 +307,7 @@ public class DLFileEntryImpl extends DLFileEntryBaseImpl {
 			versionUserName = dlFileVersion.getUserName();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return versionUserName;
@@ -326,7 +326,7 @@ public class DLFileEntryImpl extends DLFileEntryBaseImpl {
 			versionUserUuid = dlFileVersion.getUserUuid();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return versionUserUuid;
@@ -417,7 +417,7 @@ public class DLFileEntryImpl extends DLFileEntryBaseImpl {
 		super.setExtraSettings(_extraSettingsProperties.toString());
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(DLFileEntryImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(DLFileEntryImpl.class);
 
 	private UnicodeProperties _extraSettingsProperties;
 

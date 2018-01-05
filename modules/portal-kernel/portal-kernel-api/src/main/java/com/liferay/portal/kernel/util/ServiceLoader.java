@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.util.URLUtil;
 
 import java.io.BufferedReader;
@@ -138,7 +138,7 @@ public class ServiceLoader {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ServiceLoader.class);
+	private static final Logger _log = LoggerFactory.getLogger(ServiceLoader.class);
 
 	private static ServiceLoaderCondition _serviceLoaderCondition =
 		new DefaultServiceLoaderCondition();

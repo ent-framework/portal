@@ -2,9 +2,10 @@ package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.service.ImageServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -50,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class ImageServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(ImageServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(ImageServiceSoap.class);
 
     public static com.liferay.portal.model.ImageSoap getImage(long imageId)
         throws RemoteException {
@@ -59,7 +60,7 @@ public class ImageServiceSoap {
 
             return com.liferay.portal.model.ImageSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

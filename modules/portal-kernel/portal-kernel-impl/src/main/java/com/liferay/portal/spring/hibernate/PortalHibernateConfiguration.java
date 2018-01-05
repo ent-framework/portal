@@ -17,8 +17,8 @@ package com.liferay.portal.spring.hibernate;
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBFactoryUtil;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.resiliency.spi.SPIUtil;
 import com.liferay.portal.kernel.util.Converter;
 import com.liferay.portal.kernel.util.PreloadClassLoader;
@@ -150,7 +150,7 @@ public class PortalHibernateConfiguration extends LocalSessionFactoryBean {
 				}
 				catch (Exception e2) {
 					if (_log.isWarnEnabled()) {
-						_log.warn(e2, e2);
+						_log.warn(e2.getMessage(), e2);
 					}
 				}
 			}
@@ -189,7 +189,7 @@ public class PortalHibernateConfiguration extends LocalSessionFactoryBean {
 			}
 		}
 		catch (Exception e1) {
-			_log.error(e1, e1);
+			_log.error(e1.getMessage(), e1);
 		}
 
 
@@ -284,7 +284,7 @@ public class PortalHibernateConfiguration extends LocalSessionFactoryBean {
 	private static final String[] _PRELOAD_CLASS_NAMES =
 		PropsValues.SPRING_HIBERNATE_CONFIGURATION_PROXY_FACTORY_PRELOAD_CLASSLOADER_CLASSES;
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PortalHibernateConfiguration.class);
 
 	private static Map<ProxyFactory, ClassLoader> _proxyFactoryClassLoaders =

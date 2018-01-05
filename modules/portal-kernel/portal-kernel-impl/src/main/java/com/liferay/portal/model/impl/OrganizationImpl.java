@@ -18,8 +18,8 @@ import com.liferay.portal.kernel.configuration.Filter;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.LocalizationUtil;
@@ -105,7 +105,7 @@ public class OrganizationImpl extends OrganizationBaseImpl {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e);
+			_log.error(e.getMessage(), e);
 		}
 
 		if (address == null) {
@@ -163,7 +163,7 @@ public class OrganizationImpl extends OrganizationBaseImpl {
 					getCompanyId(), getOrganizationId());
 			}
 			catch (Exception e) {
-				_log.error(e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -198,7 +198,7 @@ public class OrganizationImpl extends OrganizationBaseImpl {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return logoId;
@@ -240,7 +240,7 @@ public class OrganizationImpl extends OrganizationBaseImpl {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return 0;
@@ -259,7 +259,7 @@ public class OrganizationImpl extends OrganizationBaseImpl {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return 0;
@@ -358,6 +358,6 @@ public class OrganizationImpl extends OrganizationBaseImpl {
 		return false;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(OrganizationImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(OrganizationImpl.class);
 
 }

@@ -2,10 +2,10 @@ package com.liferay.portlet.shopping.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-
 import com.liferay.portlet.shopping.service.ShoppingCouponServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -51,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class ShoppingCouponServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(ShoppingCouponServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(ShoppingCouponServiceSoap.class);
 
     public static com.liferay.portlet.shopping.model.ShoppingCouponSoap addCoupon(
         java.lang.String code, boolean autoCode, java.lang.String name,
@@ -73,7 +73,7 @@ public class ShoppingCouponServiceSoap {
 
             return com.liferay.portlet.shopping.model.ShoppingCouponSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -84,7 +84,7 @@ public class ShoppingCouponServiceSoap {
         try {
             ShoppingCouponServiceUtil.deleteCoupon(groupId, couponId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -98,7 +98,7 @@ public class ShoppingCouponServiceSoap {
 
             return com.liferay.portlet.shopping.model.ShoppingCouponSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -115,7 +115,7 @@ public class ShoppingCouponServiceSoap {
 
             return com.liferay.portlet.shopping.model.ShoppingCouponSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -141,7 +141,7 @@ public class ShoppingCouponServiceSoap {
 
             return com.liferay.portlet.shopping.model.ShoppingCouponSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

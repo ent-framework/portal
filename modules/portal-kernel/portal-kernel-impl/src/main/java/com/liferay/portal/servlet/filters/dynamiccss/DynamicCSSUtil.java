@@ -17,8 +17,8 @@ package com.liferay.portal.servlet.filters.dynamiccss;
 
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncPrintWriter;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.ContextPathUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -80,7 +80,7 @@ public class DynamicCSSUtil {
 			_initialized = true;
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -392,7 +392,7 @@ public class DynamicCSSUtil {
 				return theme;
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -443,7 +443,7 @@ public class DynamicCSSUtil {
 			return theme;
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return null;
@@ -526,7 +526,7 @@ public class DynamicCSSUtil {
 	private static final String _SASS_DIR_KEY =
 		DynamicCSSUtil.class.getName() + "#sass";
 
-	private static Log _log = LogFactoryUtil.getLog(DynamicCSSUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(DynamicCSSUtil.class);
 
 	private static boolean _initialized;
 	private static Pattern _pluginThemePattern = Pattern.compile(

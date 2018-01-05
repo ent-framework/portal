@@ -16,8 +16,8 @@ package com.liferay.portal.kernel.search.facet;
 
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.search.BooleanClause;
 import com.liferay.portal.kernel.search.BooleanClauseFactoryUtil;
 import com.liferay.portal.kernel.search.BooleanClauseOccur;
@@ -76,7 +76,7 @@ public class ScopeFacet extends MultiValueFacet {
 			return ArrayUtil.toLongArray(groupIds);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return new long[] {groupId};
@@ -174,7 +174,7 @@ public class ScopeFacet extends MultiValueFacet {
 				facetQuery.add(groupIdsQuery, BooleanClauseOccur.MUST);
 			}
 			catch (ParseException pe) {
-				_log.error(pe, pe);
+				_log.error(pe.getMessage(), pe);
 			}
 		}
 
@@ -183,7 +183,7 @@ public class ScopeFacet extends MultiValueFacet {
 				facetQuery.add(scopeGroupIdsQuery, BooleanClauseOccur.MUST);
 			}
 			catch (ParseException pe) {
-				_log.error(pe, pe);
+				_log.error(pe.getMessage(), pe);
 			}
 		}
 
@@ -191,6 +191,6 @@ public class ScopeFacet extends MultiValueFacet {
 			searchContext, facetQuery, BooleanClauseOccur.MUST.getName());
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ScopeFacet.class);
+	private static final Logger _log = LoggerFactory.getLogger(ScopeFacet.class);
 
 }

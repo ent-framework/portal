@@ -17,8 +17,8 @@ package com.liferay.portal.servlet;
 import com.liferay.portal.ModulePathSetException;
 import com.liferay.portal.kernel.cache.PortalCache;
 import com.liferay.portal.kernel.cache.SingleVMPoolUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.servlet.ServletContextUtil;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
@@ -77,7 +77,7 @@ public class ComboServlet extends HttpServlet {
 			doService(request, response);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			PortalUtil.sendError(
 				HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e, request,
@@ -371,7 +371,7 @@ public class ComboServlet extends HttpServlet {
 
 	private static final String _JAVASCRIPT_MINIFIED_SUFFIX = "-min.js";
 
-	private static Log _log = LogFactoryUtil.getLog(ComboServlet.class);
+	private static final Logger _log = LoggerFactory.getLogger(ComboServlet.class);
 
 	private PortalCache<String, byte[][]> _bytesArrayPortalCache =
 		SingleVMPoolUtil.getCache(ComboServlet.class.getName());

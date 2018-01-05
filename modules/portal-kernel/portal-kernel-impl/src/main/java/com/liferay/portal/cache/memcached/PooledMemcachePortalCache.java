@@ -17,8 +17,8 @@ package com.liferay.portal.cache.memcached;
 import com.liferay.portal.kernel.cache.CacheListener;
 import com.liferay.portal.kernel.cache.CacheListenerScope;
 import com.liferay.portal.kernel.cache.PortalCache;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -267,7 +267,7 @@ public class PooledMemcachePortalCache<V> implements PortalCache<String, V> {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PooledMemcachePortalCache.class);
 
 	private MemcachedClientFactory _memcachedClientFactory;

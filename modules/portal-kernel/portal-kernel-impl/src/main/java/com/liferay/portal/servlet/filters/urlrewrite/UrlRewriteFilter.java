@@ -14,8 +14,8 @@
 
 package com.liferay.portal.servlet.filters.urlrewrite;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.servlet.filters.BasePortalFilter;
 
 import javax.servlet.FilterChain;
@@ -63,7 +63,7 @@ public class UrlRewriteFilter extends BasePortalFilter {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(UrlRewriteFilter.class);
+	private static final Logger _log = LoggerFactory.getLogger(UrlRewriteFilter.class);
 
 	private org.tuckey.web.filters.urlrewrite.UrlRewriteFilter
 		_urlRewriteFilter;

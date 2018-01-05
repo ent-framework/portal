@@ -14,8 +14,8 @@
 
 package com.liferay.portal.action;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.ContentTypes;
@@ -100,6 +100,6 @@ public class RESTProxyAction extends Action {
 		return false;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(RESTProxyAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(RESTProxyAction.class);
 
 }

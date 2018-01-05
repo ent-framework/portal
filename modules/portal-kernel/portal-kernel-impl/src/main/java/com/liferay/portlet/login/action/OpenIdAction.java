@@ -16,8 +16,8 @@ package com.liferay.portlet.login.action;
 
 import com.liferay.portal.DuplicateUserEmailAddressException;
 import com.liferay.portal.kernel.configuration.Filter;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.util.CharPool;
@@ -498,6 +498,6 @@ public class OpenIdAction extends PortletAction {
 
 	private static final String _OPEN_ID_SREG_ATTR_FULLNAME = "fullname";
 
-	private static Log _log = LogFactoryUtil.getLog(OpenIdAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(OpenIdAction.class);
 
 }

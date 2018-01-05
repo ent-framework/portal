@@ -20,8 +20,8 @@ import com.liferay.portal.kernel.cache.SingleVMPoolUtil;
 import com.liferay.portal.kernel.cache.ThreadLocalCacheManager;
 import com.liferay.portal.kernel.dao.orm.EntityCacheUtil;
 import com.liferay.portal.kernel.dao.orm.FinderCacheUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.process.ClassPathUtil;
 import com.liferay.portal.kernel.servlet.DirectServletRegistryUtil;
 import com.liferay.portal.kernel.servlet.ServletContextPool;
@@ -80,45 +80,45 @@ public class PortalContextLoaderListener extends ContextLoaderListener {
         try {
             LicenseValidationTransportUtil.stopMulticastTransportThread();
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
         }
 
         try {
             ClearThreadLocalUtil.clearThreadLocal();
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
         }
 
         try {
             ClearTimerThreadUtil.clearTimerThread();
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
         }
 
 //		try {
 //			ClearEhcacheThreadUtil.clearEhcacheReplicationThread();
 //		}
 //		catch (Exception e) {
-//			_log.error(e, e);
+//			_log.error(e.getMessage(), e);
 //		}
 
         try {
             DirectServletRegistryUtil.clearServlets();
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
         }
 
 //		try {
 //			HotDeployUtil.reset();
 //		}
 //		catch (Exception e) {
-//			_log.error(e, e);
+//			_log.error(e.getMessage(), e);
 //		}
 
         try {
             PortalLifecycleUtil.reset();
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
         }
 
         try {
@@ -201,7 +201,7 @@ public class PortalContextLoaderListener extends ContextLoaderListener {
 //			BeanReferenceRefreshUtil.refresh(applicationContext);
 //		}
 //		catch (Exception e) {
-//			_log.error(e, e);
+//			_log.error(e.getMessage(), e);
 //		}
 
         if (CACHE_CLEAR_ON_CONTEXT_INITIALIZATION) {
@@ -258,11 +258,11 @@ public class PortalContextLoaderListener extends ContextLoaderListener {
 
             filteredPropertyDescriptorsCache.clear();
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
         }
     }
 
-    private static Log _log = LogFactoryUtil.getLog(
+    private static final Logger _log = LoggerFactory.getLogger(
             PortalContextLoaderListener.class);
 
     private static Field _filteredPropertyDescriptorsCacheField;
@@ -276,7 +276,7 @@ public class PortalContextLoaderListener extends ContextLoaderListener {
                             AbstractAutowireCapableBeanFactory.class,
                             "filteredPropertyDescriptorsCache");
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
         }
     }
 

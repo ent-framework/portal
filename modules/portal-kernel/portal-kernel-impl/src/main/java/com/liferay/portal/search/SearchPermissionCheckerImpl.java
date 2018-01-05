@@ -15,8 +15,8 @@
 package com.liferay.portal.search;
 
 import com.liferay.portal.NoSuchResourceException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.search.BooleanClauseOccur;
 import com.liferay.portal.kernel.search.BooleanQuery;
 import com.liferay.portal.kernel.search.BooleanQueryFactoryUtil;
@@ -114,7 +114,7 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 		catch (NoSuchResourceException nsre) {
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -128,7 +128,7 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 				companyId, groupIds, userId, className, query, searchContext);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return query;
@@ -142,7 +142,7 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 			doUpdatePermissionFields(resourceName, resourceClassPK);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -498,7 +498,7 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		SearchPermissionCheckerImpl.class);
 
 }

@@ -16,8 +16,8 @@ package com.liferay.portal.kernel.util;
 
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileReader;
@@ -368,6 +368,6 @@ public class ClassUtil {
 
 	private static final String _CLASS_EXTENSION = ".class";
 
-	private static Log _log = LogFactoryUtil.getLog(ClassUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(ClassUtil.class);
 
 }

@@ -1,12 +1,13 @@
 package com.liferay.portal.service.http;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.RoleServiceUtil;
 import com.liferay.portal.service.http.TunnelUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Provides the HTTP utility for the
@@ -37,7 +38,7 @@ import com.liferay.portal.service.http.TunnelUtil;
  * @generated
  */
 public class RoleServiceHttp {
-    private static Log _log = LogFactoryUtil.getLog(RoleServiceHttp.class);
+    private static final Logger _log = LoggerFactory.getLogger(RoleServiceHttp.class);
     private static final Class<?>[] _addRoleParameterTypes0 = new Class[] {
             java.lang.String.class, long.class, java.lang.String.class,
             java.util.Map.class, java.util.Map.class, int.class,
@@ -125,7 +126,7 @@ public class RoleServiceHttp {
 
             return (com.liferay.portal.model.Role) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -163,7 +164,7 @@ public class RoleServiceHttp {
 
             return (com.liferay.portal.model.Role) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -194,7 +195,7 @@ public class RoleServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -223,7 +224,7 @@ public class RoleServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -257,7 +258,7 @@ public class RoleServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Role>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -291,7 +292,7 @@ public class RoleServiceHttp {
 
             return (com.liferay.portal.model.Role) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -326,7 +327,7 @@ public class RoleServiceHttp {
 
             return (com.liferay.portal.model.Role) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -362,7 +363,7 @@ public class RoleServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Role>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -397,7 +398,7 @@ public class RoleServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Role>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -433,7 +434,7 @@ public class RoleServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Role>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -467,7 +468,7 @@ public class RoleServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.Role>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -502,7 +503,7 @@ public class RoleServiceHttp {
 
             return ((Boolean) returnObj).booleanValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -537,7 +538,7 @@ public class RoleServiceHttp {
 
             return ((Boolean) returnObj).booleanValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -568,7 +569,7 @@ public class RoleServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -607,7 +608,7 @@ public class RoleServiceHttp {
 
             return (com.liferay.portal.model.Role) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }

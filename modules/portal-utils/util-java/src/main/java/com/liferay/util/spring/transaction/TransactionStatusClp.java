@@ -14,8 +14,8 @@
 
 package com.liferay.util.spring.transaction;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Method;
 
@@ -54,7 +54,7 @@ public class TransactionStatusClp implements TransactionStatus {
 			return method.invoke(_remoteTransactionStatus);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			throw new TransactionSystemException(e.getMessage());
 		}
@@ -68,7 +68,7 @@ public class TransactionStatusClp implements TransactionStatus {
 			method.invoke(_remoteTransactionStatus);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			throw new TransactionSystemException(e.getMessage());
 		}
@@ -86,7 +86,7 @@ public class TransactionStatusClp implements TransactionStatus {
 			return (Boolean)method.invoke(_remoteTransactionStatus);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			throw new RuntimeException(e.getMessage());
 		}
@@ -100,7 +100,7 @@ public class TransactionStatusClp implements TransactionStatus {
 			return (Boolean)method.invoke(_remoteTransactionStatus);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			throw new RuntimeException(e.getMessage());
 		}
@@ -114,7 +114,7 @@ public class TransactionStatusClp implements TransactionStatus {
 			return (Boolean)method.invoke(_remoteTransactionStatus);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			throw new RuntimeException(e.getMessage());
 		}
@@ -128,7 +128,7 @@ public class TransactionStatusClp implements TransactionStatus {
 			return (Boolean)method.invoke(_remoteTransactionStatus);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			throw new RuntimeException(e.getMessage());
 		}
@@ -142,7 +142,7 @@ public class TransactionStatusClp implements TransactionStatus {
 			method.invoke(_remoteTransactionStatus);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			throw new TransactionSystemException(e.getMessage());
 		}
@@ -158,7 +158,7 @@ public class TransactionStatusClp implements TransactionStatus {
 			method.invoke(_remoteTransactionStatus);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			throw new TransactionSystemException(e.getMessage());
 		}
@@ -172,7 +172,7 @@ public class TransactionStatusClp implements TransactionStatus {
 			method.invoke(_remoteTransactionStatus);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			throw new RuntimeException(e.getMessage());
 		}
@@ -188,7 +188,7 @@ public class TransactionStatusClp implements TransactionStatus {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(TransactionStatusClp.class);
+	private static final Logger _log = LoggerFactory.getLogger(TransactionStatusClp.class);
 
 	private static Map<String, Method> _remoteMethods;
 

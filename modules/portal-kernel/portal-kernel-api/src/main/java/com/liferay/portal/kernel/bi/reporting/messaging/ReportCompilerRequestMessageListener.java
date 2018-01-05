@@ -19,8 +19,8 @@ import com.liferay.portal.kernel.bi.reporting.ReportEngine;
 import com.liferay.portal.kernel.bi.reporting.ReportGenerationException;
 import com.liferay.portal.kernel.bi.reporting.ReportRequest;
 import com.liferay.portal.kernel.bi.reporting.ReportResultContainer;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.BaseMessageListener;
 import com.liferay.portal.kernel.messaging.Message;
 import com.liferay.portal.kernel.messaging.MessageBusUtil;
@@ -69,7 +69,7 @@ public class ReportCompilerRequestMessageListener extends BaseMessageListener {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		ReportCompilerRequestMessageListener.class);
 
 	private ReportEngine _reportEngine;

@@ -2,9 +2,10 @@ package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.service.ListTypeServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -50,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class ListTypeServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(ListTypeServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(ListTypeServiceSoap.class);
 
     public static com.liferay.portal.model.ListTypeSoap getListType(
         int listTypeId) throws RemoteException {
@@ -59,7 +60,7 @@ public class ListTypeServiceSoap {
 
             return com.liferay.portal.model.ListTypeSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -72,7 +73,7 @@ public class ListTypeServiceSoap {
 
             return com.liferay.portal.model.ListTypeSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -83,7 +84,7 @@ public class ListTypeServiceSoap {
         try {
             ListTypeServiceUtil.validate(listTypeId, classNameId, type);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -94,7 +95,7 @@ public class ListTypeServiceSoap {
         try {
             ListTypeServiceUtil.validate(listTypeId, type);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

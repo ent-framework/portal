@@ -17,8 +17,8 @@ package com.liferay.portal.spring.jpa;
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBFactoryUtil;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.Validator;
@@ -120,7 +120,7 @@ public class DatabaseDetector {
 				type = DB.TYPE_DB2;
 			}
 			else {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 		finally {
@@ -145,6 +145,6 @@ public class DatabaseDetector {
 		return database;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(DatabaseDetector.class);
+	private static final Logger _log = LoggerFactory.getLogger(DatabaseDetector.class);
 
 }

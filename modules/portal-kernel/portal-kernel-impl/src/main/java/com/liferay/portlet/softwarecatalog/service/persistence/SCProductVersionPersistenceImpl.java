@@ -10,8 +10,6 @@ import com.liferay.portal.kernel.dao.orm.QueryPos;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.dao.orm.Session;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.InstanceFactory;
 import com.liferay.portal.kernel.util.OrderByComparator;
@@ -33,6 +31,9 @@ import com.liferay.portlet.softwarecatalog.model.impl.SCProductVersionImpl;
 import com.liferay.portlet.softwarecatalog.model.impl.SCProductVersionModelImpl;
 import com.liferay.portlet.softwarecatalog.service.persistence.SCFrameworkVersionPersistence;
 import com.liferay.portlet.softwarecatalog.service.persistence.SCProductVersionPersistence;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.Serializable;
 
@@ -125,7 +126,7 @@ public class SCProductVersionPersistenceImpl extends BasePersistenceImpl<SCProdu
     private static final String _NO_SUCH_ENTITY_WITH_PRIMARY_KEY = "No SCProductVersion exists with the primary key ";
     private static final String _NO_SUCH_ENTITY_WITH_KEY = "No SCProductVersion exists with the key {";
     private static final boolean _HIBERNATE_CACHE_USE_SECOND_LEVEL_CACHE = com.liferay.portal.util.PropsValues.HIBERNATE_CACHE_USE_SECOND_LEVEL_CACHE;
-    private static Log _log = LogFactoryUtil.getLog(SCProductVersionPersistenceImpl.class);
+    private static final Logger _log = LoggerFactory.getLogger(SCProductVersionPersistenceImpl.class);
     private static SCProductVersion _nullSCProductVersion = new SCProductVersionImpl() {
             @Override
             public Object clone() {
@@ -1750,7 +1751,7 @@ public class SCProductVersionPersistenceImpl extends BasePersistenceImpl<SCProdu
 
                 listeners = listenersList.toArray(new ModelListener[listenersList.size()]);
             } catch (Exception e) {
-                _log.error(e);
+                _log.error(e.getMessage());
             }
         }
 

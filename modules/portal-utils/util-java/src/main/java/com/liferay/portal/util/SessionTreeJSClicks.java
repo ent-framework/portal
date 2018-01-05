@@ -14,8 +14,8 @@
 
 package com.liferay.portal.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -54,7 +54,7 @@ public class SessionTreeJSClicks {
 				layoutIds.toArray(new String[layoutIds.size()]));
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -81,7 +81,7 @@ public class SessionTreeJSClicks {
 				continue;
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 
 				return;
 			}
@@ -104,7 +104,7 @@ public class SessionTreeJSClicks {
 				continue;
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 
 				return;
 			}
@@ -137,7 +137,7 @@ public class SessionTreeJSClicks {
 				continue;
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 
 				return;
 			}
@@ -155,7 +155,7 @@ public class SessionTreeJSClicks {
 				SessionTreeJSClicks.class.getName(), treeId);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			return null;
 		}
@@ -179,7 +179,7 @@ public class SessionTreeJSClicks {
 				layoutIds.toArray(new String[layoutIds.size()]));
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -206,7 +206,7 @@ public class SessionTreeJSClicks {
 				continue;
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 
 				return;
 			}
@@ -238,7 +238,7 @@ public class SessionTreeJSClicks {
 				continue;
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 
 				return;
 			}
@@ -265,6 +265,6 @@ public class SessionTreeJSClicks {
 		return layoutIds;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(SessionTreeJSClicks.class);
+	private static final Logger _log = LoggerFactory.getLogger(SessionTreeJSClicks.class);
 
 }

@@ -20,8 +20,8 @@ import com.liferay.portal.kernel.atom.AtomCollectionAdapterRegistryUtil;
 import com.liferay.portal.kernel.lar.PortletDataHandler;
 import com.liferay.portal.kernel.lar.StagedModelDataHandler;
 import com.liferay.portal.kernel.lar.StagedModelDataHandlerRegistryUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.notifications.UserNotificationDefinition;
 import com.liferay.portal.kernel.notifications.UserNotificationDeliveryType;
 import com.liferay.portal.kernel.notifications.UserNotificationHandler;
@@ -337,7 +337,7 @@ public class PortletBagFactory {
 			PortletInstanceFactoryUtil.create(portlet, _servletContext);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return portletBag;
@@ -408,7 +408,7 @@ public class PortletBagFactory {
 			portletClass = _classLoader.loadClass(portlet.getPortletClass());
 		}
 		catch (Throwable t) {
-			_log.error(t, t);
+			_log.error(t.getMessage(), t);
 
 			PortletLocalServiceUtil.destroyPortlet(portlet);
 
@@ -1051,7 +1051,7 @@ public class PortletBagFactory {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PortletBagFactory.class);
+	private static final Logger _log = LoggerFactory.getLogger(PortletBagFactory.class);
 
 	private ClassLoader _classLoader;
 	private ServletContext _servletContext;

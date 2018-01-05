@@ -16,8 +16,8 @@ package com.liferay.portal.kernel.util;
 
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -105,7 +105,7 @@ public class Base64 {
 			os.flush();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return encode(ubaos.unsafeGetByteArray(), 0, ubaos.size());
@@ -240,13 +240,13 @@ public class Base64 {
 		}
 		catch (Exception e) {
 			if (!silent) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
 		return null;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(Base64.class);
+	private static final Logger _log = LoggerFactory.getLogger(Base64.class);
 
 }

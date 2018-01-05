@@ -17,8 +17,8 @@ package com.liferay.portlet.documentlibrary.util;
 import com.liferay.portal.kernel.configuration.Filter;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
 import com.liferay.portal.kernel.portlet.LiferayWindowState;
 import com.liferay.portal.kernel.repository.model.FileEntry;
@@ -1310,7 +1310,7 @@ public class DLImpl implements DL {
 
 	private static final String _STRUCTURE_KEY_PREFIX = "AUTO_";
 
-	private static Log _log = LogFactoryUtil.getLog(DLImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(DLImpl.class);
 
 	private static Set<String> _allMediaGalleryMimeTypes =
 		new TreeSet<String>();
@@ -1343,7 +1343,7 @@ public class DLImpl implements DL {
 		}
 		catch (Exception e) {
 			if (_log.isDebugEnabled()) {
-				_log.debug(e, e);
+				_log.debug(e.getMessage(), e);
 			}
 
 			fileIcons = new String[] {StringPool.BLANK};

@@ -14,8 +14,8 @@
 
 package com.liferay.portal.model.impl;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.DocumentException;
@@ -57,7 +57,7 @@ public class ServiceComponentImpl extends ServiceComponentBaseImpl {
 			return _getDataEl().elementText(name);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			return StringPool.BLANK;
 		}
@@ -73,7 +73,7 @@ public class ServiceComponentImpl extends ServiceComponentBaseImpl {
 		return _dataEl;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ServiceComponentImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(ServiceComponentImpl.class);
 
 	private Element _dataEl;
 

@@ -1,13 +1,14 @@
 package com.liferay.portlet.shopping.service.http;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.http.TunnelUtil;
 
 import com.liferay.portlet.shopping.service.ShoppingCouponServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Provides the HTTP utility for the
@@ -38,7 +39,7 @@ import com.liferay.portlet.shopping.service.ShoppingCouponServiceUtil;
  * @generated
  */
 public class ShoppingCouponServiceHttp {
-    private static Log _log = LogFactoryUtil.getLog(ShoppingCouponServiceHttp.class);
+    private static final Logger _log = LoggerFactory.getLogger(ShoppingCouponServiceHttp.class);
     private static final Class<?>[] _addCouponParameterTypes0 = new Class[] {
             java.lang.String.class, boolean.class, java.lang.String.class,
             java.lang.String.class, int.class, int.class, int.class, int.class,
@@ -108,7 +109,7 @@ public class ShoppingCouponServiceHttp {
 
             return (com.liferay.portlet.shopping.model.ShoppingCoupon) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -139,7 +140,7 @@ public class ShoppingCouponServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -174,7 +175,7 @@ public class ShoppingCouponServiceHttp {
 
             return (com.liferay.portlet.shopping.model.ShoppingCoupon) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -212,7 +213,7 @@ public class ShoppingCouponServiceHttp {
 
             return (java.util.List<com.liferay.portlet.shopping.model.ShoppingCoupon>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -258,7 +259,7 @@ public class ShoppingCouponServiceHttp {
 
             return (com.liferay.portlet.shopping.model.ShoppingCoupon) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }

@@ -14,8 +14,8 @@
 
 package com.liferay.portlet.documentlibrary.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringPool;
@@ -428,7 +428,7 @@ public class LiferayVideoConverter extends LiferayConverter {
 
 	private static final int _VIDEO_BIT_RATE_MAX = 1200000;
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		LiferayVideoConverter.class);
 
 	private Properties _ffpresetProperties;

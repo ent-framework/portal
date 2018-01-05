@@ -2,9 +2,10 @@ package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.service.ResourcePermissionServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -50,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class ResourcePermissionServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(ResourcePermissionServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(ResourcePermissionServiceSoap.class);
 
     /**
     * Grants the role permission at the scope to perform the action on
@@ -100,7 +101,7 @@ public class ResourcePermissionServiceSoap {
             ResourcePermissionServiceUtil.addResourcePermission(groupId,
                 companyId, name, scope, primKey, roleId, actionId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -137,7 +138,7 @@ public class ResourcePermissionServiceSoap {
             ResourcePermissionServiceUtil.removeResourcePermission(groupId,
                 companyId, name, scope, primKey, roleId, actionId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -168,7 +169,7 @@ public class ResourcePermissionServiceSoap {
             ResourcePermissionServiceUtil.removeResourcePermissions(groupId,
                 companyId, name, scope, roleId, actionId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -209,7 +210,7 @@ public class ResourcePermissionServiceSoap {
             ResourcePermissionServiceUtil.setIndividualResourcePermissions(groupId,
                 companyId, name, primKey, roleId, actionIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

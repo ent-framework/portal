@@ -15,8 +15,8 @@
 package com.liferay.portal.kernel.dao.jdbc;
 
 import com.liferay.portal.kernel.jndi.JNDIUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.upgrade.dao.orm.UpgradeOptimizedConnectionHandler;
 import com.liferay.portal.kernel.util.InfrastructureUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
@@ -129,7 +129,7 @@ public class DataAccess {
 
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(DataAccess.class);
+	private static final Logger _log = LoggerFactory.getLogger(DataAccess.class);
 
 	private static PACL _pacl = new NoPACL();
 

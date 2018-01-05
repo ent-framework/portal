@@ -17,8 +17,8 @@ package com.liferay.portlet.journal.model;
 import com.liferay.portal.LocaleException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.Validator;
@@ -328,7 +328,7 @@ public class JournalTemplateAdapter implements JournalTemplate {
 			return ddmStructure.getStructureKey();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return null;
@@ -675,7 +675,7 @@ public class JournalTemplateAdapter implements JournalTemplate {
 			_ddmTemplate.setClassPK(ddmStructure.getPrimaryKey());
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -767,7 +767,7 @@ public class JournalTemplateAdapter implements JournalTemplate {
 			return FileUtil.createTempFile(bytes);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return null;
@@ -776,7 +776,7 @@ public class JournalTemplateAdapter implements JournalTemplate {
 	private JournalTemplateAdapter() {
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		JournalTemplateAdapter.class);
 
 	private DDMTemplate _ddmTemplate;

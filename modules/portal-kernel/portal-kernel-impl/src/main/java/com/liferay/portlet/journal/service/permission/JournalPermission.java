@@ -15,8 +15,8 @@
 package com.liferay.portlet.journal.service.permission;
 
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.staging.permission.StagingPermissionUtil;
 import com.liferay.portal.model.ResourceConstants;
 import com.liferay.portal.security.auth.PrincipalException;
@@ -67,7 +67,7 @@ public class JournalPermission {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -75,6 +75,6 @@ public class JournalPermission {
 			groupId, RESOURCE_NAME, groupId, actionId);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(JournalPermission.class);
+	private static final Logger _log = LoggerFactory.getLogger(JournalPermission.class);
 
 }

@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.cluster;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Michael C. Han
@@ -51,7 +51,7 @@ public abstract class BaseClusterMasterTokenTransitionListener
 
 	protected abstract void doMasterTokenReleased() throws Exception;
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		BaseClusterMasterTokenTransitionListener.class);
 
 }

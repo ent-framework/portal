@@ -18,8 +18,8 @@ import com.liferay.portal.kernel.cache.Lifecycle;
 import com.liferay.portal.kernel.cache.ThreadLocalCacheManager;
 import com.liferay.portal.kernel.concurrent.BatchablePipe;
 import com.liferay.portal.kernel.increment.Increment;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.CentralizedThreadLocal;
 import com.liferay.portal.security.auth.CompanyThreadLocal;
 
@@ -91,7 +91,7 @@ public class BufferedIncrementRunnable implements Runnable {
 		CentralizedThreadLocal.clearShortLivedThreadLocals();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		BufferedIncrementRunnable.class);
 
 	private final BatchablePipe<Serializable, Increment<?>> _batchablePipe;

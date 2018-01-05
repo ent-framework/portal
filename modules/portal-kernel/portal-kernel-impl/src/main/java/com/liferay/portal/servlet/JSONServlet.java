@@ -15,8 +15,8 @@
 package com.liferay.portal.servlet;
 
 import com.liferay.portal.action.JSONServiceAction;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.PluginContextListener;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
 import com.liferay.portal.security.ac.AccessControlThreadLocal;
@@ -83,7 +83,7 @@ public class JSONServlet extends HttpServlet {
 			throw new ServletException(se);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 		finally {
 			AccessControlThreadLocal.setRemoteAccess(remoteAccess);
@@ -98,7 +98,7 @@ public class JSONServlet extends HttpServlet {
 		return jsonAction;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(JSONServlet.class);
+	private static final Logger _log = LoggerFactory.getLogger(JSONServlet.class);
 
 	private JSONAction _jsonAction;
 	private ClassLoader _pluginClassLoader;

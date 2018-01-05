@@ -16,8 +16,8 @@ package com.liferay.portal.servlet.filters.dynamiccss;
 
 import com.liferay.portal.kernel.cache.key.CacheKeyGenerator;
 import com.liferay.portal.kernel.cache.key.CacheKeyGeneratorUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.BufferCacheServletResponse;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
@@ -235,7 +235,7 @@ public class DynamicCSSFilter extends IgnoreModuleRequestFilter {
 
 	private static final String _TEMP_DIR = "css";
 
-	private static Log _log = LogFactoryUtil.getLog(DynamicCSSFilter.class);
+	private static final Logger _log = LoggerFactory.getLogger(DynamicCSSFilter.class);
 
 	private ServletContext _servletContext;
 	private File _tempDir;

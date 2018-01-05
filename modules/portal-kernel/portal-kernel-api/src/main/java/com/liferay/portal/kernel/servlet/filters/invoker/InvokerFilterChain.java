@@ -21,8 +21,8 @@ import com.liferay.portal.ext.service.FilterScopeLocalServiceUtil;
 import com.liferay.portal.kernel.bean.ClassLoaderBeanHandler;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.DirectCallFilter;
 import com.liferay.portal.kernel.servlet.LiferayFilter;
 import com.liferay.portal.kernel.servlet.TryFilter;
@@ -274,7 +274,7 @@ public class InvokerFilterChain implements FilterChain {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(InvokerFilterChain.class);
+	private static final Logger _log = LoggerFactory.getLogger(InvokerFilterChain.class);
 
 	private ClassLoader _contextClassLoader;
 	private FilterChain _filterChain;

@@ -17,8 +17,8 @@ package com.liferay.portal.servlet.filters.cache;
 import com.liferay.portal.NoSuchLayoutException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.BrowserSnifferUtil;
 import com.liferay.portal.kernel.servlet.BufferCacheServletResponse;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
@@ -210,12 +210,12 @@ public class CacheFilter extends BasePortalFilter {
 		}
 		catch (NoSuchLayoutException nsle) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(nsle);
+				_log.warn(nsle.getMessage());
 			}
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e);
+				_log.warn(e.getMessage());
 			}
 
 			return 0;
@@ -237,7 +237,7 @@ public class CacheFilter extends BasePortalFilter {
 				return plid;
 			}
 			catch (Exception e) {
-				_log.warn(e);
+				_log.warn(e.getMessage());
 
 				return 0;
 			}
@@ -255,12 +255,12 @@ public class CacheFilter extends BasePortalFilter {
 			return layout.getPlid();
 		}
 		catch (NoSuchLayoutException nsle) {
-			_log.warn(nsle);
+			_log.warn(nsle.getMessage());
 
 			return 0;
 		}
 		catch (Exception e) {
-			_log.error(e);
+			_log.error(e.getMessage(), e);
 
 			return 0;
 		}
@@ -490,7 +490,7 @@ public class CacheFilter extends BasePortalFilter {
 
 	private static final int _PATTERN_RESOURCE = 2;
 
-	private static Log _log = LogFactoryUtil.getLog(CacheFilter.class);
+	private static final Logger _log = LoggerFactory.getLogger(CacheFilter.class);
 
 	private int _pattern;
 

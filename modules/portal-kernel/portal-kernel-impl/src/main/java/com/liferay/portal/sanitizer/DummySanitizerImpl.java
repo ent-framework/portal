@@ -14,8 +14,8 @@
 
 package com.liferay.portal.sanitizer;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.sanitizer.Sanitizer;
 import com.liferay.portal.kernel.sanitizer.SanitizerException;
 import com.liferay.portal.kernel.util.StreamUtil;
@@ -78,6 +78,6 @@ public class DummySanitizerImpl implements Sanitizer {
 		return s;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(DummySanitizerImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(DummySanitizerImpl.class);
 
 }

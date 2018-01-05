@@ -19,8 +19,8 @@ import com.liferay.portal.kernel.cluster.ClusterNode;
 import com.liferay.portal.kernel.concurrent.ConcurrentHashSet;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.PortalSessionContext;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.Group;
@@ -563,7 +563,7 @@ public class LiveUsers {
 		return liveUsers;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LiveUsers.class);
+	private static final Logger _log = LoggerFactory.getLogger(LiveUsers.class);
 
 	private static LiveUsers _instance = new LiveUsers();
 

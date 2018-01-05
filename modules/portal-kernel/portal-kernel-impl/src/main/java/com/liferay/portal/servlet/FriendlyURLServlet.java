@@ -18,8 +18,8 @@ import com.liferay.portal.NoSuchGroupException;
 import com.liferay.portal.NoSuchLayoutException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.PortalMessages;
 import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.struts.LastPath;
@@ -130,7 +130,7 @@ public class FriendlyURLServlet extends HttpServlet {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e);
+				_log.warn(e.getMessage());
 			}
 
 			if ((e instanceof NoSuchGroupException) ||
@@ -418,7 +418,7 @@ public class FriendlyURLServlet extends HttpServlet {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(FriendlyURLServlet.class);
+	private static final Logger _log = LoggerFactory.getLogger(FriendlyURLServlet.class);
 
 	private String _friendlyURLPathPrefix;
 	private boolean _private;

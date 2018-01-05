@@ -16,8 +16,8 @@ package com.liferay.portal.scripting;
 
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.scripting.Scripting;
 import com.liferay.portal.kernel.scripting.ScriptingException;
 import com.liferay.portal.kernel.scripting.ScriptingExecutor;
@@ -174,7 +174,7 @@ public class ScriptingImpl implements Scripting {
 		return sb.toString();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ScriptingImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(ScriptingImpl.class);
 
 	private Map<String, ScriptingExecutor> _scriptingExecutors =
 		new ConcurrentHashMap<String, ScriptingExecutor>();

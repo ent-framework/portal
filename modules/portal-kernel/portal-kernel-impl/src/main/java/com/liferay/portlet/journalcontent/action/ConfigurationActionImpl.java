@@ -14,8 +14,8 @@
 
 package com.liferay.portlet.journalcontent.action;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.DefaultConfigurationAction;
 import com.liferay.portal.kernel.portlet.PortletLayoutListener;
 import com.liferay.portal.kernel.servlet.SessionErrors;
@@ -59,7 +59,7 @@ public class ConfigurationActionImpl extends DefaultConfigurationAction {
 				});
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -146,7 +146,7 @@ public class ConfigurationActionImpl extends DefaultConfigurationAction {
 		return StringUtil.toUpperCase(articleId);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		ConfigurationActionImpl.class);
 
 	private Method _doProcessActionMethod;

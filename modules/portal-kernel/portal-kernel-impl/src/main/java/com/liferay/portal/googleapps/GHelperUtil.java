@@ -16,8 +16,8 @@ package com.liferay.portal.googleapps;
 
 import com.liferay.portal.kernel.googleapps.GoogleAppsException;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.Http;
@@ -261,6 +261,6 @@ public class GHelperUtil {
 
 	private static final String _ATOM_URI = "http://www.w3.org/2005/Atom";
 
-	private static Log _log = LogFactoryUtil.getLog(GHelperUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(GHelperUtil.class);
 
 }

@@ -14,8 +14,8 @@
 
 package com.liferay.portal.dao.jdbc.pool.c3p0;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.util.PropsUtil;
 
@@ -65,7 +65,7 @@ public class PortalConnectionCustomizer implements ConnectionCustomizer {
 		Connection connection, String parentDataSourceIdentityToken) {
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PortalConnectionCustomizer.class);
 
 }

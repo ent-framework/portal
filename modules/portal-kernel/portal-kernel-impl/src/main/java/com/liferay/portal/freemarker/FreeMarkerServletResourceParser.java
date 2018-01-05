@@ -14,8 +14,8 @@
 
 package com.liferay.portal.freemarker;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.ServletContextPool;
 import com.liferay.portal.kernel.template.TemplateConstants;
 import com.liferay.portal.template.URLResourceParser;
@@ -83,7 +83,7 @@ public class FreeMarkerServletResourceParser extends URLResourceParser {
 		return url;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		FreeMarkerServletResourceParser.class);
 
 }

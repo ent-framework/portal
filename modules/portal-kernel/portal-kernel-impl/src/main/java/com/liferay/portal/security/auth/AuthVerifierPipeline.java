@@ -16,8 +16,8 @@ package com.liferay.portal.security.auth;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.InstanceFactory;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
@@ -362,7 +362,7 @@ public class AuthVerifierPipeline {
 		return _createGuestVerificationResult(accessControlContext);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(AuthVerifierPipeline.class);
+	private static final Logger _log = LoggerFactory.getLogger(AuthVerifierPipeline.class);
 
 	private static AuthVerifierPipeline _instance = new AuthVerifierPipeline();
 

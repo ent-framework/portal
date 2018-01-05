@@ -14,8 +14,8 @@
 
 package com.liferay.portal.action;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,6 +43,6 @@ public class TestAction extends Action {
 		return actionMapping.findForward("portal.test");
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(TestAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(TestAction.class);
 
 }

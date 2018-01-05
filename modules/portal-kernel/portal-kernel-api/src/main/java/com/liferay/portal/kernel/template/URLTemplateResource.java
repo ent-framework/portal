@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.template;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.Validator;
 
 import java.io.File;
@@ -155,7 +155,7 @@ public class URLTemplateResource implements TemplateResource {
 		objectOutput.writeUTF(_templateURLExternalForm);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(URLTemplateResource.class);
+	private static final Logger _log = LoggerFactory.getLogger(URLTemplateResource.class);
 
 	private String _templateId;
 	private URL _templateURL;

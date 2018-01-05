@@ -19,8 +19,8 @@ import com.liferay.portal.dao.shard.ShardSelector;
 import com.liferay.portal.dao.shard.ShardSessionFactoryTargetSource;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.InfrastructureUtil;
 import com.liferay.portal.kernel.util.InitialThreadLocal;
@@ -122,7 +122,7 @@ public class ShardAdvice {
 			pushCompanyService(shardName);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -195,7 +195,7 @@ public class ShardAdvice {
 		return shardName;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ShardAdvice.class);
+	private static final Logger _log = LoggerFactory.getLogger(ShardAdvice.class);
 
 	private static ThreadLocal<Stack<String>> _companyServiceStack =
 		new ThreadLocal<Stack<String>>();
@@ -215,7 +215,7 @@ public class ShardAdvice {
 			_shardSelector = (ShardSelector)clazz.newInstance();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 

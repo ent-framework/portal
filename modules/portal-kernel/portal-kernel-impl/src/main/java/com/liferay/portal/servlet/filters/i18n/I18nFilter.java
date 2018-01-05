@@ -15,8 +15,8 @@
 package com.liferay.portal.servlet.filters.i18n;
 
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.HttpMethods;
 import com.liferay.portal.kernel.util.CookieKeys;
 import com.liferay.portal.kernel.util.LocaleUtil;
@@ -53,18 +53,6 @@ public class I18nFilter extends BasePortalFilter {
 
 	public static Set<String> getLanguageIds() {
 		return _languageIds;
-	}
-
-	public static void setLanguageIds(Set<String> languageIds) {
-		_languageIds = new HashSet<String>();
-
-		for (String languageId : languageIds) {
-			languageId = languageId.substring(1);
-
-			_languageIds.add(languageId);
-		}
-
-		_languageIds = Collections.unmodifiableSet(_languageIds);
 	}
 
 	@Override
@@ -263,7 +251,7 @@ public class I18nFilter extends BasePortalFilter {
 		response.sendRedirect(redirect);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(I18nFilter.class);
+	private static final Logger _log = LoggerFactory.getLogger(I18nFilter.class);
 
 	private static Set<String> _languageIds;
 

@@ -14,8 +14,8 @@
 
 package com.liferay.portal.pop.messaging;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.mail.Account;
 import com.liferay.portal.kernel.pop.MessageListener;
 import com.liferay.portal.kernel.pop.MessageListenerException;
@@ -174,13 +174,13 @@ public class POPNotificationsMessageListener
 					}
 				}
 				catch (MessageListenerException mle) {
-					_log.error(mle, mle);
+					_log.error(mle.getMessage(), mle);
 				}
 			}
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		POPNotificationsMessageListener.class);
 
 }

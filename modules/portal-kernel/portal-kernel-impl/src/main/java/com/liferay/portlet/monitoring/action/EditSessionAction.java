@@ -14,8 +14,8 @@
 
 package com.liferay.portlet.monitoring.action;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.PortalSessionContext;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.util.ParamUtil;
@@ -96,11 +96,11 @@ public class EditSessionAction extends PortletAction {
 				}
 			}
 			catch (Exception e) {
-				_log.error(e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(EditSessionAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(EditSessionAction.class);
 
 }

@@ -14,8 +14,8 @@
 
 package com.liferay.portal.servlet;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.util.Portal;
 import com.liferay.portal.util.PortalUtil;
 
@@ -49,7 +49,7 @@ public class RobotsServlet extends HttpServlet {
 			requestDispatcher.forward(request, response);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			PortalUtil.sendError(
 				HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e, request,
@@ -57,6 +57,6 @@ public class RobotsServlet extends HttpServlet {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(RobotsServlet.class);
+	private static final Logger _log = LoggerFactory.getLogger(RobotsServlet.class);
 
 }

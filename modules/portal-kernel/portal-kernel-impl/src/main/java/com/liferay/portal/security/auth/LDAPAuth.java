@@ -17,8 +17,8 @@ package com.liferay.portal.security.auth;
 import com.liferay.portal.NoSuchUserException;
 import com.liferay.portal.PasswordExpiredException;
 import com.liferay.portal.UserLockoutException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.AutoResetThreadLocal;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MapUtil;
@@ -81,7 +81,7 @@ public class LDAPAuth implements Authenticator {
 				companyId, emailAddress, StringPool.BLANK, 0, password);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			throw new AuthException(e);
 		}
@@ -98,7 +98,7 @@ public class LDAPAuth implements Authenticator {
 				companyId, StringPool.BLANK, screenName, 0, password);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			throw new AuthException(e);
 		}
@@ -116,7 +116,7 @@ public class LDAPAuth implements Authenticator {
 				password);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			throw new AuthException(e);
 		}
@@ -600,7 +600,7 @@ public class LDAPAuth implements Authenticator {
 		failedLDAPAuthResults.put(cacheKey, ldapAuthResult);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LDAPAuth.class);
+	private static final Logger _log = LoggerFactory.getLogger(LDAPAuth.class);
 
 	private ThreadLocal<Map<String, LDAPAuthResult>>
 		_failedLDAPAuthResults =

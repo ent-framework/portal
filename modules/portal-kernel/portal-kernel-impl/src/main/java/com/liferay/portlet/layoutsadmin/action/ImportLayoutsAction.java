@@ -29,8 +29,8 @@ import com.liferay.portal.kernel.lar.ExportImportHelper;
 import com.liferay.portal.kernel.lar.ExportImportHelperUtil;
 import com.liferay.portal.kernel.lar.MissingReference;
 import com.liferay.portal.kernel.lar.MissingReferences;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
 import com.liferay.portal.kernel.servlet.SessionErrors;
@@ -136,7 +136,7 @@ public class ImportLayoutsAction extends PortletAction {
 					SessionErrors.add(actionRequest, e.getClass(), e);
 				}
 				else {
-					_log.error(e, e);
+					_log.error(e.getMessage(), e);
 
 					SessionErrors.add(
 						actionRequest, LayoutImportException.class.getName());
@@ -433,6 +433,6 @@ public class ImportLayoutsAction extends PortletAction {
 			inputStream);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ImportLayoutsAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(ImportLayoutsAction.class);
 
 }

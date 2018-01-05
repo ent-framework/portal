@@ -15,8 +15,8 @@
 package com.liferay.mail.util;
 
 import com.liferay.mail.model.Filter;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.process.ProcessUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringPool;
@@ -141,10 +141,10 @@ public class ShellHook implements Hook {
 			future.get();
 		}
 		catch (Exception e) {
-			_log.error(e);
+			_log.error(e.getMessage());
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ShellHook.class);
+	private static final Logger _log = LoggerFactory.getLogger(ShellHook.class);
 
 }

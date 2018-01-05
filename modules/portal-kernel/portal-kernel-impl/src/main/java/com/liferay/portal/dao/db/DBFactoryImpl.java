@@ -17,8 +17,8 @@ package com.liferay.portal.dao.db;
 import com.liferay.portal.dao.orm.hibernate.DialectImpl;
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBFactory;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.InstanceFactory;
 import com.liferay.portal.util.PropsValues;
@@ -65,7 +65,7 @@ public class DBFactoryImpl implements DBFactory {
 				setDB(dialect);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -231,7 +231,7 @@ public class DBFactoryImpl implements DBFactory {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(DBFactoryImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(DBFactoryImpl.class);
 
 	private static DB _db;
 

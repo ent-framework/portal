@@ -14,8 +14,8 @@
 
 package com.liferay.portlet.journalcontent;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.PortletLayoutListener;
 import com.liferay.portal.kernel.portlet.PortletLayoutListenerException;
 import com.liferay.portal.kernel.util.StringPool;
@@ -219,7 +219,7 @@ public class JournalContentPortletLayoutListener
 		return portletIds;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		JournalContentPortletLayoutListener.class);
 
 }

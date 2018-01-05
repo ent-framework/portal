@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -135,7 +135,7 @@ public class DefaultThreadLocalBinder implements ThreadLocalBinder {
 		_threadLocalSources = threadLocalSources;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		DefaultThreadLocalBinder.class);
 
 	private static ThreadLocal<Map<ThreadLocal<?>, ?>> _threadLocalValues =

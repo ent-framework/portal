@@ -15,8 +15,8 @@
 package com.liferay.portal.events;
 
 import com.liferay.portal.kernel.events.SessionAction;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.text.NumberFormat;
 
@@ -52,7 +52,7 @@ public class GarbageCollectorAction extends SessionAction {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		GarbageCollectorAction.class);
 
 }

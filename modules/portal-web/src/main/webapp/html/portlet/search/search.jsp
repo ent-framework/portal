@@ -247,5 +247,5 @@ PortalUtil.setPageKeywords(pageKeywords, request);
 %>
 
 <%!
-private static Log _log = LogFactoryUtil.getLog("portal-web.docroot.html.portlet.search.search_jsp");
+private static final Logger _log = LoggerFactory.getLogger("portal-web.docroot.html.portlet.search.search_jsp");
 %>

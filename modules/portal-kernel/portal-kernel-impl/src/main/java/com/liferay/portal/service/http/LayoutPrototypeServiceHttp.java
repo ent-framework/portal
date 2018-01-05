@@ -1,12 +1,13 @@
 package com.liferay.portal.service.http;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.LayoutPrototypeServiceUtil;
 import com.liferay.portal.service.http.TunnelUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Provides the HTTP utility for the
@@ -37,7 +38,7 @@ import com.liferay.portal.service.http.TunnelUtil;
  * @generated
  */
 public class LayoutPrototypeServiceHttp {
-    private static Log _log = LogFactoryUtil.getLog(LayoutPrototypeServiceHttp.class);
+    private static final Logger _log = LoggerFactory.getLogger(LayoutPrototypeServiceHttp.class);
     private static final Class<?>[] _addLayoutPrototypeParameterTypes0 = new Class[] {
             java.util.Map.class, java.lang.String.class, boolean.class
         };
@@ -95,7 +96,7 @@ public class LayoutPrototypeServiceHttp {
 
             return (com.liferay.portal.model.LayoutPrototype) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -133,7 +134,7 @@ public class LayoutPrototypeServiceHttp {
 
             return (com.liferay.portal.model.LayoutPrototype) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -165,7 +166,7 @@ public class LayoutPrototypeServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -200,7 +201,7 @@ public class LayoutPrototypeServiceHttp {
 
             return (com.liferay.portal.model.LayoutPrototype) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -236,7 +237,7 @@ public class LayoutPrototypeServiceHttp {
 
             return (java.util.List<com.liferay.portal.model.LayoutPrototype>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -274,7 +275,7 @@ public class LayoutPrototypeServiceHttp {
 
             return (com.liferay.portal.model.LayoutPrototype) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -314,7 +315,7 @@ public class LayoutPrototypeServiceHttp {
 
             return (com.liferay.portal.model.LayoutPrototype) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }

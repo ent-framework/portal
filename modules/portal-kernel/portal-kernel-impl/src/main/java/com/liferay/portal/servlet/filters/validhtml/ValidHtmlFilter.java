@@ -14,8 +14,8 @@
 
 package com.liferay.portal.servlet.filters.validhtml;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.BufferCacheServletResponse;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
 import com.liferay.portal.kernel.util.ContentTypes;
@@ -109,6 +109,6 @@ public class ValidHtmlFilter extends BasePortalFilter {
 
 	private static final String _CLOSE_HTML = "</html>";
 
-	private static Log _log = LogFactoryUtil.getLog(ValidHtmlFilter.class);
+	private static final Logger _log = LoggerFactory.getLogger(ValidHtmlFilter.class);
 
 }

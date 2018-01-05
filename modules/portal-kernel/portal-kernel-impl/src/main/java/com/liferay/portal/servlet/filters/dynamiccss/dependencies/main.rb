@@ -4,10 +4,10 @@ require 'java'
 require 'rubygems'
 require 'sass/plugin'
 
-java_import com.liferay.portal.kernel.log.LogFactoryUtil
+java_import org.slf4j.LoggerFactory
 java_import com.liferay.portal.servlet.filters.dynamiccss.DynamicCSSFilter
 
-log = LogFactoryUtil.getLog(DynamicCSSFilter.java_class)
+log = LoggerFactory.getLogger(DynamicCSSFilter.java_class)
 
 if log.isDebugEnabled
 	Sass.logger.log_level = :debug

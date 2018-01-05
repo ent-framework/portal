@@ -15,8 +15,8 @@
 package com.liferay.portal.language;
 
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.PropertiesUtil;
@@ -227,14 +227,14 @@ public class LanguageResources {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
 		return properties;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LanguageResources.class);
+	private static final Logger _log = LoggerFactory.getLogger(LanguageResources.class);
 
 	private static Locale _blankLocale = new Locale(StringPool.BLANK);
 	private static String[] _configNames;

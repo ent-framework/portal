@@ -14,8 +14,8 @@
 
 package com.liferay.portal.pop;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.pop.MessageListener;
 import com.liferay.portal.kernel.scheduler.SchedulerEngineHelperUtil;
 import com.liferay.portal.kernel.scheduler.SchedulerEntry;
@@ -145,11 +145,11 @@ public class POPServerUtil {
 				schedulerEntry, StorageType.MEMORY_CLUSTERED, null, 0);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(POPServerUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(POPServerUtil.class);
 
 	private static POPServerUtil _instance = new POPServerUtil();
 

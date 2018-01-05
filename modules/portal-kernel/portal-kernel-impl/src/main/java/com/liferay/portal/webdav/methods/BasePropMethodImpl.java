@@ -14,8 +14,8 @@
 
 package com.liferay.portal.webdav.methods;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.StringPool;
@@ -398,7 +398,7 @@ public abstract class BasePropMethodImpl implements Method {
 			}
 			catch (Exception e) {
 				if (_log.isWarnEnabled()) {
-					_log.warn(e);
+					_log.warn(e.getMessage());
 				}
 			}
 
@@ -426,6 +426,6 @@ public abstract class BasePropMethodImpl implements Method {
 			GETCONTENTLENGTH, ISREADONLY, LOCKDISCOVERY, RESOURCETYPE
 		});
 
-	private static Log _log = LogFactoryUtil.getLog(BasePropMethodImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(BasePropMethodImpl.class);
 
 }

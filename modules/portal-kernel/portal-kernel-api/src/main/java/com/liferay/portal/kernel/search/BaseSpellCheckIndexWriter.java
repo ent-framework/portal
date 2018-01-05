@@ -15,8 +15,8 @@
 package com.liferay.portal.kernel.search;
 
 import com.liferay.portal.kernel.configuration.Filter;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.nio.charset.CharsetEncoderUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.Base64;
@@ -327,7 +327,7 @@ public abstract class BaseSpellCheckIndexWriter
 	private static final String[] _SUPPORTED_LOCALES = StringUtil.split(
 		PropsUtil.get(PropsKeys.INDEX_SEARCH_SPELL_CHECKER_SUPPORTED_LOCALES));
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		BaseSpellCheckIndexWriter.class);
 
 	private int _querySuggestionMaxNGramLength = 50;

@@ -2,11 +2,12 @@ package com.liferay.portlet.dynamicdatalists.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 
 import com.liferay.portlet.dynamicdatalists.service.DDLRecordServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -52,13 +53,13 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class DDLRecordServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(DDLRecordServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(DDLRecordServiceSoap.class);
 
     public static void deleteRecord(long recordId) throws RemoteException {
         try {
             DDLRecordServiceUtil.deleteRecord(recordId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -74,7 +75,7 @@ public class DDLRecordServiceSoap {
 
             return com.liferay.portlet.dynamicdatalists.model.DDLRecordSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -87,7 +88,7 @@ public class DDLRecordServiceSoap {
 
             return com.liferay.portlet.dynamicdatalists.model.DDLRecordSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -101,7 +102,7 @@ public class DDLRecordServiceSoap {
             DDLRecordServiceUtil.revertRecordVersion(recordId, version,
                 serviceContext);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

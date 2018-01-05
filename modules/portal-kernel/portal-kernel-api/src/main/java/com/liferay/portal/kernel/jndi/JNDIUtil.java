@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.jndi;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.kernel.util.StringUtil;
 
@@ -154,6 +154,6 @@ public class JNDIUtil {
 		return obj;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(JNDIUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(JNDIUtil.class);
 
 }

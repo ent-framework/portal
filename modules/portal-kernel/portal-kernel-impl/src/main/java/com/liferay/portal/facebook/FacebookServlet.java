@@ -15,8 +15,8 @@
 package com.liferay.portal.facebook;
 
 import com.liferay.portal.NoSuchLayoutException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.BufferCacheServletResponse;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
 import com.liferay.portal.kernel.util.StringPool;
@@ -81,7 +81,7 @@ public class FacebookServlet extends HttpServlet {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			PortalUtil.sendError(
 				HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e, request,
@@ -102,6 +102,6 @@ public class FacebookServlet extends HttpServlet {
 		return fbml;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(FacebookServlet.class);
+	private static final Logger _log = LoggerFactory.getLogger(FacebookServlet.class);
 
 }

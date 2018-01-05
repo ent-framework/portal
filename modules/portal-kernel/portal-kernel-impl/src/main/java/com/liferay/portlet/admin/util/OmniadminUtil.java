@@ -15,8 +15,8 @@
 package com.liferay.portlet.admin.util;
 
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.model.RoleConstants;
 import com.liferay.portal.model.User;
 import com.liferay.portal.security.auth.CompanyThreadLocal;
@@ -96,12 +96,12 @@ public class OmniadminUtil {
 				userId, user.getCompanyId(), RoleConstants.ADMINISTRATOR, true);
 		}
 		catch (Exception e) {
-			_log.error(e);
+			_log.error(e.getMessage(), e);
 
 			return false;
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(OmniadminUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(OmniadminUtil.class);
 
 }

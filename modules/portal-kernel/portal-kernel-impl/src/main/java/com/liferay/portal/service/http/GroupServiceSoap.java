@@ -2,9 +2,10 @@ package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.service.GroupServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -50,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class GroupServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(GroupServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(GroupServiceSoap.class);
 
     /**
     * Adds a group.
@@ -90,7 +91,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -135,7 +136,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -156,7 +157,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -176,7 +177,7 @@ public class GroupServiceSoap {
         try {
             GroupServiceUtil.addRoleGroups(roleId, groupIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -198,7 +199,7 @@ public class GroupServiceSoap {
         try {
             GroupServiceUtil.checkRemoteStagingGroup(groupId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -224,7 +225,7 @@ public class GroupServiceSoap {
         try {
             GroupServiceUtil.deleteGroup(groupId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -234,7 +235,7 @@ public class GroupServiceSoap {
         try {
             GroupServiceUtil.disableStaging(groupId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -244,7 +245,7 @@ public class GroupServiceSoap {
         try {
             GroupServiceUtil.enableStaging(groupId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -265,7 +266,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -288,7 +289,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -312,7 +313,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -339,7 +340,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -366,7 +367,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -395,7 +396,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -418,7 +419,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -442,7 +443,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -466,7 +467,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -505,7 +506,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -524,7 +525,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -575,7 +576,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -624,7 +625,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -647,7 +648,7 @@ public class GroupServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -670,7 +671,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -683,7 +684,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -698,7 +699,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -747,7 +748,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -794,7 +795,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -816,7 +817,7 @@ public class GroupServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -842,7 +843,7 @@ public class GroupServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -891,7 +892,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -924,7 +925,7 @@ public class GroupServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -945,7 +946,7 @@ public class GroupServiceSoap {
         try {
             GroupServiceUtil.setRoleGroups(roleId, groupIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -965,7 +966,7 @@ public class GroupServiceSoap {
         try {
             GroupServiceUtil.unsetRoleGroups(roleId, groupIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -991,7 +992,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1032,7 +1033,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -1057,7 +1058,7 @@ public class GroupServiceSoap {
 
             return com.liferay.portal.model.GroupSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

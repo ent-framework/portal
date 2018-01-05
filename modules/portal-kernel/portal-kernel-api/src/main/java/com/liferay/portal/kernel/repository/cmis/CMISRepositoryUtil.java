@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.repository.cmis;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.repository.RepositoryException;
 import com.liferay.portal.kernel.util.ClassResolverUtil;
 import com.liferay.portal.kernel.util.MethodKey;
@@ -39,7 +39,7 @@ public class CMISRepositoryUtil {
 				typeSettingsProperties, typeSettingsKey);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -60,7 +60,7 @@ public class CMISRepositoryUtil {
 			throw re;
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return session;
@@ -81,7 +81,7 @@ public class CMISRepositoryUtil {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return value;
@@ -90,7 +90,7 @@ public class CMISRepositoryUtil {
 	private static final String _CLASS_NAME =
 		"com.liferay.portal.repository.cmis.CMISRepositoryUtil";
 
-	private static Log _log = LogFactoryUtil.getLog(CMISRepositoryUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(CMISRepositoryUtil.class);
 
 	private static MethodKey _checkRepositoryMethodKey = new MethodKey(
 		ClassResolverUtil.resolveByPortalClassLoader(_CLASS_NAME),

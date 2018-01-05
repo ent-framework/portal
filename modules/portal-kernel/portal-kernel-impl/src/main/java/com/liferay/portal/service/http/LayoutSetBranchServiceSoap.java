@@ -2,9 +2,10 @@ package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.service.LayoutSetBranchServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -50,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class LayoutSetBranchServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(LayoutSetBranchServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(LayoutSetBranchServiceSoap.class);
 
     public static com.liferay.portal.model.LayoutSetBranchSoap addLayoutSetBranch(
         long groupId, boolean privateLayout, java.lang.String name,
@@ -65,7 +66,7 @@ public class LayoutSetBranchServiceSoap {
 
             return com.liferay.portal.model.LayoutSetBranchSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -76,7 +77,7 @@ public class LayoutSetBranchServiceSoap {
         try {
             LayoutSetBranchServiceUtil.deleteLayoutSetBranch(layoutSetBranchId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -91,7 +92,7 @@ public class LayoutSetBranchServiceSoap {
 
             return com.liferay.portal.model.LayoutSetBranchSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -107,7 +108,7 @@ public class LayoutSetBranchServiceSoap {
 
             return com.liferay.portal.model.LayoutSetBranchSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -124,7 +125,7 @@ public class LayoutSetBranchServiceSoap {
 
             return com.liferay.portal.model.LayoutSetBranchSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

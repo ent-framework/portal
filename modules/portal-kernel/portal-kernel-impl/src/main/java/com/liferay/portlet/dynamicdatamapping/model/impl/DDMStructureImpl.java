@@ -18,8 +18,8 @@ import com.liferay.portal.LocaleException;
 import com.liferay.portal.kernel.configuration.Filter;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
@@ -140,7 +140,7 @@ public class DDMStructureImpl extends DDMStructureBaseImpl {
 					}
 				}
 
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -249,7 +249,7 @@ public class DDMStructureImpl extends DDMStructureBaseImpl {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return null;
@@ -740,7 +740,7 @@ public class DDMStructureImpl extends DDMStructureBaseImpl {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(DDMStructureImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(DDMStructureImpl.class);
 
 	@CacheField
 	private Document _document;

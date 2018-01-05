@@ -16,8 +16,8 @@ package com.liferay.portal.cache;
 
 import com.liferay.portal.kernel.cache.CacheRegistry;
 import com.liferay.portal.kernel.cache.CacheRegistryItem;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 
 import java.util.Map;
@@ -102,7 +102,7 @@ public class CacheRegistryImpl implements CacheRegistry {
 		_cacheRegistryItems.remove(name);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(CacheRegistryImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(CacheRegistryImpl.class);
 
 	private boolean _active = true;
 	private Map<String, CacheRegistryItem> _cacheRegistryItems =

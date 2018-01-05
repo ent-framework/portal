@@ -126,5 +126,5 @@ if ((category != null) && layout.isTypeControlPanel()) {
 </liferay-ui:panel-container>
 
 <%!
-private static Log _log = LogFactoryUtil.getLog("portal-web.docroot.html.portlet.message_boards.view_category_default_jsp");
+private static final Logger _log = LoggerFactory.getLogger("portal-web.docroot.html.portlet.message_boards.view_category_default_jsp");
 %>

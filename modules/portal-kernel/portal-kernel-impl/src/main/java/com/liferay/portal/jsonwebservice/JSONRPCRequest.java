@@ -16,8 +16,8 @@ package com.liferay.portal.jsonwebservice;
 
 import com.liferay.portal.kernel.json.JSONDeserializer;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 
@@ -127,7 +127,7 @@ public class JSONRPCRequest {
 		_parameters = parameters;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(JSONRPCRequest.class);
+	private static final Logger _log = LoggerFactory.getLogger(JSONRPCRequest.class);
 
 	private Integer _id;
 	private String _jsonrpc;

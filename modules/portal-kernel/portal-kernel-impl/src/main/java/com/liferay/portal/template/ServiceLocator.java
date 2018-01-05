@@ -17,8 +17,8 @@ package com.liferay.portal.template;
 import com.liferay.portal.bean.BeanLocatorImpl;
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.bean.PortletBeanLocatorUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Brian Wing Shun Chan
@@ -36,7 +36,7 @@ public class ServiceLocator {
 			bean = PortalBeanLocatorUtil.locate(_getServiceName(serviceName));
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return bean;
@@ -50,7 +50,7 @@ public class ServiceLocator {
 				servletContextName, _getServiceName(serviceName));
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return bean;
@@ -67,7 +67,7 @@ public class ServiceLocator {
 		return serviceName;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ServiceLocator.class);
+	private static final Logger _log = LoggerFactory.getLogger(ServiceLocator.class);
 
 	private static ServiceLocator _instance = new ServiceLocator();
 

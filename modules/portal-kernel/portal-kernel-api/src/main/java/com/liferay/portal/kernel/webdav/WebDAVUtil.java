@@ -15,8 +15,8 @@
 package com.liferay.portal.kernel.webdav;
 
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.FileUtil;
@@ -375,7 +375,7 @@ public class WebDAVUtil {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(WebDAVUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(WebDAVUtil.class);
 
 	private static WebDAVUtil _instance = new WebDAVUtil();
 

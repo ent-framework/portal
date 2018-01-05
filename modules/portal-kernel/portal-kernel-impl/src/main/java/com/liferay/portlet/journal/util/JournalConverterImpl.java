@@ -19,8 +19,8 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.CharPool;
@@ -1008,7 +1008,7 @@ public class JournalConverterImpl implements JournalConverter {
 			element, LocaleUtil.toLanguageId(defaultLocale));
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(JournalConverterImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(JournalConverterImpl.class);
 
 	private static Map<String, String> _ddmDataTypes;
 	private static Map<String, String> _ddmMetadataAttributes;

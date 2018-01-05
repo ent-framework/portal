@@ -18,8 +18,8 @@ import com.liferay.portal.kernel.backgroundtask.BackgroundTaskResult;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
 import com.liferay.portal.kernel.lar.MissingReferences;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.staging.StagingUtil;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -82,7 +82,7 @@ public class LayoutStagingBackgroundTaskExecutor
 		}
 		catch (Throwable t) {
 			if (_log.isDebugEnabled()) {
-				_log.debug(t, t);
+				_log.debug(t.getMessage(), t);
 			}
 			else if (_log.isWarnEnabled()) {
 				_log.warn("Unable to publish layout: " + t.getMessage());
@@ -147,7 +147,7 @@ public class LayoutStagingBackgroundTaskExecutor
 			serviceContext);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		LayoutStagingBackgroundTaskExecutor.class);
 
 	private class LayoutStagingCallable implements Callable<MissingReferences> {

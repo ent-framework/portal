@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.resiliency.spi.remote;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.nio.intraband.RegistrationReference;
 import com.liferay.portal.kernel.nio.intraband.welder.Welder;
 import com.liferay.portal.kernel.nio.intraband.welder.WelderFactoryUtil;
@@ -234,6 +234,6 @@ public abstract class RemoteSPI implements ProcessCallable<SPI>, Remote, SPI {
 		objectOutputStream.writeUTF(System.getProperty(PropsKeys.LIFERAY_HOME));
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(RemoteSPI.class);
+	private static final Logger _log = LoggerFactory.getLogger(RemoteSPI.class);
 
 }

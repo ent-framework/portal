@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.log.LogUtil;
 
 /**
@@ -147,7 +147,7 @@ public class JavaDetector {
 
 	private static final String _JAVA_VERSION_JDK_7 = "1.7.";
 
-	private static Log _log = LogFactoryUtil.getLog(JavaDetector.class);
+	private static final Logger _log = LoggerFactory.getLogger(JavaDetector.class);
 
 	private static JavaDetector _instance = new JavaDetector();
 

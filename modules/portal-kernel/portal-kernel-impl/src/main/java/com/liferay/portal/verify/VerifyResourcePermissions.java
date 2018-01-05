@@ -16,8 +16,8 @@ package com.liferay.portal.verify;
 
 import com.liferay.portal.kernel.concurrent.ThrowableAwareRunnable;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.model.Contact;
 import com.liferay.portal.model.Layout;
 import com.liferay.portal.model.LayoutSetBranch;
@@ -279,7 +279,7 @@ public class VerifyResourcePermissions extends VerifyProcess {
 //		}
 	};
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		VerifyResourcePermissions.class);
 
 	private class VerifyResourcedModelRunnable extends ThrowableAwareRunnable {

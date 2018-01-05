@@ -17,8 +17,8 @@ package com.liferay.portlet.expando.util;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.search.Document;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -54,7 +54,7 @@ public class ExpandoBridgeIndexerImpl implements ExpandoBridgeIndexer {
 			doAddAttributes(document, expandoBridge);
 		}
 		catch (SystemException se) {
-			_log.error(se, se);
+			_log.error(se.getMessage(), se);
 		}
 	}
 
@@ -255,7 +255,7 @@ public class ExpandoBridgeIndexerImpl implements ExpandoBridgeIndexer {
 
 	protected static final String FIELD_NAMESPACE = "expando";
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		ExpandoBridgeIndexerImpl.class);
 
 }

@@ -2,10 +2,10 @@ package com.liferay.portlet.polls.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-
 import com.liferay.portlet.polls.service.PollsVoteServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -51,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class PollsVoteServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(PollsVoteServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(PollsVoteServiceSoap.class);
 
     public static com.liferay.portlet.polls.model.PollsVoteSoap addVote(
         long questionId, long choiceId,
@@ -63,7 +63,7 @@ public class PollsVoteServiceSoap {
 
             return com.liferay.portlet.polls.model.PollsVoteSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

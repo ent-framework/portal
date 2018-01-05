@@ -19,8 +19,8 @@ import com.liferay.portal.kernel.bean.BeanPropertiesUtil;
 import com.liferay.portal.kernel.bean.ConstantsBeanFactoryUtil;
 import com.liferay.portal.kernel.dao.search.SearchContainer;
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.Destination;
 import com.liferay.portal.kernel.messaging.InvokerMessageListener;
 import com.liferay.portal.kernel.messaging.MessageBus;
@@ -519,7 +519,7 @@ public abstract class BaseAlloyControllerImpl implements AlloyController {
 						destinationName, curMessageListener);
 				}
 				catch (Exception e) {
-					log.error(e, e);
+					log.error(e.getMessage(), e);
 				}
 
 				break;
@@ -546,7 +546,7 @@ public abstract class BaseAlloyControllerImpl implements AlloyController {
 			}
 		}
 		catch (Exception e) {
-			log.error(e, e);
+			log.error(e.getMessage(), e);
 		}
 	}
 
@@ -894,7 +894,7 @@ public abstract class BaseAlloyControllerImpl implements AlloyController {
 	protected static final String VIEW_PATH =
 		BaseAlloyControllerImpl.class.getName() + "#VIEW_PATH";
 
-	protected static Log log = LogFactoryUtil.getLog(
+	protected static Logger log = LoggerFactory.getLogger(
 		BaseAlloyControllerImpl.class);
 
 	protected String actionPath;

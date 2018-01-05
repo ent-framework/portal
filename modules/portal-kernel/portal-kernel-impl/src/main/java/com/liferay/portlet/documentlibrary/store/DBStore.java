@@ -17,8 +17,8 @@ package com.liferay.portlet.documentlibrary.store;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
 import com.liferay.portal.kernel.util.FileUtil;
@@ -412,6 +412,6 @@ public class DBStore extends BaseStore {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(DBStore.class);
+	private static final Logger _log = LoggerFactory.getLogger(DBStore.class);
 
 }

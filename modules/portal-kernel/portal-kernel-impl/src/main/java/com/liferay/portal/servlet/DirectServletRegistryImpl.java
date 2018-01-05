@@ -14,8 +14,8 @@
 
 package com.liferay.portal.servlet;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.servlet.DirectServletRegistry;
 import com.liferay.portal.kernel.util.ReflectionUtil;
@@ -185,7 +185,7 @@ public class DirectServletRegistryImpl implements DirectServletRegistry {
 			_reloadDependants = false;
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return servlet;
@@ -203,7 +203,7 @@ public class DirectServletRegistryImpl implements DirectServletRegistry {
 		file.setLastModified(System.currentTimeMillis());
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		DirectServletRegistryImpl.class);
 
 	private Map<String, Long> _dependantTimestamps =

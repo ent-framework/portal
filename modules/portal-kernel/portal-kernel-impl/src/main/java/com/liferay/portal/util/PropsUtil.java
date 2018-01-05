@@ -17,8 +17,8 @@ package com.liferay.portal.util;
 import com.liferay.portal.configuration.ConfigurationImpl;
 import com.liferay.portal.kernel.configuration.Configuration;
 import com.liferay.portal.kernel.configuration.Filter;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.WebDirDetector;
 import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.kernel.util.PropsKeys;
@@ -328,7 +328,7 @@ public class PropsUtil {
 		_getConfiguration().set(key, value);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PropsUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(PropsUtil.class);
 
 	private static PropsUtil _instance = new PropsUtil();
 

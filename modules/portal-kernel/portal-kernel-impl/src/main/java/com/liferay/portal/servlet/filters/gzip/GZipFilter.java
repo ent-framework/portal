@@ -14,8 +14,8 @@
 
 package com.liferay.portal.servlet.filters.gzip;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.BrowserSnifferUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.JavaConstants;
@@ -127,7 +127,7 @@ public class GZipFilter extends BasePortalFilter {
 
 	private static final String _COMPRESS = "compress";
 
-	private static Log _log = LogFactoryUtil.getLog(GZipFilter.class);
+	private static final Logger _log = LoggerFactory.getLogger(GZipFilter.class);
 
 	private boolean _filterEnabled;
 

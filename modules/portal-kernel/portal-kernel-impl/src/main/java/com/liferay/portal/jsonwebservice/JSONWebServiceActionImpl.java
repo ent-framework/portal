@@ -17,8 +17,8 @@ package com.liferay.portal.jsonwebservice;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebServiceAction;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebServiceActionMapping;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.service.ServiceContext;
 import jodd.bean.BeanCopy;
@@ -67,7 +67,7 @@ public class JSONWebServiceActionImpl implements JSONWebServiceAction {
 		catch (Exception e) {
 			exception = e;
 
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return new JSONRPCResponse(jsonRPCRequest, result, exception);
@@ -408,7 +408,7 @@ public class JSONWebServiceActionImpl implements JSONWebServiceAction {
 		return parameters;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		JSONWebServiceActionImpl.class);
 
 	private JSONWebServiceActionConfig _jsonWebServiceActionConfig;

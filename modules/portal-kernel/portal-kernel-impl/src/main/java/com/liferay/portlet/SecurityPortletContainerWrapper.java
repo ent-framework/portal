@@ -16,8 +16,8 @@ package com.liferay.portlet;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.ActionResult;
 import com.liferay.portal.kernel.portlet.PortletContainer;
 import com.liferay.portal.kernel.portlet.PortletContainerException;
@@ -621,7 +621,7 @@ public class SecurityPortletContainerWrapper implements PortletContainer {
 		Portlet portlet, PrincipalException e) {
 
 		if (_log.isDebugEnabled()) {
-			_log.debug(e);
+			_log.debug(e.getMessage(), e);
 		}
 
 		String url = getOriginalURL(request);
@@ -664,7 +664,7 @@ public class SecurityPortletContainerWrapper implements PortletContainer {
 		Portlet portlet, PrincipalException e) {
 
 		if (_log.isDebugEnabled()) {
-			_log.debug(e);
+			_log.debug(e.getMessage(), e);
 		}
 
 		String url = getOriginalURL(request);
@@ -682,7 +682,7 @@ public class SecurityPortletContainerWrapper implements PortletContainer {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		SecurityPortletContainerWrapper.class);
 
 	private PortletContainer _portletContainer;

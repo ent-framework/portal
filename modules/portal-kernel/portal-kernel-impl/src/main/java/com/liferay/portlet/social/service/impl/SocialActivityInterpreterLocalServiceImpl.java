@@ -16,8 +16,8 @@ package com.liferay.portlet.social.service.impl;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.service.ServiceContext;
@@ -170,7 +170,7 @@ public class SocialActivityInterpreterLocalServiceImpl
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		if (activity.getMirrorActivityId() > 0) {
@@ -237,7 +237,7 @@ public class SocialActivityInterpreterLocalServiceImpl
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		List<SocialActivityInterpreter> activityInterpreters =
@@ -304,7 +304,7 @@ public class SocialActivityInterpreterLocalServiceImpl
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		SocialActivityInterpreterLocalServiceImpl.class);
 
 	private Map<String, List<SocialActivityInterpreter>> _activityInterpreters =

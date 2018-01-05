@@ -15,8 +15,8 @@
 package com.liferay.portlet;
 
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.FriendlyURLMapper;
 import com.liferay.portal.kernel.portlet.LiferayPortletConfig;
 import com.liferay.portal.kernel.portlet.LiferayPortletURL;
@@ -882,7 +882,7 @@ public class PortletURLImpl
 			}
 		}
 		catch (Exception e) {
-			_log.error(e);
+			_log.error(e.getMessage(), e);
 		}
 
 		Key key = null;
@@ -895,7 +895,7 @@ public class PortletURLImpl
 			}
 		}
 		catch (Exception e) {
-			_log.error(e);
+			_log.error(e.getMessage(), e);
 		}
 
 		if (Validator.isNull(_layoutFriendlyURL)) {
@@ -978,7 +978,7 @@ public class PortletURLImpl
 				sb.append(StringPool.AMPERSAND);
 			}
 			catch (Exception e) {
-				_log.error(e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 		else {
@@ -1294,7 +1294,7 @@ public class PortletURLImpl
 		}
 		catch (UnsupportedEncodingException uee) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(uee, uee);
+				_log.warn(uee.getMessage(), uee);
 			}
 		}
 
@@ -1413,7 +1413,7 @@ public class PortletURLImpl
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PortletURLImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(PortletURLImpl.class);
 
 	private boolean _anchor = true;
 	private String _cacheability = ResourceURL.PAGE;

@@ -15,8 +15,8 @@
 package com.liferay.portal.convert.messaging;
 
 import com.liferay.portal.convert.ConvertProcess;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.Message;
 import com.liferay.portal.kernel.messaging.MessageListener;
 import com.liferay.portal.kernel.util.InstancePool;
@@ -33,7 +33,7 @@ public class ConvertProcessMessageListener implements MessageListener {
 			doReceive(message);
 		}
 		catch (Exception e) {
-			_log.fatal("Unable to process message " + message, e);
+			_log.error("Unable to process message " + message, e);
 
 			ShutdownUtil.shutdown(0);
 		}
@@ -48,7 +48,7 @@ public class ConvertProcessMessageListener implements MessageListener {
 		convertProcess.convert();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		ConvertProcessMessageListener.class);
 
 }

@@ -14,8 +14,8 @@
 
 package com.liferay.portal.service.permission;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.model.Contact;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.Organization;
@@ -174,7 +174,7 @@ public class UserPermissionImpl implements UserPermission {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return false;
@@ -187,6 +187,6 @@ public class UserPermissionImpl implements UserPermission {
 		return contains(permissionChecker, userId, null, actionId);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(UserPermissionImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(UserPermissionImpl.class);
 
 }

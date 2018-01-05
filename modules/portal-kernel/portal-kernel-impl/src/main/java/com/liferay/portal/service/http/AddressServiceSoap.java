@@ -2,9 +2,10 @@ package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.service.AddressServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -50,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class AddressServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(AddressServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(AddressServiceSoap.class);
 
     /**
     * @deprecated As of 6.2.0, replaced by {@link #addAddress( String, long,
@@ -70,7 +71,7 @@ public class AddressServiceSoap {
 
             return com.liferay.portal.model.AddressSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -90,7 +91,7 @@ public class AddressServiceSoap {
 
             return com.liferay.portal.model.AddressSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -100,7 +101,7 @@ public class AddressServiceSoap {
         try {
             AddressServiceUtil.deleteAddress(addressId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -113,7 +114,7 @@ public class AddressServiceSoap {
 
             return com.liferay.portal.model.AddressSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -127,7 +128,7 @@ public class AddressServiceSoap {
 
             return com.liferay.portal.model.AddressSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -145,7 +146,7 @@ public class AddressServiceSoap {
 
             return com.liferay.portal.model.AddressSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

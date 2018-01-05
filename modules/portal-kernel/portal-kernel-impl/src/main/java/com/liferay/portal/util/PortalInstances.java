@@ -17,8 +17,8 @@ package com.liferay.portal.util;
 import com.liferay.portal.events.EventsProcessorUtil;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.dao.shard.ShardUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.kernel.util.CookieKeys;
 import com.liferay.portal.kernel.util.PropsKeys;
@@ -176,7 +176,7 @@ public class PortalInstances {
 					}
 				}
 				catch (Exception e) {
-					_log.error(e, e);
+					_log.error(e.getMessage(), e);
 				}
 			}
 		}
@@ -213,7 +213,7 @@ public class PortalInstances {
 				}
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -266,7 +266,7 @@ public class PortalInstances {
 			return virtualHost.getCompanyId();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return 0;
@@ -357,7 +357,7 @@ public class PortalInstances {
 			_webIds = webIdsList.toArray(new String[webIdsList.size()]);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		if (ArrayUtil.isEmpty(_webIds)) {
@@ -383,7 +383,7 @@ public class PortalInstances {
 			companyId = company.getCompanyId();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		Long currentThreadCompanyId = CompanyThreadLocal.getCompanyId();
@@ -451,7 +451,7 @@ public class PortalInstances {
 					companyId, WebKeys.PORTLET_CATEGORY, portletCategory);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 
 			// Check journal content search
@@ -469,7 +469,7 @@ public class PortalInstances {
 						companyId);
 				}
 				catch (Exception e) {
-					_log.error(e, e);
+					_log.error(e.getMessage(), e);
 				}
 			}
 
@@ -486,7 +486,7 @@ public class PortalInstances {
 					new String[] {String.valueOf(companyId)});
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 
 			// End initializing company
@@ -526,7 +526,7 @@ public class PortalInstances {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return false;
@@ -568,7 +568,7 @@ public class PortalInstances {
 		"select companyId from Company, Shard where Company.companyId = " +
 			"Shard.classPK and Shard.name = ?";
 
-	private static Log _log = LogFactoryUtil.getLog(PortalInstances.class);
+	private static final Logger _log = LoggerFactory.getLogger(PortalInstances.class);
 
 	private static PortalInstances _instance = new PortalInstances();
 

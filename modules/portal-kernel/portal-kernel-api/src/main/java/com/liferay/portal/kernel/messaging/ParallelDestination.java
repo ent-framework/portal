@@ -17,8 +17,8 @@ package com.liferay.portal.kernel.messaging;
 import com.liferay.portal.kernel.cache.Lifecycle;
 import com.liferay.portal.kernel.cache.ThreadLocalCacheManager;
 import com.liferay.portal.kernel.concurrent.ThreadPoolExecutor;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.CentralizedThreadLocal;
 
 import java.util.Set;
@@ -89,6 +89,6 @@ public class ParallelDestination extends BaseAsyncDestination {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ParallelDestination.class);
+	private static final Logger _log = LoggerFactory.getLogger(ParallelDestination.class);
 
 }

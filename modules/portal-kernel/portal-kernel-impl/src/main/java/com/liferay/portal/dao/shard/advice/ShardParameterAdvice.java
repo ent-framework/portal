@@ -14,8 +14,8 @@
 
 package com.liferay.portal.dao.shard.advice;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.model.Company;
 import com.liferay.portal.model.Shard;
 import com.liferay.portal.service.ShardLocalServiceUtil;
@@ -65,7 +65,7 @@ public class ShardParameterAdvice implements MethodInterceptor {
 		_shardAdvice = shardAdvice;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ShardParameterAdvice.class);
+	private static final Logger _log = LoggerFactory.getLogger(ShardParameterAdvice.class);
 
 	private ShardAdvice _shardAdvice;
 

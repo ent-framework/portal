@@ -14,8 +14,8 @@
 
 package com.liferay.portal.search;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.search.DummyIndexer;
 import com.liferay.portal.kernel.search.Indexer;
 import com.liferay.portal.kernel.search.IndexerRegistry;
@@ -68,7 +68,7 @@ public class IndexerRegistryImpl implements IndexerRegistry {
 		_indexers.remove(className);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(IndexerRegistryImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(IndexerRegistryImpl.class);
 
 	private Indexer _dummyIndexer = new DummyIndexer();
 	private Map<String, Indexer> _indexers =

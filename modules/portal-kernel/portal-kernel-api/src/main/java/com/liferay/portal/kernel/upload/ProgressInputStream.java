@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.upload;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ProgressTracker;
 
 import java.io.IOException;
@@ -168,7 +168,7 @@ public class ProgressInputStream extends InputStream {
 
 	private static final int _DEFAULT_INITIAL_BUFFER_SIZE = 4 * 1024;
 
-	private static Log _log = LogFactoryUtil.getLog(ProgressInputStream.class);
+	private static final Logger _log = LoggerFactory.getLogger(ProgressInputStream.class);
 
 	private InputStream _inputStream;
 	private PortletSession _portletSession;

@@ -16,8 +16,8 @@ package com.liferay.portlet.journal.util;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.templateparser.BaseTransformerListener;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -152,7 +152,7 @@ public class LocaleTransformerListener extends BaseTransformerListener {
 			xml = DDMXMLUtil.formatXML(document);
 		}
 		catch (Exception e) {
-			_log.error(e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return xml;
@@ -201,7 +201,7 @@ public class LocaleTransformerListener extends BaseTransformerListener {
 			xml = DDMXMLUtil.formatXML(document);
 		}
 		catch (Exception e) {
-			_log.error(e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return xml;
@@ -226,7 +226,7 @@ public class LocaleTransformerListener extends BaseTransformerListener {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		LocaleTransformerListener.class);
 
 }

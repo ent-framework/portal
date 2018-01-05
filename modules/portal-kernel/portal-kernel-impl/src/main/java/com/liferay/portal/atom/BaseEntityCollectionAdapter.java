@@ -14,8 +14,8 @@
 
 package com.liferay.portal.atom;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.model.Company;
 
 import java.util.Date;
@@ -48,7 +48,7 @@ public abstract class BaseEntityCollectionAdapter<T>
 			author = company.getName();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return author;
@@ -160,7 +160,7 @@ public abstract class BaseEntityCollectionAdapter<T>
 
 	protected String collectionName;
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		BaseEntityCollectionAdapter.class);
 
 }

@@ -14,8 +14,8 @@
 
 package com.liferay.portal.sanitizer;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.sanitizer.Sanitizer;
 import com.liferay.portal.kernel.sanitizer.SanitizerException;
 import com.liferay.portal.kernel.util.InstanceFactory;
@@ -51,7 +51,7 @@ public class SanitizerImpl implements Sanitizer {
 				registerSanitizer(sanitizer);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 	}
@@ -138,7 +138,7 @@ public class SanitizerImpl implements Sanitizer {
 		_sanitizers.remove(sanitizer);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(SanitizerImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(SanitizerImpl.class);
 
 	private List<Sanitizer> _sanitizers = new CopyOnWriteArrayList<Sanitizer>();
 

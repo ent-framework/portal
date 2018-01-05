@@ -16,8 +16,8 @@ package com.liferay.portal.security.pwd;
 
 import com.liferay.portal.UserPasswordException;
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.model.PasswordPolicy;
@@ -59,7 +59,7 @@ public class RegExpToolkit extends BasicToolkit {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(RegExpToolkit.class);
+	private static final Logger _log = LoggerFactory.getLogger(RegExpToolkit.class);
 
 	private String _charset;
 	private int _length;

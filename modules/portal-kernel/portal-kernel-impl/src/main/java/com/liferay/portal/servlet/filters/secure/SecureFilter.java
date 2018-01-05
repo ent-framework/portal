@@ -14,8 +14,8 @@
 
 package com.liferay.portal.servlet.filters.secure;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.servlet.ProtectedServletRequest;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -110,7 +110,7 @@ public class SecureFilter extends BasePortalFilter {
 				userId = PortalUtil.getBasicAuthUserId(request);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 
 			if (userId > 0) {
@@ -149,7 +149,7 @@ public class SecureFilter extends BasePortalFilter {
 				userId = PortalUtil.getDigestAuthUserId(request);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 
 			if (userId > 0) {
@@ -342,7 +342,7 @@ public class SecureFilter extends BasePortalFilter {
 	private static final String _DIGEST_REALM =
 		"Digest realm=\"" + Portal.PORTAL_REALM + "\"";
 
-	private static Log _log = LogFactoryUtil.getLog(SecureFilter.class);
+	private static final Logger _log = LoggerFactory.getLogger(SecureFilter.class);
 
 	private boolean _basicAuthEnabled;
 	private boolean _digestAuthEnabled;

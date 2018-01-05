@@ -16,8 +16,8 @@ package com.liferay.portal.util;
 
 import com.liferay.portal.kernel.lock.LockListener;
 import com.liferay.portal.kernel.lock.LockListenerRegistry;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.InstanceFactory;
 import com.liferay.portal.kernel.util.PropsKeys;
@@ -44,7 +44,7 @@ public class LockListenerRegistryImpl implements LockListenerRegistry {
 				register(lockListener);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 	}
@@ -64,7 +64,7 @@ public class LockListenerRegistryImpl implements LockListenerRegistry {
 		_lockListeners.remove(lockListener.getClassName());
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		LockListenerRegistryImpl.class);
 
 	private Map<String, LockListener> _lockListeners =

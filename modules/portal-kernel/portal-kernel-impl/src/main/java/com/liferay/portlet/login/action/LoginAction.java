@@ -23,8 +23,8 @@ import com.liferay.portal.UserIdException;
 import com.liferay.portal.UserLockoutException;
 import com.liferay.portal.UserPasswordException;
 import com.liferay.portal.UserScreenNameException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.HttpUtil;
@@ -129,7 +129,7 @@ public class LoginAction extends PortletAction {
 				SessionErrors.add(actionRequest, e.getClass());
 			}
 			else {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 
 				PortalUtil.sendError(e, actionRequest, actionResponse);
 
@@ -281,6 +281,6 @@ public class LoginAction extends PortletAction {
 
 	private static final boolean _CHECK_METHOD_ON_PROCESS_ACTION = false;
 
-	private static Log _log = LogFactoryUtil.getLog(LoginAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(LoginAction.class);
 
 }

@@ -14,8 +14,8 @@
 
 package com.liferay.portal.security.ldap;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.log.LogUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.CharPool;
@@ -117,7 +117,7 @@ public class PortalLDAPUtil {
 			}
 
 			if (_log.isDebugEnabled()) {
-				_log.debug(e, e);
+				_log.debug(e.getMessage(), e);
 			}
 		}
 
@@ -960,6 +960,6 @@ public class PortalLDAPUtil {
 		return sb.toString();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PortalLDAPUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(PortalLDAPUtil.class);
 
 }

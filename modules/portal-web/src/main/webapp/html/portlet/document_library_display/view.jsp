@@ -287,5 +287,5 @@ request.setAttribute("view.jsp-useAssetEntryQuery", String.valueOf(useAssetEntry
 </c:choose>
 
 <%!
-private static Log _log = LogFactoryUtil.getLog("portal-web.docroot.html.portlet.document_library.view_jsp");
+private static final Logger _log = LoggerFactory.getLogger("portal-web.docroot.html.portlet.document_library.view_jsp");
 %>

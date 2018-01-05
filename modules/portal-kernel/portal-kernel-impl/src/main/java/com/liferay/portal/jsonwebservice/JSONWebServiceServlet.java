@@ -14,8 +14,8 @@
 
 package com.liferay.portal.jsonwebservice;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ContextPathUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
@@ -132,7 +132,7 @@ public class JSONWebServiceServlet extends JSONServlet {
 		return jsonWebServiceServiceAction;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		JSONWebServiceServlet.class);
 
 }

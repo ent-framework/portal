@@ -33,8 +33,8 @@ import com.liferay.portal.kernel.lar.StagedModelDataHandler;
 import com.liferay.portal.kernel.lar.StagedModelDataHandlerRegistryUtil;
 import com.liferay.portal.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.portal.kernel.lar.StagedModelType;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -576,6 +576,6 @@ public class DLPortletDataHandler extends BasePortletDataHandler {
 		};
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(DLPortletDataHandler.class);
+	private static final Logger _log = LoggerFactory.getLogger(DLPortletDataHandler.class);
 
 }

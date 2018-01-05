@@ -16,8 +16,8 @@ package com.liferay.portal.kernel.util;
 
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.RandomUtil;
 
 import java.io.IOException;
@@ -4522,7 +4522,7 @@ public class StringUtil {
 		'u', 'v', 'w', 'x', 'y', 'z'
 	};
 
-	private static Log _log = LogFactoryUtil.getLog(StringUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(StringUtil.class);
 
 	private static String[] _emptyStringArray = new String[0];
 	private static Boolean _highlightEnabled;

@@ -16,8 +16,8 @@ package com.liferay.portlet.documentlibrary.util;
 
 import com.liferay.portal.kernel.image.GhostscriptUtil;
 import com.liferay.portal.kernel.lar.PortletDataContext;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.DestinationNames;
 import com.liferay.portal.kernel.process.ClassPathUtil;
 import com.liferay.portal.kernel.process.ProcessCallable;
@@ -36,13 +36,11 @@ import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.SystemEnv;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Element;
-import com.liferay.portal.log.Log4jLogFactoryImpl;
 import com.liferay.portal.repository.liferayrepository.model.LiferayFileVersion;
 import com.liferay.portal.util.PropsUtil;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portlet.documentlibrary.NoSuchFileEntryException;
 import com.liferay.portlet.documentlibrary.store.DLStoreUtil;
-import com.liferay.util.log4j.Log4JUtil;
 
 import java.io.File;
 import java.io.InputStream;
@@ -96,7 +94,7 @@ public class PDFProcessorImpl
 			return doGetPreviewFileCount(fileVersion);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return 0;
@@ -135,7 +133,7 @@ public class PDFProcessorImpl
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return hasImages;
@@ -218,7 +216,7 @@ public class PDFProcessorImpl
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -580,27 +578,27 @@ public class PDFProcessorImpl
 		boolean generateThumbnail = _isGenerateThumbnail(fileVersion);
 
 		if (PropsValues.DL_FILE_ENTRY_PREVIEW_FORK_PROCESS_ENABLED) {
-			ProcessCallable<String> processCallable =
-				new LiferayPDFBoxProcessCallable(
-					ServerDetector.getServerId(),
-					PropsUtil.get(PropsKeys.LIFERAY_HOME),
-					Log4JUtil.getCustomLogSettings(), file, thumbnailFile,
-					previewFiles, getThumbnailType(fileVersion),
-					getPreviewType(fileVersion),
-					PropsValues.DL_FILE_ENTRY_PREVIEW_DOCUMENT_DPI,
-					PropsValues.DL_FILE_ENTRY_PREVIEW_DOCUMENT_MAX_HEIGHT,
-					PropsValues.DL_FILE_ENTRY_PREVIEW_DOCUMENT_MAX_WIDTH,
-					generatePreview, generateThumbnail);
-
-			Future<String> future = ProcessExecutor.execute(
-				ClassPathUtil.getPortalClassPath(), processCallable);
-
-			String processIdentity = String.valueOf(
-				fileVersion.getFileVersionId());
-
-			futures.put(processIdentity, future);
-
-			future.get();
+//			ProcessCallable<String> processCallable =
+//				new LiferayPDFBoxProcessCallable(
+//					ServerDetector.getServerId(),
+//					PropsUtil.get(PropsKeys.LIFERAY_HOME),
+//					Log4JUtil.getCustomLogSettings(), file, thumbnailFile,
+//					previewFiles, getThumbnailType(fileVersion),
+//					getPreviewType(fileVersion),
+//					PropsValues.DL_FILE_ENTRY_PREVIEW_DOCUMENT_DPI,
+//					PropsValues.DL_FILE_ENTRY_PREVIEW_DOCUMENT_MAX_HEIGHT,
+//					PropsValues.DL_FILE_ENTRY_PREVIEW_DOCUMENT_MAX_WIDTH,
+//					generatePreview, generateThumbnail);
+//
+//			Future<String> future = ProcessExecutor.execute(
+//				ClassPathUtil.getPortalClassPath(), processCallable);
+//
+//			String processIdentity = String.valueOf(
+//				fileVersion.getFileVersionId());
+//
+//			futures.put(processIdentity, future);
+//
+//			future.get();
 		}
 		else {
 			LiferayPDFBoxConverter liferayConverter =
@@ -746,7 +744,7 @@ public class PDFProcessorImpl
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PDFProcessorImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(PDFProcessorImpl.class);
 
 	private List<Long> _fileVersionIds = new Vector<Long>();
 	private boolean _ghostscriptInitialized = false;
@@ -786,9 +784,9 @@ public class PDFProcessorImpl
 
 			ClassLoader classLoader = clazz.getClassLoader();
 
-			Log4JUtil.initLog4J(
-				_serverId, _liferayHome, classLoader, new Log4jLogFactoryImpl(),
-				_customLogSettings);
+//			Log4JUtil.initLog4J(
+//				_serverId, _liferayHome, classLoader, new Log4jLogFactoryImpl(),
+//				_customLogSettings);
 
 			try {
 				LiferayPDFBoxConverter liferayConverter =

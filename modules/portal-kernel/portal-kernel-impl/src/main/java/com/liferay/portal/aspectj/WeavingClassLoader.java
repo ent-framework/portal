@@ -15,8 +15,8 @@
 package com.liferay.portal.aspectj;
 
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StreamUtil;
 
 import java.io.File;
@@ -149,7 +149,7 @@ public class WeavingClassLoader extends URLClassLoader {
 		return clazz;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(WeavingClassLoader.class);
+	private static final Logger _log = LoggerFactory.getLogger(WeavingClassLoader.class);
 
 	private File _dumpDir;
 	private URLWeavingAdaptor _urlWeavingAdaptor;

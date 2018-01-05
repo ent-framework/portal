@@ -1,14 +1,14 @@
 package com.liferay.alloy.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringUtil;
 
 import java.text.MessageFormat;
 
 
 public class MessageUtil {
-    private static Log _log = LogFactoryUtil.getLog(MessageUtil.class);
+    private static final Logger _log = LoggerFactory.getLogger(MessageUtil.class);
 
     public static String substitute(String pattern, Object[] arguments) {
         String value = null;
@@ -23,7 +23,7 @@ public class MessageUtil {
             }
         } catch (Exception e) {
             if (_log.isWarnEnabled()) {
-                _log.warn(e, e);
+                _log.warn(e.getMessage(), e);
             }
         }
 

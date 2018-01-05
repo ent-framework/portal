@@ -17,8 +17,8 @@ package com.liferay.portal.model.impl;
 import com.liferay.portal.kernel.configuration.Filter;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.PortletLayoutListener;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.DateFormatFactoryUtil;
@@ -797,7 +797,7 @@ public class LayoutTypePortletImpl
 			return propertiesModifiedDate.after(preferencesModifiedDate);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return false;
@@ -965,7 +965,7 @@ public class LayoutTypePortletImpl
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			return;
 		}
@@ -1003,7 +1003,7 @@ public class LayoutTypePortletImpl
 				onRemoveFromLayout(new String[] {portletId});
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 	}
@@ -1090,7 +1090,7 @@ public class LayoutTypePortletImpl
 				customPortletIds.toArray(new String[customPortletIds.size()]));
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		_portalPreferences.resetValues(CustomizedPages.namespacePlid(plid));
@@ -1262,7 +1262,7 @@ public class LayoutTypePortletImpl
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		if (portlet.isSystem()) {
@@ -1637,7 +1637,7 @@ public class LayoutTypePortletImpl
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return themeId;
@@ -1683,7 +1683,7 @@ public class LayoutTypePortletImpl
 				}
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 
 			String newPortletId = null;
@@ -1792,7 +1792,7 @@ public class LayoutTypePortletImpl
 			return group.isLayoutSetPrototype();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return false;
@@ -1850,7 +1850,7 @@ public class LayoutTypePortletImpl
 				getPlid());
 		}
 		catch (PortalException pe) {
-			_log.error(pe, pe);
+			_log.error(pe.getMessage(), pe);
 		}
 	}
 
@@ -1871,7 +1871,7 @@ public class LayoutTypePortletImpl
 
 	private static final String _NULL_DATE = "00000000000000";
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		LayoutTypePortletImpl.class);
 
 	private static String _nestedPortletsNamespace;

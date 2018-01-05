@@ -16,8 +16,8 @@ package com.liferay.portlet.shopping.model.impl;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portlet.shopping.model.ShoppingCategory;
 import com.liferay.portlet.shopping.model.ShoppingItem;
@@ -57,7 +57,7 @@ public class ShoppingItemImpl extends ShoppingItemBaseImpl {
 
 				category.setGroupId(getGroupId());
 
-				_log.error(e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 		else {
@@ -104,7 +104,7 @@ public class ShoppingItemImpl extends ShoppingItemBaseImpl {
 		super.setFieldsQuantities(StringUtil.merge(fieldsQuantitiesArray));
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ShoppingItemImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(ShoppingItemImpl.class);
 
 	private String[] _fieldsQuantitiesArray;
 

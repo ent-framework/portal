@@ -17,8 +17,8 @@ package com.liferay.portlet.flags.messaging;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.BaseMessageListener;
 import com.liferay.portal.kernel.messaging.Message;
 import com.liferay.portal.kernel.util.LocaleUtil;
@@ -159,7 +159,7 @@ public class FlagsRequestMessageListener extends BaseMessageListener {
 			}
 			catch (IOException ioe) {
 				if (_log.isWarnEnabled()) {
-					_log.warn(ioe);
+					_log.warn(ioe.getMessage());
 				}
 			}
 		}
@@ -250,7 +250,7 @@ public class FlagsRequestMessageListener extends BaseMessageListener {
 		subscriptionSender.flushNotificationsAsync();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		FlagsRequestMessageListener.class);
 
 }

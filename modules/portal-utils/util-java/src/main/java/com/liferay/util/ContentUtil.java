@@ -14,8 +14,8 @@
 
 package com.liferay.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringUtil;
 
 import java.io.IOException;
@@ -61,7 +61,7 @@ public class ContentUtil {
 				_put(location, content);
 			}
 			catch (IOException ioe) {
-				_log.error(ioe, ioe);
+				_log.error(ioe.getMessage(), ioe);
 			}
 		}
 
@@ -76,7 +76,7 @@ public class ContentUtil {
 		_contentPool.put(location, content);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ContentUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(ContentUtil.class);
 
 	private static ContentUtil _instance = new ContentUtil();
 

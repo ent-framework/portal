@@ -15,8 +15,8 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ClassLoaderObjectInputStream;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsUtil;
@@ -245,7 +245,7 @@ public class ClpSerializer {
 				_useReflectionToTranslateThrowable = false;
 			}
 			catch (Throwable throwable2) {
-				_log.error(throwable2, throwable2);
+				_log.error(throwable2.getMessage(), throwable2);
 
 				return throwable2;
 			}
@@ -287,7 +287,7 @@ public class ClpSerializer {
 		</#if>
 	</#list>
 
-	private static Log _log = LogFactoryUtil.getLog(ClpSerializer.class);
+	private static final Logger _log = LoggerFactory.getLogger(ClpSerializer.class);
 
 	private static String _servletContextName;
 	private static boolean _useReflectionToTranslateThrowable = true;

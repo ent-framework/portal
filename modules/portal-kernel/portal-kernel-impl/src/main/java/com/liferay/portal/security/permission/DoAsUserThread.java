@@ -14,8 +14,8 @@
 
 package com.liferay.portal.security.permission;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.model.User;
 import com.liferay.portal.security.auth.PrincipalThreadLocal;
 import com.liferay.portal.service.UserLocalServiceUtil;
@@ -50,7 +50,7 @@ public abstract class DoAsUserThread extends Thread {
 			_success = true;
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 		finally {
 			PrincipalThreadLocal.setName(null);
@@ -60,7 +60,7 @@ public abstract class DoAsUserThread extends Thread {
 
 	protected abstract void doRun() throws Exception;
 
-	private static Log _log = LogFactoryUtil.getLog(DoAsUserThread.class);
+	private static final Logger _log = LoggerFactory.getLogger(DoAsUserThread.class);
 
 	private boolean _success;
 	private long _userId;

@@ -2,9 +2,10 @@ package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.service.MembershipRequestServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -50,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class MembershipRequestServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(MembershipRequestServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(MembershipRequestServiceSoap.class);
 
     public static com.liferay.portal.model.MembershipRequestSoap addMembershipRequest(
         long groupId, java.lang.String comments,
@@ -62,7 +63,7 @@ public class MembershipRequestServiceSoap {
 
             return com.liferay.portal.model.MembershipRequestSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -74,7 +75,7 @@ public class MembershipRequestServiceSoap {
             MembershipRequestServiceUtil.deleteMembershipRequests(groupId,
                 statusId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -87,7 +88,7 @@ public class MembershipRequestServiceSoap {
 
             return com.liferay.portal.model.MembershipRequestSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -101,7 +102,7 @@ public class MembershipRequestServiceSoap {
             MembershipRequestServiceUtil.updateStatus(membershipRequestId,
                 reviewComments, statusId, serviceContext);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

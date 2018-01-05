@@ -16,8 +16,8 @@ package com.liferay.portal.servlet;
 
 import com.liferay.portal.events.EventsProcessorUtil;
 import com.liferay.portal.kernel.events.ActionException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.PortalSessionContext;
 import com.liferay.portal.kernel.util.BasePortalLifecycle;
 import com.liferay.portal.kernel.util.PropsKeys;
@@ -54,7 +54,7 @@ public class PortalSessionCreator extends BasePortalLifecycle {
 		}
 		catch (IllegalStateException ise) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(ise, ise);
+				_log.warn(ise.getMessage(), ise);
 			}
 		}
 
@@ -66,11 +66,11 @@ public class PortalSessionCreator extends BasePortalLifecycle {
 				PropsValues.SERVLET_SESSION_CREATE_EVENTS, session);
 		}
 		catch (ActionException ae) {
-			_log.error(ae, ae);
+			_log.error(ae.getMessage(), ae);
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PortalSessionCreator.class);
+	private static final Logger _log = LoggerFactory.getLogger(PortalSessionCreator.class);
 
 	private HttpSessionEvent _httpSessionEvent;
 

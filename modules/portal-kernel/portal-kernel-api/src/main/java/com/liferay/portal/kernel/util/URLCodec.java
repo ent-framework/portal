@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.nio.charset.CharsetDecoderUtil;
 import com.liferay.portal.kernel.nio.charset.CharsetEncoderUtil;
 
@@ -82,7 +82,7 @@ public class URLCodec {
 						charBuffer = charsetDecoder.decode(byteBuffer);
 					}
 					catch (CharacterCodingException cce) {
-						_log.error(cce, cce);
+						_log.error(cce.getMessage(), cce);
 
 						return StringPool.BLANK;
 					}
@@ -231,7 +231,7 @@ public class URLCodec {
 				byteBuffer = charsetEncoder.encode(charBuffer);
 			}
 			catch (CharacterCodingException cce) {
-				_log.error(cce, cce);
+				_log.error(cce.getMessage(), cce);
 
 				return StringPool.BLANK;
 			}
@@ -331,7 +331,7 @@ public class URLCodec {
 		return CharBuffer.wrap(rawString, start, start + count);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(URLCodec.class);
+	private static final Logger _log = LoggerFactory.getLogger(URLCodec.class);
 
 	private static BitSet _validChars = new BitSet(256);
 

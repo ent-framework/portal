@@ -14,8 +14,8 @@
 
 package com.liferay.portlet.social.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.Http;
@@ -100,6 +100,6 @@ public class FacebookUtil {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(FacebookUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(FacebookUtil.class);
 
 }

@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Brian Wing Shun Chan
@@ -31,7 +31,7 @@ public abstract class BasePortalLifecycle implements PortalLifecycle {
 				doPortalDestroy();
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 
 			_calledPortalDestroy = true;
@@ -44,7 +44,7 @@ public abstract class BasePortalLifecycle implements PortalLifecycle {
 			doPortalInit();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			throw new IllegalStateException("Unable to initialize portal", e);
 		}
@@ -62,7 +62,7 @@ public abstract class BasePortalLifecycle implements PortalLifecycle {
 
 	protected abstract void doPortalInit() throws Exception;
 
-	private static Log _log = LogFactoryUtil.getLog(BasePortalLifecycle.class);
+	private static final Logger _log = LoggerFactory.getLogger(BasePortalLifecycle.class);
 
 	private boolean _calledPortalDestroy;
 

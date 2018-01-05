@@ -16,8 +16,8 @@ package com.liferay.portal.servlet.filters.language;
 
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.language.UnicodeLanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.BufferCacheServletResponse;
 import com.liferay.portal.kernel.servlet.PortletServlet;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
@@ -138,7 +138,7 @@ public class LanguageFilter extends BasePortalFilter {
 		return sb.toString();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LanguageFilter.class);
+	private static final Logger _log = LoggerFactory.getLogger(LanguageFilter.class);
 
 	private static Pattern _pattern = Pattern.compile(
 		"Liferay\\.Language\\.get\\([\"']([^)]+)[\"']\\)");

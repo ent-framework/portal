@@ -17,8 +17,8 @@ package com.liferay.portal.image;
 import com.liferay.portal.kernel.image.ImageBag;
 import com.liferay.portal.kernel.image.ImageToolUtil;
 import com.liferay.portal.kernel.image.SpriteProcessor;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.servlet.ServletContextUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
@@ -201,7 +201,7 @@ public class SpriteProcessorImpl implements SpriteProcessor {
 				}
 
 				if (_log.isDebugEnabled()) {
-					_log.debug(e, e);
+					_log.debug(e.getMessage(), e);
 				}
 			}
 		}
@@ -402,6 +402,6 @@ public class SpriteProcessorImpl implements SpriteProcessor {
 
 	private static final int _NUM_OF_BANDS = 4;
 
-	private static Log _log = LogFactoryUtil.getLog(SpriteProcessorImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(SpriteProcessorImpl.class);
 
 }

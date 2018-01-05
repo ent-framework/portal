@@ -16,8 +16,8 @@ package com.liferay.portal.util;
 
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringWriter;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.yahoo.platform.yui.compressor.CssCompressor;
 //import com.yahoo.platform.yui.mozilla.javascript.ErrorReporter;
 //import com.yahoo.platform.yui.mozilla.javascript.EvaluatorException;
@@ -93,7 +93,7 @@ public class MinifierUtil {
 		return unsyncStringWriter.toString();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(MinifierUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(MinifierUtil.class);
 
 	private static MinifierUtil _instance = new MinifierUtil();
 

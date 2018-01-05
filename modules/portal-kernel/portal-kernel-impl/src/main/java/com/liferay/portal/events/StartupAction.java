@@ -22,8 +22,8 @@ import com.liferay.portal.kernel.cluster.ClusterLinkUtil;
 import com.liferay.portal.kernel.cluster.ClusterMasterExecutorUtil;
 import com.liferay.portal.kernel.events.ActionException;
 import com.liferay.portal.kernel.events.SimpleAction;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.MessageBus;
 import com.liferay.portal.kernel.messaging.MessageBusUtil;
 import com.liferay.portal.kernel.messaging.sender.MessageSender;
@@ -245,6 +245,6 @@ public class StartupAction extends SimpleAction {
 		CachedLoggerProvider.install();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(StartupAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(StartupAction.class);
 
 }

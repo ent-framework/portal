@@ -14,8 +14,8 @@
 
 package com.liferay.portlet;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.model.Layout;
 import com.liferay.portal.model.LayoutSet;
 import com.liferay.portal.service.LayoutLocalServiceUtil;
@@ -76,7 +76,7 @@ public class PublicRenderParametersPool {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 
 			return new HashMap<String, String[]>();
@@ -86,7 +86,7 @@ public class PublicRenderParametersPool {
 	private static final String _PUBLIC_RENDER_PARAMETERS =
 		"PUBLIC_RENDER_PARAMETERS";
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PublicRenderParametersPool.class);
 
 }

@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.poller.comet;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -126,7 +126,7 @@ public class CometHandlerPool {
 		}
 	}
 
-	private static final Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		CometHandlerPool.class);
 
 	private final ReadWriteLock _cometHandlerPoolReadWriteLock =

@@ -18,8 +18,8 @@ import com.liferay.portal.NoSuchResourceActionException;
 import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.ContentTypes;
@@ -120,7 +120,7 @@ public class ResourceActionsImpl implements ResourceActions {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -209,7 +209,7 @@ public class ResourceActionsImpl implements ResourceActions {
 			return getActionsNames(pageContext, actions);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			return Collections.emptyList();
 		}
@@ -1151,7 +1151,7 @@ public class ResourceActionsImpl implements ResourceActions {
 		Role.class.getName(), User.class.getName(), UserGroup.class.getName()
 	};
 
-	private static Log _log = LogFactoryUtil.getLog(ResourceActionsImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(ResourceActionsImpl.class);
 
 	private Map<String, Set<String>> _modelPortletResources;
 	private Map<String, List<String>> _modelResourceActions;

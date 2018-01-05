@@ -17,8 +17,8 @@ package com.liferay.portal.repository.proxy;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.lar.StagedModelType;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.FileVersion;
 import com.liferay.portal.kernel.repository.model.Folder;
@@ -299,7 +299,7 @@ public class FileEntryProxyBean
 			versionUserId = fileVersion.getUserId();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return versionUserId;
@@ -319,7 +319,7 @@ public class FileEntryProxyBean
 			versionUserName = fileVersion.getUserName();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return versionUserName;
@@ -339,7 +339,7 @@ public class FileEntryProxyBean
 			versionUserUuid = fileVersion.getUserUuid();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return versionUserUuid;
@@ -454,7 +454,7 @@ public class FileEntryProxyBean
 		return newFileEntryProxyBean(fileEntry);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(FileEntryProxyBean.class);
+	private static final Logger _log = LoggerFactory.getLogger(FileEntryProxyBean.class);
 
 	private FileEntry _fileEntry;
 

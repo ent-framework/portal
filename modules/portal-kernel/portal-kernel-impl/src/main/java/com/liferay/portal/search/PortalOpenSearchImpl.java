@@ -14,8 +14,8 @@
 
 package com.liferay.portal.search;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.search.BaseOpenSearchImpl;
 import com.liferay.portal.kernel.search.Document;
 import com.liferay.portal.kernel.search.Field;
@@ -225,6 +225,6 @@ public class PortalOpenSearchImpl extends BaseOpenSearchImpl {
 		return sb.toString();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PortalOpenSearchImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(PortalOpenSearchImpl.class);
 
 }

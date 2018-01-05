@@ -7,8 +7,8 @@ import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.ProjectionFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.test.AssertUtils;
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.kernel.util.IntegerWrapper;
@@ -42,7 +42,7 @@ import java.util.Set;
 )
 @RunWith(LiferayPersistenceIntegrationJUnitTestRunner.class)
 public class ShoppingOrderItemPersistenceTest {
-    private static Log _log = LogFactoryUtil.getLog(ShoppingOrderItemPersistenceTest.class);
+    private static final Logger _log = LoggerFactory.getLogger(ShoppingOrderItemPersistenceTest.class);
     private ShoppingOrderItemPersistence _persistence = (ShoppingOrderItemPersistence) PortalBeanLocatorUtil.locate(ShoppingOrderItemPersistence.class.getName());
     private TransactionalPersistenceAdvice _transactionalPersistenceAdvice = (TransactionalPersistenceAdvice) PortalBeanLocatorUtil.locate(TransactionalPersistenceAdvice.class.getName());
 

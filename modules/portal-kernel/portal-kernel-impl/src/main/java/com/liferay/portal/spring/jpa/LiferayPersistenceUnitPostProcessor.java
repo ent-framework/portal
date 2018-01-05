@@ -14,8 +14,8 @@
 
 package com.liferay.portal.spring.jpa;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.PropertiesUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.util.PropsUtil;
@@ -51,7 +51,7 @@ public class LiferayPersistenceUnitPostProcessor
 		mutablePersistenceUnitInfo.setProperties(properties);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		LiferayPersistenceUnitPostProcessor.class);
 
 }

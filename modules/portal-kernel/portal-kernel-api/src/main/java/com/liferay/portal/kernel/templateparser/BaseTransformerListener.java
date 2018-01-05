@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.templateparser;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Map;
 
@@ -58,7 +58,7 @@ public abstract class BaseTransformerListener implements TransformerListener {
 		return xml;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		BaseTransformerListener.class);
 
 }

@@ -14,8 +14,8 @@
 
 package com.liferay.portal.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.*;
 import org.apache.commons.codec.binary.Hex;
@@ -172,7 +172,7 @@ public class DigesterImpl implements Digester {
 			messageDigest.update(byteBuffer);
 		}
 		catch (NoSuchAlgorithmException nsae) {
-			_log.error(nsae, nsae);
+			_log.error(nsae.getMessage(), nsae);
 		}
 
 		return messageDigest.digest();
@@ -196,10 +196,10 @@ public class DigesterImpl implements Digester {
 			}
 		}
 		catch (IOException ioe) {
-			_log.error(ioe, ioe);
+			_log.error(ioe.getMessage(), ioe);
 		}
 		catch (NoSuchAlgorithmException nsae) {
-			_log.error(nsae, nsae);
+			_log.error(nsae.getMessage(), nsae);
 		}
 		finally {
 			StreamUtil.cleanUp(inputStream);
@@ -230,10 +230,10 @@ public class DigesterImpl implements Digester {
 			messageDigest.update(s.getBytes(Digester.ENCODING));
 		}
 		catch (NoSuchAlgorithmException nsae) {
-			_log.error(nsae, nsae);
+			_log.error(nsae.getMessage(), nsae);
 		}
 		catch (UnsupportedEncodingException uee) {
-			_log.error(uee, uee);
+			_log.error(uee.getMessage(), uee);
 		}
 
 		return messageDigest.digest();
@@ -242,6 +242,6 @@ public class DigesterImpl implements Digester {
 	private static final boolean _BASE_64 =
 		PropsValues.PASSWORDS_DIGEST_ENCODING.equals("base64");
 
-	private static Log _log = LogFactoryUtil.getLog(DigesterImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(DigesterImpl.class);
 
 }

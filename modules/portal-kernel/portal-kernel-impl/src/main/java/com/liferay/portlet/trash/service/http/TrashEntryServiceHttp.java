@@ -1,13 +1,14 @@
 package com.liferay.portlet.trash.service.http;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.http.TunnelUtil;
 
 import com.liferay.portlet.trash.service.TrashEntryServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Provides the HTTP utility for the
@@ -38,7 +39,7 @@ import com.liferay.portlet.trash.service.TrashEntryServiceUtil;
  * @generated
  */
 public class TrashEntryServiceHttp {
-    private static Log _log = LogFactoryUtil.getLog(TrashEntryServiceHttp.class);
+    private static final Logger _log = LoggerFactory.getLogger(TrashEntryServiceHttp.class);
     private static final Class<?>[] _deleteEntriesParameterTypes0 = new Class[] {
             long.class
         };
@@ -92,7 +93,7 @@ public class TrashEntryServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -122,7 +123,7 @@ public class TrashEntryServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -151,7 +152,7 @@ public class TrashEntryServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -182,7 +183,7 @@ public class TrashEntryServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -216,7 +217,7 @@ public class TrashEntryServiceHttp {
 
             return (com.liferay.portlet.trash.model.TrashEntryList) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -252,7 +253,7 @@ public class TrashEntryServiceHttp {
 
             return (com.liferay.portlet.trash.model.TrashEntryList) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -286,7 +287,7 @@ public class TrashEntryServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -320,7 +321,7 @@ public class TrashEntryServiceHttp {
 
             return (com.liferay.portlet.trash.model.TrashEntry) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -356,7 +357,7 @@ public class TrashEntryServiceHttp {
 
             return (com.liferay.portlet.trash.model.TrashEntry) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }

@@ -1,12 +1,13 @@
 package com.liferay.portal.service.http;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.PortletServiceUtil;
 import com.liferay.portal.service.http.TunnelUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Provides the HTTP utility for the
@@ -37,7 +38,7 @@ import com.liferay.portal.service.http.TunnelUtil;
  * @generated
  */
 public class PortletServiceHttp {
-    private static Log _log = LogFactoryUtil.getLog(PortletServiceHttp.class);
+    private static final Logger _log = LoggerFactory.getLogger(PortletServiceHttp.class);
     private static final Class<?>[] _getWARPortletsParameterTypes0 = new Class[] {
             
         };
@@ -65,7 +66,7 @@ public class PortletServiceHttp {
 
             return (com.liferay.portal.kernel.json.JSONArray) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -101,7 +102,7 @@ public class PortletServiceHttp {
 
             return (com.liferay.portal.model.Portlet) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }

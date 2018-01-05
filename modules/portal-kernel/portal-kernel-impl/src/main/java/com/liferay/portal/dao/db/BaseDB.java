@@ -22,8 +22,8 @@ import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropertiesUtil;
@@ -364,7 +364,7 @@ public abstract class BaseDB implements DB {
 				template = evaluateVM(template);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -400,7 +400,7 @@ public abstract class BaseDB implements DB {
 							include = evaluateVM(include);
 						}
 						catch (Exception e) {
-							_log.error(e, e);
+							_log.error(e.getMessage(), e);
 						}
 					}
 
@@ -611,7 +611,7 @@ public abstract class BaseDB implements DB {
 							include = evaluateVM(include);
 						}
 						catch (Exception e) {
-							_log.error(e, e);
+							_log.error(e.getMessage(), e);
 						}
 					}
 
@@ -1080,7 +1080,7 @@ public abstract class BaseDB implements DB {
 
 	private static final boolean _SUPPORTS_UPDATE_WITH_INNER_JOIN = true;
 
-	private static Log _log = LogFactoryUtil.getLog(BaseDB.class);
+	private static final Logger _log = LoggerFactory.getLogger(BaseDB.class);
 
 	private static Pattern _templatePattern;
 	private static Pattern _timestampPattern = Pattern.compile(

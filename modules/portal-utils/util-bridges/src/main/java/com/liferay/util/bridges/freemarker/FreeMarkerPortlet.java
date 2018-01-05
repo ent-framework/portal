@@ -15,8 +15,8 @@
 package com.liferay.util.bridges.freemarker;
 
 import com.liferay.portal.kernel.io.unsync.UnsyncStringWriter;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.template.Template;
 import com.liferay.portal.kernel.template.TemplateConstants;
 import com.liferay.portal.kernel.template.TemplateException;
@@ -146,7 +146,7 @@ public class FreeMarkerPortlet extends MVCPortlet {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(FreeMarkerPortlet.class);
+	private static final Logger _log = LoggerFactory.getLogger(FreeMarkerPortlet.class);
 
 	private TemplateTaglibSupportProvider _templateTaglibSupportProvider;
 

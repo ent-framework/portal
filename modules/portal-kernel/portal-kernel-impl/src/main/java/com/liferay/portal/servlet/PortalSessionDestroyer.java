@@ -20,8 +20,8 @@ import com.liferay.portal.kernel.cluster.ClusterNode;
 import com.liferay.portal.kernel.events.ActionException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.DestinationNames;
 import com.liferay.portal.kernel.messaging.MessageBusUtil;
 import com.liferay.portal.kernel.servlet.PortalSessionContext;
@@ -121,7 +121,7 @@ public class PortalSessionDestroyer extends BasePortalLifecycle {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		// Process session destroyed events
@@ -132,11 +132,11 @@ public class PortalSessionDestroyer extends BasePortalLifecycle {
 				PropsValues.SERVLET_SESSION_DESTROY_EVENTS, session);
 		}
 		catch (ActionException ae) {
-			_log.error(ae, ae);
+			_log.error(ae.getMessage(), ae);
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PortalSessionDestroyer.class);
 
 	private HttpSessionEvent _httpSessionEvent;

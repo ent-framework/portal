@@ -14,8 +14,8 @@
 
 package com.liferay.portal.search.lucene;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.search.ParseException;
 import com.liferay.portal.kernel.search.Query;
@@ -104,7 +104,7 @@ public class QueryTranslatorImpl implements QueryTranslator {
 				}
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 		else if (query instanceof WildcardQuery) {
@@ -126,12 +126,12 @@ public class QueryTranslatorImpl implements QueryTranslator {
 				}
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(QueryTranslatorImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(QueryTranslatorImpl.class);
 
 	private static java.lang.reflect.Field _textField = null;
 
@@ -142,7 +142,7 @@ public class QueryTranslatorImpl implements QueryTranslator {
 			_textField.setAccessible(true);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 

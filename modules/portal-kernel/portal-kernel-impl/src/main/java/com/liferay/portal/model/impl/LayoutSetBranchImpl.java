@@ -16,8 +16,8 @@ package com.liferay.portal.model.impl;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.staging.LayoutStagingUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.UnicodeProperties;
@@ -113,7 +113,7 @@ public class LayoutSetBranchImpl extends LayoutSetBranchBaseImpl {
 				_settingsProperties.load(super.getSettings());
 			}
 			catch (IOException ioe) {
-				_log.error(ioe, ioe);
+				_log.error(ioe.getMessage(), ioe);
 			}
 		}
 
@@ -216,7 +216,7 @@ public class LayoutSetBranchImpl extends LayoutSetBranchBaseImpl {
 		super.setSettings(_settingsProperties.toString());
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LayoutSetBranchImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(LayoutSetBranchImpl.class);
 
 	private LayoutSet _layoutSet;
 	private UnicodeProperties _settingsProperties;

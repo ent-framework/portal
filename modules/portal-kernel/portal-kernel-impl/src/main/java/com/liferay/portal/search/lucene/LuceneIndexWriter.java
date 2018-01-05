@@ -14,8 +14,8 @@
 
 package com.liferay.portal.search.lucene;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.search.BaseIndexWriter;
 import com.liferay.portal.kernel.search.Document;
 import com.liferay.portal.kernel.search.DocumentImpl;
@@ -234,6 +234,6 @@ public class LuceneIndexWriter extends BaseIndexWriter {
 		return luceneDocument;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LuceneIndexWriter.class);
+	private static final Logger _log = LoggerFactory.getLogger(LuceneIndexWriter.class);
 
 }

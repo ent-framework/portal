@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.text.NumberFormat;
 
@@ -127,7 +127,7 @@ public class MathUtil {
 		return !isEven(x);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(MathUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(MathUtil.class);
 
 	private static Map<Long, Integer> _base2LogValues =
 		new HashMap<Long, Integer>();

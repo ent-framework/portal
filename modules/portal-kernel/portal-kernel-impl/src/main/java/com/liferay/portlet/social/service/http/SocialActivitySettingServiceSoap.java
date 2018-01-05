@@ -2,10 +2,10 @@ package com.liferay.portlet.social.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-
 import com.liferay.portlet.social.service.SocialActivitySettingServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -51,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class SocialActivitySettingServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(SocialActivitySettingServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(SocialActivitySettingServiceSoap.class);
 
     public static com.liferay.portlet.social.model.SocialActivitySettingSoap[] getActivitySettings(
         long groupId) throws RemoteException {
@@ -61,7 +61,7 @@ public class SocialActivitySettingServiceSoap {
 
             return com.liferay.portlet.social.model.SocialActivitySettingSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -75,7 +75,7 @@ public class SocialActivitySettingServiceSoap {
 
             return returnValue.toString();
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -87,7 +87,7 @@ public class SocialActivitySettingServiceSoap {
             SocialActivitySettingServiceUtil.updateActivitySetting(groupId,
                 className, enabled);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -101,7 +101,7 @@ public class SocialActivitySettingServiceSoap {
             SocialActivitySettingServiceUtil.updateActivitySetting(groupId,
                 className, activityType, activityCounterDefinition);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -115,7 +115,7 @@ public class SocialActivitySettingServiceSoap {
             SocialActivitySettingServiceUtil.updateActivitySettings(groupId,
                 className, activityType, activityCounterDefinitions);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

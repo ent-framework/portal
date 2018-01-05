@@ -16,8 +16,8 @@ package com.liferay.portal.service.impl;
 
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.io.DummyWriter;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.plugin.PluginPackage;
 import com.liferay.portal.kernel.template.StringTemplateResource;
 import com.liferay.portal.kernel.template.Template;
@@ -280,7 +280,7 @@ public class LayoutTemplateLocalServiceImpl
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return layoutTemplates;
@@ -565,7 +565,7 @@ public class LayoutTemplateLocalServiceImpl
 			return ListUtil.sort(processor.getColumns());
 		}
 		catch (Exception e) {
-			_log.error(e);
+			_log.error(e.getMessage(), e);
 
 			return new ArrayList<String>();
 		}
@@ -633,7 +633,7 @@ public class LayoutTemplateLocalServiceImpl
 		return layoutTemplates;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		LayoutTemplateLocalServiceImpl.class);
 
 	private static Map<String, LayoutTemplate> _portalCustom =

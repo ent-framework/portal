@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.messaging;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -48,7 +48,7 @@ public class SynchronousDestination extends BaseDestination {
 		_sentMessageCounter.incrementAndGet();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		SynchronousDestination.class);
 
 	private AtomicLong _sentMessageCounter = new AtomicLong();

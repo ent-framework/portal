@@ -16,8 +16,8 @@ package com.liferay.taglib.portletext;
 
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.*;
 import com.liferay.portal.kernel.servlet.DynamicServletRequest;
 import com.liferay.portal.kernel.servlet.PipingServletResponse;
@@ -47,7 +47,7 @@ import java.util.Map;
  */
 public class RuntimeTag extends TagSupport {
 
-    private static Log _log = LogFactoryUtil.getLog(RuntimeTag.class);
+    private static final Logger _log = LoggerFactory.getLogger(RuntimeTag.class);
     private String _defaultPreferences;
     private String _portletName;
     private String _queryString;
@@ -203,7 +203,7 @@ public class RuntimeTag extends TagSupport {
 
             return EVAL_PAGE;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new JspException(e);
         }

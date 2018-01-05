@@ -149,5 +149,5 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(pageContext, "sea
 %>
 
 <%!
-private static Log _log = LogFactoryUtil.getLog("portal-web.docroot.html.portlet.image_gallery_display.search_jsp");
+private static final Logger _log = LoggerFactory.getLogger("portal-web.docroot.html.portlet.image_gallery_display.search_jsp");
 %>

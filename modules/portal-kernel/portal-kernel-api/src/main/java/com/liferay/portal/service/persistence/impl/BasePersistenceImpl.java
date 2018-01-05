@@ -26,8 +26,8 @@ import com.liferay.portal.kernel.dao.orm.ProjectionFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.Session;
 import com.liferay.portal.kernel.dao.orm.SessionFactory;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -250,7 +250,7 @@ public class BasePersistenceImpl<T extends BaseModel<T>>
 		}
 
 		if (_log.isDebugEnabled()) {
-			_log.debug(e, e);
+			_log.debug(e.getMessage(), e);
 		}
 
 		return new SystemException(e);
@@ -541,7 +541,7 @@ public class BasePersistenceImpl<T extends BaseModel<T>>
 
 	protected ModelListener<T>[] listeners = new ModelListener[0];
 
-	private static Log _log = LogFactoryUtil.getLog(BasePersistenceImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(BasePersistenceImpl.class);
 
 	private DataSource _dataSource;
 	private DB _db;

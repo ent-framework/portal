@@ -389,7 +389,7 @@ if ((checkedOut || pending) && !PropsValues.DL_FILE_ENTRY_DRAFTS_ENABLED) {
 						}
 					}
 					catch (Exception e) {
-						_log.error(e, e);
+						_log.error(e.getMessage(), e);
 					}
 				}
 				%>
@@ -557,5 +557,5 @@ else {
 %>
 
 <%!
-private static Log _log = LogFactoryUtil.getLog("portal-web.docroot.html.portlet.document_library.edit_file_entry_jsp");
+private static final Logger _log = LoggerFactory.getLogger("portal-web.docroot.html.portlet.document_library.edit_file_entry_jsp");
 %>

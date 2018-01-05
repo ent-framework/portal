@@ -14,8 +14,8 @@
 
 package com.liferay.portal.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
@@ -51,7 +51,7 @@ public class SessionClicks {
 			return portalPreferences.getValue(namespace, key, defaultValue);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			return null;
 		}
@@ -121,7 +121,7 @@ public class SessionClicks {
 				continue;
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 
 				break;
 			}
@@ -151,6 +151,6 @@ public class SessionClicks {
 		GetterUtil.getInteger(
 			PropsUtil.get(PropsKeys.SESSION_CLICKS_MAX_SIZE_TERMS));
 
-	private static Log _log = LogFactoryUtil.getLog(SessionClicks.class);
+	private static final Logger _log = LoggerFactory.getLogger(SessionClicks.class);
 
 }

@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.servlet.filters.invoker;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringPool;
@@ -249,7 +249,7 @@ public class FilterMapping {
 
 	private static final String _STAR_PERIOD = "*.";
 
-	private static Log _log = LogFactoryUtil.getLog(FilterMapping.class);
+	private static final Logger _log = LoggerFactory.getLogger(FilterMapping.class);
 
 	private boolean _dispatcherError;
 	private boolean _dispatcherForward;

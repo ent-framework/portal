@@ -15,8 +15,8 @@
 package com.liferay.portal.events;
 
 import com.liferay.portal.kernel.events.Action;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.text.NumberFormat;
 
@@ -45,6 +45,6 @@ public class LogMemoryUsageAction extends Action {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LogMemoryUsageAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(LogMemoryUsageAction.class);
 
 }

@@ -15,8 +15,8 @@
 package com.liferay.portal.cluster;
 
 import com.liferay.portal.kernel.io.Deserializer;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -138,7 +138,7 @@ public abstract class BaseReceiver implements Receiver {
 		return null;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(BaseReceiver.class);
+	private static final Logger _log = LoggerFactory.getLogger(BaseReceiver.class);
 
 	private final CountDownLatch _countDownLatch = new CountDownLatch(1);
 	private volatile View _view;

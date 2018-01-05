@@ -14,8 +14,8 @@
 
 package com.liferay.portal.security.jaas;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.InstanceFactory;
 import com.liferay.portal.kernel.util.ServerDetector;
 import com.liferay.portal.kernel.util.Validator;
@@ -40,7 +40,7 @@ public class PortalLoginModule implements LoginModule {
 					PropsValues.PORTAL_JAAS_IMPL);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -110,7 +110,7 @@ public class PortalLoginModule implements LoginModule {
 		return _loginModule.logout();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PortalLoginModule.class);
+	private static final Logger _log = LoggerFactory.getLogger(PortalLoginModule.class);
 
 	private LoginModule _loginModule;
 

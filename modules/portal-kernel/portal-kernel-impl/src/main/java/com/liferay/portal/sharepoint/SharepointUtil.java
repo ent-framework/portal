@@ -15,8 +15,8 @@
 package com.liferay.portal.sharepoint;
 
 import com.liferay.portal.kernel.configuration.Filter;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.InstancePool;
@@ -176,7 +176,7 @@ public class SharepointUtil {
 		return url;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(SharepointUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(SharepointUtil.class);
 
 	private static SharepointUtil _instance = new SharepointUtil();
 

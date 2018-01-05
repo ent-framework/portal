@@ -17,8 +17,8 @@ package com.liferay.portlet.documentlibrary.store;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portlet.documentlibrary.NoSuchFileException;
@@ -118,7 +118,7 @@ public abstract class BaseStore implements Store {
 				}
 			}
 			catch (IOException ioe) {
-				_log.error(ioe);
+				_log.error(ioe.getMessage(), ioe);
 			}
 		}
 	}
@@ -575,7 +575,7 @@ public abstract class BaseStore implements Store {
 				}
 			}
 			catch (IOException ioe) {
-				_log.error(ioe);
+				_log.error(ioe.getMessage(), ioe);
 			}
 		}
 	}
@@ -630,6 +630,6 @@ public abstract class BaseStore implements Store {
 		deleteFile(companyId, repositoryId, fileName, fromVersionLabel);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(BaseStore.class);
+	private static final Logger _log = LoggerFactory.getLogger(BaseStore.class);
 
 }

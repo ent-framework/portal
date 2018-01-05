@@ -15,8 +15,8 @@
 package com.liferay.portal.kernel.util;
 
 import com.liferay.portal.CookieNotSupportedException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -312,6 +312,6 @@ public class CookieKeys {
 	private static final boolean _TCK_URL = GetterUtil.getBoolean(
 		PropsUtil.get(PropsKeys.TCK_URL));
 
-	private static Log _log = LogFactoryUtil.getLog(CookieKeys.class);
+	private static final Logger _log = LoggerFactory.getLogger(CookieKeys.class);
 
 }

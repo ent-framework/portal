@@ -17,8 +17,8 @@ package com.liferay.portlet;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.StringPool;
@@ -52,7 +52,7 @@ public class PortletSetupUtil {
 			css = null;
 
 			if (_log.isWarnEnabled()) {
-				_log.warn(e);
+				_log.warn(e.getMessage());
 			}
 		}
 
@@ -113,6 +113,6 @@ public class PortletSetupUtil {
 		return cssJSONObject;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PortletSetupUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(PortletSetupUtil.class);
 
 }

@@ -16,8 +16,8 @@ package com.liferay.util.axis;
 
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedInputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedOutputStream;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.SystemProperties;
 import com.liferay.portal.kernel.util.Validator;
 
@@ -152,7 +152,7 @@ public class SimpleHTTPSender extends HTTPSender {
 		outputStream.flush();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(SimpleHTTPSender.class);
+	private static final Logger _log = LoggerFactory.getLogger(SimpleHTTPSender.class);
 
 	private Pattern _pattern;
 

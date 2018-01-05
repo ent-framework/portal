@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.workflow.messaging;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.BaseDestinationEventListener;
 import com.liferay.portal.kernel.messaging.DestinationNames;
 import com.liferay.portal.kernel.messaging.MessageBusUtil;
@@ -134,7 +134,7 @@ public class DefaultWorkflowDestinationEventListener
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		DefaultWorkflowDestinationEventListener.class);
 
 	private MessageListener _workflowDefinitionManagerListener;

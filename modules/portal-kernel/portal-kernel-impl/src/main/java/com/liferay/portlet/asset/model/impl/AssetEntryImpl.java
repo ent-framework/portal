@@ -15,8 +15,8 @@
 package com.liferay.portlet.asset.model.impl;
 
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portlet.asset.AssetRendererFactoryRegistryUtil;
@@ -86,6 +86,6 @@ public class AssetEntryImpl extends AssetEntryBaseImpl {
 		return AssetTagLocalServiceUtil.getEntryTags(getEntryId());
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(AssetEntryImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(AssetEntryImpl.class);
 
 }

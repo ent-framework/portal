@@ -15,8 +15,8 @@
 package com.liferay.portlet;
 
 import com.liferay.portal.ccpp.PortalProfileFactory;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.LiferayPortletConfig;
 import com.liferay.portal.kernel.portlet.LiferayPortletContext;
 import com.liferay.portal.kernel.portlet.LiferayPortletRequest;
@@ -624,7 +624,7 @@ public abstract class PortletRequestImpl implements LiferayPortletRequest {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return _request.isUserInRole(role);
@@ -883,7 +883,7 @@ public abstract class PortletRequestImpl implements LiferayPortletRequest {
 				}
 			}
 			catch (Exception e) {
-				_log.error(e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 		else {
@@ -974,7 +974,7 @@ public abstract class PortletRequestImpl implements LiferayPortletRequest {
 		return name;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PortletRequestImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(PortletRequestImpl.class);
 
 	private static Pattern _strutsPortletIgnoredParamtersPattern =
 		Pattern.compile(PropsValues.STRUTS_PORTLET_IGNORED_PARAMETERS_REGEXP);

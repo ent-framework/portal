@@ -19,8 +19,8 @@ import com.liferay.portal.NoSuchGroupException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.CookieKeys;
@@ -990,7 +990,7 @@ public class LayoutImpl extends LayoutBaseImpl {
 		return url;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LayoutImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(LayoutImpl.class);
 
 	private static String[] _friendlyURLKeywords;
 

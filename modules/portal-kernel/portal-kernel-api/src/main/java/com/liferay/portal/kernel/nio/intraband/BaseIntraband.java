@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.nio.intraband;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.nio.intraband.CompletionHandler.CompletionType;
 
 import java.io.IOException;
@@ -598,6 +598,6 @@ public abstract class BaseIntraband implements Intraband {
 
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(BaseIntraband.class);
+	private static final Logger _log = LoggerFactory.getLogger(BaseIntraband.class);
 
 }

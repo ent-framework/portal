@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.messaging;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Brian Wing Shun Chan
@@ -29,6 +29,6 @@ public class DummyMessageListener implements MessageListener {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(DummyMessageListener.class);
+	private static final Logger _log = LoggerFactory.getLogger(DummyMessageListener.class);
 
 }

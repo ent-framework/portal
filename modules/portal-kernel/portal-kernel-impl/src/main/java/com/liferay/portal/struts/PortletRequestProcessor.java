@@ -14,8 +14,8 @@
 
 package com.liferay.portal.struts;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.LiferayPortletConfig;
 import com.liferay.portal.kernel.portlet.LiferayPortletRequestDispatcher;
 import com.liferay.portal.kernel.portlet.LiferayPortletURL;
@@ -90,7 +90,7 @@ public class PortletRequestProcessor extends TilesRequestProcessor {
 			return portletReqProcessor;
 		}
 		catch (Exception e) {
-			_log.error(e);
+			_log.error(e.getMessage(), e);
 
 			return new PortletRequestProcessor(servlet, moduleConfig);
 		}
@@ -378,7 +378,7 @@ public class PortletRequestProcessor extends TilesRequestProcessor {
 				throw (ServletException)cause;
 			}
 			else {
-				_log.error(cause, cause);
+				_log.error(cause.getMessage(), cause);
 			}
 		}
 	}
@@ -648,7 +648,7 @@ public class PortletRequestProcessor extends TilesRequestProcessor {
 	private static final String _PATH_PORTAL_PORTLET_INACTIVE =
 		"/portal/portlet_inactive";
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PortletRequestProcessor.class);
 
 }

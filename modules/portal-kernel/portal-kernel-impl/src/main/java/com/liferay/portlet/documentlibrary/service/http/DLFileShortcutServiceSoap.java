@@ -2,10 +2,10 @@ package com.liferay.portlet.documentlibrary.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-
 import com.liferay.portlet.documentlibrary.service.DLFileShortcutServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -51,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class DLFileShortcutServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(DLFileShortcutServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(DLFileShortcutServiceSoap.class);
 
     public static com.liferay.portlet.documentlibrary.model.DLFileShortcutSoap addFileShortcut(
         long groupId, long folderId, long toFileEntryId,
@@ -64,7 +64,7 @@ public class DLFileShortcutServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileShortcutSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -75,7 +75,7 @@ public class DLFileShortcutServiceSoap {
         try {
             DLFileShortcutServiceUtil.deleteFileShortcut(fileShortcutId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -89,7 +89,7 @@ public class DLFileShortcutServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileShortcutSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -106,7 +106,7 @@ public class DLFileShortcutServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileShortcutSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

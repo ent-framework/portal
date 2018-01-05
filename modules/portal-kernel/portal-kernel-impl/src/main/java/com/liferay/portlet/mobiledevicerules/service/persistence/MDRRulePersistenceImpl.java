@@ -9,8 +9,6 @@ import com.liferay.portal.kernel.dao.orm.QueryPos;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.dao.orm.Session;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.InstanceFactory;
 import com.liferay.portal.kernel.util.OrderByComparator;
@@ -30,6 +28,9 @@ import com.liferay.portlet.mobiledevicerules.model.MDRRule;
 import com.liferay.portlet.mobiledevicerules.model.impl.MDRRuleImpl;
 import com.liferay.portlet.mobiledevicerules.model.impl.MDRRuleModelImpl;
 import com.liferay.portlet.mobiledevicerules.service.persistence.MDRRulePersistence;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.Serializable;
 
@@ -159,7 +160,7 @@ public class MDRRulePersistenceImpl extends BasePersistenceImpl<MDRRule>
     private static final String _NO_SUCH_ENTITY_WITH_PRIMARY_KEY = "No MDRRule exists with the primary key ";
     private static final String _NO_SUCH_ENTITY_WITH_KEY = "No MDRRule exists with the key {";
     private static final boolean _HIBERNATE_CACHE_USE_SECOND_LEVEL_CACHE = com.liferay.portal.util.PropsValues.HIBERNATE_CACHE_USE_SECOND_LEVEL_CACHE;
-    private static Log _log = LogFactoryUtil.getLog(MDRRulePersistenceImpl.class);
+    private static final Logger _log = LoggerFactory.getLogger(MDRRulePersistenceImpl.class);
     private static Set<String> _badColumnNames = SetUtil.fromArray(new String[] {
                 "uuid", "type"
             });
@@ -2522,7 +2523,7 @@ public class MDRRulePersistenceImpl extends BasePersistenceImpl<MDRRule>
 
                 listeners = listenersList.toArray(new ModelListener[listenersList.size()]);
             } catch (Exception e) {
-                _log.error(e);
+                _log.error(e.getMessage());
             }
         }
     }

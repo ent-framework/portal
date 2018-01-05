@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -46,7 +46,7 @@ public class StreamUtil {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 	}
@@ -64,7 +64,7 @@ public class StreamUtil {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 	}
@@ -84,7 +84,7 @@ public class StreamUtil {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -95,7 +95,7 @@ public class StreamUtil {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 	}
@@ -227,6 +227,6 @@ public class StreamUtil {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(StreamUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(StreamUtil.class);
 
 }

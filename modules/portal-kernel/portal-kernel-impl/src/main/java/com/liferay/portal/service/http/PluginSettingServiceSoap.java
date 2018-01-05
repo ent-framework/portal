@@ -2,9 +2,10 @@ package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.service.PluginSettingServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -50,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class PluginSettingServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(PluginSettingServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(PluginSettingServiceSoap.class);
 
     public static com.liferay.portal.model.PluginSettingSoap updatePluginSetting(
         long companyId, java.lang.String pluginId, java.lang.String pluginType,
@@ -61,7 +62,7 @@ public class PluginSettingServiceSoap {
 
             return com.liferay.portal.model.PluginSettingSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

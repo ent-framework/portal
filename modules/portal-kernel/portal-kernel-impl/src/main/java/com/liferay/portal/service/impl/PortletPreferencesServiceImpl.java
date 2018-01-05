@@ -16,8 +16,8 @@ package com.liferay.portal.service.impl;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.model.Layout;
 import com.liferay.portal.model.PortletItem;
 import com.liferay.portal.model.PortletPreferences;
@@ -170,14 +170,14 @@ public class PortletPreferencesServiceImpl
 			targetPreferences.store();
 		}
 		catch (IOException ioe) {
-			_log.error(ioe);
+			_log.error(ioe.getMessage(), ioe);
 		}
 		catch (ValidatorException ve) {
 			throw new SystemException(ve);
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PortletPreferencesServiceImpl.class);
 
 }

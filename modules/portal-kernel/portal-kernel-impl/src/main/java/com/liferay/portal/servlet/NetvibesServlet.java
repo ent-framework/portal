@@ -15,8 +15,8 @@
 package com.liferay.portal.servlet;
 
 import com.liferay.portal.NoSuchLayoutException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -65,7 +65,7 @@ public class NetvibesServlet extends HttpServlet {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			PortalUtil.sendError(
 				HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e, request,
@@ -155,6 +155,6 @@ public class NetvibesServlet extends HttpServlet {
 	private static final String _NETVIBES_JS =
 		"http://www.netvibes.com/js/UWA/load.js.php?env=Standalone";
 
-	private static Log _log = LogFactoryUtil.getLog(NetvibesServlet.class);
+	private static final Logger _log = LoggerFactory.getLogger(NetvibesServlet.class);
 
 }

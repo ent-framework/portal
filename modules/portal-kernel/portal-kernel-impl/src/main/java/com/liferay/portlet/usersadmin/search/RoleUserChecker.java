@@ -15,8 +15,8 @@
 package com.liferay.portlet.usersadmin.search;
 
 import com.liferay.portal.kernel.dao.search.RowChecker;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.model.Role;
 import com.liferay.portal.model.User;
 import com.liferay.portal.service.RoleLocalServiceUtil;
@@ -43,13 +43,13 @@ public class RoleUserChecker extends RowChecker {
 				_user.getUserId(), role.getRoleId());
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			return false;
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(RoleUserChecker.class);
+	private static final Logger _log = LoggerFactory.getLogger(RoleUserChecker.class);
 
 	private User _user;
 

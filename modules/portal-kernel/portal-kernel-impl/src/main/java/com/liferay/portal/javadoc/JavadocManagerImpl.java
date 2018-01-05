@@ -18,8 +18,8 @@ import com.liferay.portal.kernel.javadoc.BaseJavadoc;
 import com.liferay.portal.kernel.javadoc.JavadocClass;
 import com.liferay.portal.kernel.javadoc.JavadocManager;
 import com.liferay.portal.kernel.javadoc.JavadocMethod;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.StreamUtil;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -157,7 +157,7 @@ public class JavadocManagerImpl implements JavadocManager {
 			return UnsecureSAXReaderUtil.read(inputStream, true);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 		finally {
 			StreamUtil.cleanUp(inputStream);
@@ -319,7 +319,7 @@ public class JavadocManagerImpl implements JavadocManager {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(JavadocManagerImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(JavadocManagerImpl.class);
 
 	private Map<Class<?>, JavadocClass> _javadocClasses =
 		new HashMap<Class<?>, JavadocClass>();

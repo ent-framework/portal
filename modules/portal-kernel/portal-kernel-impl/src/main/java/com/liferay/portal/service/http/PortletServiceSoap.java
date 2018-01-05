@@ -2,9 +2,10 @@ package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.service.PortletServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -50,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class PortletServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(PortletServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(PortletServiceSoap.class);
 
     public static java.lang.String getWARPortlets() throws RemoteException {
         try {
@@ -58,7 +59,7 @@ public class PortletServiceSoap {
 
             return returnValue.toString();
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -73,7 +74,7 @@ public class PortletServiceSoap {
 
             return com.liferay.portal.model.PortletSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

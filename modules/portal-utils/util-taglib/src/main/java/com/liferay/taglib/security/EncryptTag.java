@@ -14,8 +14,8 @@
 
 package com.liferay.taglib.security;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.model.Company;
 import com.liferay.portal.util.PortalUtil;
@@ -36,7 +36,7 @@ import java.util.StringTokenizer;
  */
 public class EncryptTag extends TagSupport {
 
-    private static Log _log = LogFactoryUtil.getLog(EncryptTag.class);
+    private static final Logger _log = LoggerFactory.getLogger(EncryptTag.class);
     private String _className;
     private String _protocol;
     private String _style;

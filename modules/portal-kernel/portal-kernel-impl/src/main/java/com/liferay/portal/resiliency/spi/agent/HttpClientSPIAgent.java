@@ -14,8 +14,8 @@
 
 package com.liferay.portal.resiliency.spi.agent;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.nio.intraband.RegistrationReference;
 import com.liferay.portal.kernel.resiliency.PortalResiliencyException;
 import com.liferay.portal.kernel.resiliency.spi.SPI;
@@ -94,7 +94,7 @@ public class HttpClientSPIAgent implements SPIAgent {
 			}
 			catch (IOException ioe) {
 				if (_log.isWarnEnabled()) {
-					_log.warn(ioe, ioe);
+					_log.warn(ioe.getMessage(), ioe);
 				}
 			}
 		}
@@ -193,7 +193,7 @@ public class HttpClientSPIAgent implements SPIAgent {
 				}
 				catch (IOException ioe) {
 					if (_log.isWarnEnabled()) {
-						_log.warn(ioe, ioe);
+						_log.warn(ioe.getMessage(), ioe);
 					}
 				}
 			}
@@ -259,7 +259,7 @@ public class HttpClientSPIAgent implements SPIAgent {
 				}
 				catch (IOException ioe) {
 					if (_log.isWarnEnabled()) {
-						_log.warn(ioe, ioe);
+						_log.warn(ioe.getMessage(), ioe);
 					}
 				}
 
@@ -326,7 +326,7 @@ public class HttpClientSPIAgent implements SPIAgent {
 			}
 			catch (IOException ioe) {
 				if (_log.isWarnEnabled()) {
-					_log.warn(ioe, ioe);
+					_log.warn(ioe.getMessage(), ioe);
 				}
 			}
 		}
@@ -341,6 +341,6 @@ public class HttpClientSPIAgent implements SPIAgent {
 	protected final SocketAddress socketAddress;
 	protected final BlockingQueue<Socket> socketBlockingQueue;
 
-	private static Log _log = LogFactoryUtil.getLog(HttpClientSPIAgent.class);
+	private static final Logger _log = LoggerFactory.getLogger(HttpClientSPIAgent.class);
 
 }

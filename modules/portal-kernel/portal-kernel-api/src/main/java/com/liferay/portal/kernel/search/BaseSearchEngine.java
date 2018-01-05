@@ -15,8 +15,8 @@
 package com.liferay.portal.kernel.search;
 
 import com.liferay.portal.kernel.cluster.Priority;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.InstanceFactory;
 import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
@@ -43,7 +43,7 @@ public class BaseSearchEngine implements SearchEngine {
 						classLoader, className);
 			}
 			catch (Exception e) {
-				_log.fatal(
+				_log.error(
 					"Unable to locate appropriate BooleanClauseFactory", e);
 			}
 		}
@@ -73,7 +73,7 @@ public class BaseSearchEngine implements SearchEngine {
 					classLoader, className);
 		}
 		catch (Exception e) {
-			_log.fatal("Unable to locate appropriate BooleanQueryFactory", e);
+			_log.error("Unable to locate appropriate BooleanQueryFactory", e);
 		}
 
 		return _booleanQueryFactory;
@@ -116,7 +116,7 @@ public class BaseSearchEngine implements SearchEngine {
 					classLoader, className);
 		}
 		catch (Exception e) {
-			_log.fatal("Unable to locate appropriate BooleanQueryFactory", e);
+			_log.error("Unable to locate appropriate BooleanQueryFactory", e);
 		}
 
 		return _termQueryFactory;
@@ -145,7 +145,7 @@ public class BaseSearchEngine implements SearchEngine {
 					classLoader, className);
 		}
 		catch (Exception e) {
-			_log.fatal("Unable to locate appropriate BooleanQueryFactory", e);
+			_log.error("Unable to locate appropriate BooleanQueryFactory", e);
 		}
 
 		return _termRangeQueryFactory;
@@ -212,7 +212,7 @@ public class BaseSearchEngine implements SearchEngine {
 		_vendor = vendor;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(BaseSearchEngine.class);
+	private static final Logger _log = LoggerFactory.getLogger(BaseSearchEngine.class);
 
 	private BooleanClauseFactory _booleanClauseFactory;
 	private BooleanQueryFactory _booleanQueryFactory;

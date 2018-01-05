@@ -19,8 +19,8 @@ import com.liferay.portal.kernel.cache.key.CacheKeyGeneratorUtil;
 import com.liferay.portal.kernel.concurrent.ConcurrentLFUCache;
 import com.liferay.portal.kernel.io.OutputStreamWriter;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.LiferayWindowState;
 import com.liferay.portal.kernel.scripting.ScriptingException;
 import com.liferay.portal.kernel.servlet.BufferCacheServletResponse;
@@ -752,7 +752,7 @@ public class StripFilter extends BasePortalFilter {
 
 	private static final String _STRIP = "strip";
 
-	private static Log _log = LogFactoryUtil.getLog(StripFilter.class);
+	private static final Logger _log = LoggerFactory.getLogger(StripFilter.class);
 
 	private static Pattern _javaScriptPattern = Pattern.compile(
 		"[Jj][aA][vV][aA][sS][cC][rR][iI][pP][tT]");

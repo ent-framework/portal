@@ -16,8 +16,8 @@ package com.liferay.portlet.dynamicdatamapping.util;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
@@ -386,7 +386,7 @@ public class DDMXMLImpl implements DDMXML {
 
 	private static final String _XML_INDENT = "  ";
 
-	private static Log _log = LogFactoryUtil.getLog(DDMXMLImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(DDMXMLImpl.class);
 
 	private XMLSchema _xmlSchema;
 

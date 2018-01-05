@@ -14,8 +14,8 @@
 
 package com.liferay.portlet.amazonrankings;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portlet.amazonrankings.model.AmazonRankings;
 import com.liferay.portlet.amazonrankings.util.AmazonRankingsUtil;
 
@@ -58,7 +58,7 @@ public class AmazonRankingsPreferencesValidator
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		AmazonRankingsPreferencesValidator.class);
 
 }

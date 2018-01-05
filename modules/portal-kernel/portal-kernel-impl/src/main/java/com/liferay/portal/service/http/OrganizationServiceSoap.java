@@ -2,9 +2,10 @@ package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.service.OrganizationServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -50,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class OrganizationServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(OrganizationServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(OrganizationServiceSoap.class);
 
     /**
     * Adds the organizations to the group.
@@ -68,7 +69,7 @@ public class OrganizationServiceSoap {
             OrganizationServiceUtil.addGroupOrganizations(groupId,
                 organizationIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -141,7 +142,7 @@ public class OrganizationServiceSoap {
 
             return com.liferay.portal.model.OrganizationSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -193,7 +194,7 @@ public class OrganizationServiceSoap {
 
             return com.liferay.portal.model.OrganizationSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -259,7 +260,7 @@ public class OrganizationServiceSoap {
 
             return com.liferay.portal.model.OrganizationSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -305,7 +306,7 @@ public class OrganizationServiceSoap {
 
             return com.liferay.portal.model.OrganizationSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -327,7 +328,7 @@ public class OrganizationServiceSoap {
             OrganizationServiceUtil.addPasswordPolicyOrganizations(passwordPolicyId,
                 organizationIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -347,7 +348,7 @@ public class OrganizationServiceSoap {
         try {
             OrganizationServiceUtil.deleteLogo(organizationId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -369,7 +370,7 @@ public class OrganizationServiceSoap {
         try {
             OrganizationServiceUtil.deleteOrganization(organizationId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -394,7 +395,7 @@ public class OrganizationServiceSoap {
 
             return com.liferay.portal.model.OrganizationSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -417,7 +418,7 @@ public class OrganizationServiceSoap {
 
             return com.liferay.portal.model.OrganizationSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -442,7 +443,7 @@ public class OrganizationServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -465,7 +466,7 @@ public class OrganizationServiceSoap {
 
             return com.liferay.portal.model.OrganizationSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -503,7 +504,7 @@ public class OrganizationServiceSoap {
 
             return com.liferay.portal.model.OrganizationSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -526,7 +527,7 @@ public class OrganizationServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -547,7 +548,7 @@ public class OrganizationServiceSoap {
 
             return com.liferay.portal.model.OrganizationSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -570,7 +571,7 @@ public class OrganizationServiceSoap {
             OrganizationServiceUtil.setGroupOrganizations(groupId,
                 organizationIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -592,7 +593,7 @@ public class OrganizationServiceSoap {
             OrganizationServiceUtil.unsetGroupOrganizations(groupId,
                 organizationIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -614,7 +615,7 @@ public class OrganizationServiceSoap {
             OrganizationServiceUtil.unsetPasswordPolicyOrganizations(passwordPolicyId,
                 organizationIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -684,7 +685,7 @@ public class OrganizationServiceSoap {
 
             return com.liferay.portal.model.OrganizationSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -733,7 +734,7 @@ public class OrganizationServiceSoap {
 
             return com.liferay.portal.model.OrganizationSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -797,7 +798,7 @@ public class OrganizationServiceSoap {
 
             return com.liferay.portal.model.OrganizationSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -841,7 +842,7 @@ public class OrganizationServiceSoap {
 
             return com.liferay.portal.model.OrganizationSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

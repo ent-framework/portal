@@ -2,9 +2,10 @@ package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.service.LayoutSetServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -50,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class LayoutSetServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(LayoutSetServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(LayoutSetServiceSoap.class);
 
     /**
     * Updates the state of the layout set prototype link.
@@ -80,7 +81,7 @@ public class LayoutSetServiceSoap {
                 privateLayout, layoutSetPrototypeLinkEnabled,
                 layoutSetPrototypeUuid);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -91,7 +92,7 @@ public class LayoutSetServiceSoap {
         try {
             LayoutSetServiceUtil.updateLogo(groupId, privateLayout, logo, bytes);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -107,7 +108,7 @@ public class LayoutSetServiceSoap {
 
             return com.liferay.portal.model.LayoutSetSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -122,7 +123,7 @@ public class LayoutSetServiceSoap {
 
             return com.liferay.portal.model.LayoutSetSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -137,7 +138,7 @@ public class LayoutSetServiceSoap {
 
             return com.liferay.portal.model.LayoutSetSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

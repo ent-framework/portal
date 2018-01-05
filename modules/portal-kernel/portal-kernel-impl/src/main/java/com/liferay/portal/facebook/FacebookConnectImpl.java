@@ -19,8 +19,8 @@ import com.liferay.portal.kernel.facebook.FacebookConnect;
 import com.liferay.portal.kernel.facebook.FacebookConnectUtil;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.Http;
@@ -146,7 +146,7 @@ public class FacebookConnectImpl implements FacebookConnect {
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(e, e);
+				_log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -210,6 +210,6 @@ public class FacebookConnectImpl implements FacebookConnect {
 			PropsValues.FACEBOOK_CONNECT_VERIFIED_ACCOUNT_REQUIRED);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(FacebookConnectImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(FacebookConnectImpl.class);
 
 }

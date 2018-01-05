@@ -20,8 +20,8 @@ import com.liferay.portal.kernel.image.ImageBag;
 import com.liferay.portal.kernel.image.ImageTool;
 import com.liferay.portal.kernel.image.ImageToolUtil;
 import com.liferay.portal.kernel.lar.PortletDataContext;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.DestinationNames;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.FileVersion;
@@ -154,7 +154,7 @@ public class ImageProcessorImpl
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return hasImages;
@@ -471,7 +471,7 @@ public class ImageProcessorImpl
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ImageProcessorImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(ImageProcessorImpl.class);
 
 	private List<Long> _fileVersionIds = new Vector<Long>();
 	private Set<String> _imageMimeTypes = SetUtil.fromArray(

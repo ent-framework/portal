@@ -15,8 +15,8 @@
 package com.liferay.taglib.ui;
 
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.taglib.ui.BreadcrumbEntry;
 import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.model.*;
@@ -47,7 +47,7 @@ public class BreadcrumbTag extends IncludeTag {
             PropsUtil.get(PropsKeys.BREADCRUMB_SHOW_GUEST_GROUP));
     private static final boolean _SHOW_PARENT_GROUPS = GetterUtil.getBoolean(
             PropsUtil.get(PropsKeys.BREADCRUMB_SHOW_PARENT_GROUPS));
-    private static Log _log = LogFactoryUtil.getLog(BreadcrumbTag.class);
+    private static final Logger _log = LoggerFactory.getLogger(BreadcrumbTag.class);
     private String _displayStyle = _DISPLAY_STYLE;
     private PortletURL _portletURL;
     private Layout _selLayout;
@@ -399,7 +399,7 @@ public class BreadcrumbTag extends IncludeTag {
                         themeDisplay, sb);
             }
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
         }
 
         String breadcrumbString = sb.toString();
@@ -512,7 +512,7 @@ public class BreadcrumbTag extends IncludeTag {
                             "breadcrumbShowParentGroups"),
                     _SHOW_PARENT_GROUPS);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
         }
     }
 

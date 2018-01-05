@@ -2,10 +2,10 @@ package com.liferay.portlet.asset.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-
 import com.liferay.portlet.asset.service.AssetTagServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -51,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class AssetTagServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(AssetTagServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(AssetTagServiceSoap.class);
 
     public static com.liferay.portlet.asset.model.AssetTagSoap addTag(
         java.lang.String name, java.lang.String[] tagProperties,
@@ -63,7 +63,7 @@ public class AssetTagServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetTagSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -73,7 +73,7 @@ public class AssetTagServiceSoap {
         try {
             AssetTagServiceUtil.deleteTag(tagId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -83,7 +83,7 @@ public class AssetTagServiceSoap {
         try {
             AssetTagServiceUtil.deleteTags(tagIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -97,7 +97,7 @@ public class AssetTagServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetTagSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -111,7 +111,7 @@ public class AssetTagServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetTagSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -127,7 +127,7 @@ public class AssetTagServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetTagSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -139,7 +139,7 @@ public class AssetTagServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -154,7 +154,7 @@ public class AssetTagServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -172,7 +172,7 @@ public class AssetTagServiceSoap {
 
             return returnValue.toString();
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -185,7 +185,7 @@ public class AssetTagServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetTagSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -200,7 +200,7 @@ public class AssetTagServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetTagSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -217,7 +217,7 @@ public class AssetTagServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetTagSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -233,7 +233,7 @@ public class AssetTagServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetTagSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -250,7 +250,7 @@ public class AssetTagServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetTagSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -264,7 +264,7 @@ public class AssetTagServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetTagSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -278,7 +278,7 @@ public class AssetTagServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -291,7 +291,7 @@ public class AssetTagServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -305,7 +305,7 @@ public class AssetTagServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -316,7 +316,7 @@ public class AssetTagServiceSoap {
         try {
             AssetTagServiceUtil.mergeTags(fromTagId, toTagId, overrideProperties);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -328,7 +328,7 @@ public class AssetTagServiceSoap {
             AssetTagServiceUtil.mergeTags(fromTagIds, toTagId,
                 overrideProperties);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -343,7 +343,7 @@ public class AssetTagServiceSoap {
 
             return returnValue.toString();
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -358,7 +358,7 @@ public class AssetTagServiceSoap {
 
             return returnValue.toString();
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -374,7 +374,7 @@ public class AssetTagServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetTagSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

@@ -15,8 +15,8 @@
 package com.liferay.portal.servlet.filters.gzip;
 
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.BrowserSnifferUtil;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.servlet.MetaInfoCacheServletResponse;
@@ -215,7 +215,7 @@ public class GZipResponse extends MetaInfoCacheServletResponse {
 
 	private static final String _GZIP = "gzip";
 
-	private static Log _log = LogFactoryUtil.getLog(GZipResponse.class);
+	private static final Logger _log = LoggerFactory.getLogger(GZipResponse.class);
 
 	private boolean _firefox;
 	private PrintWriter _printWriter;

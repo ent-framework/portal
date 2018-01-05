@@ -14,8 +14,8 @@
 
 package com.liferay.portal.image;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 
@@ -58,7 +58,7 @@ public class LiferayIdentifyCmd extends IdentifyCmd {
 		return getProcessTask(arguments);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LiferayIdentifyCmd.class);
+	private static final Logger _log = LoggerFactory.getLogger(LiferayIdentifyCmd.class);
 
 	private static LiferayIdentifyCmd _instance = new LiferayIdentifyCmd();
 

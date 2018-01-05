@@ -14,8 +14,8 @@
 
 package com.liferay.portal.security.auth;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.AutoResetThreadLocal;
 import com.liferay.portal.kernel.util.LocaleThreadLocal;
 import com.liferay.portal.kernel.util.TimeZoneThreadLocal;
@@ -59,7 +59,7 @@ public class CompanyThreadLocal {
 				TimeZoneThreadLocal.setDefaultTimeZone(company.getTimeZone());
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 
 			_companyId.set(companyId);
@@ -76,7 +76,7 @@ public class CompanyThreadLocal {
 		_deleteInProcess.set(deleteInProcess);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(CompanyThreadLocal.class);
+	private static final Logger _log = LoggerFactory.getLogger(CompanyThreadLocal.class);
 
 	private static ThreadLocal<Long> _companyId =
 		new AutoResetThreadLocal<Long>(

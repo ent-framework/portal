@@ -14,8 +14,8 @@
 
 package com.liferay.portlet.social.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.ProxyFactory;
@@ -505,7 +505,7 @@ public class SocialConfigurationImpl implements SocialConfiguration {
 		objects.add(tuple);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		SocialConfigurationImpl.class);
 
 	private Map<String, Map<Integer, SocialActivityDefinition>>

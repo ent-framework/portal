@@ -15,8 +15,8 @@
 package com.liferay.portlet.expando.model.impl;
 
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.TextFormatter;
 import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portlet.expando.model.ExpandoColumnConstants;
@@ -144,7 +144,7 @@ public class ExpandoColumnImpl extends ExpandoColumnBaseImpl {
 				_typeSettingsProperties.load(super.getTypeSettings());
 			}
 			catch (IOException ioe) {
-				_log.error(ioe, ioe);
+				_log.error(ioe.getMessage(), ioe);
 			}
 		}
 
@@ -167,7 +167,7 @@ public class ExpandoColumnImpl extends ExpandoColumnBaseImpl {
 		super.setTypeSettings(_typeSettingsProperties.toString());
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ExpandoColumnImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(ExpandoColumnImpl.class);
 
 	private UnicodeProperties _typeSettingsProperties;
 

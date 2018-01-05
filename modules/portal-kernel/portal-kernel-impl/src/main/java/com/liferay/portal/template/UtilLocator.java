@@ -17,8 +17,8 @@ package com.liferay.portal.template;
 import com.liferay.portal.bean.BeanLocatorImpl;
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.bean.PortletBeanLocatorUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Raymond Augé
@@ -36,7 +36,7 @@ public class UtilLocator {
 			bean = PortalBeanLocatorUtil.locate(_getUtilName(utilName));
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return bean;
@@ -50,7 +50,7 @@ public class UtilLocator {
 				servletContextName, _getUtilName(utilName));
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return bean;
@@ -67,7 +67,7 @@ public class UtilLocator {
 		return utilName;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(UtilLocator.class);
+	private static final Logger _log = LoggerFactory.getLogger(UtilLocator.class);
 
 	private static UtilLocator _instance = new UtilLocator();
 

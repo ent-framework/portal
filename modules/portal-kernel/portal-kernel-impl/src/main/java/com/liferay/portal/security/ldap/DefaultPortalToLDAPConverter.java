@@ -15,8 +15,8 @@
 package com.liferay.portal.security.ldap;
 
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -552,7 +552,7 @@ public class DefaultPortalToLDAPConverter implements PortalToLDAPConverter {
 
 	private static final String _OBJECT_CLASS = "objectclass";
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		DefaultPortalToLDAPConverter.class);
 
 	private String _groupDNFieldName = GroupConverterKeys.GROUP_NAME;

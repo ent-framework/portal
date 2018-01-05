@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.jmx;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -115,7 +115,7 @@ public class MBeanRegistry {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(MBeanRegistry.class);
+	private static final Logger _log = LoggerFactory.getLogger(MBeanRegistry.class);
 
 	private MBeanServer _mBeanServer;
 	private Map<String, ObjectName> _objectNameCache =

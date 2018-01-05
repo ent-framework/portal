@@ -1,13 +1,14 @@
 package com.liferay.portlet.shopping.service.http;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.http.TunnelUtil;
 
 import com.liferay.portlet.shopping.service.ShoppingCategoryServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Provides the HTTP utility for the
@@ -38,7 +39,7 @@ import com.liferay.portlet.shopping.service.ShoppingCategoryServiceUtil;
  * @generated
  */
 public class ShoppingCategoryServiceHttp {
-    private static Log _log = LogFactoryUtil.getLog(ShoppingCategoryServiceHttp.class);
+    private static final Logger _log = LoggerFactory.getLogger(ShoppingCategoryServiceHttp.class);
     private static final Class<?>[] _addCategoryParameterTypes0 = new Class[] {
             long.class, java.lang.String.class, java.lang.String.class,
             com.liferay.portal.service.ServiceContext.class
@@ -98,7 +99,7 @@ public class ShoppingCategoryServiceHttp {
 
             return (com.liferay.portlet.shopping.model.ShoppingCategory) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -129,7 +130,7 @@ public class ShoppingCategoryServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -158,7 +159,7 @@ public class ShoppingCategoryServiceHttp {
 
             return (java.util.List<com.liferay.portlet.shopping.model.ShoppingCategory>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -189,7 +190,7 @@ public class ShoppingCategoryServiceHttp {
 
             return (java.util.List<com.liferay.portlet.shopping.model.ShoppingCategory>) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -219,7 +220,7 @@ public class ShoppingCategoryServiceHttp {
 
             return ((Integer) returnObj).intValue();
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -254,7 +255,7 @@ public class ShoppingCategoryServiceHttp {
 
             return (com.liferay.portlet.shopping.model.ShoppingCategory) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -281,7 +282,7 @@ public class ShoppingCategoryServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -320,7 +321,7 @@ public class ShoppingCategoryServiceHttp {
 
             return (com.liferay.portlet.shopping.model.ShoppingCategory) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }

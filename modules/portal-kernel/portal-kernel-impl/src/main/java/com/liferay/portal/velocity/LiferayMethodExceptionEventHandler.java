@@ -14,8 +14,8 @@
 
 package com.liferay.portal.velocity;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.apache.velocity.app.event.MethodExceptionEventHandler;
 
@@ -31,12 +31,12 @@ public class LiferayMethodExceptionEventHandler
 			Exception e)
 		throws Exception {
 
-		_log.error(e, e);
+		_log.error(e.getMessage(), e);
 
 		return null;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		LiferayMethodExceptionEventHandler.class);
 
 }

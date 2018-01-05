@@ -1,13 +1,14 @@
 package com.liferay.portlet.announcements.service.http;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.http.TunnelUtil;
 
 import com.liferay.portlet.announcements.service.AnnouncementsEntryServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Provides the HTTP utility for the
@@ -38,7 +39,7 @@ import com.liferay.portlet.announcements.service.AnnouncementsEntryServiceUtil;
  * @generated
  */
 public class AnnouncementsEntryServiceHttp {
-    private static Log _log = LogFactoryUtil.getLog(AnnouncementsEntryServiceHttp.class);
+    private static final Logger _log = LoggerFactory.getLogger(AnnouncementsEntryServiceHttp.class);
     private static final Class<?>[] _addEntryParameterTypes0 = new Class[] {
             long.class, long.class, long.class, java.lang.String.class,
             java.lang.String.class, java.lang.String.class,
@@ -105,7 +106,7 @@ public class AnnouncementsEntryServiceHttp {
 
             return (com.liferay.portlet.announcements.model.AnnouncementsEntry) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -150,7 +151,7 @@ public class AnnouncementsEntryServiceHttp {
 
             return (com.liferay.portlet.announcements.model.AnnouncementsEntry) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -179,7 +180,7 @@ public class AnnouncementsEntryServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -213,7 +214,7 @@ public class AnnouncementsEntryServiceHttp {
 
             return (com.liferay.portlet.announcements.model.AnnouncementsEntry) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -257,7 +258,7 @@ public class AnnouncementsEntryServiceHttp {
 
             return (com.liferay.portlet.announcements.model.AnnouncementsEntry) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }

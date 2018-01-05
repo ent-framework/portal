@@ -16,8 +16,8 @@ package com.liferay.portal.cluster;
 
 import com.liferay.portal.kernel.cluster.Address;
 import com.liferay.portal.kernel.io.Serializer;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.InetAddressUtil;
@@ -214,7 +214,7 @@ public abstract class ClusterBase {
 
 	protected static InetAddress bindInetAddress;
 
-	private static Log _log = LogFactoryUtil.getLog(ClusterBase.class);
+	private static final Logger _log = LoggerFactory.getLogger(ClusterBase.class);
 
 	private static boolean _initialized;
 

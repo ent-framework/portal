@@ -22,8 +22,8 @@ import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
 import com.liferay.portal.kernel.lar.PortletDataContext;
 import com.liferay.portal.kernel.lar.PortletDataException;
 import com.liferay.portal.kernel.lar.StagedModelDataHandlerUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.FileEntryWrapper;
 import com.liferay.portal.kernel.repository.model.FileVersion;
@@ -216,7 +216,7 @@ public class FileEntryStagedModelDataHandler
 					is.close();
 				}
 				catch (IOException ioe) {
-					_log.error(ioe, ioe);
+					_log.error(ioe.getMessage(), ioe);
 				}
 			}
 		}
@@ -413,7 +413,7 @@ public class FileEntryStagedModelDataHandler
 					}
 					catch (Exception e) {
 						if (_log.isDebugEnabled()) {
-							_log.debug(e, e);
+							_log.debug(e.getMessage(), e);
 						}
 					}
 					finally {
@@ -698,7 +698,7 @@ public class FileEntryStagedModelDataHandler
 		}
 		catch (Exception e) {
 			if (_log.isDebugEnabled()) {
-				_log.debug(e, e);
+				_log.debug(e.getMessage(), e);
 			}
 			else if (_log.isWarnEnabled()) {
 				_log.warn(
@@ -743,7 +743,7 @@ public class FileEntryStagedModelDataHandler
 		return fileEntry;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		FileEntryStagedModelDataHandler.class);
 
 }

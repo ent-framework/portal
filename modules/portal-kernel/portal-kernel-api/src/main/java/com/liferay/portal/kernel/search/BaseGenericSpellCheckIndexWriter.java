@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.search;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.util.PortletKeys;
 
@@ -154,7 +154,7 @@ public abstract class BaseGenericSpellCheckIndexWriter
 
 	private static final int _DEFAULT_BATCH_SIZE = 1000;
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		BaseGenericSpellCheckIndexWriter.class);
 
 	private int _batchSize = _DEFAULT_BATCH_SIZE;

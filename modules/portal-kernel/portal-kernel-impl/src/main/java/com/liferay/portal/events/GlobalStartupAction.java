@@ -19,8 +19,8 @@ package com.liferay.portal.events;
 import com.liferay.portal.kernel.events.SimpleAction;
 import com.liferay.portal.kernel.javadoc.JavadocManagerUtil;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebServiceActionsManagerUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.pop.POPServerUtil;
 import com.liferay.portal.spring.context.PortalContextLoaderListener;
@@ -47,7 +47,7 @@ public class GlobalStartupAction extends SimpleAction {
 
             // Environment.setValue(Environment.PROP_BASE_FILE_DIR, tmpDir);
         } catch (Throwable t) {
-            _log.error(t);
+            _log.error(t.getMessage());
         }
 
         // Javadoc
@@ -61,7 +61,7 @@ public class GlobalStartupAction extends SimpleAction {
         try {
             InfrastructureUtil.getDataSource();
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
         }
 
         try {
@@ -93,6 +93,6 @@ public class GlobalStartupAction extends SimpleAction {
         }
     }
 
-    private static Log _log = LogFactoryUtil.getLog(GlobalStartupAction.class);
+    private static final Logger _log = LoggerFactory.getLogger(GlobalStartupAction.class);
 
 }

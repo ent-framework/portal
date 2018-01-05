@@ -15,8 +15,8 @@
 package com.liferay.portlet.documentlibrary.util;
 
 import com.liferay.portal.kernel.lar.PortletDataContext;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.DestinationNames;
 import com.liferay.portal.kernel.process.ClassPathUtil;
 import com.liferay.portal.kernel.process.ProcessCallable;
@@ -35,12 +35,10 @@ import com.liferay.portal.kernel.util.SystemEnv;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xuggler.XugglerUtil;
-import com.liferay.portal.log.Log4jLogFactoryImpl;
 import com.liferay.portal.repository.liferayrepository.model.LiferayFileVersion;
 import com.liferay.portal.util.PropsUtil;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portlet.documentlibrary.NoSuchFileEntryException;
-import com.liferay.util.log4j.Log4JUtil;
 
 import java.io.File;
 import java.io.InputStream;
@@ -135,7 +133,7 @@ public class AudioProcessorImpl
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return hasAudio;
@@ -321,7 +319,7 @@ public class AudioProcessorImpl
 						destinationFileVersion, file, previewTempFiles);
 				}
 				catch (Exception e) {
-					_log.error(e, e);
+					_log.error(e.getMessage(), e);
 				}
 			}
 		}
@@ -355,25 +353,25 @@ public class AudioProcessorImpl
 
 		try {
 			if (PropsValues.DL_FILE_ENTRY_PREVIEW_FORK_PROCESS_ENABLED) {
-				ProcessCallable<String> processCallable =
-					new LiferayAudioProcessCallable(
-						ServerDetector.getServerId(),
-						PropsUtil.get(PropsKeys.LIFERAY_HOME),
-						Log4JUtil.getCustomLogSettings(),
-						srcFile.getCanonicalPath(), destFile.getCanonicalPath(),
-						containerType,
-						PropsUtil.getProperties(
-							PropsKeys.DL_FILE_ENTRY_PREVIEW_AUDIO, false));
-
-				Future<String> future = ProcessExecutor.execute(
-					ClassPathUtil.getPortalClassPath(), processCallable);
-
-				String processIdentity = String.valueOf(
-					fileVersion.getFileVersionId());
-
-				futures.put(processIdentity, future);
-
-				future.get();
+//				ProcessCallable<String> processCallable =
+//					new LiferayAudioProcessCallable(
+//						ServerDetector.getServerId(),
+//						PropsUtil.get(PropsKeys.LIFERAY_HOME),
+//						Log4JUtil.getCustomLogSettings(),
+//						srcFile.getCanonicalPath(), destFile.getCanonicalPath(),
+//						containerType,
+//						PropsUtil.getProperties(
+//							PropsKeys.DL_FILE_ENTRY_PREVIEW_AUDIO, false));
+//
+//				Future<String> future = ProcessExecutor.execute(
+//					ClassPathUtil.getPortalClassPath(), processCallable);
+//
+//				String processIdentity = String.valueOf(
+//					fileVersion.getFileVersionId());
+//
+//				futures.put(processIdentity, future);
+//
+//				future.get();
 			}
 			else {
 				LiferayConverter liferayConverter = new LiferayAudioConverter(
@@ -394,7 +392,7 @@ public class AudioProcessorImpl
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		addFileToStore(
@@ -419,7 +417,7 @@ public class AudioProcessorImpl
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -451,7 +449,7 @@ public class AudioProcessorImpl
 	private static final String[] _PREVIEW_TYPES =
 		PropsValues.DL_FILE_ENTRY_PREVIEW_AUDIO_CONTAINERS;
 
-	private static Log _log = LogFactoryUtil.getLog(AudioProcessorImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(AudioProcessorImpl.class);
 
 	private Set<String> _audioMimeTypes = SetUtil.fromArray(
 		PropsValues.DL_FILE_ENTRY_PREVIEW_AUDIO_MIME_TYPES);
@@ -485,9 +483,9 @@ public class AudioProcessorImpl
 
 			ClassLoader classLoader = clazz.getClassLoader();
 
-			Log4JUtil.initLog4J(
-				_serverId, _liferayHome, classLoader, new Log4jLogFactoryImpl(),
-				_customLogSettings);
+//			Log4JUtil.initLog4J(
+//				_serverId, _liferayHome, classLoader, new Log4jLogFactoryImpl(),
+//				_customLogSettings);
 
 			try {
 				LiferayConverter liferayConverter = new LiferayAudioConverter(

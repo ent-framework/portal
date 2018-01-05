@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.dao.orm;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 /**
@@ -97,7 +97,7 @@ public class FinderCacheUtil {
 		_finderCache = finderCache;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(FinderCacheUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(FinderCacheUtil.class);
 
 	private static FinderCache _finderCache;
 

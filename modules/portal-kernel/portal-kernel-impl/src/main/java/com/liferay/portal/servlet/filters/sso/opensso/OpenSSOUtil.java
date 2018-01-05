@@ -15,8 +15,8 @@
 package com.liferay.portal.servlet.filters.sso.opensso;
 
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.CookieKeys;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -150,14 +150,14 @@ public class OpenSSOUtil {
 			_log.error(murle.getMessage());
 
 			if (_log.isDebugEnabled()) {
-				_log.debug(murle, murle);
+				_log.debug(murle.getMessage(), murle);
 			}
 		}
 		catch (IOException ioe) {
 			_log.error(ioe.getMessage());
 
 			if (_log.isDebugEnabled()) {
-				_log.debug(ioe, ioe);
+				_log.debug(ioe.getMessage(), ioe);
 			}
 		}
 
@@ -245,7 +245,7 @@ public class OpenSSOUtil {
 		}
 		catch (IOException ioe) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(ioe, ioe);
+				_log.warn(ioe.getMessage(), ioe);
 			}
 		}
 
@@ -368,7 +368,7 @@ public class OpenSSOUtil {
 		}
 		catch (IOException ioe) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(ioe, ioe);
+				_log.warn(ioe.getMessage(), ioe);
 			}
 
 			return false;
@@ -421,7 +421,7 @@ public class OpenSSOUtil {
 
 	private static final String _VALIDATE_TOKEN = "/identity/isTokenValid";
 
-	private static Log _log = LogFactoryUtil.getLog(OpenSSOUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(OpenSSOUtil.class);
 
 	private static OpenSSOUtil _instance = new OpenSSOUtil();
 

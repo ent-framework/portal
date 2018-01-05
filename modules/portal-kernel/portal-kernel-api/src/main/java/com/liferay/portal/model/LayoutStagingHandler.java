@@ -16,8 +16,8 @@ package com.liferay.portal.model;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.staging.MergeLayoutPrototypesThreadLocal;
 import com.liferay.portal.kernel.staging.StagingUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
@@ -109,7 +109,7 @@ public class LayoutStagingHandler implements InvocationHandler, Serializable {
 					bean = _layoutRevision;
 				}
 				catch (NoSuchMethodException nsme) {
-					_log.error(nsme, nsme);
+					_log.error(nsme.getMessage(), nsme);
 				}
 			}
 
@@ -131,7 +131,7 @@ public class LayoutStagingHandler implements InvocationHandler, Serializable {
 			_layoutRevision = _getLayoutRevision(layout, layoutRevision);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			throw new IllegalStateException(e);
 		}
@@ -284,7 +284,7 @@ public class LayoutStagingHandler implements InvocationHandler, Serializable {
 				_layout.toEscapedModel(), _layoutRevision.toEscapedModel()));
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LayoutStagingHandler.class);
+	private static final Logger _log = LoggerFactory.getLogger(LayoutStagingHandler.class);
 
 	private static Set<String> _layoutRevisionMethodNames =
 		new HashSet<String>();

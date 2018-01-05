@@ -18,8 +18,8 @@ import com.liferay.portal.kernel.captcha.Captcha;
 import com.liferay.portal.kernel.captcha.CaptchaException;
 import com.liferay.portal.kernel.captcha.CaptchaMaxChallengesException;
 import com.liferay.portal.kernel.captcha.CaptchaTextException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.RandomUtil;
 import com.liferay.portal.kernel.upload.UploadPortletRequest;
 import com.liferay.portal.kernel.util.ContentTypes;
@@ -466,7 +466,7 @@ public class SimpleCaptchaImpl implements Captcha {
 	private static final String _TAGLIB_PATH =
 		"/html/taglib/ui/captcha/simplecaptcha.jsp";
 
-	private static Log _log = LogFactoryUtil.getLog(SimpleCaptchaImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(SimpleCaptchaImpl.class);
 
 	private BackgroundProducer[] _backgroundProducers;
 	private GimpyRenderer[] _gimpyRenderers;

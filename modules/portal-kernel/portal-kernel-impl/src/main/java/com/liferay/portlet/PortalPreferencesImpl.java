@@ -18,8 +18,8 @@ import com.liferay.portal.kernel.dao.orm.LockMode;
 import com.liferay.portal.kernel.dao.orm.Session;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.transaction.TransactionAttribute;
 import com.liferay.portal.kernel.transaction.TransactionInvokerUtil;
 import com.liferay.portal.kernel.util.HashUtil;
@@ -177,7 +177,7 @@ public class PortalPreferencesImpl
 			throw cme;
 		}
 		catch (Throwable t) {
-			_log.error(t, t);
+			_log.error(t.getMessage(), t);
 		}
 	}
 
@@ -198,7 +198,7 @@ public class PortalPreferencesImpl
 			throw cme;
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -250,7 +250,7 @@ public class PortalPreferencesImpl
 			throw cme;
 		}
 		catch (Throwable t) {
-			_log.error(t, t);
+			_log.error(t.getMessage(), t);
 		}
 	}
 
@@ -293,7 +293,7 @@ public class PortalPreferencesImpl
 			throw cme;
 		}
 		catch (Throwable t) {
-			_log.error(t, t);
+			_log.error(t.getMessage(), t);
 		}
 	}
 
@@ -405,7 +405,7 @@ public class PortalPreferencesImpl
 
 	private static final String _RANDOM_KEY = "r";
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PortalPreferencesImpl.class);
 
 	private boolean _signedIn;

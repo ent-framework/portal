@@ -493,5 +493,5 @@ request.setAttribute("view_folders.jsp-folderStart", searchContainer.getStart())
 </aui:script>
 
 <%!
-private static Log _log = LogFactoryUtil.getLog("portal-web.docroot.html.portlet.document_library.view_folders_jsp");
+private static final Logger _log = LoggerFactory.getLogger("portal-web.docroot.html.portlet.document_library.view_folders_jsp");
 %>

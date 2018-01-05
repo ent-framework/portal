@@ -30,8 +30,8 @@ import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.*;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.servlet.*;
@@ -191,7 +191,7 @@ public class PortalImpl implements Portal {
 		catch (Exception e) {
 			_log.error("Unable to determine server's IP addresses");
 
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		// Paths
@@ -2854,7 +2854,7 @@ public class PortalImpl implements Portal {
 				}
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -3094,7 +3094,7 @@ public class PortalImpl implements Portal {
 					inheritLocales = LanguageUtil.isInheritLocales(groupId);
 				}
 				catch (Exception pe) {
-					_log.error(pe);
+					_log.error(pe.getMessage(), pe);
 				}
 
 				if (!inheritLocales) {
@@ -5231,7 +5231,7 @@ public class PortalImpl implements Portal {
 				}
 				catch (Exception e) {
 					if (_log.isWarnEnabled()) {
-						_log.warn(e);
+						_log.warn(e.getMessage());
 					}
 				}
 			}
@@ -5311,7 +5311,7 @@ public class PortalImpl implements Portal {
 				alwaysAllowDoAsUser = isAlwaysAllowDoAsUser(request);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -6499,7 +6499,7 @@ public class PortalImpl implements Portal {
 
 		if (e instanceof NoSuchImageException) {
 			if (_logWebServerServlet.isWarnEnabled()) {
-				_logWebServerServlet.warn(e, e);
+				_logWebServerServlet.warn(e.getMessage(), e);
 			}
 		}
 		else if ((e instanceof PortalException) && _log.isDebugEnabled()) {
@@ -6513,11 +6513,11 @@ public class PortalImpl implements Portal {
 				}
 			}
 			else {
-				_log.debug(e, e);
+				_log.debug(e.getMessage(), e);
 			}
 		}
 		else if ((e instanceof SystemException) && _log.isWarnEnabled()) {
-			_log.warn(e, e);
+			_log.warn(e.getMessage(), e);
 		}
 
 		if (response.isCommitted()) {
@@ -7220,7 +7220,7 @@ public class PortalImpl implements Portal {
 				}
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 
 				itr.remove();
 			}
@@ -7890,9 +7890,9 @@ public class PortalImpl implements Portal {
 	private static final String _PUBLIC_GROUP_SERVLET_MAPPING =
 		PropsValues.LAYOUT_FRIENDLY_URL_PUBLIC_SERVLET_MAPPING;
 
-	private static Log _log = LogFactoryUtil.getLog(PortalImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(PortalImpl.class);
 
-	private static Log _logWebServerServlet = LogFactoryUtil.getLog(
+	private static final Logger _logWebServerServlet = LoggerFactory.getLogger(
 		WebServerServlet.class);
 
 	private static Map<Long, String> _cdnHostHttpMap =

@@ -2,9 +2,10 @@ package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.service.WebsiteServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -50,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class WebsiteServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(WebsiteServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(WebsiteServiceSoap.class);
 
     /**
     * @deprecated As of 6.2.0, replaced by {@link #addWebsite( String, long,
@@ -65,7 +66,7 @@ public class WebsiteServiceSoap {
 
             return com.liferay.portal.model.WebsiteSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -82,7 +83,7 @@ public class WebsiteServiceSoap {
 
             return com.liferay.portal.model.WebsiteSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -92,7 +93,7 @@ public class WebsiteServiceSoap {
         try {
             WebsiteServiceUtil.deleteWebsite(websiteId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -105,7 +106,7 @@ public class WebsiteServiceSoap {
 
             return com.liferay.portal.model.WebsiteSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -119,7 +120,7 @@ public class WebsiteServiceSoap {
 
             return com.liferay.portal.model.WebsiteSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -134,7 +135,7 @@ public class WebsiteServiceSoap {
 
             return com.liferay.portal.model.WebsiteSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

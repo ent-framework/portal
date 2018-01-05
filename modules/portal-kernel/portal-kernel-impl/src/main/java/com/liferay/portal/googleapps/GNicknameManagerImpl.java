@@ -17,8 +17,8 @@ package com.liferay.portal.googleapps;
 import com.liferay.portal.kernel.googleapps.GNickname;
 import com.liferay.portal.kernel.googleapps.GNicknameManager;
 import com.liferay.portal.kernel.googleapps.GoogleAppsException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -157,6 +157,6 @@ public class GNicknameManagerImpl
 
 	protected String nicknameURL;
 
-	private static Log _log = LogFactoryUtil.getLog(GNicknameManagerImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(GNicknameManagerImpl.class);
 
 }

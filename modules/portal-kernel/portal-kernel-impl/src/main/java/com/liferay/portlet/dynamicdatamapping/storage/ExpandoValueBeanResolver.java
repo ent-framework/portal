@@ -14,8 +14,8 @@
 
 package com.liferay.portlet.dynamicdatamapping.storage;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portlet.expando.model.ExpandoColumn;
 import com.liferay.portlet.expando.model.ExpandoValue;
 
@@ -51,7 +51,7 @@ public class ExpandoValueBeanResolver implements BeanResolver {
 		return _expandoValues.get(beanName);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		ExpandoValueBeanResolver.class);
 
 	private Map<String, ExpandoValue> _expandoValues;

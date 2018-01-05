@@ -14,8 +14,8 @@
 
 package com.liferay.portal.search.lucene;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.search.BaseQuerySuggester;
 import com.liferay.portal.kernel.search.DocumentImpl;
 import com.liferay.portal.kernel.search.Field;
@@ -376,7 +376,7 @@ public class LuceneQuerySuggester extends BaseQuerySuggester {
 
 	private static final float _SCORES_THRESHOLD_DEFAULT = 0.5f;
 
-	private static Log _log = LogFactoryUtil.getLog(LuceneQuerySuggester.class);
+	private static final Logger _log = LoggerFactory.getLogger(LuceneQuerySuggester.class);
 
 	private float _boostEnd = 1.0f;
 	private float _boostStart = 2.0f;

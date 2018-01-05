@@ -14,8 +14,8 @@
 
 package com.liferay.portal.search.generic;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.search.BaseBooleanQueryImpl;
 import com.liferay.portal.kernel.search.BooleanClause;
 import com.liferay.portal.kernel.search.BooleanClauseOccur;
@@ -385,7 +385,7 @@ public class BooleanQueryImpl extends BaseBooleanQueryImpl {
 		return !_booleanClauses.isEmpty();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(BooleanQueryImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(BooleanQueryImpl.class);
 
 	private List<BooleanClause> _booleanClauses =
 		new ArrayList<BooleanClause>();

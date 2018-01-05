@@ -16,8 +16,8 @@ package com.liferay.portal.metadata;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.metadata.RawMetadataProcessor;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portlet.dynamicdatamapping.storage.Fields;
@@ -172,7 +172,7 @@ public abstract class BaseRawMetadataProcessor implements RawMetadataProcessor {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		BaseRawMetadataProcessor.class);
 
 	private static Map<String, Field[]> _fields =

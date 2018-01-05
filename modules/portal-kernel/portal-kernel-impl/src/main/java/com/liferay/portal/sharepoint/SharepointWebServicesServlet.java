@@ -14,8 +14,8 @@
 
 package com.liferay.portal.sharepoint;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
 import com.liferay.portal.kernel.util.ContentTypes;
@@ -48,7 +48,7 @@ public class SharepointWebServicesServlet extends HttpServlet {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -80,7 +80,7 @@ public class SharepointWebServicesServlet extends HttpServlet {
 		ServletResponseUtil.write(response, sb.toString());
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		SharepointWebServicesServlet.class);
 
 }

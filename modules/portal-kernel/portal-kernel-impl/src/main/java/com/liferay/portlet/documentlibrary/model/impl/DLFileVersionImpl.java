@@ -16,8 +16,8 @@ package com.liferay.portlet.documentlibrary.model.impl;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 import com.liferay.portlet.documentlibrary.model.DLFolder;
@@ -83,7 +83,7 @@ public class DLFileVersionImpl extends DLFileVersionBaseImpl {
 				_extraSettingsProperties.load(super.getExtraSettings());
 			}
 			catch (IOException ioe) {
-				_log.error(ioe, ioe);
+				_log.error(ioe.getMessage(), ioe);
 			}
 		}
 
@@ -125,7 +125,7 @@ public class DLFileVersionImpl extends DLFileVersionBaseImpl {
 		super.setExtraSettings(_extraSettingsProperties.toString());
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(DLFileVersionImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(DLFileVersionImpl.class);
 
 	private transient ExpandoBridge _expandoBridge;
 	private UnicodeProperties _extraSettingsProperties;

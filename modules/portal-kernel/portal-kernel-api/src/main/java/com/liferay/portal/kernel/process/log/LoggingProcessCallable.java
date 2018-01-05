@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.process.log;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.process.ProcessCallable;
 import com.liferay.portal.kernel.util.StringPool;
 
@@ -55,7 +55,7 @@ public class LoggingProcessCallable implements ProcessCallable<String> {
 
 	private static final long serialVersionUID = 1L;
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		LoggingProcessCallable.class);
 
 	private final byte[] _bytes;

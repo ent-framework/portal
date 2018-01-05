@@ -15,8 +15,8 @@
 package com.liferay.portal.increment;
 
 import com.liferay.portal.kernel.configuration.Filter;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.util.PropsUtil;
@@ -123,7 +123,7 @@ public class BufferedIncrementConfiguration {
 		return _standbyEnabled;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		BufferedIncrementConfiguration.class);
 
 	private final boolean _enabled;

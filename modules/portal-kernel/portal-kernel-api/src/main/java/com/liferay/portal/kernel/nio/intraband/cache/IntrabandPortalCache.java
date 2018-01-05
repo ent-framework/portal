@@ -19,8 +19,8 @@ import com.liferay.portal.kernel.cache.CacheListenerScope;
 import com.liferay.portal.kernel.cache.PortalCache;
 import com.liferay.portal.kernel.io.Deserializer;
 import com.liferay.portal.kernel.io.Serializer;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.nio.intraband.Datagram;
 import com.liferay.portal.kernel.nio.intraband.Intraband;
 import com.liferay.portal.kernel.nio.intraband.RegistrationReference;
@@ -211,7 +211,7 @@ public class IntrabandPortalCache
 		return deserializer.readObject();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(IntrabandPortalCache.class);
+	private static final Logger _log = LoggerFactory.getLogger(IntrabandPortalCache.class);
 
 	private final Intraband _intraband;
 	private final String _name;

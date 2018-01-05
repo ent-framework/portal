@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.ref.Reference;
 import java.lang.reflect.Field;
@@ -128,7 +128,7 @@ public class ClearThreadLocalUtil {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ClearThreadLocalUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(ClearThreadLocalUtil.class);
 
 	private static Method _expungeStaleEntriesMethod;
 	private static Field _inheritableThreadLocalsField;

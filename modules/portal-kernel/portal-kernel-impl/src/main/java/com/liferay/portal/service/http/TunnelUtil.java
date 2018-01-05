@@ -14,8 +14,8 @@
 
 package com.liferay.portal.service.http;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.servlet.HttpMethods;
 import com.liferay.portal.kernel.util.Base64;
@@ -79,7 +79,7 @@ public class TunnelUtil {
 			}
 			catch (DecoderException e) {
 				if (_log.isWarnEnabled()) {
-					_log.warn(e, e);
+					_log.warn(e.getMessage(), e);
 				}
 
 				AuthException authException = new AuthException();
@@ -221,6 +221,6 @@ public class TunnelUtil {
 	private static final boolean _VERIFY_SSL_HOSTNAME = GetterUtil.getBoolean(
 		PropsUtil.get(TunnelUtil.class.getName() + ".verify.ssl.hostname"));
 
-	private static Log _log = LogFactoryUtil.getLog(TunnelUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(TunnelUtil.class);
 
 }

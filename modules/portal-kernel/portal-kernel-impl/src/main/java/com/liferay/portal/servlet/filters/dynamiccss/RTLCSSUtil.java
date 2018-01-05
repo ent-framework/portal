@@ -14,8 +14,8 @@
 
 package com.liferay.portal.servlet.filters.dynamiccss;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.util.ClassLoaderUtil;
 import com.liferay.portal.util.PropsValues;
@@ -71,7 +71,7 @@ public class RTLCSSUtil {
 					"/dependencies/r2.js");
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -87,7 +87,7 @@ public class RTLCSSUtil {
 		return false;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(RTLCSSUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(RTLCSSUtil.class);
 
 	private static Pattern[] _RTL_CSS_EXCLUDED_PATHS_PATTERNS;
 

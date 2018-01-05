@@ -18,8 +18,8 @@ import com.liferay.portal.dao.shard.ShardDataSourceTargetSource;
 import com.liferay.portal.kernel.dao.jdbc.CurrentConnectionUtil;
 import com.liferay.portal.kernel.dao.orm.ORMException;
 import com.liferay.portal.kernel.dao.orm.Session;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.PortletClassLoaderUtil;
 import com.liferay.portal.kernel.util.InfrastructureUtil;
 import com.liferay.portal.security.lang.DoPrivilegedUtil;
@@ -154,7 +154,7 @@ public class PortletSessionFactoryImpl extends SessionFactoryImpl {
 					portletHibernateConfiguration.buildSessionFactory();
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 
 				return null;
 			}
@@ -173,7 +173,7 @@ public class PortletSessionFactoryImpl extends SessionFactoryImpl {
 		return DoPrivilegedUtil.wrapWhenActive(super.wrapSession(session));
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PortletSessionFactoryImpl.class);
 
 	private DataSource _dataSource;

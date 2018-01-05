@@ -16,8 +16,8 @@ package com.liferay.portal.dao.orm.hibernate;
 
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.DynamicQueryFactory;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.security.lang.DoPrivilegedUtil;
 import com.liferay.portal.util.ClassLoaderUtil;
@@ -130,7 +130,7 @@ public class DynamicQueryFactoryImpl implements DynamicQueryFactory {
 		return clazz;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		DynamicQueryFactoryImpl.class);
 
 	private Map<ClassLoader, Map<String, Class<?>>> _classes =

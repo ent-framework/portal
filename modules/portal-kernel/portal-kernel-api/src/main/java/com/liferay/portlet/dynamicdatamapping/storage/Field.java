@@ -16,8 +16,8 @@ package com.liferay.portlet.dynamicdatamapping.storage;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -188,7 +188,7 @@ public class Field implements Serializable {
 			return values.get(0);
 		}
 		catch (Exception e) {
-			_log.error(e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return null;
@@ -307,7 +307,7 @@ public class Field implements Serializable {
 		return values;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(Field.class);
+	private static final Logger _log = LoggerFactory.getLogger(Field.class);
 
 	private long _ddmStructureId;
 	private Locale _defaultLocale;

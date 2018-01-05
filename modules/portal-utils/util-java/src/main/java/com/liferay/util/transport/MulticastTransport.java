@@ -20,8 +20,8 @@ import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.net.MulticastSocket;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * <p>
@@ -128,7 +128,7 @@ public class MulticastTransport extends Thread implements Transport {
 		sendMessage(message.getBytes());
 	}
 
-	private static Log _log = LogFactory.getLog(MulticastTransport.class);
+	private static final Logger _log = LoggerFactory.getLogger(MulticastTransport.class);
 
 	private InetAddress _address;
 	private boolean _connected;

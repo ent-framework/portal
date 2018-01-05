@@ -17,8 +17,8 @@ package com.liferay.portlet.journal.util;
 import com.liferay.portal.kernel.configuration.Filter;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
 import com.liferay.portal.kernel.portlet.LiferayWindowState;
 import com.liferay.portal.kernel.search.Field;
@@ -1026,7 +1026,7 @@ public class JournalUtil {
 				continue;
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 
 			script = transformerListener.onScript(
@@ -1079,7 +1079,7 @@ public class JournalUtil {
 			}
 			catch (Exception e) {
 				if (_log.isWarnEnabled()) {
-					_log.warn(e, e);
+					_log.warn(e.getMessage(), e);
 				}
 			}
 		}
@@ -1136,7 +1136,7 @@ public class JournalUtil {
 			curContent = DDMXMLUtil.formatXML(curDocument);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return curContent;
@@ -1199,7 +1199,7 @@ public class JournalUtil {
 			content = DDMXMLUtil.formatXML(document);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return content;
@@ -1221,7 +1221,7 @@ public class JournalUtil {
 			content = DDMXMLUtil.formatXML(contentDoc);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return content;
@@ -1793,7 +1793,7 @@ public class JournalUtil {
 		path.pop();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(JournalUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(JournalUtil.class);
 
 	private static Map<String, String> _customTokens;
 	private static Pattern _friendlyURLPattern = Pattern.compile("[^a-z0-9_-]");

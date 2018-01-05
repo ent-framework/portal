@@ -14,8 +14,8 @@
 
 package com.liferay.portlet.dynamicdatamapping.storage;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Locale;
 
@@ -56,6 +56,6 @@ public abstract class BaseFieldRenderer implements FieldRenderer {
 			Field field, Locale locale, int valueIndex)
 		throws Exception;
 
-	private static Log _log = LogFactoryUtil.getLog(BaseFieldRenderer.class);
+	private static final Logger _log = LoggerFactory.getLogger(BaseFieldRenderer.class);
 
 }

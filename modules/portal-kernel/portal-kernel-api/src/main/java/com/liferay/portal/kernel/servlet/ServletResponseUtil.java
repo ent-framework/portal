@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.servlet;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.nio.charset.CharsetEncoderUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.FileUtil;
@@ -279,7 +279,7 @@ public class ServletResponseUtil {
 		}
 		catch (IOException ioe) {
 			if (_log.isErrorEnabled()) {
-				_log.error(ioe);
+				_log.error(ioe.getMessage(), ioe);
 			}
 
 			response.setHeader(
@@ -477,7 +477,7 @@ public class ServletResponseUtil {
 				isClientAbortException(ioe)) {
 
 				if (_log.isWarnEnabled()) {
-					_log.warn(ioe);
+					_log.warn(ioe.getMessage());
 				}
 			}
 			else {
@@ -517,7 +517,7 @@ public class ServletResponseUtil {
 				isClientAbortException(ioe)) {
 
 				if (_log.isWarnEnabled()) {
-					_log.warn(ioe);
+					_log.warn(ioe.getMessage());
 				}
 			}
 			else {
@@ -818,6 +818,6 @@ public class ServletResponseUtil {
 	private static final String _RANGE_REGEX =
 		"^bytes=\\d*-\\d*(,\\s?\\d*-\\d*)*$";
 
-	private static Log _log = LogFactoryUtil.getLog(ServletResponseUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(ServletResponseUtil.class);
 
 }

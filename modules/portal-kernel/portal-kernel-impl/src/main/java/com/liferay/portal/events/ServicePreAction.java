@@ -25,8 +25,8 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.image.ImageToolUtil;
 import com.liferay.portal.kernel.lar.PortletDataHandlerKeys;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.LiferayPortletURL;
 import com.liferay.portal.kernel.portlet.LiferayWindowState;
 import com.liferay.portal.kernel.servlet.BrowserSnifferUtil;
@@ -1997,7 +1997,7 @@ public class ServicePreAction extends Action {
 				}
 				catch (NoSuchGroupException nsge) {
 					if (_log.isWarnEnabled()) {
-						_log.warn(nsge);
+						_log.warn(nsge.getMessage());
 					}
 
 					return layouts;
@@ -2399,6 +2399,6 @@ public class ServicePreAction extends Action {
 
 	private static final String _PATH_PORTAL_LOGOUT = "/portal/logout";
 
-	private static Log _log = LogFactoryUtil.getLog(ServicePreAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(ServicePreAction.class);
 
 }

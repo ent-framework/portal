@@ -17,8 +17,8 @@ package com.liferay.portal.dao.db;
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
 
@@ -162,7 +162,7 @@ public class IngresDB extends BaseDB {
 
 	private static final boolean _SUPPORTS_ALTER_COLUMN_NAME = false;
 
-	private static Log _log = LogFactoryUtil.getLog(IngresDB.class);
+	private static final Logger _log = LoggerFactory.getLogger(IngresDB.class);
 
 	private static IngresDB _instance = new IngresDB();
 

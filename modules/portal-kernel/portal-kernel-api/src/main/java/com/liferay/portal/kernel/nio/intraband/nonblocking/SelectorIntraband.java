@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.nio.intraband.nonblocking;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.nio.intraband.BaseIntraband;
 import com.liferay.portal.kernel.nio.intraband.ChannelContext;
 import com.liferay.portal.kernel.nio.intraband.Datagram;
@@ -362,7 +362,7 @@ public class SelectorIntraband extends BaseIntraband {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(SelectorIntraband.class);
+	private static final Logger _log = LoggerFactory.getLogger(SelectorIntraband.class);
 
 	private class PollingJob implements Runnable {
 

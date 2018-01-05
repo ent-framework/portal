@@ -2,9 +2,10 @@ package com.liferay.portal.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.service.PermissionServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -39,7 +40,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class PermissionServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(PermissionServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(PermissionServiceSoap.class);
 
     /**
     * Checks to see if the group has permission to the service.
@@ -57,7 +58,7 @@ public class PermissionServiceSoap {
         try {
             PermissionServiceUtil.checkPermission(groupId, name, primKey);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -79,7 +80,7 @@ public class PermissionServiceSoap {
         try {
             PermissionServiceUtil.checkPermission(groupId, name, primKey);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

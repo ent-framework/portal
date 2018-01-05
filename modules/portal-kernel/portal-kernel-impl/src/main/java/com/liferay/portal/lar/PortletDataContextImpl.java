@@ -36,8 +36,8 @@ import com.liferay.portal.kernel.lar.PortletDataHandlerKeys;
 import com.liferay.portal.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.portal.kernel.lar.StagedModelType;
 import com.liferay.portal.kernel.lar.UserIdStrategy;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.DateRange;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -2250,7 +2250,7 @@ public class PortletDataContextImpl implements PortletDataContext {
 			}
 			catch (Exception e) {
 				if (_log.isDebugEnabled()) {
-					_log.debug(e, e);
+					_log.debug(e.getMessage(), e);
 				}
 			}
 		}
@@ -2607,7 +2607,7 @@ public class PortletDataContextImpl implements PortletDataContext {
 		}
 		catch (SystemException se) {
 			if (_log.isErrorEnabled()) {
-				_log.error(se, se);
+				_log.error(se.getMessage(), se);
 			}
 		}
 
@@ -2710,7 +2710,7 @@ public class PortletDataContextImpl implements PortletDataContext {
 			Time.class.getName(), Timestamp.class.getName()
 		};
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PortletDataContextImpl.class);
 
 	private Map<String, long[]> _assetCategoryIdsMap =

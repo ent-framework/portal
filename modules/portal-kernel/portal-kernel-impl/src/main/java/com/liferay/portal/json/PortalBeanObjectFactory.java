@@ -14,8 +14,8 @@
 
 package com.liferay.portal.json;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.util.PropsValues;
 
@@ -166,7 +166,7 @@ public class PortalBeanObjectFactory extends BeanObjectFactory {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PortalBeanObjectFactory.class);
 
 	private Map<Class<?>, Map<String, Field>> _declaredFields =

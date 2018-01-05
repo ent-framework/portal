@@ -16,8 +16,8 @@ package com.liferay.portal.poller;
 
 import com.liferay.portal.NoSuchLayoutException;
 import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.notifications.ChannelHubManagerUtil;
 import com.liferay.portal.kernel.poller.PollerHeader;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
@@ -117,6 +117,6 @@ public class PollerServlet extends HttpServlet {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(PollerServlet.class);
+	private static final Logger _log = LoggerFactory.getLogger(PollerServlet.class);
 
 }

@@ -21,8 +21,8 @@ import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.EntityCacheUtil;
 import com.liferay.portal.kernel.dao.orm.FinderCacheUtil;
 import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -91,7 +91,7 @@ public class VerifyPermission extends VerifyProcess {
 			}
 			catch (Exception e) {
 				if (_log.isDebugEnabled()) {
-					_log.debug(e, e);
+					_log.debug(e.getMessage(), e);
 				}
 			}
 		}
@@ -184,7 +184,7 @@ public class VerifyPermission extends VerifyProcess {
 					groupResourcePermission);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -303,7 +303,7 @@ public class VerifyPermission extends VerifyProcess {
 	private static final List<String> _DEPRECATED_ORGANIZATION_ACTION_IDS =
 		new ArrayList<String>();
 
-	private static Log _log = LogFactoryUtil.getLog(VerifyPermission.class);
+	private static final Logger _log = LoggerFactory.getLogger(VerifyPermission.class);
 
 	static {
 		_DEPRECATED_ORGANIZATION_ACTION_IDS.add(

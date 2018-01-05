@@ -18,8 +18,8 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.notifications.BaseChannelImpl;
 import com.liferay.portal.kernel.notifications.Channel;
 import com.liferay.portal.kernel.notifications.ChannelException;
@@ -598,7 +598,7 @@ public class ChannelImpl extends BaseChannelImpl {
 				}
 			}
 			catch (JSONException jsone) {
-				_log.error(jsone, jsone);
+				_log.error(jsone.getMessage(), jsone);
 
 				invalidNotificationEventUuids.add(
 					persistedNotificationEvent.getUuid());
@@ -641,7 +641,7 @@ public class ChannelImpl extends BaseChannelImpl {
 		return _unconfirmedNotificationEvents;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ChannelImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(ChannelImpl.class);
 
 	private static Comparator<NotificationEvent> _comparator =
 		new NotificationEventComparator();

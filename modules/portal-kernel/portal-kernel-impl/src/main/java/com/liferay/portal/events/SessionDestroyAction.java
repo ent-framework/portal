@@ -15,8 +15,8 @@
 package com.liferay.portal.events;
 
 import com.liferay.portal.kernel.events.SessionAction;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpSession;
 
@@ -32,6 +32,6 @@ public class SessionDestroyAction extends SessionAction {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(SessionDestroyAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(SessionDestroyAction.class);
 
 }

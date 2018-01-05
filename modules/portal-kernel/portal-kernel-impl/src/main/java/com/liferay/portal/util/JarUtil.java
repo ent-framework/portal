@@ -17,8 +17,8 @@ package com.liferay.portal.util;
 import com.liferay.portal.kernel.cluster.ClusterExecutorUtil;
 import com.liferay.portal.kernel.cluster.ClusterRequest;
 import com.liferay.portal.kernel.cluster.FutureClusterResponses;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.model.CompanyConstants;
 import com.liferay.portal.spring.context.PortalContextLoaderLifecycleThreadLocal;
@@ -164,7 +164,7 @@ public class JarUtil {
 
 	private static final long _REPOSITORY = CompanyConstants.SYSTEM;
 
-	private static Log _log = LogFactoryUtil.getLog(JarUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(JarUtil.class);
 
 	private static MethodKey _installJarKey = new MethodKey(
 		JarUtil.class, "installJar", boolean.class, String.class);

@@ -17,6 +17,10 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="portal-util-java" />
     <orderEntry type="module" module-name="portal-kernel-api" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-logging:1.5.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.7.25" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:jul-to-slf4j:1.7.25" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:log4j-over-slf4j:1.7.25" level="project" />
     <orderEntry type="library" name="Maven: org.jodd:jodd-bean:3.6.5" level="project" />
     <orderEntry type="library" name="Maven: org.jodd:jodd-servlet:3.6.5" level="project" />
     <orderEntry type="library" name="Maven: org.jodd:jodd-upload:3.6.5" level="project" />

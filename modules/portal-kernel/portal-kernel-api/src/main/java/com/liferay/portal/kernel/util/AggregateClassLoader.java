@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.util;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
@@ -315,7 +315,7 @@ public class AggregateClassLoader extends ClassLoader {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(AggregateClassLoader.class);
+	private static final Logger _log = LoggerFactory.getLogger(AggregateClassLoader.class);
 
 	private static Method _findClassMethod;
 	private static Method _getResourceMethod;

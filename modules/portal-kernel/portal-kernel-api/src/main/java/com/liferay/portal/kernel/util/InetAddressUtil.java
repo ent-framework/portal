@@ -15,8 +15,8 @@
 package com.liferay.portal.kernel.util;
 
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.Inet4Address;
 import java.net.InetAddress;
@@ -44,7 +44,7 @@ public class InetAddressUtil {
 		}
 		catch (Exception e) {
 			if (_log.isDebugEnabled()) {
-				_log.debug(e, e);
+				_log.debug(e.getMessage(), e);
 			}
 		}
 
@@ -83,7 +83,7 @@ public class InetAddressUtil {
 		return InetAddress.getByName("127.0.0.1");
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(InetAddressUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(InetAddressUtil.class);
 
 	private static class LocalHostNameHolder {
 

@@ -16,8 +16,8 @@ package com.liferay.portal.bean;
 
 import com.liferay.portal.kernel.bean.BeanProperties;
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
@@ -51,7 +51,7 @@ public class BeanPropertiesImpl implements BeanProperties {
 			beanCopy.copy();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -67,7 +67,7 @@ public class BeanPropertiesImpl implements BeanProperties {
 			beanCopy.copy();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -83,7 +83,7 @@ public class BeanPropertiesImpl implements BeanProperties {
 			beanCopy.copy();
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -103,7 +103,7 @@ public class BeanPropertiesImpl implements BeanProperties {
 				beanValue = Convert.toBooleanValue(value, defaultValue);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -150,7 +150,7 @@ public class BeanPropertiesImpl implements BeanProperties {
 				beanValue = Convert.toByteValue(value, defaultValue);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -195,7 +195,7 @@ public class BeanPropertiesImpl implements BeanProperties {
 				beanValue = Convert.toDoubleValue(value, defaultValue);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -242,7 +242,7 @@ public class BeanPropertiesImpl implements BeanProperties {
 				beanValue = Convert.toFloatValue(value, defaultValue);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -287,7 +287,7 @@ public class BeanPropertiesImpl implements BeanProperties {
 				beanValue = Convert.toIntValue(value, defaultValue);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -332,7 +332,7 @@ public class BeanPropertiesImpl implements BeanProperties {
 				beanValue = Convert.toLongValue(value, defaultValue);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -375,7 +375,7 @@ public class BeanPropertiesImpl implements BeanProperties {
 				beanValue = BeanUtil.getProperty(bean, param);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -430,7 +430,7 @@ public class BeanPropertiesImpl implements BeanProperties {
 				beanType = BeanUtil.getPropertyType(bean, param);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -485,7 +485,7 @@ public class BeanPropertiesImpl implements BeanProperties {
 				beanValue = Convert.toShortValue(value, defaultValue);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -530,7 +530,7 @@ public class BeanPropertiesImpl implements BeanProperties {
 				beanValue = Convert.toString(value, defaultValue);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -603,7 +603,7 @@ public class BeanPropertiesImpl implements BeanProperties {
 			BeanUtil.setProperty(bean, param, value);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -638,6 +638,6 @@ public class BeanPropertiesImpl implements BeanProperties {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(BeanPropertiesImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(BeanPropertiesImpl.class);
 
 }

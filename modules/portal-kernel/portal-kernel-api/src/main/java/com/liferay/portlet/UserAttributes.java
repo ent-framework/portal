@@ -16,8 +16,8 @@ package com.liferay.portlet;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.Address;
 import com.liferay.portal.model.Country;
@@ -308,7 +308,7 @@ public class UserAttributes {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 
@@ -745,7 +745,7 @@ public class UserAttributes {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(UserAttributes.class);
+	private static final Logger _log = LoggerFactory.getLogger(UserAttributes.class);
 
 	private Address _businessAddress;
 	private Phone _businessFaxPhone;

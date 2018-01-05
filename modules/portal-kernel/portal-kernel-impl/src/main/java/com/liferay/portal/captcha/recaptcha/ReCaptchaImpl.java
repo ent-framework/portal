@@ -18,8 +18,8 @@ import com.liferay.portal.captcha.simplecaptcha.SimpleCaptchaImpl;
 import com.liferay.portal.kernel.captcha.CaptchaException;
 import com.liferay.portal.kernel.captcha.CaptchaTextException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.HttpUtil;
@@ -86,7 +86,7 @@ public class ReCaptchaImpl extends SimpleCaptchaImpl {
 					PropsValues.CAPTCHA_ENGINE_RECAPTCHA_KEY_PRIVATE));
 		}
 		catch (SystemException se) {
-			_log.error(se, se);
+			_log.error(se.getMessage(), se);
 		}
 
 		options.addPart("remoteip", request.getRemoteAddr());
@@ -103,7 +103,7 @@ public class ReCaptchaImpl extends SimpleCaptchaImpl {
 			content = HttpUtil.URLtoString(options);
 		}
 		catch (IOException ioe) {
-			_log.error(ioe, ioe);
+			_log.error(ioe.getMessage(), ioe);
 
 			throw new CaptchaTextException();
 		}
@@ -140,6 +140,6 @@ public class ReCaptchaImpl extends SimpleCaptchaImpl {
 	private static final String _TAGLIB_PATH =
 		"/html/taglib/ui/captcha/recaptcha.jsp";
 
-	private static Log _log = LogFactoryUtil.getLog(ReCaptchaImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(ReCaptchaImpl.class);
 
 }

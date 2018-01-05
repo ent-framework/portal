@@ -14,8 +14,8 @@
 
 package com.liferay.portal.resiliency.mpi.portlet;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.portlet.ActionResult;
 import com.liferay.portal.kernel.portlet.PortletContainer;
 import com.liferay.portal.kernel.portlet.PortletContainerException;
@@ -93,7 +93,7 @@ public class PortalResiliencyPortletContainerWrapper
 				WebKeys.SPI_AGENT_ACTION_RESULT);
 		}
 		catch (PortalResiliencyException pre) {
-			_log.error(pre, pre);
+			_log.error(pre.getMessage(), pre);
 
 			return ActionResult.EMPTY_ACTION_RESULT;
 		}
@@ -135,7 +135,7 @@ public class PortalResiliencyPortletContainerWrapper
 				WebKeys.SPI_AGENT_EVENT_RESULT);
 		}
 		catch (PortalResiliencyException pre) {
-			_log.error(pre, pre);
+			_log.error(pre.getMessage(), pre);
 
 			return Collections.emptyList();
 		}
@@ -173,7 +173,7 @@ public class PortalResiliencyPortletContainerWrapper
 			spiAgent.service(request, response);
 		}
 		catch (PortalResiliencyException pre) {
-			_log.error(pre, pre);
+			_log.error(pre.getMessage(), pre);
 		}
 		finally {
 			restoreRequestAttibutes(
@@ -207,7 +207,7 @@ public class PortalResiliencyPortletContainerWrapper
 			spiAgent.service(request, response);
 		}
 		catch (PortalResiliencyException pre) {
-			_log.error(pre, pre);
+			_log.error(pre.getMessage(), pre);
 		}
 		finally {
 			restoreRequestAttibutes(
@@ -279,7 +279,7 @@ public class PortalResiliencyPortletContainerWrapper
 	private static final String[] _RESOURCE_REQUEST_ATTRIBUTE_NAMES =
 		_ACTION_REQUEST_ATTRIBUTE_NAMES;
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PortalResiliencyPortletContainerWrapper.class);
 
 	private PortletContainer _portletContainer;

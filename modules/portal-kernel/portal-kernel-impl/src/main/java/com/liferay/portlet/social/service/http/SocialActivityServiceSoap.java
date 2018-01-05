@@ -2,10 +2,10 @@ package com.liferay.portlet.social.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-
 import com.liferay.portlet.social.service.SocialActivityServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -51,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class SocialActivityServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(SocialActivityServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(SocialActivityServiceSoap.class);
 
     /**
     * Returns a range of all the activities done on assets identified by the
@@ -82,7 +82,7 @@ public class SocialActivityServiceSoap {
 
             return com.liferay.portlet.social.model.SocialActivitySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -122,7 +122,7 @@ public class SocialActivityServiceSoap {
 
             return com.liferay.portlet.social.model.SocialActivitySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -162,7 +162,7 @@ public class SocialActivityServiceSoap {
 
             return com.liferay.portlet.social.model.SocialActivitySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -198,7 +198,7 @@ public class SocialActivityServiceSoap {
 
             return com.liferay.portlet.social.model.SocialActivitySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -219,7 +219,7 @@ public class SocialActivityServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -244,7 +244,7 @@ public class SocialActivityServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -269,7 +269,7 @@ public class SocialActivityServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -289,7 +289,7 @@ public class SocialActivityServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -310,7 +310,7 @@ public class SocialActivityServiceSoap {
 
             return com.liferay.portlet.social.model.SocialActivitySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -325,7 +325,7 @@ public class SocialActivityServiceSoap {
 
             return com.liferay.portlet.social.model.SocialActivitySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -363,7 +363,7 @@ public class SocialActivityServiceSoap {
 
             return com.liferay.portlet.social.model.SocialActivitySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -387,7 +387,7 @@ public class SocialActivityServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -427,7 +427,7 @@ public class SocialActivityServiceSoap {
 
             return com.liferay.portlet.social.model.SocialActivitySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -452,7 +452,7 @@ public class SocialActivityServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -473,7 +473,7 @@ public class SocialActivityServiceSoap {
 
             return com.liferay.portlet.social.model.SocialActivitySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -509,7 +509,7 @@ public class SocialActivityServiceSoap {
 
             return com.liferay.portlet.social.model.SocialActivitySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -530,7 +530,7 @@ public class SocialActivityServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -566,7 +566,7 @@ public class SocialActivityServiceSoap {
 
             return com.liferay.portlet.social.model.SocialActivitySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -587,7 +587,7 @@ public class SocialActivityServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -623,7 +623,7 @@ public class SocialActivityServiceSoap {
 
             return com.liferay.portlet.social.model.SocialActivitySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -661,7 +661,7 @@ public class SocialActivityServiceSoap {
 
             return com.liferay.portlet.social.model.SocialActivitySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -682,7 +682,7 @@ public class SocialActivityServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -706,7 +706,7 @@ public class SocialActivityServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -740,7 +740,7 @@ public class SocialActivityServiceSoap {
 
             return com.liferay.portlet.social.model.SocialActivitySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -760,7 +760,7 @@ public class SocialActivityServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -796,7 +796,7 @@ public class SocialActivityServiceSoap {
 
             return com.liferay.portlet.social.model.SocialActivitySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -817,7 +817,7 @@ public class SocialActivityServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -853,7 +853,7 @@ public class SocialActivityServiceSoap {
 
             return com.liferay.portlet.social.model.SocialActivitySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -874,7 +874,7 @@ public class SocialActivityServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -910,7 +910,7 @@ public class SocialActivityServiceSoap {
 
             return com.liferay.portlet.social.model.SocialActivitySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -931,7 +931,7 @@ public class SocialActivityServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

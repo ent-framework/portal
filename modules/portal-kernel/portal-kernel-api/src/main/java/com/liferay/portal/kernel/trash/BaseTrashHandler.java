@@ -18,8 +18,8 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.ClassedModel;
 import com.liferay.portal.model.ContainerModel;
@@ -393,6 +393,6 @@ public abstract class BaseTrashHandler implements TrashHandler {
 			PermissionChecker permissionChecker, long classPK, String actionId)
 		throws PortalException, SystemException;
 
-	private static Log _log = LogFactoryUtil.getLog(BaseTrashHandler.class);
+	private static final Logger _log = LoggerFactory.getLogger(BaseTrashHandler.class);
 
 }

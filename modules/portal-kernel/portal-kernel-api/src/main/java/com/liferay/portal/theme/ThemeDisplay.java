@@ -17,8 +17,8 @@ package com.liferay.portal.theme;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.mobile.device.Device;
 import com.liferay.portal.kernel.staging.StagingUtil;
 import com.liferay.portal.kernel.util.Http;
@@ -103,7 +103,7 @@ public class ThemeDisplay
 				portalURL = PortalUtil.getPortalURL(getLayout(), this);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 
 			host = portalURL;
@@ -1015,7 +1015,7 @@ public class ThemeDisplay
 				portalURL = PortalUtil.getPortalURL(getLayout(), this);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 
 			dynamicResourcesHost = portalURL;
@@ -1188,7 +1188,7 @@ public class ThemeDisplay
 				_scopeGroup = GroupLocalServiceUtil.getGroup(_scopeGroupId);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 	}
@@ -1307,7 +1307,7 @@ public class ThemeDisplay
 				_siteGroup = GroupLocalServiceUtil.getGroup(_siteGroupId);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 	}
@@ -1458,7 +1458,7 @@ public class ThemeDisplay
 		return LanguageUtil.format(getLocale(), pattern, arguments);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ThemeDisplay.class);
+	private static final Logger _log = LoggerFactory.getLogger(ThemeDisplay.class);
 
 	private Account _account;
 	private boolean _addSessionIdToURL;

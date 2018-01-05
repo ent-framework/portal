@@ -2,10 +2,10 @@ package com.liferay.portlet.documentlibrary.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-
 import com.liferay.portlet.documentlibrary.service.DLFileVersionServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -51,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class DLFileVersionServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(DLFileVersionServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(DLFileVersionServiceSoap.class);
 
     public static com.liferay.portlet.documentlibrary.model.DLFileVersionSoap getFileVersion(
         long fileVersionId) throws RemoteException {
@@ -60,7 +60,7 @@ public class DLFileVersionServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileVersionSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -74,7 +74,7 @@ public class DLFileVersionServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileVersionSoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -88,7 +88,7 @@ public class DLFileVersionServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -101,7 +101,7 @@ public class DLFileVersionServiceSoap {
 
             return com.liferay.portlet.documentlibrary.model.DLFileVersionSoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

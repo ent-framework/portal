@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.search;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.DestinationNames;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -940,7 +940,7 @@ public class SearchEngineUtil {
 		_searchPermissionChecker = searchPermissionChecker;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(SearchEngineUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(SearchEngineUtil.class);
 
 	private static String _defaultSearchEngineId;
 	private static Set<String> _excludedEntryClassNames = new HashSet<String>();

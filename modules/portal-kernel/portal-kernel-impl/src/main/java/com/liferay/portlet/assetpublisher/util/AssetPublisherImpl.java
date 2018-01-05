@@ -21,8 +21,8 @@ import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.util.Accessor;
 import com.liferay.portal.kernel.util.ArrayUtil;
@@ -119,7 +119,7 @@ public class AssetPublisherImpl implements AssetPublisher {
 					assetEntryQueryProcessor);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 	}
@@ -1416,7 +1416,7 @@ public class AssetPublisherImpl implements AssetPublisher {
 		}
 		catch (IOException ioe) {
 			if (_log.isWarnEnabled()) {
-				_log.warn(ioe);
+				_log.warn(ioe.getMessage());
 			}
 		}
 
@@ -1449,7 +1449,7 @@ public class AssetPublisherImpl implements AssetPublisher {
 		return recentFolderIds;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(AssetPublisherImpl.class);
+	private static final Logger _log = LoggerFactory.getLogger(AssetPublisherImpl.class);
 
 	private Map<String, AssetEntryQueryProcessor> _assetEntryQueryProcessor =
 		new ConcurrentHashMap<String, AssetEntryQueryProcessor>();

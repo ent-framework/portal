@@ -14,8 +14,8 @@
 
 package com.liferay.portal.webdav;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -130,17 +130,17 @@ public class WebDAVServlet extends HttpServlet {
 				}
 
 				if (logError) {
-					_log.error(wde, wde);
+					_log.error(wde.getMessage(), wde);
 				}
 				else if (_log.isWarnEnabled()) {
-					_log.warn(wde, wde);
+					_log.warn(wde.getMessage(), wde);
 				}
 
 				status = HttpServletResponse.SC_PRECONDITION_FAILED;
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 		finally {
 			response.setStatus(status);
@@ -235,6 +235,6 @@ public class WebDAVServlet extends HttpServlet {
 		return false;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(WebDAVServlet.class);
+	private static final Logger _log = LoggerFactory.getLogger(WebDAVServlet.class);
 
 }

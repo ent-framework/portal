@@ -19,8 +19,8 @@ import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBFactoryUtil;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.upgrade.util.UpgradeTable;
 import com.liferay.portal.kernel.upgrade.util.UpgradeTableFactoryUtil;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -237,6 +237,6 @@ public abstract class UpgradeProcess extends BaseDBProcess {
 		upgradeTable.updateTable();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(UpgradeProcess.class);
+	private static final Logger _log = LoggerFactory.getLogger(UpgradeProcess.class);
 
 }

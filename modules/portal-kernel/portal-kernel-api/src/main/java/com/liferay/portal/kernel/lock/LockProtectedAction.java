@@ -16,8 +16,8 @@ package com.liferay.portal.kernel.lock;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.model.Lock;
 import com.liferay.portal.service.LockLocalServiceUtil;
 
@@ -101,7 +101,7 @@ public class LockProtectedAction<T> {
 		return null;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(LockProtectedAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(LockProtectedAction.class);
 
 	private String _className;
 	private String _lockKey;

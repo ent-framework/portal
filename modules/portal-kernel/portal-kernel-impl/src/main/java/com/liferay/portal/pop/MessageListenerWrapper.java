@@ -14,8 +14,8 @@
 
 package com.liferay.portal.pop;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.pop.MessageListener;
 import com.liferay.portal.kernel.pop.MessageListenerException;
 
@@ -88,7 +88,7 @@ public class MessageListenerWrapper implements MessageListener {
 		return _listener.getId().hashCode();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		MessageListenerWrapper.class);
 
 	private MessageListener _listener;

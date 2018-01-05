@@ -1,13 +1,14 @@
 package com.liferay.portlet.documentlibrary.service.http;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.security.auth.HttpPrincipal;
 import com.liferay.portal.service.http.TunnelUtil;
 
 import com.liferay.portlet.documentlibrary.service.DLFileShortcutServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Provides the HTTP utility for the
@@ -38,7 +39,7 @@ import com.liferay.portlet.documentlibrary.service.DLFileShortcutServiceUtil;
  * @generated
  */
 public class DLFileShortcutServiceHttp {
-    private static Log _log = LogFactoryUtil.getLog(DLFileShortcutServiceHttp.class);
+    private static final Logger _log = LoggerFactory.getLogger(DLFileShortcutServiceHttp.class);
     private static final Class<?>[] _addFileShortcutParameterTypes0 = new Class[] {
             long.class, long.class, long.class,
             com.liferay.portal.service.ServiceContext.class
@@ -85,7 +86,7 @@ public class DLFileShortcutServiceHttp {
 
             return (com.liferay.portlet.documentlibrary.model.DLFileShortcut) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -116,7 +117,7 @@ public class DLFileShortcutServiceHttp {
                 throw new com.liferay.portal.kernel.exception.SystemException(e);
             }
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -151,7 +152,7 @@ public class DLFileShortcutServiceHttp {
 
             return (com.liferay.portlet.documentlibrary.model.DLFileShortcut) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }
@@ -188,7 +189,7 @@ public class DLFileShortcutServiceHttp {
 
             return (com.liferay.portlet.documentlibrary.model.DLFileShortcut) returnObj;
         } catch (com.liferay.portal.kernel.exception.SystemException se) {
-            _log.error(se, se);
+            _log.error(se.getMessage(), se);
 
             throw se;
         }

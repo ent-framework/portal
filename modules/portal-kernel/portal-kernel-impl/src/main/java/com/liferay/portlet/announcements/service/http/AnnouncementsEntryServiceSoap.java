@@ -2,10 +2,10 @@ package com.liferay.portlet.announcements.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-
 import com.liferay.portlet.announcements.service.AnnouncementsEntryServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -51,7 +51,7 @@ import java.rmi.RemoteException;
  */
 @ProviderType
 public class AnnouncementsEntryServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(AnnouncementsEntryServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(AnnouncementsEntryServiceSoap.class);
 
     public static com.liferay.portlet.announcements.model.AnnouncementsEntrySoap addEntry(
         long plid, long classNameId, long classPK, java.lang.String title,
@@ -72,7 +72,7 @@ public class AnnouncementsEntryServiceSoap {
 
             return com.liferay.portlet.announcements.model.AnnouncementsEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -102,7 +102,7 @@ public class AnnouncementsEntryServiceSoap {
 
             return com.liferay.portlet.announcements.model.AnnouncementsEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -112,7 +112,7 @@ public class AnnouncementsEntryServiceSoap {
         try {
             AnnouncementsEntryServiceUtil.deleteEntry(entryId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -126,7 +126,7 @@ public class AnnouncementsEntryServiceSoap {
 
             return com.liferay.portlet.announcements.model.AnnouncementsEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -151,7 +151,7 @@ public class AnnouncementsEntryServiceSoap {
 
             return com.liferay.portlet.announcements.model.AnnouncementsEntrySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

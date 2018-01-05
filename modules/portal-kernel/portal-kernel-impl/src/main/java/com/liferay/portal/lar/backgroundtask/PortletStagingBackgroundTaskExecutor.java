@@ -18,8 +18,8 @@ import com.liferay.portal.kernel.backgroundtask.BackgroundTaskResult;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
 import com.liferay.portal.kernel.lar.MissingReferences;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.model.BackgroundTask;
@@ -61,7 +61,7 @@ public class PortletStagingBackgroundTaskExecutor
 		}
 		catch (Throwable t) {
 			if (_log.isDebugEnabled()) {
-				_log.debug(t, t);
+				_log.debug(t.getMessage(), t);
 			}
 			else if (_log.isWarnEnabled()) {
 				_log.warn("Unable to publish portlet: " + t.getMessage());
@@ -76,7 +76,7 @@ public class PortletStagingBackgroundTaskExecutor
 		return processMissingReferences(backgroundTask, missingReferences);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		PortletStagingBackgroundTaskExecutor.class);
 
 	private class PortletStagingCallable

@@ -15,8 +15,8 @@
 package com.liferay.portal.dao.shard.advice;
 
 import com.liferay.portal.NoSuchCompanyException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.model.Company;
 import com.liferay.portal.model.Shard;
 import com.liferay.portal.service.CompanyLocalServiceUtil;
@@ -115,7 +115,7 @@ public class ShardCompanyAdvice implements MethodInterceptor {
 		_shardAdvice = shardAdvice;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ShardCompanyAdvice.class);
+	private static final Logger _log = LoggerFactory.getLogger(ShardCompanyAdvice.class);
 
 	private ShardAdvice _shardAdvice;
 

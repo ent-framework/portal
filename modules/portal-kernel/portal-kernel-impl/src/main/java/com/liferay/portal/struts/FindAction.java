@@ -15,8 +15,8 @@
 package com.liferay.portal.struts;
 
 import com.liferay.portal.NoSuchLayoutException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
@@ -92,7 +92,7 @@ public abstract class FindAction extends Action {
 				}
 				catch (Exception e) {
 					if (_log.isDebugEnabled()) {
-						_log.debug(e, e);
+						_log.debug(e.getMessage(), e);
 					}
 				}
 			}
@@ -328,7 +328,7 @@ public abstract class FindAction extends Action {
 		request.setAttribute(WebKeys.LAYOUT, layout);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(FindAction.class);
+	private static final Logger _log = LoggerFactory.getLogger(FindAction.class);
 
 	private String[] _portletIds;
 

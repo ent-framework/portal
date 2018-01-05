@@ -15,8 +15,8 @@
 package com.liferay.portlet.journal.util;
 
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
@@ -144,7 +144,7 @@ public class JournalXSLURIResolver implements Externalizable, XSLURIResolver {
 	private static final String _PATH_GET_TEMPLATE =
 		"/c/journal/get_template?template_id=";
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		JournalXSLURIResolver.class);
 
 	private String _languageId;

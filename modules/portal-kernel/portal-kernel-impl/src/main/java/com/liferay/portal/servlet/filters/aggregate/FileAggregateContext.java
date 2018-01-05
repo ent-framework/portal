@@ -14,8 +14,8 @@
 
 package com.liferay.portal.servlet.filters.aggregate;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.StringPool;
 
@@ -50,7 +50,7 @@ public class FileAggregateContext extends BaseAggregateContext {
 			return FileUtil.read(fullPath);
 		}
 		catch (IOException ioe) {
-			_log.error(ioe, ioe);
+			_log.error(ioe.getMessage(), ioe);
 		}
 
 		return null;
@@ -67,6 +67,6 @@ public class FileAggregateContext extends BaseAggregateContext {
 		return fullPath.concat(path);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(FileAggregateContext.class);
+	private static final Logger _log = LoggerFactory.getLogger(FileAggregateContext.class);
 
 }

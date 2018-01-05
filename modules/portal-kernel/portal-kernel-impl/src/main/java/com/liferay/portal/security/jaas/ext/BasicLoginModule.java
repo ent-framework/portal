@@ -14,8 +14,8 @@
 
 package com.liferay.portal.security.jaas.ext;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.jaas.PortalPrincipal;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.Company;
@@ -155,7 +155,7 @@ public class BasicLoginModule implements LoginModule {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 		}
 
 		return null;
@@ -186,7 +186,7 @@ public class BasicLoginModule implements LoginModule {
 		_principal = principal;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(BasicLoginModule.class);
+	private static final Logger _log = LoggerFactory.getLogger(BasicLoginModule.class);
 
 	private CallbackHandler _callbackHandler;
 	private String _password;

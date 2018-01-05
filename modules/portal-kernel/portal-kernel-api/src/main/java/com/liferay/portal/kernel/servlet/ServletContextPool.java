@@ -14,8 +14,8 @@
 
 package com.liferay.portal.kernel.servlet;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.util.PortalUtil;
 
 import java.util.Map;
@@ -118,7 +118,7 @@ public class ServletContextPool {
 		return servletContext;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ServletContextPool.class);
+	private static final Logger _log = LoggerFactory.getLogger(ServletContextPool.class);
 
 	private static ServletContextPool _instance = new ServletContextPool();
 

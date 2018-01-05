@@ -2,11 +2,12 @@ package com.liferay.portlet.asset.service.http;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.LocalizationUtil;
 
 import com.liferay.portlet.asset.service.AssetVocabularyServiceUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
 
@@ -55,7 +56,7 @@ import java.util.Map;
  */
 @ProviderType
 public class AssetVocabularyServiceSoap {
-    private static Log _log = LogFactoryUtil.getLog(AssetVocabularyServiceSoap.class);
+    private static final Logger _log = LoggerFactory.getLogger(AssetVocabularyServiceSoap.class);
 
     /**
     * @deprecated As of 6.1.0 {@link #addVocabulary(String, Map, Map, String,
@@ -79,7 +80,7 @@ public class AssetVocabularyServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -103,7 +104,7 @@ public class AssetVocabularyServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -119,7 +120,7 @@ public class AssetVocabularyServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -134,7 +135,7 @@ public class AssetVocabularyServiceSoap {
         try {
             AssetVocabularyServiceUtil.deleteVocabularies(vocabularyIds);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -151,7 +152,7 @@ public class AssetVocabularyServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -162,7 +163,7 @@ public class AssetVocabularyServiceSoap {
         try {
             AssetVocabularyServiceUtil.deleteVocabulary(vocabularyId);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -176,7 +177,7 @@ public class AssetVocabularyServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -190,7 +191,7 @@ public class AssetVocabularyServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -205,7 +206,7 @@ public class AssetVocabularyServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -219,7 +220,7 @@ public class AssetVocabularyServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -235,7 +236,7 @@ public class AssetVocabularyServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -252,7 +253,7 @@ public class AssetVocabularyServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -269,7 +270,7 @@ public class AssetVocabularyServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -282,7 +283,7 @@ public class AssetVocabularyServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -296,7 +297,7 @@ public class AssetVocabularyServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -313,7 +314,7 @@ public class AssetVocabularyServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -329,7 +330,7 @@ public class AssetVocabularyServiceSoap {
 
             return returnValue;
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -348,7 +349,7 @@ public class AssetVocabularyServiceSoap {
 
             return returnValue.toString();
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -362,7 +363,7 @@ public class AssetVocabularyServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModels(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -375,7 +376,7 @@ public class AssetVocabularyServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -403,7 +404,7 @@ public class AssetVocabularyServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }
@@ -428,7 +429,7 @@ public class AssetVocabularyServiceSoap {
 
             return com.liferay.portlet.asset.model.AssetVocabularySoap.toSoapModel(returnValue);
         } catch (Exception e) {
-            _log.error(e, e);
+            _log.error(e.getMessage(), e);
 
             throw new RemoteException(e.getMessage());
         }

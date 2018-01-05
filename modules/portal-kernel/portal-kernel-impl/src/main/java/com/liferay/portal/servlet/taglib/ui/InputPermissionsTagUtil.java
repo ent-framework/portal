@@ -14,8 +14,8 @@
 
 package com.liferay.portal.servlet.taglib.ui;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.PortalIncludeUtil;
 import com.liferay.portal.security.permission.ResourceActionsUtil;
 
@@ -76,13 +76,13 @@ public class InputPermissionsTagUtil {
 			PortalIncludeUtil.include(pageContext, page);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(e.getMessage(), e);
 
 			throw new JspException(e);
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		InputPermissionsTagUtil.class);
 
 }

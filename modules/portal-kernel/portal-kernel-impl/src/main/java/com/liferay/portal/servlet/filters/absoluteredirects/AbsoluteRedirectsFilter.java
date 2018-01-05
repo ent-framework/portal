@@ -14,8 +14,8 @@
 
 package com.liferay.portal.servlet.filters.absoluteredirects;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.servlet.TryFilter;
 import com.liferay.portal.kernel.servlet.WrapHttpServletResponseFilter;
 import com.liferay.portal.kernel.util.StringPool;
@@ -103,7 +103,7 @@ public class AbsoluteRedirectsFilter
 
 	private static final boolean _FILTER_ENABLED = true;
 
-	private static Log _log = LogFactoryUtil.getLog(
+	private static final Logger _log = LoggerFactory.getLogger(
 		AbsoluteRedirectsFilter.class);
 
 }

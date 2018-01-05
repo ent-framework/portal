@@ -10,6 +10,8 @@ import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.model.User;
+import com.liferay.portal.service.ClassNameLocalServiceUtil;
+import com.liferay.portal.service.UserLocalServiceUtil;
 import com.liferay.portal.spring.context.ArrayApplicationContext;
 import com.liferay.portal.util.ClassLoaderUtil;
 import com.liferay.portal.util.InitUtil;
@@ -56,9 +58,9 @@ public class PortalApplicationContextInitializer implements ApplicationContextIn
         PortalBeanLocatorUtil.locate(FilterScopeLocalService.class.getName());
 
         try {
-//            UserLocalServiceUtil.getUsersCount();
-//
-//            ClassNameLocalServiceUtil.checkClassNames();
+            UserLocalServiceUtil.getUsersCount();
+
+            ClassNameLocalServiceUtil.checkClassNames();
 
             CounterLocalServiceUtil.increment(User.class.getName());
 
