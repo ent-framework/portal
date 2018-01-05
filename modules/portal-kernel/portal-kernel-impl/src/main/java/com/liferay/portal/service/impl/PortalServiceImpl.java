@@ -44,12 +44,6 @@ import com.liferay.portal.util.PropsValues;
 @JSONWebService(mode = JSONWebServiceMode.MANUAL)
 public class PortalServiceImpl extends PortalServiceBaseImpl {
 
-	@Override
-	public String getAutoDeployDirectory() throws SystemException {
-		return PrefsPropsUtil.getString(
-			PropsKeys.AUTO_DEPLOY_DEPLOY_DIR,
-			PropsValues.AUTO_DEPLOY_DEPLOY_DIR);
-	}
 
 	@JSONWebService
 	@Override

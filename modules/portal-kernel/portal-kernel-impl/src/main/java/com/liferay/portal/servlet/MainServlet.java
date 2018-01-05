@@ -20,7 +20,6 @@ import com.liferay.portal.events.EventsProcessorUtil;
 import com.liferay.portal.events.StartupAction;
 import com.liferay.portal.kernel.cache.Lifecycle;
 import com.liferay.portal.kernel.cache.ThreadLocalCacheManager;
-import com.liferay.portal.kernel.deploy.hot.HotDeployUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
@@ -818,9 +817,6 @@ public class MainServlet extends ActionServlet {
 			servletContext);
 	}
 
-	/**
-	 * @see SetupWizardUtil#_initPlugins
-	 */
 	protected void initPlugins() throws Exception {
 
 		// See LEP-2885. Don't flush hot deploy events until after the portal

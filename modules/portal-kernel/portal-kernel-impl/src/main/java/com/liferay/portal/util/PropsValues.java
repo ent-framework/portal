@@ -186,44 +186,6 @@ public class PropsValues {
 
 	public static final String[] AUTH_VERIFIER_PIPELINE = PropsUtil.getArray(PropsKeys.AUTH_VERIFIER_PIPELINE);
 
-	public static final boolean AUTO_DEPLOY_COPY_COMMONS_LOGGING = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.AUTO_DEPLOY_COPY_COMMONS_LOGGING));
-
-	public static final boolean AUTO_DEPLOY_COPY_LOG4J = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.AUTO_DEPLOY_COPY_LOG4J));
-
-	public static final boolean AUTO_DEPLOY_CUSTOM_PORTLET_XML = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.AUTO_DEPLOY_CUSTOM_PORTLET_XML));
-
-	public static final String AUTO_DEPLOY_DEFAULT_DEST_DIR = PropsUtil.get(PropsKeys.AUTO_DEPLOY_DEFAULT_DEST_DIR);
-
-	public static final String AUTO_DEPLOY_DEPLOY_DIR = PropsUtil.get(PropsKeys.AUTO_DEPLOY_DEPLOY_DIR);
-
-	public static final String AUTO_DEPLOY_DEST_DIR = PropsUtil.get(PropsKeys.AUTO_DEPLOY_DEST_DIR);
-
-	public static final boolean AUTO_DEPLOY_ENABLED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.AUTO_DEPLOY_ENABLED));
-
-	public static final int AUTO_DEPLOY_INTERVAL = GetterUtil.getInteger(PropsUtil.get(PropsKeys.AUTO_DEPLOY_INTERVAL));
-
-	public static final String AUTO_DEPLOY_JBOSS_PREFIX = PropsUtil.get(PropsKeys.AUTO_DEPLOY_JBOSS_PREFIX);
-
-	public static final String AUTO_DEPLOY_TOMCAT_CONF_DIR = PropsUtil.get(PropsKeys.AUTO_DEPLOY_TOMCAT_CONF_DIR);
-
-	public static final String AUTO_DEPLOY_TOMCAT_DEST_DIR = PropsUtil.get(PropsKeys.AUTO_DEPLOY_TOMCAT_DEST_DIR);
-
-	public static final String AUTO_DEPLOY_TOMCAT_LIB_DIR = PropsUtil.get(PropsKeys.AUTO_DEPLOY_TOMCAT_LIB_DIR);
-
-	public static final boolean AUTO_DEPLOY_UNPACK_WAR = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.AUTO_DEPLOY_UNPACK_WAR));
-
-	public static final String AUTO_DEPLOY_WEBSPHERE_WSADMIN_APP_MANAGER_INSTALL_OPTIONS = PropsUtil.get(PropsKeys.AUTO_DEPLOY_WEBSPHERE_WSADMIN_APP_MANAGER_INSTALL_OPTIONS);
-
-	public static final String AUTO_DEPLOY_WEBSPHERE_WSADMIN_APP_MANAGER_LIST_OPTIONS = PropsUtil.get(PropsKeys.AUTO_DEPLOY_WEBSPHERE_WSADMIN_APP_MANAGER_LIST_OPTIONS);
-
-	public static final String AUTO_DEPLOY_WEBSPHERE_WSADMIN_APP_MANAGER_QUERY = PropsUtil.get(PropsKeys.AUTO_DEPLOY_WEBSPHERE_WSADMIN_APP_MANAGER_QUERY);
-
-	public static final String AUTO_DEPLOY_WEBSPHERE_WSADMIN_APP_MANAGER_UPDATE_OPTIONS = PropsUtil.get(PropsKeys.AUTO_DEPLOY_WEBSPHERE_WSADMIN_APP_MANAGER_UPDATE_OPTIONS);
-
-	public static final String AUTO_DEPLOY_WEBSPHERE_WSADMIN_APP_NAME_SUFFIX = PropsUtil.get(PropsKeys.AUTO_DEPLOY_WEBSPHERE_WSADMIN_APP_NAME_SUFFIX);
-
-	public static final String AUTO_DEPLOY_WEBSPHERE_WSADMIN_PROPERTIES_FILE = PropsUtil.get(PropsKeys.AUTO_DEPLOY_WEBSPHERE_WSADMIN_PROPERTIES_FILE);
-
 	public static final String[] AUTO_LOGIN_HOOKS = PropsUtil.getArray(PropsKeys.AUTO_LOGIN_HOOKS);
 
 	public static final boolean BASIC_AUTH_PASSWORD_REQUIRED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.BASIC_AUTH_PASSWORD_REQUIRED));
@@ -761,14 +723,6 @@ public class PropsValues {
 	public static final boolean HIBERNATE_GENERATE_STATISTICS = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.HIBERNATE_GENERATE_STATISTICS));
 
 	public static final int HIBERNATE_JDBC_BATCH_SIZE = GetterUtil.getInteger(PropsUtil.get(PropsKeys.HIBERNATE_JDBC_BATCH_SIZE));
-
-	public static final boolean HOT_DEPLOY_HOOK_CUSTOM_JSP_VERIFICATION_ENABLED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.HOT_DEPLOY_HOOK_CUSTOM_JSP_VERIFICATION_ENABLED));
-
-	public static final boolean HOT_UNDEPLOY_ENABLED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.HOT_UNDEPLOY_ENABLED));
-
-	public static final int HOT_UNDEPLOY_INTERVAL = GetterUtil.getInteger(PropsUtil.get(PropsKeys.HOT_UNDEPLOY_INTERVAL));
-
-	public static final boolean HOT_UNDEPLOY_ON_REDEPLOY = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.HOT_UNDEPLOY_ON_REDEPLOY));
 
 	public static final String HTTP_HEADER_VERSION_VERBOSITY = PropsUtil.get(PropsKeys.HTTP_HEADER_VERSION_VERBOSITY);
 
@@ -1630,12 +1584,6 @@ public class PropsValues {
 
 	public static String[] RTL_CSS_EXCLUDED_PATHS_REGEXP = PropsUtil.getArray(PropsKeys.RTL_CSS_EXCLUDED_PATHS_REGEXP);
 
-	public static final String SANDBOX_DEPLOY_DIR = PropsUtil.get(PropsKeys.SANDBOX_DEPLOY_DIR);
-
-	public static final boolean SANDBOX_DEPLOY_ENABLED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.SANDBOX_DEPLOY_ENABLED));
-
-	public static final long SANDBOX_DEPLOY_INTERVAL = GetterUtil.getLong(PropsUtil.get(PropsKeys.SANDBOX_DEPLOY_INTERVAL));
-
 	public static String[] SANITIZER_IMPL = PropsUtil.getArray(PropsKeys.SANITIZER_IMPL);
 
 	public static final boolean SC_PRODUCT_COMMENTS_ENABLED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.SC_PRODUCT_COMMENTS_ENABLED));
@@ -1882,8 +1830,6 @@ public class PropsValues {
 
 	public static final boolean TUNNELING_SERVLET_SHARED_SECRET_HEX = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.TUNNELING_SERVLET_SHARED_SECRET_HEX));
 
-	public static final boolean UPGRADE_DATABASE_TRANSACTIONS_DISABLED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.UPGRADE_DATABASE_TRANSACTIONS_DISABLED));
-
 	public static boolean USER_GROUPS_COPY_LAYOUTS_TO_USER_PERSONAL_SITE = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.USER_GROUPS_COPY_LAYOUTS_TO_USER_PERSONAL_SITE));
 
 	public static final boolean USER_GROUPS_INDEXER_ENABLED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.USER_GROUPS_INDEXER_ENABLED));
@@ -1985,8 +1931,6 @@ public class PropsValues {
 	public static final String[] VELOCITY_ENGINE_RESTRICTED_PACKAGES = PropsUtil.getArray(PropsKeys.VELOCITY_ENGINE_RESTRICTED_PACKAGES);
 
 	public static final String[] VELOCITY_ENGINE_RESTRICTED_VARIABLES = PropsUtil.getArray(PropsKeys.VELOCITY_ENGINE_RESTRICTED_VARIABLES);
-
-	public static final boolean VERIFY_DATABASE_TRANSACTIONS_DISABLED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.VERIFY_DATABASE_TRANSACTIONS_DISABLED));
 
 	public static final boolean VERIFY_PATCH_LEVELS_DISABLED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.VERIFY_PATCH_LEVELS_DISABLED));
 

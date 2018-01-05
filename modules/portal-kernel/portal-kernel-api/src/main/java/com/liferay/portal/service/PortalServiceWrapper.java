@@ -41,12 +41,6 @@ public class PortalServiceWrapper implements PortalService,
     }
 
     @Override
-    public java.lang.String getAutoDeployDirectory()
-        throws com.liferay.portal.kernel.exception.SystemException {
-        return _portalService.getAutoDeployDirectory();
-    }
-
-    @Override
     public int getBuildNumber() {
         return _portalService.getBuildNumber();
     }

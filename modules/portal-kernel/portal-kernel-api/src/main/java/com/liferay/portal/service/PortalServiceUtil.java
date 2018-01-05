@@ -47,11 +47,6 @@ public class PortalServiceUtil {
         getService().setBeanIdentifier(beanIdentifier);
     }
 
-    public static java.lang.String getAutoDeployDirectory()
-        throws com.liferay.portal.kernel.exception.SystemException {
-        return getService().getAutoDeployDirectory();
-    }
-
     public static int getBuildNumber() {
         return getService().getBuildNumber();
     }

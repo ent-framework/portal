@@ -209,46 +209,6 @@ public interface PropsKeys {
 
 	public static final String AUTH_VERIFIER_PIPELINE = "auth.verifier.pipeline";
 
-	public static final String AUTO_DEPLOY_COPY_COMMONS_LOGGING = "auto.deploy.copy.commons.logging";
-
-	public static final String AUTO_DEPLOY_COPY_LOG4J = "auto.deploy.copy.log4j";
-
-	public static final String AUTO_DEPLOY_CUSTOM_PORTLET_XML = "auto.deploy.custom.portlet.xml";
-
-	public static final String AUTO_DEPLOY_DEFAULT_DEST_DIR = "auto.deploy.default.dest.dir";
-
-	public static final String AUTO_DEPLOY_DEPLOY_DIR = "auto.deploy.deploy.dir";
-
-	public static final String AUTO_DEPLOY_DEST_DIR = "auto.deploy.dest.dir";
-
-	public static final String AUTO_DEPLOY_ENABLED = "auto.deploy.enabled";
-
-	public static final String AUTO_DEPLOY_INTERVAL = "auto.deploy.interval";
-
-	public static final String AUTO_DEPLOY_JBOSS_PREFIX = "auto.deploy.jboss.prefix";
-
-	public static final String AUTO_DEPLOY_LISTENERS = "auto.deploy.listeners";
-
-	public static final String AUTO_DEPLOY_TOMCAT_CONF_DIR = "auto.deploy.tomcat.conf.dir";
-
-	public static final String AUTO_DEPLOY_TOMCAT_DEST_DIR = "auto.deploy.tomcat.dest.dir";
-
-	public static final String AUTO_DEPLOY_TOMCAT_LIB_DIR = "auto.deploy.tomcat.lib.dir";
-
-	public static final String AUTO_DEPLOY_UNPACK_WAR = "auto.deploy.unpack.war";
-
-	public static final String AUTO_DEPLOY_WEBSPHERE_WSADMIN_APP_MANAGER_INSTALL_OPTIONS = "auto.deploy.websphere.wsadmin.app.manager.install.options";
-
-	public static final String AUTO_DEPLOY_WEBSPHERE_WSADMIN_APP_MANAGER_LIST_OPTIONS = "auto.deploy.websphere.wsadmin.app.manager.list.options";
-
-	public static final String AUTO_DEPLOY_WEBSPHERE_WSADMIN_APP_MANAGER_QUERY = "auto.deploy.websphere.wsadmin.app.manager.query";
-
-	public static final String AUTO_DEPLOY_WEBSPHERE_WSADMIN_APP_MANAGER_UPDATE_OPTIONS = "auto.deploy.websphere.wsadmin.app.manager.update.options";
-
-	public static final String AUTO_DEPLOY_WEBSPHERE_WSADMIN_APP_NAME_SUFFIX = "auto.deploy.websphere.wsadmin.app.name.suffix";
-
-	public static final String AUTO_DEPLOY_WEBSPHERE_WSADMIN_PROPERTIES_FILE = "auto.deploy.websphere.wsadmin.properties.file.name";
-
 	public static final String AUTO_LOGIN_HOOKS = "auto.login.hooks";
 
 	public static final String AUTO_LOGIN_IGNORE_HOSTS = "auto.login.ignore.hosts";
@@ -900,18 +860,6 @@ public interface PropsKeys {
 	public static final String HIBERNATE_GENERATE_STATISTICS = "hibernate.generate_statistics";
 
 	public static final String HIBERNATE_JDBC_BATCH_SIZE = "hibernate.jdbc.batch_size";
-
-	public static final String HOT_DEPLOY_DEPENDENCY_MANAGEMENT_ENABLED = "hot.deploy.dependency.management.enabled";
-
-	public static final String HOT_DEPLOY_HOOK_CUSTOM_JSP_VERIFICATION_ENABLED = "hot.deploy.hook.custom.jsp.verification.enabled";
-
-	public static final String HOT_DEPLOY_LISTENERS = "hot.deploy.listeners";
-
-	public static final String HOT_UNDEPLOY_ENABLED = "hot.undeploy.enabled";
-
-	public static final String HOT_UNDEPLOY_INTERVAL = "hot.undeploy.interval";
-
-	public static final String HOT_UNDEPLOY_ON_REDEPLOY = "hot.undeploy.on.redeploy";
 
 	public static final String HTTP_HEADER_SECURE_X_CONTENT_TYPE_OPTIONS = "http.header.secure.x.content.type.options";
 
@@ -2109,14 +2057,6 @@ public interface PropsKeys {
 
 	public static final String RTL_CSS_EXCLUDED_PATHS_REGEXP = "rtl.css.excluded.paths.regexp";
 
-	public static final String SANDBOX_DEPLOY_DIR = "sandbox.deploy.dir";
-
-	public static final String SANDBOX_DEPLOY_ENABLED = "sandbox.deploy.enabled";
-
-	public static final String SANDBOX_DEPLOY_INTERVAL = "sandbox.deploy.interval";
-
-	public static final String SANDBOX_DEPLOY_LISTENERS = "sandbox.deploy.listeners";
-
 	public static final String SANITIZER_IMPL = "sanitizer.impl";
 
 	public static final String SC_IMAGE_MAX_SIZE = "sc.image.max.size";
@@ -2475,8 +2415,6 @@ public interface PropsKeys {
 
 	public static final String TUNNELING_SERVLET_SHARED_SECRET_HEX = "tunneling.servlet.shared.secret.hex";
 
-	public static final String UPGRADE_DATABASE_TRANSACTIONS_DISABLED = "upgrade.database.transactions.disabled";
-
 	public static final String UPGRADE_PROCESSES = "upgrade.processes";
 
 	public static final String UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE = "com.liferay.portal.upload.UploadServletRequestImpl.max.size";
@@ -2596,8 +2534,6 @@ public interface PropsKeys {
 	public static final String VELOCITY_ENGINE_RESTRICTED_VARIABLES = "velocity.engine.restricted.variables";
 
 	public static final String VELOCITY_ENGINE_VELOCIMACRO_LIBRARY = "velocity.engine.velocimacro.library";
-
-	public static final String VERIFY_DATABASE_TRANSACTIONS_DISABLED = "verify.database.transactions.disabled";
 
 	public static final String VERIFY_FREQUENCY = "verify.frequency";
 

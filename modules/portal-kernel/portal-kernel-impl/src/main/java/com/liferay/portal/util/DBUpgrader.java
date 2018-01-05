@@ -135,10 +135,6 @@ public class DBUpgrader {
         _checkPermissionAlgorithm();
         _checkReleaseState(_getReleaseState());
 
-        if (PropsValues.UPGRADE_DATABASE_TRANSACTIONS_DISABLED) {
-            _disableTransactions();
-        }
-
         try {
             StartupHelperUtil.upgradeProcess(buildNumber);
         }
@@ -146,11 +142,6 @@ public class DBUpgrader {
             _updateReleaseState(ReleaseConstants.STATE_UPGRADE_FAILURE);
 
             throw e;
-        }
-        finally {
-            if (PropsValues.UPGRADE_DATABASE_TRANSACTIONS_DISABLED) {
-                _enableTransactions();
-            }
         }
 
         // Update company key
@@ -224,12 +215,6 @@ public class DBUpgrader {
             StartupHelperUtil.updateIndexes();
         }
 
-        // Verify
-
-        if (PropsValues.VERIFY_DATABASE_TRANSACTIONS_DISABLED) {
-            _disableTransactions();
-        }
-
         boolean newBuildNumber = false;
 
         if (ReleaseInfo.getBuildNumber() > release.getBuildNumber()) {
@@ -249,11 +234,6 @@ public class DBUpgrader {
             }
 
             throw e;
-        }
-        finally {
-            if (PropsValues.VERIFY_DATABASE_TRANSACTIONS_DISABLED) {
-                _enableTransactions();
-            }
         }
 
         // Update indexes
@@ -324,57 +304,6 @@ public class DBUpgrader {
 
         db.runSQL(_DELETE_TEMP_IMAGES_1);
         db.runSQL(_DELETE_TEMP_IMAGES_2);
-    }
-
-    private static void _disableTransactions() throws Exception {
-        if (_log.isDebugEnabled()) {
-            _log.debug("Disable transactions");
-        }
-
-        PropsValues.SPRING_HIBERNATE_SESSION_DELEGATED = false;
-
-        Field field = ReflectionUtil.getDeclaredField(
-                ServiceBeanAopCacheManager.class, "_annotations");
-
-        field.set(
-                null,
-                new HashMap<MethodInvocation, Annotation[]>() {
-
-                    @Override
-                    public Annotation[] get(Object key) {
-                        return _annotations;
-                    }
-
-                    private Annotation[] _annotations = new Annotation[] {
-                            new Skip() {
-
-                                @Override
-                                public Class<? extends Annotation> annotationType() {
-                                    return Skip.class;
-                                }
-
-                            }
-                    };
-
-                }
-        );
-    }
-
-    private static void _enableTransactions() throws Exception {
-        if (_log.isDebugEnabled()) {
-            _log.debug("Enable transactions");
-        }
-
-        PropsValues.SPRING_HIBERNATE_SESSION_DELEGATED = GetterUtil.getBoolean(
-                PropsUtil.get(PropsKeys.SPRING_HIBERNATE_SESSION_DELEGATED));
-
-        Field field = ReflectionUtil.getDeclaredField(
-                ServiceBeanAopCacheManager.class, "_annotations");
-
-        field.set(
-                null, new ConcurrentHashMap<MethodInvocation, Annotation[]>());
-
-        ServiceBeanAopCacheManagerUtil.reset();
     }
 
     private static int _getReleaseState() throws Exception {

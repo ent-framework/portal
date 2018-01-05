@@ -4269,15 +4269,16 @@ public class PortalImpl implements Portal {
 
 	@Override
 	public String getPortletXmlFileName() throws SystemException {
-		if (PrefsPropsUtil.getBoolean(
-				PropsKeys.AUTO_DEPLOY_CUSTOM_PORTLET_XML,
-				PropsValues.AUTO_DEPLOY_CUSTOM_PORTLET_XML)) {
-
-			return PORTLET_XML_FILE_NAME_CUSTOM;
-		}
-		else {
-			return PORTLET_XML_FILE_NAME_STANDARD;
-		}
+//		if (PrefsPropsUtil.getBoolean(
+//				PropsKeys.AUTO_DEPLOY_CUSTOM_PORTLET_XML,
+//				PropsValues.AUTO_DEPLOY_CUSTOM_PORTLET_XML)) {
+//
+//			return PORTLET_XML_FILE_NAME_CUSTOM;
+//		}
+//		else {
+//
+//		}
+		return PORTLET_XML_FILE_NAME_STANDARD;
 	}
 
 	@Override

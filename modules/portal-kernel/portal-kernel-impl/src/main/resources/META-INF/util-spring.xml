@@ -137,10 +137,6 @@
 			<bean class="com.liferay.portal.dao.orm.common.PortalCustomSQLImpl" />
 		</property>
 	</bean>
-	<bean id="com.liferay.portal.kernel.deploy.DeployManagerUtil" class="com.liferay.portal.kernel.deploy.DeployManagerUtil">
-	</bean>
-	<bean id="com.liferay.portal.kernel.deploy.hot.HotDeployUtil" class="com.liferay.portal.kernel.deploy.hot.HotDeployUtil">
-	</bean>
 	<bean id="com.liferay.portal.kernel.facebook.FacebookConnectUtil" class="com.liferay.portal.kernel.facebook.FacebookConnectUtil">
 		<property name="facebookConnect">
 			<bean class="com.liferay.portal.facebook.FacebookConnectImpl" />

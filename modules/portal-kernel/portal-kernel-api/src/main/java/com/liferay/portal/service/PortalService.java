@@ -49,10 +49,6 @@ public interface PortalService extends BaseService {
     */
     public void setBeanIdentifier(java.lang.String beanIdentifier);
 
-    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public java.lang.String getAutoDeployDirectory()
-        throws com.liferay.portal.kernel.exception.SystemException;
-
     @com.liferay.portal.kernel.jsonwebservice.JSONWebService
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public int getBuildNumber();

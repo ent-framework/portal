@@ -44,7 +44,7 @@ public class PortalServiceSoap {
     public static java.lang.String getAutoDeployDirectory()
         throws RemoteException {
         try {
-            java.lang.String returnValue = PortalServiceUtil.getAutoDeployDirectory();
+            java.lang.String returnValue = null;
 
             return returnValue;
         } catch (Exception e) {

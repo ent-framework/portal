@@ -203,7 +203,7 @@ public abstract class RemoteSPI implements ProcessCallable<SPI>, Remote, SPI {
 
 		// Disable auto deploy
 
-		System.setProperty("portal:" + PropsKeys.AUTO_DEPLOY_ENABLED, "false");
+//		System.setProperty("portal:" + PropsKeys.AUTO_DEPLOY_ENABLED, "false");
 
 		// Disable cluster link
 
@@ -211,9 +211,9 @@ public abstract class RemoteSPI implements ProcessCallable<SPI>, Remote, SPI {
 
 		// Disable dependency management
 
-		System.setProperty(
-			"portal:" + PropsKeys.HOT_DEPLOY_DEPENDENCY_MANAGEMENT_ENABLED,
-			"false");
+//		System.setProperty(
+//			"portal:" + PropsKeys.HOT_DEPLOY_DEPENDENCY_MANAGEMENT_ENABLED,
+//			"false");
 
 		// Log4j log file postfix
 

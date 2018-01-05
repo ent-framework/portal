@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -15,14 +15,10 @@
 package com.liferay.portal.events;
 
 //import com.liferay.portal.jcr.JCRFactoryUtil;
+
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBFactoryUtil;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
-import com.liferay.portal.kernel.deploy.auto.AutoDeployDir;
-import com.liferay.portal.kernel.deploy.auto.AutoDeployUtil;
-import com.liferay.portal.kernel.deploy.hot.HotDeployUtil;
-import com.liferay.portal.kernel.deploy.sandbox.SandboxDeployDir;
-import com.liferay.portal.kernel.deploy.sandbox.SandboxDeployUtil;
 import com.liferay.portal.kernel.events.SimpleAction;
 import com.liferay.portal.kernel.executor.PortalExecutorManagerUtil;
 import com.liferay.portal.kernel.javadoc.JavadocManagerUtil;
@@ -50,226 +46,142 @@ import java.sql.Statement;
  */
 public class GlobalShutdownAction extends SimpleAction {
 
-	@Override
-	public void run(String[] ids) {
+    @Override
+    public void run(String[] ids) {
 
-		// Portal Resiliency
+        // Portal Resiliency
 
-		MPIHelperUtil.shutdown();
+        MPIHelperUtil.shutdown();
 
-		// Auto deploy
+        // Javadoc
+        JavadocManagerUtil.unload(StringPool.BLANK);
 
-		AutoDeployUtil.unregisterDir(AutoDeployDir.DEFAULT_NAME);
+        // Lucene
+        LuceneHelperUtil.shutdown();
 
-		// Hot deploy
+        // OpenOffice
+        DocumentConversionUtil.disconnect();
 
-		//HotDeployUtil.unregisterListeners();
+        // Thread local registry
 
-		// Sandbox deploy
+        ThirdPartyThreadLocalRegistry.resetThreadLocals();
+        CentralizedThreadLocal.clearShortLivedThreadLocals();
 
-		SandboxDeployUtil.unregisterDir(SandboxDeployDir.DEFAULT_NAME);
+        // Hypersonic
 
-		// Instant messenger AIM
+        DB db = DBFactoryUtil.getDB();
 
-//		try {
-//			if (_log.isDebugEnabled()) {
-//				_log.debug("Shutting down AIM");
-//			}
-//
-//			AIMConnector.disconnect();
-//		}
-//		catch (Exception e) {
-//		}
+        String dbType = db.getType();
 
-		// Instant messenger ICQ
+        if (dbType.equals(DB.TYPE_HYPERSONIC)) {
+            Connection connection = null;
+            Statement statement = null;
 
-//		try {
-//			if (_log.isDebugEnabled()) {
-//				_log.debug("Shutting down ICQ");
-//			}
-//
-//			ICQConnector.disconnect();
-//		}
-//		catch (Exception e) {
-//		}
+            try {
+                connection = DataAccess.getConnection();
 
-		// Instant messenger MSN
+                statement = connection.createStatement();
 
-//		try {
-//			if (_log.isDebugEnabled()) {
-//				_log.debug("Shutting down MSN");
-//			}
-//
-//			MSNConnector.disconnect();
-//		}
-//		catch (Exception e) {
-//		}
+                statement.executeUpdate("SHUTDOWN");
+            } catch (Exception e) {
+                _log.error(e, e);
+            } finally {
+                DataAccess.cleanUp(connection, statement);
+            }
+        }
 
-		// Instant messenger YM
+        // Reset log to default JDK 1.4 logger. This will allow WARs dependent
+        // on the portal to still log events after the portal WAR has been
+        // destroyed.
 
-//		try {
-//			if (_log.isDebugEnabled()) {
-//				_log.debug("Shutting down YM");
-//			}
-//
-//			YMConnector.disconnect();
-//		}
-//		catch (Exception e) {
-//		}
+        try {
+            LogFactoryUtil.setLogFactory(new Jdk14LogFactoryImpl());
+        } catch (Exception e) {
+        }
 
-		// Javadoc
+        // Scheduler engine
 
-		JavadocManagerUtil.unload(StringPool.BLANK);
+        try {
+            SchedulerEngineHelperUtil.shutdown();
+        } catch (Exception e) {
+        }
 
-		// JCR
+        // Wait 1 second so Quartz threads can cleanly shutdown
 
-//		try {
-//			if (_log.isDebugEnabled()) {
-//				_log.debug("Shutting down JCR");
-//			}
-//
-//			JCRFactoryUtil.shutdown();
-//		}
-//		catch (Exception e) {
-//		}
+        try {
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Lucene
+        // Template manager
 
-		LuceneHelperUtil.shutdown();
+        try {
+            TemplateManagerUtil.destroy();
+        } catch (Exception e) {
+        }
 
-		// OpenOffice
+        // Template resource loader
 
-		DocumentConversionUtil.disconnect();
+        try {
+            TemplateResourceLoaderUtil.destroy();
+        } catch (Exception e) {
+        }
 
-		// Thread local registry
+        // Portal executors
 
-		ThirdPartyThreadLocalRegistry.resetThreadLocals();
-		CentralizedThreadLocal.clearShortLivedThreadLocals();
+        PortalExecutorManagerUtil.shutdown(true);
 
-		// Hypersonic
+        // Programmatically exit
 
-		DB db = DBFactoryUtil.getDB();
+        if (GetterUtil.getBoolean(
+                PropsUtil.get(PropsKeys.SHUTDOWN_PROGRAMMATICALLY_EXIT))) {
 
-		String dbType = db.getType();
+            Thread currentThread = Thread.currentThread();
 
-		if (dbType.equals(DB.TYPE_HYPERSONIC)) {
-			Connection connection = null;
-			Statement statement = null;
+            ThreadGroup threadGroup = getThreadGroup();
 
-			try {
-				connection = DataAccess.getConnection();
+            Thread[] threads = getThreads(threadGroup);
 
-				statement = connection.createStatement();
+            for (Thread thread : threads) {
+                if ((thread == null) || (thread == currentThread)) {
+                    continue;
+                }
 
-				statement.executeUpdate("SHUTDOWN");
-			}
-			catch (Exception e) {
-				_log.error(e, e);
-			}
-			finally {
-				DataAccess.cleanUp(connection, statement);
-			}
-		}
+                try {
+                    thread.interrupt();
+                } catch (Exception e) {
+                }
+            }
 
-		// Reset log to default JDK 1.4 logger. This will allow WARs dependent
-		// on the portal to still log events after the portal WAR has been
-		// destroyed.
+            threadGroup.destroy();
+        }
+    }
 
-		try {
-			LogFactoryUtil.setLogFactory(new Jdk14LogFactoryImpl());
-		}
-		catch (Exception e) {
-		}
+    protected ThreadGroup getThreadGroup() {
+        Thread currentThread = Thread.currentThread();
 
-		// Scheduler engine
+        ThreadGroup threadGroup = currentThread.getThreadGroup();
 
-		try {
-			SchedulerEngineHelperUtil.shutdown();
-		}
-		catch (Exception e) {
-		}
+        for (int i = 0; i < 10; i++) {
+            if (threadGroup.getParent() == null) {
+                break;
+            } else {
+                threadGroup = threadGroup.getParent();
+            }
+        }
 
-		// Wait 1 second so Quartz threads can cleanly shutdown
+        return threadGroup;
+    }
 
-		try {
-			Thread.sleep(1000);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
+    protected Thread[] getThreads(ThreadGroup threadGroup) {
+        Thread[] threads = new Thread[threadGroup.activeCount() * 2];
 
-		// Template manager
+        threadGroup.enumerate(threads);
 
-		try {
-			TemplateManagerUtil.destroy();
-		}
-		catch (Exception e) {
-		}
+        return threads;
+    }
 
-		// Template resource loader
-
-		try {
-			TemplateResourceLoaderUtil.destroy();
-		}
-		catch (Exception e) {
-		}
-
-		// Portal executors
-
-		PortalExecutorManagerUtil.shutdown(true);
-
-		// Programmatically exit
-
-		if (GetterUtil.getBoolean(
-				PropsUtil.get(PropsKeys.SHUTDOWN_PROGRAMMATICALLY_EXIT))) {
-
-			Thread currentThread = Thread.currentThread();
-
-			ThreadGroup threadGroup = getThreadGroup();
-
-			Thread[] threads = getThreads(threadGroup);
-
-			for (Thread thread : threads) {
-				if ((thread == null) || (thread == currentThread)) {
-					continue;
-				}
-
-				try {
-					thread.interrupt();
-				}
-				catch (Exception e) {
-				}
-			}
-
-			threadGroup.destroy();
-		}
-	}
-
-	protected ThreadGroup getThreadGroup() {
-		Thread currentThread = Thread.currentThread();
-
-		ThreadGroup threadGroup = currentThread.getThreadGroup();
-
-		for (int i = 0; i < 10; i++) {
-			if (threadGroup.getParent() == null) {
-				break;
-			}
-			else {
-				threadGroup = threadGroup.getParent();
-			}
-		}
-
-		return threadGroup;
-	}
-
-	protected Thread[] getThreads(ThreadGroup threadGroup) {
-		Thread[] threads = new Thread[threadGroup.activeCount() * 2];
-
-		threadGroup.enumerate(threads);
-
-		return threads;
-	}
-
-	private static Log _log = LogFactoryUtil.getLog(GlobalShutdownAction.class);
+    private static Log _log = LogFactoryUtil.getLog(GlobalShutdownAction.class);
 
 }
