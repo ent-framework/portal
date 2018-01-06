@@ -36,6 +36,7 @@
             <artifactId>portal-util-bridges</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+        
         <!-- Commons -->
         <dependency>
             <groupId>commons-collections</groupId>

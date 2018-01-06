@@ -50,8 +50,10 @@ public class PortalApplicationContextInitializer implements ApplicationContextIn
         AbstractApplicationContext portalContext = new ArrayApplicationContext(configLocations.toArray(new String[configLocations.size()]));
 
         portalContext.setParent(applicationContext);
+        
+        applicationContext.refresh();
 
-        BeanLocator beanLocator = new BeanLocatorImpl(ClassLoaderUtil.getPortalClassLoader(), portalContext);
+        BeanLocator beanLocator = new BeanLocatorImpl(ClassLoaderUtil.getPortalClassLoader(), applicationContext);
 
         PortalBeanLocatorUtil.setBeanLocator(beanLocator);
 

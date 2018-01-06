@@ -103,8 +103,6 @@
     <orderEntry type="module" module-name="portal-util-taglib" />
     <orderEntry type="library" name="Maven: org.json:json:20140107" level="project" />
     <orderEntry type="module" module-name="portal-util-bridges" />
-    <orderEntry type="library" name="Maven: org.apache.portals.bridges:portals-bridges-common:2.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.portals.bridges:portals-bridges-struts-1.2.7:1.0.4" level="project" />
     <orderEntry type="library" name="Maven: commons-pool:commons-pool:1.6" level="project" />
     <orderEntry type="library" name="Maven: commons-dbcp:commons-dbcp:1.4" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-compress:1.12" level="project" />

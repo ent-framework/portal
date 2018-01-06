@@ -1621,34 +1621,6 @@ public interface PropsKeys {
 
 	public static final String MODEL_TREE_REBUILD_QUERY_RESULTS_BATCH_SIZE = "model.tree.rebuild.query.results.batch.size";
 
-	public static final String MODULE_FRAMEWORK_AUTO_DEPLOY_DIRS = "module.framework.auto.deploy.dirs";
-
-	public static final String MODULE_FRAMEWORK_AUTO_DEPLOY_INTERVAL = "module.framework.auto.deploy.interval";
-
-	public static final String MODULE_FRAMEWORK_BASE_DIR = "module.framework.base.dir";
-
-	public static final String MODULE_FRAMEWORK_BEGINNING_START_LEVEL = "module.framework.beginning.start.level";
-
-	public static final String MODULE_FRAMEWORK_ENABLED = "module.framework.enabled";
-
-	public static final String MODULE_FRAMEWORK_INITIAL_BUNDLES = "module.framework.initial.bundles";
-
-	public static final String MODULE_FRAMEWORK_PORTAL_DIR = "module.framework.portal.dir";
-
-	public static final String MODULE_FRAMEWORK_PROPERTIES = "module.framework.properties.";
-
-	public static final String MODULE_FRAMEWORK_REGISTER_LIFERAY_SERVICES = "module.framework.register.liferay.services";
-
-	public static final String MODULE_FRAMEWORK_RUNTIME_START_LEVEL = "module.framework.runtime.start.level";
-
-	public static final String MODULE_FRAMEWORK_SERVICES_IGNORED_INTERFACES = "module.framework.services.ignored.interfaces";
-
-	public static final String MODULE_FRAMEWORK_STATE_DIR = "module.framework.state.dir";
-
-	public static final String MODULE_FRAMEWORK_SYSTEM_BUNDLE_IGNORED_FRAGMENTS = "module.framework.system.bundle.ignored.fragments";
-
-	public static final String MODULE_FRAMEWORK_SYSTEM_PACKAGES_EXTRA = "module.framework.system.packages.extra";
-
 	public static final String MONITORING_PORTAL_REQUEST = "monitoring.portal.request";
 
 	public static final String MONITORING_PORTLET_ACTION_REQUEST = "monitoring.portlet.action.request";
@@ -2014,8 +1986,6 @@ public interface PropsKeys {
 	public static final String RELEASE_INFO_BUILD_NUMBER = "release.info.build.number";
 
 	public static final String RELEASE_INFO_PREVIOUS_BUILD_NUMBER = "release.info.previous.build.number";
-
-	public static final String REQUEST_HEADER_AUTH_IMPORT_FROM_LDAP = "request.header.auth.import.from.ldap";
 
 	public static final String REQUEST_HEADER_IGNORE_INIT_PARAMS = "request.header.ignore.init.params";
 

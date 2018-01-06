@@ -18,7 +18,6 @@ import com.liferay.portal.UserPasswordException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.PasswordPolicy;
-import com.liferay.portal.security.ldap.LDAPSettingsUtil;
 
 /**
  * @author Brian Wing Shun Chan
@@ -41,12 +40,6 @@ public class PwdToolkitUtil {
 		if (!password1.equals(password2)) {
 			throw new UserPasswordException(
 				UserPasswordException.PASSWORDS_DO_NOT_MATCH);
-		}
-
-		if (!LDAPSettingsUtil.isPasswordPolicyEnabled(companyId) &&
-			PwdToolkitUtilThreadLocal.isValidate()) {
-
-			_toolkit.validate(userId, password1, password2, passwordPolicy);
 		}
 	}
 
