@@ -155,6 +155,9 @@ public class BeanReferenceAnnotationBeanPostProcessor
 						throw new BeanLocatorException(
 							stringWriter.toString(), ble);
 					}
+				} catch (BeansException be) {
+					_log.error(be.getMessage(), be);
+					throw be;
 				}
 
 				_beans.put(referencedBeanName, referencedBean);
@@ -162,8 +165,7 @@ public class BeanReferenceAnnotationBeanPostProcessor
 
 			ReflectionUtils.makeAccessible(field);
 
-			BeanReferenceRefreshUtil.registerRefreshPoint(
-				targetBean, field, referencedBeanName);
+			BeanReferenceRefreshUtil.registerRefreshPoint(targetBean, field, referencedBeanName);
 
 			try {
 				field.set(targetBean, referencedBean);
@@ -181,8 +183,7 @@ public class BeanReferenceAnnotationBeanPostProcessor
 
 	private static final String _ORG_SPRINGFRAMEWORK = "org.springframework";
 
-	private static final Logger _log = LoggerFactory.getLogger(
-		BeanReferenceAnnotationBeanPostProcessor.class);
+	private static final Logger _log = LoggerFactory.getLogger(BeanReferenceAnnotationBeanPostProcessor.class);
 
 	private BeanFactory _beanFactory;
 	private Map<String, Object> _beans = new HashMap<String, Object>();

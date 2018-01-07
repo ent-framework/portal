@@ -195,6 +195,8 @@ public class PortalContextLoaderListener extends ContextLoaderListener {
 
         ApplicationContext applicationContext = WebApplicationContextUtils.getWebApplicationContext(servletContext);
 
+        applicationContext.getBean(com.liferay.mail.service.MailService.class);
+
         //ApplicationContext applicationContext = ContextLoader.getCurrentWebApplicationContext();
 
 //		try {

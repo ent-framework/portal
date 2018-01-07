@@ -31,8 +31,7 @@ import org.springframework.beans.factory.ListableBeanFactory;
 /**
  * @author Shuyang Zhou
  */
-public class ServiceBeanAutoProxyCreator
-	extends AbstractAdvisorAutoProxyCreator {
+public class ServiceBeanAutoProxyCreator extends AbstractAdvisorAutoProxyCreator {
 
 	public ServiceBeanAutoProxyCreator() {
 		_serviceBeanAopCacheManager = new ServiceBeanAopCacheManager();
