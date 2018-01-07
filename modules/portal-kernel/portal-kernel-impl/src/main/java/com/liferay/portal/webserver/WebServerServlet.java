@@ -98,6 +98,8 @@ import com.liferay.portlet.journal.model.JournalArticleImage;
 import com.liferay.portlet.journal.service.JournalArticleImageLocalServiceUtil;
 import com.liferay.portlet.journal.service.permission.JournalArticlePermission;
 import com.liferay.portlet.trash.util.TrashUtil;
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import java.awt.image.RenderedImage;
 
@@ -208,8 +210,7 @@ public class WebServerServlet extends HttpServlet {
 	public void init(ServletConfig servletConfig) throws ServletException {
 		super.init(servletConfig);
 
-		_lastModified = GetterUtil.getBoolean(
-			servletConfig.getInitParameter("last_modified"), true);
+		_lastModified = GetterUtil.getBoolean(servletConfig.getInitParameter("last_modified"), true);
 
 		Class<?> clazz = getClass();
 
@@ -221,6 +222,10 @@ public class WebServerServlet extends HttpServlet {
 		URL url = classLoader.getResource(templateId);
 
 		_templateResource = new URLTemplateResource(templateId, url);
+
+		ApplicationContext applicationContext = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+
+		_dateFormat = applicationContext.getBean(FastDateFormatFactoryUtil.class).getSimpleDateFormat("d MMM yyyy HH:mm z");
 	}
 
 	@Override
@@ -1340,10 +1345,8 @@ public class WebServerServlet extends HttpServlet {
 
 	private static final Logger _log = LoggerFactory.getLogger(WebServerServlet.class);
 
-	private static Set<String> _acceptRangesMimeTypes = SetUtil.fromArray(
-		PropsValues.WEB_SERVER_SERVLET_ACCEPT_RANGES_MIME_TYPES);
-	private static Format _dateFormat =
-		FastDateFormatFactoryUtil.getSimpleDateFormat("d MMM yyyy HH:mm z");
+	private static Set<String> _acceptRangesMimeTypes = SetUtil.fromArray(PropsValues.WEB_SERVER_SERVLET_ACCEPT_RANGES_MIME_TYPES);
+	private Format _dateFormat = null;
 
 	private boolean _lastModified = true;
 	private TemplateResource _templateResource;

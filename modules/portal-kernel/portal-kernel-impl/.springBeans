@@ -39,6 +39,7 @@
 		<config>src/main/resources/META-INF/util-spring.xml</config>
 		<config>src/main/resources/META-INF/virtual-layouts-spring.xml</config>
 		<config>src/main/resources/META-INF/workflow-spring.xml</config>
+		<config>src/main/resources/META-INF/portal-spring-config.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

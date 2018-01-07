@@ -32,8 +32,7 @@ import org.springframework.beans.factory.BeanFactory;
 public class BeanReferenceRefreshUtil {
 
 	public static void refresh(BeanFactory beanFactory) throws Exception {
-		for (Map.Entry<Object, List<RefreshPoint>> entry :
-				_registeredRefreshPoints.entrySet()) {
+		for (Map.Entry<Object, List<RefreshPoint>> entry : _registeredRefreshPoints.entrySet()) {
 
 			_refresh(beanFactory, entry.getKey(), entry.getValue());
 		}

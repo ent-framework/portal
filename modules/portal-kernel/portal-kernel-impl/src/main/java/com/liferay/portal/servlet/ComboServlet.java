@@ -40,6 +40,8 @@ import com.liferay.portal.util.MinifierUtil;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PrefsPropsUtil;
 import com.liferay.portal.util.PropsValues;
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -54,6 +56,7 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -67,6 +70,15 @@ import javax.servlet.http.HttpServletResponse;
  * @author Raymond Augé
  */
 public class ComboServlet extends HttpServlet {
+
+	@Override
+	public void init() throws ServletException {
+
+		ApplicationContext applicationContext = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+
+		_bytesArrayPortalCache = applicationContext.getBean(SingleVMPoolUtil.class).getCache(ComboServlet.class.getName());
+		_fileContentBagPortalCache = applicationContext.getBean(SingleVMPoolUtil.class).getCache(FileContentBag.class.getName());
+	}
 
 	@Override
 	public void service(
@@ -373,10 +385,8 @@ public class ComboServlet extends HttpServlet {
 
 	private static final Logger _log = LoggerFactory.getLogger(ComboServlet.class);
 
-	private PortalCache<String, byte[][]> _bytesArrayPortalCache =
-		SingleVMPoolUtil.getCache(ComboServlet.class.getName());
-	private PortalCache<String, FileContentBag> _fileContentBagPortalCache =
-		SingleVMPoolUtil.getCache(FileContentBag.class.getName());
+	private PortalCache<String, byte[][]> _bytesArrayPortalCache = null;
+	private PortalCache<String, FileContentBag> _fileContentBagPortalCache = null;
 	private Set<String> _protectedParameters = SetUtil.fromArray(
 		new String[] {"b", "browserId", "minifierType", "languageId", "t"});
 

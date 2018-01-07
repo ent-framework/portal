@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" default-lazy-init="false"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+    <import resource="classpath:/META-INF/base-spring.xml"/>
+    <import resource="classpath:/META-INF/hibernate-spring.xml"/>
+    <import resource="classpath:/META-INF/infrastructure-spring.xml"/>
+    <import resource="classpath:/META-INF/management-spring.xml"/>
+    <import resource="classpath:/META-INF/util-spring.xml"/>
+    <import resource="classpath:/META-INF/executor-spring.xml"/>
+    <import resource="classpath:/META-INF/audit-spring.xml"/>
+    <import resource="classpath:/META-INF/cluster-spring.xml"/>
+    <import resource="classpath:/META-INF/editor-spring.xml"/>
+    <import resource="classpath:/META-INF/messaging-core-spring.xml"/>
+    <import resource="classpath:/META-INF/messaging-misc-spring.xml"/>
+    <import resource="classpath:/META-INF/mobile-device-spring.xml"/>
+    <import resource="classpath:/META-INF/notifications-spring.xml"/>
+    <import resource="classpath:/META-INF/poller-spring.xml"/>
+    <import resource="classpath:/META-INF/rules-spring.xml"/>
+    <import resource="classpath:/META-INF/scheduler-spring.xml"/>
+    <import resource="classpath:/META-INF/search-spring.xml"/>
+    <import resource="classpath:/META-INF/workflow-spring.xml"/>
+    <import resource="classpath:/META-INF/counter-spring.xml"/>
+    <import resource="classpath:/META-INF/mail-spring.xml"/>
+    <import resource="classpath:/META-INF/portal-spring.xml"/>
+    <import resource="classpath:/META-INF/portlet-container-spring.xml"/>
+    <import resource="classpath:/META-INF/staging-spring.xml"/>
+    <import resource="classpath:/META-INF/virtual-layouts-spring.xml"/>
+    <import resource="classpath:/META-INF/monitoring-spring.xml"/>
+    <!--<import resource="classpath:/META-INF/dynamic-data-source-spring.xml"/>-->
+    <!--<import resource="classpath:/META-INF/shard-data-source-spring.xml"/>-->
+    <!--<import resource="classpath:/META-INF/memcached-spring.xml"/>-->
+
+</beans>
