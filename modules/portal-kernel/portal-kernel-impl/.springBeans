@@ -11,14 +11,11 @@
 		<config>src/main/resources/META-INF/base-spring.xml</config>
 		<config>src/main/resources/META-INF/cluster-spring.xml</config>
 		<config>src/main/resources/META-INF/counter-spring.xml</config>
-		<config>src/main/resources/META-INF/dynamic-data-source-spring.xml</config>
 		<config>src/main/resources/META-INF/editor-spring.xml</config>
 		<config>src/main/resources/META-INF/executor-spring.xml</config>
 		<config>src/main/resources/META-INF/hibernate-spring.xml</config>
 		<config>src/main/resources/META-INF/infrastructure-spring.xml</config>
-		<config>src/main/resources/META-INF/jcr-spring.xml</config>
 		<config>src/main/resources/META-INF/jpa-spring.xml</config>
-		<config>src/main/resources/META-INF/ldap-spring.xml</config>
 		<config>src/main/resources/META-INF/mail-spring.xml</config>
 		<config>src/main/resources/META-INF/management-spring.xml</config>
 		<config>src/main/resources/META-INF/memcached-spring.xml</config>

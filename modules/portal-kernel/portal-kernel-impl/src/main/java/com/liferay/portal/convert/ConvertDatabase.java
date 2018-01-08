@@ -142,11 +142,11 @@ public class ConvertDatabase extends ConvertProcess {
 				}
 			}
 
-			for (Tuple tuple : _UNMAPPED_TABLES) {
-				String table = (String)tuple.getObject(0);
-
-				tableDetails.put(table, tuple);
-			}
+//			for (Tuple tuple : _UNMAPPED_TABLES) {
+//				String table = (String)tuple.getObject(0);
+//
+//				tableDetails.put(table, tuple);
+//			}
 
 			if (_log.isDebugEnabled()) {
 				_log.debug("Migrating database tables");
@@ -291,14 +291,14 @@ public class ConvertDatabase extends ConvertProcess {
 //		}
 	}
 
-	private static final Tuple[] _UNMAPPED_TABLES = new Tuple[] {
-		new Tuple(
-			CyrusUser.TABLE_NAME, CyrusUser.TABLE_COLUMNS,
-			CyrusUser.TABLE_SQL_CREATE),
-		new Tuple(
-			CyrusVirtual.TABLE_NAME, CyrusVirtual.TABLE_COLUMNS,
-			CyrusVirtual.TABLE_SQL_CREATE)
-	};
+//	private static final Tuple[] _UNMAPPED_TABLES = new Tuple[] {
+//		new Tuple(
+//			CyrusUser.TABLE_NAME, CyrusUser.TABLE_COLUMNS,
+//			CyrusUser.TABLE_SQL_CREATE),
+//		new Tuple(
+//			CyrusVirtual.TABLE_NAME, CyrusVirtual.TABLE_COLUMNS,
+//			CyrusVirtual.TABLE_SQL_CREATE)
+//	};
 
 	private static final Logger _log = LoggerFactory.getLogger(ConvertDatabase.class);
 

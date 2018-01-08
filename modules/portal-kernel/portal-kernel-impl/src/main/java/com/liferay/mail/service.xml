@@ -5,4 +5,12 @@
 	<namespace>Mail</namespace>
 	<entity name="Cyrus" local-service="false" remote-service="true" />
 	<entity name="Mail" local-service="false" remote-service="true" />
+	<entity name="CyrusVirtual" local-service="true" remote-service="false" >
+		<column name="emailAddress" type="String" primary="true" />
+        <column name="userId" type="String" />
+	</entity>
+    <entity name="CyrusUser">
+        <column name="userId" type="String" primary="true" />
+        <column name="password" type="String" db-name="password_"/>
+    </entity>
 </service-builder>

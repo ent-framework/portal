@@ -19,6 +19,16 @@
             <groupId>com.liferay.portal</groupId>
             <artifactId>portal-kernel-api</artifactId>
             <version>${project.parent.version}</version>
+            <exclusions>
+            		<exclusion>
+		            	<groupId>javax.portlet</groupId>
+		            <artifactId>portlet-api</artifactId>
+            		</exclusion>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-logging</artifactId>
+                    </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -27,11 +37,11 @@
             <version>${project.parent.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.liferay.portal</groupId>
-            <artifactId>portal-kernel-impl</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.liferay.portal</groupId>-->
+            <!--<artifactId>portal-kernel-impl</artifactId>-->
+            <!--<version>${project.parent.version}</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>jaxen</groupId>
@@ -109,6 +119,12 @@
             <groupId>com.thoughtworks.qdox</groupId>
             <artifactId>qdox</artifactId>
             <version>1.12.1</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>xstream</artifactId>
+            <version>${xstream.version}</version>
         </dependency>
 
     </dependencies>

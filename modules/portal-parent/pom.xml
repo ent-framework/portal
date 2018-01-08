@@ -62,6 +62,15 @@
 
     <dependencyManagement>
         <dependencies>
+
+            <!--<dependency>-->
+                <!--<groupId>org.apache.struts</groupId>-->
+                <!--<artifactId>struts2-bom</artifactId>-->
+                <!--<version>2.5.10.1</version>-->
+                <!--<scope>import</scope>-->
+                <!--<type>pom</type>-->
+            <!--</dependency>-->
+
             <dependency>
                 <groupId>javax.portlet</groupId>
                 <artifactId>portlet-api</artifactId>
@@ -71,11 +80,13 @@
                 <groupId>struts</groupId>
                 <artifactId>struts</artifactId>
                 <version>${struts.version}</version>
+                <scope>compile</scope>
             </dependency>
             <dependency>
                 <groupId>struts</groupId>
                 <artifactId>struts-el</artifactId>
                 <version>${struts.version}</version>
+                <scope>compile</scope>
                 <exclusions>
                     <exclusion>
                         <groupId>struts</groupId>

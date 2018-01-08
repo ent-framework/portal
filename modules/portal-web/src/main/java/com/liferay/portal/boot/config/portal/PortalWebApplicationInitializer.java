@@ -1,18 +1,33 @@
 package com.liferay.portal.boot.config.portal;
 
+import com.liferay.portal.kernel.cache.MultiVMPoolUtil;
+import com.liferay.portal.kernel.cache.SingleVMPoolUtil;
+import com.liferay.portal.kernel.cache.key.CacheKeyGeneratorUtil;
+import com.liferay.portal.kernel.dao.jdbc.MappingSqlQueryFactoryUtil;
+import com.liferay.portal.kernel.dao.jdbc.SqlUpdateFactoryUtil;
+import com.liferay.portal.kernel.dao.orm.EntityCacheUtil;
+import com.liferay.portal.kernel.dao.orm.FinderCacheUtil;
 import com.liferay.portal.kernel.servlet.PortletSessionListenerManager;
 import com.liferay.portal.kernel.servlet.SerializableSessionAttributeListener;
 import com.liferay.portal.kernel.servlet.filters.invoker.InvokerFilter;
+import com.liferay.portal.kernel.template.TemplateResourceLoaderUtil;
+import com.liferay.portal.kernel.webcache.WebCachePoolUtil;
+import com.liferay.portal.kernel.xml.UnsecureSAXReaderUtil;
+import com.liferay.portal.model.ModelHintsUtil;
 import com.liferay.portal.servlet.*;
 import com.liferay.portal.spring.context.PortalContextLoaderListener;
+import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.webserver.DynamicResourceServlet;
 
 import com.liferay.portal.webserver.WebServerServlet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.servlet.*;
 import java.util.EnumSet;
@@ -25,7 +40,6 @@ import java.util.Set;
  * Created by jeff on 25/12/2017.
  */
 @Configuration
-@Order(0)
 public class PortalWebApplicationInitializer implements ServletContextInitializer {
 
     private final Logger log = LoggerFactory.getLogger(PortalWebApplicationInitializer.class);
@@ -35,27 +49,24 @@ public class PortalWebApplicationInitializer implements ServletContextInitialize
         //servletContext.setInitParameter("contextClass", "com.liferay.portal.spring.context.PortalApplicationContext");
 
         log.info("PortalWebApplicationInitializer Start Up");
-//
-//		ApplicationContext applicationContext = WebApplicationContextUtils.getWebApplicationContext(servletContext);
-//
-//
-//		BeanLocator beanLocator = new BeanLocatorImpl(ClassLoaderUtil.getPortalClassLoader(), applicationContext);
-//
-//		PortalBeanLocatorUtil.setBeanLocator(beanLocator);
-//
-//		List<String> configLocations = ListUtil.fromArray(PropsUtil.getArray(PropsKeys.SPRING_CONFIGS));
-//
-//		if (StringUtil.equalsIgnoreCase(
-//				PropsValues.PERSISTENCE_PROVIDER, "jpa")) {
-//
-//			configLocations.remove("META-INF/hibernate-spring.xml");
-//		}
-//		else {
-//			configLocations.remove("META-INF/jpa-spring.xml");
-//		}
-//
-//		AbstractApplicationContext portalContext = new ArrayApplicationContext(configLocations.toArray(new String[configLocations.size()]), applicationContext);
 
+        ApplicationContext applicationContext = WebApplicationContextUtils.getWebApplicationContext(servletContext);
+
+        applicationContext.getBean(MultiVMPoolUtil.class);
+        applicationContext.getBean(SingleVMPoolUtil.class);
+
+        applicationContext.getBean(FinderCacheUtil.class);
+        applicationContext.getBean(EntityCacheUtil.class);
+        applicationContext.getBean(TemplateResourceLoaderUtil.class);
+
+        applicationContext.getBean(WebCachePoolUtil.class);
+
+        applicationContext.getBean(UnsecureSAXReaderUtil.class);
+        applicationContext.getBean(CacheKeyGeneratorUtil.class);
+        applicationContext.getBean(SqlUpdateFactoryUtil.class);
+        applicationContext.getBean(MappingSqlQueryFactoryUtil.class);
+        applicationContext.getBean(ModelHintsUtil.class);
+        applicationContext.getBean(PortalUtil.class);
 
         initPortalListeners(servletContext);
         initInvokerFilters(servletContext, false);

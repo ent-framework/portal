@@ -1,77 +1,94 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.mail.service;
 
+import aQute.bnd.annotation.ProviderType;
+
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.ReferenceRegistry;
 
 /**
- * @author Alexander Chow
+ * Provides the remote service utility for Cyrus. This utility wraps
+ * {@link com.liferay.mail.service.impl.CyrusServiceImpl} and is the
+ * primary access point for service operations in application layer code running
+ * on a remote server. Methods of this service are expected to have security
+ * checks based on the propagated JAAS credentials because this service can be
+ * accessed remotely.
+ *
+ * @author Brian Wing Shun Chan
+ * @see CyrusService
+ * @see com.liferay.mail.service.base.CyrusServiceBaseImpl
+ * @see com.liferay.mail.service.impl.CyrusServiceImpl
+ * @generated
  */
+@ProviderType
 public class CyrusServiceUtil {
+    private static CyrusService _service;
 
-	public static void addUser(
-			long userId, String emailAddress, String password)
-		throws SystemException {
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify this class directly. Add custom service methods to {@link com.liferay.mail.service.impl.CyrusServiceImpl} and rerun ServiceBuilder to regenerate this class.
+     */
 
-		getService().addUser(userId, emailAddress, password);
-	}
+    /**
+    * Returns the Spring bean ID for this bean.
+    *
+    * @return the Spring bean ID for this bean
+    */
+    public static java.lang.String getBeanIdentifier() {
+        return getService().getBeanIdentifier();
+    }
 
-	public static void deleteEmailAddress(long companyId, long userId)
-		throws SystemException {
+    /**
+    * Sets the Spring bean ID for this bean.
+    *
+    * @param beanIdentifier the Spring bean ID for this bean
+    */
+    public static void setBeanIdentifier(java.lang.String beanIdentifier) {
+        getService().setBeanIdentifier(beanIdentifier);
+    }
 
-		getService().deleteEmailAddress(companyId, userId);
-	}
+    public static void addUser(long userId, java.lang.String emailAddress,
+        java.lang.String password)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        getService().addUser(userId, emailAddress, password);
+    }
 
-	public static void deleteUser(long userId) throws SystemException {
-		getService().deleteUser(userId);
-	}
+    public static void deleteEmailAddress(long companyId, long userId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        getService().deleteEmailAddress(companyId, userId);
+    }
 
-	public static CyrusService getService() {
-		if (_service == null) {
-			_service = (CyrusService)PortalBeanLocatorUtil.locate(
-				CyrusService.class.getName());
+    public static void deleteUser(long userId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        getService().deleteUser(userId);
+    }
 
-			ReferenceRegistry.registerReference(
-				CyrusServiceUtil.class, "_service");
-		}
+    public static void updateEmailAddress(long companyId, long userId,
+        java.lang.String emailAddress)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        getService().updateEmailAddress(companyId, userId, emailAddress);
+    }
 
-		return _service;
-	}
+    public static void updatePassword(long companyId, long userId,
+        java.lang.String password)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        getService().updatePassword(companyId, userId, password);
+    }
 
-	public static void updateEmailAddress(
-			long companyId, long userId, String emailAddress)
-		throws SystemException {
+    public static CyrusService getService() {
+        if (_service == null) {
+            _service = (CyrusService) PortalBeanLocatorUtil.locate(CyrusService.class.getName());
 
-		getService().updateEmailAddress(companyId, userId, emailAddress);
-	}
+            ReferenceRegistry.registerReference(CyrusServiceUtil.class,
+                "_service");
+        }
 
-	public static void updatePassword(
-			long companyId, long userId, String password)
-		throws SystemException {
+        return _service;
+    }
 
-		getService().updatePassword(companyId, userId, password);
-	}
-
-	public void setService(CyrusService service) {
-		_service = service;
-
-		ReferenceRegistry.registerReference(CyrusServiceUtil.class, "_service");
-	}
-
-	private static CyrusService _service;
-
+    /**
+     * @deprecated As of 6.2.0
+     */
+    public void setService(CyrusService service) {
+    }
 }

@@ -31,23 +31,11 @@ spring:
         active: #spring.profiles.active#
     jackson:
         serialization.write_dates_as_timestamps: false
-    jpa:
-        open-in-view: false
-        hibernate:
-            ddl-auto: none
-            naming:
-                physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
-                implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
     messages:
         basename: i18n/messages
     mvc:
         favicon:
             enabled: false
-    thymeleaf:
-        mode: XHTML
-security:
-    basic:
-        enabled: false
 
 server:
     session:
@@ -57,49 +45,3 @@ server:
 info:
     project:
         version: #project.version#
-
-# ===================================================================
-# JHipster specific properties
-#
-# Full reference is available at: http://www.jhipster.tech/common-application-properties/
-# ===================================================================
-
-jhipster:
-    async:
-        core-pool-size: 2
-        max-pool-size: 50
-        queue-capacity: 10000
-    # By default CORS is disabled. Uncomment to enable.
-    #cors:
-        #allowed-origins: "*"
-        #allowed-methods: "*"
-        #allowed-headers: "*"
-        #exposed-headers: "Link,X-Total-Count"
-        #allow-credentials: true
-        #max-age: 1800
-    mail:
-        from: portal_web@localhost
-    swagger:
-        default-include-pattern: /api/.*
-        title: portal_web API
-        description: portal_web API documentation
-        version: 0.0.1
-        terms-of-service-url:
-        contact-name:
-        contact-url:
-        contact-email:
-        license:
-        license-url:
-    ribbon:
-        display-on-active-profiles: dev
-
-# ===================================================================
-# Application specific properties
-# Add your own application properties here, see the ApplicationProperties class
-# to have type-safe configuration, like in the JHipsterProperties above
-#
-# More documentation is available at:
-# http://www.jhipster.tech/common-application-properties/
-# ===================================================================
-
-application:

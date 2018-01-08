@@ -30,45 +30,43 @@ public class PortalApplicationContextInitializer implements ApplicationContextIn
     @Override
     public void initialize(ConfigurableApplicationContext applicationContext) {
 
-        InitUtil.init();
+        //InitUtil.init();
 
 
-//    		BeanLocator beanLocator = new BeanLocatorImpl(ClassLoaderUtil.getPortalClassLoader(), applicationContext);
+//        List<String> configLocations = ListUtil.fromArray(PropsUtil.getArray(PropsKeys.SPRING_CONFIGS));
 //
-//    		PortalBeanLocatorUtil.setBeanLocator(beanLocator);
+//        if (StringUtil.equalsIgnoreCase(
+//            PropsValues.PERSISTENCE_PROVIDER, "jpa")) {
+//
+//            configLocations.remove("META-INF/hibernate-spring.xml");
+//        } else {
+//            configLocations.remove("META-INF/jpa-spring.xml");
+//        }
+//
+//        AbstractApplicationContext portalContext = new ArrayApplicationContext(configLocations.toArray(new String[configLocations.size()]));
+//
+//        portalContext.setParent(applicationContext);
 
-        List<String> configLocations = ListUtil.fromArray(PropsUtil.getArray(PropsKeys.SPRING_CONFIGS));
-
-        if (StringUtil.equalsIgnoreCase(
-            PropsValues.PERSISTENCE_PROVIDER, "jpa")) {
-
-            configLocations.remove("META-INF/hibernate-spring.xml");
-        } else {
-            configLocations.remove("META-INF/jpa-spring.xml");
-        }
-
-        AbstractApplicationContext portalContext = new ArrayApplicationContext(configLocations.toArray(new String[configLocations.size()]));
-
-        portalContext.setParent(applicationContext);
-        
-        applicationContext.refresh();
+        //applicationContext.refresh();
 
         BeanLocator beanLocator = new BeanLocatorImpl(ClassLoaderUtil.getPortalClassLoader(), applicationContext);
 
         PortalBeanLocatorUtil.setBeanLocator(beanLocator);
 
-        PortalBeanLocatorUtil.locate(FilterScopeLocalService.class.getName());
 
-        try {
-            UserLocalServiceUtil.getUsersCount();
 
-            ClassNameLocalServiceUtil.checkClassNames();
-
-            CounterLocalServiceUtil.increment(User.class.getName());
-
-        } catch (SystemException e) {
-            e.printStackTrace();
-        }
+//        PortalBeanLocatorUtil.locate(FilterScopeLocalService.class.getName());
+//
+//        try {
+//            UserLocalServiceUtil.getUsersCount();
+//
+//            ClassNameLocalServiceUtil.checkClassNames();
+//
+//            CounterLocalServiceUtil.increment(User.class.getName());
+//
+//        } catch (SystemException e) {
+//            e.printStackTrace();
+//        }
 
         //InitUtil.initWithSpring();
 

@@ -14,12 +14,12 @@
 
 package com.liferay.mail;
 
-import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.NoSuchModelException;
 
 /**
  * @author Brian Wing Shun Chan
  */
-public class NoSuchCyrusVirtualException extends PortalException {
+public class NoSuchCyrusVirtualException extends NoSuchModelException {
 
 	public NoSuchCyrusVirtualException() {
 		super();

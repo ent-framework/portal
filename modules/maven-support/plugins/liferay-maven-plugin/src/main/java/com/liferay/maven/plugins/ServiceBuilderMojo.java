@@ -23,6 +23,7 @@ import java.io.File;
 import java.net.URI;
 import java.net.URL;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.maven.plugin.MojoExecutionException;
@@ -116,49 +117,57 @@ public class ServiceBuilderMojo extends AbstractToolsLiferayMojo {
 			}
 		}
 
-		String[] args = new String[28];
+		if (pluginType.equals("portal")) {
+            beanLocatorUtil = "com.liferay.portal.kernel.bean.PortalBeanLocatorUtil";
+            propsUtil = "com.liferay.portal.util.PropsUtil";
+            pluginName = "";
+        }
 
-		args[0] = "service.input.file=" + serviceFileName;
-		args[1] = "service.hbm.file=" + hbmFileName;
-		args[2] = "service.orm.file=" + ormFileName;
-		args[3] = "service.model.hints.file=" + modelHintsFileName;
-		args[4] = "service.spring.file=" + springFileName;
-		args[5] = "service.spring.base.file=" + springBaseFileName;
-		args[6] = "service.spring.cluster.file=" + springClusterFileName;
-		args[7] =
+		List<String> args = new ArrayList<>();
+		args.add("service.input.file=" + serviceFileName);
+		args.add("service.hbm.file=" + hbmFileName);
+		args.add("service.orm.file=" + ormFileName);
+		args.add("service.model.hints.file=" + modelHintsFileName);
+		args.add("service.spring.file=" + springFileName);
+		args.add("service.spring.base.file=" + springBaseFileName);
+		args.add("service.spring.cluster.file=" + springClusterFileName);
+		args.add(
 			"service.spring.dynamic.data.source.file=" +
-				springDynamicDataSourceFileName;
-		args[8] = "service.spring.hibernate.file=" + springHibernateFileName;
-		args[9] =
+				springDynamicDataSourceFileName);
+		args.add("service.spring.hibernate.file=" + springHibernateFileName);
+		args.add(
 			"service.spring.infrastructure.file=" +
-				springInfrastructureFileName;
-		args[10] =
+				springInfrastructureFileName);
+		args.add(
 			"service.spring.shard.data.source.file=" +
-				springShardDataSourceFileName;
-		args[11] = "service.api.dir=" + apiDir;
-		args[12] = "service.impl.dir=" + implDir;
-		args[13] = "service.json.file=" + jsonFileName;
-		args[14] = "service.remoting.file=" + remotingFileName;
-		args[15] = "service.sql.dir=" + sqlDir;
-		args[16] = "service.sql.file=" + sqlFileName;
-		args[17] = "service.sql.indexes.file=" + sqlIndexesFileName;
-		args[18] =
+				springShardDataSourceFileName);
+		args.add("service.api.dir=" + apiDir);
+		args.add("service.impl.dir=" + implDir);
+		args.add("service.json.file=" + jsonFileName);
+		args.add("service.remoting.file=" + remotingFileName);
+		args.add("service.sql.dir=" + sqlDir);
+		args.add("service.sql.file=" + sqlFileName);
+		args.add("service.sql.indexes.file=" + sqlIndexesFileName);
+		args.add(
 			"service.sql.indexes.properties.file=" +
-				sqlIndexesPropertiesFileName;
-		args[19] = "service.sql.sequences.file=" + sqlSequencesFileName;
-		args[20] = "service.auto.namespace.tables=" + autoNamespaceTables;
-		args[21] = "service.bean.locator.util=" + beanLocatorUtil;
-		args[22] = "service.props.util=" + propsUtil;
-		args[23] = "service.plugin.name=" + pluginName;
-		args[24] = "service.target.entity.name=" + targetEntityName;
-		args[25] = "service.test.dir=";
-		args[26] = "service.build.number=" + serviceBuildNumber;
-		args[27] =
-			"service.build.number.increment=" + serviceBuildNumberIncrement;
+				sqlIndexesPropertiesFileName);
+		args.add("service.sql.sequences.file=" + sqlSequencesFileName);
+		args.add("service.auto.namespace.tables=" + autoNamespaceTables);
+		args.add("service.bean.locator.util=" + beanLocatorUtil);
+        args.add("service.props.util=" + propsUtil);
+		args.add("service.target.entity.name=" + targetEntityName);
+		args.add("service.test.dir=");
+		args.add("service.build.number=" + serviceBuildNumber);
+		args.add(
+			"service.build.number.increment=" + serviceBuildNumberIncrement);
+
+        if (!pluginType.equals("portal")) {
+            args.add("service.plugin.name=" + pluginName);
+        }
 
 		executeTool(
 			"com.liferay.portal.tools.servicebuilder.ServiceBuilder",
-			getProjectClassLoader(), args);
+			getToolsClassLoader(), args.toArray(new String[args.size()]));
 
 		if (tempServiceFile != null) {
 			FileUtil.delete(tempServiceFile);
@@ -249,7 +258,11 @@ public class ServiceBuilderMojo extends AbstractToolsLiferayMojo {
 					"/META-INF/portlet-model-hints.xml");
 				ormFileName = webappResourcesDir.concat(
 					"/META-INF/portlet-orm.xml");
-				serviceFileName = webappDir.concat("/WEB-INF/service.xml");
+
+				if (Validator.isNull(serviceFileName)) {
+					serviceFileName = webappDir.concat("/WEB-INF/service.xml");
+				}
+
 				springBaseFileName = webappResourcesDir.concat(
 					"/META-INF/base-spring.xml");
 				springClusterFileName = webappResourcesDir.concat(

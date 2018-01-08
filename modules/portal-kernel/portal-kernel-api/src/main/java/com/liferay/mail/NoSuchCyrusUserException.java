@@ -12,25 +12,29 @@
  * details.
  */
 
-package com.liferay.mail.service.persistence;
+package com.liferay.mail;
 
-import com.liferay.mail.NoSuchCyrusUserException;
-import com.liferay.mail.model.CyrusUser;
-import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.model.Dummy;
-import com.liferay.portal.service.persistence.BasePersistence;
+import com.liferay.portal.NoSuchModelException;
 
 /**
  * @author Brian Wing Shun Chan
  */
-public interface CyrusUserPersistence extends BasePersistence<Dummy> {
+public class NoSuchCyrusUserException extends NoSuchModelException {
 
-	public CyrusUser findByPrimaryKey(long userId)
-		throws NoSuchCyrusUserException, SystemException;
+	public NoSuchCyrusUserException() {
+		super();
+	}
 
-	public void remove(long userId)
-		throws NoSuchCyrusUserException, SystemException;
+	public NoSuchCyrusUserException(String msg) {
+		super(msg);
+	}
 
-	public void update(CyrusUser user) throws SystemException;
+	public NoSuchCyrusUserException(String msg, Throwable cause) {
+		super(msg, cause);
+	}
+
+	public NoSuchCyrusUserException(Throwable cause) {
+		super(cause);
+	}
 
 }

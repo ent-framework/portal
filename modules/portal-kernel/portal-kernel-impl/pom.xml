@@ -225,6 +225,25 @@
             <artifactId>struts-el</artifactId>
         </dependency>
 
+        <!--<dependency>-->
+            <!--<groupId>org.apache.struts</groupId>-->
+            <!--<artifactId>struts2-core</artifactId>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.apache.struts</groupId>-->
+            <!--<artifactId>struts2-spring-plugin</artifactId>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.apache.struts</groupId>-->
+            <!--<artifactId>struts2-tiles-plugin</artifactId>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.apache.struts</groupId>-->
+            <!--<artifactId>struts2-java8-support-plugin</artifactId>-->
+            <!--<version>2.5.2</version>-->
+        <!--</dependency>-->
+
         <dependency>
             <groupId>org.jfree</groupId>
             <artifactId>jfreechart</artifactId>
@@ -548,18 +567,16 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.6.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>java</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <groupId>com.liferay.maven.plugins</groupId>
+                <artifactId>liferay-maven-plugin</artifactId>
+                <version>6.3.0</version>
                 <configuration>
-                    <mainClass>com.liferay.portal.tools.servicebuilder.ServiceBuilder</mainClass>
+                    <apiBaseDir>${basedir}/../portal-kernel-api</apiBaseDir>
+                    <serviceFileName>${basedir}/src/main/java/com/liferay/mail/service.xml</serviceFileName>
+                    <beanLocatorUtil>com.liferay.portal.kernel.bean.PortalBeanLocatorUtil"</beanLocatorUtil>
+                    <propsUtil>com.liferay.portal.util.PropsUtil</propsUtil>
+                    <liferayVersion>6.3.0</liferayVersion>
+                    <pluginType>portal</pluginType>
                 </configuration>
             </plugin>
         </plugins>

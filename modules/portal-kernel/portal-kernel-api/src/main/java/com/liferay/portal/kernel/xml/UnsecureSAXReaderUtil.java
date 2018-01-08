@@ -31,6 +31,10 @@ public class UnsecureSAXReaderUtil {
 	public static SAXReader getSAXReader() {
 		PortalRuntimePermission.checkGetBeanProperty(SAXReaderUtil.class);
 
+		if (_saxReader==null) {
+
+		}
+
 		return _saxReader;
 	}
 

@@ -477,7 +477,7 @@ public abstract class AbstractToolsLiferayMojo extends AbstractLiferayMojo {
 					String artifactId = ds[1];
 					String version = ds[2];
 
-					if (groupId.startsWith("om.liferay.portal")) {
+					if (groupId.startsWith("com.liferay.portal")) {
 						version = liferayVersion;
 					}
 

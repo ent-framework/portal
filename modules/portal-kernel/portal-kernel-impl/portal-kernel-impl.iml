@@ -8,7 +8,6 @@
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/base-spring.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/cluster-spring.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/counter-spring.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/META-INF/dynamic-data-source-spring.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/editor-spring.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/executor-spring.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/hibernate-spring.xml</file>
@@ -29,7 +28,6 @@
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/scheduler-spring.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/search-spring.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/service-builder-spring.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/META-INF/shard-data-source-spring.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/staging-spring.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/util-spring.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/virtual-layouts-spring.xml</file>
@@ -70,8 +68,6 @@
     <orderEntry type="library" name="Maven: javax.xml:jaxrpc-api:1.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.axis:axis-ant:1.4" level="project" />
     <orderEntry type="library" name="Maven: org.apache.poi:poi:3.9" level="project" />
-    <orderEntry type="library" name="Maven: org.hibernate:hibernate-validator:5.3.6.Final" level="project" />
-    <orderEntry type="library" name="Maven: javax.validation:validation-api:1.1.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.6.12" level="project" />
     <orderEntry type="library" name="Maven: org.incava:java-diff:1.1" level="project" />
     <orderEntry type="library" name="Maven: org.jodd:jodd-core:3.6.5" level="project" />
@@ -107,6 +103,8 @@
     <orderEntry type="library" name="Maven: commons-httpclient:commons-httpclient:3.1" level="project" />
     <orderEntry type="module" module-name="portal-util-taglib" />
     <orderEntry type="library" name="Maven: org.json:json:20140107" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate:hibernate-validator:5.3.6.Final" level="project" />
+    <orderEntry type="library" name="Maven: javax.validation:validation-api:1.1.0.Final" level="project" />
     <orderEntry type="module" module-name="portal-util-bridges" />
     <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.2" level="project" />
     <orderEntry type="library" name="Maven: commons-pool:commons-pool:1.6" level="project" />

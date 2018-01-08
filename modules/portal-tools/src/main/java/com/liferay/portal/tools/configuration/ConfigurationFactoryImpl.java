@@ -12,29 +12,23 @@
  * details.
  */
 
-package com.liferay.mail;
+package com.liferay.portal.tools.configuration;
 
-import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.configuration.Configuration;
+import com.liferay.portal.kernel.configuration.ConfigurationFactory;
+import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 
 /**
  * @author Brian Wing Shun Chan
  */
-public class NoSuchCyrusUserException extends PortalException {
+@DoPrivileged
+public class ConfigurationFactoryImpl implements ConfigurationFactory {
 
-	public NoSuchCyrusUserException() {
-		super();
-	}
+	@Override
+	public Configuration getConfiguration(
+		ClassLoader classLoader, String name) {
 
-	public NoSuchCyrusUserException(String msg) {
-		super(msg);
-	}
-
-	public NoSuchCyrusUserException(String msg, Throwable cause) {
-		super(msg, cause);
-	}
-
-	public NoSuchCyrusUserException(Throwable cause) {
-		super(cause);
+		return new ConfigurationImpl(classLoader, name);
 	}
 
 }

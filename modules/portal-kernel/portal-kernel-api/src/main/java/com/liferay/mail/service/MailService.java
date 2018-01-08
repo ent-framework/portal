@@ -1,63 +1,85 @@
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.mail.service;
 
-import com.liferay.mail.model.Filter;
+import aQute.bnd.annotation.ProviderType;
+
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.mail.MailMessage;
+import com.liferay.portal.kernel.jsonwebservice.JSONWebService;
+import com.liferay.portal.kernel.transaction.Isolation;
+import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
-
-import java.util.List;
-
-import javax.mail.Session;
+import com.liferay.portal.kernel.util.*;
+import com.liferay.portal.security.ac.AccessControlled;
+import com.liferay.portal.service.BaseService;
 
 /**
+ * Provides the remote service interface for Mail. Methods of this
+ * service are expected to have security checks based on the propagated JAAS
+ * credentials because this service can be accessed remotely.
+ *
  * @author Brian Wing Shun Chan
+ * @see MailServiceUtil
+ * @see com.liferay.mail.service.base.MailServiceBaseImpl
+ * @see com.liferay.mail.service.impl.MailServiceImpl
+ * @generated
  */
-@Transactional(rollbackFor = {PortalException.class, SystemException.class})
-public interface MailService {
+@ProviderType
+@AccessControlled
+@JSONWebService
+@Transactional(isolation = Isolation.PORTAL, rollbackFor =  {
+    PortalException.class, SystemException.class}
+)
+public interface MailService extends BaseService {
+    /*
+     * NOTE FOR DEVELOPERS:
+     *
+     * Never modify or reference this interface directly. Always use {@link MailServiceUtil} to access the mail remote service. Add custom service methods to {@link com.liferay.mail.service.impl.MailServiceImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
+     */
 
-	public void addForward(
-		long companyId, long userId, List<Filter> filters,
-		List<String> emailAddresses, boolean leaveCopy);
+    /**
+    * Returns the Spring bean ID for this bean.
+    *
+    * @return the Spring bean ID for this bean
+    */
+    public java.lang.String getBeanIdentifier();
 
-	public void addUser(
-		long companyId, long userId, String password, String firstName,
-		String middleName, String lastName, String emailAddress);
+    /**
+    * Sets the Spring bean ID for this bean.
+    *
+    * @param beanIdentifier the Spring bean ID for this bean
+    */
+    public void setBeanIdentifier(java.lang.String beanIdentifier);
 
-	public void addVacationMessage(
-		long companyId, long userId, String emailAddress,
-		String vacationMessage);
+    public void addForward(long companyId, long userId,
+        java.util.List<com.liferay.mail.model.Filter> filters,
+        java.util.List<java.lang.String> emailAddresses, boolean leaveCopy);
 
-	public void clearSession();
+    public void addUser(long companyId, long userId, java.lang.String password,
+        java.lang.String firstName, java.lang.String middleName,
+        java.lang.String lastName, java.lang.String emailAddress);
 
-	public void deleteEmailAddress(long companyId, long userId);
+    public void addVacationMessage(long companyId, long userId,
+        java.lang.String emailAddress, java.lang.String vacationMessage);
 
-	public void deleteUser(long companyId, long userId);
+    public void clearSession();
 
-	public Session getSession() throws SystemException;
+    public void deleteEmailAddress(long companyId, long userId);
 
-	public void sendEmail(MailMessage mailMessage);
+    public void deleteUser(long companyId, long userId);
 
-	public void updateBlocked(
-		long companyId, long userId, List<String> blocked);
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+    public javax.mail.Session getSession()
+        throws com.liferay.portal.kernel.exception.SystemException;
 
-	public void updateEmailAddress(
-		long companyId, long userId, String emailAddress);
+    public void sendEmail(
+        com.liferay.portal.kernel.mail.MailMessage mailMessage);
 
-	public void updatePassword(long companyId, long userId, String password);
+    public void updateBlocked(long companyId, long userId,
+        java.util.List<java.lang.String> blocked);
 
+    public void updateEmailAddress(long companyId, long userId,
+        java.lang.String emailAddress);
+
+    public void updatePassword(long companyId, long userId,
+        java.lang.String password);
 }
