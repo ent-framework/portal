@@ -21,8 +21,8 @@ import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.SAXReader;
 import com.liferay.portal.tools.sourceformatter.XMLSourceProcessor;
-import com.liferay.portal.util.FileImpl;
-import com.liferay.portal.xml.SAXReaderImpl;
+import com.liferay.portal.tools.util.FileImpl;
+import com.liferay.portal.tools.xml.SAXReaderImpl;
 
 import java.io.File;
 

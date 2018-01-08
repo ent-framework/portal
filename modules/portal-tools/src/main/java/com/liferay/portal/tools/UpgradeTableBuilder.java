@@ -19,7 +19,7 @@ import com.liferay.portal.kernel.util.ReleaseInfo;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.tools.servicebuilder.ServiceBuilder;
-import com.liferay.portal.util.FileImpl;
+import com.liferay.portal.tools.util.FileImpl;
 
 import java.io.File;
 import java.io.FileInputStream;

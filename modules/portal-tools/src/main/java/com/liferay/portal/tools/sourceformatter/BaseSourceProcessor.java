@@ -25,8 +25,8 @@ import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.TextFormatter;
 import com.liferay.portal.kernel.util.Validator;
-import com.liferay.portal.util.FileImpl;
-import com.liferay.portal.xml.SAXReaderImpl;
+import com.liferay.portal.tools.util.FileImpl;
+import com.liferay.portal.tools.xml.SAXReaderImpl;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -1070,12 +1070,14 @@ public abstract class BaseSourceProcessor implements SourceProcessor {
 
 	protected static final String MAIN_RELEASE_VERSION_6_2_0 = "6.2.0";
 
-	protected static FileImpl fileUtil = FileImpl.getInstance();
+	protected static FileImpl fileUtil = new FileImpl();
 	protected static Pattern languageKeyPattern = Pattern.compile(
 		"LanguageUtil.(?:get|format)\\([^;%]+|Liferay.Language.get\\('([^']+)");
 	protected static String mainReleaseVersion;
 	protected static boolean portalSource;
+	
 	protected static SAXReaderImpl saxReaderUtil = SAXReaderImpl.getInstance();
+	
 	protected static Pattern sessionKeyPattern = Pattern.compile(
 		"SessionErrors.(?:add|contains|get)\\([^;%&|!]+|".concat(
 			"SessionMessages.(?:add|contains|get)\\([^;%&|!]+"),

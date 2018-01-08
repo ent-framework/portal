@@ -19,7 +19,7 @@ import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
-import com.liferay.portal.util.FileImpl;
+import com.liferay.portal.tools.util.FileImpl;
 
 import java.io.File;
 import java.io.IOException;
