@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.xml;
 
+import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
@@ -123,6 +124,10 @@ public class SAXReaderUtil {
 
 		if (!_XML_SECURITY_ENABLED) {
 			return UnsecureSAXReaderUtil.getSAXReader();
+		}
+
+		if (_saxReader==null) {
+			_saxReader = (SAXReader) PortalBeanLocatorUtil.locate("com.liferay.portal.kernel.xml.SAXReader");
 		}
 
 		return _saxReader;

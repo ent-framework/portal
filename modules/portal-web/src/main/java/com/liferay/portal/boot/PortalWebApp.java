@@ -4,9 +4,11 @@ import com.liferay.portal.boot.config.ApplicationProperties;
 import com.liferay.portal.boot.config.DefaultProfileUtil;
 import com.liferay.portal.boot.config.portal.EnableSpringSiteAutoConfiguration;
 import com.liferay.portal.boot.config.portal.PortalApplicationContextInitializer;
+import com.liferay.portal.spring.transaction.AnnotationTransactionAttributeSource;
 import com.liferay.portal.util.InitUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.autoconfigure.MetricFilterAutoConfiguration;
 import org.springframework.boot.actuate.autoconfigure.MetricRepositoryAutoConfiguration;
@@ -17,23 +19,24 @@ import org.springframework.boot.autoconfigure.hazelcast.HazelcastAutoConfigurati
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration;
+import org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
 import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.interceptor.TransactionAttributeSource;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 //@ComponentScan
 @EnableAutoConfiguration(exclude = {MetricFilterAutoConfiguration.class, MetricRepositoryAutoConfiguration.class,
-    HazelcastAutoConfiguration.class, SecurityAutoConfiguration.class, FreeMarkerAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
+    HazelcastAutoConfiguration.class, SecurityAutoConfiguration.class, FreeMarkerAutoConfiguration.class, HibernateJpaAutoConfiguration.class, TransactionAutoConfiguration.class
+})
 //@EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class})
 @SpringBootApplication
 public class PortalWebApp {
@@ -50,14 +53,6 @@ public class PortalWebApp {
     @Lazy(false)
     @EnableSpringSiteAutoConfiguration
     public class PortlSpringConfiguration {}
-
-
-//	@Bean
-//    public EmbeddedServletContainerFactory servletContainer() {
-//        TomcatEmbeddedServletContainerFactory factory =
-//                      new TomcatEmbeddedServletContainerFactory();
-//        return factory;
-//     }
 
     /**
      * Main method, used to run the application.

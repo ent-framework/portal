@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.util;
 
+import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.security.pacl.permission.PortalFilePermission;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
@@ -254,6 +255,10 @@ public class FileUtil {
 
 	public static com.liferay.portal.kernel.util.File getFile() {
 		PortalRuntimePermission.checkGetBeanProperty(FileUtil.class);
+
+		if (_file==null) {
+			_file = (com.liferay.portal.kernel.util.File)PortalBeanLocatorUtil.locate(com.liferay.portal.kernel.util.File.class.getName());
+		}
 
 		return _file;
 	}

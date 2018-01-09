@@ -27,7 +27,6 @@
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/rules-spring.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/scheduler-spring.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/search-spring.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/META-INF/service-builder-spring.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/staging-spring.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/util-spring.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/virtual-layouts-spring.xml</file>

@@ -188,6 +188,12 @@ public class MainServlet extends ActionServlet {
 		servletContext.setAttribute(MainServlet.class.getName(), Boolean.TRUE);
 
 		callParentInit();
+		
+		if (_log.isDebugEnabled()) {
+			_log.debug("Set portal port");
+		}
+		
+		PortalUtil.initPortalPort();
 
 		if (_log.isDebugEnabled()) {
 			_log.debug("Verify patch levels");
@@ -415,12 +421,6 @@ public class MainServlet extends ActionServlet {
 				_log.error(e.getMessage(), e);
 			}
 		}
-
-		if (_log.isDebugEnabled()) {
-			_log.debug("Set portal port");
-		}
-
-		setPortalPort(request);
 
 		if (_log.isDebugEnabled()) {
 			_log.debug("Check variables");
@@ -1213,10 +1213,6 @@ public class MainServlet extends ActionServlet {
 		dynamicRequest.setParameter("privateLayout", StringPool.BLANK);
 
 		PortalUtil.sendError(status, (Exception)t, dynamicRequest, response);
-	}
-
-	protected void setPortalPort(HttpServletRequest request) {
-		PortalUtil.setPortalPort(request);
 	}
 
 	private static final boolean _HTTP_HEADER_VERSION_VERBOSITY_DEFAULT =

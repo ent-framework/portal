@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.dao.orm;
 
+import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.cache.PortalCache;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
@@ -38,6 +39,10 @@ public class EntityCacheUtil {
 
 	public static EntityCache getEntityCache() {
 		PortalRuntimePermission.checkGetBeanProperty(EntityCacheUtil.class);
+
+		if (_entityCache==null) {
+			_entityCache = (EntityCache) PortalBeanLocatorUtil.locate("com.liferay.portal.kernel.dao.orm.EntityCache");
+		}
 
 		return _entityCache;
 	}

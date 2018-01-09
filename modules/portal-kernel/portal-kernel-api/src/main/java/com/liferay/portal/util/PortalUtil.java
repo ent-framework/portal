@@ -1077,9 +1077,9 @@ public class PortalUtil {
 		return getPortal().getPortalLibDir();
 	}
 
-	/**
-	 * @deprecated As of 6.1.0, replaced by {@link #getPortalPort(boolean)}
-	 */
+//	/**
+//	 * @deprecated As of 6.1.0, replaced by {@link #getPortalPort(boolean)}
+//	 */
 	public static int getPortalPort() {
 		return getPortal().getPortalPort();
 	}
@@ -1973,8 +1973,8 @@ public class PortalUtil {
 	/**
 	 * Sets the port obtained on the first request to the portal.
 	 */
-	public static void setPortalPort(HttpServletRequest request) {
-		getPortal().setPortalPort(request);
+	public static void initPortalPort() {
+		getPortal().initPortalPort();
 	}
 
 	public static void storePreferences(PortletPreferences portletPreferences)

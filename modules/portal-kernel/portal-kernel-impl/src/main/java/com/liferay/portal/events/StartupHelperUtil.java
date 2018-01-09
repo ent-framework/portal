@@ -14,6 +14,7 @@
 
 package com.liferay.portal.events;
 
+import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.upgrade.UpgradeException;
 import com.liferay.portal.verify.VerifyException;
@@ -28,6 +29,9 @@ import java.sql.Connection;
 public class StartupHelperUtil {
 
 	public static StartupHelper getStartupHelper() {
+		if (_startupHelper==null) {
+			_startupHelper = (StartupHelper)PortalBeanLocatorUtil.locate("com.liferay.portal.events.StartupHelper");
+		}
 		return _startupHelper;
 	}
 

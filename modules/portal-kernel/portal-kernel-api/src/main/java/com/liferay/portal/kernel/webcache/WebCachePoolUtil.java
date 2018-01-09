@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.webcache;
 
+import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 /**
@@ -32,6 +33,10 @@ public class WebCachePoolUtil {
 	public static WebCachePool getWebCachePool() {
 		PortalRuntimePermission.checkGetBeanProperty(WebCachePoolUtil.class);
 
+		if (_webCachePool==null) {
+			_webCachePool = (WebCachePool)PortalBeanLocatorUtil.locate("com.liferay.portal.kernel.webcache.WebCachePool");
+		}
+		
 		return _webCachePool;
 	}
 

@@ -11,6 +11,7 @@ import com.liferay.portal.kernel.servlet.PortletSessionListenerManager;
 import com.liferay.portal.kernel.servlet.SerializableSessionAttributeListener;
 import com.liferay.portal.kernel.servlet.filters.invoker.InvokerFilter;
 import com.liferay.portal.kernel.template.TemplateResourceLoaderUtil;
+import com.liferay.portal.kernel.util.FastDateFormatFactoryUtil;
 import com.liferay.portal.kernel.webcache.WebCachePoolUtil;
 import com.liferay.portal.kernel.xml.UnsecureSAXReaderUtil;
 import com.liferay.portal.model.ModelHintsUtil;
@@ -52,21 +53,13 @@ public class PortalWebApplicationInitializer implements ServletContextInitialize
 
         ApplicationContext applicationContext = WebApplicationContextUtils.getWebApplicationContext(servletContext);
 
-        applicationContext.getBean(MultiVMPoolUtil.class);
-        applicationContext.getBean(SingleVMPoolUtil.class);
-
-        applicationContext.getBean(FinderCacheUtil.class);
-        applicationContext.getBean(EntityCacheUtil.class);
-        applicationContext.getBean(TemplateResourceLoaderUtil.class);
-
-        applicationContext.getBean(WebCachePoolUtil.class);
-
-        applicationContext.getBean(UnsecureSAXReaderUtil.class);
         applicationContext.getBean(CacheKeyGeneratorUtil.class);
         applicationContext.getBean(SqlUpdateFactoryUtil.class);
         applicationContext.getBean(MappingSqlQueryFactoryUtil.class);
         applicationContext.getBean(ModelHintsUtil.class);
         applicationContext.getBean(PortalUtil.class);
+        applicationContext.getBean(FastDateFormatFactoryUtil.class);
+
 
         initPortalListeners(servletContext);
         initInvokerFilters(servletContext, false);

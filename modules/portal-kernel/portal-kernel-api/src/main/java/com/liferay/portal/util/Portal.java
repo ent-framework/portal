@@ -1386,10 +1386,7 @@ public interface Portal {
 	 */
 	public void setPageTitle(String title, HttpServletRequest request);
 
-	/**
-	 * Sets the port obtained on the first request to the portal.
-	 */
-	public void setPortalPort(HttpServletRequest request);
+	public void initPortalPort();
 
 	public void storePreferences(PortletPreferences portletPreferences)
 		throws IOException, ValidatorException;

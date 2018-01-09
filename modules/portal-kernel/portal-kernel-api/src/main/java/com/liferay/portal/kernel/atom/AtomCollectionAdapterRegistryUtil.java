@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.atom;
 
+import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.util.List;
@@ -35,6 +36,10 @@ public class AtomCollectionAdapterRegistryUtil {
 
 		PortalRuntimePermission.checkGetBeanProperty(
 			AtomCollectionAdapterRegistryUtil.class);
+
+		if (_atomCollectionAdapterRegistry==null) {
+			_atomCollectionAdapterRegistry = (AtomCollectionAdapterRegistry)PortalBeanLocatorUtil.locate("com.liferay.portal.kernel.atom.AtomCollectionAdapterRegistry");
+		}
 
 		return _atomCollectionAdapterRegistry;
 	}

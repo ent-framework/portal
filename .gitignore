@@ -8,7 +8,15 @@
 /.gradle/
 /build/
 /*/classes/
-/*/target/
-.settings
+
 .classpath
 .project
+.settings
+/target
+
+*/**/.classpath
+*/**/.project
+*/**/.settings
+*/**/target
+
+/liferay_data

@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.dao.orm;
 
+import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
@@ -38,6 +39,12 @@ public class FinderCacheUtil {
 	public static FinderCache getFinderCache() {
 
 		PortalRuntimePermission.checkGetBeanProperty(FinderCacheUtil.class);
+
+		if (_finderCache==null) {
+			_finderCache = (FinderCache) PortalBeanLocatorUtil.locate("com.liferay.portal.kernel.dao.orm.FinderCache");
+		}
+
+
 		return _finderCache;
 	}
 

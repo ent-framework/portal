@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.cache;
 
+import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.io.Serializable;
@@ -43,6 +44,9 @@ public class SingleVMPoolUtil {
 	public static SingleVMPool getSingleVMPool() {
 		PortalRuntimePermission.checkGetBeanProperty(SingleVMPoolUtil.class);
 
+		if (_singleVMPool==null) {
+			_singleVMPool = (SingleVMPool)PortalBeanLocatorUtil.locate("com.liferay.portal.kernel.cache.SingleVMPool");
+		}
 		return _singleVMPool;
 	}
 

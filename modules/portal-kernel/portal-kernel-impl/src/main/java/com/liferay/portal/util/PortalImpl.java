@@ -20,6 +20,7 @@ import com.liferay.portal.NoSuchLayoutException;
 import com.liferay.portal.NoSuchUserException;
 import com.liferay.portal.dao.orm.common.SQLTransformer;
 import com.liferay.portal.kernel.bean.BeanPropertiesUtil;
+import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.cluster.ClusterExecutorUtil;
 import com.liferay.portal.kernel.cluster.ClusterInvokeThreadLocal;
 import com.liferay.portal.kernel.cluster.ClusterRequest;
@@ -32,6 +33,9 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.env.Environment;
+import org.springframework.web.context.request.RequestContextHolder;
+
 import com.liferay.portal.kernel.portlet.*;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.servlet.*;
@@ -94,6 +98,8 @@ import com.liferay.portlet.social.model.SocialRelationConstants;
 import com.liferay.portlet.social.util.FacebookUtil;
 import com.liferay.util.Encryptor;
 import com.liferay.util.JS;
+
+import org.apache.commons.lang.NumberUtils;
 import org.apache.struts.Globals;
 
 import javax.portlet.*;
@@ -6675,12 +6681,21 @@ public class PortalImpl implements Portal {
 	}
 
 	@Override
-	public void setPortalPort(HttpServletRequest request) {
-		boolean secure = request.isSecure();
+	public void initPortalPort() {
+		
+		Environment env = (Environment)PortalBeanLocatorUtil.locate("environment");
+        
+		boolean secure = false;
+		
+        if (env.getProperty("server.ssl.key-store") != null) {
+        		secure = true;
+        }
+        
 
 		if (secure) {
 			if (_securePortalPort.get() == -1) {
-				int securePortalPort = request.getServerPort();
+				
+				int securePortalPort = org.apache.commons.lang.math.NumberUtils.stringToInt(env.getProperty("server.port"));
 
 				if (_securePortalPort.compareAndSet(-1, securePortalPort)) {
 					notifyPortalPortEventListeners(securePortalPort);
@@ -6691,7 +6706,7 @@ public class PortalImpl implements Portal {
 		}
 		else {
 			if (_portalPort.get() == -1) {
-				int portalPort = request.getServerPort();
+				int portalPort = org.apache.commons.lang.math.NumberUtils.stringToInt(env.getProperty("server.port"));
 
 				if (_portalPort.compareAndSet(-1, portalPort)) {
 					notifyPortalPortEventListeners(portalPort);
