@@ -172,7 +172,7 @@ public abstract class VerifyProcess extends BaseDBProcess {
 
 		String sql = StringUtil.read(
 			classLoader,
-			"sql_dependencies/portal-tables.sql");
+			"dependencies/portal/sqlportal-tables.sql");
 
 		Matcher matcher = _createTablePattern.matcher(sql);
 
