@@ -15,8 +15,6 @@
 package com.liferay.portlet;
 
 import com.liferay.portal.dao.shard.ShardPollerProcessorWrapper;
-import com.liferay.portal.kernel.atom.AtomCollectionAdapter;
-import com.liferay.portal.kernel.atom.AtomCollectionAdapterRegistryUtil;
 import com.liferay.portal.kernel.lar.PortletDataHandler;
 import com.liferay.portal.kernel.lar.StagedModelDataHandler;
 import com.liferay.portal.kernel.lar.StagedModelDataHandlerRegistryUtil;
@@ -188,8 +186,6 @@ public class PortletBagFactory {
 
 		List<AssetRendererFactory> assetRendererFactoryInstances = newAssetRendererFactoryInstances(portlet);
 
-		List<AtomCollectionAdapter<?>> atomCollectionAdapterInstances = newAtomCollectionAdapterInstances(portlet);
-
 		List<CustomAttributesDisplay> customAttributesDisplayInstances = new ArrayList<CustomAttributesDisplay>();
 
 		for (String customAttributesDisplayClass : portlet.getCustomAttributesDisplayClasses()) {
@@ -274,7 +270,7 @@ public class PortletBagFactory {
 		PortletBag portletBag = new PortletBagImpl(portlet.getPortletId(), _servletContext, portletInstance, configurationActionInstance, indexerInstances, openSearchInstance,
 				friendlyURLMapperInstance, urlEncoderInstance, portletDataHandlerInstance, stagedModelDataHandlerInstances, templateHandlerInstance, portletLayoutListenerInstance,
 				pollerProcessorInstance, popMessageListenerInstance, socialActivityInterpreterInstances, socialRequestInterpreterInstance, userNotificationHandlerInstances, webDAVStorageInstance,
-				xmlRpcMethodInstance, controlPanelEntryInstance, assetRendererFactoryInstances, atomCollectionAdapterInstances, customAttributesDisplayInstances, permissionPropagatorInstance,
+				xmlRpcMethodInstance, controlPanelEntryInstance, assetRendererFactoryInstances, customAttributesDisplayInstances, permissionPropagatorInstance,
 				trashHandlerInstances, workflowHandlerInstances, preferencesValidatorInstance, resourceBundles);
 
 		PortletBagPool.put(portlet.getRootPortletId(), portletBag);
@@ -572,22 +568,6 @@ public class PortletBagFactory {
 		}
 
 		return assetRendererFactoryInstances;
-	}
-
-	protected List<AtomCollectionAdapter<?>> newAtomCollectionAdapterInstances(Portlet portlet) throws Exception {
-
-		List<AtomCollectionAdapter<?>> atomCollectionAdapterInstances = new ArrayList<AtomCollectionAdapter<?>>();
-
-		for (String atomCollectionAdapterClass : portlet.getAtomCollectionAdapterClasses()) {
-
-			AtomCollectionAdapter<?> atomCollectionAdapterInstance = (AtomCollectionAdapter<?>) newInstance(AtomCollectionAdapter.class, atomCollectionAdapterClass);
-
-			AtomCollectionAdapterRegistryUtil.register(atomCollectionAdapterInstance);
-
-			atomCollectionAdapterInstances.add(atomCollectionAdapterInstance);
-		}
-
-		return atomCollectionAdapterInstances;
 	}
 
 	protected ConfigurationAction newConfigurationAction(Portlet portlet) throws Exception {

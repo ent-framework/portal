@@ -22,5 +22,5 @@ page import="com.liferay.portal.kernel.monitoring.statistics.DataSampleThreadLoc
 page import="com.liferay.portal.monitoring.statistics.portal.PortalRequestDataSample" %><%@
 page import="com.liferay.taglib.aui.ScriptTag" %>
 
-<%@ page import="org.apache.struts.taglib.tiles.ComponentConstants" %><%@
+<%@ page import="org.apache.struts.tiles.taglib.ComponentConstants" %><%@
 page import="org.apache.struts.tiles.ComponentContext" %>

@@ -201,7 +201,7 @@ Map<String, ThemeSetting> configurableSettings = selTheme.getConfigurableSetting
 					<%= LanguageUtil.format(pageContext, "available-themes-x", (themes.size() - 1)) %>
 				</span>
 
-				<c:if test="<%= permissionChecker.isOmniadmin() && PortletLocalServiceUtil.hasPortlet(themeDisplay.getCompanyId(), PortletKeys.MARKETPLACE_STORE) && PrefsPropsUtil.getBoolean(PropsKeys.AUTO_DEPLOY_ENABLED, PropsValues.AUTO_DEPLOY_ENABLED) %>">
+				<c:if test="<%= permissionChecker.isOmniadmin() && PortletLocalServiceUtil.hasPortlet(themeDisplay.getCompanyId(), PortletKeys.MARKETPLACE_STORE) %>">
 
 					<%
 					long controlPanelPlid = PortalUtil.getControlPanelPlid(company.getCompanyId());
@@ -314,7 +314,7 @@ Map<String, ThemeSetting> configurableSettings = selTheme.getConfigurableSetting
 	</aui:script>
 </c:if>
 
-<c:if test="<%= editable && permissionChecker.isOmniadmin() && PrefsPropsUtil.getBoolean(PropsKeys.AUTO_DEPLOY_ENABLED, PropsValues.AUTO_DEPLOY_ENABLED) %>">
+<c:if test="<%= editable && permissionChecker.isOmniadmin() %>">
 	<aui:script use="aui-base">
 		if (window.parent) {
 			var installMoreLink = A.one('#<portlet:namespace />installMore');

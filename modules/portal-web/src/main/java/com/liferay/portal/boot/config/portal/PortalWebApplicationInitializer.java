@@ -1,34 +1,19 @@
 package com.liferay.portal.boot.config.portal;
 
+import com.liferay.portal.jsonwebservice.JSONWebServiceServlet;
 import com.liferay.portal.kernel.bean.Util;
-import com.liferay.portal.kernel.cache.MultiVMPoolUtil;
-import com.liferay.portal.kernel.cache.SingleVMPoolUtil;
-import com.liferay.portal.kernel.cache.key.CacheKeyGeneratorUtil;
-import com.liferay.portal.kernel.dao.jdbc.MappingSqlQueryFactoryUtil;
-import com.liferay.portal.kernel.dao.jdbc.SqlUpdateFactoryUtil;
-import com.liferay.portal.kernel.dao.orm.EntityCacheUtil;
-import com.liferay.portal.kernel.dao.orm.FinderCacheUtil;
 import com.liferay.portal.kernel.servlet.PortletSessionListenerManager;
 import com.liferay.portal.kernel.servlet.SerializableSessionAttributeListener;
 import com.liferay.portal.kernel.servlet.filters.invoker.InvokerFilter;
-import com.liferay.portal.kernel.template.TemplateResourceLoaderUtil;
-import com.liferay.portal.kernel.util.FastDateFormatFactoryUtil;
-import com.liferay.portal.kernel.webcache.WebCachePoolUtil;
-import com.liferay.portal.kernel.xml.UnsecureSAXReaderUtil;
-import com.liferay.portal.model.ModelHintsUtil;
 import com.liferay.portal.servlet.*;
 import com.liferay.portal.spring.context.PortalContextLoaderListener;
-import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.webserver.DynamicResourceServlet;
-
 import com.liferay.portal.webserver.WebServerServlet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.servlet.*;
@@ -174,6 +159,11 @@ public class PortalWebApplicationInitializer implements ServletContextInitialize
         webServerServlet.addMapping("/image/*");
         webServerServlet.setLoadOnStartup(1);
         webServerServlet.setAsyncSupported(false);
+
+        ServletRegistration.Dynamic jsonWebServiceServlet = servletContext.addServlet("JSONWebServiceServlet", new JSONWebServiceServlet());
+        jsonWebServiceServlet.addMapping("/api/jsonws/*");
+        jsonWebServiceServlet.setLoadOnStartup(1);
+        jsonWebServiceServlet.setAsyncSupported(false);
 
     }
 }

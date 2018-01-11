@@ -14,7 +14,6 @@
 
 package com.liferay.portal.model.impl;
 
-import com.liferay.portal.kernel.atom.AtomCollectionAdapter;
 import com.liferay.portal.kernel.lar.PortletDataHandler;
 import com.liferay.portal.kernel.lar.StagedModelDataHandler;
 import org.slf4j.Logger;
@@ -116,7 +115,6 @@ public class PortletImpl extends PortletBaseImpl {
 		_socialActivityInterpreterClasses = new ArrayList<String>();
 		_userNotificationHandlerClasses = new ArrayList<String>();
 		_assetRendererFactoryClasses = new ArrayList<String>();
-		_atomCollectionAdapterClasses = new ArrayList<String>();
 		_customAttributesDisplayClasses = new ArrayList<String>();
 		_trashHandlerClasses = new ArrayList<String>();
 		_workflowHandlerClasses = new ArrayList<String>();
@@ -165,7 +163,6 @@ public class PortletImpl extends PortletBaseImpl {
 		String webDAVStorageClass, String xmlRpcMethodClass,
 		String controlPanelEntryCategory, double controlPanelEntryWeight,
 		String controlPanelClass, List<String> assetRendererFactoryClasses,
-		List<String> atomCollectionAdapterClasses,
 		List<String> customAttributesDisplayClasses, String ddmDisplayClass,
 		String permissionPropagatorClass, List<String> trashHandlerClasses,
 		List<String> workflowHandlerClasses, String defaultPreferences,
@@ -236,7 +233,6 @@ public class PortletImpl extends PortletBaseImpl {
 		_controlPanelEntryWeight = controlPanelEntryWeight;
 		_controlPanelEntryClass = controlPanelClass;
 		_assetRendererFactoryClasses = assetRendererFactoryClasses;
-		_atomCollectionAdapterClasses = atomCollectionAdapterClasses;
 		_customAttributesDisplayClasses = customAttributesDisplayClasses;
 		_ddmDisplayClass = ddmDisplayClass;
 		_permissionPropagatorClass = permissionPropagatorClass;
@@ -320,7 +316,6 @@ public class PortletImpl extends PortletBaseImpl {
 		String webDAVStorageClass, String xmlRpcMethodClass,
 		String controlPanelEntryCategory, double controlPanelEntryWeight,
 		String controlPanelClass, List<String> assetRendererFactoryClasses,
-		List<String> atomCollectionAdapterClasses,
 		List<String> customAttributesDisplayClasses, String ddmDisplayClass,
 		String permissionPropagatorClass, List<String> trashHandlerClasses,
 		List<String> workflowHandlerClasses, String defaultPreferences,
@@ -366,7 +361,7 @@ public class PortletImpl extends PortletBaseImpl {
 			userNotificationHandlerClasses, webDAVStorageToken,
 			webDAVStorageClass, xmlRpcMethodClass, controlPanelEntryCategory,
 			controlPanelEntryWeight, controlPanelClass,
-			assetRendererFactoryClasses, atomCollectionAdapterClasses,
+			assetRendererFactoryClasses,
 			customAttributesDisplayClasses, ddmDisplayClass,
 			permissionPropagatorClass, trashHandlerClasses,
 			workflowHandlerClasses, defaultPreferences, preferencesValidator,
@@ -468,7 +463,6 @@ public class PortletImpl extends PortletBaseImpl {
 			getWebDAVStorageClass(), getXmlRpcMethodClass(),
 			getControlPanelEntryCategory(), getControlPanelEntryWeight(),
 			getControlPanelEntryClass(), getAssetRendererFactoryClasses(),
-			getAtomCollectionAdapterClasses(),
 			getCustomAttributesDisplayClasses(), getDDMDisplayClass(),
 			getPermissionPropagatorClass(), getTrashHandlerClasses(),
 			getWorkflowHandlerClasses(), getDefaultPreferences(),
@@ -650,34 +644,6 @@ public class PortletImpl extends PortletBaseImpl {
 		PortletBag portletBag = PortletBagPool.get(getRootPortletId());
 
 		return portletBag.getAssetRendererFactoryInstances();
-	}
-
-	/**
-	 * Returns the names of the classes that represent atom collection adapters
-	 * associated with the portlet.
-	 *
-	 * @return the names of the classes that represent atom collection adapters
-	 *         associated with the portlet
-	 */
-	@Override
-	public List<String> getAtomCollectionAdapterClasses() {
-		return _atomCollectionAdapterClasses;
-	}
-
-	/**
-	 * Returns the atom collection adapter instances of the portlet.
-	 *
-	 * @return the atom collection adapter instances of the portlet
-	 */
-	@Override
-	public List<AtomCollectionAdapter<?>> getAtomCollectionAdapterInstances() {
-		if (_atomCollectionAdapterClasses.isEmpty()) {
-			return null;
-		}
-
-		PortletBag portletBag = PortletBagPool.get(getRootPortletId());
-
-		return portletBag.getAtomCollectionAdapterInstances();
 	}
 
 	/**
@@ -2788,20 +2754,6 @@ public class PortletImpl extends PortletBaseImpl {
 	}
 
 	/**
-	 * Sets the names of the classes that represent atom collection adapters
-	 * associated with the portlet.
-	 *
-	 * @param atomCollectionAdapterClasses the names of the classes that
-	 *        represent atom collection adapters associated with the portlet
-	 */
-	@Override
-	public void setAtomCollectionAdapterClasses(
-		List<String> atomCollectionAdapterClasses) {
-
-		_atomCollectionAdapterClasses = atomCollectionAdapterClasses;
-	}
-
-	/**
 	 * Sets the names of the parameters that will be automatically propagated
 	 * through the portlet.
 	 *
@@ -3957,12 +3909,6 @@ public class PortletImpl extends PortletBaseImpl {
 	 * portlet.
 	 */
 	private List<String> _assetRendererFactoryClasses;
-
-	/**
-	 * The names of the classes that represents atom collection adapters
-	 * associated with the portlet.
-	 */
-	private List<String> _atomCollectionAdapterClasses;
 
 	/**
 	 * The names of the parameters that will be automatically propagated through

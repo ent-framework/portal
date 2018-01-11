@@ -61,6 +61,7 @@
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
     <orderEntry type="library" name="Maven: dom4j:dom4j:1.6.1" level="project" />
     <orderEntry type="library" name="Maven: org.mnode.ical4j:ical4j:1.0.2" level="project" />
+    <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.10" level="project" />
     <orderEntry type="library" name="Maven: backport-util-concurrent:backport-util-concurrent:3.1" level="project" />
     <orderEntry type="library" name="Maven: net.sf.jazzy:jazzy:0.5.2-rtext-1.4.1-2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.axis:axis:1.4" level="project" />
@@ -91,6 +92,7 @@
     <orderEntry type="library" name="Maven: org.apache.poi:poi-ooxml:3.8" level="project" />
     <orderEntry type="library" name="Maven: org.apache.poi:poi-ooxml-schemas:3.8" level="project" />
     <orderEntry type="library" name="Maven: org.apache.xmlbeans:xmlbeans:2.3.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.geronimo.specs:geronimo-stax-api_1.0_spec:1.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.ccil.cowan.tagsoup:tagsoup:1.2.1" level="project" />
     <orderEntry type="library" name="Maven: com.googlecode.mp4parser:isoparser:1.0-RC-1" level="project" />
     <orderEntry type="library" name="Maven: com.drewnoakes:metadata-extractor:2.6.2" level="project" />
@@ -155,11 +157,13 @@
     <orderEntry type="library" name="Maven: com.mchange:mchange-commons-java:0.2.11" level="project" />
     <orderEntry type="library" name="Maven: javax.portlet:portlet-api:2.0" level="project" />
     <orderEntry type="library" name="Maven: biz.aQute:annotation:1.50.0" level="project" />
-    <orderEntry type="library" name="Maven: struts:struts:1.2.9" level="project" />
-    <orderEntry type="library" name="Maven: oro:oro:2.0.7" level="project" />
-    <orderEntry type="library" name="Maven: xalan:xalan:2.5.1" level="project" />
-    <orderEntry type="library" name="Maven: struts:struts-el:1.2.9" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.struts:struts-core:1.3.10" level="project" />
+    <orderEntry type="library" name="Maven: commons-chain:commons-chain:1.2" level="project" />
+    <orderEntry type="library" name="Maven: oro:oro:2.0.8" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.struts:struts-el:1.3.10" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.struts:struts-taglib:1.3.10" level="project" />
     <orderEntry type="library" name="Maven: taglibs:standard:1.0.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.struts:struts-tiles:1.3.10" level="project" />
     <orderEntry type="library" name="Maven: org.jfree:jfreechart:1.0.19" level="project" />
     <orderEntry type="library" name="Maven: org.jfree:jcommon:1.0.23" level="project" />
     <orderEntry type="library" name="Maven: org.apache.velocity:velocity:1.6.4" level="project" />
@@ -187,31 +191,14 @@
     <orderEntry type="library" name="Maven: javax.ccpp:ccpp:1.0" level="project" />
     <orderEntry type="library" name="Maven: rome:rome:1.0" level="project" />
     <orderEntry type="library" name="Maven: jdom:jdom:1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.abdera:abdera-bundle:1.1.2" level="project" />
-    <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.10" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.geronimo.specs:geronimo-activation_1.0.2_spec:1.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.geronimo.specs:geronimo-stax-api_1.0_spec:1.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.ws.commons.axiom:axiom-impl:1.2.10" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.ws.commons.axiom:axiom-api:1.2.10" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.geronimo.specs:geronimo-activation_1.1_spec:1.0.2" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.geronimo.specs:geronimo-javamail_1.4_spec:1.6" level="project" />
-    <orderEntry type="library" name="Maven: jaxen:jaxen:1.1.6" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.woodstox:wstx-asl:3.2.6" level="project" />
-    <orderEntry type="library" name="Maven: javax.mail:mail:1.4" level="project" />
-    <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.jackrabbit:jackrabbit-core:1.4" level="project" />
-    <orderEntry type="library" name="Maven: concurrent:concurrent:1.3.4" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.derby:derby:10.13.1.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.ibatis:ibatis-sqlmap:2.3.0" level="project" />
-    <orderEntry type="library" name="Maven: xml-security:xmlsec:1.3.0" level="project" />
-    <orderEntry type="library" name="Maven: bouncycastle:bcprov-jdk15:124" level="project" />
-    <orderEntry type="library" name="Maven: nu.validator.htmlparser:htmlparser:1.0.5" level="project" />
-    <orderEntry type="library" name="Maven: net.sf.json-lib:json-lib:jdk15:2.2.2" level="project" />
-    <orderEntry type="library" name="Maven: net.sf.ezmorph:ezmorph:1.0.4" level="project" />
+    <orderEntry type="library" name="Maven: jaxen:jaxen:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: xom:xom:1.0" level="project" />
+    <orderEntry type="library" name="Maven: xerces:xmlParserAPIs:2.6.2" level="project" />
+    <orderEntry type="library" name="Maven: xalan:xalan:2.6.0" level="project" />
+    <orderEntry type="library" name="Maven: com.ibm.icu:icu4j:2.6.1" level="project" />
     <orderEntry type="library" name="Maven: org.jgroups:jgroups:3.2.0.Final" level="project" />
     <orderEntry type="library" name="Maven: de.schlichtherle:truezip:6.8.4" level="project" />
     <orderEntry type="library" name="Maven: org.jabsorb:jabsorb:1.3.2" level="project" />
-    <orderEntry type="library" name="Maven: de.schlichtherle.io:truezip:6.6" level="project" />
     <orderEntry type="library" name="Maven: org.openid4java:openid4java:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.5.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.8" level="project" />

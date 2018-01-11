@@ -102,7 +102,7 @@
 					<%
 					PortletURL marketplaceURL = null;
 
-					if ((PrefsPropsUtil.getBoolean(PropsKeys.AUTO_DEPLOY_ENABLED, PropsValues.AUTO_DEPLOY_ENABLED) || PortalUtil.isOmniadmin(user.getUserId())) && PortletLocalServiceUtil.hasPortlet(themeDisplay.getCompanyId(), PortletKeys.MARKETPLACE_STORE)) {
+					if ( PortalUtil.isOmniadmin(user.getUserId()) && PortletLocalServiceUtil.hasPortlet(themeDisplay.getCompanyId(), PortletKeys.MARKETPLACE_STORE)) {
 						marketplaceURL = ((RenderResponseImpl)renderResponse).createRenderURL(PortletKeys.MARKETPLACE_STORE);
 					}
 

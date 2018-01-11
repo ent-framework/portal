@@ -14,7 +14,6 @@
 
 package com.liferay.portlet;
 
-import com.liferay.portal.kernel.atom.AtomCollectionAdapter;
 import com.liferay.portal.kernel.lar.PortletDataHandler;
 import com.liferay.portal.kernel.lar.StagedModelDataHandler;
 import com.liferay.portal.kernel.notifications.UserNotificationHandler;
@@ -74,7 +73,6 @@ public class PortletBagImpl implements PortletBag {
 		WebDAVStorage webDAVStorageInstance, Method xmlRpcMethodInstance,
 		ControlPanelEntry controlPanelEntryInstance,
 		List<AssetRendererFactory> assetRendererFactoryInstances,
-		List<AtomCollectionAdapter<?>> atomCollectionAdapters,
 		List<CustomAttributesDisplay> customAttributesDisplayInstances,
 		PermissionPropagator permissionPropagatorInstance,
 		List<TrashHandler> trashHandlerInstances,
@@ -104,7 +102,6 @@ public class PortletBagImpl implements PortletBag {
 		_xmlRpcMethodInstance = xmlRpcMethodInstance;
 		_controlPanelEntryInstance = controlPanelEntryInstance;
 		_assetRendererFactoryInstances = assetRendererFactoryInstances;
-		_atomCollectionAdapterInstances = atomCollectionAdapters;
 		_customAttributesDisplayInstances = customAttributesDisplayInstances;
 		_permissionPropagatorInstance = permissionPropagatorInstance;
 		_trashHandlerInstances = trashHandlerInstances;
@@ -128,7 +125,6 @@ public class PortletBagImpl implements PortletBag {
 			getUserNotificationHandlerInstances(), getWebDAVStorageInstance(),
 			getXmlRpcMethodInstance(), getControlPanelEntryInstance(),
 			getAssetRendererFactoryInstances(),
-			getAtomCollectionAdapterInstances(),
 			getCustomAttributesDisplayInstances(),
 			getPermissionPropagatorInstance(), getTrashHandlerInstances(),
 			getWorkflowHandlerInstances(), getPreferencesValidatorInstance(),
@@ -138,11 +134,6 @@ public class PortletBagImpl implements PortletBag {
 	@Override
 	public List<AssetRendererFactory> getAssetRendererFactoryInstances() {
 		return _assetRendererFactoryInstances;
-	}
-
-	@Override
-	public List<AtomCollectionAdapter<?>> getAtomCollectionAdapterInstances() {
-		return _atomCollectionAdapterInstances;
 	}
 
 	@Override
@@ -309,7 +300,6 @@ public class PortletBagImpl implements PortletBag {
 	}
 
 	private List<AssetRendererFactory> _assetRendererFactoryInstances;
-	private List<AtomCollectionAdapter<?>> _atomCollectionAdapterInstances;
 	private ConfigurationAction _configurationActionInstance;
 	private ControlPanelEntry _controlPanelEntryInstance;
 	private List<CustomAttributesDisplay> _customAttributesDisplayInstances;

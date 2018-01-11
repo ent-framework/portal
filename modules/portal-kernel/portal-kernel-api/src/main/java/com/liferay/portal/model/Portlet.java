@@ -126,22 +126,6 @@ public interface Portlet extends PortletModel, PersistedModel {
     public java.util.List<com.liferay.portlet.asset.model.AssetRendererFactory> getAssetRendererFactoryInstances();
 
     /**
-    * Returns the names of the classes that represent atom collection adapters
-    * associated with the portlet.
-    *
-    * @return the names of the classes that represent atom collection adapters
-    associated with the portlet
-    */
-    public java.util.List<java.lang.String> getAtomCollectionAdapterClasses();
-
-    /**
-    * Returns the atom collection adapter instances of the portlet.
-    *
-    * @return the atom collection adapter instances of the portlet
-    */
-    public java.util.List<com.liferay.portal.kernel.atom.AtomCollectionAdapter<?>> getAtomCollectionAdapterInstances();
-
-    /**
     * Returns the names of the parameters that will be automatically propagated
     * through the portlet.
     *
@@ -1466,16 +1450,6 @@ public interface Portlet extends PortletModel, PersistedModel {
     */
     public void setAssetRendererFactoryClasses(
         java.util.List<java.lang.String> assetRendererFactoryClasses);
-
-    /**
-    * Sets the names of the classes that represent atom collection adapters
-    * associated with the portlet.
-    *
-    * @param atomCollectionAdapterClasses the names of the classes that
-    represent atom collection adapters associated with the portlet
-    */
-    public void setAtomCollectionAdapterClasses(
-        java.util.List<java.lang.String> atomCollectionAdapterClasses);
 
     /**
     * Sets the names of the parameters that will be automatically propagated

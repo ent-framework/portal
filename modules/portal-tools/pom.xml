@@ -52,37 +52,6 @@
         <dependency>
             <groupId>easyconf</groupId>
             <artifactId>easyconf</artifactId>
-            <version>0.9.5</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>struts</groupId>
-                    <artifactId>struts</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>xdoclet</groupId>
-                    <artifactId>xdoclet</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>xdoclet</groupId>
-                    <artifactId>xdoclet-web-module</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>xpp3</groupId>
-                    <artifactId>xpp3_min</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>xstream</groupId>
-                    <artifactId>xstream</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>javax.servlet</groupId>
-                    <artifactId>servlet-api</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>xerces</groupId>
-                    <artifactId>xercesImpl</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <!-- Portal Tools -->

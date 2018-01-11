@@ -440,28 +440,6 @@ public class PortletWrapper implements Portlet, ModelWrapper<Portlet> {
     }
 
     /**
-    * Returns the names of the classes that represent atom collection adapters
-    * associated with the portlet.
-    *
-    * @return the names of the classes that represent atom collection adapters
-    associated with the portlet
-    */
-    @Override
-    public java.util.List<java.lang.String> getAtomCollectionAdapterClasses() {
-        return _portlet.getAtomCollectionAdapterClasses();
-    }
-
-    /**
-    * Returns the atom collection adapter instances of the portlet.
-    *
-    * @return the atom collection adapter instances of the portlet
-    */
-    @Override
-    public java.util.List<com.liferay.portal.kernel.atom.AtomCollectionAdapter<?>> getAtomCollectionAdapterInstances() {
-        return _portlet.getAtomCollectionAdapterInstances();
-    }
-
-    /**
     * Returns the names of the parameters that will be automatically propagated
     * through the portlet.
     *
@@ -2283,19 +2261,6 @@ public class PortletWrapper implements Portlet, ModelWrapper<Portlet> {
     public void setAssetRendererFactoryClasses(
         java.util.List<java.lang.String> assetRendererFactoryClasses) {
         _portlet.setAssetRendererFactoryClasses(assetRendererFactoryClasses);
-    }
-
-    /**
-    * Sets the names of the classes that represent atom collection adapters
-    * associated with the portlet.
-    *
-    * @param atomCollectionAdapterClasses the names of the classes that
-    represent atom collection adapters associated with the portlet
-    */
-    @Override
-    public void setAtomCollectionAdapterClasses(
-        java.util.List<java.lang.String> atomCollectionAdapterClasses) {
-        _portlet.setAtomCollectionAdapterClasses(atomCollectionAdapterClasses);
     }
 
     /**

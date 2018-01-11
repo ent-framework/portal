@@ -22,7 +22,7 @@ import javax.servlet.http.HttpSession;
 import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.struts.taglib.tiles.ComponentConstants;
+import org.apache.struts.tiles.taglib.ComponentConstants;
 import org.apache.struts.tiles.DefinitionsFactoryException;
 import org.apache.struts.tiles.FactoryNotFoundException;
 import org.apache.struts.tiles.xmlDefinition.*;
