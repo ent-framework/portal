@@ -14,12 +14,14 @@
 
 package com.liferay.portal.kernel.format;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 /**
  * @author Brian Wing Shun Chan
  * @author Manuel de la Peña
  */
+@Util
 public class PhoneNumberFormatUtil {
 
 	public static String format(String phoneNumber) {

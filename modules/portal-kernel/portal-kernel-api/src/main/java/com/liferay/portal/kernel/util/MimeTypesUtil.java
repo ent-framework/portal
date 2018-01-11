@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.io.File;
@@ -26,6 +27,7 @@ import java.util.Set;
  * @author Brian Wing Shun Chan
  * @author Alexander Chow
  */
+@Util
 public class MimeTypesUtil {
 
 	/**

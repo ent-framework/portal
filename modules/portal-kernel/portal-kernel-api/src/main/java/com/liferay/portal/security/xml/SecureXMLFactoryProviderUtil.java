@@ -14,6 +14,7 @@
 
 package com.liferay.portal.security.xml;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -24,6 +25,7 @@ import org.xml.sax.XMLReader;
 /**
  * @author Tomas Polesovsky
  */
+@Util
 public class SecureXMLFactoryProviderUtil {
 
 	public static SecureXMLFactoryProvider getSecureXMLFactoryProvider() {

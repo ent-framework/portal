@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.image;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.model.Image;
 
@@ -33,6 +34,7 @@ import java.util.concurrent.Future;
  * @author Brian Wing Shun Chan
  * @author Alexander Chow
  */
+@Util
 public class ImageToolUtil {
 
 	/**

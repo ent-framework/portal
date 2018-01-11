@@ -198,6 +198,10 @@
                         <groupId>javax.jcr</groupId>
                         <artifactId>jcr</artifactId>
                     </exclusion>
+                    <exclusion>
+                        <groupId>aopalliance</groupId>
+                        <artifactId>aopalliance</artifactId>
+                    </exclusion>
                 </exclusions>
             </dependency>
             <dependency>

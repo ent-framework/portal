@@ -18,7 +18,6 @@
 
 <%@ page import="com.liferay.portal.DuplicatePasswordPolicyException" %><%@
 page import="com.liferay.portal.PasswordPolicyNameException" %><%@
-page import="com.liferay.portal.security.ldap.LDAPSettingsUtil" %><%@
 page import="com.liferay.portal.service.permission.PasswordPolicyPermissionUtil" %><%@
 page import="com.liferay.portlet.passwordpoliciesadmin.search.OrganizationPasswordPolicyChecker" %><%@
 page import="com.liferay.portlet.passwordpoliciesadmin.search.PasswordPolicyDisplayTerms" %><%@

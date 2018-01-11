@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.portlet;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.kernel.servlet.TempAttributesServletRequest;
@@ -46,6 +47,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Shuyang Zhou
  * @author Raymond Augé
  */
+@Util
 public class PortletContainerUtil {
 
 	public static List<LayoutTypePortlet> getLayoutTypePortlets(Layout layout)

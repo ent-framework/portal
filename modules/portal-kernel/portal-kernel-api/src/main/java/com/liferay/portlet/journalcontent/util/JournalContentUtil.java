@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.journalcontent.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portlet.journal.model.JournalArticleDisplay;
@@ -21,6 +22,7 @@ import com.liferay.portlet.journal.model.JournalArticleDisplay;
 /**
  * @author Raymond Augé
  */
+@Util
 public class JournalContentUtil {
 
 	public static void clearCache() {

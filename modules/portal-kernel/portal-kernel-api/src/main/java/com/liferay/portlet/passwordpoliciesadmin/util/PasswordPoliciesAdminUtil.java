@@ -14,12 +14,14 @@
 
 package com.liferay.portlet.passwordpoliciesadmin.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.kernel.util.OrderByComparator;
 
 /**
  * @author Brian Wing Shun Chan
  */
+@Util
 public class PasswordPoliciesAdminUtil {
 
 	public static PasswordPoliciesAdmin getPasswordPoliciesAdmin() {

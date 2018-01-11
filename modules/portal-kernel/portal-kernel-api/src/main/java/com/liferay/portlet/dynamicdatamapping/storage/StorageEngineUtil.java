@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.dynamicdatamapping.storage;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.service.ServiceContext;
@@ -26,6 +27,7 @@ import java.util.Map;
 /**
  * @author Eduardo Lundgren
  */
+@Util
 public class StorageEngineUtil {
 
 	public static long create(

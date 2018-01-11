@@ -14,11 +14,13 @@
 
 package com.liferay.portal.kernel.backgroundtask;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 /**
  * @author Michael C. Han
  */
+@Util
 public class BackgroundTaskStatusRegistryUtil {
 
 	public static BackgroundTaskStatus getBackgroundTaskStatus(

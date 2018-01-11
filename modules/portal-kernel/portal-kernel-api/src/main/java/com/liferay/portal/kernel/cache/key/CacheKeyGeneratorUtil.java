@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.cache.key;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.cache.Lifecycle;
 import com.liferay.portal.kernel.cache.ThreadLocalCache;
 import com.liferay.portal.kernel.cache.ThreadLocalCacheManager;
@@ -26,6 +27,7 @@ import java.util.Map;
  * @author Michael C. Han
  * @author Shuyang Zhou
  */
+@Util
 public class CacheKeyGeneratorUtil {
 
 	public static CacheKeyGenerator getCacheKeyGenerator() {

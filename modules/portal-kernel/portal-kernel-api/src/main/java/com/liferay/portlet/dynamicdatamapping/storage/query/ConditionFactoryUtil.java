@@ -14,11 +14,13 @@
 
 package com.liferay.portlet.dynamicdatamapping.storage.query;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 /**
  * @author Marcellus Tavares
  */
+@Util
 public class ConditionFactoryUtil {
 
 	public static Junction conjunction() {

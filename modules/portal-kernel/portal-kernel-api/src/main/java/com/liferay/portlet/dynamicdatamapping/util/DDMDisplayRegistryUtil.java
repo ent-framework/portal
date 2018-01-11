@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.dynamicdatamapping.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.util.List;
@@ -21,6 +22,7 @@ import java.util.List;
 /**
  * @author Eduardo Garcia
  */
+@Util
 public class DDMDisplayRegistryUtil {
 
 	public static DDMDisplay getDDMDisplay(String portletId) {

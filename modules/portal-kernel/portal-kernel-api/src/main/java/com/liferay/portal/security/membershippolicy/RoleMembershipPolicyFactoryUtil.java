@@ -14,9 +14,12 @@
 
 package com.liferay.portal.security.membershippolicy;
 
+import com.liferay.portal.kernel.bean.Util;
+
 /**
  * @author Roberto Díaz
  */
+@Util
 public class RoleMembershipPolicyFactoryUtil {
 
 	public static RoleMembershipPolicy getRoleMembershipPolicy() {

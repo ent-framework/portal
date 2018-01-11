@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.zip;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.io.File;
@@ -23,6 +24,7 @@ import java.io.InputStream;
 /**
  * @author Raymond Augé
  */
+@Util
 public class ZipReaderFactoryUtil {
 
 	public static ZipReader getZipReader(File file) {

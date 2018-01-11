@@ -34,7 +34,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author Brian Wing Shun Chan
  */
 public class ClassNameLocalServiceImpl
-	extends ClassNameLocalServiceBaseImpl implements CacheRegistryItem {
+		extends ClassNameLocalServiceBaseImpl implements CacheRegistryItem {
 
 	@Override
 	public ClassName addClassName(String value) throws SystemException {
@@ -61,7 +61,7 @@ public class ClassNameLocalServiceImpl
 	}
 
 	@Override
-	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public void checkClassNames() throws SystemException {
 		List<ClassName> classNames = classNamePersistence.findAll();
 
@@ -114,7 +114,7 @@ public class ClassNameLocalServiceImpl
 		}
 		catch (Exception e) {
 			throw new RuntimeException(
-				"Unable to get class name from value " + value, e);
+					"Unable to get class name from value " + value, e);
 		}
 	}
 
@@ -146,7 +146,6 @@ public class ClassNameLocalServiceImpl
 	}
 
 	@Override
-	@Skip
 	public long getClassNameId(String value) {
 		try {
 			ClassName className = getClassName(value);
@@ -155,7 +154,7 @@ public class ClassNameLocalServiceImpl
 		}
 		catch (Exception e) {
 			throw new RuntimeException(
-				"Unable to get class name from value " + value, e);
+					"Unable to get class name from value " + value, e);
 		}
 	}
 
@@ -170,7 +169,7 @@ public class ClassNameLocalServiceImpl
 	}
 
 	private static Map<String, ClassName> _classNames =
-		new ConcurrentHashMap<String, ClassName>();
+			new ConcurrentHashMap<String, ClassName>();
 	private static ClassName _nullClassName = new ClassNameImpl();
 
 }

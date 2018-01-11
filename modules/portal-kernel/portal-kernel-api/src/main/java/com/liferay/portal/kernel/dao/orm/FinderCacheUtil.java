@@ -15,6 +15,7 @@
 package com.liferay.portal.kernel.dao.orm;
 
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
+import com.liferay.portal.kernel.bean.Util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
@@ -22,6 +23,7 @@ import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermissio
 /**
  * @author Brian Wing Shun Chan
  */
+@Util
 public class FinderCacheUtil {
 
 	public static void clearCache() {

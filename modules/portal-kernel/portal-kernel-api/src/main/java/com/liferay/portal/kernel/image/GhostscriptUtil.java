@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.image;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.util.List;
@@ -22,6 +23,7 @@ import java.util.concurrent.Future;
 /**
  * @author Ivica Cardic
  */
+@Util
 public class GhostscriptUtil {
 
 	public static Future<?> execute(List<String> arguments) throws Exception {

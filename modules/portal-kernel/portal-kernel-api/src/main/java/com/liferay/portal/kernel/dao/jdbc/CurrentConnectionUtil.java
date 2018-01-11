@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.dao.jdbc;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.sql.Connection;
@@ -23,6 +24,7 @@ import javax.sql.DataSource;
 /**
  * @author Shuyang Zhou
  */
+@Util
 public class CurrentConnectionUtil {
 
 	public static Connection getConnection(DataSource dataSource) {

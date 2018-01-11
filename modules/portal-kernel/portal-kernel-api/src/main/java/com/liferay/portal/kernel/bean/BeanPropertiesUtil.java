@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * @author Brian Wing Shun Chan
  */
+@Util
 public class BeanPropertiesUtil {
 
 	public static void copyProperties(Object source, Object target) {

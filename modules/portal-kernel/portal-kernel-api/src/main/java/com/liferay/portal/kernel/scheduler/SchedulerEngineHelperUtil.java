@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.scheduler;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.messaging.Message;
 import com.liferay.portal.kernel.scheduler.messaging.SchedulerResponse;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
@@ -28,6 +29,7 @@ import javax.portlet.PortletRequest;
 /**
  * @author Michael C. Han
  */
+@Util
 public class SchedulerEngineHelperUtil {
 
 	public static void addJob(

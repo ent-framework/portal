@@ -14,12 +14,14 @@
 
 package com.liferay.portal.kernel.parsers.bbcode;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 /**
  * @author Iliyan Peychev
  * @author Miguel Pastor
  */
+@Util
 public class BBCodeTranslatorUtil {
 
 	public static BBCodeTranslator getBBCodeTranslator() {

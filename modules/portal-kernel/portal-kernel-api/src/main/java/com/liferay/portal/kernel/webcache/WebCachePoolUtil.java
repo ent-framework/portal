@@ -15,11 +15,13 @@
 package com.liferay.portal.kernel.webcache;
 
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 /**
  * @author Brian Wing Shun Chan
  */
+@Util
 public class WebCachePoolUtil {
 
 	public static void clear() {

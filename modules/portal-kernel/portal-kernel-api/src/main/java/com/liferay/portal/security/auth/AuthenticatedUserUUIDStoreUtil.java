@@ -14,12 +14,14 @@
 
 package com.liferay.portal.security.auth;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 /**
  * @author Michael C. Han
  * @author Raymond Augé
  */
+@Util
 public class AuthenticatedUserUUIDStoreUtil {
 
 	public static boolean exists(String userUUID) {

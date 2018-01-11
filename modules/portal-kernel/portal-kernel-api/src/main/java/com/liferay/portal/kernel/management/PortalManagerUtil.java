@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.management;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.cluster.ClusterNode;
 import com.liferay.portal.kernel.cluster.ClusterNodeResponse;
 import com.liferay.portal.kernel.cluster.ClusterNodeResponses;
@@ -31,6 +32,7 @@ import java.lang.reflect.Method;
  * @author Shuyang Zhou
  * @author Raymond Augé
  */
+@Util
 public class PortalManagerUtil {
 
 	public static MethodHandler createManageActionMethodHandler(

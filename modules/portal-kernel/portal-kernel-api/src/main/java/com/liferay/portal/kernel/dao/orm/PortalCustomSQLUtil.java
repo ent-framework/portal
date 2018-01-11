@@ -14,11 +14,13 @@
 
 package com.liferay.portal.kernel.dao.orm;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 /**
  * @author Brian Wing Shun Chan
  */
+@Util
 public class PortalCustomSQLUtil {
 
 	public static String get(String id) {

@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.social.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portlet.social.model.SocialActivityDefinition;
 
@@ -22,6 +23,7 @@ import java.util.List;
 /**
  * @author Zsolt Berentey
  */
+@Util
 public class SocialConfigurationUtil {
 
 	public static List<String> getActivityCounterNames() {

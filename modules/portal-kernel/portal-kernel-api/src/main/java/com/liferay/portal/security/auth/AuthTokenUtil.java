@@ -14,6 +14,7 @@
 
 package com.liferay.portal.security.auth;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
@@ -22,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * @author Amos Fong
  */
+@Util
 public class AuthTokenUtil {
 
 	/**

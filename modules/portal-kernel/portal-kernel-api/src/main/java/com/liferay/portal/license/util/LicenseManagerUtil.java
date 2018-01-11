@@ -14,6 +14,7 @@
 
 package com.liferay.portal.license.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.license.LicenseInfo;
@@ -25,6 +26,7 @@ import java.util.Set;
 /**
  * @author Amos Fong
  */
+@Util
 public class LicenseManagerUtil {
 
 	/**

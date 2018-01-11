@@ -14,6 +14,7 @@
 
 package com.liferay.portal.service.permission;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
@@ -23,6 +24,7 @@ import com.liferay.portal.security.permission.PermissionChecker;
 /**
  * @author Brian Wing Shun Chan
  */
+@Util
 public class GroupPermissionUtil {
 
 	public static void check(

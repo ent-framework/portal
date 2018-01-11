@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.io.InputStream;
@@ -25,6 +26,7 @@ import java.nio.ByteBuffer;
  * @author Alexander Chow
  * @author Connor McKay
  */
+@Util
 public class DigesterUtil {
 
 	public static String digest(ByteBuffer byteBuffer) {

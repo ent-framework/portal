@@ -14,6 +14,8 @@
 
 package com.liferay.portal.kernel.template;
 
+import com.liferay.portal.kernel.bean.Util;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -23,6 +25,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * @author Tina Tian
  */
+@Util
 public class TemplateResourceLoaderUtil {
 
 	public static void clearCache() {

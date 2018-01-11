@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.facebook;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
@@ -25,6 +26,7 @@ import javax.portlet.PortletRequest;
  * @author Brian Wing Shun Chan
  * @author Mika Koivisto
  */
+@Util
 public class FacebookConnectUtil {
 
 	public static String getAccessToken(

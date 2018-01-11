@@ -14,12 +14,14 @@
 
 package com.liferay.portal.kernel.uuid;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 /**
  * @author Brian Wing Shun Chan
  * @author Raymond Augé
  */
+@Util
 public class PortalUUIDUtil {
 
 	public static String fromJsSafeUuid(String jsSafeUuid) {

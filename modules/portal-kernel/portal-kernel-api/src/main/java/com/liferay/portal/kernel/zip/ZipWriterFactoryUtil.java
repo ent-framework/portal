@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.zip;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.io.File;
@@ -21,6 +22,7 @@ import java.io.File;
 /**
  * @author Raymond Augé
  */
+@Util
 public class ZipWriterFactoryUtil {
 
 	public static ZipWriter getZipWriter() {

@@ -14,12 +14,14 @@
 
 package com.liferay.portal.kernel.xuggler;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.kernel.util.ProgressTracker;
 
 /**
  * @author Alexander Chow
  */
+@Util
 public class XugglerUtil {
 
 	public static Xuggler getXuggler() {

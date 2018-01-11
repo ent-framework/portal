@@ -14,6 +14,7 @@
 
 package com.liferay.portal.servlet;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.util.ObjectValuePair;
 
 import java.io.Closeable;
@@ -28,6 +29,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * @author Shuyang Zhou
  */
+@Util
 public class ThreadLocalFacadeServletRequestWrapperUtil {
 
 	public static <T extends ServletRequest> ObjectValuePair<T, Closeable>

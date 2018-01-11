@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.resiliency.spi;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.resiliency.PortalResiliencyException;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
@@ -24,6 +25,7 @@ import java.util.Set;
 /**
  * @author Shuyang Zhou
  */
+@Util
 public class SPIRegistryUtil {
 
 	public static void addExcludedPortletId(String portletId) {

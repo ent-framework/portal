@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.template;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.configuration.Filter;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.kernel.util.PropsUtil;
@@ -30,6 +31,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author Tina Tian
  * @author Raymond Augé
  */
+@Util
 public class TemplateManagerUtil {
 
 	public static void destroy() {

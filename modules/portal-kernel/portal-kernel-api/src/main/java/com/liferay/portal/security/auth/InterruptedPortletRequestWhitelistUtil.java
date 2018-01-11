@@ -14,6 +14,7 @@
 
 package com.liferay.portal.security.auth;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.util.Set;
@@ -22,6 +23,7 @@ import java.util.Set;
  * @author Tomas Polesovsky
  * @author Raymond Augé
  */
+@Util
 public class InterruptedPortletRequestWhitelistUtil {
 
 	public static PortletRequestWhitelist

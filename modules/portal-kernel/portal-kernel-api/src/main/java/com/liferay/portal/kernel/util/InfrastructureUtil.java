@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import javax.mail.Session;
@@ -24,6 +25,7 @@ import javax.sql.DataSource;
  * @author Brian Wing Shun Chan
  * @author Michael Young
  */
+@Util
 public class InfrastructureUtil {
 
 	public static DataSource getDataSource() {

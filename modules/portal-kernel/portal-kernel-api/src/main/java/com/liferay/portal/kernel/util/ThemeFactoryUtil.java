@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.model.Theme;
@@ -21,6 +22,7 @@ import com.liferay.portal.model.Theme;
 /**
  * @author Harrison Schueler
  */
+@Util
 public class ThemeFactoryUtil {
 
 	public static Theme getDefaultRegularTheme(long companyId)

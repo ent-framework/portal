@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.captcha;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.io.IOException;
@@ -28,6 +29,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author Brian Wing Shun Chan
  */
+@Util
 public class CaptchaUtil {
 
 	public static void check(HttpServletRequest request)

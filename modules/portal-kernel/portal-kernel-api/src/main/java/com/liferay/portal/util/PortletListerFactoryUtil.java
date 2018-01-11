@@ -14,6 +14,7 @@
 
 package com.liferay.portal.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 /**
@@ -21,6 +22,7 @@ import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermissio
  * @author Dennis Ju
  * @author Brian Wing Shun Chan
  */
+@Util
 public class PortletListerFactoryUtil {
 
 	public static PortletLister getPortletLister() {

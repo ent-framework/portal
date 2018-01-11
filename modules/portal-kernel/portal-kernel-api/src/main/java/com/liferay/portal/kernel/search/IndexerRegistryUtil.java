@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.search;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.util.List;
@@ -21,6 +22,7 @@ import java.util.List;
 /**
  * @author Raymond Augé
  */
+@Util
 public class IndexerRegistryUtil {
 
 	public static Indexer getIndexer(Class<?> clazz) {

@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.lar;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.util.List;
@@ -26,6 +27,7 @@ import java.util.List;
  * @author Brian Wing Shun Chan
  * @since  6.2
  */
+@Util
 public class StagedModelDataHandlerRegistryUtil {
 
 	/**

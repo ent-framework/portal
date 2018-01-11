@@ -15,6 +15,7 @@
 package com.liferay.portal.kernel.xml;
 
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
@@ -33,6 +34,7 @@ import java.util.Map;
 /**
  * @author Brian Wing Shun Chan
  */
+@Util
 public class SAXReaderUtil {
 
 	public static Attribute createAttribute(

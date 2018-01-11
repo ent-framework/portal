@@ -15,6 +15,7 @@
 package com.liferay.portal.kernel.cache;
 
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.io.Serializable;
@@ -23,6 +24,7 @@ import java.io.Serializable;
  * @author Brian Wing Shun Chan
  * @author Michael Young
  */
+@Util
 public class MultiVMPoolUtil {
 
 	public static void clear() {

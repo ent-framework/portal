@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.spring.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.util.Map;
@@ -21,6 +22,7 @@ import java.util.Map;
 /**
  * @author Brian Wing Shun Chan
  */
+@Util
 public class SpringFactoryUtil {
 
 	public static SpringFactory getSpringFactory() {

@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.jsonwebservice;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.lang.reflect.Method;
@@ -28,6 +29,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * @author Igor Spasic
  */
+@Util
 public class JSONWebServiceActionsManagerUtil {
 
 	public static Set<String> getContextPaths() {

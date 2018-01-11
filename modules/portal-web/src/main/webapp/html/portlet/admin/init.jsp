@@ -35,10 +35,6 @@ page import="com.liferay.portlet.documentlibrary.model.DLFileVersion" %><%@
 page import="com.liferay.portlet.documentlibrary.service.DLFileEntryLocalServiceUtil" %><%@
 page import="com.liferay.portlet.expando.model.ExpandoColumnConstants" %>
 
-<%@ page import="org.apache.log4j.Level" %><%@
-page import="org.apache.log4j.LogManager" %><%@
-page import="org.apache.log4j.Logger" %>
-
 <%
 boolean showShardSelector = false;
 

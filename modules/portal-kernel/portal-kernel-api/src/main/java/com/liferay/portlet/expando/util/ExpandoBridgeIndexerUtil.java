@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.expando.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.search.Document;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portlet.expando.model.ExpandoBridge;
@@ -21,6 +22,7 @@ import com.liferay.portlet.expando.model.ExpandoBridge;
 /**
  * @author Raymond Augé
  */
+@Util
 public class ExpandoBridgeIndexerUtil {
 
 	public static void addAttributes(

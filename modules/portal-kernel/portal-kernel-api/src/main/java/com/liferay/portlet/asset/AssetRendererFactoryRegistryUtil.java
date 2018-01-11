@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.asset;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portlet.asset.model.AssetRendererFactory;
 
@@ -23,6 +24,7 @@ import java.util.List;
  * @author Bruno Farache
  * @author Marcellus Tavares
  */
+@Util
 public class AssetRendererFactoryRegistryUtil {
 
 	/**

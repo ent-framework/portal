@@ -15,6 +15,7 @@
 package com.liferay.portal.kernel.util;
 
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalFilePermission;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
@@ -31,6 +32,7 @@ import java.util.Properties;
  * @author Brian Wing Shun Chan
  * @author Alexander Chow
  */
+@Util
 public class FileUtil {
 
 	public static String appendParentheticalSuffix(

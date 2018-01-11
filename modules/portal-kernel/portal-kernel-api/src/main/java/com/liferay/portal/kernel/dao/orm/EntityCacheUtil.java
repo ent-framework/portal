@@ -15,6 +15,7 @@
 package com.liferay.portal.kernel.dao.orm;
 
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.cache.PortalCache;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
@@ -23,6 +24,7 @@ import java.io.Serializable;
 /**
  * @author Brian Wing Shun Chan
  */
+@Util
 public class EntityCacheUtil {
 
 	public static void clearCache() {

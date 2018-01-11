@@ -14,11 +14,13 @@
 
 package com.liferay.portal.kernel.json;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 /**
  * @author Igor Spasic
  */
+@Util
 public class JSONIncludesManagerUtil {
 
 	public static JSONIncludesManager getJSONIncludesManager() {

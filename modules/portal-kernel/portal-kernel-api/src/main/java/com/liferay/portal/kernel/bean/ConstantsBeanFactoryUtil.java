@@ -19,6 +19,7 @@ import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermissio
 /**
  * @author Shuyang Zhou
  */
+@Util
 public class ConstantsBeanFactoryUtil {
 
 	public static Object getConstantsBean(Class<?> constantsClass) {

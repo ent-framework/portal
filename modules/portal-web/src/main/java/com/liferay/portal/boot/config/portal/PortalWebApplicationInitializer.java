@@ -1,5 +1,6 @@
 package com.liferay.portal.boot.config.portal;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.cache.MultiVMPoolUtil;
 import com.liferay.portal.kernel.cache.SingleVMPoolUtil;
 import com.liferay.portal.kernel.cache.key.CacheKeyGeneratorUtil;
@@ -53,13 +54,8 @@ public class PortalWebApplicationInitializer implements ServletContextInitialize
 
         ApplicationContext applicationContext = WebApplicationContextUtils.getWebApplicationContext(servletContext);
 
-        applicationContext.getBean(CacheKeyGeneratorUtil.class);
-        applicationContext.getBean(SqlUpdateFactoryUtil.class);
-        applicationContext.getBean(MappingSqlQueryFactoryUtil.class);
-        applicationContext.getBean(ModelHintsUtil.class);
-        applicationContext.getBean(PortalUtil.class);
-        applicationContext.getBean(FastDateFormatFactoryUtil.class);
-
+        //load
+        applicationContext.getBeansWithAnnotation(Util.class);
 
         initPortalListeners(servletContext);
         initInvokerFilters(servletContext, false);

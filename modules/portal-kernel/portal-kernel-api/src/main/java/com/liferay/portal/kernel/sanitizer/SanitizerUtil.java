@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.sanitizer;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.io.InputStream;
@@ -25,6 +26,7 @@ import java.util.Map;
  * @author Zsolt Balogh
  * @author Brian Wing Shun Chan
  */
+@Util
 public class SanitizerUtil {
 
 	public static Sanitizer getSanitizer() {

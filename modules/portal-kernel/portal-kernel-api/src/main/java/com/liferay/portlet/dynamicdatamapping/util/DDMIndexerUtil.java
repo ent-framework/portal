@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.dynamicdatamapping.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.search.Document;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
@@ -24,6 +25,7 @@ import java.util.Locale;
 /**
  * @author Alexander Chow
  */
+@Util
 public class DDMIndexerUtil {
 
 	public static void addAttributes(

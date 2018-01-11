@@ -14,11 +14,13 @@
 
 package com.liferay.portal.kernel.googleapps;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 /**
  * @author Brian Wing Shun Chan
  */
+@Util
 public class GoogleAppsFactoryUtil {
 
 	public static GEmailSettingsManager getGEmailSettingsManager(

@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.io.Reader;
@@ -27,6 +28,7 @@ import java.io.Reader;
  *
  * @author Julio Camarero
  */
+@Util
 public class DiffHtmlUtil {
 
 	public static String diff(Reader source, Reader target) throws Exception {

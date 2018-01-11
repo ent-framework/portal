@@ -14,11 +14,13 @@
 
 package com.liferay.portal.kernel.lock;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 /**
  * @author Alexander Chow
  */
+@Util
 public class LockListenerRegistryUtil {
 
 	public static LockListener getLockListener(String className) {

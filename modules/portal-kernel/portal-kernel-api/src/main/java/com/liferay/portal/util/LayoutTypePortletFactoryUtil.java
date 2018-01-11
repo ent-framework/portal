@@ -14,6 +14,7 @@
 
 package com.liferay.portal.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.model.Layout;
 import com.liferay.portal.model.LayoutTypePortlet;
@@ -21,6 +22,7 @@ import com.liferay.portal.model.LayoutTypePortlet;
 /**
  * @author Raymond Augé
  */
+@Util
 public class LayoutTypePortletFactoryUtil {
 
 	public static LayoutTypePortlet create(Layout layout) {

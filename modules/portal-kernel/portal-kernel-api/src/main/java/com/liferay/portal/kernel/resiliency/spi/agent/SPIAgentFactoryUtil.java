@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.resiliency.spi.agent;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.nio.intraband.RegistrationReference;
 import com.liferay.portal.kernel.resiliency.spi.SPIConfiguration;
 
@@ -26,6 +27,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * @author Shuyang Zhou
  */
+@Util
 public class SPIAgentFactoryUtil {
 
 	public static SPIAgent createSPIAgent(

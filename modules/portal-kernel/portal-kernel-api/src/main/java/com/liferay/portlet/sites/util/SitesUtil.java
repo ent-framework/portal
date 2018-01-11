@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.sites.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
@@ -47,6 +48,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Ryan Park
  * @author Zsolt Berentey
  */
+@Util
 public class SitesUtil {
 
 	public static void addMergeFailFriendlyURLLayout(Layout layout)

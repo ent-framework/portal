@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.dao.jdbc;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import javax.sql.DataSource;
@@ -21,6 +22,7 @@ import javax.sql.DataSource;
 /**
  * @author Brian Wing Shun Chan
  */
+@Util
 public class SqlUpdateFactoryUtil {
 
 	public static SqlUpdate getSqlUpdate(

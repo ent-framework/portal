@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.dynamicdatamapping.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
@@ -29,6 +30,7 @@ import java.util.Locale;
  * @author Bruno Basto
  * @author Brian Wing Shun Chan
  */
+@Util
 public class DDMXMLUtil {
 
 	public static String formatXML(Document document) throws SystemException {

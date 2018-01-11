@@ -15,6 +15,7 @@
 package com.liferay.portal.kernel.xml;
 
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.io.File;
@@ -27,6 +28,7 @@ import java.net.URL;
 /**
  * @author Tomas Polesovsky
  */
+@Util
 public class UnsecureSAXReaderUtil {
 
 	public static SAXReader getSAXReader() {

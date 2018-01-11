@@ -14,11 +14,13 @@
 
 package com.liferay.portal.kernel.xmlrpc;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 /**
  * @author Brian Wing Shun Chan
  */
+@Util
 public class XmlRpcUtil {
 
 	public static Fault createFault(int code, String description) {

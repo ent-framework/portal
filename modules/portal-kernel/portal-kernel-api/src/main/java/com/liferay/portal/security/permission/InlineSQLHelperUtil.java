@@ -14,12 +14,14 @@
 
 package com.liferay.portal.security.permission;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 /**
  * @author Raymond Augé
  * @see    InlineSQLHelper
  */
+@Util
 public class InlineSQLHelperUtil {
 
 	public static InlineSQLHelper getInlineSQLHelper() {

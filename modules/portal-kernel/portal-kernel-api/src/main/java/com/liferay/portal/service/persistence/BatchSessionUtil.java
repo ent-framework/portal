@@ -14,6 +14,7 @@
 
 package com.liferay.portal.service.persistence;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.dao.orm.ORMException;
 import com.liferay.portal.kernel.dao.orm.Session;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
@@ -24,6 +25,7 @@ import com.liferay.portal.model.BaseModel;
  * @see        BatchSession
  * @deprecated As of 6.2.0, see LPS-30598.
  */
+@Util
 public class BatchSessionUtil {
 
 	public static void delete(Session session, BaseModel<?> model)

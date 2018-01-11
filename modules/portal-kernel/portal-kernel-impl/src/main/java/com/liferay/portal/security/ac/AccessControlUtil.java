@@ -14,6 +14,7 @@
 
 package com.liferay.portal.security.ac;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.AutoResetThreadLocal;
@@ -31,6 +32,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Michael C. Han
  * @author Raymond Augé
  */
+@Util
 public class AccessControlUtil {
 
 	public static AccessControl getAccessControl() {

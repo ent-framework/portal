@@ -14,6 +14,7 @@
 
 package com.liferay.portal.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.util.Set;
@@ -22,6 +23,7 @@ import java.util.Set;
  * @author Ryan Park
  * @author Brian Wing Shun Chan
  */
+@Util
 public class CustomJspRegistryUtil {
 
 	public static String getCustomJspFileName(

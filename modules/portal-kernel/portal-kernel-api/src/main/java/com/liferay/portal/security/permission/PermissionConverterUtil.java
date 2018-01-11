@@ -14,6 +14,7 @@
 
 package com.liferay.portal.security.permission;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
@@ -25,6 +26,7 @@ import java.util.List;
 /**
  * @author Michael C. Han
  */
+@Util
 public class PermissionConverterUtil {
 
 	public static List<Permission> convertPermissions(long roleId)

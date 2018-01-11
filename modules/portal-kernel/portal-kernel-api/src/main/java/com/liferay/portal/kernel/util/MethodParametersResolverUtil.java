@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.lang.reflect.Method;
@@ -21,6 +22,7 @@ import java.lang.reflect.Method;
 /**
  * @author Igor Spasic
  */
+@Util
 public class MethodParametersResolverUtil {
 
 	public static MethodParametersResolver getMethodParametersResolver() {

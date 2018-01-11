@@ -31,10 +31,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import java.util.Map;
-
-import org.apache.derby.tools.ij;
 
 /**
  * @author Brian Wing Shun Chan
@@ -104,100 +101,13 @@ public class DBLoader {
 			_sqlDir = sqlDir;
 			_fileName = fileName;
 
-			if (_databaseType.equals("derby")) {
-				_loadDerby();
-			}
-			else if (_databaseType.equals("hypersonic")) {
+			if (_databaseType.equals("hypersonic")) {
 				_loadHypersonic();
 			}
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	private void _loadDerby() throws Exception {
-		Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
-
-		Connection con = null;
-
-		try {
-			con = DriverManager.getConnection(
-				"jdbc:derby:" + _sqlDir + "/" + _databaseName + ";create=true",
-				"", "");
-
-			if (Validator.isNull(_fileName)) {
-				_loadDerby(con, _sqlDir + "/portal/portal-derby.sql");
-				_loadDerby(con, _sqlDir + "/indexes.sql");
-			}
-			else {
-				_loadDerby(con, _sqlDir + "/" + _fileName);
-			}
-		}
-		finally {
-			if (con != null) {
-				con.close();
-			}
-		}
-
-		try {
-			con = DriverManager.getConnection(
-				"jdbc:derby:" + _sqlDir + "/" + _databaseName +
-					";shutdown=true",
-				"", "");
-		}
-		catch (SQLException sqle) {
-			String sqlState = sqle.getSQLState();
-
-			if (!sqlState.equals("08006")) {
-				throw sqle;
-			}
-		}
-		finally {
-			if (con != null) {
-				con.close();
-			}
-		}
-	}
-
-	private void _loadDerby(Connection con, String fileName) throws Exception {
-		StringBundler sb = new StringBundler();
-
-		UnsyncBufferedReader unsyncBufferedReader = new UnsyncBufferedReader(
-			new UnsyncStringReader(_fileUtil.read(fileName)));
-
-		String line = null;
-
-		while ((line = unsyncBufferedReader.readLine()) != null) {
-			if (!line.startsWith("--")) {
-				sb.append(line);
-
-				if (line.endsWith(";")) {
-					String sql = sb.toString();
-
-					sql = StringUtil.replace(
-						sql, new String[] {"\\'", "\\\"", "\\\\", "\\n", "\\r"},
-						new String[] {"''", "\"", "\\", "\n", "\r"});
-
-					sql = sql.substring(0, sql.length() - 1);
-
-					sb.setIndex(0);
-
-					if (sql.startsWith("commit")) {
-						continue;
-					}
-
-					ij.runScript(
-						con,
-						new UnsyncByteArrayInputStream(
-							sql.getBytes(StringPool.UTF8)),
-						StringPool.UTF8, new UnsyncByteArrayOutputStream(),
-						StringPool.UTF8);
-				}
-			}
-		}
-
-		unsyncBufferedReader.close();
 	}
 
 	private void _loadHypersonic() throws Exception {

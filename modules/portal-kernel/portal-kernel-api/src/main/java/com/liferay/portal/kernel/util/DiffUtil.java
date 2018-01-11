@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.io.Reader;
@@ -31,6 +32,7 @@ import java.util.List;
  * @author Bruno Farache
  * @see    com.liferay.portal.kernel.util.DiffUtil
  */
+@Util
 public class DiffUtil {
 
 	/**

@@ -14,6 +14,7 @@
 
 package com.liferay.portal.layoutconfiguration.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.kernel.template.TemplateResource;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -28,6 +29,7 @@ import javax.servlet.jsp.PageContext;
  * @author Raymond Augé
  * @author Shuyang Zhou
  */
+@Util
 public class RuntimePageUtil {
 
 	public static StringBundler getProcessedTemplate(

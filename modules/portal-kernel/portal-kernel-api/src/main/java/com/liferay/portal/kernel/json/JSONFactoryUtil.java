@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.json;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.util.List;
@@ -21,6 +22,7 @@ import java.util.List;
 /**
  * @author Brian Wing Shun Chan
  */
+@Util
 public class JSONFactoryUtil {
 
 	public static String convertJSONMLArrayToXML(String jsonml) {

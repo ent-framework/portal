@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.layoutsadmin.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
@@ -22,6 +23,7 @@ import com.liferay.portal.theme.ThemeDisplay;
 /**
  * @author Raymond Augé
  */
+@Util
 public class SitemapUtil {
 
 	public static String encodeXML(String input) {

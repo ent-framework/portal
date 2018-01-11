@@ -10,16 +10,20 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.actuate.autoconfigure.EndpointMBeanExportAutoConfiguration;
 import org.springframework.boot.actuate.autoconfigure.MetricFilterAutoConfiguration;
 import org.springframework.boot.actuate.autoconfigure.MetricRepositoryAutoConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration;
 import org.springframework.boot.autoconfigure.hazelcast.HazelcastAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration;
 import org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration;
+import org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
 import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
@@ -35,7 +39,11 @@ import java.net.UnknownHostException;
 
 //@ComponentScan
 @EnableAutoConfiguration(exclude = {MetricFilterAutoConfiguration.class, MetricRepositoryAutoConfiguration.class,
-    HazelcastAutoConfiguration.class, SecurityAutoConfiguration.class, FreeMarkerAutoConfiguration.class, HibernateJpaAutoConfiguration.class, TransactionAutoConfiguration.class
+    HazelcastAutoConfiguration.class, SecurityAutoConfiguration.class, FreeMarkerAutoConfiguration.class,
+    DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class,
+    HibernateJpaAutoConfiguration.class, TransactionAutoConfiguration.class,
+    //WebMvcAutoConfiguration.class,
+    EndpointMBeanExportAutoConfiguration.class
 })
 //@EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class})
 @SpringBootApplication
@@ -50,7 +58,6 @@ public class PortalWebApp {
     }
 
     @Configuration
-    @Lazy(false)
     @EnableSpringSiteAutoConfiguration
     public class PortlSpringConfiguration {}
 

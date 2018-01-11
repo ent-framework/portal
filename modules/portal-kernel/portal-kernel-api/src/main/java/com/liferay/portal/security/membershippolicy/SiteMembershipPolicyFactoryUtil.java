@@ -14,9 +14,12 @@
 
 package com.liferay.portal.security.membershippolicy;
 
+import com.liferay.portal.kernel.bean.Util;
+
 /**
  * @author Brian Wing Shun Chan
  */
+@Util
 public class SiteMembershipPolicyFactoryUtil {
 
 	public static SiteMembershipPolicy getSiteMembershipPolicy() {

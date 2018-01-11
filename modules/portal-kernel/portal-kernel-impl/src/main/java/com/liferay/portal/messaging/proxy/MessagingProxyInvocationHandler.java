@@ -18,6 +18,7 @@ import com.liferay.portal.kernel.messaging.proxy.BaseProxyBean;
 import com.liferay.portal.kernel.messaging.proxy.ProxyModeThreadLocal;
 import com.liferay.portal.kernel.messaging.proxy.ProxyRequest;
 import com.liferay.portal.spring.aop.InvocationHandlerFactory;
+import org.springframework.core.Ordered;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -25,7 +26,7 @@ import java.lang.reflect.Method;
 /**
  * @author Shuyang Zhou
  */
-public class MessagingProxyInvocationHandler implements InvocationHandler {
+public class MessagingProxyInvocationHandler implements InvocationHandler, Ordered {
 
 	public static InvocationHandlerFactory getInvocationHandlerFactory() {
 		return _invocationHandlerFactory;
@@ -35,20 +36,32 @@ public class MessagingProxyInvocationHandler implements InvocationHandler {
 		_baseProxyBean = baseProxyBean;
 	}
 
-	@Override
+    private int order = Ordered.LOWEST_PRECEDENCE;
+
+    @Override
+    public int getOrder() {
+        return order;
+    }
+
+    @Override
 	public Object invoke(Object proxy, Method method, Object[] args)
 		throws Throwable {
 
+        String methodName = method.getName();
+        if ("hashCode".equals(methodName) || "toString".equals(methodName) || "equals".equals(methodName)) {
+            return method.invoke(_baseProxyBean, args);
+        }
+
 		ProxyRequest proxyRequest = new ProxyRequest(method, args);
 
-		if (proxyRequest.isSynchronous() ||
-			ProxyModeThreadLocal.isForceSync()) {
+		if (proxyRequest.isSynchronous() || ProxyModeThreadLocal.isForceSync()) {
 
 			return _baseProxyBean.synchronousSend(proxyRequest);
 		}
 		else {
 			_baseProxyBean.send(proxyRequest);
 
+			//TODO validation
 			return null;
 		}
 	}

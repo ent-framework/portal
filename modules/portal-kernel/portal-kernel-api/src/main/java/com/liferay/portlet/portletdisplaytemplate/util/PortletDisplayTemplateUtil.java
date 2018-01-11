@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.portletdisplaytemplate.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.kernel.template.TemplateHandler;
 import com.liferay.portal.kernel.template.TemplateVariableGroup;
@@ -27,6 +28,7 @@ import javax.servlet.jsp.PageContext;
 /**
  * @author Eduardo Garcia
  */
+@Util
 public class PortletDisplayTemplateUtil {
 
 	public static DDMTemplate fetchDDMTemplate(

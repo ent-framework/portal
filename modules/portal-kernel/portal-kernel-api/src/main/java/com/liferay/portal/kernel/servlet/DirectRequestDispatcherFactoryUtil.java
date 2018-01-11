@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.servlet;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import javax.servlet.RequestDispatcher;
@@ -23,6 +24,7 @@ import javax.servlet.ServletRequest;
 /**
  * @author Raymond Augé
  */
+@Util
 public class DirectRequestDispatcherFactoryUtil {
 
 	public static DirectRequestDispatcherFactory

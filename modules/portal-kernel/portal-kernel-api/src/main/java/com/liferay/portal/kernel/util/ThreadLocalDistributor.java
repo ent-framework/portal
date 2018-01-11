@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,6 +33,7 @@ import java.util.List;
 /**
  * @author Shuyang Zhou
  */
+@Util
 public class ThreadLocalDistributor implements Externalizable {
 
 	public void afterPropertiesSet() throws Exception {

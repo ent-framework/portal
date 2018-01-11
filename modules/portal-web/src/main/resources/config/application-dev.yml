@@ -16,8 +16,10 @@
 logging:
     level:
         ROOT: INFO
-        com.liferay.portal.web: DEBUG
-        org.springframework.boot: DEBUG
+        com.liferay.portal.web: INFO
+        com.liferay.portal.spring.hibernate: INFO
+        org.apache.catalina.webresources.Cache: ERROR
+#        org.springframework.beans.factory: DEBUG
 
 spring:
     profiles:
@@ -27,7 +29,7 @@ spring:
         restart:
             enabled: true
         livereload:
-            enabled: false # we use gulp + BrowserSync for livereload
+            enabled: true # we use gulp + BrowserSync for livereload
     jackson:
         serialization.indent_output: true
     messages:

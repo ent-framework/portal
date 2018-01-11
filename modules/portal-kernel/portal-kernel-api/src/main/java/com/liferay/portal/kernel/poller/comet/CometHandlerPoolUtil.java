@@ -14,12 +14,14 @@
 
 package com.liferay.portal.kernel.poller.comet;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 /**
  * @author Edward Han
  * @author Raymond Augé
  */
+@Util
 public class CometHandlerPoolUtil {
 
 	public static void closeCometHandler(String sessionId)

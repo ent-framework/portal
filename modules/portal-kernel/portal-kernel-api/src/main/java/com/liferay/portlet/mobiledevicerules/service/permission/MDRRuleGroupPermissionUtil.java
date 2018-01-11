@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.mobiledevicerules.service.permission;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
@@ -23,6 +24,7 @@ import com.liferay.portlet.mobiledevicerules.model.MDRRuleGroup;
 /**
  * @author Michael C. Han
  */
+@Util
 public class MDRRuleGroupPermissionUtil {
 
 	public static void check(

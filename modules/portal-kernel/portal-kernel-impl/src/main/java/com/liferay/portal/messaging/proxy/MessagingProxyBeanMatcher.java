@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -24,29 +24,30 @@ import com.liferay.portal.spring.aop.BeanMatcher;
  */
 public class MessagingProxyBeanMatcher implements BeanMatcher {
 
-	@Override
-	public boolean match(Class<?> beanClass, String beanName) {
-		if (_beanClass.isAssignableFrom(beanClass) &&
-			StringUtil.wildcardMatches(
-				beanName, _beanNamePattern, CharPool.QUESTION, CharPool.STAR,
-				CharPool.PERCENT, true)) {
+    @Override
+    public boolean match(Class<?> beanClass, String beanName) {
 
-			return true;
-		}
 
-		return false;
-	}
+        if (_beanClass.isAssignableFrom(beanClass) &&
+                StringUtil.wildcardMatches(
+                        beanName, _beanNamePattern, CharPool.QUESTION, CharPool.STAR,
+                        CharPool.PERCENT, true)) {
+            return true;
+        }
 
-	public void setBeanClass(String beanClassName) {
-		_beanClass = ClassResolverUtil.resolveByPortalClassLoader(
-			beanClassName);
-	}
+        return false;
+    }
 
-	public void setBeanNamePattern(String beanNamePattern) {
-		_beanNamePattern = beanNamePattern;
-	}
+    public void setBeanClass(String beanClassName) {
+        _beanClass = ClassResolverUtil.resolveByPortalClassLoader(
+                beanClassName);
+    }
 
-	private Class<?> _beanClass;
-	private String _beanNamePattern;
+    public void setBeanNamePattern(String beanNamePattern) {
+        _beanNamePattern = beanNamePattern;
+    }
+
+    private Class<?> _beanClass;
+    private String _beanNamePattern;
 
 }

@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.trash.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
@@ -34,6 +35,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * @author Julio Camarero
  */
+@Util
 public class TrashUtil {
 
 	public static void addBaseModelBreadcrumbEntries(

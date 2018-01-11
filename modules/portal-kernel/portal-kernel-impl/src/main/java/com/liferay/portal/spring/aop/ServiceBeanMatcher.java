@@ -32,20 +32,19 @@ public class ServiceBeanMatcher implements BeanMatcher {
 		if (_counterMatcher) {
 			return beanName.equals(_COUNTER_SERVICE_BEAN_NAME);
 		}
-		else if (!beanName.equals(_COUNTER_SERVICE_BEAN_NAME) &&
-				 beanName.endsWith(_SERVICE_SUFFIX)) {
-
+		else if (!beanName.equals(_COUNTER_SERVICE_BEAN_NAME) && (beanName.endsWith(_SERVICE_SUFFIX) && beanName.startsWith(_SERVICE_PREFIX))) {
 			return true;
 		}
 
 		return false;
 	}
 
-	private static final String _COUNTER_SERVICE_BEAN_NAME =
-		"com.liferay.counter.service.CounterLocalService";
+	private static final String _COUNTER_SERVICE_BEAN_NAME = "com.liferay.counter.service.CounterLocalService";
 
 	private static final String _SERVICE_SUFFIX = "Service";
 
+	private static final String _SERVICE_PREFIX = "com.liferay";
+	
 	private boolean _counterMatcher;
 
 }

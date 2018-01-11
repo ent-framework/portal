@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.lang.reflect.Method;
@@ -22,6 +23,7 @@ import java.lang.reflect.Method;
  * @author Brian Wing Shun Chan
  * @author Wesley Gong
  */
+@Util
 public class ServiceBeanMethodInvocationFactoryUtil {
 
 	public static ServiceBeanMethodInvocationFactory

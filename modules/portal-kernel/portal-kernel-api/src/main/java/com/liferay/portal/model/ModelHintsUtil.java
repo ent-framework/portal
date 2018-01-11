@@ -14,6 +14,7 @@
 
 package com.liferay.portal.model;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.kernel.util.Tuple;
 import com.liferay.portal.kernel.xml.Element;
@@ -24,6 +25,7 @@ import java.util.Map;
 /**
  * @author Brian Wing Shun Chan
  */
+@Util
 public class ModelHintsUtil {
 
 	public static String buildCustomValidatorName(String validatorName) {

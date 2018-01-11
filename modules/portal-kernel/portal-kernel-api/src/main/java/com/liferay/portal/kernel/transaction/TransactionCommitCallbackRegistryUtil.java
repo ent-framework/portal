@@ -14,11 +14,14 @@
 
 package com.liferay.portal.kernel.transaction;
 
+import com.liferay.portal.kernel.bean.Util;
+
 import java.util.concurrent.Callable;
 
 /**
  * @author Michael C. Han
  */
+@Util
 public class TransactionCommitCallbackRegistryUtil {
 
 	public static void registerCallback(Callable<?> callable) {

@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.documentlibrary.antivirus;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
@@ -24,6 +25,7 @@ import java.io.InputStream;
  * @author Michael C. Han
  * @author Raymond Augé
  */
+@Util
 public class AntivirusScannerUtil {
 
 	public static AntivirusScanner getAntivirusScanner() {

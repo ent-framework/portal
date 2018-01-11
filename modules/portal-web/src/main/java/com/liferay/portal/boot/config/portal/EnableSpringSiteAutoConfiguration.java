@@ -18,10 +18,8 @@ import java.lang.annotation.Target;
 @Import({
 	PortalSpringConfiguration.class
 })
-@Lazy(false)
 public @interface EnableSpringSiteAutoConfiguration {
 
-    @Lazy(false)
 	@ImportResource(value = {
 		"classpath:/META-INF/portal-spring-config.xml",
 		"classpath*:/META-INF/ext-spring.xml"

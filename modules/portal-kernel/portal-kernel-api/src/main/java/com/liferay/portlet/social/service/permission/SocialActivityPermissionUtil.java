@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.social.service.permission;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.security.permission.PermissionChecker;
@@ -21,6 +22,7 @@ import com.liferay.portal.security.permission.PermissionChecker;
 /**
  * @author Zsolt Berentey
  */
+@Util
 public class SocialActivityPermissionUtil {
 
 	public static void check(

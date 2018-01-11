@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.assetpublisher.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.portlet.LiferayPortletRequest;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
 import com.liferay.portlet.asset.model.AssetEntry;
@@ -21,6 +22,7 @@ import com.liferay.portlet.asset.model.AssetEntry;
 /**
  * @author Juan Fernández
  */
+@Util
 public class AssetPublisherHelperUtil {
 
 	public static AssetPublisherHelper getAssetPublisherHelper() {

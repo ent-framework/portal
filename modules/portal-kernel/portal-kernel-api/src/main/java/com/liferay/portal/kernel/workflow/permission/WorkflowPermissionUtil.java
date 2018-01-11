@@ -14,12 +14,14 @@
 
 package com.liferay.portal.kernel.workflow.permission;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.security.permission.PermissionChecker;
 
 /**
  * @author Jorge Ferrer
  */
+@Util
 public class WorkflowPermissionUtil {
 
 	public static WorkflowPermission getWorkflowPermission() {

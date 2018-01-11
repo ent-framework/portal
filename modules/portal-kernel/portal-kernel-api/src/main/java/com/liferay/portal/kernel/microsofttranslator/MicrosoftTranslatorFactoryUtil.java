@@ -14,11 +14,13 @@
 
 package com.liferay.portal.kernel.microsofttranslator;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 /**
  * @author Hugo Huijser
  */
+@Util
 public class MicrosoftTranslatorFactoryUtil {
 
 	public static MicrosoftTranslator getMicrosoftTranslator() {

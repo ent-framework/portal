@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.notifications;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
@@ -26,6 +27,7 @@ import java.util.Map;
 /**
  * @author Jonathan Lee
  */
+@Util
 public class UserNotificationManagerUtil {
 
 	public static void addUserNotificationDefinition(

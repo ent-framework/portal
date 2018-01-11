@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.language;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.util.Locale;
@@ -25,6 +26,7 @@ import javax.servlet.jsp.PageContext;
 /**
  * @author Brian Wing Shun Chan
  */
+@Util
 public class UnicodeLanguageUtil {
 
 	public static String format(

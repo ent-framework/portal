@@ -14,12 +14,14 @@
 
 package com.liferay.portal.kernel.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.model.ColorScheme;
 
 /**
  * @author Vilmos Papp
  */
+@Util
 public class ColorSchemeFactoryUtil {
 
 	public static ColorScheme getColorScheme() {

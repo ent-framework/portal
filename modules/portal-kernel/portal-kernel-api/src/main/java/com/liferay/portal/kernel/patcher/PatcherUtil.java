@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.patcher;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.io.File;
@@ -24,6 +25,7 @@ import java.util.Properties;
  * @author Zsolt Balogh
  * @author Brian Wing Shun Chan
  */
+@Util
 public class PatcherUtil {
 
 	public static boolean applyPatch(File patchFile) {

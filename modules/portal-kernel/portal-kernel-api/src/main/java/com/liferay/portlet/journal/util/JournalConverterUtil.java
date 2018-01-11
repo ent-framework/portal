@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.journal.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.storage.Fields;
@@ -22,6 +23,7 @@ import com.liferay.portlet.dynamicdatamapping.storage.Fields;
  * @author Marcellus Tavares
  * @author Bruno Basto
  */
+@Util
 public class JournalConverterUtil {
 
 	public static String getContent(DDMStructure ddmStructure, Fields ddmFields)

@@ -14,6 +14,7 @@
 
 package com.liferay.portal.service;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.util.List;
@@ -22,6 +23,7 @@ import java.util.List;
  * @author Brian Wing Shun Chan
  * @author Connor McKay
  */
+@Util
 public class PersistedModelLocalServiceRegistryUtil {
 
 	public static PersistedModelLocalService getPersistedModelLocalService(

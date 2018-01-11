@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.documentlibrary.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.lar.PortletDataContext;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.FileVersion;
@@ -23,6 +24,7 @@ import com.liferay.portal.kernel.xml.Element;
 /**
  * @author Mika Koivisto
  */
+@Util
 public class DLProcessorRegistryUtil {
 
 	public static void cleanUp(FileEntry fileEntry) {

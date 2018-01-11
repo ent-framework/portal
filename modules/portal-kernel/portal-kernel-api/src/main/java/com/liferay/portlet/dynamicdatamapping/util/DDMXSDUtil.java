@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.dynamicdatamapping.util;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
@@ -33,6 +34,7 @@ import javax.servlet.jsp.PageContext;
  * @author Eduardo Lundgren
  * @author Brian Wing Shun Chan
  */
+@Util
 public class DDMXSDUtil {
 
 	public static DDMXSD getDDMXSD() {

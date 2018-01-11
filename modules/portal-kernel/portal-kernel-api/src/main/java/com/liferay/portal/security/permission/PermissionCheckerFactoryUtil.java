@@ -14,6 +14,7 @@
 
 package com.liferay.portal.security.permission;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.model.User;
 
@@ -21,6 +22,7 @@ import com.liferay.portal.model.User;
  * @author Charles May
  * @author Brian Wing Shun Chan
  */
+@Util
 public class PermissionCheckerFactoryUtil {
 
 	public static PermissionChecker create(User user) throws Exception {

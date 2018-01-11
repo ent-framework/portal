@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.workflow;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import org.slf4j.Logger;
@@ -39,6 +40,7 @@ import java.util.concurrent.Callable;
  * @author Bruno Farache
  * @author Marcellus Tavares
  */
+@Util
 public class WorkflowHandlerRegistryUtil {
 
 	public static List<WorkflowHandler> getScopeableWorkflowHandlers() {

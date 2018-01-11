@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.executor;
 
+import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.concurrent.ThreadPoolExecutor;
 import com.liferay.portal.kernel.security.pacl.PACLConstants;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
@@ -63,7 +64,9 @@ public class PortalExecutorManagerUtil {
 	public static PortalExecutorManager getPortalExecutorManager() {
 		PortalRuntimePermission.checkGetBeanProperty(
 			PortalExecutorManagerUtil.class);
-
+		if (_portalExecutorManager==null) {
+			_portalExecutorManager = (PortalExecutorManager)PortalBeanLocatorUtil.locate("com.liferay.portal.kernel.executor.PortalExecutorManager");
+		}
 		return _portalExecutorManager;
 	}
 

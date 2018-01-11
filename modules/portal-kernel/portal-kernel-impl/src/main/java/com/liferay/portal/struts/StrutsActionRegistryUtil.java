@@ -14,6 +14,7 @@
 
 package com.liferay.portal.struts;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.struts.StrutsAction;
 import com.liferay.portal.kernel.struts.StrutsPortletAction;
 
@@ -25,6 +26,7 @@ import org.apache.struts.action.Action;
  * @author Mika Koivisto
  * @author Raymond Augé
  */
+@Util
 public class StrutsActionRegistryUtil {
 
 	public static Action getAction(String path) {

@@ -14,6 +14,7 @@
 
 package com.liferay.portal.service.permission;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import org.slf4j.Logger;
@@ -31,6 +32,7 @@ import javax.portlet.PortletMode;
  * @author Brian Wing Shun Chan
  * @author Raymond Augé
  */
+@Util
 public class PortletPermissionUtil {
 
 	public static void check(

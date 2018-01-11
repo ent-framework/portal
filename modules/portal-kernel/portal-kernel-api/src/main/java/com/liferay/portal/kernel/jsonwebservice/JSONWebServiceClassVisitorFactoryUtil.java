@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.jsonwebservice;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.io.IOException;
@@ -22,6 +23,7 @@ import java.io.InputStream;
 /**
  * @author Raymond Augé
  */
+@Util
 public class JSONWebServiceClassVisitorFactoryUtil {
 
 	public static JSONWebServiceClassVisitor create(InputStream inputStream)

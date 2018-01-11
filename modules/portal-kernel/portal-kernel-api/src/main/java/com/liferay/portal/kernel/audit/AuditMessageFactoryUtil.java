@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.audit;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.json.JSONException;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
@@ -23,6 +24,7 @@ import java.util.Date;
 /**
  * @author Amos Fong
  */
+@Util
 public class AuditMessageFactoryUtil {
 
 	public static AuditMessageFactory getAuditMessageFactory() {

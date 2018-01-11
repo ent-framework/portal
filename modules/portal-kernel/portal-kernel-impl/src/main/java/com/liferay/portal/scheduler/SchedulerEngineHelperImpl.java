@@ -678,8 +678,7 @@ public class SchedulerEngineHelperImpl implements SchedulerEngineHelper {
 		_schedulerEngine = schedulerEngine;
 
 		if (schedulerEngine instanceof SchedulerEngineClusterManager) {
-			_schedulerEngineClusterManager =
-				(SchedulerEngineClusterManager)schedulerEngine;
+			_schedulerEngineClusterManager = (SchedulerEngineClusterManager)schedulerEngine;
 		}
 	}
 
@@ -791,6 +790,24 @@ public class SchedulerEngineHelperImpl implements SchedulerEngineHelper {
 		if (ParamUtil.getBoolean(portletRequest, "weeklyDayPos" + day)) {
 			list.add(new DayAndPosition(day, 0));
 		}
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		SchedulerEngineHelperImpl that = (SchedulerEngineHelperImpl) o;
+
+		if (_schedulerEngine != null ? !_schedulerEngine.equals(that._schedulerEngine) : that._schedulerEngine != null) return false;
+		return _schedulerEngineClusterManager != null ? _schedulerEngineClusterManager.equals(that._schedulerEngineClusterManager) : that._schedulerEngineClusterManager == null;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = _schedulerEngine != null ? _schedulerEngine.hashCode() : 0;
+		result = 31 * result + (_schedulerEngineClusterManager != null ? _schedulerEngineClusterManager.hashCode() : 0);
+		return result;
 	}
 
 	private static final Logger _log = LoggerFactory.getLogger(

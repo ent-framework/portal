@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.scripting;
 
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.kernel.util.ClassLoaderPool;
 
@@ -25,6 +26,7 @@ import java.util.Set;
  * @author Brian Wing Shun Chan
  * @author Shuyang Zhou
  */
+@Util
 public class ScriptingUtil {
 
 	public static void clearCache(String language) throws ScriptingException {

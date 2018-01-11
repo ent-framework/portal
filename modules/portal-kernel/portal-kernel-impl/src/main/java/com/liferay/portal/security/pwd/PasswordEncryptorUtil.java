@@ -15,6 +15,7 @@
 package com.liferay.portal.security.pwd;
 
 import com.liferay.portal.PwdEncryptorException;
+import com.liferay.portal.kernel.bean.Util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -28,6 +29,7 @@ import com.liferay.portal.util.PropsUtil;
  * @author Tomas Polesovsky
  * @author Michael C. Han
  */
+@Util
 public class PasswordEncryptorUtil {
 
 	public static final String PASSWORDS_ENCRYPTION_ALGORITHM =

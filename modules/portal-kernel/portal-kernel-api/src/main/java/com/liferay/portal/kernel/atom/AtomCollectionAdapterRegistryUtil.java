@@ -15,6 +15,7 @@
 package com.liferay.portal.kernel.atom;
 
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
+import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.util.List;
@@ -22,6 +23,7 @@ import java.util.List;
 /**
  * @author Igor Spasic
  */
+@Util
 public class AtomCollectionAdapterRegistryUtil {
 
 	public static AtomCollectionAdapter<?> getAtomCollectionAdapter(
