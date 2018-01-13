@@ -33,8 +33,9 @@ page import="com.liferay.portal.upload.LiferayFileUpload" %><%@
 page import="com.liferay.portal.util.PortalInstances" %><%@
 page import="com.liferay.portlet.documentlibrary.model.DLFileVersion" %><%@
 page import="com.liferay.portlet.documentlibrary.service.DLFileEntryLocalServiceUtil" %><%@
-page import="com.liferay.portlet.expando.model.ExpandoColumnConstants" %>
-
+page import="com.liferay.portlet.expando.model.ExpandoColumnConstants" %><%@
+page import="ch.qos.logback.classic.Level" %><%@
+page import="ch.qos.logback.classic.LoggerContext" %>
 <%
 boolean showShardSelector = false;
 

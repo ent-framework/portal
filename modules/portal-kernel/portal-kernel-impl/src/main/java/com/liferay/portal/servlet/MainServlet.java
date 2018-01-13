@@ -1151,9 +1151,9 @@ public class MainServlet extends ActionServlet {
 	}
 
 	protected void processStartupEvents() throws Exception {
-		StartupAction startupAction = new StartupAction();
-
-		startupAction.run(null);
+//		StartupAction startupAction = new StartupAction();
+//
+//		startupAction.run(null);
 	}
 
 	@Override

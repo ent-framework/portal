@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.dao.orm;
 
+import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 /**
@@ -42,8 +43,11 @@ public class DynamicQueryFactoryUtil {
 	}
 
 	public static DynamicQueryFactory getDynamicQueryFactory() {
-		PortalRuntimePermission.checkGetBeanProperty(
-			DynamicQueryFactoryUtil.class);
+		PortalRuntimePermission.checkGetBeanProperty(DynamicQueryFactoryUtil.class);
+
+		if (_dynamicQueryFactory == null) {
+			_dynamicQueryFactory = (DynamicQueryFactory) PortalBeanLocatorUtil.locate("com.liferay.portal.kernel.dao.orm.DynamicQueryFactory");
+		}
 
 		return _dynamicQueryFactory;
 	}

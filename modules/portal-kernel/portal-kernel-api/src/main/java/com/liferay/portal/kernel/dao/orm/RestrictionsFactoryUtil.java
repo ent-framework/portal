@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.dao.orm;
 
+import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 import java.util.Collection;
@@ -69,6 +70,10 @@ public class RestrictionsFactoryUtil {
 	public static RestrictionsFactory getRestrictionsFactory() {
 		PortalRuntimePermission.checkGetBeanProperty(
 			RestrictionsFactoryUtil.class);
+
+		if (_restrictionsFactory==null) {
+			_restrictionsFactory = (RestrictionsFactory)PortalBeanLocatorUtil.locate("com.liferay.portal.kernel.dao.orm.RestrictionsFactory");
+		}
 
 		return _restrictionsFactory;
 	}

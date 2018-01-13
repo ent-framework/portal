@@ -91,6 +91,7 @@ import com.liferay.portlet.asset.model.AssetCategory;
 import com.liferay.portlet.asset.model.AssetEntry;
 import com.liferay.portlet.asset.model.AssetLink;
 import com.liferay.portlet.asset.model.AssetTag;
+import com.liferay.portlet.asset.model.impl.AssetVocabularyImpl;
 import com.liferay.portlet.asset.service.AssetCategoryLocalServiceUtil;
 import com.liferay.portlet.asset.service.AssetEntryLocalServiceUtil;
 import com.liferay.portlet.asset.service.AssetLinkLocalServiceUtil;
@@ -2639,6 +2640,7 @@ public class PortletDataContextImpl implements PortletDataContext {
 //		_xStream.alias("WikiNode", WikiNodeImpl.class);
 //		_xStream.alias("WikiPage", WikiPageImpl.class);
 
+		_xStream.alias("AssetVocabulary", AssetVocabularyImpl.class);
 		// Omit fields
 
 		_xStream.omitField(HashMap.class, "cache_bitmask");
@@ -2686,7 +2688,7 @@ public class PortletDataContextImpl implements PortletDataContext {
 
 		_xStream.allowTypesByWildcard(
 			new String[] {
-				"com.liferay.portal.model.*", "com.liferay.portal.model.impl.*",
+				"com.liferay.portal.model.*", "com.liferay.portal.model.impl.*", "com.liferay.portlet.*.model.impl.*",
 				"com.thoughtworks.xstream.mapper.DynamicProxyMapper*"
 			}
 		);

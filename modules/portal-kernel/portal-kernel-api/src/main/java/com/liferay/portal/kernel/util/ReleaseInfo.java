@@ -96,9 +96,6 @@ public class ReleaseInfo {
 	public static final int RELEASE_6_2_5_BUILD_NUMBER = 6205;
 
 	public static final int RELEASE_6_2_10_BUILD_NUMBER = 6210;
-	
-	public static final int RELEASE_6_3_0_BUILD_NUMBER = 6300;
-	
 
 	public static final Date getBuildDate() {
 		DateFormat df = DateFormat.getDateInstance(DateFormat.LONG);
@@ -125,9 +122,9 @@ public class ReleaseInfo {
 	public static final String getReleaseInfo() {
 		if (_releaseInfo == null) {
 			_releaseInfo =
-				_RELEASE_INFO_PREFIX + _NAME + " " + _VERSION_DISPLAY_NAME +
-					" (" + _CODE_NAME + " / Build " + _BUILD + " / " + _DATE +
-						")" + _RELEASE_INFO_SUFFIX;
+					_RELEASE_INFO_PREFIX + _NAME + " " + _VERSION_DISPLAY_NAME +
+							" (" + _CODE_NAME + " / Build " + _BUILD + " / " + _DATE +
+							")" + _RELEASE_INFO_SUFFIX;
 		}
 
 		return _releaseInfo;
@@ -149,29 +146,29 @@ public class ReleaseInfo {
 		return _VERSION;
 	}
 
-	private static final String _BUILD = "6300";
+	private static final String _BUILD = "6205";
 
 	private static final int _BUILD_NUMBER = GetterUtil.getInteger(_BUILD);
 
-	private static final String _CODE_NAME = "Kuwago";
+	private static final String _CODE_NAME = "Newton";
 
-	private static final String _DATE = "Sep 6, 2016";
+	private static final String _DATE = "January 6, 2016";
 
 	private static final String _NAME = "Liferay Portal Community Edition";
 
 	private static final int _PARENT_BUILD_NUMBER = _BUILD_NUMBER;
 
 	private static final String _RELEASE_INFO_PREFIX = System.getProperty(
-		"liferay.release.info.prefix" , StringPool.BLANK);
+			"liferay.release.info.prefix" , StringPool.BLANK);
 
 	private static final String _RELEASE_INFO_SUFFIX = System.getProperty(
-		"liferay.release.info.suffix" , StringPool.BLANK);
+			"liferay.release.info.suffix" , StringPool.BLANK);
 
 	private static final String _VENDOR = "Liferay, Inc.";
 
-	private static final String _VERSION = "6.3.0";
+	private static final String _VERSION = "6.2.5";
 
-	private static final String _VERSION_DISPLAY_NAME = "6.3 CE GA1";
+	private static final String _VERSION_DISPLAY_NAME = "6.2 CE GA6";
 
 	private static String _releaseInfo;
 	private static String _serverInfo;

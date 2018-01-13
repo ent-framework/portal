@@ -81,35 +81,8 @@
 			</c:if>
 
 			<c:choose>
-				<c:when test='<%= tabs1.equals("server") %>'>
-					<%@ include file="/html/portlet/admin/server.jspf" %>
-					<aui:script use="liferay-admin">
-						new Liferay.Portlet.Admin(
-							{
-								form: document.<portlet:namespace />fm,
-								namespace: '<portlet:namespace />',
-								url: '<portlet:actionURL><portlet:param name="struts_action" value="/admin/edit_server" /></portlet:actionURL>'
-							}
-						);
-					</aui:script>
-				</c:when>
 				<c:when test='<%= tabs1.equals("instances") %>'>
 					<%@ include file="/html/portlet/admin/instances.jspf" %>
-				</c:when>
-				<c:when test='<%= tabs1.equals("plugins") %>'>
-
-					<%
-					PortletURL marketplaceURL = null;
-
-					if ( PortalUtil.isOmniadmin(user.getUserId()) && PortletLocalServiceUtil.hasPortlet(themeDisplay.getCompanyId(), PortletKeys.MARKETPLACE_STORE)) {
-						marketplaceURL = ((RenderResponseImpl)renderResponse).createRenderURL(PortletKeys.MARKETPLACE_STORE);
-					}
-
-					boolean showEditPluginHREF = false;
-					boolean showReindexButton = true;
-					%>
-
-					<%@ include file="/html/portlet/plugins_admin/plugins.jspf" %>
 				</c:when>
 			</c:choose>
 		</aui:form>

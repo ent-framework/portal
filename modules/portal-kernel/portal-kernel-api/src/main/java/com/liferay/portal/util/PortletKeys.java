@@ -44,13 +44,7 @@ public class PortletKeys {
 	public static final String ASSET_TAGS_NAVIGATION = "141";
 
 	public static final String BACKGROUND_TASK = "189";
-
-	public static final String BLOGS = "33";
-
-	public static final String BLOGS_ADMIN = "161";
-
-	public static final String BLOGS_AGGREGATOR = "115";
-
+	
 	public static final String BOOKMARKS = "28";
 
 	public static final String BREADCRUMB = "73";
@@ -130,10 +124,6 @@ public class PortletKeys {
 
 	public static final String MEDIA_GALLERY_DISPLAY = "31";
 
-	public static final String MESSAGE_BOARDS = "19";
-
-	public static final String MESSAGE_BOARDS_ADMIN = "162";
-
 	public static final String MOBILE_DEVICE_SITE_ADMIN = "178";
 
 	public static final String MONITORING = "131";
@@ -195,8 +185,6 @@ public class PortletKeys {
 	public static final int PREFS_OWNER_TYPE_USER = 4;
 
 	public static final long PREFS_PLID_SHARED = 0;
-
-	public static final String RECENT_BLOGGERS = "114";
 
 	public static final String RECENT_CONTENT = "173";
 
@@ -268,12 +256,6 @@ public class PortletKeys {
 	public static final String USER_STATISTICS = "180";
 
 	public static final String USERS_ADMIN = "125";
-
-	public static final String WIKI = "36";
-
-	public static final String WIKI_ADMIN = "154";
-
-	public static final String WIKI_DISPLAY = "54";
 
 	public static final String WORKFLOW_CONFIGURATION = "152";
 

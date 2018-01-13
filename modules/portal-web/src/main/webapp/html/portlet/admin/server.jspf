@@ -36,6 +36,7 @@ serverURL.setParameter("struts_action", "/admin/view");
 serverURL.setParameter("tabs1", tabs1);
 serverURL.setParameter("tabs2", tabs2);
 serverURL.setParameter("tabs3", tabs3);
+Level[] ALL_LEVELS = new Level[]{Level.OFF, Level.ERROR, Level.WARN, Level.INFO, Level.DEBUG, Level.TRACE};
 %>
 
 <liferay-ui:message key="uptime" />:
@@ -75,10 +76,10 @@ serverURL.setParameter("tabs3", tabs3);
 							<aui:select label="" name="priority">
 
 								<%
-								for (int i = 0; i < Levels.ALL_LEVELS.length; i++) {
+								for (int i = 0; i < ALL_LEVELS.length; i++) {
 								%>
 
-									<aui:option label="<%= Levels.ALL_LEVELS[i] %>" selected="<%= Level.INFO.equals(Levels.ALL_LEVELS[i]) %>" />
+									<aui:option label="<%= ALL_LEVELS[i] %>" selected="<%= Level.INFO.equals(ALL_LEVELS[i]) %>" />
 
 								<%
 								}
@@ -111,11 +112,10 @@ serverURL.setParameter("tabs3", tabs3);
 
 						Map currentLoggerNames = new TreeMap();
 
-						Enumeration enu = LogManager.getCurrentLoggers();
-
-						while (enu.hasMoreElements()) {
-							Logger logger = (Logger)enu.nextElement();
-
+						LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
+						List<ch.qos.logback.classic.Logger> loggers = context.getLoggerList();
+						
+						for (ch.qos.logback.classic.Logger logger: loggers) {
 							if (Validator.isNull(keywords) || logger.getName().contains(keywords)) {
 								currentLoggerNames.put(logger.getName(), logger);
 							}
@@ -129,7 +129,7 @@ serverURL.setParameter("tabs3", tabs3);
 							Map.Entry entry = (Map.Entry)itr.next();
 
 							String name = (String)entry.getKey();
-							Logger logger = (Logger)entry.getValue();
+							ch.qos.logback.classic.Logger logger = (ch.qos.logback.classic.Logger)entry.getValue();
 
 							Level level = logger.getLevel();
 
@@ -150,7 +150,7 @@ serverURL.setParameter("tabs3", tabs3);
 							Map.Entry entry = (Map.Entry)results.get(i);
 
 							String name = (String)entry.getKey();
-							Logger logger = (Logger)entry.getValue();
+							ch.qos.logback.classic.Logger logger = (ch.qos.logback.classic.Logger)entry.getValue();
 
 							Level level = logger.getLevel();
 
@@ -162,7 +162,7 @@ serverURL.setParameter("tabs3", tabs3);
 
 							// Logger
 
-							StringBundler sb = new StringBundler(Levels.ALL_LEVELS.length * 6 + 7);
+							StringBundler sb = new StringBundler(ALL_LEVELS.length * 6 + 7);
 
 							sb.append("<select name=\"");
 							sb.append(renderResponse.getNamespace());
@@ -170,17 +170,17 @@ serverURL.setParameter("tabs3", tabs3);
 							sb.append(HtmlUtil.escapeAttribute(name));
 							sb.append("\">");
 
-							for (int j = 0; j < Levels.ALL_LEVELS.length; j++) {
+							for (int j = 0; j < ALL_LEVELS.length; j++) {
 								sb.append("<option ");
 
-								if (level.equals(Levels.ALL_LEVELS[j])) {
+								if (level.equals(ALL_LEVELS[j])) {
 									sb.append("selected");
 								}
 
 								sb.append(" value=\"");
-								sb.append(Levels.ALL_LEVELS[j]);
+								sb.append(ALL_LEVELS[j]);
 								sb.append("\">");
-								sb.append(Levels.ALL_LEVELS[j]);
+								sb.append(ALL_LEVELS[j]);
 								sb.append("</option>");
 							}
 

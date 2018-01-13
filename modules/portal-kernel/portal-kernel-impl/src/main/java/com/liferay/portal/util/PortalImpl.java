@@ -1306,10 +1306,7 @@ public class PortalImpl implements Portal {
 	public String getClassNamePortletId(String className) {
 		String portletId = StringPool.BLANK;
 
-		if (className.startsWith("com.liferay.portlet.blogs")) {
-			portletId = PortletKeys.BLOGS;
-		}
-		else if (className.startsWith("com.liferay.portlet.bookmarks")) {
+		if (className.startsWith("com.liferay.portlet.bookmarks")) {
 			portletId = PortletKeys.BOOKMARKS;
 		}
 		else if (className.startsWith("com.liferay.portlet.documentlibrary")) {
@@ -1320,12 +1317,6 @@ public class PortalImpl implements Portal {
 		}
 		else if (className.startsWith("com.liferay.portlet.journal")) {
 			portletId = PortletKeys.JOURNAL;
-		}
-		else if (className.startsWith("com.liferay.portlet.messageboards")) {
-			portletId = PortletKeys.MESSAGE_BOARDS;
-		}
-		else if (className.startsWith("com.liferay.portlet.wiki")) {
-			portletId = PortletKeys.WIKI;
 		}
 
 		return portletId;

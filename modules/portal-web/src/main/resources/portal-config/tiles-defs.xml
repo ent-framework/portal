@@ -131,7 +131,16 @@
 	<definition name="portlet.admin.view" extends="portlet.admin">
 		<put name="portlet_content" value="/portlet/admin/view.jsp" />
 	</definition>
+	
+	<definition name="portlet.admin.server.view" extends="portlet.admin">
+		<put name="portlet_content" value="/portlet/admin/server/view.jsp" />
+	</definition>
 
+	<definition name="portlet.admin.instances.view" extends="portlet.admin">
+		<put name="portlet_content" value="/portlet/admin/instances/view.jsp" />
+	</definition>	
+	
+	
 	<!-- Amazon Rankings -->
 
 	<definition name="portlet.amazon_rankings" extends="portlet" />

@@ -97,7 +97,8 @@ public class AttachmentCommandReceiver extends BaseCommandReceiver {
 
 	@Override
 	protected boolean isStagedData(Group group) {
-		return group.isStagedPortlet(PortletKeys.WIKI);
+		return true;
+		//return group.isStagedPortlet(PortletKeys.WIKI);
 	}
 
 	private void _getFiles(

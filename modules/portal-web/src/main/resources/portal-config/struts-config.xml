@@ -141,7 +141,7 @@
 			<forward name="portlet.admin.error" path="portlet.admin.error" />
 		</action>
 
-		<action path="/admin_instances/view" forward="portlet.admin.view" />
+		<action path="/admin_instances/view" forward="portlet.admin.instances.view" />
 
 		<!-- Admin Plugins -->
 
@@ -183,7 +183,7 @@
 			<forward name="portlet.users_admin.error" path="portlet.directory.error" />
 		</action>
 
-		<action path="/admin_server/view" forward="portlet.admin.view" />
+		<action path="/admin_server/view" forward="portlet.admin.server.view" />
 
 		<action path="/admin_server/view_chart" type="com.liferay.portlet.admin.action.ViewChartAction" />
 

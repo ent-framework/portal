@@ -205,7 +205,7 @@ public class AddDefaultLayoutSetPrototypesAction
 
 		Layout layout = addLayout(layoutSet, "Home", "/home", "2_columns_iii");
 
-		addPortletId(layout, PortletKeys.MESSAGE_BOARDS, "column-1");
+		//addPortletId(layout, PortletKeys.MESSAGE_BOARDS, "column-1");
 
 		String portletId = addPortletId(layout, PortletKeys.SEARCH, "column-2");
 
@@ -231,14 +231,6 @@ public class AddDefaultLayoutSetPrototypesAction
 
 		updatePortletSetup(layout, portletId, preferences);
 
-		// Wiki layout
-
-		layout = addLayout(layoutSet, "Wiki", "/wiki", "2_columns_iii");
-
-		addPortletId(layout, PortletKeys.WIKI, "column-1");
-		addPortletId(
-			layout, PortletKeys.ASSET_CATEGORIES_NAVIGATION, "column-2");
-		addPortletId(layout, PortletKeys.TAGS_CLOUD, "column-2");
 	}
 
 	protected void doRun(long companyId) throws Exception {

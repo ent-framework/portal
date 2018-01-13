@@ -1,7 +1,9 @@
 package com.liferay.portal.boot.config.portal;
 
+import com.liferay.portal.events.StartupAction;
 import com.liferay.portal.jsonwebservice.JSONWebServiceServlet;
 import com.liferay.portal.kernel.bean.Util;
+import com.liferay.portal.kernel.events.ActionException;
 import com.liferay.portal.kernel.servlet.PortletSessionListenerManager;
 import com.liferay.portal.kernel.servlet.SerializableSessionAttributeListener;
 import com.liferay.portal.kernel.servlet.filters.invoker.InvokerFilter;
@@ -41,6 +43,15 @@ public class PortalWebApplicationInitializer implements ServletContextInitialize
 
         //load
         applicationContext.getBeansWithAnnotation(Util.class);
+
+        StartupAction startupAction = new StartupAction();
+
+        try {
+            startupAction.run(null);
+        } catch (ActionException e) {
+            e.printStackTrace();
+        }
+
 
         initPortalListeners(servletContext);
         initInvokerFilters(servletContext, false);

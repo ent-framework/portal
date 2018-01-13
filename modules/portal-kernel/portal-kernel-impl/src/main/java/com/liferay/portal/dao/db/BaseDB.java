@@ -330,7 +330,7 @@ public abstract class BaseDB implements DB {
 		ClassLoader classLoader = ClassLoaderUtil.getContextClassLoader();
 
 		InputStream is = classLoader.getResourceAsStream(
-			"dependencies/portal/sql" + path);
+			"dependencies/portal/sql/" + path);
 
 		if (is == null) {
 			is = classLoader.getResourceAsStream(path);

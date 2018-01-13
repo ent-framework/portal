@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.dao.orm;
 
+import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 /**
@@ -44,6 +45,10 @@ public class ProjectionFactoryUtil {
 	public static ProjectionFactory getProjectionFactory() {
 		PortalRuntimePermission.checkGetBeanProperty(
 			ProjectionFactoryUtil.class);
+
+		if (_projectionFactory==null) {
+			_projectionFactory = (ProjectionFactory) PortalBeanLocatorUtil.locate("com.liferay.portal.kernel.dao.orm.ProjectionFactory");
+		}
 
 		return _projectionFactory;
 	}

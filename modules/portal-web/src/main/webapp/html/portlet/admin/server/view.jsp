@@ -93,24 +93,6 @@
 						);
 					</aui:script>
 				</c:when>
-				<c:when test='<%= tabs1.equals("instances") %>'>
-					<%@ include file="/html/portlet/admin/instances.jspf" %>
-				</c:when>
-				<c:when test='<%= tabs1.equals("plugins") %>'>
-
-					<%
-					PortletURL marketplaceURL = null;
-
-					if ( PortalUtil.isOmniadmin(user.getUserId()) && PortletLocalServiceUtil.hasPortlet(themeDisplay.getCompanyId(), PortletKeys.MARKETPLACE_STORE)) {
-						marketplaceURL = ((RenderResponseImpl)renderResponse).createRenderURL(PortletKeys.MARKETPLACE_STORE);
-					}
-
-					boolean showEditPluginHREF = false;
-					boolean showReindexButton = true;
-					%>
-
-					<%@ include file="/html/portlet/plugins_admin/plugins.jspf" %>
-				</c:when>
 			</c:choose>
 		</aui:form>
 

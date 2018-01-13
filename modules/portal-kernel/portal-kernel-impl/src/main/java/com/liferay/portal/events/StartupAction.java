@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
@@ -15,6 +15,7 @@
 package com.liferay.portal.events;
 
 //import com.liferay.portal.cache.ehcache.EhcacheStreamBootstrapCacheLoader;
+
 import com.liferay.portal.jericho.CachedLoggerProvider;
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.cluster.ClusterExecutorUtil;
@@ -22,8 +23,6 @@ import com.liferay.portal.kernel.cluster.ClusterLinkUtil;
 import com.liferay.portal.kernel.cluster.ClusterMasterExecutorUtil;
 import com.liferay.portal.kernel.events.ActionException;
 import com.liferay.portal.kernel.events.SimpleAction;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.MessageBus;
 import com.liferay.portal.kernel.messaging.MessageBusUtil;
 import com.liferay.portal.kernel.messaging.sender.MessageSender;
@@ -54,12 +53,14 @@ import com.liferay.portal.service.BackgroundTaskLocalServiceUtil;
 import com.liferay.portal.service.LockLocalServiceUtil;
 import com.liferay.portal.util.DBUpgrader;
 import com.liferay.portal.util.WebKeys;
-//import com.liferay.portlet.messageboards.util.MBMessageIndexer;
+import org.apache.struts.tiles.taglib.ComponentConstants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.portlet.MimeResponse;
 import javax.portlet.PortletRequest;
 
-import org.apache.struts.tiles.taglib.ComponentConstants;
+//import com.liferay.portlet.messageboards.util.MBMessageIndexer;
 
 /**
  * @author Brian Wing Shun Chan
@@ -68,183 +69,179 @@ import org.apache.struts.tiles.taglib.ComponentConstants;
  */
 public class StartupAction extends SimpleAction {
 
-	@Override
-	public void run(String[] ids) throws ActionException {
-		try {
-			doRun(ids);
-		}
-		catch (RuntimeException re) {
-			throw re;
-		}
-		catch (Exception e) {
-			throw new ActionException(e);
-		}
-	}
+    @Override
+    public void run(String[] ids) throws ActionException {
+        try {
+            doRun(ids);
+        } catch (RuntimeException re) {
+            throw re;
+        } catch (Exception e) {
+            throw new ActionException(e);
+        }
+    }
 
-	protected void doRun(String[] ids) throws Exception {
+    protected void doRun(String[] ids) throws Exception {
 
-		// Print release information
+        // Print release information
 
-		System.out.println("Starting " + ReleaseInfo.getReleaseInfo());
+        System.out.println("Starting " + ReleaseInfo.getReleaseInfo());
 
-		// Installed patches
+        // Installed patches
 
-		if (_log.isInfoEnabled() && !PatcherUtil.hasInconsistentPatchLevels()) {
-			String installedPatches = StringUtil.merge(
-				PatcherUtil.getInstalledPatches(), StringPool.COMMA_AND_SPACE);
+        if (_log.isInfoEnabled() && !PatcherUtil.hasInconsistentPatchLevels()) {
+            String installedPatches = StringUtil.merge(
+                    PatcherUtil.getInstalledPatches(), StringPool.COMMA_AND_SPACE);
 
-			if (Validator.isNull(installedPatches)) {
-				_log.info("There are no patches installed");
-			}
-			else {
-				_log.info(
-					"The following patches are installed: " + installedPatches);
-			}
-		}
+            if (Validator.isNull(installedPatches)) {
+                _log.info("There are no patches installed");
+            } else {
+                _log.info(
+                        "The following patches are installed: " + installedPatches);
+            }
+        }
 
-		// Portal resiliency
+        // Portal resiliency
 
-		DistributedRegistry.registerDistributed(
-			ComponentConstants.COMPONENT_CONTEXT, Direction.DUPLEX,
-			MatchType.POSTFIX);
-		DistributedRegistry.registerDistributed(
-			MimeResponse.MARKUP_HEAD_ELEMENT, Direction.DUPLEX,
-			MatchType.EXACT);
-		DistributedRegistry.registerDistributed(
-			PortletRequest.LIFECYCLE_PHASE, Direction.DUPLEX, MatchType.EXACT);
-		DistributedRegistry.registerDistributed(WebKeys.class);
+        DistributedRegistry.registerDistributed(
+                ComponentConstants.COMPONENT_CONTEXT, Direction.DUPLEX,
+                MatchType.POSTFIX);
+        DistributedRegistry.registerDistributed(
+                MimeResponse.MARKUP_HEAD_ELEMENT, Direction.DUPLEX,
+                MatchType.EXACT);
+        DistributedRegistry.registerDistributed(
+                PortletRequest.LIFECYCLE_PHASE, Direction.DUPLEX, MatchType.EXACT);
+        DistributedRegistry.registerDistributed(WebKeys.class);
 
-		Intraband intraband = MPIHelperUtil.getIntraband();
+        Intraband intraband = MPIHelperUtil.getIntraband();
 
-		intraband.registerDatagramReceiveHandler(
-			SystemDataType.MAILBOX.getValue(),
-			new MailboxDatagramReceiveHandler());
+        intraband.registerDatagramReceiveHandler(
+                SystemDataType.MAILBOX.getValue(),
+                new MailboxDatagramReceiveHandler());
 
-		MessageBus messageBus = (MessageBus)PortalBeanLocatorUtil.locate(
-			MessageBus.class.getName());
+        MessageBus messageBus = (MessageBus) PortalBeanLocatorUtil.locate(
+                MessageBus.class.getName());
 
-		intraband.registerDatagramReceiveHandler(
-			SystemDataType.MESSAGE.getValue(),
-			new MessageDatagramReceiveHandler(messageBus));
+        intraband.registerDatagramReceiveHandler(
+                SystemDataType.MESSAGE.getValue(),
+                new MessageDatagramReceiveHandler(messageBus));
 
-		intraband.registerDatagramReceiveHandler(
-			SystemDataType.PORTAL_CACHE.getValue(),
-			new PortalCacheDatagramReceiveHandler());
-		intraband.registerDatagramReceiveHandler(
-			SystemDataType.RPC.getValue(), new RPCDatagramReceiveHandler());
+        intraband.registerDatagramReceiveHandler(
+                SystemDataType.PORTAL_CACHE.getValue(),
+                new PortalCacheDatagramReceiveHandler());
+        intraband.registerDatagramReceiveHandler(
+                SystemDataType.RPC.getValue(), new RPCDatagramReceiveHandler());
 
-		// Clear locks
+        // Clear locks
 
-		if (_log.isDebugEnabled()) {
-			_log.debug("Clear locks");
-		}
+        if (_log.isDebugEnabled()) {
+            _log.debug("Clear locks");
+        }
 
-		try {
-			LockLocalServiceUtil.clear();
-		}
-		catch (Exception e) {
-			if (_log.isWarnEnabled()) {
-				_log.warn(
-					"Unable to clear locks because Lock table does not exist");
-			}
-		}
+        try {
+            LockLocalServiceUtil.clear();
+        } catch (Exception e) {
+            if (_log.isWarnEnabled()) {
+                _log.warn(
+                        "Unable to clear locks because Lock table does not exist");
+            }
+        }
 
-		// Shutdown hook
+        // Shutdown hook
 
-		if (_log.isDebugEnabled()) {
-			_log.debug("Add shutdown hook");
-		}
+        if (_log.isDebugEnabled()) {
+            _log.debug("Add shutdown hook");
+        }
 
-		Runtime runtime = Runtime.getRuntime();
+        Runtime runtime = Runtime.getRuntime();
 
-		runtime.addShutdownHook(new Thread(new ShutdownHook()));
+        runtime.addShutdownHook(new Thread(new ShutdownHook()));
 
-		// Template manager
+        // Template manager
 
-		if (_log.isDebugEnabled()) {
-			_log.debug("Initialize template manager");
-		}
+        if (_log.isDebugEnabled()) {
+            _log.debug("Initialize template manager");
+        }
 
-		TemplateManagerUtil.init();
+        TemplateManagerUtil.init();
 
-		// Indexers
+        // Indexers
 
-		//IndexerRegistryUtil.register(new MBMessageIndexer());
-		IndexerRegistryUtil.register(new PluginPackageIndexer());
+        //IndexerRegistryUtil.register(new MBMessageIndexer());
+        IndexerRegistryUtil.register(new PluginPackageIndexer());
 
-		// Upgrade
+        // Upgrade
 
-		if (_log.isDebugEnabled()) {
-			_log.debug("Upgrade database");
-		}
+        if (_log.isDebugEnabled()) {
+            _log.debug("Upgrade database");
+        }
 
-		DBUpgrader.upgrade();
+        DBUpgrader.upgrade();
 
-		// Messaging
+        // Messaging
 
-		if (_log.isDebugEnabled()) {
-			_log.debug("Initialize message bus");
-		}
+        if (_log.isDebugEnabled()) {
+            _log.debug("Initialize message bus");
+        }
 
-		MessageSender messageSender =
-			(MessageSender)PortalBeanLocatorUtil.locate(
-				MessageSender.class.getName());
-		SynchronousMessageSender synchronousMessageSender =
-			(SynchronousMessageSender)PortalBeanLocatorUtil.locate(
-				SynchronousMessageSender.class.getName());
+        MessageSender messageSender =
+                (MessageSender) PortalBeanLocatorUtil.locate(
+                        MessageSender.class.getName());
+        SynchronousMessageSender synchronousMessageSender =
+                (SynchronousMessageSender) PortalBeanLocatorUtil.locate(
+                        SynchronousMessageSender.class.getName());
 
-		MessageBusUtil.init(
-			DoPrivilegedUtil.wrap(messageBus),
-			DoPrivilegedUtil.wrap(messageSender),
-			DoPrivilegedUtil.wrap(synchronousMessageSender));
+        MessageBusUtil.init(
+                DoPrivilegedUtil.wrap(messageBus),
+                DoPrivilegedUtil.wrap(messageSender),
+                DoPrivilegedUtil.wrap(synchronousMessageSender));
 
-		// Cluster link
+        // Cluster link
 
-		ClusterLinkUtil.initialize();
+        ClusterLinkUtil.initialize();
 
-		// Cluster executor
+        // Cluster executor
 
-		ClusterExecutorUtil.initialize();
+        ClusterExecutorUtil.initialize();
 
-		if (!SPIUtil.isSPI()) {
-			ClusterMasterExecutorUtil.initialize();
-		}
+        if (!SPIUtil.isSPI()) {
+            ClusterMasterExecutorUtil.initialize();
+        }
 
-		// Ehache bootstrap
+        // Ehache bootstrap
 
-		//EhcacheStreamBootstrapCacheLoader.start();
+        //EhcacheStreamBootstrapCacheLoader.start();
 
-		// Scheduler
+        // Scheduler
 
-		if (_log.isDebugEnabled()) {
-			_log.debug("Initialize scheduler engine lifecycle");
-		}
+        if (_log.isDebugEnabled()) {
+            _log.debug("Initialize scheduler engine lifecycle");
+        }
 
-		SchedulerEngineHelperUtil.initialize();
+        SchedulerEngineHelperUtil.initialize();
 
-		// Verify
+        // Verify
 
-		if (_log.isDebugEnabled()) {
-			_log.debug("Verify database");
-		}
+        if (_log.isDebugEnabled()) {
+            _log.debug("Verify database");
+        }
 
-		DBUpgrader.verify();
+        DBUpgrader.verify();
 
-		// Background tasks
+        // Background tasks
 
-		if (!ClusterMasterExecutorUtil.isEnabled()) {
-			BackgroundTaskLocalServiceUtil.cleanUpBackgroundTasks();
-		}
+        if (!ClusterMasterExecutorUtil.isEnabled()) {
+            BackgroundTaskLocalServiceUtil.cleanUpBackgroundTasks();
+        }
 
-		// Liferay JspFactory
+        // Liferay JspFactory
 
-		JspFactorySwapper.swap();
+        JspFactorySwapper.swap();
 
-		// Jericho
+        // Jericho
 
-		CachedLoggerProvider.install();
-	}
+        CachedLoggerProvider.install();
+    }
 
-	private static final Logger _log = LoggerFactory.getLogger(StartupAction.class);
+    private static final Logger _log = LoggerFactory.getLogger(StartupAction.class);
 
 }

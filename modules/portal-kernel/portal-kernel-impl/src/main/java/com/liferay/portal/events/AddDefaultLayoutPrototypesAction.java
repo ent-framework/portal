@@ -53,38 +53,6 @@ public class AddDefaultLayoutPrototypesAction
 		}
 	}
 
-	protected void addBlogPage(
-			long companyId, long defaultUserId,
-			List<LayoutPrototype> layoutPrototypes)
-		throws Exception {
-
-		Layout layout = addLayoutPrototype(
-			companyId, defaultUserId, "Blog",
-			"Create, edit, and view blogs from this page. Explore topics " +
-				"using tags, and connect with other members that blog.",
-			"2_columns_iii", layoutPrototypes);
-
-		if (layout == null) {
-			return;
-		}
-
-		addPortletId(layout, PortletKeys.BLOGS, "column-1");
-
-		String portletId = addPortletId(
-			layout, PortletKeys.TAGS_CLOUD, "column-2");
-
-		Map<String, String> preferences = new HashMap<String, String>();
-
-/*		preferences.put(
-			"classNameId",
-			String.valueOf(PortalUtil.getClassNameId(BlogsEntry.class)));*/
-		preferences.put("showAssetCount", Boolean.TRUE.toString());
-
-		updatePortletSetup(layout, portletId, preferences);
-
-		addPortletId(layout, PortletKeys.RECENT_BLOGGERS, "column-2");
-	}
-
 	protected Layout addLayoutPrototype(
 			long companyId, long defaultUserId, String name, String description,
 			String layouteTemplateId, List<LayoutPrototype> layoutPrototypes)
@@ -153,49 +121,13 @@ public class AddDefaultLayoutPrototypesAction
 			layout.getTypeSettings());
 	}
 
-	protected void addWikiPage(
-			long companyId, long defaultUserId,
-			List<LayoutPrototype> layoutPrototypes)
-		throws Exception {
-
-		Layout layout = addLayoutPrototype(
-			companyId, defaultUserId, "Wiki",
-			"Collaborate with members through the wiki on this page. " +
-				"Discover related content through tags, and navigate quickly " +
-					"and easily with categories.",
-			"2_columns_iii", layoutPrototypes);
-
-		if (layout == null) {
-			return;
-		}
-
-		addPortletId(layout, PortletKeys.WIKI, "column-1");
-		addPortletId(
-			layout, PortletKeys.ASSET_CATEGORIES_NAVIGATION, "column-2");
-
-		String portletId = addPortletId(
-			layout, PortletKeys.ASSET_TAGS_NAVIGATION, "column-2");
-
-		Map<String, String> preferences = new HashMap<String, String>();
-
-//		preferences.put(
-//			"classNameId",
-//			String.valueOf(PortalUtil.getClassNameId(WikiPage.class)));
-		preferences.put("showAssetCount", Boolean.TRUE.toString());
-
-		updatePortletSetup(layout, portletId, preferences);
-	}
-
 	protected void doRun(long companyId) throws Exception {
 		long defaultUserId = UserLocalServiceUtil.getDefaultUserId(companyId);
 
 		List<LayoutPrototype> layoutPrototypes =
 			LayoutPrototypeLocalServiceUtil.search(
 				companyId, null, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
-
-		addBlogPage(companyId, defaultUserId, layoutPrototypes);
 		addWebContentPage(companyId, defaultUserId, layoutPrototypes);
-		addWikiPage(companyId, defaultUserId, layoutPrototypes);
 	}
 
 }
