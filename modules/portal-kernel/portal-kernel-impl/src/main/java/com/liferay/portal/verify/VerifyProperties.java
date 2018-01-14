@@ -203,11 +203,6 @@ public class VerifyProperties extends VerifyProcess {
 		}
 	}
 
-	private static final String[] _LDAP_KEYS = {
-		PropsKeys.LDAP_CONTACT_CUSTOM_MAPPINGS, PropsKeys.LDAP_CONTACT_MAPPINGS,
-		PropsKeys.LDAP_USER_CUSTOM_MAPPINGS
-	};
-
 	private static final String[][] _MIGRATED_PORTAL_KEYS = new String[][] {
 		new String[] {
 			"cookie.http.only.names.excludes", "cookie.http.only.names.excludes"
