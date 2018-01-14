@@ -189,9 +189,6 @@ request.setAttribute("view.jsp-showIconLabel", true);
 
 				String ratingsType = "stars";
 
-				if (assetEntryClassName.equals(MBDiscussion.class.getName()) || assetEntryClassName.equals(MBMessage.class.getName())) {
-					ratingsType = "thumbs";
-				}
 				%>
 
 				<liferay-ui:ratings

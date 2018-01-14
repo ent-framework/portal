@@ -128,7 +128,7 @@ if (Validator.isNotNull(exception)) {
 				_log.error(e.getMessage());
 
 				if (_log.isDebugEnabled()) {
-					_log.debug(e, e);
+					_log.debug(e.getMessage(), e);
 				}
 			}
 		}

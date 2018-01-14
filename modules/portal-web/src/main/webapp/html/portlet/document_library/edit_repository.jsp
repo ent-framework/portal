@@ -169,7 +169,7 @@ long folderId = ParamUtil.getLong(request, "folderId");
 			}
 		}
 		catch (Exception e) {
-			_log.error(e);
+			_log.error(e.getMessage(), e);
 		}
 	}
 	%>

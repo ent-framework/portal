@@ -62,7 +62,7 @@ else {
 			assetLink.setEntryId1(assetEntryId);
 		}
 		else {
-			assetLink.setEntryId1(0);
+			assetLink.setEntryId1(0l);
 		}
 
 		assetLink.setEntryId2(assetEntry.getEntryId());

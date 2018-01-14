@@ -18,7 +18,7 @@ logging:
         ROOT: INFO
         com.liferay.portal.web: INFO
         com.liferay.portal.spring.hibernate: INFO
-        org.apache.catalina.webresources.Cache: ERROR
+#        org.apache.catalina.webresources.Cache: ERROR
 #        org.springframework.beans.factory: DEBUG
 
 spring:
@@ -34,6 +34,10 @@ spring:
         serialization.indent_output: true
     messages:
         cache-seconds: 1
+    mvc:
+        view:
+          prefix: /
+          suffix: .jsp
 
 # ===================================================================
 # To enable SSL, generate a certificate using:

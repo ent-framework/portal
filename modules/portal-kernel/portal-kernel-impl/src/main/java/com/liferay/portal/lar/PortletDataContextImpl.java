@@ -2686,6 +2686,8 @@ public class PortletDataContextImpl implements PortletDataContext {
 		_xStream.allowTypeHierarchy(RatingsEntry.class);
 		_xStream.allowTypeHierarchy(StagedModel.class);
 
+		_xStream.setClassLoader(Thread.currentThread().getContextClassLoader());
+		
 		_xStream.allowTypesByWildcard(
 			new String[] {
 				"com.liferay.portal.model.*", "com.liferay.portal.model.impl.*", "com.liferay.portlet.*.model.impl.*",

@@ -23,8 +23,6 @@
 <%@ page import="com.liferay.portal.kernel.util.LocaleUtil" %>
 <%@ page import="com.liferay.portal.kernel.util.ParamUtil" %>
 <%@ page import="com.liferay.portal.kernel.util.StringUtil" %>
-<%@ page import="com.liferay.portlet.messageboards.model.MBThreadConstants" %>
-
 <%@ page import="java.util.Locale" %>
 
 <%
@@ -134,8 +132,6 @@ response.setContentType(ContentTypes.TEXT_JAVASCRIPT);
 	config.imagesPath = '<%= HtmlUtil.escapeJS(imagesPath) %>/message_boards/';
 
 	config.language = '<%= languageId.replace("iw_", "he_") %>';
-
-	config.newThreadURL = '<%= MBThreadConstants.NEW_THREAD_URL %>';
 
 	<c:if test="<%= resizable %>">
 		config.resize_dir = 'vertical';

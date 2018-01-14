@@ -28,7 +28,7 @@ if (exception instanceof PrincipalException) {
 	_log.warn("Referer " + request.getHeader("Referer"));
 	_log.warn("Remote address " + request.getRemoteAddr());
 
-	_log.warn(exception, exception);
+	_log.warn(exception.getMessage(), exception);
 }
 else {
 	_log.error("User ID " + userId);
@@ -36,7 +36,7 @@ else {
 	_log.error("Referer " + request.getHeader("Referer"));
 	_log.error("Remote address " + request.getRemoteAddr());
 
-	_log.error(exception, exception);
+	_log.error(exception.getMessage(), exception);
 }
 
 String message = exception.getMessage();

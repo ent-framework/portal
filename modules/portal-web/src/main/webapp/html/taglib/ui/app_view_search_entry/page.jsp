@@ -26,7 +26,6 @@ String cssClass = GetterUtil.getString((String)request.getAttribute("liferay-ui:
 String description = (String)request.getAttribute("liferay-ui:app-view-search-entry:description");
 List<Tuple> fileEntryTuples = (List<Tuple>)request.getAttribute("liferay-ui:app-view-search-entry:fileEntryTuples");
 boolean locked = GetterUtil.getBoolean(request.getAttribute("liferay-ui:app-view-search-entry:locked"));
-List<MBMessage> mbMessages = (List<MBMessage>)request.getAttribute("liferay-ui:app-view-search-entry:mbMessages");
 String[] queryTerms = (String[])request.getAttribute("liferay-ui:app-view-search-entry:queryTerms");
 String rowCheckerId = (String)request.getAttribute("liferay-ui:app-view-search-entry:rowCheckerId");
 String rowCheckerName = (String)request.getAttribute("liferay-ui:app-view-search-entry:rowCheckerName");
@@ -134,39 +133,6 @@ List<String> versions = (List<String>)request.getAttribute("liferay-ui:app-view-
 						<span class="body">
 							<%= StringUtil.highlight((Validator.isNotNull(summary.getContent())) ? summary.getContent() : fileEntry.getTitle(), queryTerms) %>
 						</span>
-				</aui:a>
-			</div>
-
-		<%
-		}
-		%>
-
-	</c:if>
-
-	<c:if test="<%= mbMessages != null %>">
-
-		<%
-		for (MBMessage mbMessage : mbMessages) {
-			User userDisplay = UserLocalServiceUtil.getUser(mbMessage.getUserId());
-		%>
-
-			<div class="entry-discussion">
-				<aui:a class="lfr-discussion-details" href="<%= url %>">
-					<div class="image">
-						<img alt="<%= HtmlUtil.escapeAttribute(userDisplay.getFullName()) %>" class="avatar" src="<%= HtmlUtil.escape(userDisplay.getPortraitURL(themeDisplay)) %>" />
-					</div>
-
-					<span class="title">
-						<liferay-ui:icon
-							image="message"
-							label="<%= true %>"
-							message='<%= LanguageUtil.format(locale, "comment-by-x", HtmlUtil.escape(userDisplay.getFullName())) %>'
-						/>
-					</span>
-
-					<span class="body">
-						<%= StringUtil.highlight(mbMessage.getBody(), queryTerms) %>
-					</span>
 				</aui:a>
 			</div>
 

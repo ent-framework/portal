@@ -34,7 +34,7 @@ String toolbarItem = ParamUtil.getString(request, "toolbarItem");
 			<portlet:param name="backURL" value="<%= viewDefinitionsURL %>" />
 		</portlet:renderURL>
 
-		<c:if test='<%= DeployManagerUtil.isDeployed("kaleo-designer-portlet") %>'>
+		<c:if test='<%= PluginPackageUtil.isInstalled("kaleo-designer-portlet") %>'>
 
 			<%
 			String taglibHREF = "javascript:Liferay.Util.getOpener()." + renderResponse.getNamespace() + "openKaleoDesigner('', '0', '', Liferay.Util.getWindowName());";
@@ -46,7 +46,7 @@ String toolbarItem = ParamUtil.getString(request, "toolbarItem");
 	</aui:nav>
 </aui:nav-bar>
 
-<c:if test='<%= DeployManagerUtil.isDeployed("kaleo-designer-portlet") %>'>
+<c:if test='<%= PluginPackageUtil.isInstalled("kaleo-designer-portlet") %>'>
 	<aui:script>
 		Liferay.provide(
 			window,

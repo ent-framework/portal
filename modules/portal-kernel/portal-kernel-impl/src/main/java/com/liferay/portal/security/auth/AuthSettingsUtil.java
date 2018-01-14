@@ -53,20 +53,6 @@ public class AuthSettingsUtil {
 		return false;
 	}
 
-	public static boolean isLDAPAuthEnabled(long companyId)
-		throws SystemException {
-
-		if (PrefsPropsUtil.getBoolean(
-				companyId, PropsKeys.LDAP_AUTH_ENABLED,
-				PropsValues.LDAP_AUTH_ENABLED)) {
-
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-
 	public static boolean isNtlmEnabled(long companyId) throws SystemException {
 		if (PrefsPropsUtil.getBoolean(
 				companyId, PropsKeys.NTLM_AUTH_ENABLED,

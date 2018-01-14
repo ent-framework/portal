@@ -63,12 +63,6 @@
 
 	<definition name="portal.progress_poller" path="/portal/progress_poller.jsp" />
 
-	<definition name="portal.setup_wizard" extends="portal">
-		<put name="pop_up" value="true" />
-		<put name="title" value="basic-configuration" />
-		<put name="content" value="/portal/setup_wizard.jsp" />
-	</definition>
-
 	<definition name="portal.status" extends="portal">
 		<put name="title" value="status" />
 		<put name="content" value="/portal/status.jsp" />
@@ -131,16 +125,16 @@
 	<definition name="portlet.admin.view" extends="portlet.admin">
 		<put name="portlet_content" value="/portlet/admin/view.jsp" />
 	</definition>
-	
+
 	<definition name="portlet.admin.server.view" extends="portlet.admin">
 		<put name="portlet_content" value="/portlet/admin/server/view.jsp" />
 	</definition>
 
 	<definition name="portlet.admin.instances.view" extends="portlet.admin">
 		<put name="portlet_content" value="/portlet/admin/instances/view.jsp" />
-	</definition>	
-	
-	
+	</definition>
+
+
 	<!-- Amazon Rankings -->
 
 	<definition name="portlet.amazon_rankings" extends="portlet" />
@@ -933,68 +927,6 @@
 		<put name="portlet_content" value="/portlet/maps/view.jsp" />
 	</definition>
 
-	<!-- Message Boards -->
-
-	<definition name="portlet.message_boards" extends="portlet" />
-
-	<definition name="portlet.message_boards.delete_thread" extends="portlet.message_boards" />
-
-	<definition name="portlet.message_boards.edit_category" extends="portlet.message_boards">
-		<put name="portlet_content" value="/portlet/message_boards/edit_category.jsp" />
-	</definition>
-
-	<definition name="portlet.message_boards.edit_discussion" extends="portlet.message_boards">
-		<put name="portlet_content" value="/portlet/message_boards/edit_discussion.jsp" />
-	</definition>
-
-	<definition name="portlet.message_boards.edit_message" extends="portlet.message_boards">
-		<put name="portlet_content" value="/portlet/message_boards/edit_message.jsp" />
-	</definition>
-
-	<definition name="portlet.message_boards.error" extends="portlet.message_boards">
-		<put name="portlet_content" value="/portlet/message_boards/error.jsp" />
-	</definition>
-
-	<definition name="portlet.message_boards.move_category" extends="portlet.message_boards">
-		<put name="portlet_content" value="/portlet/message_boards/move_category.jsp" />
-	</definition>
-
-	<definition name="portlet.message_boards.move_thread" extends="portlet.message_boards">
-		<put name="portlet_content" value="/portlet/message_boards/move_thread.jsp" />
-	</definition>
-
-	<definition name="portlet.message_boards.search" extends="portlet.message_boards">
-		<put name="portlet_content" value="/portlet/message_boards/search.jsp" />
-	</definition>
-
-	<definition name="portlet.message_boards.select_category" extends="portlet.message_boards">
-		<put name="portlet_content" value="/portlet/message_boards/select_category.jsp" />
-	</definition>
-
-	<definition name="portlet.message_boards.split_thread" extends="portlet.message_boards">
-		<put name="portlet_content" value="/portlet/message_boards/split_thread.jsp" />
-	</definition>
-
-	<definition name="portlet.message_boards.view" extends="portlet.message_boards">
-		<put name="portlet_content" value="/portlet/message_boards/view.jsp" />
-	</definition>
-
-	<definition name="portlet.message_boards.view_deleted_message_attachments" extends="portlet.message_boards">
-		<put name="portlet_content" value="/portlet/message_boards/view_deleted_message_attachments.jsp" />
-	</definition>
-
-	<definition name="portlet.message_boards.view_message" extends="portlet.message_boards">
-		<put name="portlet_content" value="/portlet/message_boards/view_message.jsp" />
-	</definition>
-
-	<!-- Message Boards Admin-->
-
-	<definition name="portlet.message_boards_admin" extends="portlet" />
-
-	<definition name="portlet.message_boards_admin.view" extends="portlet.message_boards_admin">
-		<put name="portlet_content" value="/portlet/message_boards_admin/view.jsp" />
-	</definition>
-
 	<!-- Mobile Device Rules -->
 
 	<definition name="portlet.mobile_device_rules" extends="portlet" />
@@ -1215,28 +1147,12 @@
 		<put name="portlet_content" value="/portlet/portal_settings/edit_company_logo.jsp" />
 	</definition>
 
-	<definition name="portlet.portal_settings.edit_ldap_server" extends="portlet.portal_settings">
-		<put name="portlet_content" value="/portlet/portal_settings/edit_ldap_server.jsp" />
-	</definition>
-
 	<definition name="portlet.portal_settings.error" extends="portlet.portal_settings">
 		<put name="portlet_content" value="/portlet/portal_settings/error.jsp" />
 	</definition>
 
 	<definition name="portlet.portal_settings.test_cas_configuration" extends="portlet.portal_settings">
 		<put name="portlet_content" value="/portlet/portal_settings/test_cas_configuration.jsp" />
-	</definition>
-
-	<definition name="portlet.portal_settings.test_ldap_connection" extends="portlet.portal_settings">
-		<put name="portlet_content" value="/portlet/portal_settings/test_ldap_connection.jsp" />
-	</definition>
-
-	<definition name="portlet.portal_settings.test_ldap_groups" extends="portlet.portal_settings">
-		<put name="portlet_content" value="/portlet/portal_settings/test_ldap_groups.jsp" />
-	</definition>
-
-	<definition name="portlet.portal_settings.test_ldap_users" extends="portlet.portal_settings">
-		<put name="portlet_content" value="/portlet/portal_settings/test_ldap_users.jsp" />
 	</definition>
 
 	<definition name="portlet.portal_settings.test_opensso_configuration" extends="portlet.portal_settings">

@@ -396,31 +396,5 @@ if (!siteGroup.hasLocalOrRemoteStagingGroup()) {
 			/>
 		</div>
 	</c:if>
-
-	<c:if test="<%= enableComments %>">
-
-		<%
-		int discussionMessagesCount = MBMessageLocalServiceUtil.getDiscussionMessagesCount(PortalUtil.getClassNameId(JournalArticle.class.getName()), articleDisplay.getResourcePrimKey(), WorkflowConstants.STATUS_APPROVED);
-		%>
-
-		<c:if test="<%= discussionMessagesCount > 0 %>">
-			<liferay-ui:header
-				title="comments"
-			/>
-		</c:if>
-
-		<portlet:actionURL var="discussionURL">
-			<portlet:param name="struts_action" value="/journal_content/edit_article_discussion" />
-		</portlet:actionURL>
-
-		<liferay-ui:discussion
-			className="<%= JournalArticle.class.getName() %>"
-			classPK="<%= articleDisplay.getResourcePrimKey() %>"
-			formAction="<%= discussionURL %>"
-			hideControls="<%= print %>"
-			ratingsEnabled="<%= enableCommentRatings && !print %>"
-			redirect="<%= currentURL %>"
-			userId="<%= articleDisplay.getUserId() %>"
-		/>
-	</c:if>
+	
 </c:if>

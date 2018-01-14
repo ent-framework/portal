@@ -72,10 +72,10 @@ try {
 						}
 					}
 					catch (NoSuchTagException nste) {
-						_log.warn(nste);
+						_log.warn(nste.getMessage());
 					}
 					catch (NoSuchTagPropertyException nstpe) {
-						_log.warn(nstpe);
+						_log.warn(nstpe.getMessage());
 					}
 				}
 			}

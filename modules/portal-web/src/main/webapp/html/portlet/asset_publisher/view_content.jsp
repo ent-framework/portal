@@ -111,7 +111,7 @@ catch (NoSuchModelException nsme) {
 <%
 }
 catch (Exception e) {
-	_log.error(e);
+	_log.error(e.getMessage(), e);
 }
 %>
 

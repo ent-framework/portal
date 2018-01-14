@@ -25,17 +25,10 @@ pageContext.setAttribute("portletURL", portletURL);
 
 String portletURLString = portletURL.toString();
 
-boolean passwordPolicyEnabled = LDAPSettingsUtil.isPasswordPolicyEnabled(company.getCompanyId());
 %>
 
 <aui:form action="<%= portletURLString %>" method="get" name="fm">
 	<liferay-portlet:renderURLParams varImpl="portletURL" />
-
-	<c:if test="<%= passwordPolicyEnabled %>">
-		<div class="alert alert-info">
-			<liferay-ui:message key="you-are-using-ldaps-password-policy" />
-		</div>
-	</c:if>
 
 	<%
 	PasswordPolicySearch searchContainer = new PasswordPolicySearch(renderRequest, portletURL);
@@ -61,16 +54,13 @@ boolean passwordPolicyEnabled = LDAPSettingsUtil.isPasswordPolicyEnabled(company
 			</c:if>
 		</aui:nav>
 
-		<c:if test="<%= !passwordPolicyEnabled %>">
-			<aui:nav-bar-search cssClass="pull-right" file="/html/portlet/password_policies_admin/password_policy_search.jsp" searchContainer="<%= searchContainer %>" />
-		</c:if>
 	</aui:nav-bar>
 
 	<div class="alert alert-info">
 		<liferay-ui:message key="when-no-password-policy-is-assigned-to-a-user,-either-explicitly-or-through-an-organization,-the-default-password-policy-will-be-used" />
 	</div>
 
-	<c:if test="<%= !passwordPolicyEnabled && windowState.equals(WindowState.MAXIMIZED) %>">
+	<c:if test="<%= windowState.equals(WindowState.MAXIMIZED) %>">
 
 		<%
 		PasswordPolicyDisplayTerms searchTerms = (PasswordPolicyDisplayTerms)searchContainer.getSearchTerms();
