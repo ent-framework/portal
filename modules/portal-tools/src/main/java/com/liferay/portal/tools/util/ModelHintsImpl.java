@@ -17,6 +17,8 @@ import com.liferay.portal.kernel.xml.SAXReader;
 import com.liferay.portal.service.ClassNameLocalServiceUtil;
 import com.liferay.portal.kernel.util.PropsUtil;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.InputStream;
 
 import java.net.URL;
@@ -43,38 +45,17 @@ public class ModelHintsImpl implements ModelHints {
         _defaultHints = new HashMap<String, Map<String, String>>();
         _modelFields = new HashMap<String, Object>();
         _models = new TreeSet<String>();
+    }
 
+    public void init(String modelHintsFileName) {
         try {
             ClassLoader classLoader = getClass().getClassLoader();
 
-            String[] configs = StringUtil.split(
-                    PropsUtil.get(PropsKeys.MODEL_HINTS_CONFIGS));
+            File modelHintsFile = new File(modelHintsFileName);
 
-            for (String config : configs) {
-                if (config.startsWith("classpath*:")) {
-                    String name = config.substring("classpath*:".length());
-
-                    Enumeration<URL> enu = classLoader.getResources(name);
-
-                    if (_log.isDebugEnabled() && !enu.hasMoreElements()) {
-                        _log.debug("No resources found for " + name);
-                    }
-
-                    while (enu.hasMoreElements()) {
-                        URL url = enu.nextElement();
-
-                        if (_log.isDebugEnabled()) {
-                            _log.debug("Loading " + name + " from " + url);
-                        }
-
-                        InputStream inputStream = url.openStream();
-
-                        read(classLoader, url.toString(), inputStream);
-                    }
-                }
-                else {
-                    read(classLoader, config);
-                }
+            if (modelHintsFile.exists()) {
+                InputStream inputStream = new FileInputStream(modelHintsFile);
+                read(classLoader, modelHintsFileName, inputStream);
             }
         }
         catch (Exception e) {

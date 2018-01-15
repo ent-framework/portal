@@ -3,7 +3,7 @@ package com.liferay.mail.model;
 import aQute.bnd.annotation.ProviderType;
 
 /**
- * The extended model interface for the CyrusUser service. Represents a row in the &quot;Mail_CyrusUser&quot; database table, with each column mapped to a property of this class.
+ * The extended model interface for the CyrusUser service. Represents a row in the &quot;CyrusUser&quot; database table, with each column mapped to a property of this class.
  *
  * @author Brian Wing Shun Chan
  * @see CyrusUserModel

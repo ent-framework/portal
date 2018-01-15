@@ -564,59 +564,5 @@
                 <spring.profiles.active>dev</spring.profiles.active>
             </properties>
         </profile>
-        <profile>
-            <id>idea</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-maven-plugin</artifactId>
-                        <version>${spring-boot.version}</version>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>repackage</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <mainClass>${start-class}</mainClass>
-                            <executable>true</executable>
-                            <fork>true</fork>
-                            <!--<jvmArguments>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005</jvmArguments>-->
-                        </configuration>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.springframework</groupId>
-                                <artifactId>springloaded</artifactId>
-                                <!--<version>${spring-loaded.version}</version>-->
-                                <version>1.2.6.RELEASE</version>
-                            </dependency>
-                        </dependencies>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-war-plugin</artifactId>
-                        <version>${maven-war-plugin.version}</version>
-                        <configuration>
-                            <failOnMissingWebXml>false</failOnMissingWebXml>
-                            <!--<warSourceDirectory>target/www/</warSourceDirectory>-->
-                            <webResources>
-                                <resource>
-                                    <directory>src/main/webapp</directory>
-                                    <!--<includes>-->
-                                    <!--<include>WEB-INF/**</include>-->
-                                    <!--</includes>-->
-                                </resource>
-                            </webResources>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-            <properties>
-                <!-- default Spring profiles -->
-                <spring.profiles.active>dev</spring.profiles.active>
-            </properties>
-        </profile>
     </profiles>
 </project>

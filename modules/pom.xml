@@ -13,6 +13,7 @@
         <module>portal-utils</module>
         <module>portal-web</module>
         <module>portal-tools</module>
+        <module>portal-plugins</module>
         <module>maven-support</module>
     </modules>
 

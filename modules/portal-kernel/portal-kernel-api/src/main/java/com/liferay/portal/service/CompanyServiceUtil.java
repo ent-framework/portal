@@ -178,9 +178,6 @@ public class CompanyServiceUtil {
 
     /**
     * Removes the values that match the keys of the company's preferences.
-    *
-    * This method is called by {@link
-    * com.liferay.portlet.portalsettings.action.EditLDAPServerAction} remotely
     * through {@link com.liferay.portal.service.CompanyService}.
     *
     * @param companyId the primary key of the company

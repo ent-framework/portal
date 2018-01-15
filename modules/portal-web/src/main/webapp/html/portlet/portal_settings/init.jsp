@@ -22,8 +22,7 @@ page import="com.liferay.portal.CompanyVirtualHostException" %><%@
 page import="com.liferay.portal.kernel.facebook.FacebookConnectUtil" %><%@
 page import="com.liferay.portal.security.auth.AuthSettingsUtil" %><%@
 page import="com.liferay.portal.servlet.filters.sso.opensso.OpenSSOUtil" %><%@
-page import="com.liferay.portlet.documentlibrary.NoSuchFileException" %><%@
-page import="com.liferay.util.ldap.LDAPUtil" %>
+page import="com.liferay.portlet.documentlibrary.NoSuchFileException" %>
 
 <%@ page import="java.net.HttpURLConnection" %><%@
 page import="java.net.MalformedURLException" %><%@

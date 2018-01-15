@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.liferay.portal</groupId>
+        <artifactId>portal-plugins</artifactId>
+        <version>6.3.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>kaleo-forms-portlet</artifactId>
+    <name>Portal Plugins - Kaleo Forms Portlet</name>
+    <description>Portal Plugins Kaleo Forms Portlet</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.liferay.portal</groupId>
+            <artifactId>portal-kernel-api</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.liferay.portal</groupId>
+            <artifactId>portal-util-java</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.liferay.portal</groupId>
+            <artifactId>portal-util-taglib</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.liferay.portal</groupId>
+            <artifactId>portal-util-bridges</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- Commons -->
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>${commons-collections.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-pool</groupId>
+            <artifactId>commons-pool</artifactId>
+            <version>${commons-pool.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+            <version>1.12</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>${commons-fileupload.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+            <version>1.6</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.liferay.maven.plugins</groupId>
+                <artifactId>liferay-maven-plugin</artifactId>
+                <version>6.3.0</version>
+                <configuration>
+                    <apiBaseDir>${basedir}/../portal-kernel-api</apiBaseDir>
+                    <serviceFileName>
+                        ${basedir}/src/main/java/com/liferay/counter/service.xml,
+                        ${basedir}/src/main/java/com/liferay/mail/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portal/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/announcements/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/asset/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/bookmarks/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/calendar/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/documentlibrary/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/dynamicdatalists/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/dynamicdatamapping/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/expando/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/flags/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/journal/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/mobiledevicerules/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/polls/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/ratings/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/social/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/softwarecatalog/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/trash/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portal/ext/service.xml
+                    </serviceFileName>
+                    <beanLocatorUtil>com.liferay.portal.kernel.bean.PortalBeanLocatorUtil</beanLocatorUtil>
+                    <modelHintsFileName>${basedir}/src/main/resources/META-INF/portal-model-hints.xml</modelHintsFileName>
+                    <ormFileName>${basedir}/src/main/resources/META-INF/portal-orm.xml</ormFileName>
+                    <springFileName>${basedir}/src/main/resources/META-INF/portal-spring.xml</springFileName>
+                    <autoNamespaceTables>false</autoNamespaceTables>
+                    <propsUtil>com.liferay.portal.util.PropsUtil</propsUtil>
+                    <liferayVersion>6.3.0</liferayVersion>
+                    <pluginType>portal</pluginType>
+                    <pluginName></pluginName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

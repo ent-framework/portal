@@ -230,6 +230,7 @@ public class CompanyServiceSoap {
 
     /**
     * Removes the values that match the keys of the company's preferences.
+    * through {@link com.liferay.portal.service.CompanyService}.
     *
     * @param companyId the primary key of the company
     * @param keys the company's preferences keys to be remove

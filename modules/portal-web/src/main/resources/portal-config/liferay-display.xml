@@ -96,7 +96,6 @@
 		<portlet id="50" />
 	</category>
 	<category name="category.shopping">
-		<portlet id="34" />
 		<portlet id="67" />
 	</category>
 	<category name="category.social">

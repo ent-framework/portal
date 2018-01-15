@@ -8,13 +8,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
 >
 
-	<bean id="com.liferay.mail.service.CyrusService" class="com.liferay.mail.service.impl.CyrusServiceImpl" />
-	<bean id="com.liferay.mail.service.CyrusUserService" class="com.liferay.mail.service.impl.CyrusUserServiceImpl" />
-	<bean id="com.liferay.mail.service.persistence.CyrusUserPersistence" class="com.liferay.mail.service.persistence.CyrusUserPersistenceImpl" parent="basePersistence" />
-	<bean id="com.liferay.mail.service.CyrusVirtualLocalService" class="com.liferay.mail.service.impl.CyrusVirtualLocalServiceImpl" />
-	<bean id="com.liferay.mail.service.persistence.CyrusVirtualPersistence" class="com.liferay.mail.service.persistence.CyrusVirtualPersistenceImpl" parent="basePersistence" />
-	<bean id="com.liferay.mail.service.MailService" class="com.liferay.mail.service.impl.MailServiceImpl" />
-
 	<!-- Messaging -->
 
 	<bean id="destination.mail" class="com.liferay.portal.kernel.messaging.ParallelDestination">

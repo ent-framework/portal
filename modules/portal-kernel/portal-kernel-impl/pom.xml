@@ -476,11 +476,37 @@
                 <version>6.3.0</version>
                 <configuration>
                     <apiBaseDir>${basedir}/../portal-kernel-api</apiBaseDir>
-                    <serviceFileName>${basedir}/src/main/java/com/liferay/mail/service.xml</serviceFileName>
-                    <beanLocatorUtil>com.liferay.portal.kernel.bean.PortalBeanLocatorUtil"</beanLocatorUtil>
+                    <serviceFileName>
+                        ${basedir}/src/main/java/com/liferay/counter/service.xml,
+                        ${basedir}/src/main/java/com/liferay/mail/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portal/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/announcements/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/asset/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/bookmarks/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/calendar/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/documentlibrary/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/dynamicdatalists/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/dynamicdatamapping/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/expando/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/flags/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/journal/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/mobiledevicerules/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/polls/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/ratings/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/social/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/softwarecatalog/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portlet/trash/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portal/ext/service.xml
+                    </serviceFileName>
+                    <beanLocatorUtil>com.liferay.portal.kernel.bean.PortalBeanLocatorUtil</beanLocatorUtil>
+                    <modelHintsFileName>${basedir}/src/main/resources/META-INF/portal-model-hints.xml</modelHintsFileName>
+                    <ormFileName>${basedir}/src/main/resources/META-INF/portal-orm.xml</ormFileName>
+                    <springFileName>${basedir}/src/main/resources/META-INF/portal-spring.xml</springFileName>
+                    <autoNamespaceTables>false</autoNamespaceTables>
                     <propsUtil>com.liferay.portal.util.PropsUtil</propsUtil>
                     <liferayVersion>6.3.0</liferayVersion>
                     <pluginType>portal</pluginType>
+                    <pluginName></pluginName>
                 </configuration>
             </plugin>
         </plugins>

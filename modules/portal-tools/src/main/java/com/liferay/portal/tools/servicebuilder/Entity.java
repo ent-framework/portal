@@ -700,11 +700,12 @@ public class Entity {
 	}
 
 	public boolean isPermissionCheckEnabled(EntityFinder finder) {
-		if (_name.equals("Group") || _name.equals("User") ||
-			finder.getName().equals("UUID_G") || !finder.isCollection() ||
-			!hasPrimitivePK() ||
-			!ResourceActionsUtil.hasModelResourceActions(
-				_packagePath + ".model." + _name)) {
+		if (_name.equals("Group") ||
+                _name.equals("User") ||
+			    finder.getName().equals("UUID_G") ||
+                !finder.isCollection() ||
+			    !hasPrimitivePK()
+                ||!ResourceActionsUtil.hasModelResourceActions(_packagePath + ".model." + _name)) {
 
 			return false;
 		}

@@ -154,7 +154,9 @@ public class PropsUtil {
 
 			// Liferay home directory
 
-			_configuration = new ConfigurationImpl(PropsUtil.class.getClassLoader(), PropsFiles.PORTAL);
+
+
+			_configuration = new ConfigurationImpl(Thread.currentThread().getContextClassLoader(), PropsFiles.PORTAL);
 
 			String liferayHome = _get(PropsKeys.LIFERAY_HOME);
 

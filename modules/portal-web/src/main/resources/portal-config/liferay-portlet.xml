@@ -331,20 +331,6 @@
 		<add-default-resource>true</add-default-resource>
 	</portlet>
 	<portlet>
-		<portlet-name>34</portlet-name>
-		<icon>/html/icons/shopping.png</icon>
-		<struts-path>shopping</struts-path>
-		<configuration-action-class>com.liferay.portlet.shopping.action.ConfigurationActionImpl</configuration-action-class>
-		<preferences-unique-per-layout>false</preferences-unique-per-layout>
-		<preferences-owned-by-group>true</preferences-owned-by-group>
-		<use-default-template>false</use-default-template>
-		<scopeable>true</scopeable>
-		<private-request-attributes>false</private-request-attributes>
-		<private-session-attributes>false</private-session-attributes>
-		<render-weight>50</render-weight>
-		<css-class-wrapper>portlet-shopping</css-class-wrapper>
-	</portlet>
-	<portlet>
 		<portlet-name>39</portlet-name>
 		<icon>/html/icons/rss.png</icon>
 		<struts-path>rss</struts-path>

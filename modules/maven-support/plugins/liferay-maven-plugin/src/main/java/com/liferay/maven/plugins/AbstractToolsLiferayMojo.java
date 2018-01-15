@@ -66,6 +66,11 @@ import org.xml.sax.EntityResolver;
  */
 public abstract class AbstractToolsLiferayMojo extends AbstractLiferayMojo {
 
+	public static final String PLUGIN_TYPE_PORTAL = "portal";
+
+	public static final String PLUGIN_TYPE_PORTLET = "portlet";
+
+
 	public static final float PORTAL_VERSION_6_1 = 6.1f;
 
 	public static final float PORTAL_VERSION_6_2 = 6.2f;

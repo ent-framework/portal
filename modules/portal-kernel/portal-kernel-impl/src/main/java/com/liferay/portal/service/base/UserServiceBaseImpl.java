@@ -94,7 +94,6 @@ import com.liferay.portlet.asset.service.persistence.AssetEntryPersistence;
 import com.liferay.portlet.documentlibrary.service.persistence.DLFileRankFinder;
 import com.liferay.portlet.documentlibrary.service.persistence.DLFileRankPersistence;
 import com.liferay.portlet.expando.service.persistence.ExpandoRowPersistence;
-import com.liferay.portlet.shopping.service.persistence.ShoppingCartPersistence;
 import com.liferay.portlet.social.service.persistence.SocialActivityFinder;
 import com.liferay.portlet.social.service.persistence.SocialActivityPersistence;
 import com.liferay.portlet.social.service.persistence.SocialRequestPersistence;
@@ -517,10 +516,6 @@ public abstract class UserServiceBaseImpl extends BaseServiceImpl
     protected com.liferay.portlet.expando.service.ExpandoRowLocalService expandoRowLocalService;
     @BeanReference(type = ExpandoRowPersistence.class)
     protected ExpandoRowPersistence expandoRowPersistence;
-    @BeanReference(type = com.liferay.portlet.shopping.service.ShoppingCartLocalService.class)
-    protected com.liferay.portlet.shopping.service.ShoppingCartLocalService shoppingCartLocalService;
-    @BeanReference(type = ShoppingCartPersistence.class)
-    protected ShoppingCartPersistence shoppingCartPersistence;
     @BeanReference(type = com.liferay.portlet.social.service.SocialActivityLocalService.class)
     protected com.liferay.portlet.social.service.SocialActivityLocalService socialActivityLocalService;
     @BeanReference(type = com.liferay.portlet.social.service.SocialActivityService.class)
@@ -4326,44 +4321,6 @@ public abstract class UserServiceBaseImpl extends BaseServiceImpl
     public void setExpandoRowPersistence(
         ExpandoRowPersistence expandoRowPersistence) {
         this.expandoRowPersistence = expandoRowPersistence;
-    }
-
-    /**
-     * Returns the shopping cart local service.
-     *
-     * @return the shopping cart local service
-     */
-    public com.liferay.portlet.shopping.service.ShoppingCartLocalService getShoppingCartLocalService() {
-        return shoppingCartLocalService;
-    }
-
-    /**
-     * Sets the shopping cart local service.
-     *
-     * @param shoppingCartLocalService the shopping cart local service
-     */
-    public void setShoppingCartLocalService(
-        com.liferay.portlet.shopping.service.ShoppingCartLocalService shoppingCartLocalService) {
-        this.shoppingCartLocalService = shoppingCartLocalService;
-    }
-
-    /**
-     * Returns the shopping cart persistence.
-     *
-     * @return the shopping cart persistence
-     */
-    public ShoppingCartPersistence getShoppingCartPersistence() {
-        return shoppingCartPersistence;
-    }
-
-    /**
-     * Sets the shopping cart persistence.
-     *
-     * @param shoppingCartPersistence the shopping cart persistence
-     */
-    public void setShoppingCartPersistence(
-        ShoppingCartPersistence shoppingCartPersistence) {
-        this.shoppingCartPersistence = shoppingCartPersistence;
     }
 
     /**

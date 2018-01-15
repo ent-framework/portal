@@ -18,7 +18,9 @@ logging:
         ROOT: INFO
         com.liferay.portal.web: INFO
         com.liferay.portal.spring.hibernate: INFO
-#        org.apache.catalina.webresources.Cache: ERROR
+        org.hibernate.SQL: INFO
+        org.springframework.boot.web: INFO
+        org.apache.catalina.webresources.Cache: ERROR
 #        org.springframework.beans.factory: DEBUG
 
 spring:

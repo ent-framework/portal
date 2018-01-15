@@ -200,8 +200,6 @@ public class PortletKeys {
 
 	public static final String SEARCH = "3";
 
-	public static final String SHOPPING = "34";
-
 	public static final String SITE_BROWSER = "185";
 
 	public static final String SITE_MAP = "85";

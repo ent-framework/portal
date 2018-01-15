@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+
+    <parent>
+        <groupId>com.liferay.portal</groupId>
+        <artifactId>portal-parent</artifactId>
+        <version>6.3.0</version>
+        <relativePath>../portal-parent</relativePath>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>portal-plugins</artifactId>
+    <packaging>pom</packaging>
+    <version>6.3.0</version>
+
+    <modules>
+        <module>kaleo-designer-portlet</module>
+        <module>kaleo-forms-portlet</module>
+    </modules>
+
+    <name>Portal Plugins</name>
+    <description>Portal Plugins</description>
+
+    <scm>
+        <connection>scm:git:git://github.com/craftercms/commons</connection>
+        <developerConnection>scm:git:git://github.com/craftercms/commons</developerConnection>
+        <url>scm:git:git://github.com/dancewing/portal</url>
+    </scm>
+
+</project>

@@ -26,6 +26,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.maven.plugin.MojoExecutionException;
 
 /**
@@ -37,16 +38,6 @@ import org.apache.maven.plugin.MojoExecutionException;
  */
 public class ServiceBuilderMojo extends AbstractToolsLiferayMojo {
 
-	protected void copyServicePropertiesFile() throws Exception {
-		File servicePropertiesFile = new File(
-			implResourcesDir, "service.properties");
-
-		if (servicePropertiesFile.exists()) {
-			FileUtil.copyFile(
-				servicePropertiesFile, new File(implDir, "service.properties"));
-		}
-	}
-
 	protected void doExecute() throws Exception {
 		String packaging = project.getPackaging();
 
@@ -56,32 +47,6 @@ public class ServiceBuilderMojo extends AbstractToolsLiferayMojo {
 			return;
 		}
 
-		String artifactId = project.getArtifactId();
-
-		if (pluginType.equals("ext") &&
-			(artifactId.endsWith("ext-util-bridges") ||
-			 artifactId.endsWith("ext-util-java") ||
-			 artifactId.endsWith("ext-util-taglib"))) {
-
-			getLog().info("Skipping " + artifactId);
-
-			return;
-		}
-
-		if (pluginType.equals("ext")) {
-			StringBuilder sb = new StringBuilder();
-
-			sb.append("WARNING: Support for ServiceBuilder in EXT plugins ");
-			sb.append("will be deprecated in future versions. EXT plugins ");
-			sb.append("are designed to override the portal's core code that ");
-			sb.append("cannot be done with hooks, layout templates, ");
-			sb.append("portlets, or themes. EXT plugins are not meant to ");
-			sb.append("contain new custom services. Please migrate your ");
-			sb.append("service.xml to a portlet plugin.");
-
-			getLog().warn(sb.toString());
-		}
-
 		initProperties();
 
 		if (Validator.isNull(serviceFileName)) {
@@ -89,39 +54,24 @@ public class ServiceBuilderMojo extends AbstractToolsLiferayMojo {
 				"Unable to find service.xml with path " + serviceFileName);
 		}
 
-		File inputFile = new File(serviceFileName);
+		serviceFileName = StringUtils.remove(serviceFileName,"\t");
+		serviceFileName = StringUtils.remove(serviceFileName,"\n");
+        serviceFileName = StringUtils.remove(serviceFileName," ");
 
-		if (!inputFile.exists()) {
-			throw new MojoExecutionException(
-				"Unable to find service.xml with path " +
-					inputFile.getAbsolutePath());
+		String[] serviceFileNames = StringUtils.split(serviceFileName, ",");
+		for (String fileName :serviceFileNames) {
+			File inputFile = new File(fileName);
+
+			if (!inputFile.exists()) {
+				throw new MojoExecutionException(
+						"Unable to find service.xml with path " +
+								inputFile.getAbsolutePath());
+			}
 		}
 
 		getLog().info("Building from " + serviceFileName);
 
-		copyServicePropertiesFile();
-
 		FileUtil.mkdirs(sqlDir);
-
-		File tempServiceFile = null;
-
-		if (pluginType.equals("ext")) {
-			if (serviceFileName.contains("/main/resources/")) {
-				File serviceFile = new File(serviceFileName);
-
-				tempServiceFile = new File(
-					StringUtil.replace(
-						serviceFileName, "/main/resources/", "/main/java/"));
-
-				FileUtil.copyFile(serviceFile, tempServiceFile);
-			}
-		}
-
-		if (pluginType.equals("portal")) {
-            beanLocatorUtil = "com.liferay.portal.kernel.bean.PortalBeanLocatorUtil";
-            propsUtil = "com.liferay.portal.util.PropsUtil";
-            pluginName = "";
-        }
 
 		List<String> args = new ArrayList<>();
 		args.add("service.input.file=" + serviceFileName);
@@ -129,51 +79,37 @@ public class ServiceBuilderMojo extends AbstractToolsLiferayMojo {
 		args.add("service.orm.file=" + ormFileName);
 		args.add("service.model.hints.file=" + modelHintsFileName);
 		args.add("service.spring.file=" + springFileName);
-		args.add("service.spring.base.file=" + springBaseFileName);
-		args.add("service.spring.cluster.file=" + springClusterFileName);
-		args.add(
-			"service.spring.dynamic.data.source.file=" +
-				springDynamicDataSourceFileName);
-		args.add("service.spring.hibernate.file=" + springHibernateFileName);
-		args.add(
-			"service.spring.infrastructure.file=" +
-				springInfrastructureFileName);
-		args.add(
-			"service.spring.shard.data.source.file=" +
-				springShardDataSourceFileName);
+		args.add("service.spring.base.file=");
+		args.add("service.spring.cluster.file=");
+		args.add("service.spring.dynamic.data.source.file=");
+		args.add("service.spring.hibernate.file=");
+		args.add("service.spring.infrastructure.file=");
+		args.add("service.spring.shard.data.source.file=");
 		args.add("service.api.dir=" + apiDir);
 		args.add("service.impl.dir=" + implDir);
-		args.add("service.json.file=" + jsonFileName);
+		args.add("service.json.file=");
 		args.add("service.remoting.file=" + remotingFileName);
 		args.add("service.sql.dir=" + sqlDir);
 		args.add("service.sql.file=" + sqlFileName);
 		args.add("service.sql.indexes.file=" + sqlIndexesFileName);
-		args.add(
-			"service.sql.indexes.properties.file=" +
-				sqlIndexesPropertiesFileName);
+		args.add("service.sql.indexes.properties.file=" + sqlIndexesPropertiesFileName);
 		args.add("service.sql.sequences.file=" + sqlSequencesFileName);
 		args.add("service.auto.namespace.tables=" + autoNamespaceTables);
 		args.add("service.bean.locator.util=" + beanLocatorUtil);
         args.add("service.props.util=" + propsUtil);
 		args.add("service.target.entity.name=" + targetEntityName);
 		args.add("service.test.dir=");
-		args.add("service.build.number=" + serviceBuildNumber);
-		args.add(
-			"service.build.number.increment=" + serviceBuildNumberIncrement);
+		args.add("service.build.number=");
+		args.add("service.build.number.increment=");
+		args.add("resouces.actions.dir=" + resourceActionsDir);
 
         if (!pluginType.equals("portal")) {
             args.add("service.plugin.name=" + pluginName);
         }
 
 		executeTool(
-			"com.liferay.portal.tools.servicebuilder.ServiceBuilder",
+			"com.liferay.portal.tools.servicebuilder.ServiceBuilderExecutor",
 			getToolsClassLoader(), args.toArray(new String[args.size()]));
-
-		if (tempServiceFile != null) {
-			FileUtil.delete(tempServiceFile);
-		}
-
-		moveServicePropertiesFile();
 	}
 
 	@Override
@@ -198,29 +134,20 @@ public class ServiceBuilderMojo extends AbstractToolsLiferayMojo {
 	}
 
 	protected void initProperties() throws Exception {
-		if (Validator.isNotNull(apiBaseDir) ||
-			Validator.isNotNull(implBaseDir) ||
-			Validator.isNotNull(webappBaseDir)) {
 
-			if (Validator.isNull(apiBaseDir)) {
-				apiBaseDir = baseDir;
-			}
+	    pluginType =  StringUtils.trimToEmpty(pluginType);
 
-			if (Validator.isNull(implBaseDir) &&
-				Validator.isNotNull(webappBaseDir)) {
+	    if (!(PLUGIN_TYPE_PORTAL.equalsIgnoreCase(pluginType) || PLUGIN_TYPE_PORTLET.equalsIgnoreCase(pluginType))){
+            throw new MojoExecutionException("Unsupported plugin Type :" + pluginType);
+        }
 
-				implBaseDir = webappBaseDir;
-			}
-			else if (Validator.isNull(implBaseDir) &&
-					 Validator.isNotNull(apiBaseDir)) {
+        if (Validator.isNull(apiBaseDir)) {
+            apiBaseDir = baseDir;
+        }
 
-				implBaseDir = baseDir;
-			}
-
-			if (Validator.isNull(webappBaseDir)) {
-				webappBaseDir = baseDir;
-			}
-		}
+        if (Validator.isNull(implBaseDir)) {
+            implBaseDir = baseDir;
+        }
 
 		if (Validator.isNotNull(apiBaseDir)) {
 			apiDir = apiBaseDir.concat("/src/main/java");
@@ -229,178 +156,40 @@ public class ServiceBuilderMojo extends AbstractToolsLiferayMojo {
 		if (Validator.isNotNull(implBaseDir)) {
 			implDir = implBaseDir.concat("/src/main/java");
 			implResourcesDir = implBaseDir.concat("/src/main/resources");
-
-			if (pluginType.equals("ext")) {
-				hbmFileName = implResourcesDir.concat("/META-INF/ext-hbm.xml");
-				modelHintsFileName = implResourcesDir.concat(
-					"/META-INF/ext-model-hints.xml");
-				ormFileName = implResourcesDir.concat("/META-INF/ext-orm.xml");
-				springFileName = implResourcesDir.concat(
-					"/META-INF/ext-spring.xml");
-			}
-		}
-
-		if (Validator.isNotNull(webappBaseDir)) {
-			String webappDir = webappBaseDir.concat("/src/main/webapp");
-			String webappResourcesDir = webappBaseDir.concat(
-				"/src/main/resources");
-
-			if (pluginType.equals("ext")) {
-				jsonFileName = webappDir.concat("/html/js/liferay/service.js");
-				remotingFileName = webappDir.concat(
-					"/WEB-INF/remoting-servlet-ext.xml");
-			}
-			else {
-				hbmFileName = webappResourcesDir.concat(
-					"/META-INF/portlet-hbm.xml");
-				jsonFileName = webappDir.concat("/js/service.js");
-				modelHintsFileName = webappResourcesDir.concat(
-					"/META-INF/portlet-model-hints.xml");
-				ormFileName = webappResourcesDir.concat(
-					"/META-INF/portlet-orm.xml");
-
-				if (Validator.isNull(serviceFileName)) {
-					serviceFileName = webappDir.concat("/WEB-INF/service.xml");
-				}
-
-				springBaseFileName = webappResourcesDir.concat(
-					"/META-INF/base-spring.xml");
-				springClusterFileName = webappResourcesDir.concat(
-					"/META-INF/cluster-spring.xml");
-				springDynamicDataSourceFileName = webappResourcesDir.concat(
-					"/META-INF/dynamic-data-source-spring.xml");
-				springFileName = webappResourcesDir.concat(
-					"/META-INF/portlet-spring.xml");
-				springHibernateFileName = webappResourcesDir.concat(
-					"/META-INF/hibernate-spring.xml");
-				springInfrastructureFileName = webappResourcesDir.concat(
-					"/META-INF/infrastructure-spring.xml");
-				springShardDataSourceFileName = webappResourcesDir.concat(
-					"/META-INF/shard-data-source-spring.xml");
-				sqlDir = webappDir.concat("/WEB-INF/sql");
-
-				if (Validator.isNull(serviceFileName)) {
-					serviceFileName = webappDir.concat("/WEB-INF/service.xml");
-				}
-			}
 		}
 
 		if (Validator.isNull(sqlDir)) {
-			sqlDir = baseDir.concat("/src/main/webapp/WEB-INF/sql");
+			sqlDir = implResourcesDir.concat("/dependencies/").concat(pluginType).concat("/sql");
 		}
 
-		if (pluginType.equals("ext")) {
-			if (Validator.isNull(beanLocatorUtil)) {
-				beanLocatorUtil =
-					"com.liferay.portal.kernel.bean.PortalBeanLocatorUtil";
-			}
+        if (Validator.isNull(sqlFileName)) {
+            sqlFileName = pluginType.concat("-tables.sql");
+        }
 
-			if (Validator.isNull(propsUtil)) {
-				propsUtil = "com.liferay.portal.util.PropsUtil";
-			}
+        if (Validator.isNull(hbmFileName)) {
+            hbmFileName = implResourcesDir.concat("/META-INF/").concat(pluginType).concat("-hbm.xml");
+        }
 
-			if (Validator.isNull(sqlFileName)) {
-				sqlFileName = "portal-tables.sql";
-			}
+        if (Validator.isNull(ormFileName)) {
+            ormFileName = implResourcesDir.concat("/META-INF/").concat(pluginType).concat("-orm.xml");
+        }
 
+        if (Validator.isNull(modelHintsFileName)) {
+            modelHintsFileName = implResourcesDir.concat("/META-INF/").concat(pluginType).concat("-model-hints.xml");
+        }
+
+        if (Validator.isNull(springFileName)) {
+            springFileName = implResourcesDir.concat("/META-INF/").concat(pluginType).concat("-spring.xml");
+        }
+
+        if (Validator.isNull(resourceActionsDir)) {
+            resourceActionsDir = implResourcesDir;
+        }
+
+		if (pluginType.equals(PLUGIN_TYPE_PORTAL)) {
 			pluginName = null;
-			springBaseFileName = null;
-			springClusterFileName = null;
-			springDynamicDataSourceFileName = null;
-			springHibernateFileName = null;
-			springInfrastructureFileName = null;
-			springShardDataSourceFileName = null;
+
 		}
-		else {
-			String webappDir = baseDir.concat("/src/main/webapp");
-			String webappResourcesDir = baseDir.concat("/src/main/resources");
-
-			if (Validator.isNull(apiDir)) {
-				apiDir = baseDir.concat("/src/main/java");
-			}
-
-			if (Validator.isNull(beanLocatorUtil)) {
-				beanLocatorUtil =
-					"com.liferay.util.bean.PortletBeanLocatorUtil";
-			}
-
-			if (Validator.isNull(hbmFileName)) {
-				hbmFileName = webappResourcesDir.concat(
-					"/META-INF/portlet-hbm.xml");
-			}
-
-			if (Validator.isNull(implDir)) {
-				implDir = baseDir.concat("/src/main/java");
-				implResourcesDir = baseDir.concat("/src/main/resources");
-			}
-
-			if (Validator.isNull(jsonFileName)) {
-				jsonFileName = webappDir.concat("/js/service.js");
-			}
-
-			if (Validator.isNull(modelHintsFileName)) {
-				modelHintsFileName = webappResourcesDir.concat(
-					"/META-INF/portlet-model-hints.xml");
-			}
-
-			if (Validator.isNull(ormFileName)) {
-				ormFileName = webappResourcesDir.concat(
-					"/META-INF/portlet-orm.xml");
-			}
-
-			if (Validator.isNull(propsUtil)) {
-				propsUtil = "com.liferay.util.service.ServiceProps";
-			}
-
-			if (Validator.isNull(serviceFileName)) {
-				serviceFileName = webappDir.concat("/WEB-INF/service.xml");
-			}
-
-			if (Validator.isNull(springBaseFileName)) {
-				springBaseFileName = webappResourcesDir.concat(
-					"/META-INF/base-spring.xml");
-			}
-
-			if (Validator.isNull(springClusterFileName)) {
-				springClusterFileName = webappResourcesDir.concat(
-					"/META-INF/cluster-spring.xml");
-			}
-
-			if (Validator.isNull(springDynamicDataSourceFileName)) {
-				springDynamicDataSourceFileName = webappResourcesDir.concat(
-					"/META-INF/dynamic-data-source-spring.xml");
-			}
-
-			if (Validator.isNull(springFileName)) {
-				springFileName = webappResourcesDir.concat(
-					"/META-INF/portlet-spring.xml");
-			}
-
-			if (Validator.isNull(springHibernateFileName)) {
-				springHibernateFileName = webappResourcesDir.concat(
-					"/META-INF/hibernate-spring.xml");
-			}
-
-			if (Validator.isNull(springInfrastructureFileName)) {
-				springInfrastructureFileName = webappResourcesDir.concat(
-					"/META-INF/infrastructure-spring.xml");
-			}
-
-			if (Validator.isNull(springShardDataSourceFileName)) {
-				springShardDataSourceFileName = webappResourcesDir.concat(
-					"/META-INF/shard-data-source-spring.xml");
-			}
-
-			if (Validator.isNull(sqlFileName)) {
-				sqlFileName = "tables.sql";
-			}
-		}
-	}
-
-	protected void moveServicePropertiesFile() throws Exception {
-		FileUtil.move(
-			new File(implDir, "service.properties"),
-			new File(implResourcesDir, "service.properties"));
 	}
 
 	/**
@@ -408,9 +197,6 @@ public class ServiceBuilderMojo extends AbstractToolsLiferayMojo {
 	 */
 	private String apiBaseDir;
 
-	/**
-	 * @parameter
-	 */
 	private String apiDir;
 
 	/**
@@ -425,10 +211,7 @@ public class ServiceBuilderMojo extends AbstractToolsLiferayMojo {
 	 */
 	private String baseDir;
 
-	/**
-	 * @parameter
-	 */
-	private String beanLocatorUtil;
+	private String beanLocatorUtil = "com.liferay.portal.kernel.bean.PortalBeanLocatorUtil";
 
 	/**
 	 * @parameter
@@ -440,21 +223,9 @@ public class ServiceBuilderMojo extends AbstractToolsLiferayMojo {
 	 */
 	private String implBaseDir;
 
-	/**
-	 * @parameter
-	 */
 	private String implDir;
 
-	/**
-	 * @parameter
-	 */
 	private String implResourcesDir;
-
-	/**
-	 * @deprecated As of 6.2.0
-	 * @parameter
-	 */
-	private String jsonFileName;
 
 	/**
 	 * @parameter
@@ -484,25 +255,13 @@ public class ServiceBuilderMojo extends AbstractToolsLiferayMojo {
 	 */
 	private List<String> postBuildGoals;
 
-	/**
-	 * @parameter
-	 */
-	private String propsUtil;
+
+	private String propsUtil = "com.liferay.portal.util.PropsUtil";
 
 	/**
 	 * @parameter
 	 */
 	private String remotingFileName;
-
-	/**
-	 * @parameter default-value="1" expression="${serviceBuildNumber}"
-	 */
-	private long serviceBuildNumber;
-
-	/**
-	 * @parameter default-value="true" expression="${serviceBuildNumberIncrement}"
-	 */
-	private boolean serviceBuildNumberIncrement;
 
 	/**
 	 * @parameter default-value="" expression="${serviceFileName}"
@@ -512,75 +271,24 @@ public class ServiceBuilderMojo extends AbstractToolsLiferayMojo {
 	/**
 	 * @parameter
 	 */
-	private String springBaseFileName;
 
-	/**
-	 * @parameter
-	 */
-	private String springClusterFileName;
-
-	/**
-	 * @deprecated As of 6.1.0
-	 * @parameter
-	 */
-	private String springDynamicDataSourceFileName;
-
-	/**
-	 * @parameter
-	 */
 	private String springFileName;
 
-	/**
-	 * @parameter
-	 */
-	private String springHibernateFileName;
-
-	/**
-	 * @parameter
-	 */
-	private String springInfrastructureFileName;
-
-	/**
-	 * @parameter
-	 */
-	private String springShardDataSourceFileName;
-
-	/**
-	 * @parameter
-	 */
 	private String sqlDir;
 
-	/**
-	 * @parameter
-	 */
 	private String sqlFileName;
 
-	/**
-	 * @parameter default-value="indexes.sql"
-	 * @required
-	 */
-	private String sqlIndexesFileName;
+	private String sqlIndexesFileName = "indexes.sql";
 
-	/**
-	 * @parameter default-value="indexes.properties"
-	 * @required
-	 */
-	private String sqlIndexesPropertiesFileName;
+	private String sqlIndexesPropertiesFileName = "indexes.properties";
 
-	/**
-	 * @parameter default-value="sequences.sql"
-	 * @required
-	 */
-	private String sqlSequencesFileName;
+	private String sqlSequencesFileName = "sequences.sql";
 
 	/**
 	 * @parameter
 	 */
 	private String targetEntityName;
 
-	/**
-	 * @parameter
-	 */
-	private String webappBaseDir;
+	private String resourceActionsDir;
 
 }
