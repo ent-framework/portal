@@ -13,6 +13,7 @@
     <artifactId>kaleo-designer-portlet</artifactId>
     <name>Portal Plugins - Kaleo Designer Portlet</name>
     <description>Portal Plugins Kaleo Designer Portlet</description>
+    <packaging>war</packaging>
 
     <dependencies>
         <dependency>
@@ -89,12 +90,47 @@
                 <version>6.3.0</version>
                 <configuration>
                     <serviceFileName>
-                        ${basedir}/src/main/java/com/liferay/counter/service.xml,
+                        ${basedir}/src/main/java/com/liferay/portal/workflow/kaleo/designer/service.xml,
                     </serviceFileName>
                     <liferayVersion>6.3.0</liferayVersion>
-                    <pluginType>portal</pluginType>
+                    <pluginType>portlet</pluginType>
                     <pluginName>kaleo-designer-portlet</pluginName>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.leonard.maven.plugins</groupId>
+                <artifactId>jspc-maven-plugin</artifactId>
+                <version>2.4.2</version>
+                <configuration>
+                    <webAppSourceDirectory>${project.basedir}/src/main/webapp</webAppSourceDirectory>
+                    <webXml>${project.basedir}/src/main/webapp/WEB-INF/web.xml</webXml>
+                    <generatedClasses>${project.build.outputDirectory}</generatedClasses>
+                    <enableJspTagPooling>false</enableJspTagPooling>
+                    <threads>3</threads>
+                    <includes>**/*.jsp</includes>
+                    <schemaResourcePrefix>/tld</schemaResourcePrefix>
+                    <verbose>true</verbose>
+                    <stopAtFirstError>false</stopAtFirstError>
+                    <compilerVersion>1.8</compilerVersion>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.tomcat</groupId>
+                        <artifactId>tomcat-jasper</artifactId>
+                        <version>8.5.4</version>
+                        <exclusions>
+                            <exclusion>
+                                <groupId>org.eclipse.jdt.core.compiler</groupId>
+                                <artifactId>ecj</artifactId>
+                            </exclusion>
+                        </exclusions>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.eclipse.jdt.core.compiler</groupId>
+                        <artifactId>ecj</artifactId>
+                        <version>4.6.1</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>

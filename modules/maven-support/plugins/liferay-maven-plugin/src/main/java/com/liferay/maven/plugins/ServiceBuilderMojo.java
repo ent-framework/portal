@@ -227,9 +227,6 @@ public class ServiceBuilderMojo extends AbstractToolsLiferayMojo {
 
 	private String implResourcesDir;
 
-	/**
-	 * @parameter
-	 */
 	private String modelHintsFileName;
 
 	/**
@@ -256,7 +253,7 @@ public class ServiceBuilderMojo extends AbstractToolsLiferayMojo {
 	private List<String> postBuildGoals;
 
 
-	private String propsUtil = "com.liferay.portal.util.PropsUtil";
+	private String propsUtil = "com.liferay.portal.kernel.util.PropsUtil";
 
 	/**
 	 * @parameter

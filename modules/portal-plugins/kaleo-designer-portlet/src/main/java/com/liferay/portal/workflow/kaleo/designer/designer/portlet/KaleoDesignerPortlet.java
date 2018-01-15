@@ -18,8 +18,6 @@ import com.liferay.portal.kernel.dao.search.SearchContainer;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
@@ -50,6 +48,8 @@ import com.liferay.portlet.dynamicdatamapping.model.DDMTemplate;
 import com.liferay.portlet.dynamicdatamapping.model.DDMTemplateConstants;
 import com.liferay.portlet.dynamicdatamapping.service.DDMTemplateLocalServiceUtil;
 import com.liferay.util.bridges.mvc.MVCPortlet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
@@ -101,7 +101,7 @@ public class KaleoDesignerPortlet extends MVCPortlet {
 		catch (Exception e) {
 			if (isSessionErrorException(e)) {
 				if (_log.isDebugEnabled()) {
-					_log.debug(e, e);
+					_log.debug(e.getMessage(), e);
 				}
 
 				SessionErrors.add(actionRequest, e.getClass(), e);
@@ -145,7 +145,7 @@ public class KaleoDesignerPortlet extends MVCPortlet {
 		catch (Exception e) {
 			if (isSessionErrorException(e)) {
 				if (_log.isDebugEnabled()) {
-					_log.debug(e, e);
+					_log.debug(e.getMessage(), e);
 				}
 
 				SessionErrors.add(actionRequest, e.getClass(), e);
@@ -176,7 +176,7 @@ public class KaleoDesignerPortlet extends MVCPortlet {
 					WebKeys.KALEO_DRAFT_DEFINITION, kaleoDraftDefinition);
 			}
 			catch (Exception e) {
-				_log.error(e, e);
+				_log.error(e.getMessage(), e);
 			}
 		}
 
@@ -242,7 +242,7 @@ public class KaleoDesignerPortlet extends MVCPortlet {
 		catch (Exception e) {
 			if (isSessionErrorException(e)) {
 				if (_log.isDebugEnabled()) {
-					_log.debug(e, e);
+					_log.debug(e.getMessage(), e);
 				}
 
 				SessionErrors.add(actionRequest, e.getClass(), e);
@@ -419,6 +419,6 @@ public class KaleoDesignerPortlet extends MVCPortlet {
 		writeJSON(resourceRequest, resourceResponse, jsonArray);
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(KaleoDesignerPortlet.class);
+	private static final Logger _log = LoggerFactory.getLogger(KaleoDesignerPortlet.class);
 
 }

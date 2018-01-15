@@ -16,6 +16,7 @@
     <modules>
         <module>portal-kernel-api</module>
         <module>portal-kernel-impl</module>
+        <module>portal-kernel-web</module>
     </modules>
 
     <name>Portal Kernel</name>

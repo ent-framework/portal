@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 
 <model-hints>
+	<hint-collection name="CLOB">
+		<hint name="max-length">2000000</hint>
+	</hint-collection>
 	<model name="com.liferay.portal.workflow.kaleo.designer.model.KaleoDraftDefinition">
 		<field name="kaleoDraftDefinitionId" type="long" />
 		<field name="groupId" type="long" />

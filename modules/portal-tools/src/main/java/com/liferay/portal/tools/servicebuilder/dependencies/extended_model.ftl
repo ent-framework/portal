@@ -1,7 +1,5 @@
 package ${packagePath}.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.Accessor;
 import com.liferay.portal.model.PermissionedModel;
 import com.liferay.portal.model.PersistedModel;
@@ -16,11 +14,6 @@ import com.liferay.portal.model.TreeModel;
  * @see ${packagePath}.model.impl.${entity.name}ModelImpl
  * @generated
  */
-
-<#if pluginName == "">
-	@ProviderType
-</#if>
-
 public interface ${entity.name} extends
 	${entity.name}Model
 

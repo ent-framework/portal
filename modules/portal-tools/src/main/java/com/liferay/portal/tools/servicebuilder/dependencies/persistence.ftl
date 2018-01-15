@@ -1,6 +1,5 @@
 package ${packagePath}.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
 
 import ${packagePath}.model.${entity.name};
 
@@ -24,11 +23,6 @@ import java.util.Date;
  * @see ${entity.name}Util
  * @generated
  */
-
-<#if pluginName == "">
-	@ProviderType
-</#if>
-
 public interface ${entity.name}Persistence extends BasePersistence<${entity.name}> {
 
 	/*

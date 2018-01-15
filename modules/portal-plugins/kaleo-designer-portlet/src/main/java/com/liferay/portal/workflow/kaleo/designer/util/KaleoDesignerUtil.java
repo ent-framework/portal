@@ -15,8 +15,6 @@
 package com.liferay.portal.workflow.kaleo.designer.util;
 
 import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
@@ -31,6 +29,8 @@ import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.workflow.kaleo.designer.model.KaleoDraftDefinition;
 import com.liferay.portal.workflow.kaleo.designer.service.KaleoDraftDefinitionLocalServiceUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -59,7 +59,7 @@ public class KaleoDesignerUtil {
 			return workflowDefinition;
 		}
 		catch (WorkflowException we) {
-			_log.error(we, we);
+			_log.error(we.getMessage(), we);
 
 			throw we;
 		}
@@ -185,6 +185,6 @@ public class KaleoDesignerUtil {
 		return title;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(KaleoDesignerUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(KaleoDesignerUtil.class);
 
 }

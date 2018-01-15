@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <parent>
+        <groupId>com.liferay.portal</groupId>
+        <artifactId>portal-kernel</artifactId>
+        <version>6.3.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>portal-kernel-web</artifactId>
+    <name>Portal Kernel Web</name>
+    <description>Portal Kernel Web</description>
+
+    <version>6.3.0</version>
+
+</project>

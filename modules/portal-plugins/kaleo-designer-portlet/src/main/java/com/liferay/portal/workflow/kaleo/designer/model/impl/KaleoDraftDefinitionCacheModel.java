@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.liferay.portal.workflow.kaleo.designer.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
@@ -34,168 +20,158 @@ import java.util.Date;
  * @generated
  */
 public class KaleoDraftDefinitionCacheModel implements CacheModel<KaleoDraftDefinition>,
-	Externalizable {
-	@Override
-	public String toString() {
-		StringBundler sb = new StringBundler(25);
+    Externalizable {
+    public long kaleoDraftDefinitionId;
+    public long groupId;
+    public long companyId;
+    public long userId;
+    public String userName;
+    public long createDate;
+    public long modifiedDate;
+    public String name;
+    public String title;
+    public String content;
+    public int version;
+    public int draftVersion;
 
-		sb.append("{kaleoDraftDefinitionId=");
-		sb.append(kaleoDraftDefinitionId);
-		sb.append(", groupId=");
-		sb.append(groupId);
-		sb.append(", companyId=");
-		sb.append(companyId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", userName=");
-		sb.append(userName);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", title=");
-		sb.append(title);
-		sb.append(", content=");
-		sb.append(content);
-		sb.append(", version=");
-		sb.append(version);
-		sb.append(", draftVersion=");
-		sb.append(draftVersion);
-		sb.append("}");
+    @Override
+    public String toString() {
+        StringBundler sb = new StringBundler(25);
 
-		return sb.toString();
-	}
+        sb.append("{kaleoDraftDefinitionId=");
+        sb.append(kaleoDraftDefinitionId);
+        sb.append(", groupId=");
+        sb.append(groupId);
+        sb.append(", companyId=");
+        sb.append(companyId);
+        sb.append(", userId=");
+        sb.append(userId);
+        sb.append(", userName=");
+        sb.append(userName);
+        sb.append(", createDate=");
+        sb.append(createDate);
+        sb.append(", modifiedDate=");
+        sb.append(modifiedDate);
+        sb.append(", name=");
+        sb.append(name);
+        sb.append(", title=");
+        sb.append(title);
+        sb.append(", content=");
+        sb.append(content);
+        sb.append(", version=");
+        sb.append(version);
+        sb.append(", draftVersion=");
+        sb.append(draftVersion);
+        sb.append("}");
 
-	@Override
-	public KaleoDraftDefinition toEntityModel() {
-		KaleoDraftDefinitionImpl kaleoDraftDefinitionImpl = new KaleoDraftDefinitionImpl();
+        return sb.toString();
+    }
 
-		kaleoDraftDefinitionImpl.setKaleoDraftDefinitionId(kaleoDraftDefinitionId);
-		kaleoDraftDefinitionImpl.setGroupId(groupId);
-		kaleoDraftDefinitionImpl.setCompanyId(companyId);
-		kaleoDraftDefinitionImpl.setUserId(userId);
+    @Override
+    public KaleoDraftDefinition toEntityModel() {
+        KaleoDraftDefinitionImpl kaleoDraftDefinitionImpl = new KaleoDraftDefinitionImpl();
 
-		if (userName == null) {
-			kaleoDraftDefinitionImpl.setUserName(StringPool.BLANK);
-		}
-		else {
-			kaleoDraftDefinitionImpl.setUserName(userName);
-		}
+        kaleoDraftDefinitionImpl.setKaleoDraftDefinitionId(kaleoDraftDefinitionId);
+        kaleoDraftDefinitionImpl.setGroupId(groupId);
+        kaleoDraftDefinitionImpl.setCompanyId(companyId);
+        kaleoDraftDefinitionImpl.setUserId(userId);
 
-		if (createDate == Long.MIN_VALUE) {
-			kaleoDraftDefinitionImpl.setCreateDate(null);
-		}
-		else {
-			kaleoDraftDefinitionImpl.setCreateDate(new Date(createDate));
-		}
+        if (userName == null) {
+            kaleoDraftDefinitionImpl.setUserName(StringPool.BLANK);
+        } else {
+            kaleoDraftDefinitionImpl.setUserName(userName);
+        }
 
-		if (modifiedDate == Long.MIN_VALUE) {
-			kaleoDraftDefinitionImpl.setModifiedDate(null);
-		}
-		else {
-			kaleoDraftDefinitionImpl.setModifiedDate(new Date(modifiedDate));
-		}
+        if (createDate == Long.MIN_VALUE) {
+            kaleoDraftDefinitionImpl.setCreateDate(null);
+        } else {
+            kaleoDraftDefinitionImpl.setCreateDate(new Date(createDate));
+        }
 
-		if (name == null) {
-			kaleoDraftDefinitionImpl.setName(StringPool.BLANK);
-		}
-		else {
-			kaleoDraftDefinitionImpl.setName(name);
-		}
+        if (modifiedDate == Long.MIN_VALUE) {
+            kaleoDraftDefinitionImpl.setModifiedDate(null);
+        } else {
+            kaleoDraftDefinitionImpl.setModifiedDate(new Date(modifiedDate));
+        }
 
-		if (title == null) {
-			kaleoDraftDefinitionImpl.setTitle(StringPool.BLANK);
-		}
-		else {
-			kaleoDraftDefinitionImpl.setTitle(title);
-		}
+        if (name == null) {
+            kaleoDraftDefinitionImpl.setName(StringPool.BLANK);
+        } else {
+            kaleoDraftDefinitionImpl.setName(name);
+        }
 
-		if (content == null) {
-			kaleoDraftDefinitionImpl.setContent(StringPool.BLANK);
-		}
-		else {
-			kaleoDraftDefinitionImpl.setContent(content);
-		}
+        if (title == null) {
+            kaleoDraftDefinitionImpl.setTitle(StringPool.BLANK);
+        } else {
+            kaleoDraftDefinitionImpl.setTitle(title);
+        }
 
-		kaleoDraftDefinitionImpl.setVersion(version);
-		kaleoDraftDefinitionImpl.setDraftVersion(draftVersion);
+        if (content == null) {
+            kaleoDraftDefinitionImpl.setContent(StringPool.BLANK);
+        } else {
+            kaleoDraftDefinitionImpl.setContent(content);
+        }
 
-		kaleoDraftDefinitionImpl.resetOriginalValues();
+        kaleoDraftDefinitionImpl.setVersion(version);
+        kaleoDraftDefinitionImpl.setDraftVersion(draftVersion);
 
-		return kaleoDraftDefinitionImpl;
-	}
+        kaleoDraftDefinitionImpl.resetOriginalValues();
 
-	@Override
-	public void readExternal(ObjectInput objectInput) throws IOException {
-		kaleoDraftDefinitionId = objectInput.readLong();
-		groupId = objectInput.readLong();
-		companyId = objectInput.readLong();
-		userId = objectInput.readLong();
-		userName = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
-		name = objectInput.readUTF();
-		title = objectInput.readUTF();
-		content = objectInput.readUTF();
-		version = objectInput.readInt();
-		draftVersion = objectInput.readInt();
-	}
+        return kaleoDraftDefinitionImpl;
+    }
 
-	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
-		objectOutput.writeLong(kaleoDraftDefinitionId);
-		objectOutput.writeLong(groupId);
-		objectOutput.writeLong(companyId);
-		objectOutput.writeLong(userId);
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        kaleoDraftDefinitionId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        name = objectInput.readUTF();
+        title = objectInput.readUTF();
+        content = objectInput.readUTF();
+        version = objectInput.readInt();
+        draftVersion = objectInput.readInt();
+    }
 
-		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(userName);
-		}
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        objectOutput.writeLong(kaleoDraftDefinitionId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
 
-		if (name == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
 
-		if (title == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(title);
-		}
+        if (name == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(name);
+        }
 
-		if (content == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(content);
-		}
+        if (title == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(title);
+        }
 
-		objectOutput.writeInt(version);
-		objectOutput.writeInt(draftVersion);
-	}
+        if (content == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(content);
+        }
 
-	public long kaleoDraftDefinitionId;
-	public long groupId;
-	public long companyId;
-	public long userId;
-	public String userName;
-	public long createDate;
-	public long modifiedDate;
-	public String name;
-	public String title;
-	public String content;
-	public int version;
-	public int draftVersion;
+        objectOutput.writeInt(version);
+        objectOutput.writeInt(draftVersion);
+    }
 }

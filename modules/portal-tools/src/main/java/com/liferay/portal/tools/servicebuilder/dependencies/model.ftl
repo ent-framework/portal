@@ -1,7 +1,5 @@
 package ${packagePath}.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 <#if entity.hasCompoundPK()>
 	import ${packagePath}.service.persistence.${entity.name}PK;
 </#if>
@@ -50,11 +48,6 @@ import java.util.Map;
  * @see ${packagePath}.model.impl.${entity.name}ModelImpl
  * @generated
  */
-
-<#if pluginName == "">
-	@ProviderType
-</#if>
-
 public interface ${entity.name}Model extends
 	<#assign overrideColumnNames = []>
 

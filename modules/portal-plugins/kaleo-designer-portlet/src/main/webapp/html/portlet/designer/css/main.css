@@ -1,0 +1,86 @@
+.actions-cell-editor-hidden, .assignments-cell-editor-hidden, .forms-cell-editor-hidden, .notifications-cell-editor-hidden , .script-cell-editor-hidden {
+	display: none;
+}
+
+.diagram-builder {
+	padding-bottom: 500px;
+
+	.diagram-builder-field {
+		position: relative;
+		width: 78px;
+	}
+
+	.diagram-builder-fields-container {
+		margin: 0;
+	}
+
+	.diagram-builder-content-content {
+		.tabbable {
+			width: 15%;
+		}
+	}
+
+	.diagram-builder-content-container {
+		.tabbable {
+			width: 75%;
+		}
+	}
+}
+
+.celleditor-actions-view, .celleditor-notifications-view, .celleditor-assignment-view {
+	background: #EEE;
+	border: 1px solid #DBDCDC;
+	margin: 10px 0;
+	padding: 5px;
+}
+
+.celleditor-label {
+	display: block;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.celleditor-label-checkbox {
+	font-weight: bold;
+	padding-left: 3px;
+}
+
+.celleditor-textarea, .celleditor-textarea-small {
+	height: 100px;
+	width: 300px;
+}
+
+.celleditor-textarea-small {
+	height: 100px;
+}
+
+.celleditor-view-menu {
+	text-align: right;
+}
+
+.diagram-builder-disabled {
+	.diagram-builder-controls {
+		display: none;
+	}
+
+	.diagram-builder-field-draggable, .diagram-builder-anchor-node {
+		cursor: auto;
+	}
+}
+
+.diagram-node-label {
+	text-align: center;
+	white-space: nowrap;
+}
+
+.diagram-node-suggest-connector {
+	.diagram-builder-field {
+		width: 78px;
+	}
+}
+
+.script-cell-editor-content .ace-editor {
+	height: 300px;
+	position: relative;
+	width: 550px;
+}
