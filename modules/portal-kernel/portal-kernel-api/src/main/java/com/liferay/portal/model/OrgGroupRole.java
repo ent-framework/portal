@@ -1,7 +1,5 @@
 package com.liferay.portal.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 /**
  * The extended model interface for the OrgGroupRole service. Represents a row in the &quot;OrgGroupRole&quot; database table, with each column mapped to a property of this class.
  *
@@ -11,7 +9,6 @@ import aQute.bnd.annotation.ProviderType;
  * @see com.liferay.portal.model.impl.OrgGroupRoleModelImpl
  * @generated
  */
-@ProviderType
 public interface OrgGroupRole extends OrgGroupRoleModel {
     /*
      * NOTE FOR DEVELOPERS:

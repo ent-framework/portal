@@ -1,7 +1,5 @@
 package com.liferay.portal.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.PluginSettingServiceUtil;
 
 import org.slf4j.Logger;
@@ -49,7 +47,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portal.service.PluginSettingServiceUtil
  * @generated
  */
-@ProviderType
 public class PluginSettingServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(PluginSettingServiceSoap.class);
 

@@ -1,7 +1,5 @@
 package com.liferay.portlet.polls.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portlet.polls.service.PollsVoteServiceUtil;
 
 import org.slf4j.Logger;
@@ -49,7 +47,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portlet.polls.service.PollsVoteServiceUtil
  * @generated
  */
-@ProviderType
 public class PollsVoteServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(PollsVoteServiceSoap.class);
 

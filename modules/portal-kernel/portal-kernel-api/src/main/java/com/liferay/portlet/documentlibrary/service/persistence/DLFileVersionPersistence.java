@@ -1,7 +1,5 @@
 package com.liferay.portlet.documentlibrary.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.persistence.BasePersistence;
 
 import com.liferay.portlet.documentlibrary.model.DLFileVersion;
@@ -18,7 +16,6 @@ import com.liferay.portlet.documentlibrary.model.DLFileVersion;
  * @see DLFileVersionUtil
  * @generated
  */
-@ProviderType
 public interface DLFileVersionPersistence extends BasePersistence<DLFileVersion> {
     /*
      * NOTE FOR DEVELOPERS:

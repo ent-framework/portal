@@ -1,9 +1,5 @@
 package com.liferay.portlet.dynamicdatalists.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
-
-@ProviderType
 public interface DDLRecordSetFinder {
     public int countByKeywords(long companyId, long groupId,
         java.lang.String keywords, int scope)

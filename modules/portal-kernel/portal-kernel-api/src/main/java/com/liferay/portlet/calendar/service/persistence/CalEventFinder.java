@@ -1,9 +1,5 @@
 package com.liferay.portlet.calendar.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
-
-@ProviderType
 public interface CalEventFinder {
     public int countByG_SD_T(long groupId, java.util.Date startDateGT,
         java.util.Date startDateLT, boolean timeZoneSensitive,

@@ -1,7 +1,5 @@
 package com.liferay.portlet.social.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.PersistedModel;
 
 /**
@@ -13,7 +11,6 @@ import com.liferay.portal.model.PersistedModel;
  * @see com.liferay.portlet.social.model.impl.SocialActivityLimitModelImpl
  * @generated
  */
-@ProviderType
 public interface SocialActivityLimit extends SocialActivityLimitModel,
     PersistedModel {
     /*

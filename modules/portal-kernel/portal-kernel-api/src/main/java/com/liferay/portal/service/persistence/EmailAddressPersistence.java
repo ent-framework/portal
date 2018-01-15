@@ -1,7 +1,5 @@
 package com.liferay.portal.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.EmailAddress;
 import com.liferay.portal.service.persistence.BasePersistence;
 
@@ -17,7 +15,6 @@ import com.liferay.portal.service.persistence.BasePersistence;
  * @see EmailAddressUtil
  * @generated
  */
-@ProviderType
 public interface EmailAddressPersistence extends BasePersistence<EmailAddress> {
     /*
      * NOTE FOR DEVELOPERS:

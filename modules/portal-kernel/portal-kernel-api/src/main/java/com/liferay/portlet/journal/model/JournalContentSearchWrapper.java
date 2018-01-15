@@ -1,7 +1,5 @@
 package com.liferay.portlet.journal.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.ModelWrapper;
 
@@ -17,7 +15,6 @@ import java.util.Map;
  * @see JournalContentSearch
  * @generated
  */
-@ProviderType
 public class JournalContentSearchWrapper implements JournalContentSearch,
     ModelWrapper<JournalContentSearch> {
     private JournalContentSearch _journalContentSearch;

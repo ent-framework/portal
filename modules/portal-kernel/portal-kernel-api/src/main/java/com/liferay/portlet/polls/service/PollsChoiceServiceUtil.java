@@ -1,7 +1,5 @@
 package com.liferay.portlet.polls.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.util.ReferenceRegistry;
 
@@ -19,7 +17,6 @@ import com.liferay.portal.kernel.util.ReferenceRegistry;
  * @see com.liferay.portlet.polls.service.impl.PollsChoiceServiceImpl
  * @generated
  */
-@ProviderType
 public class PollsChoiceServiceUtil {
     private static PollsChoiceService _service;
 

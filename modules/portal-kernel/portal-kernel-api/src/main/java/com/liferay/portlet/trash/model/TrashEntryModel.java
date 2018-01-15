@@ -1,7 +1,5 @@
 package com.liferay.portlet.trash.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.AttachedModel;
@@ -29,7 +27,6 @@ import java.util.Date;
  * @see com.liferay.portlet.trash.model.impl.TrashEntryModelImpl
  * @generated
  */
-@ProviderType
 public interface TrashEntryModel extends AttachedModel, BaseModel<TrashEntry> {
     /*
      * NOTE FOR DEVELOPERS:

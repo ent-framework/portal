@@ -1,7 +1,5 @@
 package com.liferay.portlet.asset.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.PersistedModel;
 
 /**
@@ -13,7 +11,6 @@ import com.liferay.portal.model.PersistedModel;
  * @see com.liferay.portlet.asset.model.impl.AssetCategoryPropertyModelImpl
  * @generated
  */
-@ProviderType
 public interface AssetCategoryProperty extends AssetCategoryPropertyModel,
     PersistedModel {
     /*

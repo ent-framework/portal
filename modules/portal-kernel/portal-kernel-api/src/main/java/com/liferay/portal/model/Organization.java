@@ -1,7 +1,5 @@
 package com.liferay.portal.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.Accessor;
 import com.liferay.portal.model.PersistedModel;
 import com.liferay.portal.model.TreeModel;
@@ -15,7 +13,6 @@ import com.liferay.portal.model.TreeModel;
  * @see com.liferay.portal.model.impl.OrganizationModelImpl
  * @generated
  */
-@ProviderType
 public interface Organization extends OrganizationModel, PersistedModel,
     TreeModel {
     /*

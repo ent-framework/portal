@@ -1,7 +1,5 @@
 package com.liferay.portlet.softwarecatalog.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.PersistedModel;
 
 /**
@@ -13,7 +11,6 @@ import com.liferay.portal.model.PersistedModel;
  * @see com.liferay.portlet.softwarecatalog.model.impl.SCProductScreenshotModelImpl
  * @generated
  */
-@ProviderType
 public interface SCProductScreenshot extends SCProductScreenshotModel,
     PersistedModel {
     /*

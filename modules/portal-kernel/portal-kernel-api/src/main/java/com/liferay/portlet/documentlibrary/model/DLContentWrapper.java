@@ -1,7 +1,5 @@
 package com.liferay.portlet.documentlibrary.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.ModelWrapper;
 
@@ -19,7 +17,6 @@ import java.util.Map;
  * @see DLContent
  * @generated
  */
-@ProviderType
 public class DLContentWrapper implements DLContent, ModelWrapper<DLContent> {
     private DLContent _dlContent;
 

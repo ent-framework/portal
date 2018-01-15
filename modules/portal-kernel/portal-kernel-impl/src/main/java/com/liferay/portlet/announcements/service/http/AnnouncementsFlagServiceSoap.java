@@ -1,7 +1,5 @@
 package com.liferay.portlet.announcements.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portlet.announcements.service.AnnouncementsFlagServiceUtil;
 
 import org.slf4j.Logger;
@@ -49,7 +47,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portlet.announcements.service.AnnouncementsFlagServiceUtil
  * @generated
  */
-@ProviderType
 public class AnnouncementsFlagServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(AnnouncementsFlagServiceSoap.class);
 

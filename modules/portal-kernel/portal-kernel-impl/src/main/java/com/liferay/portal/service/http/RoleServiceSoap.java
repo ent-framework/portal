@@ -1,7 +1,5 @@
 package com.liferay.portal.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.service.RoleServiceUtil;
 
@@ -53,7 +51,6 @@ import java.util.Map;
  * @see com.liferay.portal.service.RoleServiceUtil
  * @generated
  */
-@ProviderType
 public class RoleServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(RoleServiceSoap.class);
 

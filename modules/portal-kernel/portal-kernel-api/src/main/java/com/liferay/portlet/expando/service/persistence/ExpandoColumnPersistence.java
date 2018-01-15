@@ -1,7 +1,5 @@
 package com.liferay.portlet.expando.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.persistence.BasePersistence;
 
 import com.liferay.portlet.expando.model.ExpandoColumn;
@@ -18,7 +16,6 @@ import com.liferay.portlet.expando.model.ExpandoColumn;
  * @see ExpandoColumnUtil
  * @generated
  */
-@ProviderType
 public interface ExpandoColumnPersistence extends BasePersistence<ExpandoColumn> {
     /*
      * NOTE FOR DEVELOPERS:

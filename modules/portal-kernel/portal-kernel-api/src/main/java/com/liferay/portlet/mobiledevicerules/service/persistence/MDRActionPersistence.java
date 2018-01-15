@@ -1,7 +1,5 @@
 package com.liferay.portlet.mobiledevicerules.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.persistence.BasePersistence;
 
 import com.liferay.portlet.mobiledevicerules.model.MDRAction;
@@ -18,7 +16,6 @@ import com.liferay.portlet.mobiledevicerules.model.MDRAction;
  * @see MDRActionUtil
  * @generated
  */
-@ProviderType
 public interface MDRActionPersistence extends BasePersistence<MDRAction> {
     /*
      * NOTE FOR DEVELOPERS:

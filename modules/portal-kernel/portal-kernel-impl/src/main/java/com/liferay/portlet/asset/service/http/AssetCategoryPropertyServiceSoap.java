@@ -1,7 +1,5 @@
 package com.liferay.portlet.asset.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portlet.asset.service.AssetCategoryPropertyServiceUtil;
 
 import org.slf4j.Logger;
@@ -49,7 +47,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portlet.asset.service.AssetCategoryPropertyServiceUtil
  * @generated
  */
-@ProviderType
 public class AssetCategoryPropertyServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(AssetCategoryPropertyServiceSoap.class);
 

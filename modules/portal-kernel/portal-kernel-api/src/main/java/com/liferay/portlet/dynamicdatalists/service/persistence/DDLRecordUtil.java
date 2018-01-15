@@ -1,7 +1,5 @@
 package com.liferay.portlet.dynamicdatalists.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -25,7 +23,6 @@ import java.util.List;
  * @see DDLRecordPersistenceImpl
  * @generated
  */
-@ProviderType
 public class DDLRecordUtil {
     private static DDLRecordPersistence _persistence;
 

@@ -1,7 +1,5 @@
 package com.liferay.portlet.bookmarks.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.ListUtil;
 
 import com.liferay.portlet.bookmarks.service.BookmarksEntryServiceUtil;
@@ -51,7 +49,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portlet.bookmarks.service.BookmarksEntryServiceUtil
  * @generated
  */
-@ProviderType
 public class BookmarksEntryServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(BookmarksEntryServiceSoap.class);
 

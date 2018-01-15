@@ -1,7 +1,5 @@
 package com.liferay.portlet.announcements.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see AnnouncementsDeliveryService
  * @generated
  */
-@ProviderType
 public class AnnouncementsDeliveryServiceWrapper
     implements AnnouncementsDeliveryService,
         ServiceWrapper<AnnouncementsDeliveryService> {

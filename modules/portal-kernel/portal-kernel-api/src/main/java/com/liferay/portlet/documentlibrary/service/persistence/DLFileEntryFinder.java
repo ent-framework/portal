@@ -1,9 +1,5 @@
 package com.liferay.portlet.documentlibrary.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
-
-@ProviderType
 public interface DLFileEntryFinder {
     public int countByExtraSettings()
         throws com.liferay.portal.kernel.exception.SystemException;

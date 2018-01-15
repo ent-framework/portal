@@ -1,7 +1,5 @@
 package com.liferay.portlet.journal.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see JournalArticleLocalService
  * @generated
  */
-@ProviderType
 public class JournalArticleLocalServiceWrapper
     implements JournalArticleLocalService,
         ServiceWrapper<JournalArticleLocalService> {

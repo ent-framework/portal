@@ -1,7 +1,5 @@
 package com.liferay.portal.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.service.LayoutSetPrototypeServiceUtil;
 
@@ -53,7 +51,6 @@ import java.util.Map;
  * @see com.liferay.portal.service.LayoutSetPrototypeServiceUtil
  * @generated
  */
-@ProviderType
 public class LayoutSetPrototypeServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(LayoutSetPrototypeServiceSoap.class);
 

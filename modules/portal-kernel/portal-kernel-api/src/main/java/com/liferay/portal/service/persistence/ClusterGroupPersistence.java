@@ -1,7 +1,5 @@
 package com.liferay.portal.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.ClusterGroup;
 import com.liferay.portal.service.persistence.BasePersistence;
 
@@ -17,7 +15,6 @@ import com.liferay.portal.service.persistence.BasePersistence;
  * @see ClusterGroupUtil
  * @generated
  */
-@ProviderType
 public interface ClusterGroupPersistence extends BasePersistence<ClusterGroup> {
     /*
      * NOTE FOR DEVELOPERS:

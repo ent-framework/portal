@@ -1,7 +1,5 @@
 package com.liferay.portlet.announcements.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.AttachedModel;
@@ -29,7 +27,6 @@ import java.util.Date;
  * @see com.liferay.portlet.announcements.model.impl.AnnouncementsEntryModelImpl
  * @generated
  */
-@ProviderType
 public interface AnnouncementsEntryModel extends AttachedModel,
     BaseModel<AnnouncementsEntry>, StagedAuditedModel {
     /*

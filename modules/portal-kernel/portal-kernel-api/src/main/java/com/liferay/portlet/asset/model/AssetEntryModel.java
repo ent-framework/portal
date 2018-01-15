@@ -1,7 +1,5 @@
 package com.liferay.portlet.asset.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.LocaleException;
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -32,7 +30,6 @@ import java.util.Map;
  * @see com.liferay.portlet.asset.model.impl.AssetEntryModelImpl
  * @generated
  */
-@ProviderType
 public interface AssetEntryModel extends AttachedModel, BaseModel<AssetEntry>,
     GroupedModel {
     /*

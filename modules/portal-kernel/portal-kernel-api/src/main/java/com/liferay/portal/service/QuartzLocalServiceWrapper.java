@@ -1,7 +1,5 @@
 package com.liferay.portal.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see QuartzLocalService
  * @generated
  */
-@ProviderType
 public class QuartzLocalServiceWrapper implements QuartzLocalService,
     ServiceWrapper<QuartzLocalService> {
     private QuartzLocalService _quartzLocalService;

@@ -1,7 +1,5 @@
 package com.liferay.portlet.asset.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.LocalizationUtil;
 
 import com.liferay.portlet.asset.service.AssetCategoryServiceUtil;
@@ -54,7 +52,6 @@ import java.util.Map;
  * @see com.liferay.portlet.asset.service.AssetCategoryServiceUtil
  * @generated
  */
-@ProviderType
 public class AssetCategoryServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(AssetCategoryServiceSoap.class);
 

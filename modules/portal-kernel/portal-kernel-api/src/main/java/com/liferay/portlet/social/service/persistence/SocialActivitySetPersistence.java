@@ -1,7 +1,5 @@
 package com.liferay.portlet.social.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.persistence.BasePersistence;
 
 import com.liferay.portlet.social.model.SocialActivitySet;
@@ -18,7 +16,6 @@ import com.liferay.portlet.social.model.SocialActivitySet;
  * @see SocialActivitySetUtil
  * @generated
  */
-@ProviderType
 public interface SocialActivitySetPersistence extends BasePersistence<SocialActivitySet> {
     /*
      * NOTE FOR DEVELOPERS:

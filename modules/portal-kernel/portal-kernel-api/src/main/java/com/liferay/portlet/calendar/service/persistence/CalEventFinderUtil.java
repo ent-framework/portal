@@ -1,12 +1,9 @@
 package com.liferay.portlet.calendar.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.util.ReferenceRegistry;
 
 
-@ProviderType
 public class CalEventFinderUtil {
     private static CalEventFinder _finder;
 

@@ -1,7 +1,5 @@
 package com.liferay.portal.ext.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.ModelWrapper;
 
@@ -18,7 +16,6 @@ import java.util.Map;
  * @see FilterGroup
  * @generated
  */
-@ProviderType
 public class FilterGroupWrapper implements FilterGroup,
     ModelWrapper<FilterGroup> {
     private FilterGroup _filterGroup;

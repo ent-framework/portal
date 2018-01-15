@@ -1,7 +1,5 @@
 package com.liferay.portlet.journal.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -25,7 +23,6 @@ import java.util.List;
  * @see JournalArticleResourcePersistenceImpl
  * @generated
  */
-@ProviderType
 public class JournalArticleResourceUtil {
     private static JournalArticleResourcePersistence _persistence;
 

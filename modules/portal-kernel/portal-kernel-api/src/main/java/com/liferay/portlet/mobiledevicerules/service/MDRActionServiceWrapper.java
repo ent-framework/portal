@@ -1,7 +1,5 @@
 package com.liferay.portlet.mobiledevicerules.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see MDRActionService
  * @generated
  */
-@ProviderType
 public class MDRActionServiceWrapper implements MDRActionService,
     ServiceWrapper<MDRActionService> {
     private MDRActionService _mdrActionService;

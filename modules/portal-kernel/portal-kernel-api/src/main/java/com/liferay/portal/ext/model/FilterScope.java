@@ -1,7 +1,5 @@
 package com.liferay.portal.ext.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.PersistedModel;
 
 /**
@@ -13,7 +11,6 @@ import com.liferay.portal.model.PersistedModel;
  * @see com.liferay.portal.ext.model.impl.FilterScopeModelImpl
  * @generated
  */
-@ProviderType
 public interface FilterScope extends FilterScopeModel, PersistedModel {
     /*
      * NOTE FOR DEVELOPERS:

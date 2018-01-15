@@ -1,7 +1,5 @@
 package com.liferay.portlet.expando.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.PersistedModel;
 
 /**
@@ -13,7 +11,6 @@ import com.liferay.portal.model.PersistedModel;
  * @see com.liferay.portlet.expando.model.impl.ExpandoColumnModelImpl
  * @generated
  */
-@ProviderType
 public interface ExpandoColumn extends ExpandoColumnModel, PersistedModel {
     /*
      * NOTE FOR DEVELOPERS:

@@ -1,7 +1,5 @@
 package com.liferay.portlet.asset.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see AssetTagPropertyLocalService
  * @generated
  */
-@ProviderType
 public class AssetTagPropertyLocalServiceWrapper
     implements AssetTagPropertyLocalService,
         ServiceWrapper<AssetTagPropertyLocalService> {

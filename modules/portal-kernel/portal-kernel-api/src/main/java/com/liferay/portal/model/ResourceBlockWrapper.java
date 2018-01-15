@@ -1,7 +1,5 @@
 package com.liferay.portal.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.ModelWrapper;
 
@@ -17,7 +15,6 @@ import java.util.Map;
  * @see ResourceBlock
  * @generated
  */
-@ProviderType
 public class ResourceBlockWrapper implements ResourceBlock,
     ModelWrapper<ResourceBlock> {
     private ResourceBlock _resourceBlock;

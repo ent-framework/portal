@@ -1,7 +1,5 @@
 package com.liferay.portal.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.BaseModel;
@@ -27,7 +25,6 @@ import java.util.Date;
  * @see com.liferay.portal.model.impl.LockModelImpl
  * @generated
  */
-@ProviderType
 public interface LockModel extends BaseModel<Lock> {
     /*
      * NOTE FOR DEVELOPERS:

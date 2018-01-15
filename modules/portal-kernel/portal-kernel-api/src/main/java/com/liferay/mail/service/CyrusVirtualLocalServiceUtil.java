@@ -1,7 +1,5 @@
 package com.liferay.mail.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.util.ReferenceRegistry;
 
@@ -19,7 +17,6 @@ import com.liferay.portal.kernel.util.ReferenceRegistry;
  * @see com.liferay.mail.service.impl.CyrusVirtualLocalServiceImpl
  * @generated
  */
-@ProviderType
 public class CyrusVirtualLocalServiceUtil {
     private static CyrusVirtualLocalService _service;
 

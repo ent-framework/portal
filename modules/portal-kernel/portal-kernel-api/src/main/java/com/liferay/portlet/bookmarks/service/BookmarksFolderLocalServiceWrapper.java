@@ -1,7 +1,5 @@
 package com.liferay.portlet.bookmarks.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see BookmarksFolderLocalService
  * @generated
  */
-@ProviderType
 public class BookmarksFolderLocalServiceWrapper
     implements BookmarksFolderLocalService,
         ServiceWrapper<BookmarksFolderLocalService> {

@@ -1,7 +1,5 @@
 package com.liferay.portlet.softwarecatalog.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.PersistedModel;
 
 /**
@@ -13,7 +11,6 @@ import com.liferay.portal.model.PersistedModel;
  * @see com.liferay.portlet.softwarecatalog.model.impl.SCProductEntryModelImpl
  * @generated
  */
-@ProviderType
 public interface SCProductEntry extends SCProductEntryModel, PersistedModel {
     /*
      * NOTE FOR DEVELOPERS:

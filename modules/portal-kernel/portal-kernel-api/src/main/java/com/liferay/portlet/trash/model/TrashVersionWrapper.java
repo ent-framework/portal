@@ -1,7 +1,5 @@
 package com.liferay.portlet.trash.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.ModelWrapper;
 
@@ -17,7 +15,6 @@ import java.util.Map;
  * @see TrashVersion
  * @generated
  */
-@ProviderType
 public class TrashVersionWrapper implements TrashVersion,
     ModelWrapper<TrashVersion> {
     private TrashVersion _trashVersion;

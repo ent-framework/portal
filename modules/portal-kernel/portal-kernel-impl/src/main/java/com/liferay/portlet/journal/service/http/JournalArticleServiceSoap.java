@@ -1,7 +1,5 @@
 package com.liferay.portlet.journal.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.LocalizationUtil;
 
@@ -55,7 +53,6 @@ import java.util.Map;
  * @see com.liferay.portlet.journal.service.JournalArticleServiceUtil
  * @generated
  */
-@ProviderType
 public class JournalArticleServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(JournalArticleServiceSoap.class);
 

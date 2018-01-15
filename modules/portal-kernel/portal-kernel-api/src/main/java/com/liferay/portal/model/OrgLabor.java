@@ -1,7 +1,5 @@
 package com.liferay.portal.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.PersistedModel;
 
 /**
@@ -13,7 +11,6 @@ import com.liferay.portal.model.PersistedModel;
  * @see com.liferay.portal.model.impl.OrgLaborModelImpl
  * @generated
  */
-@ProviderType
 public interface OrgLabor extends OrgLaborModel, PersistedModel {
     /*
      * NOTE FOR DEVELOPERS:

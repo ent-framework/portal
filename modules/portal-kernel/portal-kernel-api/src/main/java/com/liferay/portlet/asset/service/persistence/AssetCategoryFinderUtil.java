@@ -1,12 +1,9 @@
 package com.liferay.portlet.asset.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.util.ReferenceRegistry;
 
 
-@ProviderType
 public class AssetCategoryFinderUtil {
     private static AssetCategoryFinder _finder;
 

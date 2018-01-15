@@ -1,7 +1,5 @@
 package com.liferay.portlet.ratings.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.persistence.BasePersistence;
 
 import com.liferay.portlet.ratings.model.RatingsEntry;
@@ -18,7 +16,6 @@ import com.liferay.portlet.ratings.model.RatingsEntry;
  * @see RatingsEntryUtil
  * @generated
  */
-@ProviderType
 public interface RatingsEntryPersistence extends BasePersistence<RatingsEntry> {
     /*
      * NOTE FOR DEVELOPERS:

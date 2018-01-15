@@ -1,7 +1,5 @@
 package com.liferay.portlet.dynamicdatalists.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see DDLRecordLocalService
  * @generated
  */
-@ProviderType
 public class DDLRecordLocalServiceWrapper implements DDLRecordLocalService,
     ServiceWrapper<DDLRecordLocalService> {
     private DDLRecordLocalService _ddlRecordLocalService;

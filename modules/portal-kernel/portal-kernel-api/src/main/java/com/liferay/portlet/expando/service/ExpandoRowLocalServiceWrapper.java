@@ -1,7 +1,5 @@
 package com.liferay.portlet.expando.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see ExpandoRowLocalService
  * @generated
  */
-@ProviderType
 public class ExpandoRowLocalServiceWrapper implements ExpandoRowLocalService,
     ServiceWrapper<ExpandoRowLocalService> {
     private ExpandoRowLocalService _expandoRowLocalService;

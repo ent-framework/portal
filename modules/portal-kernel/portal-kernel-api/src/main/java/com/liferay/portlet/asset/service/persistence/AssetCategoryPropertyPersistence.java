@@ -1,7 +1,5 @@
 package com.liferay.portlet.asset.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.persistence.BasePersistence;
 
 import com.liferay.portlet.asset.model.AssetCategoryProperty;
@@ -18,7 +16,6 @@ import com.liferay.portlet.asset.model.AssetCategoryProperty;
  * @see AssetCategoryPropertyUtil
  * @generated
  */
-@ProviderType
 public interface AssetCategoryPropertyPersistence extends BasePersistence<AssetCategoryProperty> {
     /*
      * NOTE FOR DEVELOPERS:

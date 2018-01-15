@@ -1,7 +1,5 @@
 package com.liferay.portlet.ratings.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portlet.ratings.service.RatingsEntryServiceUtil;
 
 import org.slf4j.Logger;
@@ -49,7 +47,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portlet.ratings.service.RatingsEntryServiceUtil
  * @generated
  */
-@ProviderType
 public class RatingsEntryServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(RatingsEntryServiceSoap.class);
 

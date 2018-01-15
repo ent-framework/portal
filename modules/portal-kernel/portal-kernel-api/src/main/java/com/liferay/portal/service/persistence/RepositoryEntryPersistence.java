@@ -1,7 +1,5 @@
 package com.liferay.portal.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.RepositoryEntry;
 import com.liferay.portal.service.persistence.BasePersistence;
 
@@ -17,7 +15,6 @@ import com.liferay.portal.service.persistence.BasePersistence;
  * @see RepositoryEntryUtil
  * @generated
  */
-@ProviderType
 public interface RepositoryEntryPersistence extends BasePersistence<RepositoryEntry> {
     /*
      * NOTE FOR DEVELOPERS:

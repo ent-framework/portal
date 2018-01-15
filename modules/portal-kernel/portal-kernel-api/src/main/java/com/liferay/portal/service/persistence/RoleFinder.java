@@ -1,9 +1,5 @@
 package com.liferay.portal.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
-
-@ProviderType
 public interface RoleFinder {
     public int countByR_U(long roleId, long userId)
         throws com.liferay.portal.kernel.exception.SystemException;

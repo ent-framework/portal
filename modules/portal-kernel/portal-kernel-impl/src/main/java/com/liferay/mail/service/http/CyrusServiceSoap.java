@@ -1,7 +1,5 @@
 package com.liferay.mail.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.mail.service.CyrusServiceUtil;
 
 import org.slf4j.Logger;
@@ -38,7 +36,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.mail.service.CyrusServiceUtil
  * @generated
  */
-@ProviderType
 public class CyrusServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(CyrusServiceSoap.class);
 

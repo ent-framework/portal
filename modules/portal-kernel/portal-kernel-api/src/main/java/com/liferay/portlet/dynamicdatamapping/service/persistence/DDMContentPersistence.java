@@ -1,7 +1,5 @@
 package com.liferay.portlet.dynamicdatamapping.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.persistence.BasePersistence;
 
 import com.liferay.portlet.dynamicdatamapping.model.DDMContent;
@@ -18,7 +16,6 @@ import com.liferay.portlet.dynamicdatamapping.model.DDMContent;
  * @see DDMContentUtil
  * @generated
  */
-@ProviderType
 public interface DDMContentPersistence extends BasePersistence<DDMContent> {
     /*
      * NOTE FOR DEVELOPERS:

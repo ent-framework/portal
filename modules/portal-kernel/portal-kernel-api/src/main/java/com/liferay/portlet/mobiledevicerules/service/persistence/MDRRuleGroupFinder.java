@@ -1,9 +1,5 @@
 package com.liferay.portlet.mobiledevicerules.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
-
-@ProviderType
 public interface MDRRuleGroupFinder {
     public int countByKeywords(long groupId, java.lang.String keywords,
         java.util.LinkedHashMap<java.lang.String, java.lang.Object> params)

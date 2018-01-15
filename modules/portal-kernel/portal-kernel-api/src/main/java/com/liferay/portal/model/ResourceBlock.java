@@ -1,7 +1,5 @@
 package com.liferay.portal.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.PermissionedModel;
 
 /**
@@ -13,7 +11,6 @@ import com.liferay.portal.model.PermissionedModel;
  * @see com.liferay.portal.model.impl.ResourceBlockModelImpl
  * @generated
  */
-@ProviderType
 public interface ResourceBlock extends ResourceBlockModel, PermissionedModel {
     /*
      * NOTE FOR DEVELOPERS:

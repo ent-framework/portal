@@ -1,7 +1,5 @@
 package com.liferay.portlet.calendar.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.util.ReferenceRegistry;
 
@@ -19,7 +17,6 @@ import com.liferay.portal.kernel.util.ReferenceRegistry;
  * @see com.liferay.portlet.calendar.service.impl.CalEventLocalServiceImpl
  * @generated
  */
-@ProviderType
 public class CalEventLocalServiceUtil {
     private static CalEventLocalService _service;
 

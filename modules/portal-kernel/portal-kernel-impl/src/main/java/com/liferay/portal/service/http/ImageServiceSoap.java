@@ -1,7 +1,5 @@
 package com.liferay.portal.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ImageServiceUtil;
 
 import org.slf4j.Logger;
@@ -49,7 +47,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portal.service.ImageServiceUtil
  * @generated
  */
-@ProviderType
 public class ImageServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(ImageServiceSoap.class);
 

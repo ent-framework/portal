@@ -1,7 +1,5 @@
 package com.liferay.portal.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.LayoutSetServiceUtil;
 
 import org.slf4j.Logger;
@@ -49,7 +47,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portal.service.LayoutSetServiceUtil
  * @generated
  */
-@ProviderType
 public class LayoutSetServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(LayoutSetServiceSoap.class);
 

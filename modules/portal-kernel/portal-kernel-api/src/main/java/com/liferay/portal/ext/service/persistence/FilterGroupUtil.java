@@ -1,7 +1,5 @@
 package com.liferay.portal.ext.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.ext.model.FilterGroup;
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
@@ -24,7 +22,6 @@ import java.util.List;
  * @see FilterGroupPersistenceImpl
  * @generated
  */
-@ProviderType
 public class FilterGroupUtil {
     private static FilterGroupPersistence _persistence;
 

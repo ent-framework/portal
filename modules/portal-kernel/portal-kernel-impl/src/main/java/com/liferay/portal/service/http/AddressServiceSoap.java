@@ -1,7 +1,5 @@
 package com.liferay.portal.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.AddressServiceUtil;
 
 import org.slf4j.Logger;
@@ -49,7 +47,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portal.service.AddressServiceUtil
  * @generated
  */
-@ProviderType
 public class AddressServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(AddressServiceSoap.class);
 

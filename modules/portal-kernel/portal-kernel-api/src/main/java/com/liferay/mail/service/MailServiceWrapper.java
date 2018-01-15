@@ -1,7 +1,5 @@
 package com.liferay.mail.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see MailService
  * @generated
  */
-@ProviderType
 public class MailServiceWrapper implements MailService,
     ServiceWrapper<MailService> {
     private MailService _mailService;

@@ -1,7 +1,5 @@
 package com.liferay.portlet.social.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.transaction.Isolation;
@@ -20,7 +18,6 @@ import com.liferay.portal.service.BaseLocalService;
  * @see com.liferay.portlet.social.service.impl.SocialRequestInterpreterLocalServiceImpl
  * @generated
  */
-@ProviderType
 @Transactional(isolation = Isolation.PORTAL, rollbackFor =  {
     PortalException.class, SystemException.class}
 )

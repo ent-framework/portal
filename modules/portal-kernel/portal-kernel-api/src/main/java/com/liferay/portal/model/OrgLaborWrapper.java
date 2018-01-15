@@ -1,7 +1,5 @@
 package com.liferay.portal.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.ModelWrapper;
 
@@ -17,7 +15,6 @@ import java.util.Map;
  * @see OrgLabor
  * @generated
  */
-@ProviderType
 public class OrgLaborWrapper implements OrgLabor, ModelWrapper<OrgLabor> {
     private OrgLabor _orgLabor;
 

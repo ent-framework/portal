@@ -1,7 +1,5 @@
 package com.liferay.portlet.polls.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.LocalizationUtil;
 
 import com.liferay.portlet.polls.service.PollsQuestionServiceUtil;
@@ -54,7 +52,6 @@ import java.util.Map;
  * @see com.liferay.portlet.polls.service.PollsQuestionServiceUtil
  * @generated
  */
-@ProviderType
 public class PollsQuestionServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(PollsQuestionServiceSoap.class);
 

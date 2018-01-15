@@ -1,9 +1,5 @@
 package com.liferay.portal.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
-
-@ProviderType
 public interface ResourcePermissionFinder {
     public int countByR_S(long roleId, int[] scopes)
         throws com.liferay.portal.kernel.exception.SystemException;

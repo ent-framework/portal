@@ -1,7 +1,5 @@
 package com.liferay.portlet.asset.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.BaseModel;
@@ -28,7 +26,6 @@ import java.util.Date;
  * @see com.liferay.portlet.asset.model.impl.AssetTagModelImpl
  * @generated
  */
-@ProviderType
 public interface AssetTagModel extends BaseModel<AssetTag>, GroupedModel {
     /*
      * NOTE FOR DEVELOPERS:

@@ -1,7 +1,5 @@
 package com.liferay.portlet.documentlibrary.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.ListUtil;
 
 import com.liferay.portlet.documentlibrary.service.DLAppServiceUtil;
@@ -40,7 +38,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portlet.documentlibrary.service.DLAppServiceUtil
  * @generated
  */
-@ProviderType
 public class DLAppServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(DLAppServiceSoap.class);
 

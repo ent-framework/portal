@@ -1,7 +1,5 @@
 package com.liferay.portal.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see TeamService
  * @generated
  */
-@ProviderType
 public class TeamServiceWrapper implements TeamService,
     ServiceWrapper<TeamService> {
     private TeamService _teamService;

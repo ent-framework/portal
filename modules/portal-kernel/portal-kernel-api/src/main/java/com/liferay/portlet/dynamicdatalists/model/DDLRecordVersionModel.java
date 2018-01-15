@@ -1,7 +1,5 @@
 package com.liferay.portlet.dynamicdatalists.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.BaseModel;
@@ -28,7 +26,6 @@ import java.util.Date;
  * @see com.liferay.portlet.dynamicdatalists.model.impl.DDLRecordVersionModelImpl
  * @generated
  */
-@ProviderType
 public interface DDLRecordVersionModel extends BaseModel<DDLRecordVersion>,
     WorkflowedModel {
     /*

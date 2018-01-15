@@ -1,7 +1,5 @@
 package com.liferay.portlet.journal.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portlet.journal.service.JournalFeedServiceUtil;
 
 import org.slf4j.Logger;
@@ -49,7 +47,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portlet.journal.service.JournalFeedServiceUtil
  * @generated
  */
-@ProviderType
 public class JournalFeedServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(JournalFeedServiceSoap.class);
 

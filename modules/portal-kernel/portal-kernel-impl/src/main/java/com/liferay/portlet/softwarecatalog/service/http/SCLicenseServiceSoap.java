@@ -1,7 +1,5 @@
 package com.liferay.portlet.softwarecatalog.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portlet.softwarecatalog.service.SCLicenseServiceUtil;
 
 import org.slf4j.Logger;
@@ -49,7 +47,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portlet.softwarecatalog.service.SCLicenseServiceUtil
  * @generated
  */
-@ProviderType
 public class SCLicenseServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(SCLicenseServiceSoap.class);
 

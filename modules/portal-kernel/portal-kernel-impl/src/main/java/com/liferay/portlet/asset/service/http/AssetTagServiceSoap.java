@@ -1,7 +1,5 @@
 package com.liferay.portlet.asset.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portlet.asset.service.AssetTagServiceUtil;
 
 import org.slf4j.Logger;
@@ -49,7 +47,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portlet.asset.service.AssetTagServiceUtil
  * @generated
  */
-@ProviderType
 public class AssetTagServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(AssetTagServiceSoap.class);
 

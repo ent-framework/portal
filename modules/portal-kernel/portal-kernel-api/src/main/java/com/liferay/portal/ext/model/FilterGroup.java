@@ -1,7 +1,5 @@
 package com.liferay.portal.ext.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.PersistedModel;
 
 /**
@@ -13,7 +11,6 @@ import com.liferay.portal.model.PersistedModel;
  * @see com.liferay.portal.ext.model.impl.FilterGroupModelImpl
  * @generated
  */
-@ProviderType
 public interface FilterGroup extends FilterGroupModel, PersistedModel {
     /*
      * NOTE FOR DEVELOPERS:

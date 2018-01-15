@@ -1,9 +1,5 @@
 package com.liferay.portlet.asset.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
-
-@ProviderType
 public interface AssetVocabularyFinder {
     public int countByG_N(long groupId, java.lang.String name)
         throws com.liferay.portal.kernel.exception.SystemException;

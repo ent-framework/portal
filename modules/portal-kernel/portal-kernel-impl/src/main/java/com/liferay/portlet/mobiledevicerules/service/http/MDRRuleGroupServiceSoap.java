@@ -1,7 +1,5 @@
 package com.liferay.portlet.mobiledevicerules.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.LocalizationUtil;
 
 import com.liferay.portlet.mobiledevicerules.service.MDRRuleGroupServiceUtil;
@@ -54,7 +52,6 @@ import java.util.Map;
  * @see com.liferay.portlet.mobiledevicerules.service.MDRRuleGroupServiceUtil
  * @generated
  */
-@ProviderType
 public class MDRRuleGroupServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(MDRRuleGroupServiceSoap.class);
 

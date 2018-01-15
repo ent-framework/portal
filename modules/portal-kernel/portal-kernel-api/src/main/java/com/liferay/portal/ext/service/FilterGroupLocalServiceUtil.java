@@ -1,7 +1,5 @@
 package com.liferay.portal.ext.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.util.ReferenceRegistry;
 
@@ -19,7 +17,6 @@ import com.liferay.portal.kernel.util.ReferenceRegistry;
  * @see com.liferay.portal.ext.service.impl.FilterGroupLocalServiceImpl
  * @generated
  */
-@ProviderType
 public class FilterGroupLocalServiceUtil {
     private static FilterGroupLocalService _service;
 

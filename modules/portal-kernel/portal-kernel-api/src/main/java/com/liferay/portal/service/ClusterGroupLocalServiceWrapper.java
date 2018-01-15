@@ -1,7 +1,5 @@
 package com.liferay.portal.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see ClusterGroupLocalService
  * @generated
  */
-@ProviderType
 public class ClusterGroupLocalServiceWrapper implements ClusterGroupLocalService,
     ServiceWrapper<ClusterGroupLocalService> {
     private ClusterGroupLocalService _clusterGroupLocalService;

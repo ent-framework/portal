@@ -1,7 +1,5 @@
 package com.liferay.portlet.calendar.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see CalEventLocalService
  * @generated
  */
-@ProviderType
 public class CalEventLocalServiceWrapper implements CalEventLocalService,
     ServiceWrapper<CalEventLocalService> {
     private CalEventLocalService _calEventLocalService;

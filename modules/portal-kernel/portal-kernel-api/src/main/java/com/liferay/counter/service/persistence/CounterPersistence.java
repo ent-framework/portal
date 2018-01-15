@@ -1,7 +1,5 @@
 package com.liferay.counter.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.counter.model.Counter;
 
 import com.liferay.portal.service.persistence.BasePersistence;
@@ -18,7 +16,6 @@ import com.liferay.portal.service.persistence.BasePersistence;
  * @see CounterUtil
  * @generated
  */
-@ProviderType
 public interface CounterPersistence extends BasePersistence<Counter> {
     /*
      * NOTE FOR DEVELOPERS:

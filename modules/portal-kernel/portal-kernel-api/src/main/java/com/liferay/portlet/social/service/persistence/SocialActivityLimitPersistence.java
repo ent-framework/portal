@@ -1,7 +1,5 @@
 package com.liferay.portlet.social.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.persistence.BasePersistence;
 
 import com.liferay.portlet.social.model.SocialActivityLimit;
@@ -18,7 +16,6 @@ import com.liferay.portlet.social.model.SocialActivityLimit;
  * @see SocialActivityLimitUtil
  * @generated
  */
-@ProviderType
 public interface SocialActivityLimitPersistence extends BasePersistence<SocialActivityLimit> {
     /*
      * NOTE FOR DEVELOPERS:

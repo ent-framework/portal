@@ -1,7 +1,5 @@
 package com.liferay.portlet.journal.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -34,7 +32,6 @@ import java.util.Date;
  * @see com.liferay.portlet.journal.model.impl.JournalFolderModelImpl
  * @generated
  */
-@ProviderType
 public interface JournalFolderModel extends BaseModel<JournalFolder>,
     ContainerModel, StagedGroupedModel, TrashedModel, WorkflowedModel {
     /*

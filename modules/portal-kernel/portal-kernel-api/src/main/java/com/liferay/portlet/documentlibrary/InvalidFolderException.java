@@ -14,8 +14,6 @@
 
 package com.liferay.portlet.documentlibrary;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
@@ -30,7 +28,6 @@ import java.util.Locale;
  * @author Brian Wing Shun Chan
  * @author Hugo Huijser
  */
-@ProviderType
 public class InvalidFolderException extends PortalException {
 
 	public static final int CANNOT_MOVE_INTO_CHILD_FOLDER = 1;

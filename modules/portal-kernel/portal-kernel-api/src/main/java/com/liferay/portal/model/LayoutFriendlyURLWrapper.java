@@ -1,7 +1,5 @@
 package com.liferay.portal.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.lar.StagedModelType;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.ModelWrapper;
@@ -19,7 +17,6 @@ import java.util.Map;
  * @see LayoutFriendlyURL
  * @generated
  */
-@ProviderType
 public class LayoutFriendlyURLWrapper implements LayoutFriendlyURL,
     ModelWrapper<LayoutFriendlyURL> {
     private LayoutFriendlyURL _layoutFriendlyURL;

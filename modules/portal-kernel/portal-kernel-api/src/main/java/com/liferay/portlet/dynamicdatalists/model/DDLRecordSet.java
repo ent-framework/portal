@@ -1,7 +1,5 @@
 package com.liferay.portlet.dynamicdatalists.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.PersistedModel;
 
 /**
@@ -13,7 +11,6 @@ import com.liferay.portal.model.PersistedModel;
  * @see com.liferay.portlet.dynamicdatalists.model.impl.DDLRecordSetModelImpl
  * @generated
  */
-@ProviderType
 public interface DDLRecordSet extends DDLRecordSetModel, PersistedModel {
     /*
      * NOTE FOR DEVELOPERS:

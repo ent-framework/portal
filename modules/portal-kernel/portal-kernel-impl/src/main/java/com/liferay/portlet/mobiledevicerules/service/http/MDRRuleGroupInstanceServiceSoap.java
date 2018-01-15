@@ -1,7 +1,5 @@
 package com.liferay.portlet.mobiledevicerules.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portlet.mobiledevicerules.service.MDRRuleGroupInstanceServiceUtil;
 
 import org.slf4j.Logger;
@@ -49,7 +47,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portlet.mobiledevicerules.service.MDRRuleGroupInstanceServiceUtil
  * @generated
  */
-@ProviderType
 public class MDRRuleGroupInstanceServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(MDRRuleGroupInstanceServiceSoap.class);
 

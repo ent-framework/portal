@@ -1,7 +1,5 @@
 package com.liferay.portlet.documentlibrary.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.ModelWrapper;
 
@@ -17,7 +15,6 @@ import java.util.Map;
  * @see DLFileEntryMetadata
  * @generated
  */
-@ProviderType
 public class DLFileEntryMetadataWrapper implements DLFileEntryMetadata,
     ModelWrapper<DLFileEntryMetadata> {
     private DLFileEntryMetadata _dlFileEntryMetadata;

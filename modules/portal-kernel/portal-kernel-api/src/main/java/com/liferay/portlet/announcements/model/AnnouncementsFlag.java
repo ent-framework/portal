@@ -1,7 +1,5 @@
 package com.liferay.portlet.announcements.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.PersistedModel;
 
 /**
@@ -13,7 +11,6 @@ import com.liferay.portal.model.PersistedModel;
  * @see com.liferay.portlet.announcements.model.impl.AnnouncementsFlagModelImpl
  * @generated
  */
-@ProviderType
 public interface AnnouncementsFlag extends AnnouncementsFlagModel, PersistedModel {
     /*
      * NOTE FOR DEVELOPERS:

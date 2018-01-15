@@ -1,12 +1,9 @@
 package com.liferay.counter.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.util.ReferenceRegistry;
 
 
-@ProviderType
 public class CounterFinderUtil {
     private static CounterFinder _finder;
 

@@ -1,7 +1,5 @@
 package com.liferay.portal.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.LayoutSetPrototype;
 import com.liferay.portal.service.persistence.BasePersistence;
 
@@ -17,7 +15,6 @@ import com.liferay.portal.service.persistence.BasePersistence;
  * @see LayoutSetPrototypeUtil
  * @generated
  */
-@ProviderType
 public interface LayoutSetPrototypePersistence extends BasePersistence<LayoutSetPrototype> {
     /*
      * NOTE FOR DEVELOPERS:

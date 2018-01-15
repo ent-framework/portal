@@ -1,7 +1,5 @@
 package com.liferay.portlet.calendar.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.PersistedModel;
 
 /**
@@ -13,7 +11,6 @@ import com.liferay.portal.model.PersistedModel;
  * @see com.liferay.portlet.calendar.model.impl.CalEventModelImpl
  * @generated
  */
-@ProviderType
 public interface CalEvent extends CalEventModel, PersistedModel {
     /*
      * NOTE FOR DEVELOPERS:

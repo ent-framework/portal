@@ -1,9 +1,5 @@
 package com.liferay.portlet.documentlibrary.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
-
-@ProviderType
 public interface DLFolderFinder {
     public int countF_FE_FS_ByG_F_M_M(long groupId, long folderId,
         java.lang.String[] mimeTypes, boolean includeMountFolders,

@@ -1,7 +1,5 @@
 package com.liferay.portlet.documentlibrary.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.persistence.BasePersistence;
 
 import com.liferay.portlet.documentlibrary.model.DLFileShortcut;
@@ -18,7 +16,6 @@ import com.liferay.portlet.documentlibrary.model.DLFileShortcut;
  * @see DLFileShortcutUtil
  * @generated
  */
-@ProviderType
 public interface DLFileShortcutPersistence extends BasePersistence<DLFileShortcut> {
     /*
      * NOTE FOR DEVELOPERS:

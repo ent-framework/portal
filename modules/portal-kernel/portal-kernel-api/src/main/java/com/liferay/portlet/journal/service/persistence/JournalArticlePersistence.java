@@ -1,7 +1,5 @@
 package com.liferay.portlet.journal.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.persistence.BasePersistence;
 
 import com.liferay.portlet.journal.model.JournalArticle;
@@ -18,7 +16,6 @@ import com.liferay.portlet.journal.model.JournalArticle;
  * @see JournalArticleUtil
  * @generated
  */
-@ProviderType
 public interface JournalArticlePersistence extends BasePersistence<JournalArticle> {
     /*
      * NOTE FOR DEVELOPERS:

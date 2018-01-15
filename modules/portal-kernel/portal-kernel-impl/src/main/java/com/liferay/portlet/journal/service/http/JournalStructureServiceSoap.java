@@ -1,7 +1,5 @@
 package com.liferay.portlet.journal.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.LocalizationUtil;
 
 import com.liferay.portlet.journal.service.JournalStructureServiceUtil;
@@ -45,7 +43,6 @@ import java.util.Map;
             Dynamic Data Mapping framework to handle templates
  * @generated
  */
-@ProviderType
 public class JournalStructureServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(JournalStructureServiceSoap.class);
 

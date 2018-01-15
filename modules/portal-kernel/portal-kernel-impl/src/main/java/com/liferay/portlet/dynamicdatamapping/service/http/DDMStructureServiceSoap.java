@@ -1,7 +1,5 @@
 package com.liferay.portlet.dynamicdatamapping.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.LocalizationUtil;
 
 import com.liferay.portlet.dynamicdatamapping.service.DDMStructureServiceUtil;
@@ -54,7 +52,6 @@ import java.util.Map;
  * @see com.liferay.portlet.dynamicdatamapping.service.DDMStructureServiceUtil
  * @generated
  */
-@ProviderType
 public class DDMStructureServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(DDMStructureServiceSoap.class);
 

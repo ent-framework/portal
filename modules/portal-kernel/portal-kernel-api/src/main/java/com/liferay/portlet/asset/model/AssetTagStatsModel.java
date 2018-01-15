@@ -1,7 +1,5 @@
 package com.liferay.portlet.asset.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.model.TypedModel;
@@ -24,7 +22,6 @@ import java.io.Serializable;
  * @see com.liferay.portlet.asset.model.impl.AssetTagStatsModelImpl
  * @generated
  */
-@ProviderType
 public interface AssetTagStatsModel extends BaseModel<AssetTagStats>, TypedModel {
     /*
      * NOTE FOR DEVELOPERS:

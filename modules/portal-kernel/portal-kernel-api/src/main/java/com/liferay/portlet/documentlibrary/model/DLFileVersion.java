@@ -1,7 +1,5 @@
 package com.liferay.portlet.documentlibrary.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.PersistedModel;
 import com.liferay.portal.model.TreeModel;
 
@@ -14,7 +12,6 @@ import com.liferay.portal.model.TreeModel;
  * @see com.liferay.portlet.documentlibrary.model.impl.DLFileVersionModelImpl
  * @generated
  */
-@ProviderType
 public interface DLFileVersion extends DLFileVersionModel, PersistedModel,
     TreeModel {
     /*

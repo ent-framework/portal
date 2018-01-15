@@ -1,7 +1,5 @@
 package com.liferay.portlet.ratings.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see RatingsEntryLocalService
  * @generated
  */
-@ProviderType
 public class RatingsEntryLocalServiceWrapper implements RatingsEntryLocalService,
     ServiceWrapper<RatingsEntryLocalService> {
     private RatingsEntryLocalService _ratingsEntryLocalService;

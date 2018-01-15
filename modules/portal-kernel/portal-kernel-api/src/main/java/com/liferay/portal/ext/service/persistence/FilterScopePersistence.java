@@ -1,7 +1,5 @@
 package com.liferay.portal.ext.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.ext.model.FilterScope;
 import com.liferay.portal.service.persistence.BasePersistence;
 
@@ -17,7 +15,6 @@ import com.liferay.portal.service.persistence.BasePersistence;
  * @see FilterScopeUtil
  * @generated
  */
-@ProviderType
 public interface FilterScopePersistence extends BasePersistence<FilterScope> {
     /*
      * NOTE FOR DEVELOPERS:

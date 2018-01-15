@@ -1,7 +1,5 @@
 package com.liferay.portal.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.PersistedModel;
 import com.liferay.portal.model.TreeModel;
 
@@ -14,7 +12,6 @@ import com.liferay.portal.model.TreeModel;
  * @see com.liferay.portal.model.impl.GroupModelImpl
  * @generated
  */
-@ProviderType
 public interface Group extends GroupModel, PersistedModel, TreeModel {
     /*
      * NOTE FOR DEVELOPERS:

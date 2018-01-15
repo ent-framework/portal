@@ -1,7 +1,5 @@
 package com.liferay.portlet.documentlibrary.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.ModelWrapper;
 
@@ -18,7 +16,6 @@ import java.util.Map;
  * @see DLFileRank
  * @generated
  */
-@ProviderType
 public class DLFileRankWrapper implements DLFileRank, ModelWrapper<DLFileRank> {
     private DLFileRank _dlFileRank;
 

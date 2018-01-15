@@ -1,7 +1,5 @@
 package com.liferay.portal.ext.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.ext.model.FilterGroup;
 import com.liferay.portal.service.persistence.BasePersistence;
 
@@ -17,7 +15,6 @@ import com.liferay.portal.service.persistence.BasePersistence;
  * @see FilterGroupUtil
  * @generated
  */
-@ProviderType
 public interface FilterGroupPersistence extends BasePersistence<FilterGroup> {
     /*
      * NOTE FOR DEVELOPERS:

@@ -1,12 +1,9 @@
 package com.liferay.portlet.bookmarks.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.util.ReferenceRegistry;
 
 
-@ProviderType
 public class BookmarksFolderFinderUtil {
     private static BookmarksFolderFinder _finder;
 

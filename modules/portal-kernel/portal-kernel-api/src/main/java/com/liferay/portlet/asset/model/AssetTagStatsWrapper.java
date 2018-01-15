@@ -1,7 +1,5 @@
 package com.liferay.portlet.asset.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.ModelWrapper;
 
@@ -17,7 +15,6 @@ import java.util.Map;
  * @see AssetTagStats
  * @generated
  */
-@ProviderType
 public class AssetTagStatsWrapper implements AssetTagStats,
     ModelWrapper<AssetTagStats> {
     private AssetTagStats _assetTagStats;

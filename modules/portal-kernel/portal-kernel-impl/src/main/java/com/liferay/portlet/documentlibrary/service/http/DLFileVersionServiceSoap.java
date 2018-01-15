@@ -1,7 +1,5 @@
 package com.liferay.portlet.documentlibrary.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portlet.documentlibrary.service.DLFileVersionServiceUtil;
 
 import org.slf4j.Logger;
@@ -49,7 +47,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portlet.documentlibrary.service.DLFileVersionServiceUtil
  * @generated
  */
-@ProviderType
 public class DLFileVersionServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(DLFileVersionServiceSoap.class);
 

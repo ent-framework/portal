@@ -1,7 +1,5 @@
 package com.liferay.portlet.documentlibrary.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.LocalizationUtil;
 
 import com.liferay.portlet.documentlibrary.service.DLFileEntryTypeServiceUtil;
@@ -54,7 +52,6 @@ import java.util.Map;
  * @see com.liferay.portlet.documentlibrary.service.DLFileEntryTypeServiceUtil
  * @generated
  */
-@ProviderType
 public class DLFileEntryTypeServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(DLFileEntryTypeServiceSoap.class);
 

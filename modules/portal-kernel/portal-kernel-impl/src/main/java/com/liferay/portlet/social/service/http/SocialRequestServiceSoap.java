@@ -1,7 +1,5 @@
 package com.liferay.portlet.social.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 /**
  * Provides the SOAP utility for the
  * {@link com.liferay.portlet.social.service.SocialRequestServiceUtil} service utility. The
@@ -42,6 +40,5 @@ import aQute.bnd.annotation.ProviderType;
  * @see com.liferay.portlet.social.service.SocialRequestServiceUtil
  * @generated
  */
-@ProviderType
 public class SocialRequestServiceSoap {
 }

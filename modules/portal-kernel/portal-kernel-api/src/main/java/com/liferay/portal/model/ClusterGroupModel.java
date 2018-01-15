@@ -1,7 +1,5 @@
 package com.liferay.portal.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.CacheModel;
@@ -24,7 +22,6 @@ import java.io.Serializable;
  * @see com.liferay.portal.model.impl.ClusterGroupModelImpl
  * @generated
  */
-@ProviderType
 public interface ClusterGroupModel extends BaseModel<ClusterGroup> {
     /*
      * NOTE FOR DEVELOPERS:

@@ -1,12 +1,9 @@
 package com.liferay.portlet.ratings.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.util.ReferenceRegistry;
 
 
-@ProviderType
 public class RatingsEntryFinderUtil {
     private static RatingsEntryFinder _finder;
 

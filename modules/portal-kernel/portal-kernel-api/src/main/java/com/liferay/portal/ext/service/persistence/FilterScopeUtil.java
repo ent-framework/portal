@@ -1,7 +1,5 @@
 package com.liferay.portal.ext.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.ext.model.FilterScope;
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
@@ -24,7 +22,6 @@ import java.util.List;
  * @see FilterScopePersistenceImpl
  * @generated
  */
-@ProviderType
 public class FilterScopeUtil {
     private static FilterScopePersistence _persistence;
 

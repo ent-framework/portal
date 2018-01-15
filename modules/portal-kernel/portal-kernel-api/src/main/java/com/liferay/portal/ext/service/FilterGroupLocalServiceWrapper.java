@@ -1,7 +1,5 @@
 package com.liferay.portal.ext.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see FilterGroupLocalService
  * @generated
  */
-@ProviderType
 public class FilterGroupLocalServiceWrapper implements FilterGroupLocalService,
     ServiceWrapper<FilterGroupLocalService> {
     private FilterGroupLocalService _filterGroupLocalService;

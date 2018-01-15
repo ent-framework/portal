@@ -1,7 +1,5 @@
 package com.liferay.portal.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.ModelWrapper;
 
@@ -17,7 +15,6 @@ import java.util.Map;
  * @see Group
  * @generated
  */
-@ProviderType
 public class GroupWrapper implements Group, ModelWrapper<Group> {
     private Group _group;
 

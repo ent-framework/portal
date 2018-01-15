@@ -1,7 +1,5 @@
 package com.liferay.portlet.social.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see SocialActivityService
  * @generated
  */
-@ProviderType
 public class SocialActivityServiceWrapper implements SocialActivityService,
     ServiceWrapper<SocialActivityService> {
     private SocialActivityService _socialActivityService;

@@ -1,7 +1,5 @@
 package com.liferay.portal.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.ModelWrapper;
 
@@ -18,7 +16,6 @@ import java.util.Map;
  * @see UserTracker
  * @generated
  */
-@ProviderType
 public class UserTrackerWrapper implements UserTracker,
     ModelWrapper<UserTracker> {
     private UserTracker _userTracker;

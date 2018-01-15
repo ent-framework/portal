@@ -1,7 +1,5 @@
 package com.liferay.portlet.softwarecatalog.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.AuditedModel;
@@ -28,7 +26,6 @@ import java.util.Date;
  * @see com.liferay.portlet.softwarecatalog.model.impl.SCProductVersionModelImpl
  * @generated
  */
-@ProviderType
 public interface SCProductVersionModel extends AuditedModel,
     BaseModel<SCProductVersion> {
     /*

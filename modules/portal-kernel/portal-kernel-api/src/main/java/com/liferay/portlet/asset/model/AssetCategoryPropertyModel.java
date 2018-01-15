@@ -1,7 +1,5 @@
 package com.liferay.portlet.asset.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.AuditedModel;
@@ -28,7 +26,6 @@ import java.util.Date;
  * @see com.liferay.portlet.asset.model.impl.AssetCategoryPropertyModelImpl
  * @generated
  */
-@ProviderType
 public interface AssetCategoryPropertyModel extends AuditedModel,
     BaseModel<AssetCategoryProperty> {
     /*

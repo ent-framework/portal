@@ -1,7 +1,5 @@
 package com.liferay.portal.ext.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.CacheModel;
@@ -24,7 +22,6 @@ import java.io.Serializable;
  * @see com.liferay.portal.ext.model.impl.FilterScopeModelImpl
  * @generated
  */
-@ProviderType
 public interface FilterScopeModel extends BaseModel<FilterScope> {
     /*
      * NOTE FOR DEVELOPERS:

@@ -1,7 +1,5 @@
 package com.liferay.portlet.journal.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.util.ReferenceRegistry;
 
@@ -19,7 +17,6 @@ import com.liferay.portal.kernel.util.ReferenceRegistry;
  * @see com.liferay.portlet.journal.service.impl.JournalFolderServiceImpl
  * @generated
  */
-@ProviderType
 public class JournalFolderServiceUtil {
     private static JournalFolderService _service;
 

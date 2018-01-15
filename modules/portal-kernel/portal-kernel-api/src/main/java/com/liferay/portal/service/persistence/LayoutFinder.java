@@ -1,9 +1,5 @@
 package com.liferay.portal.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
-
-@ProviderType
 public interface LayoutFinder {
     public java.util.List<com.liferay.portal.model.Layout> findByNoPermissions(
         long roleId) throws com.liferay.portal.kernel.exception.SystemException;

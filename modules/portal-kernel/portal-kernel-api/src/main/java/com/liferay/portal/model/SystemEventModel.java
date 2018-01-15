@@ -1,7 +1,5 @@
 package com.liferay.portal.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.AttachedModel;
@@ -28,7 +26,6 @@ import java.util.Date;
  * @see com.liferay.portal.model.impl.SystemEventModelImpl
  * @generated
  */
-@ProviderType
 public interface SystemEventModel extends AttachedModel, BaseModel<SystemEvent> {
     /*
      * NOTE FOR DEVELOPERS:

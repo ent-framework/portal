@@ -1,7 +1,5 @@
 package com.liferay.portal.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ContactServiceUtil;
 
 import org.slf4j.Logger;
@@ -49,7 +47,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portal.service.ContactServiceUtil
  * @generated
  */
-@ProviderType
 public class ContactServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(ContactServiceSoap.class);
 

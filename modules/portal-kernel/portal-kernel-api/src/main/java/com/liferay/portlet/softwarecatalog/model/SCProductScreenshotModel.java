@@ -1,7 +1,5 @@
 package com.liferay.portlet.softwarecatalog.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.service.ServiceContext;
@@ -23,7 +21,6 @@ import java.io.Serializable;
  * @see com.liferay.portlet.softwarecatalog.model.impl.SCProductScreenshotModelImpl
  * @generated
  */
-@ProviderType
 public interface SCProductScreenshotModel extends BaseModel<SCProductScreenshot> {
     /*
      * NOTE FOR DEVELOPERS:

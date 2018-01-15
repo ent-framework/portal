@@ -1,7 +1,5 @@
 package com.liferay.portlet.journal.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.util.ReferenceRegistry;
 
@@ -21,7 +19,6 @@ import com.liferay.portal.kernel.util.ReferenceRegistry;
 Dynamic Data Mapping framework to handle templates
  * @generated
  */
-@ProviderType
 public class JournalTemplateServiceUtil {
     private static JournalTemplateService _service;
 

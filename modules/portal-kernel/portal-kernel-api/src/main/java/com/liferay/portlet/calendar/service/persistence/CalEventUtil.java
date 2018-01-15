@@ -1,7 +1,5 @@
 package com.liferay.portlet.calendar.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -25,7 +23,6 @@ import java.util.List;
  * @see CalEventPersistenceImpl
  * @generated
  */
-@ProviderType
 public class CalEventUtil {
     private static CalEventPersistence _persistence;
 

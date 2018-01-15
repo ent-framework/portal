@@ -1,7 +1,5 @@
 package com.liferay.portlet.expando.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.persistence.BasePersistence;
 
 import com.liferay.portlet.expando.model.ExpandoValue;
@@ -18,7 +16,6 @@ import com.liferay.portlet.expando.model.ExpandoValue;
  * @see ExpandoValueUtil
  * @generated
  */
-@ProviderType
 public interface ExpandoValuePersistence extends BasePersistence<ExpandoValue> {
     /*
      * NOTE FOR DEVELOPERS:

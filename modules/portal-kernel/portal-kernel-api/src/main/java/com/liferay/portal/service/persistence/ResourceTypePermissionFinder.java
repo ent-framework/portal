@@ -1,9 +1,5 @@
 package com.liferay.portal.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
-
-@ProviderType
 public interface ResourceTypePermissionFinder {
     public java.util.List<com.liferay.portal.model.ResourceTypePermission> findByEitherScopeC_G_N(
         long companyId, long groupId, java.lang.String name)

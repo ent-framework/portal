@@ -1,7 +1,5 @@
 package com.liferay.portal.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.ModelWrapper;
 
@@ -17,7 +15,6 @@ import java.util.Map;
  * @see ServiceComponent
  * @generated
  */
-@ProviderType
 public class ServiceComponentWrapper implements ServiceComponent,
     ModelWrapper<ServiceComponent> {
     private ServiceComponent _serviceComponent;

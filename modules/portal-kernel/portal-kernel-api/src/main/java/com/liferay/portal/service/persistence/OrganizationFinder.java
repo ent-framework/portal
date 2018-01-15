@@ -1,9 +1,5 @@
 package com.liferay.portal.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
-
-@ProviderType
 public interface OrganizationFinder {
     public int countByKeywords(long companyId, long parentOrganizationId,
         java.lang.String parentOrganizationIdComparator,

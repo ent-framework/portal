@@ -1,7 +1,5 @@
 package com.liferay.portlet.bookmarks.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.persistence.BasePersistence;
 
 import com.liferay.portlet.bookmarks.model.BookmarksEntry;
@@ -18,7 +16,6 @@ import com.liferay.portlet.bookmarks.model.BookmarksEntry;
  * @see BookmarksEntryUtil
  * @generated
  */
-@ProviderType
 public interface BookmarksEntryPersistence extends BasePersistence<BookmarksEntry> {
     /*
      * NOTE FOR DEVELOPERS:

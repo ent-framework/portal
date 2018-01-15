@@ -1,7 +1,5 @@
 package com.liferay.portal.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ThemeServiceUtil;
 
 import org.slf4j.Logger;
@@ -38,7 +36,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portal.service.ThemeServiceUtil
  * @generated
  */
-@ProviderType
 public class ThemeServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(ThemeServiceSoap.class);
 

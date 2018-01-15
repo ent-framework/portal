@@ -1,7 +1,5 @@
 package com.liferay.portal.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.Accessor;
 import com.liferay.portal.model.PersistedModel;
 
@@ -14,7 +12,6 @@ import com.liferay.portal.model.PersistedModel;
  * @see com.liferay.portal.model.impl.UserGroupModelImpl
  * @generated
  */
-@ProviderType
 public interface UserGroup extends UserGroupModel, PersistedModel {
     /*
      * NOTE FOR DEVELOPERS:

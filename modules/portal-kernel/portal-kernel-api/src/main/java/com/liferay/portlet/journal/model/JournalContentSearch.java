@@ -1,7 +1,5 @@
 package com.liferay.portlet.journal.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.PersistedModel;
 
 /**
@@ -13,7 +11,6 @@ import com.liferay.portal.model.PersistedModel;
  * @see com.liferay.portlet.journal.model.impl.JournalContentSearchModelImpl
  * @generated
  */
-@ProviderType
 public interface JournalContentSearch extends JournalContentSearchModel,
     PersistedModel {
     /*

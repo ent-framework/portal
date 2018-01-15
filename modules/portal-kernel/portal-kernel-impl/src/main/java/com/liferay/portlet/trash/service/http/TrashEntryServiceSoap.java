@@ -1,7 +1,5 @@
 package com.liferay.portlet.trash.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portlet.trash.service.TrashEntryServiceUtil;
 
 import org.slf4j.Logger;
@@ -49,7 +47,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portlet.trash.service.TrashEntryServiceUtil
  * @generated
  */
-@ProviderType
 public class TrashEntryServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(TrashEntryServiceSoap.class);
 

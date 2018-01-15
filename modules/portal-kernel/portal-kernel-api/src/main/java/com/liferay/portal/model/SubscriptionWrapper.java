@@ -1,7 +1,5 @@
 package com.liferay.portal.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.ModelWrapper;
 
@@ -18,7 +16,6 @@ import java.util.Map;
  * @see Subscription
  * @generated
  */
-@ProviderType
 public class SubscriptionWrapper implements Subscription,
     ModelWrapper<Subscription> {
     private Subscription _subscription;

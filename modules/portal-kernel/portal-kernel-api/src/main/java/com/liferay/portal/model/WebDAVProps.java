@@ -1,7 +1,5 @@
 package com.liferay.portal.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.PersistedModel;
 
 /**
@@ -13,7 +11,6 @@ import com.liferay.portal.model.PersistedModel;
  * @see com.liferay.portal.model.impl.WebDAVPropsModelImpl
  * @generated
  */
-@ProviderType
 public interface WebDAVProps extends WebDAVPropsModel, PersistedModel {
     /*
      * NOTE FOR DEVELOPERS:

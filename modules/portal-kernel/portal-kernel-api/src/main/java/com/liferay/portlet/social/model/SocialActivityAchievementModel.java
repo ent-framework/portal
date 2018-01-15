@@ -1,7 +1,5 @@
 package com.liferay.portlet.social.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.BaseModel;
@@ -25,7 +23,6 @@ import java.io.Serializable;
  * @see com.liferay.portlet.social.model.impl.SocialActivityAchievementModelImpl
  * @generated
  */
-@ProviderType
 public interface SocialActivityAchievementModel extends BaseModel<SocialActivityAchievement> {
     /*
      * NOTE FOR DEVELOPERS:

@@ -1,7 +1,5 @@
 package com.liferay.portal.ext.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.BaseModel;
@@ -27,7 +25,6 @@ import java.util.Date;
  * @see com.liferay.portal.ext.model.impl.FilterGroupModelImpl
  * @generated
  */
-@ProviderType
 public interface FilterGroupModel extends BaseModel<FilterGroup> {
     /*
      * NOTE FOR DEVELOPERS:

@@ -1,9 +1,5 @@
 package com.liferay.portlet.asset.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
-
-@ProviderType
 public interface AssetTagFinder {
     public int countByG_C_N(long groupId, long classNameId,
         java.lang.String name)

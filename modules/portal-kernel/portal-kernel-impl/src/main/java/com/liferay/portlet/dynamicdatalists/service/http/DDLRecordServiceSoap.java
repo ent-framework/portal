@@ -1,7 +1,5 @@
 package com.liferay.portlet.dynamicdatalists.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.LocaleUtil;
 
 import com.liferay.portlet.dynamicdatalists.service.DDLRecordServiceUtil;
@@ -51,7 +49,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portlet.dynamicdatalists.service.DDLRecordServiceUtil
  * @generated
  */
-@ProviderType
 public class DDLRecordServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(DDLRecordServiceSoap.class);
 

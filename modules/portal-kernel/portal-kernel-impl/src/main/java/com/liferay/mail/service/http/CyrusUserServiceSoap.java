@@ -1,7 +1,5 @@
 package com.liferay.mail.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 /**
  * Provides the SOAP utility for the
  * {@link com.liferay.mail.service.CyrusUserServiceUtil} service utility. The
@@ -42,6 +40,5 @@ import aQute.bnd.annotation.ProviderType;
  * @see com.liferay.mail.service.CyrusUserServiceUtil
  * @generated
  */
-@ProviderType
 public class CyrusUserServiceSoap {
 }

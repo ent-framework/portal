@@ -1,7 +1,5 @@
 package com.liferay.mail.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.mail.model.CyrusUser;
 
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
@@ -25,7 +23,6 @@ import java.util.List;
  * @see CyrusUserPersistenceImpl
  * @generated
  */
-@ProviderType
 public class CyrusUserUtil {
     private static CyrusUserPersistence _persistence;
 

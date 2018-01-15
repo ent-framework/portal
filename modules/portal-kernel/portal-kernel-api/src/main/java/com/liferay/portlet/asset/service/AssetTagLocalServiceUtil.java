@@ -1,7 +1,5 @@
 package com.liferay.portlet.asset.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.util.ReferenceRegistry;
 
@@ -19,7 +17,6 @@ import com.liferay.portal.kernel.util.ReferenceRegistry;
  * @see com.liferay.portlet.asset.service.impl.AssetTagLocalServiceImpl
  * @generated
  */
-@ProviderType
 public class AssetTagLocalServiceUtil {
     private static AssetTagLocalService _service;
 

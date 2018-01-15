@@ -1,7 +1,5 @@
 package com.liferay.portal.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.MembershipRequest;
 import com.liferay.portal.service.persistence.BasePersistence;
 
@@ -17,7 +15,6 @@ import com.liferay.portal.service.persistence.BasePersistence;
  * @see MembershipRequestUtil
  * @generated
  */
-@ProviderType
 public interface MembershipRequestPersistence extends BasePersistence<MembershipRequest> {
     /*
      * NOTE FOR DEVELOPERS:

@@ -1,9 +1,5 @@
 package com.liferay.portlet.journal.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
-
-@ProviderType
 public interface JournalFeedFinder {
     public int countByKeywords(long companyId, long groupId,
         java.lang.String keywords)

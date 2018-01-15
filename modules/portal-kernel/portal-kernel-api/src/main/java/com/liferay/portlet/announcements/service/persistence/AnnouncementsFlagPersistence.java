@@ -1,7 +1,5 @@
 package com.liferay.portlet.announcements.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.persistence.BasePersistence;
 
 import com.liferay.portlet.announcements.model.AnnouncementsFlag;
@@ -18,7 +16,6 @@ import com.liferay.portlet.announcements.model.AnnouncementsFlag;
  * @see AnnouncementsFlagUtil
  * @generated
  */
-@ProviderType
 public interface AnnouncementsFlagPersistence extends BasePersistence<AnnouncementsFlag> {
     /*
      * NOTE FOR DEVELOPERS:

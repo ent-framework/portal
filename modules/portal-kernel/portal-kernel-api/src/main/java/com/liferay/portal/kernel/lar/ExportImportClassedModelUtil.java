@@ -14,15 +14,12 @@
 
 package com.liferay.portal.kernel.lar;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.ClassedModel;
 import com.liferay.portal.model.StagedModel;
 
 /**
  * @author Mate Thurzo
  */
-@ProviderType
 public class ExportImportClassedModelUtil {
 
 	public static String getClassName(ClassedModel classedModel) {

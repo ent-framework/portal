@@ -1,7 +1,5 @@
 package com.liferay.portlet.social.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portlet.social.service.SocialActivityServiceUtil;
 
 import org.slf4j.Logger;
@@ -49,7 +47,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portlet.social.service.SocialActivityServiceUtil
  * @generated
  */
-@ProviderType
 public class SocialActivityServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(SocialActivityServiceSoap.class);
 

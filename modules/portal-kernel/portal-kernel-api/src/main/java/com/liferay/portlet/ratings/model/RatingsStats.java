@@ -1,7 +1,5 @@
 package com.liferay.portlet.ratings.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.model.PersistedModel;
 
 /**
@@ -13,7 +11,6 @@ import com.liferay.portal.model.PersistedModel;
  * @see com.liferay.portlet.ratings.model.impl.RatingsStatsModelImpl
  * @generated
  */
-@ProviderType
 public interface RatingsStats extends RatingsStatsModel, PersistedModel {
     /*
      * NOTE FOR DEVELOPERS:

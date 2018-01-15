@@ -1,7 +1,5 @@
 package com.liferay.portlet.documentlibrary.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see DLFileShortcutLocalService
  * @generated
  */
-@ProviderType
 public class DLFileShortcutLocalServiceWrapper
     implements DLFileShortcutLocalService,
         ServiceWrapper<DLFileShortcutLocalService> {

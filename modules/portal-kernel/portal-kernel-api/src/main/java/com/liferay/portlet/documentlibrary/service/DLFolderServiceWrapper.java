@@ -1,7 +1,5 @@
 package com.liferay.portlet.documentlibrary.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see DLFolderService
  * @generated
  */
-@ProviderType
 public class DLFolderServiceWrapper implements DLFolderService,
     ServiceWrapper<DLFolderService> {
     private DLFolderService _dlFolderService;

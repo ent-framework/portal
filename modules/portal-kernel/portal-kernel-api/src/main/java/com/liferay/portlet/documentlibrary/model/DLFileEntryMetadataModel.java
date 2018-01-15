@@ -1,7 +1,5 @@
 package com.liferay.portlet.documentlibrary.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.CacheModel;
@@ -24,7 +22,6 @@ import java.io.Serializable;
  * @see com.liferay.portlet.documentlibrary.model.impl.DLFileEntryMetadataModelImpl
  * @generated
  */
-@ProviderType
 public interface DLFileEntryMetadataModel extends BaseModel<DLFileEntryMetadata> {
     /*
      * NOTE FOR DEVELOPERS:

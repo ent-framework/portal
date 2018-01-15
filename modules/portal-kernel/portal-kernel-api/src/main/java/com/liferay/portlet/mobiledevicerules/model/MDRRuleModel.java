@@ -1,7 +1,5 @@
 package com.liferay.portlet.mobiledevicerules.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.LocaleException;
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -31,7 +29,6 @@ import java.util.Map;
  * @see com.liferay.portlet.mobiledevicerules.model.impl.MDRRuleModelImpl
  * @generated
  */
-@ProviderType
 public interface MDRRuleModel extends BaseModel<MDRRule>, StagedGroupedModel {
     /*
      * NOTE FOR DEVELOPERS:

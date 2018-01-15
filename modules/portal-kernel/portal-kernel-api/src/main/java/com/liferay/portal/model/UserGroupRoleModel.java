@@ -1,7 +1,5 @@
 package com.liferay.portal.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.CacheModel;
@@ -25,7 +23,6 @@ import java.io.Serializable;
  * @see com.liferay.portal.model.impl.UserGroupRoleModelImpl
  * @generated
  */
-@ProviderType
 public interface UserGroupRoleModel extends BaseModel<UserGroupRole> {
     /*
      * NOTE FOR DEVELOPERS:

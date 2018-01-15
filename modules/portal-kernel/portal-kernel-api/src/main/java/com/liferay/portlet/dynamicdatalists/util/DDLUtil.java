@@ -14,8 +14,6 @@
 
 package com.liferay.portlet.dynamicdatalists.util;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.Util;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONObject;
@@ -38,7 +36,6 @@ import javax.servlet.http.HttpServletRequest;
  * @author Eduardo Lundgren
  * @author Marcellus Tavares
  */
-@ProviderType
 @Util
 public class DDLUtil {
 

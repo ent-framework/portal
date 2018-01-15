@@ -1,9 +1,5 @@
 package com.liferay.portlet.social.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
-
-@ProviderType
 public interface SocialActivitySetFinder {
     public int countByRelation(long userId)
         throws com.liferay.portal.kernel.exception.SystemException;

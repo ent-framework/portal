@@ -1,7 +1,5 @@
 package com.liferay.portlet.asset.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.LocalizationUtil;
 
 import com.liferay.portlet.asset.service.AssetVocabularyServiceUtil;
@@ -54,7 +52,6 @@ import java.util.Map;
  * @see com.liferay.portlet.asset.service.AssetVocabularyServiceUtil
  * @generated
  */
-@ProviderType
 public class AssetVocabularyServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(AssetVocabularyServiceSoap.class);
 

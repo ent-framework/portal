@@ -1,7 +1,5 @@
 package com.liferay.portlet.social.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.ModelWrapper;
 
@@ -17,7 +15,6 @@ import java.util.Map;
  * @see SocialActivitySetting
  * @generated
  */
-@ProviderType
 public class SocialActivitySettingWrapper implements SocialActivitySetting,
     ModelWrapper<SocialActivitySetting> {
     private SocialActivitySetting _socialActivitySetting;

@@ -1,7 +1,5 @@
 package com.liferay.portal.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.service.UserServiceUtil;
 
@@ -50,7 +48,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portal.service.UserServiceUtil
  * @generated
  */
-@ProviderType
 public class UserServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(UserServiceSoap.class);
 

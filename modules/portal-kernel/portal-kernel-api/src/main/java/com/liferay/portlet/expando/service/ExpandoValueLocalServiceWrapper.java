@@ -1,7 +1,5 @@
 package com.liferay.portlet.expando.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see ExpandoValueLocalService
  * @generated
  */
-@ProviderType
 public class ExpandoValueLocalServiceWrapper implements ExpandoValueLocalService,
     ServiceWrapper<ExpandoValueLocalService> {
     private ExpandoValueLocalService _expandoValueLocalService;

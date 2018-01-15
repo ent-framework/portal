@@ -1,7 +1,5 @@
 package com.liferay.portlet.softwarecatalog.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portlet.softwarecatalog.service.SCFrameworkVersionServiceUtil;
 
 import org.slf4j.Logger;
@@ -49,7 +47,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portlet.softwarecatalog.service.SCFrameworkVersionServiceUtil
  * @generated
  */
-@ProviderType
 public class SCFrameworkVersionServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(SCFrameworkVersionServiceSoap.class);
 

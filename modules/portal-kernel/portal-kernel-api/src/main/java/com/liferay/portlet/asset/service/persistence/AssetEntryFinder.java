@@ -1,9 +1,5 @@
 package com.liferay.portlet.asset.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
-
-@ProviderType
 public interface AssetEntryFinder {
     public int countEntries(
         com.liferay.portlet.asset.service.persistence.AssetEntryQuery entryQuery)

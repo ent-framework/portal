@@ -1,7 +1,5 @@
 package com.liferay.portlet.documentlibrary.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.LocaleException;
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -31,7 +29,6 @@ import java.util.Map;
  * @see com.liferay.portlet.documentlibrary.model.impl.DLFileEntryTypeModelImpl
  * @generated
  */
-@ProviderType
 public interface DLFileEntryTypeModel extends BaseModel<DLFileEntryType>,
     StagedGroupedModel {
     /*

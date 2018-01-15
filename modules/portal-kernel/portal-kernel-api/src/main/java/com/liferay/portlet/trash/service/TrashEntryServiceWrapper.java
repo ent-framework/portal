@@ -1,7 +1,5 @@
 package com.liferay.portlet.trash.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see TrashEntryService
  * @generated
  */
-@ProviderType
 public class TrashEntryServiceWrapper implements TrashEntryService,
     ServiceWrapper<TrashEntryService> {
     private TrashEntryService _trashEntryService;

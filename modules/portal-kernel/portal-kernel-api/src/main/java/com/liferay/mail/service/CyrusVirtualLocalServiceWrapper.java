@@ -1,7 +1,5 @@
 package com.liferay.mail.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see CyrusVirtualLocalService
  * @generated
  */
-@ProviderType
 public class CyrusVirtualLocalServiceWrapper implements CyrusVirtualLocalService,
     ServiceWrapper<CyrusVirtualLocalService> {
     private CyrusVirtualLocalService _cyrusVirtualLocalService;

@@ -1,9 +1,5 @@
 package com.liferay.portal.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
-
-@ProviderType
 public interface UserGroupFinder {
     public int countByKeywords(long companyId, java.lang.String keywords,
         java.util.LinkedHashMap<java.lang.String, java.lang.Object> params)

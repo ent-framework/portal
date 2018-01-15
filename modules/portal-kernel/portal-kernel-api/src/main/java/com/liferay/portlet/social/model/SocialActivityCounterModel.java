@@ -1,7 +1,5 @@
 package com.liferay.portlet.social.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.model.AttachedModel;
 import com.liferay.portal.model.BaseModel;
@@ -25,7 +23,6 @@ import java.io.Serializable;
  * @see com.liferay.portlet.social.model.impl.SocialActivityCounterModelImpl
  * @generated
  */
-@ProviderType
 public interface SocialActivityCounterModel extends AttachedModel,
     BaseModel<SocialActivityCounter> {
     /*

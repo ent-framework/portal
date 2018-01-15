@@ -1,7 +1,5 @@
 package com.liferay.portlet.documentlibrary.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see DLFileRankLocalService
  * @generated
  */
-@ProviderType
 public class DLFileRankLocalServiceWrapper implements DLFileRankLocalService,
     ServiceWrapper<DLFileRankLocalService> {
     private DLFileRankLocalService _dlFileRankLocalService;

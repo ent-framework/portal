@@ -1,7 +1,5 @@
 package com.liferay.mail.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.mail.model.CyrusUser;
 
 import com.liferay.portal.service.persistence.BasePersistence;
@@ -18,7 +16,6 @@ import com.liferay.portal.service.persistence.BasePersistence;
  * @see CyrusUserUtil
  * @generated
  */
-@ProviderType
 public interface CyrusUserPersistence extends BasePersistence<CyrusUser> {
     /*
      * NOTE FOR DEVELOPERS:

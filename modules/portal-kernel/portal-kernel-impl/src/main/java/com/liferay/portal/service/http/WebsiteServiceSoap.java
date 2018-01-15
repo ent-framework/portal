@@ -1,7 +1,5 @@
 package com.liferay.portal.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.WebsiteServiceUtil;
 
 import org.slf4j.Logger;
@@ -49,7 +47,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portal.service.WebsiteServiceUtil
  * @generated
  */
-@ProviderType
 public class WebsiteServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(WebsiteServiceSoap.class);
 

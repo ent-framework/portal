@@ -1,7 +1,5 @@
 package com.liferay.portlet.flags.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portlet.flags.service.FlagsEntryServiceUtil;
 
 import org.slf4j.Logger;
@@ -38,7 +36,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portlet.flags.service.FlagsEntryServiceUtil
  * @generated
  */
-@ProviderType
 public class FlagsEntryServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(FlagsEntryServiceSoap.class);
 

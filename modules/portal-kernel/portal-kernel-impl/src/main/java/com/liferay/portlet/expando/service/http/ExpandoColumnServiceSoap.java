@@ -1,7 +1,5 @@
 package com.liferay.portlet.expando.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portlet.expando.service.ExpandoColumnServiceUtil;
 
 import org.slf4j.Logger;
@@ -49,7 +47,6 @@ import java.rmi.RemoteException;
  * @see com.liferay.portlet.expando.service.ExpandoColumnServiceUtil
  * @generated
  */
-@ProviderType
 public class ExpandoColumnServiceSoap {
     private static final Logger _log = LoggerFactory.getLogger(ExpandoColumnServiceSoap.class);
 

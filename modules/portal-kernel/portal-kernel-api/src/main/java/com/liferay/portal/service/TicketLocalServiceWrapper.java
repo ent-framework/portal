@@ -1,7 +1,5 @@
 package com.liferay.portal.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see TicketLocalService
  * @generated
  */
-@ProviderType
 public class TicketLocalServiceWrapper implements TicketLocalService,
     ServiceWrapper<TicketLocalService> {
     private TicketLocalService _ticketLocalService;

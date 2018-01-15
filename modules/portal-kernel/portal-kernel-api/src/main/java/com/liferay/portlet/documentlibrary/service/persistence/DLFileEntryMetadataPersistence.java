@@ -1,7 +1,5 @@
 package com.liferay.portlet.documentlibrary.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.persistence.BasePersistence;
 
 import com.liferay.portlet.documentlibrary.model.DLFileEntryMetadata;
@@ -18,7 +16,6 @@ import com.liferay.portlet.documentlibrary.model.DLFileEntryMetadata;
  * @see DLFileEntryMetadataUtil
  * @generated
  */
-@ProviderType
 public interface DLFileEntryMetadataPersistence extends BasePersistence<DLFileEntryMetadata> {
     /*
      * NOTE FOR DEVELOPERS:

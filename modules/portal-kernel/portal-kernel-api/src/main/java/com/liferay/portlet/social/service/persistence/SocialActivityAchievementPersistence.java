@@ -1,7 +1,5 @@
 package com.liferay.portlet.social.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.persistence.BasePersistence;
 
 import com.liferay.portlet.social.model.SocialActivityAchievement;
@@ -18,7 +16,6 @@ import com.liferay.portlet.social.model.SocialActivityAchievement;
  * @see SocialActivityAchievementUtil
  * @generated
  */
-@ProviderType
 public interface SocialActivityAchievementPersistence extends BasePersistence<SocialActivityAchievement> {
     /*
      * NOTE FOR DEVELOPERS:

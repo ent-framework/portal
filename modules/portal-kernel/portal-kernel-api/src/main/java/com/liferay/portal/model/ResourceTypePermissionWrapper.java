@@ -1,7 +1,5 @@
 package com.liferay.portal.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.ModelWrapper;
 
@@ -17,7 +15,6 @@ import java.util.Map;
  * @see ResourceTypePermission
  * @generated
  */
-@ProviderType
 public class ResourceTypePermissionWrapper implements ResourceTypePermission,
     ModelWrapper<ResourceTypePermission> {
     private ResourceTypePermission _resourceTypePermission;

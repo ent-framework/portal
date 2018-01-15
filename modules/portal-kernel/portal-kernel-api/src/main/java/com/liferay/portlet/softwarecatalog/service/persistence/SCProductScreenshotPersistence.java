@@ -1,7 +1,5 @@
 package com.liferay.portlet.softwarecatalog.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.persistence.BasePersistence;
 
 import com.liferay.portlet.softwarecatalog.model.SCProductScreenshot;
@@ -18,7 +16,6 @@ import com.liferay.portlet.softwarecatalog.model.SCProductScreenshot;
  * @see SCProductScreenshotUtil
  * @generated
  */
-@ProviderType
 public interface SCProductScreenshotPersistence extends BasePersistence<SCProductScreenshot> {
     /*
      * NOTE FOR DEVELOPERS:

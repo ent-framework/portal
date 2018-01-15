@@ -1,7 +1,5 @@
 package com.liferay.portal.ext.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.ModelWrapper;
 
@@ -17,7 +15,6 @@ import java.util.Map;
  * @see FilterScope
  * @generated
  */
-@ProviderType
 public class FilterScopeWrapper implements FilterScope,
     ModelWrapper<FilterScope> {
     private FilterScope _filterScope;

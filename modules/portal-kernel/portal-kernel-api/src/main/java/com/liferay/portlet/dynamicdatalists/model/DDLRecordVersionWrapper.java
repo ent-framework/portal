@@ -1,7 +1,5 @@
 package com.liferay.portlet.dynamicdatalists.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.ModelWrapper;
 
@@ -18,7 +16,6 @@ import java.util.Map;
  * @see DDLRecordVersion
  * @generated
  */
-@ProviderType
 public class DDLRecordVersionWrapper implements DDLRecordVersion,
     ModelWrapper<DDLRecordVersion> {
     private DDLRecordVersion _ddlRecordVersion;

@@ -1,7 +1,5 @@
 package com.liferay.portal.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see PortletItemLocalService
  * @generated
  */
-@ProviderType
 public class PortletItemLocalServiceWrapper implements PortletItemLocalService,
     ServiceWrapper<PortletItemLocalService> {
     private PortletItemLocalService _portletItemLocalService;

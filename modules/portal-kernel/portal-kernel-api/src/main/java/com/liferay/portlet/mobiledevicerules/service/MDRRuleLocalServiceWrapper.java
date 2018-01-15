@@ -1,7 +1,5 @@
 package com.liferay.portlet.mobiledevicerules.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see MDRRuleLocalService
  * @generated
  */
-@ProviderType
 public class MDRRuleLocalServiceWrapper implements MDRRuleLocalService,
     ServiceWrapper<MDRRuleLocalService> {
     private MDRRuleLocalService _mdrRuleLocalService;

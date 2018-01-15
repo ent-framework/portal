@@ -1,7 +1,5 @@
 package com.liferay.portal.model;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.CacheModel;
@@ -24,7 +22,6 @@ import java.io.Serializable;
  * @see com.liferay.portal.model.impl.BrowserTrackerModelImpl
  * @generated
  */
-@ProviderType
 public interface BrowserTrackerModel extends BaseModel<BrowserTracker> {
     /*
      * NOTE FOR DEVELOPERS:

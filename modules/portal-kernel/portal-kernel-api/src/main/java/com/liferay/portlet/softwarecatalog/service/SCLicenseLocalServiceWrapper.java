@@ -1,7 +1,5 @@
 package com.liferay.portlet.softwarecatalog.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
@@ -11,7 +9,6 @@ import com.liferay.portal.service.ServiceWrapper;
  * @see SCLicenseLocalService
  * @generated
  */
-@ProviderType
 public class SCLicenseLocalServiceWrapper implements SCLicenseLocalService,
     ServiceWrapper<SCLicenseLocalService> {
     private SCLicenseLocalService _scLicenseLocalService;

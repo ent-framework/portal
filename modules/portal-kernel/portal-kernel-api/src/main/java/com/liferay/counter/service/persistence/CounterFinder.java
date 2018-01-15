@@ -1,9 +1,5 @@
 package com.liferay.counter.service.persistence;
 
-import aQute.bnd.annotation.ProviderType;
-
-
-@ProviderType
 public interface CounterFinder {
     public void afterPropertiesSet();
 
