@@ -199,20 +199,15 @@ public class ClassLoaderAggregateProperties extends AggregatedProperties {
 		Configuration newConfiguration,
 		CompositeConfiguration loadedCompositeConfiguration) {
 
-		CompositeConfiguration tempCompositeConfiguration =
-			new CompositeConfiguration();
+		CompositeConfiguration tempCompositeConfiguration = new CompositeConfiguration();
 
-		tempCompositeConfiguration.addConfiguration(
-			_prefixedSystemConfiguration);
+		tempCompositeConfiguration.addConfiguration(_prefixedSystemConfiguration);
 		tempCompositeConfiguration.addConfiguration(newConfiguration);
 		tempCompositeConfiguration.addConfiguration(_systemConfiguration);
-		tempCompositeConfiguration.addProperty(
-			Conventions.COMPANY_ID_PROPERTY, _companyId);
-		tempCompositeConfiguration.addProperty(
-			Conventions.COMPONENT_NAME_PROPERTY, _componentName);
+		tempCompositeConfiguration.addProperty(Conventions.COMPANY_ID_PROPERTY, _companyId);
+		tempCompositeConfiguration.addProperty(Conventions.COMPONENT_NAME_PROPERTY, _componentName);
 
-		String[] fileNames = tempCompositeConfiguration.getStringArray(
-			Conventions.INCLUDE_PROPERTY);
+		String[] fileNames = tempCompositeConfiguration.getStringArray(Conventions.INCLUDE_PROPERTY);
 
 		ArrayUtil.reverse(fileNames);
 

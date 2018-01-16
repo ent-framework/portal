@@ -137,8 +137,7 @@ public class PropsUtil {
 				_log.info("Portal lib directory " + portalLibDir);
 			}
 
-			SystemProperties.set(
-				PropsKeys.LIFERAY_LIB_PORTAL_DIR, portalLibDir);
+			SystemProperties.set(PropsKeys.LIFERAY_LIB_PORTAL_DIR, portalLibDir);
 
 			// Portal web directory
 
@@ -148,13 +147,11 @@ public class PropsUtil {
 				_log.debug("Portal web directory " + portalWebDir);
 			}
 
-			SystemProperties.set(
-				PropsKeys.LIFERAY_WEB_PORTAL_DIR, portalWebDir);
+			SystemProperties.set(PropsKeys.LIFERAY_WEB_PORTAL_DIR, portalWebDir);
 
 			// Liferay home directory
 
-			_configuration = new ConfigurationImpl(
-				PropsUtil.class.getClassLoader(), PropsFiles.PORTAL);
+			_configuration = new ConfigurationImpl(PropsUtil.class.getClassLoader(), PropsFiles.PORTAL);
 
 			String liferayHome = _get(PropsKeys.LIFERAY_HOME);
 

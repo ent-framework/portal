@@ -65,9 +65,7 @@
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.10" level="project" />
     <orderEntry type="library" name="Maven: backport-util-concurrent:backport-util-concurrent:3.1" level="project" />
     <orderEntry type="library" name="Maven: net.sf.jazzy:jazzy:0.5.2-rtext-1.4.1-2" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.axis:axis:1.4" level="project" />
     <orderEntry type="library" name="Maven: javax.xml:jaxrpc-api:1.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.axis:axis-ant:1.4" level="project" />
     <orderEntry type="library" name="Maven: org.apache.poi:poi:3.9" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.6.12" level="project" />
     <orderEntry type="library" name="Maven: org.incava:java-diff:1.1" level="project" />
@@ -105,6 +103,8 @@
     <orderEntry type="library" name="Maven: commons-httpclient:commons-httpclient:3.1" level="project" />
     <orderEntry type="module" module-name="portal-util-taglib" />
     <orderEntry type="library" name="Maven: net.sf.flexjson:flexjson:3.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.axis:axis:1.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.axis:axis-ant:1.4" level="project" />
     <orderEntry type="module" module-name="portal-util-bridges" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-validator:5.3.6.Final" level="project" />
     <orderEntry type="library" name="Maven: javax.validation:validation-api:1.1.0.Final" level="project" />
