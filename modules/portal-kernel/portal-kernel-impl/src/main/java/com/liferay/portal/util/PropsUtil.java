@@ -151,8 +151,8 @@ public class PropsUtil {
 
 			_log.info("Load all portal-ext.properties");
 			Configuration portalExtraConfiguration = new ConfigurationImpl(PropsUtil.class.getClassLoader(), PropsFiles.PORTAL_EXT);
-			merge(portalExtraConfiguration, _configuration);
 
+			merge(portalExtraConfiguration, _configuration);
 
 			String liferayHome = _get(PropsKeys.LIFERAY_HOME);
 
@@ -314,10 +314,10 @@ public class PropsUtil {
 			Set<String> propertyNames = source.getProperties().stringPropertyNames();
 			for( String name : propertyNames) {
 				if (target.contains(name)) {
-
+                    //TODO meger existing values
 				} else {
-					target.getProperties().setProperty(name, source.get(name));
-					_log.info("add new property to source , name : " + name);
+					target.set(name, source.get(name));
+					_log.info("add new property to source , name : " + name + ", value: " + source.get(name));
 				}
 			}
 		}
