@@ -73,7 +73,7 @@ public class SpriteProcessorImpl implements SpriteProcessor {
 	public Properties generate(
 			ServletContext servletContext, List<URL> imageURLs,
 			String spriteRootDirName, String spriteFileName,
-			String spritePropertiesFileName, String rootPath, int maxHeight,
+			String spritePropertiesFileName, int maxHeight,
 			int maxWidth, int maxSize)
 		throws IOException {
 
@@ -177,14 +177,13 @@ public class SpriteProcessorImpl implements SpriteProcessor {
 
 					String key = ServletContextUtil.getResourcePath(imageURL);
 
-					int pos = key.indexOf(rootPath);
+//					int pos = key.indexOf(rootPath);
+//
+//					if (pos == 0) {
+//						key = key.substring(rootPath.length());
+//					}
 
-					if (pos == 0) {
-						key = key.substring(rootPath.length());
-					}
-
-					String contextPath = ContextPathUtil.getContextPath(
-						servletContext);
+					String contextPath = ContextPathUtil.getContextPath(servletContext);
 
 					key = contextPath.concat(key);
 

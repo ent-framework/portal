@@ -323,9 +323,8 @@ public class DynamicCSSUtil {
 			suffix = "_rtl";
 		}
 
-		return null;
-/*		return servletContext.getResource(
-			SassToCssBuilder.getCacheFileName(resourcePath, suffix));*/
+		return servletContext.getResource(
+			SassToCssBuilder.getCacheFileName(resourcePath, suffix));
 	}
 
 	private static String _getCssThemePath(
@@ -352,10 +351,8 @@ public class DynamicCSSUtil {
 	private static URL _getRtlCustomResourceURL(
 			ServletContext servletContext, String resourcePath)
 		throws Exception {
-
-		return null;
-/*		return servletContext.getResource(
-			SassToCssBuilder.getRtlCustomFileName(resourcePath));*/
+		return servletContext.getResource(
+			SassToCssBuilder.getRtlCustomFileName(resourcePath));
 	}
 
 	private static File _getSassTempDir(ServletContext servletContext) {

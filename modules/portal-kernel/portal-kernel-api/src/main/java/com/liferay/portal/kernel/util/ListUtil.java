@@ -21,17 +21,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Enumeration;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author Brian Wing Shun Chan
@@ -436,6 +426,30 @@ public class ListUtil {
 		}
 
 		return sb.toString();
+	}
+
+	public static boolean isEmpty(List<?> list) {
+		if ((list == null) || list.isEmpty()) {
+			return true;
+		}
+
+		return false;
+	}
+
+	public static boolean isNotEmpty(List<?> list) {
+		return !isEmpty(list);
+	}
+
+	public static <T> List<T> unique(List<T> list) {
+		Set<T> set = new LinkedHashSet<>();
+
+		set.addAll(list);
+
+		if (list.size() == set.size()) {
+			return list;
+		}
+
+		return new ArrayList<T>(set);
 	}
 
 }

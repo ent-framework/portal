@@ -73,9 +73,6 @@ import com.liferay.portal.kernel.util.UnsyncPrintWriterPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xuggler.XugglerUtil;
 import com.liferay.portal.model.Portlet;
-import com.liferay.portal.search.lucene.LuceneHelperUtil;
-import com.liferay.portal.search.lucene.LuceneIndexer;
-import com.liferay.portal.search.lucene.cluster.LuceneClusterUtil;
 import com.liferay.portal.security.auth.PrincipalException;
 import com.liferay.portal.security.lang.DoPrivilegedBean;
 import com.liferay.portal.security.membershippolicy.OrganizationMembershipPolicy;
@@ -369,22 +366,24 @@ public class EditServerAction extends PortletAction {
 
 		long[] companyIds = PortalInstances.getCompanyIds();
 
-		if (LuceneHelperUtil.isLoadIndexFromClusterEnabled()) {
-			MessageValuesThreadLocal.setValue(
-				ClusterLink.CLUSTER_FORWARD_MESSAGE, true);
-		}
+//		if (LuceneHelperUtil.isLoadIndexFromClusterEnabled()) {
+//			MessageValuesThreadLocal.setValue(ClusterLink.CLUSTER_FORWARD_MESSAGE, true);
+//		}
 
 		Set<String> usedSearchEngineIds = new HashSet<String>();
 
 		if (Validator.isNull(portletId)) {
 			for (long companyId : companyIds) {
 				try {
-					LuceneIndexer luceneIndexer = new LuceneIndexer(companyId);
 
-					luceneIndexer.reindex();
+                    SearchEngineUtil.reindex(companyId);
 
-					usedSearchEngineIds.addAll(
-						luceneIndexer.getUsedSearchEngineIds());
+//					LuceneIndexer luceneIndexer = new LuceneIndexer(companyId);
+//
+//					luceneIndexer.reindex();
+//
+//					usedSearchEngineIds.addAll(luceneIndexer.getUsedSearchEngineIds());
+
 				}
 				catch (Exception e) {
 					_log.error(e.getMessage(), e);
@@ -413,8 +412,7 @@ public class EditServerAction extends PortletAction {
 
 			for (String searchEngineId : searchEngineIds) {
 				for (long companyId : companyIds) {
-					SearchEngineUtil.deletePortletDocuments(
-						searchEngineId, companyId, portletId, true);
+					SearchEngineUtil.deletePortletDocuments(searchEngineId, companyId, portletId, true);
 				}
 			}
 
@@ -438,32 +436,32 @@ public class EditServerAction extends PortletAction {
 			}
 		}
 
-		if (!LuceneHelperUtil.isLoadIndexFromClusterEnabled()) {
-			return;
-		}
+//		if (!LuceneHelperUtil.isLoadIndexFromClusterEnabled()) {
+//			return;
+//		}
 
-		Set<BaseAsyncDestination> searchWriterDestinations =
-			new HashSet<BaseAsyncDestination>();
-
-		MessageBus messageBus = MessageBusUtil.getMessageBus();
-
-		for (String usedSearchEngineId : usedSearchEngineIds) {
-			String searchWriterDestinationName =
-				SearchEngineUtil.getSearchWriterDestinationName(
-					usedSearchEngineId);
-
-			Destination destination = messageBus.getDestination(
-				searchWriterDestinationName);
-
-			if (destination instanceof BaseAsyncDestination) {
-				BaseAsyncDestination baseAsyncDestination =
-					(BaseAsyncDestination)destination;
-
-				searchWriterDestinations.add(baseAsyncDestination);
-			}
-		}
-
-		submitClusterIndexLoadingSyncJob(searchWriterDestinations, companyIds);
+//		Set<BaseAsyncDestination> searchWriterDestinations =
+//			new HashSet<BaseAsyncDestination>();
+//
+//		MessageBus messageBus = MessageBusUtil.getMessageBus();
+//
+//		for (String usedSearchEngineId : usedSearchEngineIds) {
+//			String searchWriterDestinationName =
+//				SearchEngineUtil.getSearchWriterDestinationName(
+//					usedSearchEngineId);
+//
+//			Destination destination = messageBus.getDestination(
+//				searchWriterDestinationName);
+//
+//			if (destination instanceof BaseAsyncDestination) {
+//				BaseAsyncDestination baseAsyncDestination =
+//					(BaseAsyncDestination)destination;
+//
+//				searchWriterDestinations.add(baseAsyncDestination);
+//			}
+//		}
+//
+//		submitClusterIndexLoadingSyncJob(searchWriterDestinations, companyIds);
 	}
 
 	protected void reindexDictionaries(ActionRequest actionRequest)
@@ -539,72 +537,6 @@ public class EditServerAction extends PortletAction {
 				ShutdownUtil.shutdown(minutes, message);
 			}
 		}
-	}
-
-	protected void submitClusterIndexLoadingSyncJob(
-			Set<BaseAsyncDestination> baseAsyncDestinations, long[] companyIds)
-		throws Exception {
-
-		if (_log.isInfoEnabled()) {
-			StringBundler sb = new StringBundler(
-				baseAsyncDestinations.size() + 1);
-
-			sb.append("[");
-
-			for (BaseAsyncDestination baseAsyncDestination :
-					baseAsyncDestinations) {
-
-				sb.append(baseAsyncDestination.getName());
-				sb.append(", ");
-			}
-
-			sb.setStringAt("]", sb.index() - 1);
-
-			_log.info(
-				"Synchronizecluster index loading for destinations " +
-					sb.toString());
-		}
-
-		int totalWorkersMaxSize = 0;
-
-		for (BaseAsyncDestination baseAsyncDestination :
-				baseAsyncDestinations) {
-
-			totalWorkersMaxSize += baseAsyncDestination.getWorkersMaxSize();
-		}
-
-		if (_log.isInfoEnabled()) {
-			_log.info(
-				"There are " + totalWorkersMaxSize +
-					" synchronization threads");
-		}
-
-		CountDownLatch countDownLatch = new CountDownLatch(
-			totalWorkersMaxSize + 1);
-
-		ClusterLoadingSyncJob slaveClusterLoadingSyncJob =
-			new ClusterLoadingSyncJob(companyIds, countDownLatch, false);
-
-		for (BaseAsyncDestination baseAsyncDestination :
-				baseAsyncDestinations) {
-
-			ThreadPoolExecutor threadPoolExecutor =
-				PortalExecutorManagerUtil.getPortalExecutor(
-					baseAsyncDestination.getName());
-
-			for (int i = 0; i < baseAsyncDestination.getWorkersMaxSize(); i++) {
-				threadPoolExecutor.execute(slaveClusterLoadingSyncJob);
-			}
-		}
-
-		ClusterLoadingSyncJob masterClusterLoadingSyncJob =
-			new ClusterLoadingSyncJob(companyIds, countDownLatch, true);
-
-		ThreadPoolExecutor threadPoolExecutor =
-			PortalExecutorManagerUtil.getPortalExecutor(
-				EditServerAction.class.getName());
-
-		threadPoolExecutor.execute(masterClusterLoadingSyncJob);
 	}
 
 	protected void threadDump() throws Exception {
@@ -942,111 +874,5 @@ public class EditServerAction extends PortletAction {
 	}
 
 	private static final Logger _log = LoggerFactory.getLogger(EditServerAction.class);
-
-	private static MethodKey _loadIndexesFromClusterMethodKey = new MethodKey(
-		LuceneClusterUtil.class, "loadIndexesFromCluster", long[].class,
-		Address.class);
-
-	private static class ClusterLoadingSyncJob implements Runnable {
-
-		public ClusterLoadingSyncJob(
-			long[] companyIds, CountDownLatch countDownLatch, boolean master) {
-
-			_companyIds = companyIds;
-			_countDownLatch = countDownLatch;
-			_master = master;
-		}
-
-		@Override
-		public void run() {
-			_countDownLatch.countDown();
-
-			String logPrefix = StringPool.BLANK;
-
-			if (_log.isInfoEnabled()) {
-				Thread currentThread = Thread.currentThread();
-
-				if (_master) {
-					logPrefix =
-						"Monitor thread name " + currentThread.getName() +
-							" with thread ID " + currentThread.getId();
-				}
-				else {
-					logPrefix =
-						"Thread name " + currentThread.getName() +
-							" with thread ID " + currentThread.getId();
-				}
-			}
-
-			if (!_master && _log.isInfoEnabled()) {
-				_log.info(
-					logPrefix + " synchronized on latch. Waiting for others.");
-			}
-
-			try {
-				if (_master) {
-					_countDownLatch.await();
-				}
-				else {
-					boolean result = _countDownLatch.await(
-						PropsValues.LUCENE_CLUSTER_INDEX_LOADING_SYNC_TIMEOUT,
-						TimeUnit.MILLISECONDS);
-
-					if (!result) {
-						_log.error(
-							logPrefix + " timed out. You may need to " +
-								"re-trigger a reindex process.");
-					}
-				}
-			}
-			catch (InterruptedException ie) {
-				if (_master) {
-					_log.error(
-						logPrefix + " was interrupted. Skip cluster index " +
-							"loading notification.",
-						ie);
-
-					return;
-				}
-				else {
-					_log.error(
-						logPrefix + " was interrupted. You may need to " +
-							"re-trigger a reindex process.",
-						ie);
-				}
-			}
-
-			if (_master) {
-				Address localClusterNodeAddress =
-					ClusterExecutorUtil.getLocalClusterNodeAddress();
-
-				ClusterRequest clusterRequest =
-					ClusterRequest.createMulticastRequest(
-						new MethodHandler(
-							_loadIndexesFromClusterMethodKey, _companyIds,
-							localClusterNodeAddress),
-						true);
-
-				try {
-					ClusterExecutorUtil.execute(clusterRequest);
-				}
-				catch (SystemException se) {
-					_log.error(
-						"Unable to notify peers to start index loading", se);
-				}
-
-				if (_log.isInfoEnabled()) {
-					_log.info(
-						logPrefix + " unlocked latch. Notified peers to " +
-							"start index loading.");
-				}
-			}
-		}
-
-		private long[] _companyIds;
-		private CountDownLatch _countDownLatch;
-		private boolean _master;
-
-	}
 
 }

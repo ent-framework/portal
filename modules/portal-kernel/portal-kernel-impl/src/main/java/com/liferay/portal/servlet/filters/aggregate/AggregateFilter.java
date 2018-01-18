@@ -215,11 +215,8 @@ public class AggregateFilter extends IgnoreModuleRequestFilter {
 
 		_servletContext = filterConfig.getServletContext();
 
-		File tempDir = (File)_servletContext.getAttribute(
-			JavaConstants.JAVAX_SERVLET_CONTEXT_TEMPDIR);
-
+		File tempDir = (File)_servletContext.getAttribute(JavaConstants.JAVAX_SERVLET_CONTEXT_TEMPDIR);
 		_tempDir = new File(tempDir, _TEMP_DIR);
-
 		_tempDir.mkdirs();
 	}
 

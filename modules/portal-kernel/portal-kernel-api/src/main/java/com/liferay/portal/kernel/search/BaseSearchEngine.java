@@ -212,6 +212,31 @@ public class BaseSearchEngine implements SearchEngine {
 		_vendor = vendor;
 	}
 
+	
+	
+	@Override
+	public void startup(long companyId) {
+		_log.warn("It's base search engine, should be extends by search vendor!");
+	}
+
+	@Override
+	public void shutdown() {
+		_log.warn("It's base search engine, should be extends by search vendor!");
+	}
+
+	@Override
+	public void shutdown(long companyId) {
+		_log.warn("It's base search engine, should be extends by search vendor!");
+	}
+
+	public void delete(long companyId) {
+		_log.warn("It's base search engine, should be extends by search vendor!");
+	}
+
+	public void reindex(long companyId) {
+		
+	}
+
 	private static final Logger _log = LoggerFactory.getLogger(BaseSearchEngine.class);
 
 	private BooleanClauseFactory _booleanClauseFactory;

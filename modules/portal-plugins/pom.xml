@@ -5,7 +5,7 @@
         <groupId>com.liferay.portal</groupId>
         <artifactId>portal-parent</artifactId>
         <version>6.3.0</version>
-        <relativePath>../portal-parent</relativePath>
+        <relativePath>../portal-parent/pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>

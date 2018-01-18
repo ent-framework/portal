@@ -130,14 +130,6 @@ public class ServletContextUtil {
 		return _getResourceURI(url, url.getPath());
 	}
 
-	public static String getRootPath(ServletContext servletContext)
-		throws MalformedURLException {
-
-		URI rootURI = getRootURI(servletContext);
-
-		return rootURI.toString();
-	}
-
 	public static URI getRootURI(ServletContext servletContext)
 		throws MalformedURLException {
 

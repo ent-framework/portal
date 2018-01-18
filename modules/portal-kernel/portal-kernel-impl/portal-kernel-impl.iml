@@ -54,7 +54,6 @@
     <orderEntry type="library" name="Maven: org.slf4j:log4j-over-slf4j:1.7.25" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:jstl:1.2" level="project" />
     <orderEntry type="module" module-name="portal-util-java" />
-    <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.2" level="project" />
     <orderEntry type="library" name="Maven: commons-validator:commons-validator:1.5.1" level="project" />
     <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.9.3" level="project" />
     <orderEntry type="library" name="Maven: com.liferay:com.liferay.ibm.icu.icu4j:4.0.1" level="project" />
@@ -82,9 +81,6 @@
     <orderEntry type="library" name="Maven: edu.ucar:netcdf:4.2-min" level="project" />
     <orderEntry type="library" name="Maven: org.apache.james:apache-mime4j-core:0.7.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.james:apache-mime4j-dom:0.7.2" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.pdfbox:pdfbox:1.7.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.pdfbox:fontbox:1.7.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.pdfbox:jempbox:1.7.1" level="project" />
     <orderEntry type="library" name="Maven: org.bouncycastle:bcmail-jdk15:1.45" level="project" />
     <orderEntry type="library" name="Maven: org.bouncycastle:bcprov-jdk15:1.45" level="project" />
     <orderEntry type="library" name="Maven: org.apache.poi:poi-scratchpad:3.8" level="project" />
@@ -99,6 +95,9 @@
     <orderEntry type="library" name="Maven: de.l3s.boilerpipe:boilerpipe:1.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.gagravarr:vorbis-java-core:0.1" level="project" />
     <orderEntry type="library" name="Maven: com.googlecode.juniversalchardet:juniversalchardet:1.0.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.pdfbox:pdfbox:1.7.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.pdfbox:fontbox:1.7.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.pdfbox:jempbox:1.7.1" level="project" />
     <orderEntry type="library" name="Maven: org.mozilla.intl:chardet:1.0" level="project" />
     <orderEntry type="library" name="Maven: commons-httpclient:commons-httpclient:3.1" level="project" />
     <orderEntry type="module" module-name="portal-util-taglib" />
@@ -182,13 +181,6 @@
     <orderEntry type="library" name="Maven: org.jruby:jruby-complete:1.6.5" level="project" />
     <orderEntry type="library" name="Maven: asm:asm:3.3" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy:1.7.11" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-core:3.5.0" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-highlighter:3.5.0" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-memory:3.5.0" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-queries:3.5.0" level="project" />
-    <orderEntry type="library" name="Maven: jakarta-regexp:jakarta-regexp:1.4" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-analyzers:3.5.0" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-spellchecker:3.5.0" level="project" />
     <orderEntry type="library" name="Maven: javax.ccpp:ccpp:1.0" level="project" />
     <orderEntry type="library" name="Maven: rome:rome:1.0" level="project" />
     <orderEntry type="library" name="Maven: jdom:jdom:1.0" level="project" />
@@ -209,7 +201,6 @@
     <orderEntry type="library" name="Maven: org.json:json:20160810" level="project" />
     <orderEntry type="library" name="Maven: org.quartz-scheduler:quartz:2.1.6" level="project" />
     <orderEntry type="library" name="Maven: com.liferay:nl.captcha.simplecaptcha:1.1.1" level="project" />
-    <orderEntry type="library" name="Maven: com.liferay:com.browseengine.bobo:3.2.0.LIFERAY-PATCHED-1" level="project" />
     <orderEntry type="library" name="Maven: xuggle:xuggle-xuggler:5.4" level="project" />
     <orderEntry type="library" name="Maven: net.htmlparser.jericho:jericho-html:3.3" level="project" />
     <orderEntry type="library" name="Maven: javax.media:jai-core:1.0" level="project" />

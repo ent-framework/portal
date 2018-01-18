@@ -25,4 +25,6 @@ public class PropsFiles {
 
 	public static final String PORTAL = "portal";
 
+	public static final String PORTAL_EXT = "portal-ext";
+
 }

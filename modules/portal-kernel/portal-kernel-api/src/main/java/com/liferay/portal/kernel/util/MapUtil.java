@@ -378,6 +378,18 @@ public class MapUtil {
 		return sb.toString();
 	}
 
+	public static boolean isEmpty(Map<?, ?> map) {
+		if ((map == null) || map.isEmpty()) {
+			return true;
+		}
+
+		return false;
+	}
+
+	public static boolean isNotEmpty(Map<?, ?> map) {
+		return !isEmpty(map);
+	}
+
 	private static final Logger _log = LoggerFactory.getLogger(MapUtil.class);
 
 }

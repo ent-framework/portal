@@ -25,9 +25,7 @@ import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.model.CompanyConstants;
 import com.liferay.portal.security.auth.CompanyThreadLocal;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 /**
  * @author Brian Wing Shun Chan
@@ -89,8 +87,7 @@ public class PropsUtil {
 
 			// Default liferay home directory
 
-			SystemProperties.set(
-				PropsKeys.DEFAULT_LIFERAY_HOME, _getDefaultLiferayHome());
+			SystemProperties.set(PropsKeys.DEFAULT_LIFERAY_HOME, _getDefaultLiferayHome());
 
 //			// Global shared lib directory
 //
@@ -122,8 +119,7 @@ public class PropsUtil {
 
 			String portalLibDir = WebDirDetector.getLibDir(classLoader);
 
-			String portalLibDirProperty = System.getProperty(
-				PropsKeys.LIFERAY_LIB_PORTAL_DIR);
+			String portalLibDirProperty = System.getProperty(PropsKeys.LIFERAY_LIB_PORTAL_DIR);
 
 			if (portalLibDirProperty != null) {
 				if (!portalLibDirProperty.endsWith(StringPool.SLASH)) {
@@ -153,6 +149,11 @@ public class PropsUtil {
 
 			_configuration = new ConfigurationImpl(PropsUtil.class.getClassLoader(), PropsFiles.PORTAL);
 
+			_log.info("Load all portal-ext.properties");
+			Configuration portalExtraConfiguration = new ConfigurationImpl(PropsUtil.class.getClassLoader(), PropsFiles.PORTAL_EXT);
+			merge(portalExtraConfiguration, _configuration);
+
+
 			String liferayHome = _get(PropsKeys.LIFERAY_HOME);
 
 			if (_log.isDebugEnabled()) {
@@ -166,9 +167,7 @@ public class PropsUtil {
 			SystemProperties.set(
 				"ehcache.disk.store.dir", liferayHome + "/data/ehcache");
 
-			if (GetterUtil.getBoolean(
-					SystemProperties.get("company-id-properties"))) {
-
+			if (GetterUtil.getBoolean(SystemProperties.get("company-id-properties"))) {
 				_configurations = new HashMap<Long, Configuration>();
 			}
 		}
@@ -307,6 +306,21 @@ public class PropsUtil {
 		path = path.substring(0, pos + 1);
 
 		return path;
+	}
+
+	private static void merge(Configuration source, Configuration target) {
+		if (source.getProperties()!=null) {
+			_log.info("start merge");
+			Set<String> propertyNames = source.getProperties().stringPropertyNames();
+			for( String name : propertyNames) {
+				if (target.contains(name)) {
+
+				} else {
+					target.getProperties().setProperty(name, source.get(name));
+					_log.info("add new property to source , name : " + name);
+				}
+			}
+		}
 	}
 
 	private Properties _getProperties() {

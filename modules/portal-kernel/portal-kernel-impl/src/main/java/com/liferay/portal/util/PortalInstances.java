@@ -17,13 +17,13 @@ package com.liferay.portal.util;
 import com.liferay.portal.events.EventsProcessorUtil;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.dao.shard.ShardUtil;
+import com.liferay.portal.kernel.search.SearchEngineUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.kernel.util.CookieKeys;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.model.*;
-import com.liferay.portal.search.lucene.LuceneHelperUtil;
 import com.liferay.portal.security.auth.CompanyThreadLocal;
 import com.liferay.portal.security.auth.PrincipalThreadLocal;
 import com.liferay.portal.service.*;
@@ -410,7 +410,8 @@ public class PortalInstances {
 
 			// Lucene
 
-			LuceneHelperUtil.startup(companyId);
+			//LuceneHelperUtil.startup(companyId);
+			SearchEngineUtil.startup(companyId);
 
 			// Initialize display
 
@@ -557,9 +558,13 @@ public class PortalInstances {
 
 		_getWebIds();
 
-		LuceneHelperUtil.delete(companyId);
+//		LuceneHelperUtil.delete(companyId);
+//
+//		LuceneHelperUtil.shutdown(companyId);
 
-		LuceneHelperUtil.shutdown(companyId);
+		SearchEngineUtil.delete(companyId);
+		SearchEngineUtil.shutdown(companyId);
+
 
 		WebAppPool.remove(companyId, WebKeys.PORTLET_CATEGORY);
 	}

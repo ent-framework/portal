@@ -84,6 +84,30 @@ public class SearchEngineProxyWrapper implements SearchEngine {
 		return _searchEngine.isLuceneBased();
 	}
 
+	@Override
+	public void startup(long companyId) {
+		_searchEngine.startup(companyId);
+	}
+
+	@Override
+	public void shutdown() {
+		_searchEngine.shutdown();
+	}
+
+	@Override
+	public void shutdown(long companyId) {
+		_searchEngine.shutdown(companyId);
+	}
+	
+	public void delete(long companyId) {
+		_searchEngine.delete(companyId);
+	}
+
+	public void reindex(long companyId) {
+		_searchEngine.reindex(companyId);
+	}
+	
+
 	private IndexSearcher _indexSearcher;
 	private IndexWriter _indexWriter;
 	private SearchEngine _searchEngine;

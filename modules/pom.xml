@@ -14,6 +14,7 @@
         <module>portal-web</module>
         <module>portal-tools</module>
         <module>portal-plugins</module>
+        <module>portal-search</module>
         <module>maven-support</module>
     </modules>
 

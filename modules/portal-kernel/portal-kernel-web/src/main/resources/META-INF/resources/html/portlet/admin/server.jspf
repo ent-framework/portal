@@ -535,18 +535,6 @@ Level[] ALL_LEVELS = new Level[]{Level.OFF, Level.ERROR, Level.WARN, Level.INFO,
 						</liferay-ui:panel>
 					</liferay-ui:panel-container>
 
-					<liferay-ui:panel-container extended="<%= true %>" id="adminShoppingCartImagesPanelContainer" persistState="<%= true %>">
-						<liferay-ui:panel collapsible="<%= true %>" extended="<%= true %>" id="adminShoppingCartImagesPanel" persistState="<%= true %>" title="shopping-cart-images">
-							<aui:input cssClass="lfr-input-text-container" label='<%= LanguageUtil.get(pageContext, "maximum-file-size") + "(" + LanguageUtil.get(pageContext,"large-image") + ")" %>' name="shoppingImageLargeMaxSize" type="text" value="<%= PrefsPropsUtil.getLong(PropsKeys.SHOPPING_IMAGE_LARGE_MAX_SIZE) %>" />
-
-							<aui:input cssClass="lfr-input-text-container" label='<%= LanguageUtil.get(pageContext, "maximum-file-size") + "(" + LanguageUtil.get(pageContext,"medium-image") + ")" %>' name="shoppingImageMediumMaxSize" type="text" value="<%= PrefsPropsUtil.getLong(PropsKeys.SHOPPING_IMAGE_MEDIUM_MAX_SIZE) %>" />
-
-							<aui:input cssClass="lfr-input-text-container" label='<%= LanguageUtil.get(pageContext, "maximum-file-size") + "(" + LanguageUtil.get(pageContext,"small-image") + ")" %>' name="shoppingImageSmallMaxSize" type="text" value="<%= PrefsPropsUtil.getLong(PropsKeys.SHOPPING_IMAGE_SMALL_MAX_SIZE) %>" />
-
-							<aui:input cssClass="lfr-input-text-container" label="allowed-file-extensions" name="shoppingImageExtensions" type="text" value="<%= PrefsPropsUtil.getString(PropsKeys.SHOPPING_IMAGE_EXTENSIONS) %>" />
-						</liferay-ui:panel>
-					</liferay-ui:panel-container>
-
 					<liferay-ui:panel-container extended="<%= true %>" id="adminSoftwareCatalogImagesPanelContainer" persistState="<%= true %>">
 						<liferay-ui:panel collapsible="<%= true %>" extended="<%= true %>" id="adminSoftwareCatalogImagesPanel" persistState="<%= true %>" title="software-catalog-images">
 							<aui:input cssClass="lfr-input-text-container" label="maximum-file-size" name="scImageMaxSize" type="text" value="<%= PrefsPropsUtil.getLong(PropsKeys.SC_IMAGE_MAX_SIZE) %>" />

@@ -14,22 +14,17 @@
 
 package com.liferay.portal.kernel.search;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import com.liferay.portal.kernel.messaging.DestinationNames;
+import com.liferay.portal.kernel.messaging.*;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.security.permission.PermissionThreadLocal;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -938,6 +933,41 @@ public class SearchEngineUtil {
 			getClass(), "searchPermissionChecker");
 
 		_searchPermissionChecker = searchPermissionChecker;
+	}
+
+	public static void startup(long companyId) {
+		Set<String> searchEngineIds = getSearchEngineIds();
+		for (String searchId : searchEngineIds) {
+			getSearchEngine(searchId).startup(companyId);
+		}
+	}
+
+	public static void shutdown() {
+		Set<String> searchEngineIds = getSearchEngineIds();
+		for (String searchId : searchEngineIds) {
+			getSearchEngine(searchId).shutdown();
+		}
+	}
+
+	public static void shutdown(long companyId) {
+		Set<String> searchEngineIds = getSearchEngineIds();
+		for (String searchId : searchEngineIds) {
+			getSearchEngine(searchId).shutdown(companyId);
+		}
+	}
+
+	public static void delete(long companyId) {
+		Set<String> searchEngineIds = getSearchEngineIds();
+		for (String searchId : searchEngineIds) {
+			getSearchEngine(searchId).delete(companyId);
+		}
+	}
+
+	public static void reindex(long companyId) {
+		Set<String> searchEngineIds = getSearchEngineIds();
+		for (String searchId : searchEngineIds) {
+			getSearchEngine(searchId).reindex(companyId);
+		}
 	}
 
 	private static final Logger _log = LoggerFactory.getLogger(SearchEngineUtil.class);

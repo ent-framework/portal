@@ -40,7 +40,7 @@ public class ServletAggregateContext extends BaseAggregateContext {
 
 		_servletContext = servletContext;
 
-		String rootPath = ServletContextUtil.getRootPath(_servletContext);
+		//String rootPath = ServletContextUtil.getRootPath(_servletContext);
 
 		int pos = resourcePath.lastIndexOf(StringPool.SLASH);
 
@@ -52,11 +52,11 @@ public class ServletAggregateContext extends BaseAggregateContext {
 
 		resourcePath = resourcePath.substring(0, pos);
 
-		pos = resourcePath.lastIndexOf(rootPath);
-
-		if (pos == 0) {
-			resourcePath = resourcePath.substring(rootPath.length());
-		}
+//		pos = resourcePath.lastIndexOf(rootPath);
+//
+//		if (pos == 0) {
+//			resourcePath = resourcePath.substring(rootPath.length());
+//		}
 
 		pushPath(resourcePath);
 	}

@@ -41,5 +41,15 @@ public interface SearchEngine {
 	public boolean isClusteredWrite();
 
 	public boolean isLuceneBased();
+	
+	public void startup(long companyId);
+	
+	public void shutdown();
+	
+	public void shutdown(long companyId);
+	
+	public void delete(long companyId);
+
+	public void reindex(long companyId);
 
 }

@@ -166,8 +166,6 @@ public class ComboServlet extends HttpServlet {
 		if (bytesArray == null) {
 			ServletContext servletContext = getServletContext();
 
-			String rootPath = ServletContextUtil.getRootPath(servletContext);
-
 			bytesArray = new byte[modulePaths.length][];
 
 			for (int i = 0; i < modulePaths.length; i++) {
@@ -189,8 +187,7 @@ public class ComboServlet extends HttpServlet {
 						modulePath, PortalUtil.getPathContext(),
 						StringPool.BLANK);
 
-					URL url = getResourceURL(
-						servletContext, rootPath, modulePath);
+					URL url = servletContext.getResource(modulePath);
 
 					if (url == null) {
 						response.setHeader(
@@ -327,28 +324,6 @@ public class ComboServlet extends HttpServlet {
 		}
 
 		return fileContentBag._fileContent;
-	}
-
-	protected URL getResourceURL(
-			ServletContext servletContext, String rootPath, String path)
-		throws Exception {
-
-		URL url = servletContext.getResource(path);
-
-		if (url == null) {
-			return null;
-		}
-
-		String filePath = ServletContextUtil.getResourcePath(url);
-
-		int pos = filePath.indexOf(
-			rootPath.concat(StringPool.SLASH).concat(_JAVASCRIPT_DIR));
-
-		if (pos == 0) {
-			return url;
-		}
-
-		return null;
 	}
 
 	protected boolean validateModuleExtension(String moduleName)

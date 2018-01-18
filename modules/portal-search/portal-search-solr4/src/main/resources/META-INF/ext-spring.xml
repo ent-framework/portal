@@ -8,7 +8,22 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd"
 >
-	<!--<bean class="com.liferay.portal.spring.context.PortletBeanFactoryPostProcessor" />-->
+
+
+	<bean id="com.liferay.portal.kernel.search.StringDistanceCalculator" class="com.liferay.portal.search.solr.StringDistanceCalculatorImpl">
+		<property name="stringDistance" ref="org.apache.lucene.search.spell.StringDistance" />
+	</bean>
+	<bean id="org.apache.lucene.search.spell.StringDistance" class="org.apache.lucene.search.spell.LevensteinDistance" />
+
+    <bean id="org.apache.lucene.util.Version" class="org.apache.lucene.util.Version" factory-method="valueOf">
+        <constructor-arg value="LUCENE_43"/>
+    </bean>
+
+    <bean id="com.liferay.portal.kernel.search.Tokenizer" class="com.liferay.portal.search.solr.PerFieldAnalyzer">
+        <constructor-arg ref="org.apache.lucene.util.Version"/>
+    </bean>
+
+    <bean id="com.liferay.portal.kernel.search.QueryTranslator" class="com.liferay.portal.search.lucene.QueryTranslatorImpl" />
 
 	<!-- Solr document -->
 

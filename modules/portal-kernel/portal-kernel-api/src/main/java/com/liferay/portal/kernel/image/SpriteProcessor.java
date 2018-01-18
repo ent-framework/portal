@@ -33,7 +33,7 @@ public interface SpriteProcessor {
 	public Properties generate(
 			ServletContext servletContext, List<URL> imageURLs,
 			String spriteRootDirName, String spriteFileName,
-			String spritePropertiesFileName, String rootPath, int maxHeight,
+			String spritePropertiesFileName, int maxHeight,
 			int maxWidth, int maxSize)
 		throws IOException;
 

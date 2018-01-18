@@ -278,26 +278,6 @@
             <version>1.7.11</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-core</artifactId>
-            <version>3.5.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-highlighter</artifactId>
-            <version>3.5.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-analyzers</artifactId>
-            <version>3.5.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-spellchecker</artifactId>
-            <version>3.5.0</version>
-        </dependency>
         <!-- To enable interoperability between web servers and access mechanisms, and to facilitate development of device independent web applications, this specification will define a set of APIs for processing CC/PP information. -->
         <dependency>
             <groupId>javax.ccpp</groupId>
@@ -360,6 +340,12 @@
             <groupId>org.openid4java</groupId>
             <artifactId>openid4java</artifactId>
             <version>1.0.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -381,11 +367,11 @@
             <version>1.1.1</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.liferay</groupId>
-            <artifactId>com.browseengine.bobo</artifactId>
-            <version>3.2.0.LIFERAY-PATCHED-1</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.liferay</groupId>-->
+            <!--<artifactId>com.browseengine.bobo</artifactId>-->
+            <!--<version>3.2.0.LIFERAY-PATCHED-1</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>xuggle</groupId>
