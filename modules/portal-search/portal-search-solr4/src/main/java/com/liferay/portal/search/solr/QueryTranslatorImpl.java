@@ -115,7 +115,7 @@ public class QueryTranslatorImpl implements QueryTranslator {
 				if (text.matches("^\\s*\\*.*(?m)")) {
 					text = text.replaceFirst("\\*", StringPool.BLANK);
 
-					_textField.set(term, text);
+					//_textField.set(term, text);
 				}
 			}
 			catch (Exception e) {

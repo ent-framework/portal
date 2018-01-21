@@ -58,7 +58,7 @@ public class PerFieldAnalyzer extends StopwordAnalyzerBase implements Tokenizer 
 			final org.apache.lucene.analysis.Tokenizer source = new StandardTokenizer(matchVersion, reader);
 			// run the widthfilter first before bigramming, it sometimes combines characters.
 			TokenStream result = new CJKWidthFilter(source);
-			result = new LowerCaseFilter(matchVersion, result);
+			//result = new LowerCaseFilter(matchVersion, result);
 			result = new CJKBigramFilter(result);
 			return new TokenStreamComponents(source, new StopFilter(matchVersion, result, stopwords));
 		} else {

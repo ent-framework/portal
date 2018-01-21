@@ -28,6 +28,8 @@
         <property name="solrHelper" ref="com.liferay.portal.search.solr.SolrHelper" />
     </bean>
 
+    <bean id="com.liferay.portal.kernel.search.NGramHolderBuilder" class="com.liferay.portal.search.solr.NGramHolderBuilderImpl" />
+
     <!--<bean id="com.liferay.portal.kernel.search.NGramHolderBuilder" class="com.liferay.portal.kernel.search.generic.NGramHolderBuilderImpl" />-->
 
 	<!-- Solr document -->

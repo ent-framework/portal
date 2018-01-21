@@ -150,7 +150,7 @@ public class SolrHelperImpl implements SolrHelper {
 
         Analyzer analyzer = getAnalyzer();
 
-        if ("path".equals(field) || "tag".equals(field) || "treePath".equals(field) || "userName".equals(field)) {
+        if ("path".equals(field) || "tag".equals(field) || "treePath".equals(field) || "userName".equals(field) || field.startsWith("assetCategoryTitles") || "assetTagNames".equals(field) || "emailAddress".equals(field)) {
             like = true;
         }
 
@@ -291,8 +291,7 @@ public class SolrHelperImpl implements SolrHelper {
                 if (like) {
                     termValue = termValue.toLowerCase(queryParser.getLocale());
 
-                    term = new Term(
-                            StringPool.STAR.concat(termValue).concat(
+                    term = new Term( term.field(), StringPool.STAR.concat(termValue).concat(
                                     StringPool.STAR));
 
                     query = new WildcardQuery(term);
