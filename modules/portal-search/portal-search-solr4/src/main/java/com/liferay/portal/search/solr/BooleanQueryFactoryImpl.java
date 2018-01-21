@@ -12,19 +12,18 @@
  * details.
  */
 
-package com.liferay.portal.util;
+package com.liferay.portal.search.solr;
+
+import com.liferay.portal.kernel.search.BooleanQuery;
+import com.liferay.portal.kernel.search.BooleanQueryFactory;
 
 /**
  * @author Brian Wing Shun Chan
  */
-public class PropsFiles {
+public class BooleanQueryFactoryImpl implements BooleanQueryFactory {
 
-	public static final String CAPTCHA = "captcha";
-
-	public static final String CONTENT_TYPES = "content-types";
-
-	public static final String PORTAL = "portal";
-
-	public static final String PLUGIN = "plugin";
-
+	@Override
+	public BooleanQuery create() {
+		return new BooleanQueryImpl();
+	}
 }

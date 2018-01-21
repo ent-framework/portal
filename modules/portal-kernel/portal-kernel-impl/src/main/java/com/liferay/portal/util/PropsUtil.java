@@ -149,8 +149,8 @@ public class PropsUtil {
 
 			_configuration = new ConfigurationImpl(PropsUtil.class.getClassLoader(), PropsFiles.PORTAL);
 
-			_log.info("Load all portal-ext.properties");
-			Configuration portalExtraConfiguration = new ConfigurationImpl(PropsUtil.class.getClassLoader(), PropsFiles.PORTAL_EXT);
+			_log.info("Load all plugin.properties");
+			Configuration portalExtraConfiguration = new ConfigurationImpl(PropsUtil.class.getClassLoader(), PropsFiles.PLUGIN);
 
 			merge(portalExtraConfiguration, _configuration);
 

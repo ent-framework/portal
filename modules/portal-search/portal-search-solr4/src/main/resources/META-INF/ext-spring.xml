@@ -10,6 +10,7 @@
 >
 
 
+    <!--  override beans defined in  search-spring.xml  -->
 	<bean id="com.liferay.portal.kernel.search.StringDistanceCalculator" class="com.liferay.portal.search.solr.StringDistanceCalculatorImpl">
 		<property name="stringDistance" ref="org.apache.lucene.search.spell.StringDistance" />
 	</bean>
@@ -23,10 +24,13 @@
         <constructor-arg ref="org.apache.lucene.util.Version"/>
     </bean>
 
-    <bean id="com.liferay.portal.kernel.search.QueryTranslator" class="com.liferay.portal.search.lucene.QueryTranslatorImpl" />
+    <bean id="com.liferay.portal.kernel.search.QueryTranslator" class="com.liferay.portal.search.solr.QueryTranslatorImpl">
+        <property name="solrHelper" ref="com.liferay.portal.search.solr.SolrHelper" />
+    </bean>
+
+    <!--<bean id="com.liferay.portal.kernel.search.NGramHolderBuilder" class="com.liferay.portal.kernel.search.generic.NGramHolderBuilderImpl" />-->
 
 	<!-- Solr document -->
-
 	<bean class="com.liferay.portal.search.solr.document.DefaultSolrDocumentFactory" id="com.liferay.portal.search.solr.document.SolrDocumentFactory" />
 
 	<!-- Solr facet -->
@@ -96,14 +100,32 @@
 		</property>
 		<property name="solrServer" ref="com.liferay.portal.search.solr.server.HttpSolrServer" />
 	</bean>
-	<bean id="com.liferay.portal.search.solr.SolrSearchEngineImpl" class="com.liferay.portal.kernel.search.BaseSearchEngine">
+
+	<bean id="com.liferay.portal.search.solr.SolrSearchEngineImpl" class="com.liferay.portal.search.solr.SolrSearchEngine">
+        <property name="booleanClauseFactory">
+            <bean class="com.liferay.portal.kernel.search.generic.BooleanClauseFactoryImpl"/>
+        </property>
+        <property name="booleanQueryFactory">
+            <bean class="com.liferay.portal.search.solr.BooleanQueryFactoryImpl" />
+        </property>
+        <property name="termQueryFactory">
+            <bean class="com.liferay.portal.search.solr.TermQueryFactoryImpl"/>
+        </property>
+        <property name="termRangeQueryFactory">
+            <bean class="com.liferay.portal.search.solr.TermRangeQueryFactoryImpl"/>
+        </property>
 		<property name="clusteredWrite" value="false" />
 		<property name="indexSearcher" ref="com.liferay.portal.search.solr.SolrIndexSearcher" />
 		<property name="indexWriter" ref="com.liferay.portal.search.solr.SolrIndexWriter" />
 		<property name="luceneBased" value="true" />
 		<property name="vendor" value="SOLR" />
 	</bean>
-	<bean id="com.liferay.portal.search.solr.SolrSpellCheckIndexWriter" class="com.liferay.portal.search.solr.SolrSpellCheckIndexWriter">
+    <bean id="com.liferay.portal.search.solr.SolrHelper" class="com.liferay.portal.search.solr.SolrHelperImpl">
+        <property name="analyzer" ref="com.liferay.portal.kernel.search.Tokenizer" />
+        <property name="version" ref="org.apache.lucene.util.Version" />
+    </bean>
+
+    <bean id="com.liferay.portal.search.solr.SolrSpellCheckIndexWriter" class="com.liferay.portal.search.solr.SolrSpellCheckIndexWriter">
 		<property name="commit" value="true" />
 		<property name="indexWriter" ref="com.liferay.portal.search.solr.SolrIndexWriter" />
 		<property name="solrServer" ref="com.liferay.portal.search.solr.server.HttpSolrServer" />

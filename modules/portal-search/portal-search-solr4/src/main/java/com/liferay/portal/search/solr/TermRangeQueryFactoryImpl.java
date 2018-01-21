@@ -12,19 +12,23 @@
  * details.
  */
 
-package com.liferay.portal.util;
+package com.liferay.portal.search.solr;
+
+import com.liferay.portal.kernel.search.TermRangeQuery;
+import com.liferay.portal.kernel.search.TermRangeQueryFactory;
 
 /**
- * @author Brian Wing Shun Chan
+ * @author Raymond Augé
  */
-public class PropsFiles {
+public class TermRangeQueryFactoryImpl implements TermRangeQueryFactory {
 
-	public static final String CAPTCHA = "captcha";
+	@Override
+	public TermRangeQuery create(
+		String field, String lowerTerm, String upperTerm, boolean includesLower,
+		boolean includesUpper) {
 
-	public static final String CONTENT_TYPES = "content-types";
-
-	public static final String PORTAL = "portal";
-
-	public static final String PLUGIN = "plugin";
+		return new TermRangeQueryImpl(
+			field, lowerTerm, upperTerm, includesLower, includesUpper);
+	}
 
 }

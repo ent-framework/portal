@@ -97,7 +97,7 @@ public class SolrIndexer implements Runnable {
 
 		try {
 
-			//LuceneHelperUtil.delete(_companyId);
+			//SolrHelperUtil.delete(_companyId);
 
 			List<Portlet> portlets = PortletLocalServiceUtil.getPortlets(
 				_companyId);

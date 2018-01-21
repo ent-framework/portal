@@ -29,24 +29,26 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 public class LuceneSearchEngine extends BaseSearchEngine {
+
     @Override
     public void startup(long companyId) {
-        super.startup(companyId);
+        LuceneHelperUtil.startup(companyId);
     }
 
     @Override
     public void shutdown() {
-        super.shutdown();
+        LuceneHelperUtil.shutdown();
     }
 
     @Override
     public void shutdown(long companyId) {
-        super.shutdown(companyId);
+        LuceneHelperUtil.shutdown(companyId);
+
     }
 
     @Override
     public void delete(long companyId) {
-        super.delete(companyId);
+        LuceneHelperUtil.delete(companyId);
     }
 
     @Override

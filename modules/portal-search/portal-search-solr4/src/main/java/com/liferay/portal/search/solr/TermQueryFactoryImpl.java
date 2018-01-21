@@ -12,19 +12,24 @@
  * details.
  */
 
-package com.liferay.portal.util;
+package com.liferay.portal.search.solr;
+
+import com.liferay.portal.kernel.search.TermQuery;
+import com.liferay.portal.kernel.search.TermQueryFactory;
 
 /**
  * @author Brian Wing Shun Chan
  */
-public class PropsFiles {
+public class TermQueryFactoryImpl implements TermQueryFactory {
 
-	public static final String CAPTCHA = "captcha";
+	@Override
+	public TermQuery create(String field, long value) {
+		return new TermQueryImpl(field, value);
+	}
 
-	public static final String CONTENT_TYPES = "content-types";
-
-	public static final String PORTAL = "portal";
-
-	public static final String PLUGIN = "plugin";
+	@Override
+	public TermQuery create(String field, String value) {
+		return new TermQueryImpl(field, value);
+	}
 
 }

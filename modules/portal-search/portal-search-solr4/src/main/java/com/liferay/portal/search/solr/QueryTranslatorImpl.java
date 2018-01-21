@@ -19,6 +19,7 @@ import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import org.apache.lucene.index.Term;
+import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.BooleanClause;
 import org.apache.lucene.search.BooleanQuery;
 import org.apache.lucene.search.TermQuery;
@@ -35,6 +36,29 @@ public class QueryTranslatorImpl implements QueryTranslator {
 	@Override
 	public Object translate(Query query) throws ParseException {
 
+		if (query instanceof BooleanQueryImpl) {
+			return ((BooleanQueryImpl)query).getBooleanQuery();
+		}
+		else if (query instanceof StringQueryImpl) {
+			QueryParser queryParser = new QueryParser(
+					solrHelper.getVersion(), StringPool.BLANK,
+					solrHelper.getAnalyzer());
+
+			try {
+				return queryParser.parse(query.toString());
+			} catch (org.apache.lucene.queryparser.classic.ParseException e) {
+				e.printStackTrace();
+			}
+		}
+		else if (query instanceof TermQueryImpl) {
+			return ((TermQueryImpl)query).getTermQuery();
+		}
+		else if (query instanceof TermRangeQueryImpl) {
+			return ((TermRangeQueryImpl)query).getTermRangeQuery();
+		}
+		else {
+			return null;
+		}
 		return null;
 	}
 
@@ -106,7 +130,7 @@ public class QueryTranslatorImpl implements QueryTranslator {
 
 	static {
 		try {
-			_textField = Term.class.getDeclaredField("text");
+			_textField = Term.class.getDeclaredField("bytes");
 
 			_textField.setAccessible(true);
 		}
@@ -115,4 +139,9 @@ public class QueryTranslatorImpl implements QueryTranslator {
 		}
 	}
 
+	private SolrHelper solrHelper;
+
+	public void setSolrHelper(SolrHelper solrHelper) {
+		this.solrHelper = solrHelper;
+	}
 }

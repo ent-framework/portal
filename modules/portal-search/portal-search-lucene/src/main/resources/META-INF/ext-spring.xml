@@ -10,6 +10,7 @@
 >
 
 
+    <!--  override beans defined in  search-spring.xml  -->
     <bean id="com.liferay.portal.kernel.search.StringDistanceCalculator" class="com.liferay.portal.search.lucene.StringDistanceCalculatorImpl">
         <property name="stringDistance" ref="org.apache.lucene.search.spell.StringDistance" />
     </bean>
@@ -134,7 +135,7 @@
         <property name="version" ref="org.apache.lucene.util.Version"/>
     </bean>
     <bean id="com.liferay.portal.search.lucene.LuceneHelperUtil" class="com.liferay.portal.search.lucene.LuceneHelperUtil">
-        <property name="luceneHelper" ref="com.liferay.portal.search.lucene.LuceneHelperImpl"/>
+        <property name="solrHelper" ref="com.liferay.portal.search.lucene.LuceneHelperImpl"/>
     </bean>
     <bean id="com.liferay.portal.search.lucene.LuceneQuerySuggester" class="com.liferay.portal.search.lucene.LuceneQuerySuggester">
         <property name="stringDistance" ref="org.apache.lucene.search.spell.StringDistance"/>
