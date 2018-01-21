@@ -19,7 +19,6 @@ import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import org.apache.lucene.index.Term;
-import org.apache.lucene.queryParser.QueryParser;
 import org.apache.lucene.search.BooleanClause;
 import org.apache.lucene.search.BooleanQuery;
 import org.apache.lucene.search.TermQuery;
@@ -35,33 +34,8 @@ public class QueryTranslatorImpl implements QueryTranslator {
 
 	@Override
 	public Object translate(Query query) throws ParseException {
-		if (query instanceof BooleanQueryImpl) {
-			return ((BooleanQueryImpl)query).getBooleanQuery();
-		}
-		else if (query instanceof LuceneQueryImpl) {
-			return ((LuceneQueryImpl)query).getQuery();
-		}
-		else if (query instanceof StringQueryImpl) {
-			QueryParser queryParser = new QueryParser(
-				LuceneHelperUtil.getVersion(), StringPool.BLANK,
-				LuceneHelperUtil.getAnalyzer());
 
-			try {
-				return queryParser.parse(query.toString());
-			}
-			catch (org.apache.lucene.queryParser.ParseException pe) {
-				throw new ParseException(pe);
-			}
-		}
-		else if (query instanceof TermQueryImpl) {
-			return ((TermQueryImpl)query).getTermQuery();
-		}
-		else if (query instanceof TermRangeQueryImpl) {
-			return ((TermRangeQueryImpl)query).getTermRangeQuery();
-		}
-		else {
-			return null;
-		}
+		return null;
 	}
 
 	@Override
