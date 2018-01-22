@@ -15,6 +15,7 @@
 
     <modules>
         <module>portal-search-solr4</module>
+        <!--<module>portal-search-solr5</module>-->
         <module>portal-search-lucene</module>
     </modules>
 
