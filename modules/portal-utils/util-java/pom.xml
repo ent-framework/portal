@@ -230,7 +230,7 @@
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
-            <version>1.8.10</version>
+            <version>${aspectj.version}</version>
         </dependency>
 
         <dependency>

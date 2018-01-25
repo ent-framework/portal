@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.liferay.portal.kernel.config.LiferayPortalProperties
