@@ -420,7 +420,7 @@ public class PortalInstances {
 			}
 
 			try {
-				String xml = HttpUtil.URLtoString( Thread.currentThread().getContextClassLoader().getResource("portal-config/liferay-display.xml")
+				String xml = HttpUtil.URLtoString( Thread.currentThread().getContextClassLoader().getResource("config/portal/liferay-display.xml")
 //					servletContext.getResource("/WEB-INF/liferay-display.xml")
 				);
 

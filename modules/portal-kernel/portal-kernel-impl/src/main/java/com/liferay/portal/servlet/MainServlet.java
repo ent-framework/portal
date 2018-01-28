@@ -749,8 +749,8 @@ public class MainServlet extends ActionServlet {
 		ServletContext servletContext = getServletContext();
 
 		String[] xmls = new String[] {
-			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/liferay-layout-templates.xml")),
-			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/liferay-layout-templates-ext.xml"))
+			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("config/portal/liferay-layout-templates.xml")),
+			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("config/portal/liferay-layout-templates-ext.xml"))
 		};
 
 		List<LayoutTemplate> layoutTemplates =
@@ -803,10 +803,10 @@ public class MainServlet extends ActionServlet {
 		ServletContext servletContext = getServletContext();
 
 		String[] xmls = new String[] {
-			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/"+ Portal.PORTLET_XML_FILE_NAME_CUSTOM)),
-			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/portlet-ext.xml")),
-			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/liferay-portlet.xml")),
-			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/liferay-portlet-ext.xml"))
+			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("config/portal/"+ Portal.PORTLET_XML_FILE_NAME_CUSTOM)),
+			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("config/portal/portlet-ext.xml")),
+			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("config/portal/liferay-portlet.xml")),
+			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("config/portal/liferay-portlet-ext.xml"))
 		};
 
 		PortletLocalServiceUtil.initEAR(servletContext, xmls, pluginPackage);
@@ -881,8 +881,8 @@ public class MainServlet extends ActionServlet {
 		ServletContext servletContext = getServletContext();
 
 		String[] xmls = new String[] {
-			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/liferay-look-and-feel.xml")),
-			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/liferay-look-and-feel-ext.xml"))
+			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("config/portal/liferay-look-and-feel.xml")),
+			HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("config/portal/liferay-look-and-feel-ext.xml"))
 		};
 
 		List<Theme> themes = ThemeLocalServiceUtil.init(

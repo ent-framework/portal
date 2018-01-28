@@ -865,7 +865,7 @@ public class PluginPackageUtil {
 
 		PluginPackage pluginPackage = null;
 
-		String xml = HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("portal-config/liferay-plugin-package.xml"));
+		String xml = HttpUtil.URLtoString(PortalClassLoaderUtil.getClassLoader().getResource("config/portal/liferay-plugin-package.xml"));
 
 		if (xml != null) {
 			pluginPackage = _readPluginPackageXml(xml);

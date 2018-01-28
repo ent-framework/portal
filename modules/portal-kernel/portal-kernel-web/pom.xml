@@ -15,4 +15,12 @@
 
     <version>6.3.0</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.liferay.portal</groupId>
+            <artifactId>portal-kernel-impl</artifactId>
+            <version>6.3.0</version>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
 </project>
