@@ -1,62 +1,35 @@
 package com.liferay.portal.cluster.eureka;
 
-import com.liferay.portal.cluster.*;
-import com.liferay.portal.kernel.cluster.Address;
-import com.liferay.portal.kernel.cluster.ClusterEvent;
-import com.liferay.portal.kernel.cluster.ClusterEventListener;
-import com.liferay.portal.kernel.cluster.ClusterException;
-import com.liferay.portal.kernel.cluster.ClusterExecutor;
-import com.liferay.portal.kernel.cluster.ClusterMessageType;
-import com.liferay.portal.kernel.cluster.ClusterNode;
-import com.liferay.portal.kernel.cluster.ClusterNodeResponse;
-import com.liferay.portal.kernel.cluster.ClusterNodeResponses;
-import com.liferay.portal.kernel.cluster.ClusterRequest;
-import com.liferay.portal.kernel.cluster.ClusterResponseCallback;
-import com.liferay.portal.kernel.cluster.FutureClusterResponses;
+import com.liferay.portal.cluster.AddressImpl;
+import com.liferay.portal.cluster.ClusterRequestReceiver;
+import com.liferay.portal.cluster.DebuggingClusterEventListenerImpl;
+import com.liferay.portal.cluster.LiveUsersClusterEventListenerImpl;
+import com.liferay.portal.kernel.cluster.*;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.executor.PortalExecutorManagerUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
-import com.liferay.portal.kernel.util.Http;
-import com.liferay.portal.kernel.util.InetAddressUtil;
-import com.liferay.portal.kernel.util.MethodHandler;
-import com.liferay.portal.kernel.util.PropsKeys;
-import com.liferay.portal.kernel.util.StringBundler;
-import com.liferay.portal.kernel.util.StringUtil;
-import com.liferay.portal.kernel.util.Validator;
-import com.liferay.portal.kernel.util.WeakValueConcurrentHashMap;
+import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
 import com.liferay.portal.util.PortalPortEventListener;
 import com.liferay.portal.util.PortalPortProtocolEventListener;
 import com.liferay.portal.util.PortalUtil;
-import com.liferay.portal.util.PropsUtil;
 import com.liferay.portal.util.PropsValues;
+import org.jgroups.JChannel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.io.Serializable;
-
 import java.net.InetAddress;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
-
-import org.jgroups.JChannel;
+import java.util.*;
+import java.util.concurrent.*;
 
 /**
  * @author Jeff Qian
  */
 @DoPrivileged
-public class EurekaClusterExecutorImpl
-        extends EurekaClusterBase
+public class EurekaClusterExecutorImpl extends EurekaClusterBase
         implements ClusterExecutor, PortalPortEventListener,
         PortalPortProtocolEventListener {
 
@@ -92,8 +65,7 @@ public class EurekaClusterExecutorImpl
             return;
         }
 
-        PortalExecutorManagerUtil.shutdown(
-                CLUSTER_EXECUTOR_CALLBACK_THREAD_POOL, true);
+        PortalExecutorManagerUtil.shutdown(CLUSTER_EXECUTOR_CALLBACK_THREAD_POOL, true);
 
         _controlJChannel.setReceiver(null);
 
@@ -135,22 +107,19 @@ public class EurekaClusterExecutorImpl
         if (clusterRequest.isMulticast()) {
             try {
                 sendJGroupsMessage(_controlJChannel, null, clusterRequest);
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 throw new SystemException(
                         "Unable to send multicast request", e);
             }
-        }
-        else {
+        } else {
             for (Address address : addresses) {
                 org.jgroups.Address jGroupsAddress =
-                        (org.jgroups.Address)address.getRealAddress();
+                        (org.jgroups.Address) address.getRealAddress();
 
                 try {
                     sendJGroupsMessage(
                             _controlJChannel, jGroupsAddress, clusterRequest);
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                     throw new SystemException(
                             "Unable to send unicast request", e);
                 }
@@ -168,8 +137,8 @@ public class EurekaClusterExecutorImpl
 
         FutureClusterResponses futureClusterResponses = execute(clusterRequest);
 
-        ClusterResponseCallbackJob clusterResponseCallbackJob =  new ClusterResponseCallbackJob(
-                        clusterResponseCallback, futureClusterResponses);
+        ClusterResponseCallbackJob clusterResponseCallbackJob = new ClusterResponseCallbackJob(
+                clusterResponseCallback, futureClusterResponses);
 
         _executorService.execute(clusterResponseCallbackJob);
     }
@@ -184,8 +153,8 @@ public class EurekaClusterExecutorImpl
         FutureClusterResponses futureClusterResponses = execute(clusterRequest);
 
         ClusterResponseCallbackJob clusterResponseCallbackJob = new ClusterResponseCallbackJob(
-                        clusterResponseCallback, futureClusterResponses, timeout,
-                        timeUnit);
+                clusterResponseCallback, futureClusterResponses, timeout,
+                timeUnit);
 
         _executorService.execute(clusterResponseCallbackJob);
     }
@@ -253,13 +222,12 @@ public class EurekaClusterExecutorImpl
             memberJoined(_localAddress, _localClusterNode);
 
             sendNotifyRequest();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             _log.error("Unable to determine local network address", e);
         }
 
         ClusterRequestReceiver clusterRequestReceiver =
-                (ClusterRequestReceiver)_controlJChannel.getReceiver();
+                (ClusterRequestReceiver) _controlJChannel.getReceiver();
 
         clusterRequestReceiver.openLatch();
     }
@@ -286,7 +254,7 @@ public class EurekaClusterExecutorImpl
 
     /**
      * @deprecated As of 6.2.0, replaced by {@link
-     *             #portalPortProtocolConfigured(int, Boolean)}
+     * #portalPortProtocolConfigured(int, Boolean)}
      */
     @Override
     public void portalPortConfigured(int port) {
@@ -305,8 +273,7 @@ public class EurekaClusterExecutorImpl
 
         if (secure) {
             _localClusterNode.setPortalProtocol(Http.HTTPS);
-        }
-        else {
+        } else {
             _localClusterNode.setPortalProtocol(Http.HTTP);
         }
 
@@ -319,8 +286,7 @@ public class EurekaClusterExecutorImpl
                     ClusterMessageType.UPDATE, _localClusterNode);
 
             sendJGroupsMessage(_controlJChannel, null, clusterRequest);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             _log.error("Unable to determine configure node port", e);
         }
     }
@@ -375,12 +341,10 @@ public class EurekaClusterExecutorImpl
 
         if (exception != null) {
             clusterNodeResponse.setException(exception);
-        }
-        else {
+        } else {
             if (returnValue instanceof Serializable) {
                 clusterNodeResponse.setResult(returnValue);
-            }
-            else if (returnValue != null) {
+            } else if (returnValue != null) {
                 clusterNodeResponse.setException(
                         new ClusterException("Return value is not serializable"));
             }
@@ -399,27 +363,9 @@ public class EurekaClusterExecutorImpl
 
     @Override
     protected void initChannels() throws Exception {
-//        String channelName = PropsUtil.get(PropsKeys.CLUSTER_LINK_CHANNEL_NAME_CONTROL);
-//
-//        if (Validator.isNull(channelName)) {
-//            throw new IllegalStateException(
-//                    "Set \"" + PropsKeys.CLUSTER_LINK_CHANNEL_NAME_CONTROL +
-//                            "\"");
-//        }
-//
-//        String controlProperty = PropsUtil.get(PropsKeys.CLUSTER_LINK_CHANNEL_PROPERTIES_CONTROL);
-//
-//        if (Validator.isNull(controlProperty)) {
-//            throw new IllegalStateException(
-//                    "Set \"" + PropsKeys.CLUSTER_LINK_CHANNEL_PROPERTIES_CONTROL +
-//                            "\"");
-//        }
 
         EurekaClusterRequestReceiver clusterRequestReceiver = new EurekaClusterRequestReceiver(this);
-
-        String channelName = getRegistration().getServiceId() + "-channel";
-
-        _controlJChannel = createJChannel(clusterRequestReceiver, channelName);
+        _controlJChannel =  createJChannel(clusterRequestReceiver, false);
     }
 
     protected void initLocalClusterNode() throws Exception {
@@ -437,15 +383,13 @@ public class EurekaClusterExecutorImpl
 
             localClusterNode.setPortalProtocol(Http.HTTPS);
             localClusterNode.setPort(PropsValues.PORTAL_INSTANCE_HTTPS_PORT);
-        }
-        else if (StringUtil.equalsIgnoreCase(
+        } else if (StringUtil.equalsIgnoreCase(
                 Http.HTTP, PropsValues.PORTAL_INSTANCE_PROTOCOL) &&
                 (PropsValues.PORTAL_INSTANCE_HTTP_PORT > 0)) {
 
             localClusterNode.setPortalProtocol(Http.HTTP);
             localClusterNode.setPort(PropsValues.PORTAL_INSTANCE_HTTP_PORT);
-        }
-        else {
+        } else {
             if (_log.isWarnEnabled()) {
                 StringBundler sb = new StringBundler(8);
 
@@ -521,8 +465,7 @@ public class EurekaClusterExecutorImpl
 
         if (isMulticast) {
             addresses = getAddresses(_controlJChannel);
-        }
-        else {
+        } else {
             addresses = new ArrayList<Address>();
 
             Collection<Address> clusterNodeAddresses =
@@ -563,12 +506,10 @@ public class EurekaClusterExecutorImpl
         if (methodHandler == null) {
             exception = new ClusterException(
                     "Payload is not of type " + MethodHandler.class.getName());
-        }
-        else {
+        } else {
             try {
                 returnValue = methodHandler.invoke(true);
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 exception = e;
             }
         }
@@ -588,24 +529,19 @@ public class EurekaClusterExecutorImpl
 
         try {
             sendJGroupsMessage(_controlJChannel, null, clusterRequest);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             _log.error("Unable to send notify message", e);
         }
     }
 
     private static final Logger _log = LoggerFactory.getLogger(com.liferay.portal.cluster.ClusterExecutorImpl.class);
 
-    private CopyOnWriteArrayList<ClusterEventListener> _clusterEventListeners =
-            new CopyOnWriteArrayList<ClusterEventListener>();
-    private Map<String, Address> _clusterNodeAddresses =
-            new ConcurrentHashMap<String, Address>();
+    private CopyOnWriteArrayList<ClusterEventListener> _clusterEventListeners = new CopyOnWriteArrayList<ClusterEventListener>();
+    private Map<String, Address> _clusterNodeAddresses = new ConcurrentHashMap<String, Address>();
     private JChannel _controlJChannel;
     private ExecutorService _executorService;
-    private Map<String, FutureClusterResponses> _futureClusterResponses =
-            new WeakValueConcurrentHashMap<String, FutureClusterResponses>();
-    private Map<Address, ClusterNode> _liveInstances =
-            new ConcurrentHashMap<Address, ClusterNode>();
+    private Map<String, FutureClusterResponses> _futureClusterResponses = new WeakValueConcurrentHashMap<String, FutureClusterResponses>();
+    private Map<Address, ClusterNode> _liveInstances = new ConcurrentHashMap<Address, ClusterNode>();
     private Address _localAddress;
     private ClusterNode _localClusterNode;
     private boolean _shortcutLocalMethod;
@@ -648,17 +584,14 @@ public class EurekaClusterExecutorImpl
                 if (_timeoutGet) {
                     clusterNodeResponses = _futureClusterResponses.get(
                             _timeout, _timeUnit);
-                }
-                else {
+                } else {
                     clusterNodeResponses = _futureClusterResponses.get();
                 }
 
                 _clusterResponseCallback.callback(clusterNodeResponses);
-            }
-            catch (InterruptedException ie) {
+            } catch (InterruptedException ie) {
                 _clusterResponseCallback.processInterruptedException(ie);
-            }
-            catch (TimeoutException te) {
+            } catch (TimeoutException te) {
                 _clusterResponseCallback.processTimeoutException(te);
             }
         }

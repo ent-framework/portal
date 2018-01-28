@@ -1,13 +1,12 @@
 package com.liferay.portal.cluster.eureka;
 
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.liferay.portal.cluster.AddressImpl;
 import com.liferay.portal.cluster.BaseReceiver;
 import com.liferay.portal.kernel.cluster.Address;
 import com.liferay.portal.kernel.io.Serializer;
-import com.liferay.portal.kernel.util.*;
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.InetAddressUtil;
 import com.liferay.portal.util.PropsValues;
-import org.apache.commons.lang.StringUtils;
 import org.jgroups.JChannel;
 import org.jgroups.Receiver;
 import org.jgroups.View;
@@ -21,22 +20,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.serviceregistry.Registration;
 
 import java.io.Serializable;
 import java.net.InetAddress;
-import java.net.NetworkInterface;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.*;
 
-import static org.jgroups.util.RpcStats.Type.UNICAST;
-
-public abstract class EurekaClusterBase  {
+public abstract class EurekaClusterBase {
 
 
     public void afterPropertiesSet() {
@@ -49,8 +43,7 @@ public abstract class EurekaClusterBase  {
 
             try {
                 initBindAddress();
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 if (_log.isWarnEnabled()) {
                     _log.warn("Failed to initialize outgoing IP address", e);
                 }
@@ -61,8 +54,7 @@ public abstract class EurekaClusterBase  {
 
         try {
             initChannels();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             if (_log.isErrorEnabled()) {
                 _log.error("Unable to initialize channels", e);
             }
@@ -74,7 +66,7 @@ public abstract class EurekaClusterBase  {
     public abstract void destroy();
 
     public boolean isEnabled() {
-        return discoveryClient!=null && registration!=null && instanceId!=null;
+        return discoveryClient != null && registration != null && instanceId != null;
     }
 
     protected void sendJGroupsMessage(
@@ -116,12 +108,16 @@ public abstract class EurekaClusterBase  {
         return jChannel;
     }
 
-    protected JChannel createJChannel(Receiver receiver, String clusterName)
+    protected JChannel createJChannel(Receiver receiver, boolean isTransport)
             throws Exception {
+
+        String clusterName = isTransport ? registration.getServiceId() : registration.getServiceId() + "_control";
+
+        int port = isTransport ? serverPort +1 : serverPort+2;
 
         List<Protocol> protocols = new ArrayList<>();
         TCP tcp = new TCP();
-        tcp.setBindPort(7800).setPortRange(50).setBindAddress(bindInetAddress);
+        tcp.setBindPort(port).setPortRange(50).setBindAddress(bindInetAddress);
         tcp.getBindPort();
         protocols.add(tcp);
         protocols.add(new EUREKA_PING(discoveryClient, tcp));
@@ -165,7 +161,7 @@ public abstract class EurekaClusterBase  {
         mfc.setMinThreshold(0.4f);
         protocols.add(mfc);
 
-        FRAG2 frag2 =  new FRAG2();
+        FRAG2 frag2 = new FRAG2();
         frag2.setFragSize(1024 * 60);
         protocols.add(frag2);
 
@@ -190,7 +186,7 @@ public abstract class EurekaClusterBase  {
     }
 
     protected List<Address> getAddresses(JChannel channel) {
-        BaseReceiver baseReceiver = (BaseReceiver)channel.getReceiver();
+        BaseReceiver baseReceiver = (BaseReceiver) channel.getReceiver();
 
         View view = baseReceiver.getView();
 
@@ -253,6 +249,9 @@ public abstract class EurekaClusterBase  {
 
     @Value("${eureka.instance.instanceId}")
     private String instanceId;
+
+    @Value("${server.port}")
+    private int serverPort;
 
     @Autowired
     public void setDiscoveryClient(DiscoveryClient discoveryClient) {

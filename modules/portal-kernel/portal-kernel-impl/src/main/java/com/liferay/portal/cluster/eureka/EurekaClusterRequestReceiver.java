@@ -41,16 +41,14 @@ public class EurekaClusterRequestReceiver extends BaseReceiver {
         }
 
         if (obj instanceof ClusterRequest) {
-            ClusterRequest clusterRequest = (ClusterRequest)obj;
+            ClusterRequest clusterRequest = (ClusterRequest) obj;
 
             processClusterRequest(clusterRequest, sourceAddress);
-        }
-        else if (obj instanceof ClusterNodeResponse) {
-            ClusterNodeResponse clusterNodeResponse = (ClusterNodeResponse)obj;
+        } else if (obj instanceof ClusterNodeResponse) {
+            ClusterNodeResponse clusterNodeResponse = (ClusterNodeResponse) obj;
 
             processClusterResponse(clusterNodeResponse, sourceAddress);
-        }
-        else if (_log.isWarnEnabled()) {
+        } else if (_log.isWarnEnabled()) {
             _log.warn(
                     "Unable to process message content of type " + obj.getClass());
         }
@@ -135,14 +133,12 @@ public class EurekaClusterRequestReceiver extends BaseReceiver {
         try {
             _clusterExecutorImpl.sendJGroupsMessage(
                     _clusterExecutorImpl.getControlChannel(),
-                    (org.jgroups.Address)address.getRealAddress(),
+                    (org.jgroups.Address) address.getRealAddress(),
                     clusterNodeResponse);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             _log.error(
                     "Unable to send response message " + clusterNodeResponse, e);
-        }
-        catch (Throwable t) {
+        } catch (Throwable t) {
             _log.error(t.getMessage(), t);
         }
     }
@@ -176,17 +172,14 @@ public class EurekaClusterRequestReceiver extends BaseReceiver {
                 ClusterInvokeThreadLocal.setEnabled(false);
 
                 returnValue = methodHandler.invoke(true);
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 exception = e;
 
                 _log.error("Unable to invoke method " + methodHandler, e);
-            }
-            finally {
+            } finally {
                 ClusterInvokeThreadLocal.setEnabled(true);
             }
-        }
-        else {
+        } else {
             exception = new ClusterException(
                     "Payload is not of type " + MethodHandler.class.getName());
         }
@@ -225,8 +218,7 @@ public class EurekaClusterRequestReceiver extends BaseReceiver {
 
         if (futureClusterResponses.expectsReply(sourceAddress)) {
             futureClusterResponses.addClusterNodeResponse(clusterNodeResponse);
-        }
-        else {
+        } else {
             if (_log.isWarnEnabled()) {
                 _log.warn("Unknown uuid " + uuid + " from " + sourceAddress);
             }
@@ -235,7 +227,7 @@ public class EurekaClusterRequestReceiver extends BaseReceiver {
 
     protected boolean processLocalMessage(Object message) {
         if (message instanceof ClusterRequest) {
-            ClusterRequest clusterRequest = (ClusterRequest)message;
+            ClusterRequest clusterRequest = (ClusterRequest) message;
 
             if (clusterRequest.isSkipLocal()) {
                 return true;
