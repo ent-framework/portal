@@ -91,25 +91,6 @@ public abstract class EurekaClusterBase {
         }
     }
 
-    protected JChannel createJChannel(
-            String properties, Receiver receiver, String clusterName)
-            throws Exception {
-
-        JChannel jChannel = new JChannel(properties);
-
-        jChannel.setReceiver(receiver);
-
-        jChannel.connect(clusterName);
-
-        if (_log.isInfoEnabled()) {
-            _log.info(
-                    "Create a new channel with properties " +
-                            jChannel.getProperties());
-        }
-
-        return jChannel;
-    }
-
     protected JChannel createJChannel(Receiver receiver, boolean isTransport)
             throws Exception {
 
@@ -120,6 +101,10 @@ public abstract class EurekaClusterBase {
         List<Protocol> protocols = new ArrayList<>();
         TCP tcp = new TCP();
         tcp.setBindPort(port).setPortRange(50).setBindAddress(bindInetAddress);
+
+        tcp.setThreadPoolMinThreads(1);
+        tcp.setThreadPoolMaxThreads(10);
+        tcp.setThreadPoolKeepAliveTime(5000);
 
         protocols.add(tcp);
         protocols.add(new EUREKA_PING(discoveryClient));
@@ -177,9 +162,6 @@ public abstract class EurekaClusterBase {
 
         if (_log.isInfoEnabled()) {
             _log.info(
-                    "Create a new channel with properties " +
-                            jChannel.getProperties());
-            _log.info(
                     "JChannel address " +
                             jChannel.getAddress().toString());
         }
@@ -198,8 +180,7 @@ public abstract class EurekaClusterBase {
             return Collections.emptyList();
         }
 
-        List<Address> addresses = new ArrayList<Address>(
-                jGroupsAddresses.size());
+        List<Address> addresses = new ArrayList<Address>(jGroupsAddresses.size());
 
         for (org.jgroups.Address jgroupsAddress : jGroupsAddresses) {
             addresses.add(new AddressImpl(jgroupsAddress));

@@ -45,11 +45,6 @@ public class EUREKA_PING extends Discovery {
         final PingHeader hdr = new PingHeader(PingHeader.GET_MBRS_REQ).clusterName(cluster_name);
         final List<IpAddress> clusterMembers = getPrivateIpAddresses();
 
-        for (IpAddress address : clusterMembers) {
-            boolean is = address.getIpAddress().equals(physical_addr.getIpAddress()) && address.getPort() == physical_addr.getPort();
-            _log.debug("is self {}", is);
-        }
-
         clusterMembers.stream()
                 .filter(Objects::nonNull) //guard against nulls
                 .filter(address -> !(address.getIpAddress().equals(physical_addr.getIpAddress()) && address.getPort() == physical_addr.getPort())) //filter out self

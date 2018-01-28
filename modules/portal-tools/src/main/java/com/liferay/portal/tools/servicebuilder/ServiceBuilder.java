@@ -635,7 +635,7 @@ public class ServiceBuilder {
 							_createModelClp(entity);
 							_createModelWrapper(entity);
 
-							_createModelSoap(entity);
+							//_createModelSoap(entity);
 
 							_createBlobModels(entity);
 
