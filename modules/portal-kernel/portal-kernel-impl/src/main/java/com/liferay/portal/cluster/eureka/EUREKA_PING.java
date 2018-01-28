@@ -1,21 +1,23 @@
 package com.liferay.portal.cluster.eureka;
 
 import org.jgroups.Address;
+import org.jgroups.Event;
+import org.jgroups.Message;
 import org.jgroups.conf.ClassConfigurator;
-import org.jgroups.protocols.FILE_PING;
-import org.jgroups.protocols.PingData;
-import org.jgroups.protocols.TCP;
+import org.jgroups.protocols.*;
+import org.jgroups.stack.IpAddress;
+import org.jgroups.util.NameCache;
 import org.jgroups.util.Responses;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-public class EUREKA_PING extends FILE_PING {
+import static com.liferay.portal.cluster.eureka.EurekaClusterBase.CONTROL_CHANNEL_SUFFIX;
+
+public class EUREKA_PING extends Discovery {
 
     private static Map<String, PingData> datas = new HashMap<>();
 
@@ -23,11 +25,8 @@ public class EUREKA_PING extends FILE_PING {
 
     private final DiscoveryClient discoveryClient;
 
-    private final TCP tcp;
-
-    public EUREKA_PING(DiscoveryClient discoveryClient, TCP tcp) {
+    public EUREKA_PING(DiscoveryClient discoveryClient) {
         this.discoveryClient = discoveryClient;
-        this.tcp = tcp;
     }
 
     static {
@@ -40,54 +39,78 @@ public class EUREKA_PING extends FILE_PING {
     }
 
     @Override
-    protected void readAll(List<Address> members, String clustername, Responses responses) {
+    protected void findMembers(final List<Address> members, boolean initial_discovery, final Responses responses) {
+        final IpAddress physical_addr = (IpAddress) down(new Event(Event.GET_PHYSICAL_ADDRESS, local_addr));
+        final PingData data = new PingData(local_addr, false, NameCache.get(local_addr), physical_addr);
+        final PingHeader hdr = new PingHeader(PingHeader.GET_MBRS_REQ).clusterName(cluster_name);
+        final List<IpAddress> clusterMembers = getPrivateIpAddresses();
 
-        _log.info("Get local TCP port :" + this.tcp.getBindPort());
+        for (IpAddress address : clusterMembers) {
+            boolean is = address.getIpAddress().equals(physical_addr.getIpAddress()) && address.getPort() == physical_addr.getPort();
+            _log.debug("is self {}", is);
+        }
 
-        List<ServiceInstance> instances = discoveryClient.getInstances(clustername);
-        for (ServiceInstance instance : instances) {
+        clusterMembers.stream()
+                .filter(Objects::nonNull) //guard against nulls
+                .filter(address -> !(address.getIpAddress().equals(physical_addr.getIpAddress()) && address.getPort() == physical_addr.getPort())) //filter out self
+                .map(address -> new Message(address)
+                        .setFlag(Message.Flag.INTERNAL, Message.Flag.DONT_BUNDLE, Message.Flag.OOB)
+                        .putHeader(this.id, hdr).setBuffer(marshal(data)))
+                .forEach(message -> {
+                    if(async_discovery_use_separate_thread_per_request) {
+                        log.trace("%s: sending async discovery request to %s", local_addr, message.getDest());
+                        down_prot.down(message);
+                    } else {
+                        log.trace("%s: sending discovery request to %s", local_addr, message.getDest());
+                        down_prot.down(message);
+                    }
+                });
+    }
+
+    private List<IpAddress> getPrivateIpAddresses() {
+
+        List<IpAddress> addresses = new ArrayList<>();
+
+        String clusterName = cluster_name;
+
+        boolean isTransport = true;
+
+        if (clusterName.endsWith(CONTROL_CHANNEL_SUFFIX)) {
+            clusterName = clusterName.substring(0, clusterName.length() - CONTROL_CHANNEL_SUFFIX.length());
+            isTransport = false;
+        }
+
+
+        if (_log.isDebugEnabled()) {
+            _log.debug("Find Eureka instance from {}", clusterName);
+        }
+
+        List<ServiceInstance> instances = discoveryClient.getInstances(clusterName);
+        for(ServiceInstance instance : instances) {
+            int port = instance.getPort();
+            if (isTransport) {
+                port = port+1;
+            } else {
+                port =  port+2;
+            }
             try {
-                String physicalAddr = instance.getHost() + ":" + instance.getPort();
+                IpAddress address = new IpAddress(instance.getHost(), port);
+                addresses.add(address);
+            } catch (Exception ex) {
 
-                String key = clustername + "_" + physicalAddr;
-
-                PingData data = readData(key);
-
-                if (data != null && (members == null || members.contains(data.getAddress())))
-                    responses.addResponse(data, data.isCoord());
-                if (data != null && local_addr != null && !local_addr.equals(data.getAddress()))
-                    addDiscoveryResponseToCaches(data.getAddress(), data.getLogicalName(), data.getPhysicalAddr());
-
-            } catch (Exception e) {
-                _log.error(e.getMessage(), e);
             }
         }
-    }
 
-    @Override
-    protected void write(List<PingData> list, String clustername) {
-        if (discoveryClient.getInstances(clustername).size() > 0) {
-            for (PingData data : list) {
-                String physicalAddr = data.getPhysicalAddr().printIpAddress();
-                String key = clustername + "_" + physicalAddr;
-                _log.info("ping data key: " + key);
-                datas.put(key, data);
-            }
+        if (log.isDebugEnabled()) {
+            log.debug("Instances found [%s]", addresses);
         }
-    }
 
-    @Override
-    protected void remove(String clustername, Address addr) {
+        return addresses;
 
-    }
-
-    private PingData readData(String key) {
-        return datas.get(key);
     }
 
     @Override
     public void destroy() {
-        datas.clear();
         super.destroy();
     }
 }

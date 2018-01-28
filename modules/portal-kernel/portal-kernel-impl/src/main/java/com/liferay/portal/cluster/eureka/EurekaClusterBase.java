@@ -4,8 +4,7 @@ import com.liferay.portal.cluster.AddressImpl;
 import com.liferay.portal.cluster.BaseReceiver;
 import com.liferay.portal.kernel.cluster.Address;
 import com.liferay.portal.kernel.io.Serializer;
-import com.liferay.portal.kernel.util.CharPool;
-import com.liferay.portal.kernel.util.InetAddressUtil;
+import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.util.PropsValues;
 import org.jgroups.JChannel;
 import org.jgroups.Receiver;
@@ -25,6 +24,7 @@ import org.springframework.cloud.client.serviceregistry.Registration;
 
 import java.io.Serializable;
 import java.net.InetAddress;
+import java.net.NetworkInterface;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -32,6 +32,8 @@ import java.util.List;
 
 public abstract class EurekaClusterBase {
 
+
+    public static final String CONTROL_CHANNEL_SUFFIX = "_control";
 
     public void afterPropertiesSet() {
         if (!isEnabled()) {
@@ -111,17 +113,17 @@ public abstract class EurekaClusterBase {
     protected JChannel createJChannel(Receiver receiver, boolean isTransport)
             throws Exception {
 
-        String clusterName = isTransport ? registration.getServiceId() : registration.getServiceId() + "_control";
+        String clusterName = isTransport ? registration.getServiceId() : registration.getServiceId() + CONTROL_CHANNEL_SUFFIX;
 
         int port = isTransport ? serverPort +1 : serverPort+2;
 
         List<Protocol> protocols = new ArrayList<>();
         TCP tcp = new TCP();
         tcp.setBindPort(port).setPortRange(50).setBindAddress(bindInetAddress);
-        tcp.getBindPort();
+
         protocols.add(tcp);
-        protocols.add(new EUREKA_PING(discoveryClient, tcp));
-        protocols.add(new MERGE3().setMinInterval(10000).setMaxInterval(30000));
+        protocols.add(new EUREKA_PING(discoveryClient));
+        protocols.add(new MERGE3().setMinInterval(3000).setMaxInterval(30000));
         protocols.add(new FD_SOCK());
 
         FD fd = new FD();
@@ -207,10 +209,47 @@ public abstract class EurekaClusterBase {
     }
 
     protected void initBindAddress() throws Exception {
+        String autodetectAddress = PropsValues.CLUSTER_LINK_AUTODETECT_ADDRESS;
 
-        bindInetAddress = InetAddressUtil.getLocalInetAddress();
+        if (Validator.isNull(autodetectAddress)) {
+            bindInetAddress = InetAddressUtil.getLocalInetAddress();
 
-        System.setProperty("jgroups.bind_addr", bindInetAddress.getHostAddress());
+            return;
+        }
+
+        String host = autodetectAddress;
+        int port = 80;
+
+        int index = autodetectAddress.indexOf(CharPool.COLON);
+
+        if (index != -1) {
+            host = autodetectAddress.substring(0, index);
+            port = GetterUtil.getInteger(
+                    autodetectAddress.substring(index + 1), port);
+        }
+
+        if (_log.isInfoEnabled()) {
+            _log.info(
+                    "Autodetecting JGroups outgoing IP address and interface for " +
+                            host + ":" + port);
+        }
+
+        SocketUtil.BindInfo bindInfo = SocketUtil.getBindInfo(host, port);
+
+        bindInetAddress = bindInfo.getInetAddress();
+        NetworkInterface networkInterface = bindInfo.getNetworkInterface();
+
+        System.setProperty(
+                "jgroups.bind_addr", bindInetAddress.getHostAddress());
+        System.setProperty(
+                "jgroups.bind_interface", networkInterface.getName());
+
+        if (_log.isInfoEnabled()) {
+            _log.info(
+                    "Setting JGroups outgoing IP address to " +
+                            bindInetAddress.getHostAddress() + " and interface to " +
+                            networkInterface.getName());
+        }
     }
 
     protected abstract void initChannels() throws Exception;

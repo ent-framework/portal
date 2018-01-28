@@ -155,10 +155,8 @@ public class ClusterLinkImpl extends ClusterBase implements ClusterLink {
 
 	@Override
 	protected void initChannels() throws Exception {
-		Properties channelNameProperties = PropsUtil.getProperties(
-			PropsKeys.CLUSTER_LINK_CHANNEL_NAME_TRANSPORT, true);
-		Properties transportProperties = PropsUtil.getProperties(
-			PropsKeys.CLUSTER_LINK_CHANNEL_PROPERTIES_TRANSPORT, true);
+		Properties channelNameProperties = PropsUtil.getProperties(PropsKeys.CLUSTER_LINK_CHANNEL_NAME_TRANSPORT, true);
+		Properties transportProperties = PropsUtil.getProperties(PropsKeys.CLUSTER_LINK_CHANNEL_PROPERTIES_TRANSPORT, true);
 
 		_channelCount = transportProperties.size();
 
@@ -167,8 +165,7 @@ public class ClusterLinkImpl extends ClusterBase implements ClusterLink {
 				"Channel count must be between 1 and " + MAX_CHANNEL_COUNT);
 		}
 
-		_localTransportAddresses = new ArrayList<org.jgroups.Address>(
-			_channelCount);
+		_localTransportAddresses = new ArrayList<org.jgroups.Address>(_channelCount);
 		_transportChannels = new ArrayList<JChannel>(_channelCount);
 
 		List<String> keys = new ArrayList<String>(_channelCount);

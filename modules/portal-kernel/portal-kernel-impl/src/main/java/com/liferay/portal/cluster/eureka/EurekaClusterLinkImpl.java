@@ -116,8 +116,8 @@ public class EurekaClusterLinkImpl extends EurekaClusterBase implements ClusterL
     @Override
     protected void initChannels() throws Exception {
 
-        _transportChannel = createJChannel(new EurekaClusterForwardReceiver(_transportChannel.getAddress(), _clusterForwardMessageListener)
-                , true);
+        _transportChannel = createJChannel(null, true);
+        _transportChannel.setReceiver(new EurekaClusterForwardReceiver(_transportChannel.getAddress(), _clusterForwardMessageListener));
     }
 
     private static final Logger _log = LoggerFactory.getLogger(EurekaClusterLinkImpl.class);
