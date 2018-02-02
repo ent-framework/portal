@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.cluster;
 
+import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.exception.SystemException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -96,11 +97,14 @@ public class ClusterExecutorUtil {
 	public static ClusterExecutor getClusterExecutor() {
 		PortalRuntimePermission.checkGetBeanProperty(ClusterExecutorUtil.class);
 
+		if (_clusterExecutor ==null){
+			_clusterExecutor = (ClusterExecutor) PortalBeanLocatorUtil.locate("com.liferay.portal.kernel.cluster.ClusterExecutor");
+		}
+
 		if ((_clusterExecutor == null) || !_clusterExecutor.isEnabled()) {
 			if (_log.isWarnEnabled()) {
 				_log.warn("ClusterExecutorUtil has not been initialized");
 			}
-
 			return null;
 		}
 

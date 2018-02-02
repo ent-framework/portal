@@ -86,7 +86,7 @@ public class InvokerFilterHelper {
 		try {
 			ServletContext servletContext = filterConfig.getServletContext();
 
-			readLiferayFilterWebXML(servletContext, "/portal-config/liferay-web.xml");
+			readLiferayFilterWebXML(servletContext, "config/portal/liferay-web.xml");
 		}
 		catch (Exception e) {
 			_log.error(e.getMessage(), e);

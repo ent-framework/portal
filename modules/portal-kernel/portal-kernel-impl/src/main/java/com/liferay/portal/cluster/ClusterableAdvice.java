@@ -90,12 +90,9 @@ public class ClusterableAdvice
 			return result;
 		}
 
-		MethodHandler methodHandler =
-			ClusterableInvokerUtil.createMethodHandler(
-				clusterable.acceptor(), methodInvocation);
+		MethodHandler methodHandler = ClusterableInvokerUtil.createMethodHandler(clusterable.acceptor(), methodInvocation);
 
-		Future<Object> futureResult = ClusterMasterExecutorUtil.executeOnMaster(
-			methodHandler);
+		Future<Object> futureResult = ClusterMasterExecutorUtil.executeOnMaster(methodHandler);
 
 		Object result = futureResult.get(
 			PropsValues.CLUSTERABLE_ADVICE_CALL_MASTER_TIMEOUT,

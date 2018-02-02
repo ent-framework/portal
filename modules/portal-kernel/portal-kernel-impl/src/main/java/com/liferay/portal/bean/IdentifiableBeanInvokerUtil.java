@@ -70,17 +70,17 @@ public class IdentifiableBeanInvokerUtil {
 		ClassLoaderUtil.setContextClassLoader(classLoader);
 
 		try {
-			Object bean = null;
+			Object bean = PortalBeanLocatorUtil.locate(beanIdentifier);
 
-			if (identifiableBeanServletContextName.equals(
-					PortalUtil.getServletContextName())) {
-
-				bean = PortalBeanLocatorUtil.locate(beanIdentifier);
-			}
-			else {
-				bean = PortletBeanLocatorUtil.locate(
-					identifiableBeanServletContextName, beanIdentifier);
-			}
+//			if (identifiableBeanServletContextName.equals(
+//					PortalUtil.getServletContextName())) {
+//
+//				bean = PortalBeanLocatorUtil.locate(beanIdentifier);
+//			}
+//			else {
+//				bean = PortletBeanLocatorUtil.locate(
+//					identifiableBeanServletContextName, beanIdentifier);
+//			}
 
 			return methodHandler.invoke(bean);
 		}

@@ -7,8 +7,6 @@ import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomi
 import org.springframework.boot.context.embedded.MimeMappings;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
 import org.springframework.core.env.Environment;
 import org.springframework.http.MediaType;
 
@@ -17,13 +15,10 @@ import javax.servlet.ServletException;
 import java.io.File;
 import java.nio.file.Paths;
 
-//import io.undertow.UndertowOptions;
-
 /**
  * Configuration of web application with Servlet 3.0 APIs.
  */
 @Configuration
-@Order(Ordered.HIGHEST_PRECEDENCE)
 public class WebConfigurer implements ServletContextInitializer, EmbeddedServletContainerCustomizer {
 
 

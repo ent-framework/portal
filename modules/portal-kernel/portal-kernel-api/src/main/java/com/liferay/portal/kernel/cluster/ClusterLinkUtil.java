@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.cluster;
 
+import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.liferay.portal.kernel.messaging.Message;
@@ -53,11 +54,14 @@ public class ClusterLinkUtil {
 	public static ClusterLink getClusterLink() {
 		PortalRuntimePermission.checkGetBeanProperty(ClusterLinkUtil.class);
 
+		if (_clusterLink == null) {
+			_clusterLink = (ClusterLink) PortalBeanLocatorUtil.locate("com.liferay.portal.kernel.cluster.ClusterLink");
+		}
+
 		if ((_clusterLink == null) || !_clusterLink.isEnabled()) {
 			if (_log.isWarnEnabled()) {
 				_log.warn("ClusterLinkUtil has not been initialized");
 			}
-
 			return null;
 		}
 

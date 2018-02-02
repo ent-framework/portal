@@ -18,8 +18,6 @@ import com.liferay.portal.kernel.cluster.messaging.ClusterForwardMessageListener
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.List;
-
 import org.jgroups.Address;
 import org.jgroups.Message;
 
@@ -29,10 +27,10 @@ import org.jgroups.Message;
 public class ClusterForwardReceiver extends BaseReceiver {
 
 	public ClusterForwardReceiver(
-		List<Address> localTransportAddresses,
-		ClusterForwardMessageListener clusterForwardMessageListener) {
+			Address localTransportAddress,
+			ClusterForwardMessageListener clusterForwardMessageListener) {
 
-		_localTransportAddresses = localTransportAddresses;
+		_localTransportAddress = localTransportAddress;
 		_clusterForwardMessageListener = clusterForwardMessageListener;
 	}
 
@@ -44,23 +42,18 @@ public class ClusterForwardReceiver extends BaseReceiver {
 			return;
 		}
 
-		if (!_localTransportAddresses.contains(message.getSrc()) ||
-			(message.getDest() != null)) {
-
-			_clusterForwardMessageListener.receive(
-				(com.liferay.portal.kernel.messaging.Message)object);
-		}
-		else {
+		if (!_localTransportAddress.equals(message.getSrc()) || (message.getDest() != null)) {
+			_clusterForwardMessageListener.receive((com.liferay.portal.kernel.messaging.Message) object);
+		} else {
 			if (_log.isDebugEnabled()) {
 				_log.debug("Block received message " + message);
 			}
 		}
 	}
 
-	private static final Logger _log = LoggerFactory.getLogger(
-		ClusterForwardReceiver.class);
+	private static final Logger _log = LoggerFactory.getLogger(ClusterForwardReceiver.class);
 
 	private ClusterForwardMessageListener _clusterForwardMessageListener;
-	private List<org.jgroups.Address> _localTransportAddresses;
+	private Address _localTransportAddress;
 
 }

@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.cluster;
 
+import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.kernel.util.MethodHandler;
@@ -28,8 +29,7 @@ public class ClusterMasterExecutorUtil {
 	public static <T> Future<T> executeOnMaster(MethodHandler methodHandler)
 		throws SystemException {
 
-		ClusterMasterExecutor clusterMasterExecutor =
-			getClusterMasterExecutor();
+		ClusterMasterExecutor clusterMasterExecutor = getClusterMasterExecutor();
 
 		if (clusterMasterExecutor == null) {
 			return null;
@@ -39,6 +39,9 @@ public class ClusterMasterExecutorUtil {
 	}
 
 	public static ClusterMasterExecutor getClusterMasterExecutor() {
+		if (_clusterMasterExecutor==null) {
+			_clusterMasterExecutor =  (ClusterMasterExecutor)PortalBeanLocatorUtil.locate("com.liferay.portal.kernel.cluster.ClusterMasterExecutor");
+		}
 		return _clusterMasterExecutor;
 	}
 

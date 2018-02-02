@@ -34,6 +34,8 @@ import java.util.List;
 import java.util.Properties;
 
 import org.jgroups.JChannel;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * @author Shuyang Zhou
@@ -47,9 +49,8 @@ public class ClusterLinkImpl extends ClusterBase implements ClusterLink {
 			return;
 		}
 
-		for (JChannel jChannel : _transportChannels) {
-			jChannel.close();
-		}
+		_transportChannel.close();
+
 	}
 
 	@Override
@@ -63,14 +64,7 @@ public class ClusterLinkImpl extends ClusterBase implements ClusterLink {
 			return Collections.emptyList();
 		}
 
-		List<Address> addresses = new ArrayList<Address>(
-			_localTransportAddresses.size());
-
-		for (org.jgroups.Address address : _localTransportAddresses) {
-			addresses.add(new AddressImpl(address));
-		}
-
-		return addresses;
+		return getAddresses(_transportChannel);
 	}
 
 	@Override
@@ -78,10 +72,7 @@ public class ClusterLinkImpl extends ClusterBase implements ClusterLink {
 		if (!isEnabled()) {
 			return Collections.emptyList();
 		}
-
-		JChannel jChannel = getChannel(priority);
-
-		return getAddresses(jChannel);
+		return getAddresses(_transportChannel);
 	}
 
 	@Override
@@ -90,11 +81,10 @@ public class ClusterLinkImpl extends ClusterBase implements ClusterLink {
 			return;
 		}
 
-		for (JChannel jChannel : _transportChannels) {
-			BaseReceiver baseReceiver = (BaseReceiver)jChannel.getReceiver();
+		BaseReceiver baseReceiver = (BaseReceiver) _transportChannel.getReceiver();
 
-			baseReceiver.openLatch();
-		}
+		baseReceiver.openLatch();
+
 	}
 
 	@Override
@@ -103,103 +93,56 @@ public class ClusterLinkImpl extends ClusterBase implements ClusterLink {
 			return;
 		}
 
-		JChannel jChannel = getChannel(priority);
-
 		try {
-			sendJGroupsMessage(jChannel, null, message);
-		}
-		catch (Exception e) {
+			sendJGroupsMessage(_transportChannel, null, message);
+		} catch (Exception e) {
 			_log.error("Unable to send multicast message " + message, e);
 		}
 	}
 
 	@Override
 	public void sendUnicastMessage(
-		Address address, Message message, Priority priority) {
+			Address address, Message message, Priority priority) {
 
 		if (!isEnabled()) {
 			return;
 		}
 
-		org.jgroups.Address jGroupsAddress =
-			(org.jgroups.Address)address.getRealAddress();
-
-		JChannel jChannel = getChannel(priority);
+		org.jgroups.Address jGroupsAddress = (org.jgroups.Address) address.getRealAddress();
 
 		try {
-			sendJGroupsMessage(jChannel, jGroupsAddress, message);
-		}
-		catch (Exception e) {
+			sendJGroupsMessage(_transportChannel, jGroupsAddress, message);
+		} catch (Exception e) {
 			_log.error("Unable to send unicast message " + message, e);
 		}
 	}
 
-	public void setClusterForwardMessageListener(
-		ClusterForwardMessageListener clusterForwardMessageListener) {
-
+	public void setClusterForwardMessageListener(ClusterForwardMessageListener clusterForwardMessageListener) {
 		_clusterForwardMessageListener = clusterForwardMessageListener;
-	}
-
-	protected JChannel getChannel(Priority priority) {
-		int channelIndex =
-			priority.ordinal() * _channelCount / MAX_CHANNEL_COUNT;
-
-		if (_log.isDebugEnabled()) {
-			_log.debug(
-				"Select channel number " + channelIndex + " for priority " +
-					priority);
-		}
-
-		return _transportChannels.get(channelIndex);
 	}
 
 	@Override
 	protected void initChannels() throws Exception {
-		Properties channelNameProperties = PropsUtil.getProperties(PropsKeys.CLUSTER_LINK_CHANNEL_NAME_TRANSPORT, true);
-		Properties transportProperties = PropsUtil.getProperties(PropsKeys.CLUSTER_LINK_CHANNEL_PROPERTIES_TRANSPORT, true);
 
-		_channelCount = transportProperties.size();
-
-		if ((_channelCount <= 0) || (_channelCount > MAX_CHANNEL_COUNT)) {
-			throw new IllegalArgumentException(
-				"Channel count must be between 1 and " + MAX_CHANNEL_COUNT);
+		if (_transportChannel==null) {
+			return;
 		}
-
-		_localTransportAddresses = new ArrayList<org.jgroups.Address>(_channelCount);
-		_transportChannels = new ArrayList<JChannel>(_channelCount);
-
-		List<String> keys = new ArrayList<String>(_channelCount);
-
-		for (Object key : transportProperties.keySet()) {
-			keys.add((String)key);
-		}
-
-		Collections.sort(keys);
-
-		for (String customName : keys) {
-			String channelName = channelNameProperties.getProperty(customName);
-			String value = transportProperties.getProperty(customName);
-
-			if (Validator.isNull(value) || Validator.isNull(channelName)) {
-				continue;
-			}
-
-			JChannel jChannel = createJChannel(
-				value,
-				new ClusterForwardReceiver(
-					_localTransportAddresses, _clusterForwardMessageListener),
-				channelName);
-
-			_localTransportAddresses.add(jChannel.getAddress());
-			_transportChannels.add(jChannel);
-		}
+		_transportChannel.setReceiver(new ClusterForwardReceiver(_transportChannel.getAddress(), _clusterForwardMessageListener));
+		_transportChannel.connect(this.eurekaJChannel.getClusterName());
 	}
 
 	private static final Logger _log = LoggerFactory.getLogger(ClusterLinkImpl.class);
 
-	private int _channelCount;
 	private ClusterForwardMessageListener _clusterForwardMessageListener;
-	private List<org.jgroups.Address> _localTransportAddresses;
-	private List<JChannel> _transportChannels;
+
+	private JChannel _transportChannel;
+	private JGroupsTransport eurekaJChannel;
+
+	@Autowired
+	@Qualifier("liferay.transportChannel")
+	public void setTransportChannel(JGroupsTransport jChannel) {
+		this.eurekaJChannel = jChannel;
+		this._transportChannel = jChannel.getChannel();
+	}
 
 }

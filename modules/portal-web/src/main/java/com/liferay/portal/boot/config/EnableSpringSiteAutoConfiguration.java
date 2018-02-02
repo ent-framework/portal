@@ -1,7 +1,7 @@
-package com.liferay.portal.boot.config.portal;
+package com.liferay.portal.boot.config;
 
-import com.liferay.portal.boot.config.portal.EnableSpringSiteAutoConfiguration.PortalExtSpringConfiguration;
-import com.liferay.portal.boot.config.portal.EnableSpringSiteAutoConfiguration.PortalSpringConfiguration;
+import com.liferay.portal.boot.config.EnableSpringSiteAutoConfiguration.PortalExtSpringConfiguration;
+import com.liferay.portal.boot.config.EnableSpringSiteAutoConfiguration.PortalSpringConfiguration;
 import com.liferay.portal.kernel.spring.util.PortalXmlBeanDefinitionReader;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.ImportResource;

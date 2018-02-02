@@ -1,4 +1,4 @@
-package com.liferay.portal.boot.config.portal;
+package com.liferay.portal.boot.config;
 
 import com.liferay.portal.events.StartupAction;
 import com.liferay.portal.jsonwebservice.JSONWebServiceServlet;
@@ -110,7 +110,7 @@ public class PortalWebApplicationInitializer implements ServletContextInitialize
 
         ServletRegistration.Dynamic mainServlet = servletContext.addServlet("MainServlet", new MainServlet());
         Map<String, String> parameters = new HashMap<>();
-        parameters.put("config", "portal-config/struts-config.xml, portal-config/struts-config-ext.xml");
+        parameters.put("config", "config/portal/struts-config.xml, config/portal/struts-config-ext.xml");
         parameters.put("debug", "0");
         parameters.put("detail", "0");
         mainServlet.addMapping("/c/*");

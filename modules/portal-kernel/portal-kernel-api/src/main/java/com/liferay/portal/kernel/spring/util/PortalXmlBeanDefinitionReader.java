@@ -51,11 +51,8 @@ public class PortalXmlBeanDefinitionReader extends MergeXmlBeanDefinitionReader 
         for (String beanName : getRegistry().getBeanDefinitionNames()) {
             BeanDefinition beanDefinition = getRegistry().getBeanDefinition(beanName);
             if (isXMLBean(beanDefinition)) {
-                ((GenericBeanDefinition) beanDefinition).setRole(BeanDefinition.ROLE_INFRASTRUCTURE);
-                beanDefinition.setPrimary(true);
-                //beanDefinition.setLazyInit(false);
+                ((GenericBeanDefinition) beanDefinition).setRole(BeanDefinition.ROLE_SUPPORT);
             }
-            beanDefinition.setLazyInit(false);
         }
 
 

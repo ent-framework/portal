@@ -65,8 +65,7 @@ public class InitUtil {
 		// Shared class loader
 
 		try {
-			PortalClassLoaderUtil.setClassLoader(
-				ClassLoaderUtil.getContextClassLoader());
+			PortalClassLoaderUtil.setClassLoader(ClassLoaderUtil.getContextClassLoader());
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -86,25 +85,21 @@ public class InitUtil {
 
 		// Cache registry
 
-		CacheRegistryUtil.setCacheRegistry(
-			DoPrivilegedUtil.wrap(new CacheRegistryImpl()));
+		CacheRegistryUtil.setCacheRegistry(DoPrivilegedUtil.wrap(new CacheRegistryImpl()));
 
 		// Configuration factory
 
-		ConfigurationFactoryUtil.setConfigurationFactory(
-			DoPrivilegedUtil.wrap(new ConfigurationFactoryImpl()));
+		ConfigurationFactoryUtil.setConfigurationFactory(DoPrivilegedUtil.wrap(new ConfigurationFactoryImpl()));
 
 		// Data source factory
 
-		DataSourceFactoryUtil.setDataSourceFactory(
-			DoPrivilegedUtil.wrap(new DataSourceFactoryImpl()));
+		DataSourceFactoryUtil.setDataSourceFactory(DoPrivilegedUtil.wrap(new DataSourceFactoryImpl()));
 
 		// DB factory
 
 		DBFactoryUtil.setDBFactory(DoPrivilegedUtil.wrap(new DBFactoryImpl()));
 
 		// ROME
-
 		XmlReader.setDefaultEncoding(StringPool.UTF8);
 
 		if (_PRINT_TIME) {

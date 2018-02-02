@@ -7810,9 +7810,7 @@ public class PortalImpl implements Portal {
 	}
 
 	protected void notifyPortalPortEventListeners(int portalPort) {
-		for (PortalPortEventListener portalPortEventListener :
-				_portalPortEventListeners) {
-
+		for (PortalPortEventListener portalPortEventListener : _portalPortEventListeners) {
 			portalPortEventListener.portalPortConfigured(portalPort);
 		}
 	}

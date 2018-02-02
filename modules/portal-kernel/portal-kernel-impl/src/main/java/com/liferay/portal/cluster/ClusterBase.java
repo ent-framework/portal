@@ -39,11 +39,17 @@ import java.util.List;
 import org.jgroups.JChannel;
 import org.jgroups.Receiver;
 import org.jgroups.View;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.cloud.client.serviceregistry.Registration;
 
 /**
  * @author Shuyang Zhou
  */
 public abstract class ClusterBase {
+
+    public static final String CONTROL_CHANNEL_SUFFIX = "_control";
 
 	public void afterPropertiesSet() {
 		if (!isEnabled()) {
@@ -51,10 +57,10 @@ public abstract class ClusterBase {
 		}
 
 		if (!_initialized) {
-			initSystemProperties();
+			 // initSystemProperties();
 
 			try {
-				initBindAddress();
+				// initBindAddress();
 			}
 			catch (Exception e) {
 				if (_log.isWarnEnabled()) {
@@ -103,25 +109,6 @@ public abstract class ClusterBase {
 		}
 	}
 
-	protected JChannel createJChannel(
-			String properties, Receiver receiver, String clusterName)
-		throws Exception {
-
-		JChannel jChannel = new JChannel(properties);
-
-		jChannel.setReceiver(receiver);
-
-		jChannel.connect(clusterName);
-
-		if (_log.isInfoEnabled()) {
-			_log.info(
-				"Create a new channel with properties " +
-					jChannel.getProperties());
-		}
-
-		return jChannel;
-	}
-
 	protected List<Address> getAddresses(JChannel channel) {
 		BaseReceiver baseReceiver = (BaseReceiver)channel.getReceiver();
 
@@ -148,7 +135,6 @@ public abstract class ClusterBase {
 
 		if (Validator.isNull(autodetectAddress)) {
 			bindInetAddress = InetAddressUtil.getLocalInetAddress();
-
 			return;
 		}
 
@@ -190,8 +176,7 @@ public abstract class ClusterBase {
 	protected abstract void initChannels() throws Exception;
 
 	protected void initSystemProperties() {
-		for (String systemProperty :
-				PropsValues.CLUSTER_LINK_CHANNEL_SYSTEM_PROPERTIES) {
+		for (String systemProperty : PropsValues.CLUSTER_LINK_CHANNEL_SYSTEM_PROPERTIES) {
 
 			int index = systemProperty.indexOf(CharPool.COLON);
 
@@ -218,4 +203,20 @@ public abstract class ClusterBase {
 
 	private static boolean _initialized;
 
+	private Registration registration;
+
+	private DiscoveryClient discoveryClient;
+
+	@Value("${server.port}")
+	private int serverPort;
+
+	@Autowired
+	public void setDiscoveryClient(DiscoveryClient discoveryClient) {
+		this.discoveryClient = discoveryClient;
+	}
+
+	@Autowired
+	public void setRegistration(Registration registration) {
+		this.registration = registration;
+	}
 }

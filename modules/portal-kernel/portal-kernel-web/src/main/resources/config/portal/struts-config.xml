@@ -2110,7 +2110,7 @@
 	<!-- Tiles Plugin -->
 
 	<plug-in className="com.liferay.portal.struts.PortalTilesPlugin">
-		<set-property property="definitions-config" value="portal-config/tiles-defs.xml,portal-config/tiles-defs-ext.xml" />
+		<set-property property="definitions-config" value="config/portal/tiles-defs.xml,config/portal/tiles-defs-ext.xml" />
 		<set-property property="definitions-factory-class" value="com.liferay.portal.struts.PortalI18nFactorySet" />
 		<set-property property="moduleAware" value="true" />
 	</plug-in>

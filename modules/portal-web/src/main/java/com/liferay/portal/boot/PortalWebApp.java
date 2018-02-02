@@ -2,8 +2,8 @@ package com.liferay.portal.boot;
 
 import com.liferay.portal.boot.config.ApplicationProperties;
 import com.liferay.portal.boot.config.DefaultProfileUtil;
-import com.liferay.portal.boot.config.portal.EnableSpringSiteAutoConfiguration;
-import com.liferay.portal.boot.config.portal.PortalApplicationContextInitializer;
+import com.liferay.portal.boot.config.EnableSpringSiteAutoConfiguration;
+import com.liferay.portal.boot.config.PortalApplicationContextInitializer;
 import com.liferay.portal.util.InitUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,8 +27,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 
+import javax.annotation.PostConstruct;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.Arrays;
+import java.util.Collection;
 
 @ComponentScan
 @EnableAutoConfiguration(exclude = {MetricFilterAutoConfiguration.class, MetricRepositoryAutoConfiguration.class,
@@ -46,11 +49,6 @@ public class PortalWebApp {
 
     private static final Logger log = LoggerFactory.getLogger(PortalWebApp.class);
 
-    private final Environment env;
-
-    public PortalWebApp(Environment env) {
-        this.env = env;
-    }
 
     @Configuration
     @EnableSpringSiteAutoConfiguration

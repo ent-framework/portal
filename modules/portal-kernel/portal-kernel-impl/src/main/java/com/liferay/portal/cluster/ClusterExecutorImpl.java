@@ -63,19 +63,18 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import org.jgroups.JChannel;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * @author Tina Tian
  * @author Shuyang Zhou
  */
 @DoPrivileged
-public class ClusterExecutorImpl
-	extends ClusterBase
-	implements ClusterExecutor, PortalPortEventListener,
+public class ClusterExecutorImpl extends ClusterBase implements ClusterExecutor, PortalPortEventListener,
 			   PortalPortProtocolEventListener {
 
-	public static final String CLUSTER_EXECUTOR_CALLBACK_THREAD_POOL =
-		"CLUSTER_EXECUTOR_CALLBACK_THREAD_POOL";
+	public static final String CLUSTER_EXECUTOR_CALLBACK_THREAD_POOL = "CLUSTER_EXECUTOR_CALLBACK_THREAD_POOL";
 
 	@Override
 	public void addClusterEventListener(
@@ -276,9 +275,7 @@ public class ClusterExecutorImpl
 			_log.error("Unable to determine local network address", e);
 		}
 
-		ClusterRequestReceiver clusterRequestReceiver =
-			(ClusterRequestReceiver)_controlJChannel.getReceiver();
-
+		ClusterRequestReceiver clusterRequestReceiver = (ClusterRequestReceiver)_controlJChannel.getReceiver();
 		clusterRequestReceiver.openLatch();
 	}
 
@@ -333,9 +330,7 @@ public class ClusterExecutorImpl
 
 			memberJoined(_localAddress, _localClusterNode);
 
-			ClusterRequest clusterRequest = ClusterRequest.createClusterRequest(
-				ClusterMessageType.UPDATE, _localClusterNode);
-
+			ClusterRequest clusterRequest = ClusterRequest.createClusterRequest(ClusterMessageType.UPDATE, _localClusterNode);
 			sendJGroupsMessage(_controlJChannel, null, clusterRequest);
 		}
 		catch (Exception e) {
@@ -417,29 +412,14 @@ public class ClusterExecutorImpl
 
 	@Override
 	protected void initChannels() throws Exception {
-		String channelName = PropsUtil.get(
-			PropsKeys.CLUSTER_LINK_CHANNEL_NAME_CONTROL);
 
-		if (Validator.isNull(channelName)) {
-			throw new IllegalStateException(
-				"Set \"" + PropsKeys.CLUSTER_LINK_CHANNEL_NAME_CONTROL +
-					"\"");
-		}
+		if (_controlJChannel==null) return;
 
-		String controlProperty = PropsUtil.get(
-			PropsKeys.CLUSTER_LINK_CHANNEL_PROPERTIES_CONTROL);
+		ClusterRequestReceiver clusterRequestReceiver = new ClusterRequestReceiver(this);
 
-		if (Validator.isNull(controlProperty)) {
-			throw new IllegalStateException(
-				"Set \"" + PropsKeys.CLUSTER_LINK_CHANNEL_PROPERTIES_CONTROL +
-					"\"");
-		}
-
-		ClusterRequestReceiver clusterRequestReceiver =
-			new ClusterRequestReceiver(this);
-
-		_controlJChannel = createJChannel(
-			controlProperty, clusterRequestReceiver, channelName);
+		_controlJChannel.setReceiver(clusterRequestReceiver);
+		_controlJChannel.connect(eurekaJChannel.getClusterName());
+		bindInetAddress = eurekaJChannel.getBindInetAddress();
 	}
 
 	protected void initLocalClusterNode() throws Exception {
@@ -449,22 +429,19 @@ public class ClusterExecutorImpl
 			inetAddress = InetAddressUtil.getLocalInetAddress();
 		}
 
-		ClusterNode localClusterNode = new ClusterNode(
-			PortalUUIDUtil.generate(), inetAddress);
+		ClusterNode localClusterNode = new ClusterNode(PortalUUIDUtil.generate(), inetAddress);
 
-		if (StringUtil.equalsIgnoreCase(
-				Http.HTTPS, PropsValues.PORTAL_INSTANCE_PROTOCOL) &&
-			(PropsValues.PORTAL_INSTANCE_HTTPS_PORT > 0)) {
+		if (StringUtil.equalsIgnoreCase(Http.HTTPS, eurekaJChannel.getBindServerProtocol()) &&
+			(eurekaJChannel.getBindServerPort() > 0)) {
 
 			localClusterNode.setPortalProtocol(Http.HTTPS);
-			localClusterNode.setPort(PropsValues.PORTAL_INSTANCE_HTTPS_PORT);
+			localClusterNode.setPort(eurekaJChannel.getBindServerPort());
 		}
-		else if (StringUtil.equalsIgnoreCase(
-					Http.HTTP, PropsValues.PORTAL_INSTANCE_PROTOCOL) &&
-				 (PropsValues.PORTAL_INSTANCE_HTTP_PORT > 0)) {
+		else if (StringUtil.equalsIgnoreCase(Http.HTTP, eurekaJChannel.getBindServerProtocol()) &&
+				 (eurekaJChannel.getBindServerPort() > 0)) {
 
 			localClusterNode.setPortalProtocol(Http.HTTP);
-			localClusterNode.setPort(PropsValues.PORTAL_INSTANCE_HTTP_PORT);
+			localClusterNode.setPort(eurekaJChannel.getBindServerPort());
 		}
 		else {
 			if (_log.isWarnEnabled()) {
@@ -496,10 +473,9 @@ public class ClusterExecutorImpl
 	}
 
 	protected void memberJoined(Address joinAddress, ClusterNode clusterNode) {
-		_liveInstances.put(joinAddress, clusterNode);
 
-		Address previousAddress = _clusterNodeAddresses.put(
-			clusterNode.getClusterNodeId(), joinAddress);
+		_liveInstances.put(joinAddress, clusterNode);
+		Address previousAddress = _clusterNodeAddresses.put(clusterNode.getClusterNodeId(), joinAddress);
 
 		if ((previousAddress == null) && !_localAddress.equals(joinAddress)) {
 			ClusterEvent clusterEvent = ClusterEvent.join(clusterNode);
@@ -630,6 +606,14 @@ public class ClusterExecutorImpl
 	private Address _localAddress;
 	private ClusterNode _localClusterNode;
 	private boolean _shortcutLocalMethod;
+	private JGroupsTransport eurekaJChannel;
+
+	@Autowired
+	@Qualifier("liferay.controlChannel")
+	public void setControlChannel(JGroupsTransport jChannel) {
+		this.eurekaJChannel = jChannel;
+		this._controlJChannel = jChannel.getChannel();
+	}
 
 	private class ClusterResponseCallbackJob implements Runnable {
 
