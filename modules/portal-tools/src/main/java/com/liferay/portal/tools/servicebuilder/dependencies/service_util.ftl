@@ -1,7 +1,6 @@
 package ${packagePath}.service;
 
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
-import com.liferay.portal.kernel.bean.PortletBeanLocatorUtil;
 import com.liferay.portal.kernel.util.ReferenceRegistry;
 import com.liferay.portal.service.Invokable${sessionTypeName}Service;
 
@@ -111,7 +110,7 @@ public class ${entity.name}${sessionTypeName}ServiceUtil {
 	public static ${entity.name}${sessionTypeName}Service getService() {
 		if (_service == null) {
 			<#if pluginName != "">
-				Invokable${sessionTypeName}Service invokable${sessionTypeName}Service = (Invokable${sessionTypeName}Service)PortletBeanLocatorUtil.locate(ClpSerializer.getServletContextName(), ${entity.name}${sessionTypeName}Service.class.getName());
+				Invokable${sessionTypeName}Service invokable${sessionTypeName}Service = (Invokable${sessionTypeName}Service)PortalBeanLocatorUtil.locate(${entity.name}${sessionTypeName}Service.class.getName());
 
 				if (invokable${sessionTypeName}Service instanceof ${entity.name}${sessionTypeName}Service) {
 					_service = (${entity.name}${sessionTypeName}Service)invokable${sessionTypeName}Service;

@@ -3,7 +3,6 @@ package ${packagePath}.service.persistence;
 import ${packagePath}.model.${entity.name};
 
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
-import com.liferay.portal.kernel.bean.PortletBeanLocatorUtil;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.OrderByComparator;
@@ -138,11 +137,8 @@ public class ${entity.name}Util {
 
 	public static ${entity.name}Persistence getPersistence() {
 		if (_persistence == null) {
-			<#if pluginName != "">
-				_persistence = (${entity.name}Persistence)PortletBeanLocatorUtil.locate(${packagePath}.service.ClpSerializer.getServletContextName(), ${entity.name}Persistence.class.getName());
-			<#else>
-				_persistence = (${entity.name}Persistence)PortalBeanLocatorUtil.locate(${entity.name}Persistence.class.getName());
-			</#if>
+
+			_persistence = (${entity.name}Persistence)PortalBeanLocatorUtil.locate(${entity.name}Persistence.class.getName());
 
 			ReferenceRegistry.registerReference(${entity.name}Util.class, "_persistence");
 		}

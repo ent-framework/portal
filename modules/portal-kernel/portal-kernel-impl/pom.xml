@@ -433,8 +433,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Portal Tools -->
-
     </dependencies>
 
     <build>

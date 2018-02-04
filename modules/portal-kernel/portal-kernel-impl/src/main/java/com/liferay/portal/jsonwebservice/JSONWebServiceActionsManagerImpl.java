@@ -16,7 +16,6 @@ package com.liferay.portal.jsonwebservice;
 
 import com.liferay.portal.kernel.bean.BeanLocator;
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
-import com.liferay.portal.kernel.bean.PortletBeanLocatorUtil;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebServiceAction;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebServiceActionMapping;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebServiceActionsManager;
@@ -300,31 +299,7 @@ public class JSONWebServiceActionsManagerImpl
 
 	@Override
 	public int registerServletContext(String contextPath) {
-		BeanLocator beanLocator = null;
-
-		if (contextPath.equals(
-				PortalContextLoaderListener.getPortalServletContextPath()) ||
-			contextPath.isEmpty()) {
-
-			beanLocator = PortalBeanLocatorUtil.getBeanLocator();
-		}
-		else {
-			String contextName = contextPath;
-
-			if (!contextPath.startsWith(StringPool.SLASH)) {
-				contextPath = StringPool.SLASH.concat(contextPath);
-			}
-
-			beanLocator = PortletBeanLocatorUtil.getBeanLocator(contextName);
-		}
-
-		if (beanLocator == null) {
-			if (_log.isInfoEnabled()) {
-				_log.info("Bean locator not available for " + contextPath);
-			}
-
-			return -1;
-		}
+		BeanLocator beanLocator = PortalBeanLocatorUtil.getBeanLocator();;
 
 		JSONWebServiceRegistrator jsonWebServiceRegistrator =
 			new JSONWebServiceRegistrator();

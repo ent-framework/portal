@@ -1,6 +1,6 @@
 package com.liferay.portal.workflow.kaleo.designer.service.persistence;
 
-import com.liferay.portal.kernel.bean.PortletBeanLocatorUtil;
+import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.OrderByComparator;
@@ -696,8 +696,7 @@ public class KaleoDraftDefinitionUtil {
 
     public static KaleoDraftDefinitionPersistence getPersistence() {
         if (_persistence == null) {
-            _persistence = (KaleoDraftDefinitionPersistence) PortletBeanLocatorUtil.locate(com.liferay.portal.workflow.kaleo.designer.service.ClpSerializer.getServletContextName(),
-                    KaleoDraftDefinitionPersistence.class.getName());
+            _persistence = (KaleoDraftDefinitionPersistence) PortalBeanLocatorUtil.locate(KaleoDraftDefinitionPersistence.class.getName());
 
             ReferenceRegistry.registerReference(KaleoDraftDefinitionUtil.class,
                 "_persistence");

@@ -67,6 +67,8 @@
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.10" level="project" />
     <orderEntry type="library" name="Maven: backport-util-concurrent:backport-util-concurrent:3.1" level="project" />
     <orderEntry type="library" name="Maven: net.sf.jazzy:jazzy:0.5.2-rtext-1.4.1-2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.ant:ant:1.9.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.ant:ant-launcher:1.9.2" level="project" />
     <orderEntry type="library" name="Maven: javax.xml:jaxrpc-api:1.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.poi:poi:3.9" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.8.12" level="project" />
@@ -216,7 +218,5 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: ch.qos.logback:logback-core:1.1.11" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: ch.qos.logback:logback-classic:1.1.11" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.ant:ant:1.8.2" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.ant:ant-launcher:1.8.2" level="project" />
   </component>
 </module>

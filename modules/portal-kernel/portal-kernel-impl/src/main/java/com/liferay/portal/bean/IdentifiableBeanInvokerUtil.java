@@ -16,7 +16,6 @@ package com.liferay.portal.bean;
 
 import com.liferay.portal.kernel.bean.IdentifiableBean;
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
-import com.liferay.portal.kernel.bean.PortletBeanLocatorUtil;
 import com.liferay.portal.kernel.util.ClassLoaderPool;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
@@ -64,23 +63,12 @@ public class IdentifiableBeanInvokerUtil {
 		ClassLoader contextClassLoader =
 			ClassLoaderUtil.getContextClassLoader();
 
-		ClassLoader classLoader = ClassLoaderPool.getClassLoader(
-			threadContextServletContextName);
+		ClassLoader classLoader = ClassLoaderPool.getClassLoader(threadContextServletContextName);
 
 		ClassLoaderUtil.setContextClassLoader(classLoader);
 
 		try {
 			Object bean = PortalBeanLocatorUtil.locate(beanIdentifier);
-
-//			if (identifiableBeanServletContextName.equals(
-//					PortalUtil.getServletContextName())) {
-//
-//				bean = PortalBeanLocatorUtil.locate(beanIdentifier);
-//			}
-//			else {
-//				bean = PortletBeanLocatorUtil.locate(
-//					identifiableBeanServletContextName, beanIdentifier);
-//			}
 
 			return methodHandler.invoke(bean);
 		}

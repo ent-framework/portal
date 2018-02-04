@@ -16,7 +16,6 @@ package com.liferay.portal.template;
 
 import com.liferay.portal.bean.BeanLocatorImpl;
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
-import com.liferay.portal.kernel.bean.PortletBeanLocatorUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -43,17 +42,7 @@ public class UtilLocator {
 	}
 
 	public Object findUtil(String servletContextName, String utilName) {
-		Object bean = null;
-
-		try {
-			bean = PortletBeanLocatorUtil.locate(
-				servletContextName, _getUtilName(utilName));
-		}
-		catch (Exception e) {
-			_log.error(e.getMessage(), e);
-		}
-
-		return bean;
+		return findUtil(utilName);
 	}
 
 	private UtilLocator() {

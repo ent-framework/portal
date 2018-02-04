@@ -1,6 +1,6 @@
 package com.liferay.portal.workflow.kaleo.designer.service;
 
-import com.liferay.portal.kernel.bean.PortletBeanLocatorUtil;
+import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.util.ReferenceRegistry;
 import com.liferay.portal.service.InvokableLocalService;
 
@@ -382,8 +382,7 @@ public class KaleoDraftDefinitionLocalServiceUtil {
 
     public static KaleoDraftDefinitionLocalService getService() {
         if (_service == null) {
-            InvokableLocalService invokableLocalService = (InvokableLocalService) PortletBeanLocatorUtil.locate(ClpSerializer.getServletContextName(),
-                    KaleoDraftDefinitionLocalService.class.getName());
+            InvokableLocalService invokableLocalService = (InvokableLocalService) PortalBeanLocatorUtil.locate(KaleoDraftDefinitionLocalService.class.getName());
 
             if (invokableLocalService instanceof KaleoDraftDefinitionLocalService) {
                 _service = (KaleoDraftDefinitionLocalService) invokableLocalService;
