@@ -218,8 +218,6 @@ public class PropsValues {
 
 	public static final String BROWSER_COMPATIBILITY_IE_VERSIONS = PropsUtil.get(PropsKeys.BROWSER_COMPATIBILITY_IE_VERSIONS);
 
-	public static final String BROWSER_LAUNCHER_URL = PropsUtil.get(PropsKeys.BROWSER_LAUNCHER_URL);
-
 	public static final boolean BUFFERED_INCREMENT_ENABLED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.BUFFERED_INCREMENT_ENABLED));
 
 	public static final int BUFFERED_INCREMENT_STANDBY_QUEUE_THRESHOLD = GetterUtil.getInteger(PropsUtil.get(PropsKeys.BUFFERED_INCREMENT_STANDBY_QUEUE_THRESHOLD));
@@ -753,8 +751,6 @@ public class PropsValues {
 	public static final String JDBC_DEFAULT_DRIVER_CLASS_NAME = PropsUtil.get(PropsKeys.JDBC_DEFAULT_DRIVER_CLASS_NAME);
 
 	public static final String JDBC_DEFAULT_JNDI_NAME = PropsUtil.get(PropsKeys.JDBC_DEFAULT_JNDI_NAME);
-
-	public static final String JDBC_DEFAULT_LIFERAY_POOL_PROVIDER = PropsUtil.get(PropsKeys.JDBC_DEFAULT_LIFERAY_POOL_PROVIDER);
 
 	public static final String JDBC_DEFAULT_PASSWORD = PropsUtil.get(PropsKeys.JDBC_DEFAULT_PASSWORD);
 

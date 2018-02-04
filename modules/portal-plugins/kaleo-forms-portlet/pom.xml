@@ -54,11 +54,6 @@
             <version>2.5</version>
         </dependency>
         <dependency>
-            <groupId>commons-dbcp</groupId>
-            <artifactId>commons-dbcp</artifactId>
-            <version>1.4</version>
-        </dependency>
-        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-compress</artifactId>
             <version>1.12</version>
@@ -111,12 +106,9 @@
                         ${basedir}/src/main/java/com/liferay/portlet/trash/service.xml,
                         ${basedir}/src/main/java/com/liferay/portal/ext/service.xml
                     </serviceFileName>
-                    <beanLocatorUtil>com.liferay.portal.kernel.bean.PortalBeanLocatorUtil</beanLocatorUtil>
-                    <modelHintsFileName>${basedir}/src/main/resources/META-INF/portal-model-hints.xml</modelHintsFileName>
                     <ormFileName>${basedir}/src/main/resources/META-INF/portal-orm.xml</ormFileName>
                     <springFileName>${basedir}/src/main/resources/META-INF/portal-spring.xml</springFileName>
                     <autoNamespaceTables>false</autoNamespaceTables>
-                    <propsUtil>com.liferay.portal.util.PropsUtil</propsUtil>
                     <liferayVersion>6.3.0</liferayVersion>
                     <pluginType>portal</pluginType>
                     <pluginName></pluginName>

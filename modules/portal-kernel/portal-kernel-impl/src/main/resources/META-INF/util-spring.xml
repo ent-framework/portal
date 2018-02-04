@@ -50,7 +50,8 @@
 			</bean>
 		</constructor-arg>
 	</bean> -->
-	<bean id="com.liferay.portal.kernel.cache.MultiVMPortalCacheManager" class="com.liferay.portal.cache.memory.MemoryPortalCacheManager" />
+	<bean id="com.liferay.portal.kernel.cache.MultiVMPortalCacheManager" class="com.liferay.portal.cache.spring.SpringPortalCacheManager" />
+
 	<bean id="com.liferay.portal.kernel.cache.SingleVMPool" class="com.liferay.portal.cache.SingleVMPoolImpl">
 		<property name="portalCacheManager" ref="com.liferay.kernel.portal.cache.SingleVMPortalCacheManager" />
 	</bean>

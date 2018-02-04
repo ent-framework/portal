@@ -249,8 +249,6 @@ public interface PropsKeys {
 
 	public static final String BROWSER_COMPATIBILITY_IE_VERSIONS = "browser.compatibility.ie.versions";
 
-	public static final String BROWSER_LAUNCHER_URL = "browser.launcher.url";
-
 	public static final String BUFFERED_INCREMENT_ENABLED = "buffered.increment.enabled";
 
 	public static final String BUFFERED_INCREMENT_STANDBY_QUEUE_THRESHOLD = "buffered.increment.standby.queue.threshold";
@@ -962,8 +960,6 @@ public interface PropsKeys {
 	public static final String JDBC_DEFAULT_DRIVER_CLASS_NAME = "jdbc.default.driverClassName";
 
 	public static final String JDBC_DEFAULT_JNDI_NAME = "jdbc.default.jndi.name";
-
-	public static final String JDBC_DEFAULT_LIFERAY_POOL_PROVIDER = "jdbc.default.liferay.pool.provider";
 
 	public static final String JDBC_DEFAULT_PASSWORD = "jdbc.default.password";
 

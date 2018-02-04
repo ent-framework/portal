@@ -721,8 +721,9 @@ public class MainServlet extends ActionServlet {
 			for (String webId : webIds) {
 				PortalInstances.initCompany(servletContext, webId);
 			}
-		}
-		finally {
+		} catch (Exception ex) {
+			_log.error(ex.getMessage(),ex);
+		} finally {
 			CompanyThreadLocal.setCompanyId(
 				PortalInstances.getDefaultCompanyId());
 

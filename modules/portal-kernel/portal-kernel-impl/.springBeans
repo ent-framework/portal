@@ -18,7 +18,6 @@
 		<config>src/main/resources/META-INF/jpa-spring.xml</config>
 		<config>src/main/resources/META-INF/mail-spring.xml</config>
 		<config>src/main/resources/META-INF/management-spring.xml</config>
-		<config>src/main/resources/META-INF/memcached-spring.xml</config>
 		<config>src/main/resources/META-INF/messaging-core-spring.xml</config>
 		<config>src/main/resources/META-INF/messaging-misc-spring.xml</config>
 		<config>src/main/resources/META-INF/mobile-device-spring.xml</config>
@@ -30,7 +29,6 @@
 		<config>src/main/resources/META-INF/rules-spring.xml</config>
 		<config>src/main/resources/META-INF/scheduler-spring.xml</config>
 		<config>src/main/resources/META-INF/search-spring.xml</config>
-		<config>src/main/resources/META-INF/service-builder-spring.xml</config>
 		<config>src/main/resources/META-INF/shard-data-source-spring.xml</config>
 		<config>src/main/resources/META-INF/staging-spring.xml</config>
 		<config>src/main/resources/META-INF/util-spring.xml</config>

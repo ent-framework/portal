@@ -23,8 +23,7 @@ import org.hibernate.dialect.Dialect;
  * @author Brian Wing Shun Chan
  * @author Ganesh Ram
  */
-public class PortletHibernateConfiguration
-	extends PortalHibernateConfiguration {
+public class PortletHibernateConfiguration extends PortalHibernateConfiguration {
 
 	@Override
 	protected ClassLoader getConfigurationClassLoader() {

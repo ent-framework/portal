@@ -25,7 +25,6 @@ import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.pop.POPServerUtil;
 import com.liferay.portal.spring.context.PortalContextLoaderListener;
 import com.liferay.portal.struts.AuthPublicPathRegistry;
-import com.liferay.portal.util.BrowserLauncher;
 import com.liferay.portal.util.ClassLoaderUtil;
 import com.liferay.portal.util.PropsValues;
 
@@ -82,14 +81,6 @@ public class GlobalStartupAction extends SimpleAction {
 
         if (PropsValues.POP_SERVER_NOTIFICATIONS_ENABLED) {
             POPServerUtil.start();
-        }
-
-        // Launch browser
-
-        if (Validator.isNotNull(PropsValues.BROWSER_LAUNCHER_URL)) {
-            Thread browserLauncherThread = new Thread(new BrowserLauncher());
-
-            browserLauncherThread.start();
         }
     }
 

@@ -53,13 +53,22 @@ import org.springframework.beans.factory.BeanFactoryAware;
  * @author Shuyang Zhou
  */
 @DoPrivileged
-public class EntityCacheImpl
-	implements BeanFactoryAware, CacheRegistryItem, EntityCache {
+public class EntityCacheImpl implements BeanFactoryAware, CacheRegistryItem, EntityCache {
 
 	public static final String CACHE_NAME = EntityCache.class.getName();
 
 	public void afterPropertiesSet() {
 		CacheRegistryUtil.register(this);
+
+
+		if (PropsValues.VALUE_OBJECT_ENTITY_THREAD_LOCAL_CACHE_MAX_SIZE > 0) {
+			_localCache = new AutoResetThreadLocal<LRUMap>(
+					EntityCacheImpl.class + "._localCache",
+					new LRUMap(
+							PropsValues.
+									VALUE_OBJECT_ENTITY_THREAD_LOCAL_CACHE_MAX_SIZE));
+			_localCacheAvailable = true;
+		}
 	}
 
 	@Override
@@ -368,24 +377,12 @@ public class EntityCacheImpl
 		return entityModel;
 	}
 
-	private static final String _GROUP_KEY_PREFIX = CACHE_NAME.concat(
-		StringPool.PERIOD);
+	private static final String _GROUP_KEY_PREFIX = CACHE_NAME.concat(StringPool.PERIOD);
 
 	private static final Logger _log = LoggerFactory.getLogger(EntityCacheImpl.class);
 
 	private static ThreadLocal<LRUMap> _localCache;
 	private static boolean _localCacheAvailable;
-
-	static {
-		if (PropsValues.VALUE_OBJECT_ENTITY_THREAD_LOCAL_CACHE_MAX_SIZE > 0) {
-			_localCache = new AutoResetThreadLocal<LRUMap>(
-				EntityCacheImpl.class + "._localCache",
-				new LRUMap(
-					PropsValues.
-						VALUE_OBJECT_ENTITY_THREAD_LOCAL_CACHE_MAX_SIZE));
-			_localCacheAvailable = true;
-		}
-	}
 
 	private MultiVMPool _multiVMPool;
 	private ConcurrentMap<String, PortalCache<Serializable, Serializable>>
