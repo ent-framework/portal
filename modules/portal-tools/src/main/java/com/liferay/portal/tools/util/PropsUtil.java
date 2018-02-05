@@ -20,7 +20,6 @@ import com.liferay.portal.kernel.configuration.Configuration;
 import com.liferay.portal.kernel.configuration.Filter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.liferay.portal.kernel.servlet.WebDirDetector;
 import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.model.CompanyConstants;
@@ -88,73 +87,7 @@ public class PropsUtil {
 	private PropsUtil() {
 		try {
 
-			// Default liferay home directory
-
-			SystemProperties.set(
-				PropsKeys.DEFAULT_LIFERAY_HOME, _getDefaultLiferayHome());
-
-//			// Global shared lib directory
-//
-//			String globalSharedLibDir = _getLibDir(Servlet.class);
-//
-//			if (_log.isInfoEnabled()) {
-//				_log.info("Global shared lib directory " + globalSharedLibDir);
-//			}
-//
-//			SystemProperties.set(
-//				PropsKeys.LIFERAY_LIB_GLOBAL_SHARED_DIR, globalSharedLibDir);
-//
-//			// Global lib directory
-//
-//			String globalLibDir = _getLibDir(ReleaseInfo.class);
-//
-//			if (_log.isInfoEnabled()) {
-//				_log.info("Global lib directory " + globalLibDir);
-//			}
-//
-//			SystemProperties.set(
-//				PropsKeys.LIFERAY_LIB_GLOBAL_DIR, globalLibDir);
-
-			// Portal lib directory
-
-			Class<?> clazz = getClass();
-
-			ClassLoader classLoader = clazz.getClassLoader();
-
-			String portalLibDir = WebDirDetector.getLibDir(classLoader);
-
-			String portalLibDirProperty = System.getProperty(
-				PropsKeys.LIFERAY_LIB_PORTAL_DIR);
-
-			if (portalLibDirProperty != null) {
-				if (!portalLibDirProperty.endsWith(StringPool.SLASH)) {
-					portalLibDirProperty += StringPool.SLASH;
-				}
-
-				portalLibDir = portalLibDirProperty;
-			}
-
-			if (_log.isInfoEnabled()) {
-				_log.info("Portal lib directory " + portalLibDir);
-			}
-
-			SystemProperties.set(
-				PropsKeys.LIFERAY_LIB_PORTAL_DIR, portalLibDir);
-
-			// Portal web directory
-
-			String portalWebDir = WebDirDetector.getRootDir(portalLibDir);
-
-			if (_log.isDebugEnabled()) {
-				_log.debug("Portal web directory " + portalWebDir);
-			}
-
-			SystemProperties.set(
-				PropsKeys.LIFERAY_WEB_PORTAL_DIR, portalWebDir);
-
 			// Liferay home directory
-
-
 
 			_configuration = new ConfigurationImpl(Thread.currentThread().getContextClassLoader(), PropsFiles.PORTAL);
 

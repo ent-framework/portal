@@ -19,7 +19,6 @@ import com.liferay.portal.kernel.configuration.Configuration;
 import com.liferay.portal.kernel.configuration.Filter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.liferay.portal.kernel.servlet.WebDirDetector;
 import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.model.CompanyConstants;
@@ -85,68 +84,7 @@ public class PropsUtil {
 	private PropsUtil() {
 		try {
 
-			// Default liferay home directory
-
-			SystemProperties.set(PropsKeys.DEFAULT_LIFERAY_HOME, _getDefaultLiferayHome());
-
-//			// Global shared lib directory
-//
-//			String globalSharedLibDir = _getLibDir(Servlet.class);
-//
-//			if (_log.isInfoEnabled()) {
-//				_log.info("Global shared lib directory " + globalSharedLibDir);
-//			}
-//
-//			SystemProperties.set(
-//				PropsKeys.LIFERAY_LIB_GLOBAL_SHARED_DIR, globalSharedLibDir);
-//
-//			// Global lib directory
-//
-//			String globalLibDir = _getLibDir(ReleaseInfo.class);
-//
-//			if (_log.isInfoEnabled()) {
-//				_log.info("Global lib directory " + globalLibDir);
-//			}
-//
-//			SystemProperties.set(
-//				PropsKeys.LIFERAY_LIB_GLOBAL_DIR, globalLibDir);
-
-			// Portal lib directory
-
-			Class<?> clazz = getClass();
-
-			ClassLoader classLoader = clazz.getClassLoader();
-
-			String portalLibDir = WebDirDetector.getLibDir(classLoader);
-
-			String portalLibDirProperty = System.getProperty(PropsKeys.LIFERAY_LIB_PORTAL_DIR);
-
-			if (portalLibDirProperty != null) {
-				if (!portalLibDirProperty.endsWith(StringPool.SLASH)) {
-					portalLibDirProperty += StringPool.SLASH;
-				}
-
-				portalLibDir = portalLibDirProperty;
-			}
-
-			if (_log.isInfoEnabled()) {
-				_log.info("Portal lib directory " + portalLibDir);
-			}
-
-			SystemProperties.set(PropsKeys.LIFERAY_LIB_PORTAL_DIR, portalLibDir);
-
-			// Portal web directory
-
-			String portalWebDir = WebDirDetector.getRootDir(portalLibDir);
-
-			if (_log.isDebugEnabled()) {
-				_log.debug("Portal web directory " + portalWebDir);
-			}
-
-			SystemProperties.set(PropsKeys.LIFERAY_WEB_PORTAL_DIR, portalWebDir);
-
 			// Liferay home directory
-
 			_configuration = new ConfigurationImpl(PropsUtil.class.getClassLoader(), PropsFiles.PORTAL);
 
 			_log.info("Load all plugin.properties");
@@ -235,65 +173,8 @@ public class PropsUtil {
 		}
 	}
 
-	private String _getDefaultLiferayHome() {
-		String defaultLiferayHome = null;
-
-		if (ServerDetector.isGeronimo()) {
-			defaultLiferayHome =
-				SystemProperties.get("org.apache.geronimo.home.dir") + "/..";
-		}
-		else if (ServerDetector.isGlassfish()) {
-			defaultLiferayHome =
-				SystemProperties.get("com.sun.aas.installRoot") + "/..";
-		}
-		else if (ServerDetector.isJBoss()) {
-			defaultLiferayHome = SystemProperties.get("jboss.home.dir") + "/..";
-		}
-		else if (ServerDetector.isJOnAS()) {
-			defaultLiferayHome = SystemProperties.get("jonas.base") + "/..";
-		}
-		else if (ServerDetector.isWebLogic()) {
-			defaultLiferayHome =
-				SystemProperties.get("env.DOMAIN_HOME") + "/..";
-		}
-		else if (ServerDetector.isJetty()) {
-			defaultLiferayHome = SystemProperties.get("jetty.home") + "/..";
-		}
-		else if (ServerDetector.isResin()) {
-			defaultLiferayHome = SystemProperties.get("resin.home") + "/..";
-		}
-		else if (ServerDetector.isTomcat()) {
-			defaultLiferayHome = SystemProperties.get("catalina.base") + "/..";
-		}
-		else {
-			defaultLiferayHome = SystemProperties.get("user.dir") + "/liferay";
-		}
-
-		defaultLiferayHome = StringUtil.replace(
-			defaultLiferayHome, CharPool.BACK_SLASH, CharPool.SLASH);
-
-		defaultLiferayHome = StringUtil.replace(
-			defaultLiferayHome, StringPool.DOUBLE_SLASH, StringPool.SLASH);
-
-		if (defaultLiferayHome.endsWith("/..")) {
-			int pos = defaultLiferayHome.lastIndexOf(
-				CharPool.SLASH, defaultLiferayHome.length() - 4);
-
-			if (pos != -1) {
-				defaultLiferayHome = defaultLiferayHome.substring(0, pos);
-			}
-		}
-
-		if (_log.isDebugEnabled()) {
-			_log.debug("Default Liferay home " + defaultLiferayHome);
-		}
-
-		return defaultLiferayHome;
-	}
-
 	private String _getLibDir(Class<?> clazz) {
-		String path = ClassUtil.getParentPath(
-			clazz.getClassLoader(), clazz.getName());
+		String path = ClassUtil.getParentPath(clazz.getClassLoader(), clazz.getName());
 
 		int pos = path.lastIndexOf(".jar!");
 

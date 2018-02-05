@@ -485,8 +485,6 @@ public class DynamicCSSUtil {
 
 		Map<String, Object> inputObjects = new HashMap<String, Object>();
 
-		String portalWebDir = PortalUtil.getPortalWebDir();
-
 		//inputObjects.put("commonSassPath", portalWebDir.concat(_SASS_COMMON_DIR));
 		inputObjects.put("commonSassPath", servletContext.getRealPath(_SASS_COMMON_DIR));
 		inputObjects.put("content", content);

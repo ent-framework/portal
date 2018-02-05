@@ -2223,11 +2223,6 @@ public class PortalImpl implements Portal {
 	}
 
 	@Override
-	public String getGlobalLibDir() {
-		return PropsValues.LIFERAY_LIB_GLOBAL_DIR;
-	}
-
-	@Override
 	public String getGoogleGadgetURL(Portlet portlet, ThemeDisplay themeDisplay)
 		throws PortalException, SystemException {
 
@@ -3666,11 +3661,6 @@ public class PortalImpl implements Portal {
 		return plid;
 	}
 
-	@Override
-	public String getPortalLibDir() {
-		return PropsValues.LIFERAY_LIB_PORTAL_DIR;
-	}
-
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #getPortalPort(boolean)}
 	 */
@@ -3811,11 +3801,6 @@ public class PortalImpl implements Portal {
 		throws PortalException, SystemException {
 
 		return getPortalURL(null, themeDisplay);
-	}
-
-	@Override
-	public String getPortalWebDir() {
-		return PropsValues.LIFERAY_WEB_PORTAL_DIR;
 	}
 
 	/**

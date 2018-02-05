@@ -71,7 +71,6 @@ import com.liferay.portal.kernel.util.ThreadUtil;
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.kernel.util.UnsyncPrintWriterPool;
 import com.liferay.portal.kernel.util.Validator;
-import com.liferay.portal.kernel.xuggler.XugglerUtil;
 import com.liferay.portal.model.Portlet;
 import com.liferay.portal.security.auth.PrincipalException;
 import com.liferay.portal.security.lang.DoPrivilegedBean;
@@ -184,13 +183,6 @@ public class EditServerAction extends PortletAction {
 		}
 		else if (cmd.equals("gc")) {
 			gc();
-		}
-		else if (cmd.equals("installXuggler")) {
-			installXuggler(actionRequest, actionResponse);
-
-			setForward(actionRequest, ActionConstants.COMMON_NULL);
-
-			return;
 		}
 		else if (cmd.equals("reindex")) {
 			reindex(actionRequest);
@@ -322,43 +314,6 @@ public class EditServerAction extends PortletAction {
 		String value = ParamUtil.getString(actionRequest, name);
 
 		return value.replace(", .", ",.");
-	}
-
-	protected void installXuggler(
-			ActionRequest actionRequest, ActionResponse actionResponse)
-		throws Exception {
-
-		ProgressTracker progressTracker = new ProgressTracker(
-			WebKeys.XUGGLER_INSTALL_STATUS);
-
-		progressTracker.addProgress(
-			ProgressStatusConstants.DOWNLOADING, 15, "downloading-xuggler");
-		progressTracker.addProgress(
-			ProgressStatusConstants.COPYING, 70, "copying-xuggler-files");
-
-		progressTracker.initialize(actionRequest);
-
-		String jarName = ParamUtil.getString(actionRequest, "jarName");
-
-		try {
-			XugglerUtil.installNativeLibraries(jarName, progressTracker);
-
-			JSONObject jsonObject = JSONFactoryUtil.createJSONObject();
-
-			jsonObject.put("success", Boolean.TRUE);
-
-			writeJSON(actionRequest, actionResponse, jsonObject);
-		}
-		catch (Exception e) {
-			JSONObject jsonObject = JSONFactoryUtil.createJSONObject();
-
-			jsonObject.put("exception", e.getMessage());
-			jsonObject.put("success", Boolean.FALSE);
-
-			writeJSON(actionRequest, actionResponse, jsonObject);
-		}
-
-		progressTracker.finish(actionRequest);
 	}
 
 	protected void reindex(ActionRequest actionRequest) throws Exception {

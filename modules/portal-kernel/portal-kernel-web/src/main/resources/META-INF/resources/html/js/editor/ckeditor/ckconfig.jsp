@@ -21,8 +21,6 @@
 <%@ page import="com.liferay.portal.kernel.util.HtmlUtil" %>
 <%@ page import="com.liferay.portal.kernel.util.LocaleUtil" %>
 <%@ page import="com.liferay.portal.kernel.util.ParamUtil" %>
-<%@ page import="com.liferay.portal.kernel.xuggler.XugglerUtil" %>
-
 <%@ page import="java.util.Locale" %>
 
 <%
@@ -162,7 +160,7 @@ String contentsLanguageDir = LanguageUtil.get(contentsLocale, "lang.dir");
 		['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'],
 		['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
 		['Image', 'Link', 'Unlink', 'Anchor'],
-		['Flash', <c:if test="<%= XugglerUtil.isEnabled() %>"> 'Audio', 'Video',</c:if> 'Table', '-', 'Smiley', 'SpecialChar'],
+		['Flash', 'Audio', 'Video',  'Table', '-', 'Smiley', 'SpecialChar'],
 		['Find', 'Replace', 'SpellChecker', 'Scayt'],
 		['SelectAll', 'RemoveFormat'],
 		['Subscript', 'Superscript']
@@ -186,7 +184,7 @@ String contentsLanguageDir = LanguageUtil.get(contentsLocale, "lang.dir");
 		'/',
 		['Source'],
 		['Link', 'Unlink', 'Anchor'],
-		['Image', 'Flash', <c:if test="<%= XugglerUtil.isEnabled() %>">'Audio', 'Video',</c:if> 'Table', '-', 'Smiley', 'SpecialChar', 'LiferayPageBreak'],
+		['Image', 'Flash', 'Audio', 'Video', 'Table', '-', 'Smiley', 'SpecialChar', 'LiferayPageBreak'],
 		['A11YBtn']
 	];
 

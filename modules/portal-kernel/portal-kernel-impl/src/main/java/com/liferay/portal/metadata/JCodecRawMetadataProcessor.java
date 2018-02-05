@@ -24,11 +24,8 @@ import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.kernel.xml.Element;
-import com.liferay.portal.kernel.xuggler.XugglerUtil;
 import com.liferay.portlet.documentlibrary.util.AudioProcessorUtil;
 import com.liferay.portlet.documentlibrary.util.VideoProcessorUtil;
-
-import com.xuggle.xuggler.IContainer;
 
 import java.io.File;
 import java.io.InputStream;
@@ -36,12 +33,14 @@ import java.io.InputStream;
 import java.text.DecimalFormat;
 
 import org.apache.tika.metadata.Metadata;
+import org.jcodec.containers.dpx.DPXMetadata;
+import org.jcodec.containers.dpx.DPXReader;
 
 /**
  * @author Juan González
  * @author Alexander Chow
  */
-public class XugglerRawMetadataProcessor extends BaseRawMetadataProcessor {
+public class JCodecRawMetadataProcessor extends BaseRawMetadataProcessor {
 
 	@Override
 	public void exportGeneratedFiles(
@@ -80,33 +79,15 @@ public class XugglerRawMetadataProcessor extends BaseRawMetadataProcessor {
 	}
 
 	protected Metadata extractMetadata(File file) throws Exception {
-		IContainer container = IContainer.make();
-
+		Metadata metadata = new Metadata();
 		try {
-			Metadata metadata = new Metadata();
-
-			if (container.open(
-					file.getCanonicalPath(), IContainer.Type.READ, null) < 0) {
-
-				throw new IllegalArgumentException("Could not open stream");
-			}
-
-			if (container.queryStreamMetaData() < 0) {
-				throw new IllegalStateException(
-					"Could not query stream metadata");
-			}
-
-			long microseconds = container.getDuration();
-
-			metadata.set(XMPDM.DURATION, convertTime(microseconds));
-
-			return metadata;
+			DPXReader reader = DPXReader.readFile(file);
+			DPXMetadata dpx = reader.parseMetadata();
+			metadata.set(XMPDM.DURATION, dpx.getTimecodeString());
+		} catch(Exception ex) {
+			_log.error(ex.getMessage(), ex);
 		}
-		finally {
-			if (container.isOpened()) {
-				container.close();
-			}
-		}
+		return metadata;
 	}
 
 	@Override
@@ -163,21 +144,19 @@ public class XugglerRawMetadataProcessor extends BaseRawMetadataProcessor {
 	}
 
 	protected boolean isSupported(String mimeType) {
-		if (XugglerUtil.isEnabled()) {
-			if (AudioProcessorUtil.isAudioSupported(mimeType)) {
-				return true;
-			}
 
-			if (VideoProcessorUtil.isVideoSupported(mimeType)) {
-				return true;
-			}
+		if (AudioProcessorUtil.isAudioSupported(mimeType)) {
+			return true;
+		}
+
+		if (VideoProcessorUtil.isVideoSupported(mimeType)) {
+			return true;
 		}
 
 		return false;
 	}
 
-	private static final Logger _log = LoggerFactory.getLogger(
-		XugglerRawMetadataProcessor.class);
+	private static final Logger _log = LoggerFactory.getLogger(JCodecRawMetadataProcessor.class);
 
 	private static DecimalFormat _decimalFormatter = new DecimalFormat("00");
 

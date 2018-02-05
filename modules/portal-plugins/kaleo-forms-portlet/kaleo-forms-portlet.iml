@@ -98,7 +98,6 @@
     <orderEntry type="library" name="Maven: com.google.inject:guice:2.0" level="project" />
     <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
     <orderEntry type="library" name="Maven: xerces:xercesImpl:2.8.1" level="project" />
-    <orderEntry type="library" name="Maven: org.mozilla.intl:chardet:1.0" level="project" />
     <orderEntry type="library" name="Maven: commons-httpclient:commons-httpclient:3.1" level="project" />
     <orderEntry type="library" name="Maven: net.htmlparser.jericho:jericho-html:3.3" level="project" />
     <orderEntry type="module" module-name="portal-util-taglib" />

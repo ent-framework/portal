@@ -17,7 +17,6 @@ package com.liferay.portal.image;
 import com.liferay.portal.kernel.image.ImageBag;
 import com.liferay.portal.kernel.image.ImageMagick;
 import com.liferay.portal.kernel.image.ImageTool;
-import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,38 +31,26 @@ import com.liferay.portal.util.FileImpl;
 import com.liferay.portal.util.PropsUtil;
 import com.liferay.portal.util.PropsValues;
 
-import com.sun.media.jai.codec.ImageCodec;
-import com.sun.media.jai.codec.ImageDecoder;
-import com.sun.media.jai.codec.ImageEncoder;
-
 import java.awt.AlphaComposite;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GraphicsConfiguration;
-import java.awt.image.BufferedImage;
-import java.awt.image.ColorModel;
-import java.awt.image.DataBuffer;
-import java.awt.image.IndexColorModel;
-import java.awt.image.RenderedImage;
-import java.awt.image.SampleModel;
+import java.awt.image.*;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 
 import java.util.Arrays;
-import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import javax.imageio.ImageIO;
-
-import javax.media.jai.RenderedImageAdapter;
-
-//import net.jmge.gif.Gif89Encoder;
+import javax.imageio.ImageReadParam;
+import javax.imageio.ImageReader;
+import javax.imageio.stream.ImageInputStream;
 
 import org.im4java.core.IMOperation;
 
@@ -83,8 +70,7 @@ public class ImageToolImpl implements ImageTool {
 		ClassLoader classLoader = getClass().getClassLoader();
 
 		try {
-			InputStream is = classLoader.getResourceAsStream(
-				PropsUtil.get(PropsKeys.IMAGE_DEFAULT_SPACER));
+			InputStream is = classLoader.getResourceAsStream(PropsUtil.get(PropsKeys.IMAGE_DEFAULT_SPACER));
 
 			if (is == null) {
 				_log.error("Default spacer is not available");
@@ -300,10 +286,21 @@ public class ImageToolImpl implements ImageTool {
 		if (renderedImage instanceof BufferedImage) {
 			return (BufferedImage)renderedImage;
 		}
-
-		RenderedImageAdapter adapter = new RenderedImageAdapter(renderedImage);
-
-		return adapter.getAsBufferedImage();
+		ColorModel cm = renderedImage.getColorModel();
+	    int width = renderedImage.getWidth();
+	    int height = renderedImage.getHeight();
+	    WritableRaster raster = cm.createCompatibleWritableRaster(width, height);
+	    boolean isAlphaPremultiplied = cm.isAlphaPremultiplied();
+	    Hashtable properties = new Hashtable();
+	    String[] keys = renderedImage.getPropertyNames();
+	    if (keys!=null) {
+	        for (int i = 0; i < keys.length; i++) {
+	            properties.put(keys[i], renderedImage.getProperty(keys[i]));
+	        }
+	    }
+	    BufferedImage result = new BufferedImage(cm, raster, isAlphaPremultiplied, properties);
+	    renderedImage.copyData(raster);
+	    return result;
 	}
 
 	@Override
@@ -413,19 +410,32 @@ public class ImageToolImpl implements ImageTool {
 		RenderedImage renderedImage = null;
 		String type = TYPE_NOT_AVAILABLE;
 
-		Enumeration<ImageCodec> enu = ImageCodec.getCodecs();
+		ImageInputStream stream = null;
+		ImageReader reader = null;
 
-		while (enu.hasMoreElements()) {
-			ImageCodec codec = enu.nextElement();
+	    try {
+	    		stream =	ImageIO.createImageInputStream(new ByteArrayInputStream(bytes));
+	    		Iterator iter = ImageIO.getImageReaders(stream);
+	    	    if (iter.hasNext()) {
+	    		    reader = (ImageReader) iter.next();
+	    		    ImageReadParam param = reader.getDefaultReadParam();
+	    		    reader.setInput(stream, true, true);
+                    renderedImage = reader.read(0, param);
+    		        type =  reader.getFormatName();
+	    	    }
 
-			if (codec.isFormatRecognized(bytes)) {
-				type = codec.getFormatName();
+	    } catch (Exception ex) {
 
-				renderedImage = read(bytes, type);
-
-				break;
-			}
-		}
+	    } finally {
+	    		if (reader!=null) {
+	    			reader.dispose();
+	    		}
+	    		if (stream!=null) {
+	    			try {
+					stream.close();
+				} catch (IOException e) {}
+	    		}
+	    }
 
 		if (type.equals("jpeg")) {
 			type = TYPE_JPEG;
@@ -495,10 +505,7 @@ public class ImageToolImpl implements ImageTool {
 		throws IOException {
 
 		if (contentType.contains(TYPE_BMP)) {
-			ImageEncoder imageEncoder = ImageCodec.createImageEncoder(
-				TYPE_BMP, os, null);
-
-			imageEncoder.encode(renderedImage);
+			ImageIO.write(renderedImage, contentType, os);
 		}
 		else if (contentType.contains(TYPE_GIF)) {
 			encodeGIF(renderedImage, os);
@@ -513,11 +520,7 @@ public class ImageToolImpl implements ImageTool {
 		}
 		else if (contentType.contains(TYPE_TIFF) ||
 				 contentType.contains("tif")) {
-
-			ImageEncoder imageEncoder = ImageCodec.createImageEncoder(
-				TYPE_TIFF, os, null);
-
-			imageEncoder.encode(renderedImage);
+			ImageIO.write(renderedImage, contentType, os);
 		}
 	}
 
@@ -564,28 +567,6 @@ public class ImageToolImpl implements ImageTool {
 		}
 
 		return _imageMagick;
-	}
-
-	protected RenderedImage read(byte[] bytes, String type) {
-		RenderedImage renderedImage = null;
-
-		try {
-			if (type.equals(TYPE_JPEG)) {
-				type = "jpeg";
-			}
-
-			ImageDecoder imageDecoder = ImageCodec.createImageDecoder(
-				type, new UnsyncByteArrayInputStream(bytes), null);
-
-			renderedImage = imageDecoder.decodeAsRenderedImage();
-		}
-		catch (IOException ioe) {
-			if (_log.isDebugEnabled()) {
-				_log.debug(type + ": " + ioe.getMessage());
-			}
-		}
-
-		return renderedImage;
 	}
 
 	protected byte[] toMultiByte(int intValue) {

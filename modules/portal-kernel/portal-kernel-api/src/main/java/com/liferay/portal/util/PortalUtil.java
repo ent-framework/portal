@@ -649,10 +649,6 @@ public class PortalUtil {
 		return getPortal().getFullName(firstName, middleName, lastName);
 	}
 
-	public static String getGlobalLibDir() {
-		return getPortal().getGlobalLibDir();
-	}
-
 	public static String getGoogleGadgetURL(
 			Portlet portlet, ThemeDisplay themeDisplay)
 		throws PortalException, SystemException {
@@ -1075,10 +1071,6 @@ public class PortalUtil {
 		return _portal;
 	}
 
-	public static String getPortalLibDir() {
-		return getPortal().getPortalLibDir();
-	}
-
 //	/**
 //	 * @deprecated As of 6.1.0, replaced by {@link #getPortalPort(boolean)}
 //	 */
@@ -1130,10 +1122,6 @@ public class PortalUtil {
 		throws PortalException, SystemException {
 
 		return getPortal().getPortalURL(themeDisplay);
-	}
-
-	public static String getPortalWebDir() {
-		return getPortal().getPortalWebDir();
 	}
 
 	/**

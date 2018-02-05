@@ -36,8 +36,6 @@ import org.apache.poi.EncryptedDocumentException;
 import org.apache.tika.Tika;
 import org.apache.tika.exception.TikaException;
 import org.apache.tools.ant.DirectoryScanner;
-import org.mozilla.intl.chardet.nsDetector;
-import org.mozilla.intl.chardet.nsPSMDetector;
 
 import java.io.File;
 import java.io.*;
@@ -572,7 +570,6 @@ public class FileImpl implements com.liferay.portal.kernel.util.File {
 	public boolean isAscii(File file) throws IOException {
 		boolean ascii = true;
 
-		nsDetector detector = new nsDetector(nsPSMDetector.ALL);
 
 		InputStream inputStream = new FileInputStream(file);
 
@@ -582,16 +579,14 @@ public class FileImpl implements com.liferay.portal.kernel.util.File {
 
 		while ((len = inputStream.read(buffer, 0, buffer.length)) != -1) {
 			if (ascii) {
-				ascii = detector.isAscii(buffer, len);
+				ascii = isAscii(buffer, len);
 
 				if (!ascii) {
 					break;
 				}
 			}
 		}
-
-		detector.DataEnd();
-
+		
 		inputStream.close();
 
 		return ascii;
@@ -1044,6 +1039,15 @@ public class FileImpl implements com.liferay.portal.kernel.util.File {
 			// having the permission to check if the parent file exists
 
 		}
+	}
+	
+	public boolean isAscii(byte[] paramArrayOfByte, int paramInt) {
+		for (int i = 0; i < paramInt; i++) {
+			if ((0x80 & paramArrayOfByte[i]) != 0) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	private static final String[] _SAFE_FILE_NAME_1 = {

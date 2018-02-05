@@ -19,7 +19,6 @@ import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.FileVersion;
 import com.liferay.portal.kernel.repository.model.Folder;
-import com.liferay.portal.kernel.xuggler.XugglerUtil;
 import com.liferay.portlet.documentlibrary.service.DLAppServiceUtil;
 
 import java.io.InputStream;
@@ -42,11 +41,6 @@ public abstract class BaseFileEntryCommandReceiver
 	protected String fileUpload(
 		CommandArgument commandArgument, String fileName,
 		InputStream inputStream, String contentType, long size) {
-
-		if (!XugglerUtil.isEnabled()) {
-			return String.valueOf(getXugglerDisabledFileUploadReturnValue());
-		}
-
 		return super.fileUpload(
 			commandArgument, fileName, inputStream, contentType, size);
 	}

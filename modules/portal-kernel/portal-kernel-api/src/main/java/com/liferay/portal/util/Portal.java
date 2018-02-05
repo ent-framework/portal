@@ -716,8 +716,6 @@ public interface Portal {
 	public String getFullName(
 		String firstName, String middleName, String lastName);
 
-	public String getGlobalLibDir();
-
 	public String getGoogleGadgetURL(Portlet portlet, ThemeDisplay themeDisplay)
 		throws PortalException, SystemException;
 
@@ -919,8 +917,6 @@ public interface Portal {
 	public long getPlidFromPortletId(long groupId, String portletId)
 		throws PortalException, SystemException;
 
-	public String getPortalLibDir();
-
 	/**
 	 * @deprecated As of 6.2.0, replaced by the more general {@link
 	 *             #getPortalPort(boolean)}
@@ -947,8 +943,6 @@ public interface Portal {
 
 	public String getPortalURL(ThemeDisplay themeDisplay)
 		throws PortalException, SystemException;
-
-	public String getPortalWebDir();
 
 	/**
 	 * @deprecated As of 6.2.0, replaced by {@link

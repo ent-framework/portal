@@ -51,7 +51,7 @@ import org.xml.sax.ContentHandler;
  * @author Alexander Chow
  * @author Shuyang Zhou
  */
-public class TikaRawMetadataProcessor extends XugglerRawMetadataProcessor {
+public class TikaRawMetadataProcessor extends JCodecRawMetadataProcessor {
 
 	public void setParser(Parser parser) {
 		_parser = parser;

@@ -92,7 +92,7 @@ public class RubyExecutor extends BaseScriptingExecutor {
 			PropsValues.SCRIPTING_JRUBY_COMPILE_THRESHOLD);
 		rubyInstanceConfig.setLoader(ClassLoaderUtil.getPortalClassLoader());
 
-		_basePath = PropsValues.LIFERAY_LIB_PORTAL_DIR;
+		_basePath = PropsValues.LIFERAY_HOME;
 
 		_loadPaths = new ArrayList<String>(
 			PropsValues.SCRIPTING_JRUBY_LOAD_PATHS.length);
