@@ -26,8 +26,8 @@ import com.liferay.portal.kernel.process.ProcessException;
 import com.liferay.portal.kernel.process.ProcessExecutor;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.*;
+import com.liferay.portal.util.io.DirectoryScanner;
 import com.liferay.util.PwdGenerator;
-import com.liferay.util.ant.ExpandTask;
 import org.apache.commons.compress.archivers.zip.UnsupportedZipFeatureException;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.exception.ExceptionUtils;
@@ -35,8 +35,6 @@ import org.apache.pdfbox.exceptions.CryptographyException;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.tika.Tika;
 import org.apache.tika.exception.TikaException;
-import org.apache.tools.ant.DirectoryScanner;
-
 import java.io.File;
 import java.io.*;
 import java.nio.ByteBuffer;
@@ -46,6 +44,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.Future;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 /**
  * @author Brian Wing Shun Chan
@@ -892,7 +892,44 @@ public class FileImpl implements com.liferay.portal.kernel.util.File {
 
 	@Override
 	public void unzip(File source, File destination) {
-		ExpandTask.expand(source, destination);
+
+		byte[] buffer = new byte[1024];
+
+		try {
+
+			// get the zip file content
+			ZipInputStream zis = new ZipInputStream(new FileInputStream(source));
+			// get the zipped file list entry
+			ZipEntry ze = zis.getNextEntry();
+
+			while (ze != null) {
+
+				String fileName = ze.getName();
+				File newFile = new File(destination.getAbsolutePath() + File.separator + fileName);
+				
+				// create all non exists folders
+				// else you will hit FileNotFoundException for compressed folder
+				new File(newFile.getParent()).mkdirs();
+
+				FileOutputStream fos = new FileOutputStream(newFile);
+
+				int len;
+				while ((len = zis.read(buffer)) > 0) {
+					fos.write(buffer, 0, len);
+				}
+
+				fos.close();
+				ze = zis.getNextEntry();
+			}
+
+			zis.closeEntry();
+			zis.close();
+
+			System.out.println("Done");
+
+		} catch (IOException ex) {
+			_log.error(ex.getMessage(), ex); 
+		}
 	}
 
 	@Override

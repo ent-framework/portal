@@ -138,30 +138,10 @@
             <artifactId>javax.servlet.jsp-api</artifactId>
         </dependency>
 
-
-        <dependency>
-            <groupId>org.apache.ant</groupId>
-            <artifactId>ant</artifactId>
-            <version>1.9.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.axis</groupId>
-            <artifactId>axis</artifactId>
-            <version>1.4</version>
-        </dependency>
-
         <dependency>
             <groupId>javax.xml</groupId>
             <artifactId>jaxrpc</artifactId>
             <version>1.1</version>
-        </dependency>
-
-
-        <dependency>
-            <groupId>org.apache.axis</groupId>
-            <artifactId>axis-ant</artifactId>
-            <version>1.4</version>
         </dependency>
 
     </dependencies>

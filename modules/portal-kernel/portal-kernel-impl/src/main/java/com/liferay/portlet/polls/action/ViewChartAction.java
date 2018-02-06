@@ -31,14 +31,6 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartUtilities;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.CategoryDataset;
-import org.jfree.data.general.DatasetUtilities;
-import org.jfree.data.general.PieDataset;
-
 /**
  * @author Brian Wing Shun Chan
  */
@@ -61,45 +53,7 @@ public class ViewChartAction extends Action {
 			String xName = themeDisplay.translate("choice");
 			String yName = themeDisplay.translate("votes");
 
-			CategoryDataset categoryDataset = PollsUtil.getVotesDataset(
-				questionId);
-
-			JFreeChart jFreeChat = null;
-
-			if (chartType.equals("area")) {
-				jFreeChat = ChartFactory.createAreaChart(
-					chartName, xName, yName, categoryDataset,
-					PlotOrientation.VERTICAL, true, false, false);
-			}
-			else if (chartType.equals("horizontal_bar")) {
-				jFreeChat = ChartFactory.createBarChart(
-					chartName, xName, yName, categoryDataset,
-					PlotOrientation.HORIZONTAL, true, false, false);
-			}
-			else if (chartType.equals("line")) {
-				jFreeChat = ChartFactory.createLineChart(
-					chartName, xName, yName, categoryDataset,
-					PlotOrientation.VERTICAL, true, false, false);
-			}
-			else if (chartType.equals("vertical_bar")) {
-				jFreeChat = ChartFactory.createBarChart(
-					chartName, xName, yName, categoryDataset,
-					PlotOrientation.VERTICAL, true, false, false);
-			}
-			else {
-				PieDataset pieDataset = DatasetUtilities.createPieDatasetForRow(
-					categoryDataset, 0);
-
-				jFreeChat = ChartFactory.createPieChart(
-					chartName, pieDataset, true, false, false);
-			}
-
-			response.setContentType(ContentTypes.IMAGE_JPEG);
-
-			OutputStream outputStream = response.getOutputStream();
-
-			ChartUtilities.writeChartAsJPEG(outputStream, jFreeChat, 400, 400);
-
+			//TODO VIEW CHART BY JAVASCRIPT CLIENT LIB
 			return null;
 		}
 		catch (Exception e) {

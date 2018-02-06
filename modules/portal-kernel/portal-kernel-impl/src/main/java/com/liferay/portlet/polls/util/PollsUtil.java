@@ -36,34 +36,11 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.jfree.data.category.CategoryDataset;
-import org.jfree.data.category.DefaultCategoryDataset;
-
 /**
  * @author Brian Wing Shun Chan
  * @author Shepherd Ching
  */
 public class PollsUtil {
-
-	public static CategoryDataset getVotesDataset(long questionId)
-		throws SystemException {
-
-		DefaultCategoryDataset defaultCategoryDataset =
-			new DefaultCategoryDataset();
-
-		String seriesName = StringPool.BLANK;
-
-		for (PollsChoice choice :
-				PollsChoiceLocalServiceUtil.getChoices(questionId)) {
-
-			Integer number = choice.getVotesCount();
-
-			defaultCategoryDataset.addValue(
-				number, seriesName, choice.getName());
-		}
-
-		return defaultCategoryDataset;
-	}
 
 	public static boolean hasVoted(HttpServletRequest request, long questionId)
 		throws PortalException, SystemException {

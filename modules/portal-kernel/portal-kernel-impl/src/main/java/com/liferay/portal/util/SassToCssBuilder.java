@@ -35,6 +35,7 @@ import com.liferay.portal.util.FileImpl;
 import com.liferay.portal.util.PortalImpl;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PropsImpl;
+import com.liferay.portal.util.io.DirectoryScanner;
 
 import java.io.File;
 
@@ -42,8 +43,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.apache.tools.ant.DirectoryScanner;
 
 /**
  * @author Brian Wing Shun Chan

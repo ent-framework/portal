@@ -78,12 +78,6 @@ public class PortalHibernateConfiguration extends LocalSessionFactoryBean {
 		super.destroy();
 	}
 
-	public void setHibernateConfigurationConverter(
-		Converter<String> hibernateConfigurationConverter) {
-
-		_hibernateConfigurationConverter = hibernateConfigurationConverter;
-	}
-
 	protected static Map<String, Class<?>> getPreloadClassLoaderClasses() {
 		try {
 			Map<String, Class<?>> classes = new HashMap<String, Class<?>>();

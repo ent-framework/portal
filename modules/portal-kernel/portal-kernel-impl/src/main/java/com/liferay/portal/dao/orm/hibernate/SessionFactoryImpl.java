@@ -40,10 +40,6 @@ import org.hibernate.engine.spi.SessionFactoryImplementor;
  */
 public class SessionFactoryImpl implements SessionFactory {
 
-	public static List<PortletSessionFactoryImpl> getPortletSessionFactories() {
-		return portletSessionFactories;
-	}
-
 	@Override
 	public void closeSession(Session session) throws ORMException {
 		if ((session != null) &&
@@ -63,7 +59,6 @@ public class SessionFactoryImpl implements SessionFactory {
 	}
 
 	public void destroy() {
-		portletSessionFactories.clear();
 	}
 
 	@Override
@@ -165,10 +160,6 @@ public class SessionFactoryImpl implements SessionFactory {
 
 		return liferaySession;
 	}
-
-	protected static final List<PortletSessionFactoryImpl>
-		portletSessionFactories =
-			new CopyOnWriteArrayList<PortletSessionFactoryImpl>();
 
 	private static final String[] _PRELOAD_CLASS_NAMES =
 		PropsValues.
