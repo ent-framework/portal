@@ -53,7 +53,7 @@
         <javax-el.version>2.2.5</javax-el.version>
         <!--<logback.version>1.1.11</logback.version>-->
 
-        <quartz.version>2.1.6</quartz.version>
+        <quartz.version>2.3.2</quartz.version>
         <spymemcached.version>2.12.3</spymemcached.version>
 
         <javax-jsp.version>2.3.2-b02</javax-jsp.version>
