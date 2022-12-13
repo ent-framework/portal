@@ -282,7 +282,7 @@
         <dependency>
             <groupId>org.jgroups</groupId>
             <artifactId>jgroups</artifactId>
-            <version>3.6.7.Final</version>
+            <version>3.6.10.Final</version>
         </dependency>
 
         <dependency>
